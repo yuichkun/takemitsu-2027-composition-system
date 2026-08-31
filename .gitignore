@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+
+# レンダリング結果・生成物。作業ログから参照する
+artifacts/
+
+# オーディオはリポジトリに入れない
+*.wav
+*.aiff
+*.flac
+*.mp3
