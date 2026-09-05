@@ -63,9 +63,9 @@
 | [0002](./0002-code-as-source-of-truth.md) | 作品の正本をコードにする | 採用 |
 | [0003](./0003-musicxml-one-way.md) | Sibelius は浄書専用とし、MusicXML は片道の出口にする | 採用 |
 | [0004](./0004-offline-render.md) | オーディオはオフラインレンダリングを主経路にする | 採用 |
-| [0005](./0005-gesture-as-primitive.md) | データモデルのプリミティブをジェスチャーにする | 提案 |
-| [0006](./0006-verify-before-build.md) | 記譜の輸出可能性を、実装より先に実機で検証する | 提案 |
+| [0005](./0005-gesture-as-primitive.md) | データモデルのプリミティブをジェスチャーにする | 採用 |
+| [0006](./0006-verify-before-build.md) | 記譜の輸出可能性を、実装より先に実機で検証する | 採用 |
 | [0007](./0007-own-headless-host.md) | VST ホストは自作のヘッドレス CLI にする | 採用 |
 | [0008](./0008-quarter-tone-native.md) | 四分音を系全体の前提として設計する | 採用 |
 | [0009](./0009-no-linter.md) | 規定適合は自動検査ではなく、提出前の点検で担保する | 採用 |
-| [0010](./0010-pitch-bend-quarter-tones.md) | 四分音はノートごとのピッチベンドで実現する | 提案 |
+| [0010](./0010-pitch-bend-quarter-tones.md) | 四分音はノートごとのピッチベンドで実現する | 採用 |
