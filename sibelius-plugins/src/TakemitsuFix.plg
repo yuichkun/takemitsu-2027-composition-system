@@ -1,0 +1,232 @@
+{
+	Initialize "() {
+		AddToPluginsMenu(_MenuName, 'Run');
+	}"
+
+	_MenuName "Takemitsu: Apply § Markers"
+	_Prefix "§"
+
+	Run "() {
+		if (Sibelius.ScoreCount = 0) {
+			Sibelius.MessageBox('No score is open.');
+			return False;
+		}
+		SetInterpreterOption(SupportHalfSemitonePitchValues);
+		score = Sibelius.ActiveScore;
+		score.Redraw = False;
+
+		// Phase 1: collect marker text objects. Never mutate while iterating.
+		markers = CreateSparseArray();
+		for each Staff s in score {
+			for each Bar b in s {
+				for each o in b {
+					if (o.Type = 'Text') {
+						if (IsMarker(o.Text)) {
+							markers.Push(o);
+						}
+					}
+				}
+			}
+		}
+
+		// Phase 2: apply each marker, then delete it so a second run is a no-op.
+		log = '# takemitsu fix log' & Chr(10) & 'score: ' & score.FileName & Chr(10);
+		applied = 0;
+		failed = 0;
+		for i = 0 to markers.Length {
+			m = markers[i];
+			result = ApplyMarker(m);
+			log = log & result & Chr(10);
+			if (Substring(result, 0, 2) = 'OK') {
+				applied = applied + 1;
+				m.Delete();
+			} else {
+				failed = failed + 1;
+			}
+		}
+
+		score.Redraw = True;
+		out = LogPath(score, '-fix-log.txt');
+		Sibelius.CreateTextFile(out);
+		Sibelius.AppendTextFile(out, log, True);
+		Sibelius.MessageBox('Markers found: ' & markers.Length & ', applied: ' & applied & ', failed: ' & failed & Chr(10) & 'Log: ' & out);
+		return True;
+	}"
+
+	LogPath "(score, suffix) {
+		fn = score.FileName;
+		if (Length(fn) = 0) {
+			fn = Sibelius.GetDocumentsFolder() & '/untitled-score';
+		}
+		return fn & suffix;
+	}"
+
+	IsMarker "(t) {
+		if (Length(t) < 2) {
+			return False;
+		}
+		return (Substring(t, 0, 1) = _Prefix);
+	}"
+
+	Split "(str, delim) {
+		parts = CreateSparseArray();
+		cur = '';
+		for i = 0 to Length(str) {
+			c = CharAt(str, i);
+			if (c = delim) {
+				parts.Push(cur);
+				cur = '';
+			} else {
+				cur = cur & c;
+			}
+		}
+		parts.Push(cur);
+		return parts;
+	}"
+
+	FindNoteRest "(b, pos, voice) {
+		fallback = null;
+		for each o in b {
+			if (o.Type = 'NoteRest') {
+				if (o.Position = pos) {
+					if (voice = 0) {
+						return o;
+					}
+					if (o.VoiceNumber = voice) {
+						return o;
+					}
+					if (fallback = null) {
+						fallback = o;
+					}
+				}
+			}
+		}
+		return fallback;
+	}"
+
+	FindLine "(b, pos, styleId) {
+		for each o in b {
+			if (o.Type = 'Line') {
+				if (o.Position = pos) {
+					if (o.StyleId = styleId) {
+						return o;
+					}
+				}
+			}
+		}
+		return null;
+	}"
+
+	ApplyMarker "(m) {
+		b = m.ParentBar;
+		s = b.ParentStaff;
+		pos = m.Position;
+		voice = m.VoiceNumber;
+		body = Substring(m.Text, 1);
+		parts = Split(body, ':');
+		command = parts[0];
+		at = 'staff ' & s.StaffNum & ' bar ' & b.BarNumber & ' pos ' & pos & ' [' & m.Text & '] ';
+
+		// --- articulations on the NoteRest at this position
+		if (command = 'h') {
+			return SetArtic(b, pos, voice, HarmonicArtic, at);
+		}
+		if (command = 'plus') {
+			return SetArtic(b, pos, voice, PlusArtic, at);
+		}
+		if (command = 'art') {
+			if (parts.Length < 2) { return 'FAIL ' & at & 'art needs a number'; }
+			return SetArtic(b, pos, voice, 0 + parts[1], at);
+		}
+
+		// --- symbol by Sibelius symbol name, optional dy in 1/32 spaces
+		if (command = 'sym') {
+			if (parts.Length < 2) { return 'FAIL ' & at & 'sym needs a name'; }
+			sym = b.AddSymbol(pos, parts[1]);
+			if (sym = null) { return 'FAIL ' & at & 'AddSymbol returned null for ' & parts[1]; }
+			if (parts.Length > 2) { sym.Dy = 0 + parts[2]; }
+			return 'OK ' & at & 'symbol ' & parts[1];
+		}
+
+		// --- niente hairpins: replace the imported hairpin starting here
+		if (command = 'nfrom') {
+			return ReplaceLine(b, pos, 'line.staff.hairpin.crescendo', 'line.staff.hairpin.crescendo.fromsilence', at);
+		}
+		if (command = 'nto') {
+			return ReplaceLine(b, pos, 'line.staff.hairpin.diminuendo', 'line.staff.hairpin.diminuendo.tosilence', at);
+		}
+
+		// --- generic line: style id and duration in 1/256 quarters
+		if (command = 'line') {
+			if (parts.Length < 3) { return 'FAIL ' & at & 'line needs styleId:duration'; }
+			l = b.AddLine(pos, 0 + parts[2], parts[1]);
+			if (l = null) { return 'FAIL ' & at & 'AddLine returned null for ' & parts[1]; }
+			return 'OK ' & at & 'line ' & parts[1] & ' dur ' & parts[2];
+		}
+
+		// --- instrument change: style id, optional label
+		if (command = 'inst') {
+			if (parts.Length < 2) { return 'FAIL ' & at & 'inst needs a style id'; }
+			if (parts.Length > 2) {
+				ic = b.AddInstrumentChange(pos, parts[1], True, True, parts[2]);
+			} else {
+				ic = b.AddInstrumentChange(pos, parts[1], True, True);
+			}
+			if (ic = null) { return 'FAIL ' & at & 'AddInstrumentChange returned null for ' & parts[1]; }
+			return 'OK ' & at & 'instrument change ' & parts[1];
+		}
+
+		// --- notehead style index on every note of the chord
+		if (command = 'nh') {
+			if (parts.Length < 2) { return 'FAIL ' & at & 'nh needs an index'; }
+			nr = FindNoteRest(b, pos, voice);
+			if (nr = null) { return 'FAIL ' & at & 'no NoteRest at position'; }
+			for each Note n in nr {
+				n.NoteStyle = 0 + parts[1];
+			}
+			return 'OK ' & at & 'notehead ' & parts[1];
+		}
+
+		// --- single-note tremolo strokes (-1 = z on stem)
+		if (command = 'trem') {
+			if (parts.Length < 2) { return 'FAIL ' & at & 'trem needs a count'; }
+			nr = FindNoteRest(b, pos, voice);
+			if (nr = null) { return 'FAIL ' & at & 'no NoteRest at position'; }
+			nr.SingleTremolos = 0 + parts[1];
+			return 'OK ' & at & 'tremolo ' & parts[1];
+		}
+
+		// --- technique text (replaces the marker with real text)
+		if (command = 'text') {
+			if (parts.Length < 3) { return 'FAIL ' & at & 'text needs styleId:text'; }
+			t = b.AddText(pos, parts[2], parts[1]);
+			if (t = null) { return 'FAIL ' & at & 'AddText returned null'; }
+			return 'OK ' & at & 'text ' & parts[1];
+		}
+
+		return 'FAIL ' & at & 'unknown command ' & command;
+	}"
+
+	SetArtic "(b, pos, voice, artic, at) {
+		nr = FindNoteRest(b, pos, voice);
+		if (nr = null) {
+			return 'FAIL ' & at & 'no NoteRest at position';
+		}
+		nr.SetArticulation(artic, True);
+		return 'OK ' & at & 'articulation ' & artic;
+	}"
+
+	ReplaceLine "(b, pos, oldStyle, newStyle, at) {
+		old = FindLine(b, pos, oldStyle);
+		if (old = null) {
+			return 'FAIL ' & at & 'no ' & oldStyle & ' starting here';
+		}
+		dur = old.Duration;
+		old.Delete();
+		l = b.AddLine(pos, dur, newStyle);
+		if (l = null) {
+			return 'FAIL ' & at & 'AddLine returned null for ' & newStyle;
+		}
+		return 'OK ' & at & 'replaced with ' & newStyle;
+	}"
+}

@@ -50,20 +50,20 @@
 **四分音を使うと決まった時点で、これが最大の技術的リスクになった。**
 記譜と再生の両側で、通常の半音階を前提とした経路が壊れる。
 
-**記譜側で決める内容**
+**記譜側も再生側も、四分音そのものは決着した。**
 
-- MusicXML の四分音表現（`<alter>` の小数値、`quarter-sharp` / `three-quarters-sharp` 等の
-  `<accidental>`）のうち、**Sibelius の取り込みで生き残るのはどれか**
-- Sibelius 側で四分音の臨時記号をどう出すか（標準機能か、プラグインか、フォントか）
-- 四分音の記譜法をどれにするか（記号の流儀が複数ある）
+- 記譜: MusicXML の `<alter>` に小数値を書けば Sibelius 標準の四分音記号が付く
+  （[`decisions/0011`](./decisions/0011-quarter-tone-notation.md)、
+  実測は [`research/sibelius-musicxml-import.md`](./research/sibelius-musicxml-import.md) 2.5節）
+- 再生: ノートごとのピッチベンド、1声部1MIDIチャンネル
+  （[`decisions/0010`](./decisions/0010-pitch-bend-quarter-tones.md)）
 
-**再生側は決着した。** ノートごとのピッチベンド、1声部1MIDIチャンネル
-（[`decisions/0010`](./decisions/0010-pitch-bend-quarter-tones.md)）。
-内蔵チューニング表・MTS-ESP・Scala・MPE・VST3 Note Expression はいずれも使えないことが
-調査で判明した（[`research/orchestral-libraries.md`](./research/orchestral-libraries.md)）。
+**残っている内容**
 
-**残っているのは記譜側だけ。** 実機の Sibelius で確かめるしかない（調査キュー R9）。
-**第0段の最優先項目。**
+- 移調楽器・小節内の臨時記号規則・持ち替えとの組み合わせ（第2回テスト `qt-06b` / `qt-07b` / `inst-02`）
+- 取り込みで落ちる記譜（ハーモニクスの○、Bartók pizz.、+、niente、延長破線、奏法遷移の線、
+  トリルの補助記号、波線、持ち替え）を `§` マーカー + ManuScript プラグインで置く経路の実機確認
+  （`sibelius-plugins/`、テスト `fix-01`）
 
 ## Q1
 

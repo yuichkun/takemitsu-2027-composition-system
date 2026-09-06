@@ -69,3 +69,4 @@
 | [0008](./0008-quarter-tone-native.md) | 四分音を系全体の前提として設計する | 採用 |
 | [0009](./0009-no-linter.md) | 規定適合は自動検査ではなく、提出前の点検で担保する | 採用 |
 | [0010](./0010-pitch-bend-quarter-tones.md) | 四分音はノートごとのピッチベンドで実現する | 採用 |
+| [0011](./0011-quarter-tone-notation.md) | 四分音の記譜は Sibelius 標準の記号とし、MusicXML では小数の alter で渡す | 採用 |

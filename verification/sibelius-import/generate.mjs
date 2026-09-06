@@ -481,6 +481,34 @@ const files = [];
   ]));
 }
 
+// ---- FIX-01: markers for the TakemitsuFix plugin (run the plugin after import, then compare)
+{
+  const c = (extra = {}) => note({ step: "C", oct: 5, alter: 0, ...extra });
+  const mk = (text) => direction(words(text), { placement: "above" });
+  const vln = [
+    label("FIX-01-1", "§h -> harmonic circle on whole note") + mk("§h") + c({ dur: W }),
+    label("FIX-01-2", "§plus -> + on whole note") + mk("§plus") + c({ dur: W }),
+    label("FIX-01-3", "§sym:Snap 2 -> Bartok pizz symbol") + mk("§sym:Snap 2") + c() + rest(Q) + rest(H),
+    label("FIX-01-4", "§nfrom -> crescendo from niente") + mk("§nfrom") + direction('<wedge type="crescendo" number="1"/>', { placement: "below" }) + direction('<wedge type="stop" number="1"/>', { placement: "below", offset: W - 1 }) + c({ dur: W }),
+    label("FIX-01-5", "§nto -> diminuendo to niente") + mk("§nto") + direction('<wedge type="diminuendo" number="1"/>', { placement: "below" }) + direction('<wedge type="stop" number="1"/>', { placement: "below", offset: W - 1 }) + c({ dur: W }),
+    label("FIX-01-6", "cresc. poco a poco + §line:line.staff.dashed:1024") + direction(words("cresc. poco a poco", { "font-style": "italic" }), { placement: "below" }) + mk("§line:line.staff.dashed:1024") + c({ dur: W }),
+    label("FIX-01-7", "sul pont. + §line:line.staff.arrow.black.right:1024 -> arrow to next bar") + direction(words("sul pont."), { placement: "above" }) + mk("§line:line.staff.arrow.black.right:1024") + c({ dur: W }),
+    label("FIX-01-8", "§text:text.staff.technique:ord.") + mk("§text:text.staff.technique:ord.") + c({ dur: W }),
+    label("FIX-01-9", "trill + §sym:Quarter sharp:40 + §line:line.staff.trill:768") + mk("§sym:Quarter sharp:40") + mk("§line:line.staff.trill:768") + c({ dur: W, notations: ["<ornaments><trill-mark/></ornaments>"] }),
+    label("FIX-01-10", "§nh:2 -> diamond heads on chord; §trem:3") + mk("§nh:2") + c({ dur: H }) + note({ step: "E", oct: 5, alter: 0, dur: H, chord: true }) + mk("§trem:3") + c({ dur: H }),
+    label("FIX-01-11", "two voices: §h on voice 2 only") + c({ dur: W, voice: 1, stem: "up" }) + backup(W) + mk("§h") + note({ step: "E", oct: 4, alter: 0, dur: W, voice: 2, stem: "down" }),
+    label("FIX-01-12", "unknown marker §zzz stays (logged as FAIL)") + mk("§zzz") + c({ dur: W }),
+  ];
+  const fl = [
+    wholeRest(), wholeRest(), wholeRest(), wholeRest(), wholeRest(), wholeRest(), wholeRest(), wholeRest(), wholeRest(), wholeRest(), wholeRest(),
+    label("FIX-01-12f", "§inst:instrument.wind.piccolo:Piccolo -> instrument change") + mk("§inst:instrument.wind.piccolo:Piccolo") + c({ dur: W }),
+  ];
+  files.push(score("fix-01-markers", "FIX-01 markers for the Takemitsu fix plugin", [
+    { id: "P1", inst: INSTRUMENTS.violin, measures: vln },
+    { id: "P2", inst: INSTRUMENTS.flute, measures: fl },
+  ]));
+}
+
 // ---- X31-01: MusicXML 3.1-only constructs (let-ring, smufl accidental, soft-accent)
 {
   const ms = [
