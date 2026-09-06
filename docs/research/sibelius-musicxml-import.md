@@ -44,8 +44,12 @@ Codex が挙げた出典のうち、手元の Sibelius 同梱文書で原文確�
 四分音が経路 A で通らなくても、**経路 B が文献上成立する**ので作品は止まらない。
 ただし経路 B は「プラグインが本当に動くか」を含めて実機検証が要る。
 
-**最初にやること:** 逆方向のプローブ（5.3節）。余湖さんが Sibelius で四分音・打楽器・ハーモニクスを
-手で数個書き、MusicXML に書き出す。Sibelius 自身の方言が分かり、経路 A の当たりが一気につく。
+**逆方向のプローブは完了した（2.4節）。** Sibelius 自身の書き出し方言が分かった。
+四分音は `<accidental>` だけが運び、`<alter>` は半音に切り捨てられる。
+Symbols・niente・羽根連桁・l.v. の意味は書き出しで失われる。
+
+**次にやること:** 取り込みテスト。Claude が一要因の最小 MusicXML 群と ManuScript のダンププラグインを作り、
+余湖さんが Sibelius に読ませて結果を渡す。
 
 ---
 
@@ -59,14 +63,20 @@ Codex が挙げた出典のうち、手元の Sibelius 同梱文書で原文確�
 | 同梱文書 | `Contents/Resources/en.lproj/Sibelius Help/Sibelius Reference.pdf`、`ManuScript Language.pdf`（いずれも 2024-03-20 付） |
 | 手元の道具 | `xmllint`（libxml 2.9.13）、`pdftotext`。MuseScore・Verovio の CLI は**ない** |
 
-`[文献・原典未確認]` Sibelius 2024.10 で MusicXML 取り込みに改善が入ったと Avid が公表している
-（複数小節休符、パート名・楽器名の認識、余白、リハーサルマークのスタイル、File > Import での `.mxl` 対応）。
-出典: https://www.avid.com/resource-center/whats-new-in-sibelius-october-2024
+`[文献]` Avid のリリースノート PDF（`https://resources.avid.com/SupportFiles/Sibelius/<版>/Whats_New_in_Sibelius.pdf`、
+2024.10 / 2025.2 / 2025.7 / 2025.10 / 2025.12 / 2026.2 / 2026.5 / 2026.6 / 2026.8 を取得して読んだ）のうち、
+**MusicXML の取り込みに触れているのは 2024.10 だけ**。内容:
+レイアウトと余白の忠実な再現、ハウススタイルの合成、複数小節休符の正しい表示、
+**楽器名の解釈の改善**、**警告ダイアログで取り込みが止まらない**、`.mxl` の File > Import 対応。
+四分音・`<technical>`・`<ornaments>`・`<symbol>`・譜表タイプについての記述はどの版にもない。
+浄書側では 2026.2（譜表またぎの連桁、2音トレモロの音価表示ルール）、2026.6（**譜表またぎの臨時記号**）、
+2026.8（譜表またぎのタイ、線スタイルの継続テキスト）が効く。2024.10 で ManuScript に
+`Bar.Respace` / `Selection.Respace` が追加された（修復プラグインで使える）。
 → **手元の 24.3.1 はこれより前の版。** 検証をどの版で行うかは余湖さんの判断（6章）。
 
 ---
 
-## 2. 文献で分かっていること
+## 2. 文献と実測で分かっていること
 
 ### 2.1 Sibelius Reference（24.3 同梱、1.9 Opening MusicXML Files）`[文献]`
 
@@ -162,9 +172,52 @@ Codex が挙げた出典のうち、手元の Sibelius 同梱文書で原文確�
 | Sibelius 7 時代の公式フォーラムで、担当者が「MusicXML 取り込みで四分音は取り込まれない」と回答している（回答自体に留保あり） | https://www.sibelius.com/cgi-bin/helpcenter/chat/chat.pl?com=thread&groupid=3&guest=1&start=581238 |
 | Sibelius 6.1 で `<part-group>` の取り込みが追加された。`<other-direction>` は Comment として取り込まれる | https://www.sibelius.com/helpcenter/updates/sib610_changes.pdf |
 | Sibelius 2020.6 で、開いているスコアへの MusicXML 取り込み（File > Import）が拡張され、ページ・譜表サイズ／レイアウト／音部記号／複数声部／間隔／複数楽器への振り分けの選択肢がある | https://resources.avid.com/SupportFiles/Sibelius/2020.9/Whats_New_in_Sibelius.pdf |
-| Sibelius 2024.10 の取り込み改善（1章） | https://www.avid.com/resource-center/whats-new-in-sibelius-october-2024 |
 | Dolet 8（MusicXML 書き出しプラグイン）は ManuScript が公開する情報に制約され、カスタムアーティキュレーション・ユーザー定義の線と記号・符尾長・ハウススタイル情報へのアクセスに制限がある | https://www.musicxml.com/dolet-plugin/dolet-plugin-for-sibelius/release-notes/ |
 | Sibelius 2025.2 Reference（p.99）の Limitations は 24.3 同梱版と同内容（Codex の読みと 2.1節が一致） | https://resources.avid.com/SupportFiles/Sibelius/2025.2/Sibelius_Reference.pdf |
+
+### 2.4 Sibelius 24.3.1 の MusicXML 書き出し方言（逆方向プローブ）`[実測]`
+
+2026-09-06。Sibelius 上で20小節のスコアを手入力し（操作は GPT-6 Astra の computer-use、英語 UI）、
+非圧縮 MusicXML と PDF に書き出した。ファイルは `artifacts/sibelius-probe/`（git 管理外）。
+`sibelius-probe-notes.md` に小節ごとの入力内容がある。
+
+**書き出しの外形**
+
+- `<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.0 Partwise//EN">`、`<score-partwise version="3.0">`
+- `<divisions>256</divisions>`。`<encoding>` に `<software>Sibelius 24.3.1</software>` と `<software>Direct export, not from Dolet</software>`
+- `<supports>` は `print` の `new-system` / `new-page`、`accidental`、`beam`、`stem`。exporter はこれと同じ集合を出す
+- **`<encoder>` に Sibelius のユーザ名（余湖さんの実名）が入る。** 作曲システム → Sibelius の経路では出てこないが、
+  Sibelius から MusicXML を書き出す作業を挟むときは要注意
+- PDF の Info には Author が入っていない（`pdfinfo` で確認。Creator は "Sibelius version 24.3.1 on macOS 26.2"）
+
+**小節ごとの結果**
+
+| 小節 | 入力 | Sibelius が書き出したもの | 含意 |
+| --- | --- | --- | --- |
+| 1–4, 20 | 四分音（Keypad の臨時記号） | `<accidental>quarter-sharp / quarter-flat / three-quarters-sharp / three-quarters-flat</accidental>`。**`<alter>` は半音に切り捨て**（quarter-sharp → `0`、three-quarters-sharp → `1`、quarter-flat → `0`、three-quarters-flat → `-1`）。`<alter>0.5</alter>` は一度も出ない | 四分音の情報は臨時記号要素だけが運ぶ。取り込みテストは「Sibelius 方言（alter 切り捨て + accidental）」を第一候補にし、alter 0.5 併記・alter のみと比較する（QT-01〜03） |
+| 1–4 Cl. | 四分音 + 移調 | `<transpose><diatonic>-1</diatonic><chromatic>-2</chromatic></transpose>`。`<pitch>` は**記譜音**（実音 C↑ が written D↑ で出る）。四分音の臨時記号は移調後の音に正しく付く | MusicXML の `<pitch>` は記譜音で、`<transpose>` を足すと実音。Sibelius 内部で四分音が移調に追従する（QT-14 に有利） |
+| 5 | Symbols の矢印つき臨時記号 | `<other-direction print-object="no">Three-quarter sharp 2</other-direction>`。音符は `<accidental>sharp</accidental>` のまま | Symbols は不可視の other-direction に化ける。矢印系は Sibelius の書き出しで表現できず、取り込みでも `<symbol>` は読まれない（2.1節）。矢印系は ManuScript の `AddSymbol` でしか付かない |
+| 6, 7 | 菱形符頭、人工ハーモニクス | `<notehead filled="no">diamond</notehead>`。7小節は `<chord/>` で通常符頭 + 菱形。`<harmonic>` 要素は出ない | 符頭は素直。ハーモニクスの意味は符頭でしか運ばれない（STR-01, 05） |
+| 8 | ○（Harmonic/Open アーティキュレーション） | `<technical><open-string/></technical>` | Sibelius は ○ を `open-string` に対応づける。取り込みで `<technical>` が読まれないなら落ちるが、自分の書き出しと対称な例外がありうる（STR-09 に `<open-string/>` を含める） |
+| 9 | Snap（Bartók pizz.）Symbol | `<other-direction print-object="no">Snap 2</other-direction>` | 5小節と同じ。`AddSymbol` 前提（STR-11） |
+| 10 | 3本斜線トレモロ | `<ornaments><tremolo type="single">3</tremolo></ornaments>` | 標準どおり。取り込みは要確認（STR-17） |
+| 11 | 2音間トレモロ | `<tremolo type="start">3</tremolo>` / `stop`。各音 `<type>whole</type>` `<duration>512</duration>`（表示音価の半分） | 標準どおり |
+| 12 | X 符頭、1線打楽器 | `<clef><sign>percussion</sign><line>2</line></clef>`、`<staff-details><staff-lines>1</staff-lines>`、`<unpitched><display-step>E</display-step><display-octave>4</display-octave></unpitched>`、`<notehead>x</notehead>`。`<instrument-sound>` と `<midi-instrument>` はなし | 1線譜の音は E4 に置く（PERC-01, 02, 07） |
+| 13 | l.v. タイ | `<tie type="start"/>` + `<tied type="start" orientation="under"/>` だけ。`let-ring` なし。後続の休符に stop なし | 3.0 に let-ring はない。**始点だけのタイ**が Sibelius 方言。取り込みでこれが l.v. になるかを PERC-12 に加える |
+| 14 | niente つきヘアピン | `<wedge type="crescendo">` + `stop`。`niente` 属性なし | 書き出しで niente が落ちる。取り込みも期待薄。`AddLine` の niente 系スタイル前提（DYN-06） |
+| 15 | 羽根連桁 | `<beam number="1">begin / continue / end</beam>`。`fan` 属性なし | 書き出しで落ちる。取り込みも期待薄（RHY-12） |
+| 16, 17 | Technique / Expression テキスト | どちらも `<words>`。差は `font-style="normal"` + `default-y="20"`（上）vs `font-style="italic"` + `default-y="-70"`（下）。`font-family="Palatino"` | スタイル名は運ばれない。取り込み側の振り分けは DYN-09 で確認 |
+| 17, 18 | 楽器変更 Fl → Picc | Flute パートに `<score-instrument>` が2つ（`P1-I1` Flute、`P1-I2` Piccolo）。18小節の音符に `<instrument id="P1-I2"/>`、18小節の `<attributes><transpose><octave-change>1</octave-change></transpose>`、17小節の `<print>` に `<part-name-display><display-text>Piccolo</display-text></part-name-display>`。「To Picc.」は `<words>`。「Piccolo」のラベル自体は出ない | これが Sibelius の持ち替え方言。取り込みテストの第一候補（WIND-14） |
+| 19 | 8va | `<octave-shift type="down" size="8" number="1"/>` + `stop`。`<pitch>` は C6（鳴る高さ。表示は C5 + 8va） | オッターヴァ下の音高は鳴る高さで書く（KEY-09） |
+| 全体 | 調号・グループ | `<key><fifths>0</fifths><mode>major</mode></key>`、`<part-group>` bracket（木管、ティンパニ）と brace（ピアノ）、`<instrument-sound>` は有音高楽器に付く（`wind.flutes.flute` 等） | — |
+
+**要約:** 四分音・符頭・トレモロ・移調・楽器変更・8va は Sibelius 自身が MusicXML で表現できる。
+Symbols（矢印臨時記号、Bartók pizz.）・niente・羽根連桁・l.v. の意味は書き出しで失われる。
+書き出せるものは同じ形で読める可能性が高い（`[推測]`。取り込みは別実装）。次の取り込みテストで確かめる。
+
+`[実測]` GPT-6 Astra の computer-use は Sibelius の GUI 操作を安定してこなした（このプローブの入力は全部それ）。
+ManuScript でも直せないものが残った場合の**最終手段**として、Astra に Sibelius を直接操作させる選択肢がある。
+ただし何度もやり直す作業には向かないので、これに依存する経路は取らない（余湖さんの方針）。
 
 ---
 
@@ -568,8 +621,10 @@ Sibelius の完全な版とビルド / OS / File > Open か Import か / Manuscr
 ## 6. 余湖さんに決めてもらうこと
 
 - **どの版の Sibelius で検証するか。** 手元は 24.3.1。2024.10 以降の取り込み改善を含めるなら更新してから
-- **記譜法の流儀。** Stein-Zimmermann 系と矢印系を両方検証する前提でよいか（決定は結果を見てから。[R12]）
-- **逆方向プローブ（5.3）を最初にやるか。** 余湖さんの Sibelius 作業が要る
+- **記譜法の流儀。** Stein-Zimmermann 系と矢印系を両方検証する前提でよいか（決定は結果を見てから。[R12]）。
+  逆方向プローブの結果、矢印系は Sibelius の書き出しでも取り込みでも表現できず、ManuScript の `AddSymbol` 頼みになる（2.4節）
+
+Sibelius の UI は英語（`[実測]` プローブの作業メモ）。
 
 ## 7. 未取得・未確認
 
