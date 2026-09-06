@@ -44,12 +44,18 @@ Codex が挙げた出典のうち、手元の Sibelius 同梱文書で原文確�
 四分音が経路 A で通らなくても、**経路 B が文献上成立する**ので作品は止まらない。
 ただし経路 B は「プラグインが本当に動くか」を含めて実機検証が要る。
 
-**逆方向のプローブは完了した（2.4節）。** Sibelius 自身の書き出し方言が分かった。
-四分音は `<accidental>` だけが運び、`<alter>` は半音に切り捨てられる。
-Symbols・niente・羽根連桁・l.v. の意味は書き出しで失われる。
+**取り込みテスト第1回は完了した（2.5節）。結論: 四分音は MusicXML から直接 Sibelius に入る。**
+取り込み器は `<alter>` の小数値（±0.5、±1.5）で音高を決め、Sibelius 標準の四分音記号を自分で付ける。
+`<accidental>` 要素は無視される。したがって **Sibelius 自身の書き出し方言（alter 切り捨て + accidental）は取り込みでは通らない。**
+逆方向プローブ（2.4節）から立てた第一候補は外れで、書き出しと取り込みは別物だと実測で確定した。
 
-**次にやること:** 取り込みテスト。Claude が一要因の最小 MusicXML 群と ManuScript のダンププラグインを作り、
-余湖さんが Sibelius に読ませて結果を渡す。
+経路 A（MusicXML 直接）で通るもの: 四分音、符頭、トレモロ、羽根連桁、二次連桁、弓の上下、アーティキュレーション、
+フェルマータ、ジャズ記号、ヘアピン、グリッサンド、8va、テキスト（Technique / Expression / Tempo に振り分け）、1線・5線打楽器。
+経路 B（プラグイン）が要るもの: ハーモニクスの○、Bartók pizz.、+、niente、テキストの延長破線、奏法遷移の線、
+トリルの補助臨時記号、波線、楽器の持ち替え、囲み、l.v. の意味づけ、矢印系の臨時記号。
+
+**次にやること:** 移調楽器・小節内規則・持ち替えの再テスト（第1回は切り捨て alter で作ってしまい無効）と、
+経路 B のプラグイン実装。
 
 ---
 
@@ -214,6 +220,52 @@ Symbols・niente・羽根連桁・l.v. の意味は書き出しで失われる�
 **要約:** 四分音・符頭・トレモロ・移調・楽器変更・8va は Sibelius 自身が MusicXML で表現できる。
 Symbols（矢印臨時記号、Bartók pizz.）・niente・羽根連桁・l.v. の意味は書き出しで失われる。
 書き出せるものは同じ形で読める可能性が高い（`[推測]`。取り込みは別実装）。次の取り込みテストで確かめる。
+
+### 2.5 取り込みテスト第1回の結果 `[実測]`
+
+2026-09-06〜07。`verification/sibelius-import/fixtures/` の21本を Sibelius 24.3.1 build 3317（英語 UI、macOS 26.2）で
+File > Open した。操作と記録は GPT-6 Astra。生の記録（300 dpi の PNG、選択時の UI 読み取り、`.sib`、再書き出し MusicXML、
+`observations.md`）は `artifacts/sibelius-import/<fixture>/`（git 管理外）。総括は同ディレクトリの `summary.md`。
+21本すべて開けて、警告ダイアログは1つも出なかった。
+
+**四分音**
+
+| 書き方 | 結果 |
+| --- | --- |
+| `<alter>0.5</alter>` + `<accidental>quarter-sharp</accidental>`（qt-02） | **生き残る。** 4種すべて Sibelius 標準の記号で表示。選択時 Keypad に Quarter sharp 等が点灯、音高 C+5 |
+| `<alter>0.5</alter>` だけ（qt-03） | **生き残る。** 同上 |
+| `<alter>0</alter>` + `<accidental>quarter-sharp</accidental>`（qt-01 = Sibelius 書き出し方言） | **消える。** quarter 系は記号なし、three-quarters 系は通常の ♯ / ♭ に化ける |
+| `<accidental>` だけ、`<alter>` なし（qt-04） | 消える。alter と食い違う場合は alter が勝つ |
+| 矢印系の値 natural-up / sharp-down / arrow-up 等（qt-05、切り捨て alter） | 矢印は出ない。alter に応じた通常記号か記号なし |
+| `smufl` 属性（x31-01） | 無視される。alter −0.5 なら標準の quarter-flat になる |
+| `<supports>` の有無、version 3.0 / 3.1 / 4.0（meth-01〜03） | 差なし |
+| File > Open と File > Import（qt-01-via-import） | 四分音の扱いは同じ |
+
+`[導出]` 取り込み器は `<alter>` の値だけで音高を決め、臨時記号は自分で描く。四分音は「音高」として入る。
+つまり exporter は音高を小数 alter で書けばよく、記号は Sibelius 標準の4種（Stein-Zimmermann 系）に固定される。
+矢印系を使いたければ ManuScript で記号を置くしかない。
+
+**再テストが要るもの:** qt-06（移調楽器）、qt-07（小節内規則・タイ・和音・括弧）、inst-01（持ち替え）は
+切り捨て alter で作ってしまったため、四分音に関する結果は無効。小数 alter で作り直す（qt-06b / qt-07b / inst-02）。
+qt-06 で移調そのもの（Cl. の D E G ⇄ C D F、Hn. の G A C）と、qt-07 のタイと綴り（C と D の区別）が保たれることは確認できた。
+
+**四分音以外**
+
+| 領域 | 生き残った | 化けた・消えた |
+| --- | --- | --- |
+| technical（tech-01） | `<up-bow/>` `<down-bow/>`、菱形符頭（`<harmonic>` は無視されるが符頭は残る）、人工ハーモニクスの2音和音 | `<open-string/>`（○）、`<harmonic>` の○、`<snap-pizzicato/>`、`<stopped/>`、`<fingering>` `<string>`、`<thumb-position/>` |
+| ornaments（orn-01） | `<tremolo type="single">3 / 1`、2音間トレモロ（Sibelius 方言: type whole + duration half）、`<trill-mark/>`、`<mordent/>`、`<turn/>` | 2音間トレモロの仕様どおりの書き方（`time-modification` 2:1）は「2連符」に化ける、`<accidental-mark>`（トリルの四分音）、`<wavy-line>` |
+| articulations（art-01） | accent / staccato / tenuto / strong-accent / staccatissimo / detached-legato / accent+staccato、`<breath-mark>` `<caesura/>`（Symbol として）、fermata normal / square、scoop / plop / doit / falloff | `<spiccato/>` → staccato |
+| 符頭（nh-01） | normal / x / cross（装飾 X）/ diamond / triangle / inverted triangle / slash / slashed / back slashed / none / square / arrow up / arrow down、`parentheses="yes"` | circle-x → x、cluster → normal、circle dot → normal、`filled="yes"` の菱形は白抜きのまま |
+| 打楽器（perc-01 / 02） | 1線譜、X 符頭、始点だけのタイ（l.v. の見た目）、ロール、線の上下、5線譜の位置、和音、2声部 | 2楽器が Sibelius 上は1つの "Percussion" 楽器になる（楽器名は出ない）。始点だけのタイは Inspector の "L.V. tie" にはならない |
+| 線（line-01） | ヘアピン、`<glissando>` 波線、`<slide>` 直線、8va（音符は C5 の位置に出る） | `niente="yes"`、`<dashes>`、`<bracket>` の線と矢印、下段の 8vb は音符が C2 の位置のまま線だけ付く |
+| 連桁（beam-01） | **羽根連桁 accel. / rit.**（Keypad の状態でも確認）、**二次連桁とフック**、休符をまたぐ連桁 | — |
+| テキスト（text-01） | `<words>` → Technique（italic + below でも Expression にはならない）、`<dynamics>` → Expression（`<n/>` は文字 n）、words + `<metronome>` → Tempo の System text、`<rehearsal>`、**`§q+` `§h` `§tr3` はそのまま Technique として残る**（位置は上下が保たれないことがある） | `enclosure="rectangle"` |
+| 持ち替え（inst-01） | "To Picc." テキスト、楽器変更オブジェクト自体は作られる | 変更先が Flute のまま。`<octave-change>` は音高に適用され、1小節目から表示が1オクターヴずれる |
+| 3.1 限定（x31-01） | 非計測トレモロは3本斜線として | `<tied type="let-ring">`、`<soft-accent/>` |
+
+Reference の「`<technical>` と `<ornaments>` は取り込まれない」「sub-beams は取り込まれない」は、24.3.1 の実機では
+**部分的にしか当たらない**（弓記号・トレモロ・二次連桁は通る）。文書より実測を優先する。
 
 `[実測]` GPT-6 Astra の computer-use は Sibelius の GUI 操作を安定してこなした（このプローブの入力は全部それ）。
 ManuScript でも直せないものが残った場合の**最終手段**として、Astra に Sibelius を直接操作させる選択肢がある。
@@ -621,8 +673,8 @@ Sibelius の完全な版とビルド / OS / File > Open か Import か / Manuscr
 ## 6. 余湖さんに決めてもらうこと
 
 - **どの版の Sibelius で検証するか。** 手元は 24.3.1。2024.10 以降の取り込み改善を含めるなら更新してから
-- **記譜法の流儀。** Stein-Zimmermann 系と矢印系を両方検証する前提でよいか（決定は結果を見てから。[R12]）。
-  逆方向プローブの結果、矢印系は Sibelius の書き出しでも取り込みでも表現できず、ManuScript の `AddSymbol` 頼みになる（2.4節）
+- **記譜法の流儀。** 取り込みで直接出るのは Sibelius 標準の Stein-Zimmermann 系の4記号だけ（2.5節）。
+  矢印系は ManuScript で記号を置くしかない。Stein-Zimmermann 系で行くなら追加の仕組みは要らない [R12]
 
 Sibelius の UI は英語（`[実測]` プローブの作業メモ）。
 

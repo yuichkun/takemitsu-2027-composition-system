@@ -70,9 +70,15 @@ function note(o) {
 const rest = (dur = Q, extra = {}) => note({ rest: true, dur, ...extra });
 const backup = (dur) => `<backup><duration>${dur}</duration></backup>`;
 
-/** A quarter-tone note in the Sibelius dialect: accidental carries it, alter truncated. */
+/** A quarter-tone note in the Sibelius export dialect: accidental carries it, alter truncated.
+ *  Run 1 showed the importer ignores <accidental> and reads <alter>, so this encoding LOSES the quarter tone.
+ *  Kept for the negative-control fixtures (qt-01, qt-05, meth-*). */
 function qt(step, oct, semis, accValue, extra = {}) {
   return note({ step, oct, alter: truncAlter(semis), acc: accValue, ...extra });
+}
+/** A quarter-tone note in the encoding that actually imports: fractional alter + accidental. */
+function qtf(step, oct, semis, accValue, extra = {}) {
+  return note({ step, oct, alter: semis, acc: accValue, ...extra });
 }
 
 /** direction(inner | [inner, inner...], opts). Each array item becomes its own <direction-type>. */
@@ -131,7 +137,7 @@ function score(id, title, parts, opts = {}) {
         x += `<clef number="1"><sign>${inst.clef[0]}</sign><line>${inst.clef[1]}</line></clef>`;
         if (inst.clef2) x += `<clef number="2"><sign>${inst.clef2[0]}</sign><line>${inst.clef2[1]}</line></clef>`;
         if (inst.staffLines) x += `<staff-details number="1"><staff-lines>${inst.staffLines}</staff-lines></staff-details>`;
-        if (inst.transpose) x += `<transpose><diatonic>${inst.transpose.diatonic}</diatonic><chromatic>${inst.transpose.chromatic}</chromatic></transpose>`;
+        if (inst.transpose) x += `<transpose><diatonic>${inst.transpose.diatonic}</diatonic><chromatic>${inst.transpose.chromatic}</chromatic>${inst.transpose.octaveChange ? `<octave-change>${inst.transpose.octaveChange}</octave-change>` : ""}</transpose>`;
         x += `</attributes>`;
       }
       x += p.measures[m] ?? (inst.staves === 2 ? pianoEmpty() : wholeRest());
@@ -408,6 +414,71 @@ const files = [];
   files.push(score("meth-01-no-supports", "METH-01 QT-01 content without supports", [{ id: "P1", inst: INSTRUMENTS.flute, measures: mk("METH-01") }], { supports: false }));
   files.push(score("meth-02-version-3.1", "METH-02 QT-01 content declared 3.1, no DOCTYPE", [{ id: "P1", inst: INSTRUMENTS.flute, measures: mk("METH-02") }], { version: "3.1", doctype: false }));
   files.push(score("meth-03-version-4.0", "METH-03 QT-01 content declared 4.0, no DOCTYPE", [{ id: "P1", inst: INSTRUMENTS.flute, measures: mk("METH-03") }], { version: "4.0", doctype: false }));
+}
+
+// ================================================================ run 2 (fractional alter)
+
+// ---- QT-06b: transposing instruments and timpani, fractional alter
+{
+  const fl = [trio("QT-06b-1", "Fl control", (s) => note({ step: s, oct: 5, alter: 0 })), trio("QT-06b-2", "Fl C D F quarter-sharp, alter 0.5", (s) => qtf(s, 5, 0.5, "quarter-sharp")), wholeRest(), wholeRest()];
+  const cl = [trio("QT-06b-1", "Cl written D E G natural", (s) => note({ step: { C: "D", D: "E", F: "G" }[s], oct: 5, alter: 0 })),
+    trio("QT-06b-2", "Cl written D E G quarter-sharp = sounding C D F quarter-sharp", (s) => qtf({ C: "D", D: "E", F: "G" }[s], 5, 0.5, "quarter-sharp")),
+    trio("QT-06b-3", "Cl written D E G three-quarters-flat, alter -1.5", (s) => qtf({ C: "D", D: "E", F: "G" }[s], 5, -1.5, "three-quarters-flat")), wholeRest()];
+  const hn = [wholeRest(), trio("QT-06b-2", "Hn written G A C quarter-sharp = sounding C D F quarter-sharp", (s) => qtf({ C: "G", D: "A", F: "C" }[s], s === "F" ? 6 : 5, 0.5, "quarter-sharp")), wholeRest(), wholeRest()];
+  const timp = [wholeRest(), wholeRest(), wholeRest(), label("QT-06b-4", "Timp C3 quarter-sharp, D3 quarter-flat, alter 0.5 / -0.5") + qtf("C", 3, 0.5, "quarter-sharp") + qtf("D", 3, -0.5, "quarter-flat") + rest(H)];
+  files.push(score("qt-06b-transposing-alter-half", "QT-06b quarter tones on transposing instruments, fractional alter", [
+    { id: "P1", inst: INSTRUMENTS.flute, measures: fl },
+    { id: "P2", inst: INSTRUMENTS.clarinet, measures: cl },
+    { id: "P3", inst: INSTRUMENTS.horn, measures: hn },
+    { id: "P4", inst: INSTRUMENTS.timpani, measures: timp },
+  ]));
+}
+
+// ---- QT-07b: accidental rules, ties, chords, cautionary, fractional alter
+{
+  const ms = [
+    label("QT-07b-1", "C quarter-sharp x4 (alter 0.5 on all), accidental element only on first") + qtf("C", 5, 0.5, "quarter-sharp") + note({ step: "C", oct: 5, alter: 0.5 }) + note({ step: "C", oct: 5, alter: 0.5 }) + note({ step: "C", oct: 5, alter: 0.5 }),
+    label("QT-07b-2", "C quarter-sharp x4, accidental element on every note") + [1, 2, 3, 4].map(() => qtf("C", 5, 0.5, "quarter-sharp")).join(""),
+    label("QT-07b-3", "alter 0 / 0.5 / 1 / 0.5 in one bar") + note({ step: "C", oct: 5, alter: 0, acc: "natural" }) + qtf("C", 5, 0.5, "quarter-sharp") + note({ step: "C", oct: 5, alter: 1, acc: "sharp" }) + qtf("C", 5, 0.5, "quarter-sharp"),
+    label("QT-07b-4", "tie across barline, C quarter-sharp whole") + qtf("C", 5, 0.5, "quarter-sharp", { dur: W, tie: "start", tied: "start" }),
+    label("QT-07b-5", "tie end: alter 0.5, no accidental element") + note({ step: "C", oct: 5, alter: 0.5, dur: W, tie: "stop", tied: "stop" }),
+    label("QT-07b-6", "chord C quarter-sharp + E + G quarter-flat") + qtf("C", 5, 0.5, "quarter-sharp", { dur: W }) + note({ step: "E", oct: 5, alter: 0, dur: W, chord: true }) + qtf("G", 5, -0.5, "quarter-flat", { dur: W, chord: true }),
+    label("QT-07b-7", "cautionary quarter-sharp in parentheses") + qtf("C", 5, 0.5, "quarter-sharp", { accAttrs: { parentheses: "yes", cautionary: "yes" } }) + rest(Q) + rest(H),
+    label("QT-07b-8", "same 24-EDO pitch spelled C q-sharp then D 3q-flat") + qtf("C", 5, 0.5, "quarter-sharp", { dur: H }) + qtf("D", 5, -1.5, "three-quarters-flat", { dur: H }),
+    label("QT-07b-9", "octave leak: C5 quarter-sharp then C4 (alter 0), C6 (alter 0)") + qtf("C", 5, 0.5, "quarter-sharp") + note({ step: "C", oct: 4, alter: 0 }) + note({ step: "C", oct: 6, alter: 0 }) + rest(Q),
+    label("QT-07b-10", "two voices: v1 C5 q-sharp, v2 C5 alter 0 same beat") + qtf("C", 5, 0.5, "quarter-sharp", { dur: W, voice: 1, stem: "up" }) + backup(W) + note({ step: "C", oct: 5, alter: 0, dur: W, voice: 2, stem: "down" }),
+  ];
+  files.push(score("qt-07b-accidental-rules-alter-half", "QT-07b accidental rules, ties, chords, fractional alter", [{ id: "P1", inst: INSTRUMENTS.flute, measures: ms }]));
+}
+
+// ---- INST-02: instrument change variants
+{
+  // (a) marker text only, plugin would add the change; no instrument switch, no transpose
+  const a = [
+    label("INST-02a-1", "Flute C5 whole") + note({ step: "C", oct: 5, alter: 0, dur: W }),
+    label("INST-02a-2", "To Picc. + marker §inst:Piccolo; no instrument switch in XML") + direction(words("To Picc."), { placement: "above" }) + direction(words("§inst:Piccolo"), { placement: "above" }) + note({ step: "C", oct: 5, alter: 0, dur: W }),
+    label("INST-02a-3", "still flute in XML: written C5 quarter-sharp") + qtf("C", 5, 0.5, "quarter-sharp", { dur: W }),
+    wholeRest(),
+  ];
+  // (b) instrument switch by <instrument id> only, no transpose change
+  const b = [
+    label("INST-02b-1", "Flute C5 whole, instrument P2-I1") + note({ step: "C", oct: 5, alter: 0, dur: W, instrument: "P2-I1" }),
+    label("INST-02b-2", "To Picc.; next bar switches instrument id only") + direction(words("To Picc."), { placement: "above" }) + note({ step: "C", oct: 5, alter: 0, dur: W, instrument: "P2-I1" }),
+    `<print><part-name-display><display-text>Piccolo</display-text></part-name-display></print>` + label("INST-02b-3", "instrument P2-I2 (Piccolo), no transpose element, C5 quarter-sharp") + qtf("C", 5, 0.5, "quarter-sharp", { dur: W, instrument: "P2-I2" }),
+    label("INST-02b-4", "still P2-I2: C D F") + note({ step: "C", oct: 5, alter: 0, instrument: "P2-I2" }) + note({ step: "D", oct: 5, alter: 0, instrument: "P2-I2" }) + note({ step: "F", oct: 5, alter: 0, instrument: "P2-I2" }) + rest(Q, { instrument: "P2-I2" }),
+  ];
+  // (c) Piccolo as its own part from the start
+  const c = [
+    label("INST-02c-1", "separate Piccolo part, octave-change 1: written C5") + note({ step: "C", oct: 5, alter: 0, dur: W }),
+    label("INST-02c-2", "Piccolo C5 quarter-sharp") + qtf("C", 5, 0.5, "quarter-sharp", { dur: W }),
+    wholeRest(), wholeRest(),
+  ];
+  const piccolo = { name: "Piccolo", abbr: "Picc.", sound: "wind.flutes.flute.piccolo", clef: ["G", 2], transpose: { diatonic: 0, chromatic: 0, octaveChange: 1 } };
+  files.push(score("inst-02-instrument-change-variants", "INST-02 instrument change variants", [
+    { id: "P1", inst: INSTRUMENTS.flute, measures: a },
+    { id: "P2", inst: INSTRUMENTS.flute, extraInstruments: [{ id: "P2-I2", name: "Piccolo", sound: "wind.flutes.flute.piccolo" }], measures: b },
+    { id: "P3", inst: piccolo, measures: c },
+  ]));
 }
 
 // ---- X31-01: MusicXML 3.1-only constructs (let-ring, smufl accidental, soft-accent)
