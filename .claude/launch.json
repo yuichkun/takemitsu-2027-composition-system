@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "preview",
+      "runtimeExecutable": "/Users/yuichkun/.vite-plus/bin/vp",
+      "runtimeArgs": ["dev", "--port", "5173", "--strictPort"],
+      "port": 5173
+    }
+  ]
+}

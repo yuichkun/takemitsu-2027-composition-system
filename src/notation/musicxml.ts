@@ -249,13 +249,17 @@ interface Direction {
   staff: number;
   xml: string;
   placement: "above" | "below";
+  /** Playback attributes, e.g. tempo="72". */
+  sound?: string;
 }
 
 function direction(d: Direction, offset: Rational, divisions: number, staves: number): string {
   const off = offset.gt(Rational.zero)
     ? `<offset>${offset.mul(new Rational(divisions)).value}</offset>`
     : "";
-  return `<direction placement="${d.placement}"><direction-type>${d.xml}</direction-type>${off}${staves > 1 ? `<staff>${d.staff}</staff>` : ""}</direction>`;
+  const staff = staves > 1 ? `<staff>${d.staff}</staff>` : "";
+  const sound = d.sound ? `<sound ${d.sound}/>` : "";
+  return `<direction placement="${d.placement}"><direction-type>${d.xml}</direction-type>${off}${staff}${sound}</direction>`;
 }
 
 function beatUnit(beat: Rational): string {
@@ -356,6 +360,7 @@ function partXml(part: NormalPart, index: number, score: NormalScore, warnings: 
   if (index === 0) {
     for (const t of score.tempoMarks) {
       directions.push({
+        sound: `tempo="${(t.bpm * t.beat.value).toFixed(2)}"`,
         at: t.at,
         staff: 1,
         placement: "above",
