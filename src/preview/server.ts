@@ -64,6 +64,7 @@ async function loadScore(path: string) {
       number: m.number,
       quarters: m.start.value,
       seconds: secondsAt(score.tempo, m.start.value),
+      endSeconds: secondsAt(score.tempo, m.start.add(m.length).value),
     })),
     parts: score.parts.map((p) => ({ id: p.id, name: p.name })),
     score,
@@ -205,15 +206,14 @@ export function previewMiddleware() {
         return json(res, 200, existsSync(file) ? JSON.parse(await readFile(file, "utf8")) : {});
       }
       if (url.pathname === "/api/remix" && req.method === "POST") {
-        const { renderDir, gains, master } = (await body(req)) as {
+        const { renderDir, parts } = (await body(req)) as {
           renderDir: string;
-          gains: Record<string, number>;
-          master: number;
+          parts: Record<string, { gain: number; comp: number }>;
         };
         const dir = resolve(rendersRoot, renderDir);
         if (relative(rendersRoot, dir).startsWith(".."))
           return json(res, 403, { error: "Outside renders" });
-        const file = await remix(dir, gains, master);
+        const file = await remix(dir, parts);
         return json(res, 200, { url: `/renders/${relative(rendersRoot, file)}?v=${Date.now()}` });
       }
       if (url.pathname === "/api/render" && req.method === "POST") {

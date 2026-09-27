@@ -12,5 +12,7 @@ declare module "verovio/esm" {
     getElementsAtTime(milliseconds: number): { notes?: string[]; page?: number };
     getLog(): string;
     renderToMIDI(): string;
+    /** Onset of an element in milliseconds from the start. */
+    getTimeForElement(id: string): number;
   }
 }

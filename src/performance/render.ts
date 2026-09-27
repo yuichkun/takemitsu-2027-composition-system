@@ -6,6 +6,7 @@ import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
+import { compressInPlace, compressorParams } from "../audio/dynamics.ts";
 import { encodeWav16, readWav, type Audio } from "../audio/wav.ts";
 import { installedPatches, pluginPath, pluginSettings } from "../libraries/bbcso/patches.ts";
 import { encodeState, stateXml } from "../libraries/bbcso/state.ts";
@@ -238,23 +239,24 @@ export async function renderPlan(
 }
 
 /**
- * Mixes existing stems again with per-part gains (the preview's mixer, for renders too long to mix
- * in the browser). Writes mix-mixer.wav next to the stems.
+ * Mixes existing stems again with the preview mixer's per-part compression and gain, for renders
+ * too long to mix in the browser. Writes mix-mixer.wav next to the stems. The master fader and
+ * limiter stay in the browser.
  */
 export async function remix(
   dir: string,
-  gains: Record<string, number>,
-  master = 1,
+  parts: Record<string, { gain: number; comp: number }>,
 ): Promise<string> {
   const manifest = await readManifest(dir);
   if (!manifest) throw new Error(`No render in ${dir}`);
   let mix: Float32Array[] | undefined;
   let sampleRate = rate;
   for (const [partId, file] of Object.entries(manifest.stems)) {
-    const gain = (gains[partId] ?? 1) * master;
+    const { gain = 1, comp = 0 } = parts[partId] ?? {};
     if (gain === 0) continue;
     const audio = await readWav(file);
     sampleRate = audio.sampleRate;
+    compressInPlace(audio.channels, sampleRate, compressorParams(comp));
     mix ??= [
       new Float32Array(audio.channels[0]!.length),
       new Float32Array(audio.channels[0]!.length),

@@ -15,29 +15,29 @@
     <main>
       <header id="toolbar">
         <div class="title"><span id="title">楽譜を選ぶ</span></div>
+        <button
+          id="play"
+          type="button"
+          class="round"
+          aria-label="再生"
+          title="再生 / 一時停止（Space）"
+        >
+          ▶
+        </button>
+        <span id="time" class="time">0:00 / 0:00</span>
         <div class="range">
-          <label for="from">小節</label>
+          <label for="from">範囲</label>
           <input id="from" type="number" min="1" value="1" />
           <span>–</span>
           <input id="to" type="number" min="1" value="1" />
-          <button id="all" type="button" title="全小節">全体</button>
+          <button id="all" type="button" title="全小節（Esc）">全体</button>
         </div>
-        <button id="render" type="button" class="primary">レンダ</button>
+        <button id="render" type="button" class="primary" title="範囲をレンダ（R）">レンダ</button>
         <div id="status" class="status"></div>
-        <div class="transport">
-          <button id="play" type="button" class="round" aria-label="再生" disabled>▶</button>
-          <span id="time" class="time">0:00 / 0:00</span>
-          <input
-            id="seek"
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value="0"
-            aria-label="位置"
-            disabled
-          />
-        </div>
+        <button id="help" type="button" class="keys-button" title="ショートカット（?）">
+          <kbd>Space</kbd> 再生 <kbd>Enter</kbd> 先頭 <kbd>←</kbd><kbd>→</kbd> 小節
+          <kbd>?</kbd> ほか
+        </button>
       </header>
       <section id="messages" hidden></section>
       <div id="score" class="score"></div>
@@ -45,12 +45,68 @@
         <div class="mixer-head">
           <span>ミキサー</span>
           <span id="mixer-mode" class="mixer-mode"></span>
-          <button id="mixer-reset" type="button">すべて 0 dB に戻す</button>
+          <button id="mixer-reset" type="button">すべて戻す</button>
           <button id="mixer-toggle" type="button" aria-expanded="true">たたむ</button>
         </div>
         <div id="strips" class="strips"></div>
       </section>
     </main>
+    <dialog id="keys">
+      <h2>操作</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td><kbd>Space</kbd></td>
+            <td>再生 / 一時停止。レンダしていない位置なら、そこからレンダして再生</td>
+          </tr>
+          <tr>
+            <td><kbd>Enter</kbd> <kbd>Home</kbd></td>
+            <td>先頭へ戻る</td>
+          </tr>
+          <tr>
+            <td><kbd>←</kbd> <kbd>→</kbd></td>
+            <td>前 / 次の小節へ</td>
+          </tr>
+          <tr>
+            <td><kbd>R</kbd></td>
+            <td>範囲をレンダ</td>
+          </tr>
+          <tr>
+            <td><kbd>Esc</kbd></td>
+            <td>範囲を全体に戻す</td>
+          </tr>
+          <tr>
+            <td><kbd>M</kbd></td>
+            <td>ミキサーをたたむ / ひらく</td>
+          </tr>
+          <tr>
+            <td><kbd>?</kbd></td>
+            <td>この一覧</td>
+          </tr>
+          <tr>
+            <td>譜面をクリック</td>
+            <td>そこへ再生位置を移す</td>
+          </tr>
+          <tr>
+            <td>再生位置の線をドラッグ</td>
+            <td>再生位置を動かす</td>
+          </tr>
+          <tr>
+            <td>譜面を横にドラッグ</td>
+            <td>レンダする小節の範囲を選ぶ</td>
+          </tr>
+          <tr>
+            <td>フェーダーをダブルクリック</td>
+            <td>0 dB に戻す</td>
+          </tr>
+          <tr>
+            <td>S を Alt+クリック</td>
+            <td>そのパートだけをソロ</td>
+          </tr>
+        </tbody>
+      </table>
+      <form method="dialog"><button type="submit">閉じる</button></form>
+    </dialog>
     <script type="module" src="/src/preview/main.ts"></script>
   </body>
 </html>

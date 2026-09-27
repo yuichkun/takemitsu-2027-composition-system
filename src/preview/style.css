@@ -203,9 +203,53 @@ button.round:disabled {
   white-space: nowrap;
 }
 
-#seek {
-  flex: 1;
-  accent-color: var(--accent);
+.keys-button {
+  margin-left: auto;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+kbd {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 1px 5px;
+  border: 1px solid var(--rule);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+dialog#keys {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 20px 24px;
+  max-width: 560px;
+}
+
+dialog#keys h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+dialog#keys td {
+  padding: 5px 16px 5px 0;
+  vertical-align: top;
+  font-size: 13px;
+}
+
+dialog#keys td:first-child {
+  white-space: nowrap;
+}
+
+dialog#keys form {
+  margin-top: 14px;
+  text-align: right;
 }
 
 #messages {
@@ -247,12 +291,41 @@ button.round:disabled {
   height: auto;
 }
 
-.score g.measure {
-  cursor: pointer;
+.score .page {
+  position: relative;
+  cursor: text;
+  user-select: none;
 }
 
-.score g.measure.selected {
-  fill: var(--accent);
+.playhead {
+  position: absolute;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--play);
+  cursor: ew-resize;
+  z-index: 2;
+}
+
+.playhead::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -5px;
+  border: 6px solid transparent;
+  border-top-color: var(--play);
+}
+
+.playhead::after {
+  content: "";
+  position: absolute;
+  inset: 0 -6px;
+}
+
+.range-band {
+  position: absolute;
+  background: var(--select);
+  border-top: 2px solid var(--accent);
+  pointer-events: none;
 }
 
 .score g.note.playing,
@@ -318,13 +391,46 @@ body.mixer-collapsed .strips {
   gap: 2px;
   overflow-x: auto;
   padding: 8px 12px 10px;
-  height: 230px;
+  height: 260px;
+}
+
+.comp {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  font-size: 10px;
+  color: var(--muted);
+  row-gap: 2px;
+}
+
+.comp input {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  accent-color: #7c5cbf;
+}
+
+.gr {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  color: #7c5cbf;
+  text-align: right;
+  min-height: 1.2em;
+}
+
+.limit-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  align-self: center;
 }
 
 .strip {
-  flex: 0 0 72px;
+  flex: 0 0 76px;
   display: grid;
-  grid-template-rows: auto 1fr auto auto;
+  grid-template-rows: auto auto 1fr auto auto;
   justify-items: center;
   gap: 6px;
   padding: 6px 4px;
