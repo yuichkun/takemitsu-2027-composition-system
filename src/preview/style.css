@@ -27,6 +27,8 @@ body {
 body {
   display: grid;
   grid-template-columns: 240px 1fr;
+  /* One row the height of the window: the score scrolls inside it, not the page. */
+  grid-template-rows: minmax(0, 1fr);
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
@@ -92,6 +94,7 @@ main {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 0;
   height: 100%;
 }
 
@@ -110,35 +113,9 @@ main {
   min-width: 8em;
 }
 
-.range {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.range label {
-  color: var(--muted);
-}
-
-.range input {
-  width: 4.5em;
-  font: inherit;
-  font-family: var(--mono);
-  padding: 4px 6px;
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-}
-
 button {
   font: inherit;
   cursor: pointer;
-}
-
-.range button {
-  border: 1px solid var(--rule);
-  background: var(--paper);
-  border-radius: 4px;
-  padding: 4px 10px;
 }
 
 button.primary {
@@ -167,10 +144,13 @@ input:focus-visible {
   min-width: 14em;
 }
 
-.status progress {
-  width: 120px;
-  vertical-align: middle;
-  margin-left: 6px;
+.readiness {
+  display: block;
+  width: 100%;
+  height: 10px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
 }
 
 .transport {
@@ -271,30 +251,44 @@ dialog#keys form {
 
 .score {
   flex: 1;
+  min-height: 0;
   overflow: auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
 }
 
-.score .page {
+/* One window: a few measures drawn as one document (src/preview/score-view.ts). */
+.score .window {
+  position: relative;
+  width: 100%;
   background: var(--paper);
   box-shadow: 0 1px 3px rgba(20, 30, 50, 0.12);
-  max-width: 100%;
+  cursor: text;
+  user-select: none;
+  flex: none;
+  /* A long score has hundreds of windows: the browser skips laying out the ones off screen. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
-.score .page svg {
+.score .window svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-.score .page {
-  position: relative;
-  cursor: text;
-  user-select: none;
+/* Not drawn yet: a placeholder of about the right height, labelled with its measures. */
+.score .window.waiting::before {
+  content: "m. " attr(data-label);
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  color: var(--muted);
+  font-size: 12px;
+  font-family: var(--mono);
 }
 
 .playhead {
@@ -319,13 +313,6 @@ dialog#keys form {
   content: "";
   position: absolute;
   inset: 0 -6px;
-}
-
-.range-band {
-  position: absolute;
-  background: var(--select);
-  border-top: 2px solid var(--accent);
-  pointer-events: none;
 }
 
 .score g.note.playing,

@@ -6,6 +6,20 @@
       "runtimeExecutable": "/Users/yuichkun/.vite-plus/bin/vp",
       "runtimeArgs": ["dev", "--port", "5173", "--strictPort"],
       "port": 5173
+    },
+    {
+      "name": "preview-stress",
+      "runtimeExecutable": "/usr/bin/env",
+      "runtimeArgs": [
+        "PREVIEW_SCORE_DIRS=.local/stress",
+        "TAKEMITSU_CHUNKS_DIR=.local/probe/stress-chunks",
+        "/Users/yuichkun/.vite-plus/bin/vp",
+        "dev",
+        "--port",
+        "5175",
+        "--strictPort"
+      ],
+      "port": 5175
     }
   ]
 }

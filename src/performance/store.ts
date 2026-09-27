@@ -40,9 +40,12 @@ export function decodeChunk(bytes: Uint8Array): ChunkAudio {
   const sampleRate = view.getInt32(8, true);
   const frames = view.getInt32(12, true);
   const scale = view.getFloat32(20, true) / 32767;
+  // Little-endian 16-bit, as on every machine this runs on (Apple silicon, x86).
+  const ints = new Int16Array(
+    bytes.buffer.slice(bytes.byteOffset + headerBytes, bytes.byteOffset + headerBytes + frames * 4),
+  );
   const samples = new Float32Array(frames * 2);
-  for (let i = 0; i < samples.length; i++)
-    samples[i] = view.getInt16(headerBytes + i * 2, true) * scale;
+  for (let i = 0; i < samples.length; i++) samples[i] = ints[i]! * scale;
   return { sampleRate, frames, samples };
 }
 
@@ -64,9 +67,10 @@ export function encodeChunk(
   view.setInt32(16, 2, true);
   view.setFloat32(20, peak, true);
   const scale = peak > 0 ? 32767 / peak : 0;
+  const ints = new Int16Array(bytes.buffer, headerBytes, frames * 2);
   for (let i = 0; i < frames; i++) {
-    view.setInt16(headerBytes + i * 4, Math.round(left[i]! * scale), true);
-    view.setInt16(headerBytes + i * 4 + 2, Math.round(right[i]! * scale), true);
+    ints[i * 2] = Math.round(left[i]! * scale);
+    ints[i * 2 + 1] = Math.round(right[i]! * scale);
   }
   return bytes;
 }

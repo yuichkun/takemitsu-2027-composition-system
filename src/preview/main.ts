@@ -1,15 +1,13 @@
-// Preview UI: the score (src/preview/score-view.ts), renders of a measure range, and playback
-// through a mixer (src/preview/player.ts).
+// Preview UI: the score (src/preview/score-view.ts) and playback through a mixer
+// (src/preview/player.ts).
 //
-// The playhead lives in piece time (seconds from the start of the score). A render covers a
-// range of it; playing outside the rendered range renders from the playhead first.
-
-import createVerovioModule from "verovio/wasm";
-import { VerovioToolkit } from "verovio/esm";
+// There is no render step to start: the server renders every open score in the background and
+// again after each save, nearest the playhead first. The page follows its progress, plays what
+// is ready, and tells the server where the playhead is.
 
 import { compressorParams } from "../audio/dynamics.ts";
-import { Player, type MixerSettings } from "./player.ts";
-import { ScoreView, type MeasureTime } from "./score-view.ts";
+import { Player, type Manifest, type MixerSettings } from "./player.ts";
+import { ScoreView, type MeasureTime, type WindowInfo } from "./score-view.ts";
 
 interface ScoreEntry {
   path: string;
@@ -18,34 +16,20 @@ interface ScoreEntry {
 }
 interface ScoreData {
   title: string;
-  musicxml: string;
+  windows: WindowInfo[];
   warnings: string[];
   measures: (MeasureTime & { quarters: number })[];
   parts: { id: string; name: string }[];
 }
-interface RenderResult {
-  url: string;
-  stemUrls: Record<string, string>;
-  renderDir: string;
-  startSeconds: number;
-  seconds: number;
-  warnings: string[];
-}
-interface Job {
-  id: string;
-  status: "queued" | "running" | "done" | "failed";
-  message: string;
-  fraction: number;
-  result?: RenderResult;
-  error?: string;
+interface Progress {
+  done: number;
+  total: number;
+  failed: number;
 }
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const scoresNav = $("scores");
 const titleEl = $("title");
-const fromInput = $<HTMLInputElement>("from");
-const toInput = $<HTMLInputElement>("to");
-const renderButton = $<HTMLButtonElement>("render");
 const playButton = $<HTMLButtonElement>("play");
 const timeEl = $("time");
 const statusEl = $("status");
@@ -53,26 +37,45 @@ const messages = $("messages");
 const strips = $("strips");
 const mixerMode = $("mixer-mode");
 const keysDialog = $<HTMLDialogElement>("keys");
+const readinessEl = $<HTMLCanvasElement>("readiness");
 
-const toolkit = new VerovioToolkit(await createVerovioModule());
 const player = new Player();
-const view = new ScoreView($("score"), toolkit);
+const view = new ScoreView($("score"), async (hash) => {
+  const res = await fetch(`/api/window?hash=${hash}`);
+  return res.text();
+});
 
-let current: { path: string; data: ScoreData } | undefined;
-let job: Job | undefined;
-/** The loaded render: where it starts in piece time. */
-let rendered: RenderResult | undefined;
-/** Playhead in piece time. */
-let cursor = 0;
-/** Seconds to start at once the running render is loaded. */
-let playAfterRender: number | undefined;
-let renderWarnings: string[] = [];
+player.fetchSegments = async (segments) => {
+  const res = await fetch("/api/segments", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ segments }),
+  });
+  // For each segment: id length (uint16), id, payload length (uint32), payload.
+  const bytes = new Uint8Array(await res.arrayBuffer());
+  const data = new DataView(bytes.buffer);
+  const text = new TextDecoder();
+  const out = new Map<string, Uint8Array>();
+  for (let at = 0; at + 2 <= bytes.length;) {
+    const idLength = data.getUint16(at, true);
+    const id = text.decode(bytes.subarray(at + 2, at + 2 + idLength));
+    const length = data.getUint32(at + 2 + idLength, true);
+    const start = at + 6 + idLength;
+    out.set(id, bytes.subarray(start, start + length));
+    at = start + length;
+  }
+  return out;
+};
+
+let current: { path: string; data: ScoreData; manifest?: Manifest } | undefined;
+let manifestWarnings: string[] = [];
+let progress: Progress = { done: 0, total: 0, failed: 0 };
 
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 
 function showMessages(): void {
-  const lines = [...(current?.data.warnings ?? []), ...renderWarnings];
+  const lines = [...(current?.data.warnings ?? []), ...manifestWarnings];
   messages.hidden = lines.length === 0;
   messages.innerHTML = lines.length
     ? `<ul>${lines.map((l) => `<li>${escapeHtml(l)}</li>`).join("")}</ul>`
@@ -80,13 +83,9 @@ function showMessages(): void {
 }
 
 const pieceEnd = () => current?.data.measures.at(-1)?.endSeconds ?? 0;
-const renderedCovers = (t: number) =>
-  rendered !== undefined &&
-  t >= rendered.startSeconds - 1e-3 &&
-  t < rendered.startSeconds + rendered.seconds - 0.05;
 
 //==============================================================================
-// Score list and drawing
+// Score list, drawing and the chunk list
 
 async function loadList(): Promise<void> {
   const list = (await (await fetch("/api/scores")).json()) as ScoreEntry[];
@@ -111,7 +110,26 @@ async function loadList(): Promise<void> {
   if (list.length === 0) scoresNav.textContent = "楽譜がない";
 }
 
-async function open(path: string, keepRange = false): Promise<void> {
+async function loadManifest(path: string): Promise<void> {
+  const res = await fetch(`/api/manifest?path=${encodeURIComponent(path)}`);
+  const data = (await res.json()) as Manifest & {
+    progress: Progress;
+    warnings: string[];
+    error?: string;
+  };
+  if (!res.ok || data.error || current?.path !== path) return;
+  current.manifest = data;
+  manifestWarnings = data.warnings;
+  progress = data.progress;
+  player.setManifest(data);
+  showMessages();
+  showProgress();
+  drawReadiness();
+  updateStripAvailability();
+}
+
+async function open(path: string): Promise<void> {
+  statusEl.textContent = "読み込み中";
   const res = await fetch(`/api/score?path=${encodeURIComponent(path)}`);
   const data = (await res.json()) as ScoreData & { error?: string };
   if (!res.ok || data.error) {
@@ -124,17 +142,10 @@ async function open(path: string, keepRange = false): Promise<void> {
   for (const b of scoresNav.querySelectorAll("button"))
     b.setAttribute("aria-current", String(b.dataset.path === path));
   titleEl.textContent = data.title;
-  const last = data.measures.length;
-  fromInput.max = toInput.max = String(last);
-  if (changed || !keepRange) {
-    fromInput.value = "1";
-    toInput.value = String(last);
-  }
   if (changed) {
-    renderWarnings = [];
-    rendered = undefined;
+    manifestWarnings = [];
     player.pause();
-    cursor = 0;
+    player.seek(0);
     const settings = (await (
       await fetch(`/api/mixer?path=${encodeURIComponent(path)}`)
     ).json()) as MixerSettings;
@@ -150,64 +161,55 @@ async function open(path: string, keepRange = false): Promise<void> {
   }
   buildStrips();
   showMessages();
-  view.draw(data.musicxml, data.measures);
-  view.setRange(Number(fromInput.value), Number(toInput.value));
-  view.setCursor(cursor);
+  view.draw(data.windows, data.measures);
+  view.setCursor(player.position);
+  await loadManifest(path);
+  sendPlayhead(true);
 }
 
-function setRange(from: number, to: number): void {
-  fromInput.value = String(from);
-  toInput.value = String(to);
-  view.setRange(from, to);
-}
-fromInput.addEventListener("change", () =>
-  view.setRange(Number(fromInput.value), Number(toInput.value)),
-);
-toInput.addEventListener("change", () =>
-  view.setRange(Number(fromInput.value), Number(toInput.value)),
-);
-$("all").addEventListener("click", () => setRange(1, current?.data.measures.length ?? 1));
-
-view.onRange = (from, to) => setRange(from, to);
 view.onSeek = (seconds) => seekTo(seconds);
 
 //==============================================================================
 // Transport
 
-function seekTo(seconds: number): void {
-  cursor = Math.max(0, Math.min(seconds, pieceEnd()));
-  view.setCursor(cursor);
-  if (renderedCovers(cursor)) player.seek(cursor - rendered!.startSeconds);
-  else if (player.isPlaying) player.pause();
+let lastSent = -1;
+/** Tells the server where the playhead is, so it renders there first. */
+function sendPlayhead(force = false): void {
+  if (!current) return;
+  const seconds = player.position;
+  if (!force && Math.abs(seconds - lastSent) < 2) return;
+  lastSent = seconds;
+  void fetch("/api/playhead", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ path: current.path, seconds }),
+  });
 }
 
-async function play(): Promise<void> {
-  if (!current) return;
-  if (renderedCovers(cursor)) {
-    await player.play(cursor - rendered!.startSeconds);
-    return;
-  }
-  // Not rendered here yet: render from the playhead's measure to the end of the range.
-  const from = view.measureAt(cursor);
-  const to = Math.max(from, Number(toInput.value));
-  playAfterRender = cursor;
-  startRender(from, to);
+/** Moves the playhead; with `follow`, the score scrolls to it. */
+function seekTo(seconds: number, follow = false): void {
+  const t = Math.max(0, Math.min(seconds, pieceEnd()));
+  player.seek(t);
+  view.setCursor(t, follow);
+  sendPlayhead(true);
 }
 
 function togglePlay(): void {
+  if (!current) return;
   if (player.isPlaying) player.pause();
-  else void play();
+  else void player.play();
 }
 
 function stepMeasure(delta: number): void {
   if (!current) return;
   const measures = current.data.measures;
+  const cursor = player.position;
   const here = view.measureAt(cursor);
   const m = measures.find((x) => x.number === here)!;
   // ← at a point inside a measure goes to its start first.
   const target =
     delta < 0 && cursor - m.seconds > 0.25 ? m : measures.find((x) => x.number === here + delta);
-  if (target) seekTo(target.seconds);
+  if (target) seekTo(target.seconds, true);
 }
 
 playButton.addEventListener("click", togglePlay);
@@ -226,9 +228,7 @@ document.addEventListener("keydown", (e) => {
     },
     ArrowLeft: () => stepMeasure(-1),
     ArrowRight: () => stepMeasure(1),
-    KeyR: () => renderButton.click(),
     KeyM: () => $("mixer-toggle").click(),
-    Escape: () => setRange(1, current?.data.measures.length ?? 1),
   };
   const action = e.key === "?" ? () => keysDialog.showModal() : actions[e.code];
   if (!action) return;
@@ -238,82 +238,73 @@ document.addEventListener("keydown", (e) => {
 $("help").addEventListener("click", () => keysDialog.showModal());
 
 //==============================================================================
-// Rendering
+// Render progress: a status line and a strip over the whole piece
 
-function showJob(j: Job): void {
-  if (j.status === "failed") {
-    statusEl.textContent = `失敗: ${j.error}`;
-    renderButton.disabled = false;
-  } else if (j.status === "done") {
-    statusEl.textContent = "レンダ済み";
-    renderButton.disabled = false;
-  } else {
-    statusEl.innerHTML = `${escapeHtml(j.message)}<progress max="1" value="${j.fraction}"></progress>`;
-  }
+function showProgress(): void {
+  const { done, total, failed } = progress;
+  if (!current || total === 0) statusEl.textContent = "";
+  else if (done + failed >= total)
+    statusEl.textContent = failed ? `レンダ失敗 ${failed} か所` : "全体を鳴らせる";
+  else statusEl.textContent = `裏でレンダ中 ${Math.floor((100 * done) / total)}%`;
 }
 
-function startRender(from: number, to: number): void {
-  if (!current) return;
-  renderButton.disabled = true;
-  statusEl.textContent = "開始中";
-  void fetch("/api/render", {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({ path: current.path, from, to }),
-  })
-    .then((res) => res.json())
-    .then((j: Job) => {
-      job = j;
-      showJob(j);
+let readinessQueued = false;
+function drawReadiness(): void {
+  if (readinessQueued) return;
+  readinessQueued = true;
+  setTimeout(() => {
+    readinessQueued = false;
+    const manifest = current?.manifest;
+    const canvas = readinessEl;
+    const width = canvas.clientWidth;
+    canvas.width = width * devicePixelRatio;
+    canvas.height = 10 * devicePixelRatio;
+    const g = canvas.getContext("2d")!;
+    g.scale(devicePixelRatio, devicePixelRatio);
+    g.clearRect(0, 0, width, 10);
+    if (!manifest || manifest.duration <= 0) return;
+    const style = getComputedStyle(document.documentElement);
+    const ready = player.readiness(manifest.measures);
+    const x = (s: number) => (s / manifest.duration) * width;
+    manifest.measures.forEach((m, i) => {
+      g.fillStyle = style.getPropertyValue("--accent");
+      g.globalAlpha = 0.15 + 0.7 * ready[i]!;
+      g.fillRect(x(m.start), 2, Math.max(1, x(m.end) - x(m.start)), 6);
     });
+    g.globalAlpha = 1;
+    g.fillStyle = style.getPropertyValue("--play");
+    g.fillRect(x(player.position) - 1, 0, 2, 10);
+  }, 100);
 }
 
-renderButton.addEventListener("click", () => {
-  const from = Number(fromInput.value);
-  const m = current?.data.measures.find((x) => x.number === from);
-  // Play from the playhead if it is inside the range, otherwise from the range start.
-  const inRange = m && cursor >= m.seconds && view.measureAt(cursor) <= Number(toInput.value);
-  playAfterRender = inRange ? cursor : m?.seconds;
-  startRender(from, Number(toInput.value));
+readinessEl.addEventListener("click", (e) => {
+  const manifest = current?.manifest;
+  if (!manifest) return;
+  const box = readinessEl.getBoundingClientRect();
+  seekTo(((e.clientX - box.left) / box.width) * manifest.duration, true);
 });
 
-async function loadRender(result: RenderResult): Promise<void> {
-  rendered = result;
-  renderWarnings = result.warnings;
-  showMessages();
-  await player.load(
-    result.stemUrls,
-    result.seconds,
-    async (parts) => {
-      const res = await fetch("/api/remix", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ renderDir: result.renderDir, parts }),
-      });
-      return ((await res.json()) as { url: string }).url;
-    },
-    (text) => (statusEl.textContent = text),
-  );
-  statusEl.textContent = "レンダ済み";
-  updateStripAvailability();
-  const start = playAfterRender ?? result.startSeconds;
-  playAfterRender = undefined;
-  cursor = start;
-  await player.play(start - result.startSeconds);
-}
-
 const events = new EventSource("/api/events");
-events.addEventListener("job", (e) => {
-  const j = JSON.parse((e as MessageEvent<string>).data) as Job;
-  if (j.id !== job?.id) return;
-  job = j;
-  showJob(j);
-  if (j.status === "done" && j.result) void loadRender(j.result);
+events.addEventListener("chunks", (e) => {
+  const data = JSON.parse((e as MessageEvent<string>).data) as {
+    path: string;
+    version: number;
+    ready: [string, number][];
+  };
+  if (data.path !== current?.path) return;
+  player.ready(data.ready);
+  drawReadiness();
+});
+events.addEventListener("progress", (e) => {
+  const data = JSON.parse((e as MessageEvent<string>).data) as Progress & { path: string };
+  if (data.path !== current?.path) return;
+  progress = data;
+  showProgress();
 });
 events.addEventListener("changed", (e) => {
   const { path } = JSON.parse((e as MessageEvent<string>).data) as { path: string };
   void loadList();
-  if (path === current?.path) void open(path, true);
+  if (path === current?.path) void open(path);
 });
 
 //==============================================================================
@@ -424,13 +415,12 @@ function buildStrips(): void {
 }
 
 function updateStripAvailability(): void {
-  for (const s of strips.querySelectorAll<HTMLElement>(".strip:not(.master)")) {
-    s.classList.toggle("silent", rendered !== undefined && !player.hasSound(s.dataset.id!));
-  }
-  mixerMode.textContent =
-    player.mode === "mix"
-      ? "長いレンダなので、つまみを動かすとサーバでミックスし直す（少し遅れて反映）"
-      : "";
+  for (const s of strips.querySelectorAll<HTMLElement>(".strip:not(.master)"))
+    s.classList.toggle(
+      "silent",
+      current?.manifest !== undefined && !player.hasSound(s.dataset.id!),
+    );
+  mixerMode.textContent = "";
 }
 
 $("mixer-reset").addEventListener("click", () => {
@@ -457,16 +447,19 @@ player.onChange = () => {
   playButton.setAttribute("aria-label", player.isPlaying ? "一時停止" : "再生");
 };
 
+let ticks = 0;
 setInterval(() => {
   player.tick();
-  if (player.isPlaying && rendered) {
-    cursor = rendered.startSeconds + player.position;
+  const cursor = player.position;
+  if (player.isPlaying) {
     view.setCursor(cursor, true);
     view.highlight(cursor);
+    sendPlayhead();
   } else {
     view.highlight(undefined);
   }
   timeEl.textContent = `${clock(cursor)} / ${clock(pieceEnd())}`;
+  if (++ticks % 10 === 0) drawReadiness();
 
   for (const s of strips.querySelectorAll<HTMLElement>(".strip")) {
     const id = s.dataset.id || undefined;
@@ -485,10 +478,12 @@ window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = window.setTimeout(() => {
     if (!current) return;
-    view.draw(current.data.musicxml, current.data.measures);
-    view.setRange(Number(fromInput.value), Number(toInput.value));
+    view.redraw();
+    drawReadiness();
   }, 200);
 });
 
 $("score").innerHTML = '<p class="empty">左から楽譜を選ぶ</p>';
+// For measuring from the browser's console (tools and docs/worklog).
+if (import.meta.env.DEV) Object.assign(window, { preview: { player, view } });
 await loadList();

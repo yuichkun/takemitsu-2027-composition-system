@@ -255,22 +255,84 @@ function clefXml(c: Instrument["clefs"][number], number: number, staves: number)
   return `<clef${n}><sign>${c.sign}</sign><line>${c.line}</line></clef>`;
 }
 
-function partXml(part: NormalPart, index: number, score: NormalScore, warnings: string[]): string {
-  const inst = part.instrument;
-  const staves = inst.clefs.length;
-  const voicesByStaff = new Map<number, Set<number>>();
-  for (const n of part.notes) {
-    if (!voicesByStaff.has(n.staff)) voicesByStaff.set(n.staff, new Set());
-    voicesByStaff.get(n.staff)!.add(n.voice);
+/** What a part's documents share, worked out once per part (a long score has many documents). */
+interface PartFacts {
+  marks: Mark[];
+  wedges: Wedge[];
+  changes: { at: Rational; text: string }[];
+  voicesByStaff: Map<number, Set<number>>;
+  /** Longest note, to find notes sounding into a span without scanning them all. */
+  longest: number;
+}
+const facts = new WeakMap<NormalPart, PartFacts>();
+function factsOf(part: NormalPart): PartFacts {
+  let f = facts.get(part);
+  if (!f) {
+    const voicesByStaff = new Map<number, Set<number>>();
+    for (const n of part.notes) {
+      if (!voicesByStaff.has(n.staff)) voicesByStaff.set(n.staff, new Set());
+      voicesByStaff.get(n.staff)!.add(n.voice);
+    }
+    for (let s = 1; s <= part.instrument.clefs.length; s++)
+      if (!voicesByStaff.has(s)) voicesByStaff.set(s, new Set([1]));
+    f = {
+      ...dynamicMarks(part),
+      changes: techniqueChanges(part),
+      voicesByStaff,
+      longest: Math.max(0, ...part.notes.map((n) => n.dur.value)),
+    };
+    facts.set(part, f);
   }
-  for (let s = 1; s <= staves; s++) if (!voicesByStaff.has(s)) voicesByStaff.set(s, new Set([1]));
+  return f;
+}
+
+/** Notes sounding in [start, end): part.notes is sorted by onset. */
+function notesBetween(part: NormalPart, start: Rational, end: Rational): NormalPart["notes"] {
+  const notes = part.notes;
+  const from = start.value - factsOf(part).longest;
+  let lo = 0;
+  let hi = notes.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (notes[mid]!.at.value < from) lo = mid + 1;
+    else hi = mid;
+  }
+  const out: NormalPart["notes"] = [];
+  for (let i = lo; i < notes.length && notes[i]!.at.lt(end); i++)
+    if (notes[i]!.end.gt(start)) out.push(notes[i]!);
+  return out;
+}
+
+/** Measures (indices, inclusive) written into one MusicXML document. */
+interface Span {
+  first: number;
+  last: number;
+}
+
+function partXml(
+  part: NormalPart,
+  index: number,
+  score: NormalScore,
+  warnings: string[],
+  span: Span,
+): string {
+  const inst = part.instrument;
+  const measures = score.measures.slice(span.first, span.last + 1);
+  const spanStart = measures[0]!.start;
+  const spanEnd = measures.at(-1)!.start.add(measures.at(-1)!.length);
+  const whole = span.first === 0 && span.last === score.measures.length - 1;
+  const inSpan = (at: Rational) => at.gte(spanStart) && at.lt(spanEnd);
+  const notesInSpan = notesBetween(part, spanStart, spanEnd);
+  const staves = inst.clefs.length;
+  const known = factsOf(part);
+  const voicesByStaff = known.voicesByStaff;
 
   // Lay out every measure first so divisions can cover all durations.
-  const layouts = score.measures.map((m) => {
+  const layouts = measures.map((m) => {
     const groups: { staff: number; voice: number; pieces: Piece[] }[] = [];
     for (const [staff, voices] of [...voicesByStaff.entries()].sort((a, b) => a[0] - b[0])) {
       for (const voice of [...voices].sort((a, b) => a - b)) {
-        const notes = part.notes.filter(
+        const notes = notesInSpan.filter(
           (n) =>
             n.staff === staff &&
             n.voice === voice &&
@@ -288,10 +350,19 @@ function partXml(part: NormalPart, index: number, score: NormalScore, warnings: 
     for (const g of groups)
       for (const p of g.pieces) divisions = lcm(divisions, lcm(p.dur.d, p.start.d));
 
-  // Directions
+  // Directions. A document that starts mid-piece repeats what is in force at its start
+  // (dynamic, technique, tempo), and hairpins crossing its edges are cut at them.
   const directions: Direction[] = [];
-  const { marks, wedges } = dynamicMarks(part);
+  const marks = [...known.marks];
+  const wedges = known.wedges;
+  const firstNote = notesInSpan.find((n) => n.at.gte(spanStart));
+  const inWedge = (at: Rational) => wedges.some((w) => w.start.lt(at) && w.end.gt(at));
+  if (!whole && firstNote && !marks.some((m) => m.at.eq(spanStart)) && !inWedge(spanStart)) {
+    const before = marks.filter((m) => m.at.lt(spanStart)).at(-1);
+    if (before) marks.push({ at: firstNote.at, mark: before.mark });
+  }
   for (const m of marks) {
+    if (!inSpan(m.at)) continue;
     const inner = m.mark === "n" ? "<other-dynamics>n</other-dynamics>" : `<${m.mark}/>`;
     directions.push({
       at: m.at,
@@ -301,35 +372,54 @@ function partXml(part: NormalPart, index: number, score: NormalScore, warnings: 
     });
   }
   for (const w of wedges) {
+    if (w.end.lte(spanStart) || w.start.gte(spanEnd)) continue;
+    const start = w.start.lt(spanStart) ? spanStart : w.start;
+    // A hairpin running past the end stops at the last barline (see isLast below).
+    const end = w.end.gt(spanEnd) ? spanEnd : w.end;
     directions.push({
-      at: w.start,
+      at: start,
       staff: 1,
       placement: "below",
-      xml: `<wedge type="${w.type}"${w.nienteStart ? ' niente="yes"' : ""}/>`,
+      xml: `<wedge type="${w.type}"${w.nienteStart && start === w.start ? ' niente="yes"' : ""}/>`,
     });
     directions.push({
-      at: w.end,
+      at: end,
       staff: 1,
       placement: "below",
-      xml: `<wedge type="stop"${w.nienteEnd ? ' niente="yes"' : ""}/>`,
+      xml: `<wedge type="stop"${w.nienteEnd && end === w.end ? ' niente="yes"' : ""}/>`,
     });
   }
-  for (const t of techniqueChanges(part))
-    directions.push({
-      at: t.at,
-      staff: 1,
-      placement: "above",
-      xml: `<words>${esc(t.text)}</words>`,
-    });
+  const changes = [...known.changes];
+  if (!whole && firstNote && !changes.some((c) => c.at.eq(firstNote.at))) {
+    const before = changes.filter((c) => c.at.lt(spanStart)).at(-1);
+    const cancel = (t: string) => t === "ord." || t === "arco" || t.startsWith("senza");
+    if (before && !cancel(before.text) && firstNote.technique.length)
+      changes.push({ at: firstNote.at, text: before.text });
+  }
+  for (const t of changes)
+    if (inSpan(t.at))
+      directions.push({
+        at: t.at,
+        staff: 1,
+        placement: "above",
+        xml: `<words>${esc(t.text)}</words>`,
+      });
   for (const t of part.texts)
-    directions.push({
-      at: t.at,
-      staff: 1,
-      placement: t.placement,
-      xml: `<words>${esc(t.text)}</words>`,
-    });
+    if (inSpan(t.at))
+      directions.push({
+        at: t.at,
+        staff: 1,
+        placement: t.placement,
+        xml: `<words>${esc(t.text)}</words>`,
+      });
   if (index === 0) {
-    for (const t of score.tempoMarks) {
+    const tempos = score.tempoMarks.filter((t) => inSpan(t.at));
+    // Verovio times the notes from the tempo in the document, so it must know it at the start.
+    if (!tempos.some((t) => t.at.eq(spanStart))) {
+      const before = score.tempoMarks.filter((t) => t.at.lt(spanStart)).at(-1);
+      if (before) tempos.unshift({ ...before, at: spanStart });
+    }
+    for (const t of tempos) {
       directions.push({
         sound: `tempo="${(t.bpm * t.beat.value).toFixed(2)}"`,
         at: t.at,
@@ -343,7 +433,7 @@ function partXml(part: NormalPart, index: number, score: NormalScore, warnings: 
   const out: string[] = [`<part id="P${index + 1}">`];
   const slur = { open: false };
   let previousMeter = "";
-  score.measures.forEach((m: Measure, mi) => {
+  measures.forEach((m: Measure, mi) => {
     out.push(`<measure number="${m.number}">`);
     const meter = `${m.beats}/${m.beatType}`;
     const attrs: string[] = [];
@@ -367,7 +457,7 @@ function partXml(part: NormalPart, index: number, score: NormalScore, warnings: 
     }
 
     const mEnd = m.start.add(m.length);
-    const isLast = mi === score.measures.length - 1;
+    const isLast = mi === measures.length - 1;
     // Directions at the final barline (a hairpin ending with the piece) go on the last note.
     const here = directions
       .filter((d) => d.at.gte(m.start) && (d.at.lt(mEnd) || isLast))
@@ -403,7 +493,8 @@ function partXml(part: NormalPart, index: number, score: NormalScore, warnings: 
     out.push("</measure>");
   });
   out.push("</part>");
-  if (slur.open) warnings.push(`part "${part.id}": a slur runs past the last note`);
+  if (slur.open && span.last === score.measures.length - 1)
+    warnings.push(`part "${part.id}": a slur runs past the last note`);
   return out.join("\n");
 }
 
@@ -435,17 +526,79 @@ export function toMusicXml(input: Score): NotationResult {
   return musicXmlOf(normalize(input));
 }
 
-export function musicXmlOf(score: NormalScore): NotationResult {
+export function musicXmlOf(
+  score: NormalScore,
+  span: Span = { first: 0, last: score.measures.length - 1 },
+): NotationResult {
   const warnings = [...score.warnings];
-  const parts = score.parts.map((p, i) => partXml(p, i, score, warnings));
+  const parts = score.parts.map((p, i) => partXml(p, i, score, warnings, span));
   const musicxml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">',
     '<score-partwise version="4.0">',
-    `<work><work-title>${esc(score.title)}</work-title></work>`,
+    // Only the first document carries the title (a long score is drawn as many).
+    ...(span.first === 0 ? [`<work><work-title>${esc(score.title)}</work-title></work>`] : []),
     partList(score),
     ...parts,
     "</score-partwise>",
   ].join("\n");
   return { musicxml, warnings };
+}
+
+/** A stretch of measures written as its own MusicXML document, for drawing a long score in pieces. */
+export interface NotationWindow {
+  /** Measure numbers (1-based, inclusive). */
+  from: number;
+  to: number;
+  musicxml: string;
+}
+
+/**
+ * The score as short documents of up to `size` measures, and fewer where the music is dense
+ * (a document stays under about `notes` notes, so none takes long to draw). Documents restart at
+ * every rehearsal mark and meter change, so an edit moves as few boundaries as possible. Each one
+ * repeats what is in force at its start (dynamics, technique, tempo).
+ */
+export function musicXmlWindows(
+  score: NormalScore,
+  size = 4,
+  notes = 600,
+): { windows: NotationWindow[]; warnings: string[] } {
+  const breaks = new Set<number>(score.rehearsal.map((r) => r.measure));
+  score.measures.forEach((m, i) => {
+    const prev = score.measures[i - 1];
+    if (prev && (prev.beats !== m.beats || prev.beatType !== m.beatType)) breaks.add(m.number);
+  });
+  // Notes starting in each measure, over all parts.
+  const starts = score.measures.map((m) => m.start.value);
+  const count = Array.from({ length: score.measures.length }, () => 0);
+  for (const p of score.parts)
+    for (const n of p.notes) {
+      let i = starts.length - 1;
+      while (i > 0 && starts[i]! > n.at.value) i--;
+      count[i]! += Math.max(1, n.pitches.length);
+    }
+  const spans: Span[] = [];
+  let first = 0;
+  let inWindow = count[0] ?? 0;
+  for (let i = 1; i <= score.measures.length; i++) {
+    const m = score.measures[i];
+    if (!m || i - first >= size || breaks.has(m.number) || inWindow + count[i]! > notes) {
+      spans.push({ first, last: i - 1 });
+      first = i;
+      inWindow = 0;
+    }
+    inWindow += count[i] ?? 0;
+  }
+  const warnings = new Set<string>();
+  const windows = spans.map((span) => {
+    const { musicxml, warnings: w } = musicXmlOf(score, span);
+    for (const x of w) warnings.add(x);
+    return {
+      from: score.measures[span.first]!.number,
+      to: score.measures[span.last]!.number,
+      musicxml,
+    };
+  });
+  return { windows, warnings: [...warnings] };
 }

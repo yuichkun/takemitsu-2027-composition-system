@@ -1,26 +1,25 @@
 // The preview's dev-server side (docs/decisions/0016): lists and watches score JSON files,
-// turns them into MusicXML, runs renders, and serves the results.
+// turns them into MusicXML, keeps their chunks rendered in the background, and serves chunks.
 //
 // Score folders: examples/ and scores/ in the repository, plus any in PREVIEW_SCORE_DIRS
 // (colon-separated), so a composition layer can write its output anywhere.
+//
+// Rendering: opening a score, and every save of an open score, plans it and queues the chunks
+// that are not stored yet (src/performance/engine.ts), nearest the playhead first. The page gets
+// the list of chunks (/api/manifest), hears which become ready ("chunks" events), and fetches
+// the parts' audio shortly before it plays, mixed from the chunks in 2 s segments (/api/segments).
 
-import {
-  createReadStream,
-  existsSync,
-  readdirSync,
-  statSync,
-  watch,
-  type FSWatcher,
-} from "node:fs";
+import { createHash } from "node:crypto";
+import { existsSync, readdirSync, watch, type FSWatcher } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { basename, isAbsolute, join, relative, resolve } from "node:path";
 
-import { musicXmlOf } from "../notation/musicxml.ts";
-import { plan } from "../performance/plan.ts";
-import { remix, renderPlan, type RenderOutput } from "../performance/render.ts";
+import { musicXmlWindows } from "../notation/musicxml.ts";
+import { Engine, type Manifest } from "../performance/engine.ts";
+import { segmentBundle, type SegmentRequest } from "../performance/segments.ts";
 import { repoRoot } from "../render/host.ts";
-import { normalize } from "../score/normalize.ts";
+import { normalize, type NormalScore } from "../score/normalize.ts";
 import { secondsAt } from "../score/timeline.ts";
 import type { Score } from "../score/types.ts";
 
@@ -53,12 +52,76 @@ function allowed(path: string): boolean {
   );
 }
 
-async function loadScore(path: string) {
-  const score = normalize(JSON.parse(await readFile(path, "utf8")) as Score);
-  const { musicxml, warnings } = musicXmlOf(score);
+//==============================================================================
+// Open scores: parsed once per content, planned and queued for rendering
+
+const engine = new Engine();
+
+interface Loaded {
+  hash: string;
+  score: NormalScore;
+  manifest: Manifest;
+}
+const loaded = new Map<string, Loaded>();
+const loading = new Map<string, Promise<Loaded>>();
+
+/** The score at `path` as it is on disk now, planned and queued (again only if it changed). */
+async function load(path: string): Promise<Loaded> {
+  const text = await readFile(path, "utf8");
+  const hash = createHash("sha256").update(text).digest("hex");
+  const current = loaded.get(path);
+  if (current?.hash === hash) return current;
+  const pending = loading.get(path);
+  if (pending) return pending;
+  const work = (async () => {
+    const score = normalize(JSON.parse(text) as Score);
+    const manifest = await engine.open(path, score);
+    const entry = { hash, score, manifest };
+    loaded.set(path, entry);
+    return entry;
+  })();
+  loading.set(path, work);
+  try {
+    return await work;
+  } finally {
+    loading.delete(path);
+  }
+}
+
+/**
+ * The notation of each loaded score, as short MusicXML documents ("windows") the page draws one
+ * by one, by content hash: after an edit, only windows whose MusicXML changed are drawn again.
+ */
+const notation = new Map<
+  string,
+  { hash: string; windows: { from: number; to: number; hash: string }[]; warnings: string[] }
+>();
+const windowXml = new Map<string, string>();
+
+function notationOf(path: string, entry: Loaded) {
+  const known = notation.get(path);
+  if (known?.hash === entry.hash) return known;
+  const { windows, warnings } = musicXmlWindows(entry.score);
+  const list = windows.map((w) => {
+    const hash = createHash("sha256").update(w.musicxml).digest("hex").slice(0, 32);
+    windowXml.set(hash, w.musicxml);
+    return { from: w.from, to: w.to, hash };
+  });
+  const result = { hash: entry.hash, windows: list, warnings };
+  notation.set(path, result);
+  // Keep the documents of the loaded scores only.
+  const used = new Set([...notation.values()].flatMap((n) => n.windows.map((w) => w.hash)));
+  for (const h of windowXml.keys()) if (!used.has(h)) windowXml.delete(h);
+  return result;
+}
+
+async function scoreView(path: string) {
+  const entry = await load(path);
+  const { score } = entry;
+  const { windows, warnings } = notationOf(path, entry);
   return {
     title: score.title,
-    musicxml,
+    windows,
     warnings,
     measures: score.measures.map((m) => ({
       number: m.number,
@@ -67,7 +130,6 @@ async function loadScore(path: string) {
       endSeconds: secondsAt(score.tempo, m.start.add(m.length).value),
     })),
     parts: score.parts.map((p) => ({ id: p.id, name: p.name })),
-    score,
   };
 }
 
@@ -80,6 +142,14 @@ function broadcast(event: string, data: unknown): void {
   for (const c of clients) c.write(payload);
 }
 
+engine.onReady = (path, keys) =>
+  broadcast("chunks", {
+    path,
+    version: loaded.get(path)?.manifest.version,
+    ready: keys.map((k) => [k, engine.framesOf(k) ?? 0]),
+  });
+engine.onProgress = (path, progress) => broadcast("progress", { path, ...progress });
+
 let watchers: FSWatcher[] = [];
 let watched = "";
 function watchScores(): void {
@@ -88,7 +158,15 @@ function watchScores(): void {
   for (const w of watchers) w.close();
   watchers = existing.map((dir) =>
     watch(dir, (_type, file) => {
-      if (file?.endsWith(".json")) broadcast("changed", { path: join(dir, file) });
+      if (!file?.endsWith(".json")) return;
+      const path = join(dir, file);
+      // An open score starts rendering its changes before the page asks.
+      if (loaded.has(path))
+        void load(path).then(
+          () => broadcast("changed", { path }),
+          () => broadcast("changed", { path }),
+        );
+      else broadcast("changed", { path });
     }),
   );
   // A folder that appeared later (or vanished): let the page refresh its list.
@@ -96,76 +174,12 @@ function watchScores(): void {
   watched = existing.join(":");
 }
 
-const rendersRoot = join(repoRoot, ".local/renders");
-
 //==============================================================================
 // Mixer settings, one file per score (the balance is separate from the score's dynamics)
 
 const mixerRoot = join(repoRoot, ".local/mixer");
 const mixerFile = (scorePath: string) =>
   join(mixerRoot, `${basename(scorePath).replace(/\.json$/, "")}.json`);
-
-//==============================================================================
-// Render jobs (one at a time; a new request waits for the running one)
-
-interface Job {
-  id: string;
-  path: string;
-  from: number;
-  to: number;
-  status: "queued" | "running" | "done" | "failed";
-  message: string;
-  fraction: number;
-  result?: RenderOutput & {
-    url: string;
-    stemUrls: Record<string, string>;
-    renderDir: string;
-    startSeconds: number;
-  };
-  error?: string;
-}
-const jobs = new Map<string, Job>();
-let chain: Promise<unknown> = Promise.resolve();
-
-function startRender(path: string, from: number, to: number): Job {
-  const id = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
-  const job: Job = { id, path, from, to, status: "queued", message: "Waiting", fraction: 0 };
-  jobs.set(id, job);
-  const update = () => broadcast("job", job);
-  chain = chain.then(async () => {
-    job.status = "running";
-    update();
-    try {
-      const { score } = await loadScore(path);
-      const first = score.measures.find((m) => m.number === from) ?? score.measures[0]!;
-      const last = score.measures.find((m) => m.number === to) ?? score.measures.at(-1)!;
-      const p = plan(score, { from: first.start, to: last.start.add(last.length) });
-      const name = basename(path).replace(/\.json$/, "");
-      const dir = join(repoRoot, ".local/renders", name, `m${first.number}-${last.number}`);
-      const out = await renderPlan(p, dir, (message, fraction) => {
-        job.message = message;
-        job.fraction = fraction;
-        update();
-      });
-      const urlOf = (file: string) => `/renders/${relative(rendersRoot, file)}?v=${Date.now()}`;
-      job.result = {
-        ...out,
-        url: urlOf(out.mix),
-        stemUrls: Object.fromEntries(Object.entries(out.stems).map(([id, f]) => [id, urlOf(f)])),
-        renderDir: relative(rendersRoot, dir),
-        startSeconds: secondsAt(score.tempo, first.start.value),
-      };
-      job.status = "done";
-      job.message = "Done";
-      job.fraction = 1;
-    } catch (e) {
-      job.status = "failed";
-      job.error = e instanceof Error ? e.message : String(e);
-    }
-    update();
-  });
-  return job;
-}
 
 //==============================================================================
 
@@ -186,16 +200,35 @@ export function previewMiddleware() {
   setInterval(watchScores, 3000).unref();
   return async (req: IncomingMessage, res: ServerResponse, next: Next) => {
     const url = new URL(req.url ?? "/", "http://localhost");
+    const path = url.searchParams.get("path") ?? "";
     try {
       if (url.pathname === "/api/scores") return json(res, 200, listScores());
       if (url.pathname === "/api/score") {
-        const path = url.searchParams.get("path") ?? "";
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
-        const { score: _score, ...rest } = await loadScore(path);
-        return json(res, 200, rest);
+        return json(res, 200, await scoreView(path));
+      }
+      if (url.pathname === "/api/window") {
+        const xml = windowXml.get(url.searchParams.get("hash") ?? "");
+        if (xml === undefined) return json(res, 404, { error: "Unknown window" });
+        res.setHeader("content-type", "application/xml");
+        return res.end(xml);
+      }
+      if (url.pathname === "/api/manifest") {
+        if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
+        await load(path);
+        return json(res, 200, { ...engine.manifest(path), progress: engine.progress(path) });
+      }
+      if (url.pathname === "/api/playhead" && req.method === "POST") {
+        const { path: p, seconds } = (await body(req)) as { path: string; seconds: number };
+        engine.setPlayhead(p, seconds);
+        return json(res, 200, { ok: true });
+      }
+      if (url.pathname === "/api/segments" && req.method === "POST") {
+        const { segments } = (await body(req)) as { segments: SegmentRequest[] };
+        res.setHeader("content-type", "application/octet-stream");
+        return res.end(await segmentBundle(segments));
       }
       if (url.pathname === "/api/mixer") {
-        const path = url.searchParams.get("path") ?? "";
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
         if (req.method === "PUT") {
           await mkdir(mixerRoot, { recursive: true });
@@ -204,22 +237,6 @@ export function previewMiddleware() {
         }
         const file = mixerFile(path);
         return json(res, 200, existsSync(file) ? JSON.parse(await readFile(file, "utf8")) : {});
-      }
-      if (url.pathname === "/api/remix" && req.method === "POST") {
-        const { renderDir, parts } = (await body(req)) as {
-          renderDir: string;
-          parts: Record<string, { gain: number; comp: number }>;
-        };
-        const dir = resolve(rendersRoot, renderDir);
-        if (relative(rendersRoot, dir).startsWith(".."))
-          return json(res, 403, { error: "Outside renders" });
-        const file = await remix(dir, parts);
-        return json(res, 200, { url: `/renders/${relative(rendersRoot, file)}?v=${Date.now()}` });
-      }
-      if (url.pathname === "/api/render" && req.method === "POST") {
-        const { path, from, to } = (await body(req)) as { path: string; from: number; to: number };
-        if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
-        return json(res, 200, startRender(path, from, to));
       }
       if (url.pathname === "/api/events") {
         res.writeHead(200, {
@@ -230,32 +247,6 @@ export function previewMiddleware() {
         res.write(": connected\n\n");
         clients.add(res);
         req.on("close", () => clients.delete(res));
-        return;
-      }
-      if (url.pathname.startsWith("/renders/")) {
-        const root = join(repoRoot, ".local/renders");
-        const file = resolve(root, decodeURIComponent(url.pathname.slice("/renders/".length)));
-        if (relative(root, file).startsWith("..") || !existsSync(file) || !statSync(file).isFile())
-          return json(res, 404, { error: "Not found" });
-        // Byte ranges, so the audio element can seek.
-        const size = statSync(file).size;
-        res.setHeader(
-          "content-type",
-          file.endsWith(".wav") ? "audio/wav" : "application/octet-stream",
-        );
-        res.setHeader("accept-ranges", "bytes");
-        const match = /bytes=(\d*)-(\d*)/.exec(req.headers.range ?? "");
-        if (match) {
-          const start = match[1] ? Number(match[1]) : 0;
-          const end = match[2] ? Math.min(Number(match[2]), size - 1) : size - 1;
-          res.statusCode = 206;
-          res.setHeader("content-range", `bytes ${start}-${end}/${size}`);
-          res.setHeader("content-length", end - start + 1);
-          createReadStream(file, { start, end }).pipe(res);
-          return;
-        }
-        res.setHeader("content-length", size);
-        createReadStream(file).pipe(res);
         return;
       }
     } catch (e) {

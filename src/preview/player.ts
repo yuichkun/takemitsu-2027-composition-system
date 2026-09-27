@@ -1,10 +1,13 @@
-// Playback with a mixer: one channel per part (compression, fader, mute, solo, meter) and a
-// master with a limiter. Every channel goes through a compressor, even at 0, so the compressor's
-// look-ahead delays all channels alike.
+// Playback of rendered chunks through a mixer: one channel per part (compression, fader, mute,
+// solo, meter) and a master with a limiter. Every channel goes through a compressor, even at 0,
+// so the compressor's look-ahead delays all channels alike.
 //
-// Stems mode mixes the parts' stems in the browser, so every change is immediate.
-// Long renders with many parts would not fit in memory decoded; they use mix mode instead:
-// the server mixes the stems with the fader settings and the browser plays one file.
+// The player gets the score's whole list of chunks (the manifest) each time the score changes.
+// It streams each part as consecutive 2-second segments, mixed by the server from that part's
+// rendered chunks (src/performance/segments.ts), and keeps only the few segments around the
+// playhead. A segment is named by exactly what it mixes (which chunks, where, at what gain),
+// so when a chunk becomes ready or the score changes, the segments that differ get new names
+// and are fetched again; the rest stay. A chunk that is not rendered yet is silent.
 
 import { compressorParams, limiterParams, type CompressorParams } from "../audio/dynamics.ts";
 
@@ -16,11 +19,29 @@ export interface ChannelState {
   comp: number;
 }
 
-export type RemixParts = Record<string, { gain: number; comp: number }>;
-
 export interface MixerSettings {
   master?: number;
   parts?: Record<string, ChannelState>;
+}
+
+/** [key, part index, origin (s), gain, stored frames or -1 while not rendered] */
+export type ManifestChunk = [string, number, number, number, number];
+
+export interface Manifest {
+  version: number;
+  duration: number;
+  measures: { start: number; end: number }[];
+  parts: string[];
+  chunks: ManifestChunk[];
+}
+
+/** [chunk key, the chunk's frame 0 relative to the segment's start, gain] */
+export type Contribution = [string, number, number];
+
+export interface SegmentRequest {
+  id: string;
+  frames: number;
+  contributions: Contribution[];
 }
 
 interface Channel extends ChannelState {
@@ -28,11 +49,29 @@ interface Channel extends ChannelState {
   compressor: DynamicsCompressorNode;
   gain: GainNode;
   analyser: AnalyserNode;
-  buffer?: AudioBuffer;
 }
 
-/** Decoded stems above this size switch to mix mode. */
-const stemBudgetBytes = 1.2e9;
+interface Entry {
+  key: string;
+  part: string;
+  origin: number;
+  gain: number;
+  /** Stored frames; undefined while not rendered. */
+  frames?: number;
+}
+
+interface Wanted extends SegmentRequest {
+  part: string;
+  index: number;
+}
+
+const sampleRate = 48000;
+/** Segment length in seconds; segment i covers [i·S, (i+1)·S) of the piece. */
+const segmentSeconds = 2;
+const segmentFrames = segmentSeconds * sampleRate;
+/** Segments fetched ahead of the playhead, and scheduled ahead on the audio clock. */
+const fetchAhead = 3;
+const scheduleAhead = 1;
 
 function setCompressor(node: DynamicsCompressorNode, p: CompressorParams, ctx: AudioContext): void {
   const t = ctx.currentTime;
@@ -45,25 +84,61 @@ function setCompressor(node: DynamicsCompressorNode, p: CompressorParams, ctx: A
 
 export const dbToGain = (db: number) => (db <= -60 ? 0 : 10 ** (db / 20));
 
+/** Decodes the chunk format ("TKCH", see src/performance/store.ts) into an AudioBuffer. */
+function decode(ctx: AudioContext, bytes: Uint8Array): AudioBuffer | null {
+  if (bytes.length < 24) return null;
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  const frames = view.getInt32(12, true);
+  if (frames <= 0) return null;
+  const scale = view.getFloat32(20, true) / 32767;
+  const samples = new Int16Array(
+    bytes.buffer.slice(bytes.byteOffset + 24, bytes.byteOffset + 24 + frames * 4),
+  );
+  const buffer = ctx.createBuffer(2, frames, view.getInt32(8, true));
+  const left = new Float32Array(frames);
+  const right = new Float32Array(frames);
+  for (let i = 0; i < frames; i++) {
+    left[i] = samples[i * 2]! * scale;
+    right[i] = samples[i * 2 + 1]! * scale;
+  }
+  buffer.copyToChannel(left, 0);
+  buffer.copyToChannel(right, 1);
+  return buffer;
+}
+
+/** A short, stable name for what a segment mixes (FNV-1a over the list). */
+function nameOf(part: string, index: number, contributions: Contribution[]): string {
+  let h = 0x811c9dc5;
+  const text = contributions.map((c) => c.join(",")).join(";");
+  for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 0x01000193);
+  return `${part}|${index}|${(h >>> 0).toString(36)}|${contributions.length}`;
+}
+
 export class Player {
-  readonly ctx = new AudioContext({ sampleRate: 48000 });
+  readonly ctx = new AudioContext({ sampleRate });
   readonly masterGain = this.ctx.createGain();
   readonly limiter = this.ctx.createDynamicsCompressor();
   readonly masterAnalyser = this.ctx.createAnalyser();
   masterDb = 0;
-  mode: "stems" | "mix" = "stems";
   duration = 0;
   onChange?: () => void;
+  /** Fetches mixed segments. */
+  fetchSegments?: (requests: SegmentRequest[]) => Promise<Map<string, Uint8Array>>;
 
   private channels = new Map<string, Channel>();
-  private sources: AudioBufferSourceNode[] = [];
+  /** Chunks per part, sorted by origin, and the longest chunk per part (seconds). */
+  private byPart = new Map<string, Entry[]>();
+  private longest = new Map<string, number>();
+  private byKey = new Map<string, Entry>();
+  private entries: Entry[] = [];
+  /** Decoded segments by name (null: silent). */
+  private segments = new Map<string, AudioBuffer | null>();
+  private fetching = new Set<string>();
+  /** What is scheduled per part and segment index ("part|index"). */
+  private scheduled = new Map<string, { name: string; source?: AudioBufferSourceNode }>();
   private startedAt = 0;
   private offset = 0;
-  private playing = false;
-  private element = new Audio();
-  private elementSource = this.ctx.createMediaElementSource(this.element);
-  private remix?: (parts: RemixParts) => Promise<string>;
-  private remixTimer = 0;
+  private running = false;
 
   constructor() {
     setCompressor(this.limiter, limiterParams, this.ctx);
@@ -71,11 +146,6 @@ export class Player {
     this.limiter.connect(this.masterAnalyser);
     this.masterAnalyser.connect(this.ctx.destination);
     this.masterAnalyser.fftSize = 1024;
-    this.elementSource.connect(this.masterGain);
-    this.element.addEventListener("ended", () => {
-      this.playing = false;
-      this.onChange?.();
-    });
   }
 
   /** Sets the channels (in score order) and their saved settings. Keeps settings of known ids. */
@@ -100,11 +170,12 @@ export class Player {
         compressor,
         gain,
         analyser,
-        buffer: this.channels.get(id)?.buffer,
       });
     }
     this.channels = next;
     this.masterDb = settings.master ?? this.masterDb;
+    // Sounding segments were connected to the old channels.
+    if (this.running) this.restart();
     this.apply();
   }
 
@@ -120,38 +191,85 @@ export class Player {
   }
 
   hasSound(id: string): boolean {
-    return this.mode === "mix" || this.channels.get(id)?.buffer !== undefined;
+    return (this.byPart.get(id)?.length ?? 0) > 0;
   }
 
-  /** Loads a render: stems when they fit in memory, otherwise the server-mixed file. */
-  async load(
-    stems: Record<string, string>,
-    seconds: number,
-    remix: (parts: RemixParts) => Promise<string>,
-    onProgress?: (text: string) => void,
-  ): Promise<void> {
-    this.stop();
-    this.remix = remix;
-    this.duration = seconds;
-    const bytes = seconds * this.ctx.sampleRate * 2 * 4 * Object.keys(stems).length;
-    for (const ch of this.channels.values()) ch.buffer = undefined;
-    if (bytes > stemBudgetBytes) {
-      this.mode = "mix";
-      await this.remixNow();
-      return;
+  /** Takes a new list of chunks. Segments that mix the same things as before are kept. */
+  setManifest(manifest: Manifest): void {
+    this.duration = manifest.duration;
+    this.entries = manifest.chunks
+      .map(([key, part, origin, gain, frames]) => ({
+        key,
+        part: manifest.parts[part]!,
+        origin,
+        gain,
+        frames: frames >= 0 ? frames : undefined,
+      }))
+      .sort((a, b) => a.origin - b.origin);
+    this.byKey = new Map(this.entries.map((e) => [e.key, e]));
+    this.byPart = new Map();
+    this.longest = new Map();
+    for (const e of this.entries) {
+      const list = this.byPart.get(e.part) ?? [];
+      list.push(e);
+      this.byPart.set(e.part, list);
+      this.longest.set(
+        e.part,
+        Math.max(this.longest.get(e.part) ?? 0, (e.frames ?? 0) / sampleRate),
+      );
     }
-    this.mode = "stems";
-    let loaded = 0;
-    await Promise.all(
-      Object.entries(stems).map(async ([id, url]) => {
-        const data = await (await fetch(url)).arrayBuffer();
-        const buffer = await this.ctx.decodeAudioData(data);
-        const ch = this.channels.get(id);
-        if (ch) ch.buffer = buffer;
-        onProgress?.(`音を読み込み中 ${++loaded}/${Object.keys(stems).length}`);
-      }),
-    );
-    this.apply();
+    this.tick();
+  }
+
+  /** Chunks that finished rendering. */
+  ready(chunks: [string, number][]): void {
+    for (const [key, frames] of chunks) {
+      const e = this.byKey.get(key);
+      if (!e) continue;
+      e.frames = frames;
+      this.longest.set(e.part, Math.max(this.longest.get(e.part) ?? 0, frames / sampleRate));
+    }
+    this.tick();
+  }
+
+  /** How much of the piece is rendered: per measure, the share of its chunks that are ready. */
+  readiness(measures: { start: number; end: number }[]): number[] {
+    // One sweep: entries and measures are both in time order.
+    const all = Array.from({ length: measures.length }, () => 0);
+    const done = Array.from({ length: measures.length }, () => 0);
+    let m = 0;
+    for (const e of this.entries) {
+      const onset = e.origin + 0.06;
+      while (m < measures.length - 1 && onset >= measures[m]!.end) m++;
+      all[m]!++;
+      if (e.frames !== undefined) done[m]!++;
+    }
+    return all.map((n, i) => (n ? done[i]! / n : 1));
+  }
+
+  /** What segment `index` of a part mixes: its rendered chunks sounding in it. */
+  private contributions(part: string, index: number): Contribution[] {
+    const list = this.byPart.get(part);
+    if (!list) return [];
+    const start = index * segmentSeconds;
+    const end = start + segmentSeconds;
+    const earliest = start - (this.longest.get(part) ?? 0) - 1;
+    let lo = 0;
+    let hi = list.length;
+    while (lo < hi) {
+      const mid = (lo + hi) >> 1;
+      if (list[mid]!.origin < earliest) lo = mid + 1;
+      else hi = mid;
+    }
+    const out: Contribution[] = [];
+    for (let i = lo; i < list.length && list[i]!.origin < end; i++) {
+      const e = list[i]!;
+      if (!e.frames) continue;
+      const offset = Math.round((e.origin - start) * sampleRate);
+      if (offset + e.frames <= 0) continue;
+      out.push([e.key, offset, e.gain]);
+    }
+    return out;
   }
 
   private effectiveGains(): Record<string, number> {
@@ -164,7 +282,7 @@ export class Player {
     return gains;
   }
 
-  /** Applies compression, fader, mute and solo to the audio graph (or asks the server to mix again). */
+  /** Applies compression, fader, mute and solo to the audio graph. */
   apply(): void {
     const gains = this.effectiveGains();
     for (const ch of this.channels.values()) {
@@ -172,24 +290,7 @@ export class Player {
       setCompressor(ch.compressor, compressorParams(ch.comp), this.ctx);
     }
     this.masterGain.gain.setTargetAtTime(dbToGain(this.masterDb), this.ctx.currentTime, 0.01);
-    if (this.mode === "mix" && this.remix) {
-      clearTimeout(this.remixTimer);
-      this.remixTimer = window.setTimeout(() => void this.remixNow(), 400);
-    }
     this.onChange?.();
-  }
-
-  private async remixNow(): Promise<void> {
-    if (!this.remix) return;
-    const at = this.position;
-    const wasPlaying = this.playing;
-    const gains = this.effectiveGains();
-    const parts: RemixParts = {};
-    for (const ch of this.channels.values()) parts[ch.id] = { gain: gains[ch.id]!, comp: ch.comp };
-    const url = await this.remix(parts);
-    this.element.src = url;
-    this.element.currentTime = at;
-    if (wasPlaying) await this.element.play();
   }
 
   set(id: string, change: Partial<ChannelState>): void {
@@ -205,81 +306,154 @@ export class Player {
   }
 
   get isPlaying(): boolean {
-    return this.playing;
+    return this.running;
   }
 
+  /** Playhead in seconds from the start of the piece. */
   get position(): number {
-    if (this.mode === "mix") return this.element.currentTime;
     // Sources start slightly after play() is called; hold the offset until then.
-    return this.playing
+    return this.running
       ? this.offset + Math.max(0, this.ctx.currentTime - this.startedAt)
       : this.offset;
   }
 
+  /** The segments with anything in them, for indices [from, to]. */
+  private wanted(from: number, to: number): Wanted[] {
+    const out: Wanted[] = [];
+    for (let index = Math.max(-1, from); index <= to; index++)
+      for (const part of this.byPart.keys()) {
+        const contributions = this.contributions(part, index);
+        if (!contributions.length) continue;
+        const id = nameOf(part, index, contributions);
+        out.push({ id, part, index, frames: segmentFrames, contributions });
+      }
+    return out;
+  }
+
+  /** Fetches segments not here yet. */
+  private async load(requests: Wanted[]): Promise<void> {
+    const missing = requests.filter((r) => !this.segments.has(r.id) && !this.fetching.has(r.id));
+    if (!missing.length || !this.fetchSegments) return;
+    for (const r of missing) this.fetching.add(r.id);
+    try {
+      // Small batches, earliest first: the segment under the playhead arrives soonest.
+      missing.sort((a, b) => a.index - b.index);
+      for (let i = 0; i < missing.length; i += 40) {
+        const batch = missing
+          .slice(i, i + 40)
+          .map(({ id, frames, contributions }) => ({ id, frames, contributions }));
+        const got = await this.fetchSegments(batch);
+        for (const [id, bytes] of got) this.segments.set(id, decode(this.ctx, bytes));
+        this.tick();
+      }
+    } finally {
+      for (const r of missing) this.fetching.delete(r.id);
+    }
+  }
+
   async play(from = this.position): Promise<void> {
     await this.ctx.resume();
-    this.stop(false);
+    this.stopSources();
     this.offset = Math.max(0, Math.min(from, this.duration));
-    if (this.mode === "mix") {
-      this.element.currentTime = this.offset;
-      await this.element.play();
-    } else {
-      this.startedAt = this.ctx.currentTime + 0.05;
-      for (const ch of this.channels.values()) {
-        if (!ch.buffer) continue;
-        const src = this.ctx.createBufferSource();
-        src.buffer = ch.buffer;
-        src.connect(ch.compressor);
-        src.start(this.startedAt, this.offset);
-        this.sources.push(src);
-      }
-    }
-    this.playing = true;
+    // Have the first moments here before starting, so the start is not ragged.
+    const first = Math.floor(this.offset / segmentSeconds);
+    await Promise.race([
+      this.load(this.wanted(first, first)),
+      new Promise((r) => setTimeout(r, 1500)),
+    ]);
+    this.startedAt = this.ctx.currentTime + 0.05;
+    this.running = true;
+    this.tick();
     this.onChange?.();
   }
 
   pause(): void {
     const at = this.position;
-    this.stop(false);
+    this.stopSources();
+    this.running = false;
     this.offset = at;
     this.onChange?.();
   }
 
   seek(seconds: number): void {
-    if (this.playing) void this.play(seconds);
+    if (this.running) void this.play(seconds);
     else {
       this.offset = Math.max(0, Math.min(seconds, this.duration));
-      if (this.mode === "mix") this.element.currentTime = this.offset;
       this.onChange?.();
+      this.tick();
     }
   }
 
-  private stop(resetOffset = true): void {
-    for (const s of this.sources) {
+  private restart(): void {
+    const at = this.position;
+    this.stopSources();
+    this.offset = at;
+    this.startedAt = this.ctx.currentTime + 0.05;
+    this.tick();
+  }
+
+  private stopSources(): void {
+    for (const s of this.scheduled.values()) {
       try {
-        s.stop();
+        s.source?.stop();
       } catch {
         // already stopped
       }
-      s.disconnect();
+      s.source?.disconnect();
     }
-    this.sources = [];
-    this.element.pause();
-    this.playing = false;
-    if (resetOffset) this.offset = 0;
+    this.scheduled.clear();
   }
 
-  /** Stops at the end of the render. Call regularly. */
+  /** Fetches, schedules and forgets segments around the playhead. Call regularly. */
   tick(): void {
-    if (this.playing && this.mode === "stems" && this.position >= this.duration) {
-      this.stop();
-      this.onChange?.();
+    const now = this.position;
+    if (this.running && now >= this.duration + 30) {
+      this.pause();
+      this.offset = 0;
+      return;
     }
+    const index = Math.floor(now / segmentSeconds);
+    const soon = this.wanted(index, index + fetchAhead);
+    void this.load(soon);
+    // Forget segments that are not wanted any more (behind, or replaced by newer ones).
+    const keep = new Set(soon.map((r) => r.id));
+    for (const id of this.segments.keys()) if (!keep.has(id)) this.segments.delete(id);
+    if (!this.running) return;
+
+    for (const r of soon) {
+      if (r.index > index + scheduleAhead) continue;
+      const slot = `${r.part}|${r.index}`;
+      const current = this.scheduled.get(slot);
+      if (current?.name === r.id) continue;
+      const buffer = this.segments.get(r.id);
+      if (buffer === undefined) continue; // not here yet
+      // A newer version of a segment that is already playing takes over from here.
+      try {
+        current?.source?.stop();
+      } catch {
+        // already stopped
+      }
+      const channel = this.channels.get(r.part);
+      const at = this.startedAt + (r.index * segmentSeconds - this.offset);
+      const lateBy = Math.max(0, this.ctx.currentTime + 0.02 - at);
+      if (buffer === null || !channel || lateBy >= buffer.duration) {
+        this.scheduled.set(slot, { name: r.id });
+        continue;
+      }
+      const source = this.ctx.createBufferSource();
+      source.buffer = buffer;
+      source.connect(channel.compressor);
+      source.start(at + lateBy, lateBy);
+      source.onended = () => source.disconnect();
+      this.scheduled.set(slot, { name: r.id, source });
+    }
+    // Forget what was scheduled for segments that have ended.
+    for (const slot of this.scheduled.keys())
+      if (Number(slot.slice(slot.lastIndexOf("|") + 1)) < index - 1) this.scheduled.delete(slot);
   }
 
   /** Current gain reduction in dB (≤ 0) of a channel's compressor, or of the master limiter. */
   reduction(id?: string): number {
-    if (this.mode === "mix") return 0;
     return id ? (this.channels.get(id)?.compressor.reduction ?? 0) : this.limiter.reduction;
   }
 

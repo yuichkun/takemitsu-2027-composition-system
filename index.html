@@ -25,20 +25,22 @@
           ▶
         </button>
         <span id="time" class="time">0:00 / 0:00</span>
-        <div class="range">
-          <label for="from">範囲</label>
-          <input id="from" type="number" min="1" value="1" />
-          <span>–</span>
-          <input id="to" type="number" min="1" value="1" />
-          <button id="all" type="button" title="全小節（Esc）">全体</button>
-        </div>
-        <button id="render" type="button" class="primary" title="範囲をレンダ（R）">レンダ</button>
-        <div id="status" class="status"></div>
+        <div
+          id="status"
+          class="status"
+          title="保存すると、変わったところだけを裏でレンダし直す"
+        ></div>
         <button id="help" type="button" class="keys-button" title="ショートカット（?）">
           <kbd>Space</kbd> 再生 <kbd>Enter</kbd> 先頭 <kbd>←</kbd><kbd>→</kbd> 小節
           <kbd>?</kbd> ほか
         </button>
       </header>
+      <canvas
+        id="readiness"
+        class="readiness"
+        height="10"
+        title="曲全体。濃い所はレンダ済み、薄い所はレンダ中。クリックでそこへ移動"
+      ></canvas>
       <section id="messages" hidden></section>
       <div id="score" class="score"></div>
       <section id="mixer" aria-label="ミキサー">
@@ -57,7 +59,7 @@
         <tbody>
           <tr>
             <td><kbd>Space</kbd></td>
-            <td>再生 / 一時停止。レンダしていない位置なら、そこからレンダして再生</td>
+            <td>再生 / 一時停止</td>
           </tr>
           <tr>
             <td><kbd>Enter</kbd> <kbd>Home</kbd></td>
@@ -66,14 +68,6 @@
           <tr>
             <td><kbd>←</kbd> <kbd>→</kbd></td>
             <td>前 / 次の小節へ</td>
-          </tr>
-          <tr>
-            <td><kbd>R</kbd></td>
-            <td>範囲をレンダ</td>
-          </tr>
-          <tr>
-            <td><kbd>Esc</kbd></td>
-            <td>範囲を全体に戻す</td>
           </tr>
           <tr>
             <td><kbd>M</kbd></td>
@@ -92,8 +86,8 @@
             <td>再生位置を動かす</td>
           </tr>
           <tr>
-            <td>譜面を横にドラッグ</td>
-            <td>レンダする小節の範囲を選ぶ</td>
+            <td>上の帯をクリック</td>
+            <td>曲のその位置へ移す（帯の濃い所はレンダ済み）</td>
           </tr>
           <tr>
             <td>フェーダーをダブルクリック</td>
@@ -105,6 +99,9 @@
           </tr>
         </tbody>
       </table>
+      <p class="hint">
+        楽譜を保存すると、変わったところだけを裏でレンダし直す。再生位置の近くから先に作る。
+      </p>
       <form method="dialog"><button type="submit">閉じる</button></form>
     </dialog>
     <script type="module" src="/src/preview/main.ts"></script>

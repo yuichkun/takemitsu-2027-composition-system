@@ -14,5 +14,11 @@ declare module "verovio/esm" {
     renderToMIDI(): string;
     /** Onset of an element in milliseconds from the start. */
     getTimeForElement(id: string): number;
+    renderToTimemap(options?: Record<string, unknown>): {
+      tstamp: number;
+      qstamp: number;
+      on?: string[];
+      off?: string[];
+    }[];
   }
 }
