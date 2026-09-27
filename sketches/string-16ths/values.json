@@ -1,11 +1,15 @@
 {
   "values": {
-    "scale": "0 1 0 1",
-    "transpose": -1
+    "rise": 0.5,
+    "overlap": 15,
+    "tempo": 160,
+    "scale": "0 1.5 3 4.5 6 7 9 10.5"
   },
   "presets": {},
   "touched": [
-    "scale",
-    "transpose"
+    "rise",
+    "overlap",
+    "tempo",
+    "scale"
   ]
 }
