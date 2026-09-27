@@ -78,3 +78,4 @@
 | [0017](./0017-score-in-c.md) | 総譜は実音（in C）で書く | 採用 |
 | [0018](./0018-chunked-render-resident-host.md) | レンダは小節ごとのチャンクで、常駐ホストに丸ごと頼む | 採用 |
 | [0019](./0019-fixed-hosts-verified-chunks.md) | レンダの担当を固定し、確かめた音だけを出す | 採用 |
+| [0020](./0020-notation-strip-on-server.md) | 譜面はサーバで 1 小節ずつ先に描き、段をそろえた横長の 1 本として見せる | 採用 |
