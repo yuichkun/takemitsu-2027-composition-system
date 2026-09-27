@@ -2185,6 +2185,17 @@
    ]
   }
  },
+ "Discover Piano": {
+  "Piano": {
+   "range": [
+    21,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  }
+ },
  "Flute": {
   "Legato": {
    "range": [

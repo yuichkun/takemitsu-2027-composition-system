@@ -24,8 +24,13 @@ export interface StateSpec {
   articulations: ArticulationSlot[];
   /** Global tune in semitones (the plugin's "Global Tune"). */
   tune?: number;
-  /** Microphone levels by parameter id (m_close, m_tree, …). Default is the "Full Mix Real" mix only. */
+  /**
+   * Microphone levels by mic id: "flmxrl" (Full Mix Real, the default), "pmix1" (the piano's Mix 1),
+   * "close", "tree", "amb", … Mics not listed are switched off.
+   */
   mics?: Record<string, number>;
+  /** The plugin's product mode: 0 for the Professional patches, 10 for Discover Piano. */
+  productMode?: number;
   /** Reverb send, 0–1. Default 0 (dry; room sound comes from the mic positions). */
   reverb?: number;
 }
@@ -50,8 +55,18 @@ export function stateXml(spec: StateSpec): string {
   const artic = templateXml.match(/<ARTIC>[\s\S]*?<\/ARTIC>/)?.[0];
   if (!artic) throw new Error("Template has no ARTIC block");
 
+  const mics = spec.mics ?? { flmxrl: 1 };
+  // Each articulation carries its own mic mix: level (m_) and enabled flag (e_).
+  const withMics = artic.replace(
+    /<SETTING id="([me])_(\w+)" value="[^"]*" micId="(\d+)" \/>/g,
+    (_all, kind: string, mic: string, micId: string) => {
+      const level = mics[mic] ?? 0;
+      const value = kind === "m" ? level.toFixed(1) : level > 0 ? "1" : "0";
+      return `<SETTING id="${kind}_${mic}" value="${value}" micId="${micId}" />`;
+    },
+  );
   const blocks = spec.articulations.map((slot, i) => {
-    let block = setSetting(artic, "a_name", slot.patch);
+    let block = setSetting(withMics, "a_name", slot.patch);
     block = setSetting(block, "t_keyswitch", String(slot.keyswitch));
     return setSetting(block, "a_active", i === 0 ? "2" : "0");
   });
@@ -59,11 +74,13 @@ export function stateXml(spec: StateSpec): string {
   let xml = templateXml.replace(artic, blocks.join("\n    "));
   xml = xml.replace(
     /<META [^>]*\/>/,
-    `<META family="${escapeAttr(spec.family)}" name="${escapeAttr(spec.name)}" productMode="0" version="1.5.0" tags="" modified="0" />`,
+    `<META family="${escapeAttr(spec.family)}" name="${escapeAttr(spec.name)}" productMode="${spec.productMode ?? 0}" version="1.5.0" tags="" modified="0" />`,
   );
   xml = setParam(xml, "g_tune", spec.tune ?? 0);
   xml = setParam(xml, "i_reverb", spec.reverb ?? 0);
-  for (const [id, level] of Object.entries(spec.mics ?? {})) xml = setParam(xml, id, level);
+  for (const id of xml.match(/<PARAM id="m_(\w+)"/g)?.map((m) => m.slice(13, -1)) ?? []) {
+    if (id !== "virt_actual") xml = setParam(xml, `m_${id}`, mics[id] ?? 0);
+  }
   return `<?xml version="1.0" encoding="UTF-8"?> ${xml.trim()}`;
 }
 

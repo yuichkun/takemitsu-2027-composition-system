@@ -45,8 +45,28 @@ export function installedPatches(root = libraryRoot()): Patch[] {
         articulation: words(articulation!),
       };
     })
+    .concat(discoverPiano(root))
     .sort((a, b) => a.name.localeCompare(b.name));
 }
+
+/**
+ * Discover Piano (added in 1.7.0) follows another naming scheme: its only patch is called "Piano",
+ * and it needs product mode 10 and its own mic ("pmix1"); see pluginSettings.
+ */
+function discoverPiano(root: string): Patch[] {
+  const file = join(root, "Patches/v1.7.0/Discover Piano/BBCSO_Discover_Piano_Piano.zmulti");
+  return existsSync(file)
+    ? [{ name: "Piano", instrument: "Discover Piano", articulation: "Piano" }]
+    : [];
+}
+
+/** Settings an instrument needs in its plugin state beyond the defaults. */
+export const pluginSettings: Record<
+  string,
+  { productMode?: number; mics?: Record<string, number> }
+> = {
+  "Discover Piano": { productMode: 10, mics: { pmix1: 1 } },
+};
 
 export function patchesOf(instrument: string, patches = installedPatches()): Patch[] {
   return patches.filter((p) => p.instrument === instrument);

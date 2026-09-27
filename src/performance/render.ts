@@ -7,7 +7,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { encodeWav16, readWav, type Audio } from "../audio/wav.ts";
-import { installedPatches, pluginPath } from "../libraries/bbcso/patches.ts";
+import { installedPatches, pluginPath, pluginSettings } from "../libraries/bbcso/patches.ts";
 import { encodeState, stateXml } from "../libraries/bbcso/state.ts";
 import { render as runHost, repoRoot, type TrackJob } from "../render/host.ts";
 import type { BbcsoLane, Lane, Plan, SampleLane } from "./plan.ts";
@@ -42,6 +42,7 @@ function patchName(instrument: string, articulation: string): string {
 
 function laneState(lane: BbcsoLane): string {
   return stateXml({
+    ...pluginSettings[lane.instrument],
     family: "",
     name: lane.instrument,
     articulations: lane.articulations.map((a, i) => ({

@@ -11,7 +11,12 @@ import { join } from "node:path";
 import { measurePitch, peak, rms, toDb } from "../src/audio/analysis.ts";
 import { mono, readWav } from "../src/audio/wav.ts";
 import { encodeState, stateXml, type StateSpec } from "../src/libraries/bbcso/state.ts";
-import { installedPatches, patchesOf, pluginPath } from "../src/libraries/bbcso/patches.ts";
+import {
+  installedPatches,
+  patchesOf,
+  pluginPath,
+  pluginSettings,
+} from "../src/libraries/bbcso/patches.ts";
 import { render, repoRoot, type MidiEvent, type TrackJob } from "../src/render/host.ts";
 
 const out = join(repoRoot, ".local/probe");
@@ -29,6 +34,7 @@ function singleArticulation(instrument: string, articulation: string, tune = 0):
   const patch = patchesOf(instrument).find((p) => p.articulation === articulation);
   if (!patch) throw new Error(`No patch ${instrument} / ${articulation}`);
   return {
+    ...pluginSettings[instrument],
     family: "",
     name: instrument,
     articulations: [{ patch: patch.name, keyswitch: 0 }],

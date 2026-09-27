@@ -1,6 +1,7 @@
 // Reads a score JSON into exact, validated form shared by the notation and performance projections.
 
 import { instrument, playersOf, type Instrument } from "../instruments/catalog.ts";
+import { techniqueOf } from "../instruments/techniques.ts";
 import { parsePitch, type Spelled } from "./pitch.ts";
 import { max, Rational } from "./rational.ts";
 import { measures, tempoMap, type Measure, type TempoSegment } from "./timeline.ts";
@@ -89,9 +90,9 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
       throw new Error(`${where(index)}: ${inst.name} needs a pitch`);
     const technique = splitTechnique(e.technique);
     for (const t of technique) {
-      if (!inst.techniques.some((known) => known.split("+").includes(t))) {
+      if (!techniqueOf(t)) {
         warnings.push(
-          `${where(index)}: technique "${t}" is not in ${inst.name}'s vocabulary (${inst.techniques.join(", ") || "none"})`,
+          `${where(index)}: technique "${t}" is not in src/instruments/techniques.ts; written as "${t}"`,
         );
       }
     }
@@ -112,7 +113,7 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
       pitches: inst.unpitched ? [] : pitches,
       voice: e.voice ?? 1,
       staff,
-      technique: inst.unpitched ? technique : technique,
+      technique,
       articulations: e.articulations ?? [],
       slur: e.slur ?? false,
       trill: e.trill,

@@ -39,7 +39,7 @@ flowchart LR
 - 強弱の曲線から、記号（ppp〜fff、n）とヘアピン（niente を含む）を導く
 - 奏法が変わるところに文字を置く（pizz. → arco、sul pont. → ord. など）。トレモロ、フラッター、ロールは符尾の斜線
 - 臨時記号は小節内の規則で計算して `<accidental>` に書く。四分音は小数の `<alter>`（[`decisions/0011`](./decisions/0011-quarter-tone-notation.md)）
-- 総譜は実音（in C）。ピッコロ、コントラバス、グロッケンなどはオクターヴ記譜
+- 総譜は実音（in C、[`decisions/0017`](./decisions/0017-score-in-c.md)）。ピッコロ、コントラバス、グロッケンなどはオクターヴ記譜
 
 ## 演奏の射影とレンダ
 
@@ -49,10 +49,23 @@ flowchart LR
 - 奏法 → BBC SO の奏法パッチ。レーンで使う奏法だけを読み込み、キースイッチ 0, 1, 2… に割り当てる。
   BBC SO にない組み合わせは近いものに落とし、警告を出す
 - 強弱 → CC1（50 ms ごと）とベロシティ。打楽器は Dorico の鍵盤マップ（[`research/bbcso.md`](./research/bbcso.md) §6）
+- ピアノは BBC SO の Discover Piano（製品モードとマイクが他と違う。[`research/bbcso.md`](./research/bbcso.md)）
 - 奏者数 → 1人ならソロ、2人以上はセクションを人数の比で音量を下げて鳴らす。ソロしかない楽器で2人以上なら音量を上げて警告
 - `samples/<楽器 id>/[<奏法>/]` に音声ファイルがあれば、BBC SO より優先して鳴らす（[`../samples/README.md`](../samples/README.md)）
 - レンダは決定的なので、レーンの内容のハッシュで `.local/cache/` にキャッシュする。変えたパートだけがレンダし直される
 - ホストは 1 プロセスに 12 インスタンスまで、2 プロセス並行で回す（BBC SO はサンプルをメモリに載せる）
+
+## 楽器と奏法の足し方
+
+作曲中に思いついたものを足す場所は、それぞれ1か所。
+
+| 足すもの | 譜面に出す | 音を鳴らす |
+| --- | --- | --- |
+| 奏法 | [`../src/instruments/techniques.ts`](../src/instruments/techniques.ts) に1行（始まりと終わりの文字、符尾の斜線などの印） | `samples/<楽器>/<奏法>/` に音声ファイル。BBC SO に近い奏法があれば [`../src/libraries/bbcso/map.ts`](../src/libraries/bbcso/map.ts) で対応づけ |
+| 楽器 | [`../src/instruments/catalog.ts`](../src/instruments/catalog.ts) に1行（打楽器は `perc(id, 名前, 略称)`） | `samples/<楽器>/` に音声ファイル、または `map.ts` で BBC SO のパッチに対応づけ |
+
+登録していない奏法でも止まらない。奏法名がそのまま文字で出て、近い BBC SO の奏法で鳴り、プレビューに警告が出る。
+音源のない楽器は、譜面には出て、無音で警告が出る。
 
 ## プレビュー
 

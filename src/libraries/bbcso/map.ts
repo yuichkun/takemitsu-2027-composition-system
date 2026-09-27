@@ -85,6 +85,7 @@ export const bbcsoMap: Record<string, BbcsoMap> = {
   "tubular-bells": { kind: "pitched", solo: "Tubular bells", family: "mallets" },
   celesta: { kind: "pitched", solo: "Celeste", family: "keyboard" },
   harp: { kind: "pitched", solo: "Harp", family: "harp" },
+  piano: { kind: "pitched", solo: "Discover Piano", family: "keyboard" },
   "violins-1": {
     kind: "pitched",
     solo: "Violin 1 Leader",
@@ -267,7 +268,7 @@ export function chooseArticulation(
       break;
     case "keyboard":
       if (has(t, "damped")) wants.push("Short Damped");
-      wants.push("Short Sustained");
+      wants.push("Short Sustained", "Piano");
       break;
   }
 

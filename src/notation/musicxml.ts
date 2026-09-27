@@ -3,6 +3,7 @@
 // <accidental> is computed here because Verovio draws only what it is given.
 
 import type { Instrument } from "../instruments/catalog.ts";
+import { techniqueOf } from "../instruments/techniques.ts";
 import { normalize, type NormalPart, type NormalScore } from "../score/normalize.ts";
 import { accidentalName, type Spelled } from "../score/pitch.ts";
 import { lcm, Rational } from "../score/rational.ts";
@@ -73,36 +74,7 @@ export function dynamicMarks(part: NormalPart): { marks: Mark[]; wedges: Wedge[]
 //==============================================================================
 // Technique texts
 
-const techniqueText: Record<string, [string, string]> = {
-  // technique: [text when it starts, text when it ends]
-  pizz: ["pizz.", "arco"],
-  "col-legno": ["col legno batt.", "ord."],
-  "sul-pont": ["sul pont.", "ord."],
-  "sul-tasto": ["sul tasto", "ord."],
-  flautando: ["flautando", "ord."],
-  "con-sord": ["con sord.", "senza sord."],
-  muted: ["con sord.", "senza sord."],
-  cuivre: ["cuivré", "ord."],
-  flutter: ["flz.", "ord."],
-  multitongue: ["multitongue", "ord."],
-  damped: ["damp", "l.v."],
-  soft: ["soft sticks", "ord."],
-  hotrods: ["hot rods", "ord."],
-  "hard-sticks": ["hard sticks", "ord."],
-  superball: ["superball", "ord."],
-  bowed: ["bowed", "ord."],
-  rimshot: ["rim shot", "ord."],
-  "side-stick": ["side stick", "ord."],
-  choke: ["choke", "l.v."],
-  shake: ["shake", "ord."],
-  crescendo: ["", ""],
-  bisbigliando: ["bisb.", "ord."],
-  gliss: ["gliss.", ""],
-  long: ["long scrape", "ord."],
-  sfz: ["", ""],
-};
-/** Techniques drawn on the note itself rather than as text. */
-const tremoloTechniques = new Set(["tremolo", "roll", "flutter", "multitongue", "bisbigliando"]);
+const hasMark = (t: string[], mark: string) => t.some((id) => techniqueOf(id)?.mark === mark);
 
 function techniqueChanges(part: NormalPart): { at: Rational; text: string }[] {
   const out: { at: Rational; text: string }[] = [];
@@ -111,15 +83,15 @@ function techniqueChanges(part: NormalPart): { at: Rational; text: string }[] {
     a.at.cmp(b.at),
   );
   for (const n of starts) {
-    // Drawn on the note, not as text. Bartók pizz. still counts as pizz. (no "arco" before it).
+    // Techniques written only as marks on the note do not start or end text.
     const now = new Set(
       n.technique
-        .map((t) => (t === "bartok-pizz" ? "pizz" : t))
-        .filter((t) => t !== "tremolo" && t !== "roll" && t !== "harmonic"),
+        .map((t) => techniqueOf(t)?.implies ?? t)
+        .filter((t) => techniqueOf(t)?.text !== "" || techniqueOf(t)?.cancel !== ""),
     );
     const texts: string[] = [];
-    for (const t of active) if (!now.has(t)) texts.push(techniqueText[t]?.[1] ?? "ord.");
-    for (const t of now) if (!active.has(t)) texts.push(techniqueText[t]?.[0] ?? t);
+    for (const t of active) if (!now.has(t)) texts.push(techniqueOf(t)?.cancel ?? "ord.");
+    for (const t of now) if (!active.has(t)) texts.push(techniqueOf(t)?.text ?? t);
     const unique = [...new Set(texts.filter(Boolean))];
     // "ord." next to a new technique is redundant.
     const shown = unique.length > 1 ? unique.filter((t) => t !== "ord.") : unique;
@@ -215,13 +187,12 @@ function noteXml(
       slur.open = true;
     }
     const ornaments: string[] = [];
-    if (n.technique.some((t) => tremoloTechniques.has(t)))
-      ornaments.push('<tremolo type="single">3</tremolo>');
+    if (hasMark(n.technique, "tremolo")) ornaments.push('<tremolo type="single">3</tremolo>');
     if (n.trill && firstPiece) ornaments.push("<trill-mark/>");
     if (ornaments.length) notations.push(`<ornaments>${ornaments.join("")}</ornaments>`);
     const technical: string[] = [];
-    if (n.technique.includes("harmonic")) technical.push("<harmonic><natural/></harmonic>");
-    if (n.technique.includes("bartok-pizz") && firstPiece) technical.push("<snap-pizzicato/>");
+    if (hasMark(n.technique, "harmonic")) technical.push("<harmonic><natural/></harmonic>");
+    if (hasMark(n.technique, "snap-pizzicato") && firstPiece) technical.push("<snap-pizzicato/>");
     if (technical.length) notations.push(`<technical>${technical.join("")}</technical>`);
     if (firstPiece && n.articulations.length) {
       const tags: Record<string, string> = {
