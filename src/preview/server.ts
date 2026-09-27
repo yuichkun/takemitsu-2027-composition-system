@@ -18,6 +18,7 @@
 // - "notation": measures drawn (engraver.ts) → /api/notation (where each drawing is)
 // - "list": score files came or went → /api/scores
 // - "sketch": a sketch's knobs may have changed (sketch.ts saved) → /api/sketch
+// The open score can be downloaded as MusicXML for Sibelius (/api/musicxml; docs/decisions/0003).
 // Audio is fetched shortly before it plays, mixed from the chunks in 2 s segments (/api/segments).
 // Drawings are fetched by key (/api/engraving/<key>.svg and .json); a key's content never changes.
 
@@ -28,6 +29,7 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { Worker } from "node:worker_threads";
 
+import { toMusicXml } from "../notation/musicxml.ts";
 import { Engine } from "../performance/engine.ts";
 import { segmentBundle, type SegmentRequest } from "../performance/segments.ts";
 import { repoRoot } from "../render/host.ts";
@@ -414,6 +416,18 @@ export function previewMiddleware() {
           }
         }
         return json(res, 200, await sketchState(dir, scoreDirs()));
+      }
+      if (url.pathname === "/api/musicxml") {
+        // The whole score as one MusicXML file, as Sibelius opens it (a piece: the whole piece).
+        if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
+        const { musicxml } = toMusicXml(JSON.parse(await readFile(path, "utf8")) as Score);
+        const name = `${basename(path, ".json")}.musicxml`;
+        res.setHeader("content-type", "application/vnd.recordare.musicxml+xml; charset=utf-8");
+        res.setHeader(
+          "content-disposition",
+          `attachment; filename="${name.replace(/[^\x20-\x7e]|"/g, "_")}"; filename*=UTF-8''${encodeURIComponent(name)}`,
+        );
+        return res.end(musicxml);
       }
       if (url.pathname === "/api/mixer") {
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });

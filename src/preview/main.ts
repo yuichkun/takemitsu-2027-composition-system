@@ -358,6 +358,7 @@ async function open(path: string, node = ""): Promise<void> {
     return;
   }
   current = { path, node };
+  exportButton.hidden = false;
   manifestWarnings = [];
   notices = [];
   audioError = undefined;
@@ -562,6 +563,17 @@ document.addEventListener("fullscreenchange", () => {
 });
 $("focus").addEventListener("click", toggleFocus);
 $("sidebar-toggle").addEventListener("click", toggleSidebar);
+// Export: the open score as MusicXML, downloaded by the browser (a piece: the whole piece).
+const exportButton = $<HTMLButtonElement>("export");
+exportButton.addEventListener("click", () => {
+  if (!current) return;
+  const a = document.createElement("a");
+  a.href = `/api/musicxml?path=${encodeURIComponent(current.path)}`;
+  a.download = "";
+  document.body.append(a);
+  a.click();
+  a.remove();
+});
 const knobsToggle = $<HTMLButtonElement>("knobs-toggle");
 knobsToggle.addEventListener("click", () => knobs.toggle());
 knobs.onChange = (isSketch) => {

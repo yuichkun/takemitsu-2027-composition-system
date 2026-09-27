@@ -121,11 +121,17 @@ vp node tools/stress-score.ts     # .local/stress/stress-20min.json を作る
 ## 4. 書き出す
 
 ```sh
+vp node tools/export.ts pieces/pilot                      # .local/exports/pilot.musicxml（Sibelius で開く）
+vp node tools/export.ts sketches/percussion/haze out.musicxml
 vp node tools/render.ts examples/showcase.json            # .local/renders/showcase/mix.wav
 vp node tools/render.ts examples/showcase.json --stems    # パートごとの WAV も
 ```
 
-プレビューと同じ保存場所（`.local/chunks`）を使うので、足りないチャンクだけレンダする。
+- **MusicXML**（[`../tools/export.ts`](../tools/export.ts)）: 楽譜の JSON か、スケッチ・曲のフォルダを渡す。曲の中のフォルダを渡しても曲全体。
+  プレビューのツールバーの **Export** でも、開いている楽譜を同じファイルとしてダウンロードできる（曲はノードを選んでいても曲全体）。
+  Sibelius では File > Open で開く。`.sib` は Avid の非公開の形式で、外からは書けない（[`decisions/0003`](./decisions/0003-musicxml-one-way.md)）。
+  Sibelius に何が入るかは [`research/sibelius-musicxml-import.md`](./research/sibelius-musicxml-import.md)
+- **WAV**: プレビューと同じ保存場所（`.local/chunks`）を使うので、足りないチャンクだけレンダする
 
 ## 5. 確かめる道具
 
