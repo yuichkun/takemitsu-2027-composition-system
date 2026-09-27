@@ -242,6 +242,9 @@ export class StripView {
   private relayout(keep?: Spot, anchor?: { x: number; y: number }): void {
     // During a pinch the picture is only scaled; the pinch lays out when it ends.
     if (this.gesture) return;
+    // A view at the very start stays there. (Keeping the point at its left edge would scroll by the
+    // margin's width when the margin arrives after the measures, hiding bar 1 behind it.)
+    const atStart = !anchor && this.container.scrollLeft <= 1;
     keep ??= this.pointAt();
     const shots = this.shots();
     const margins = (this.snapshot?.margins ?? []).filter((m): m is Shot => !!m && m !== "failed");
@@ -276,6 +279,7 @@ export class StripView {
       el.style.height = `${this.layout.contentHeight}px`;
     }
     if (keep) this.restore(keep, anchor);
+    if (atStart) this.container.scrollLeft = 0;
     this.render();
   }
 
