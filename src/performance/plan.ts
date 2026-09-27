@@ -35,6 +35,11 @@ export interface LaneNote {
   measure: number;
   /** CC1 at the onset (unpitched percussion, which has no curve). */
   cc?: number;
+  /**
+   * A glissando: the instance's tuning over the note, as [seconds, semitones above the key]
+   * points joined by straight lines (the note is played alone on a glide lane).
+   */
+  glide?: [number, number][];
 }
 
 export interface BbcsoLane {
@@ -157,7 +162,12 @@ export function plan(score: NormalScore): Plan {
   }));
   const duration = measures.at(-1)?.end ?? 0;
 
-  for (const part of score.parts) {
+  for (const written of score.parts) {
+    // Notes play at their own times (a feathered group is written evenly: normalize.ts).
+    const part = {
+      ...written,
+      notes: written.notes.map((n) => (n.play ? { ...n, ...n.play } : n)),
+    };
     const map = bbcsoMap[part.instrument.id];
     const level = levelOf(part.dynamics);
 
@@ -201,9 +211,10 @@ export function plan(score: NormalScore): Plan {
       const notes: LaneNote[] = [];
       for (const n of rest) {
         const t = techniqueKey(n);
-        const key = map.keys[t] ?? map.keys.ord!;
+        const found = map.keys[t] ?? map.keys.ord!;
         if (map.keys[t] === undefined)
           warnings.push(`${part.name}: ${t} is not available, played as ord`);
+        const [articulation, key] = typeof found === "number" ? [map.articulation, found] : found;
         const on = sec(n.at.value);
         const lv = level(n.at.value);
         notes.push({
@@ -211,7 +222,7 @@ export function plan(score: NormalScore): Plan {
           off: Math.max(on + 0.05, sec(n.end.value)),
           key,
           velocity: velocityFor(lv, accented(n)),
-          articulation: map.articulation,
+          articulation,
           slur: false,
           measure: measureOf(n.at.value),
           cc: ccFor(lv),
@@ -264,10 +275,11 @@ export function sampledRange(part: NormalPart): [number, number] | undefined {
   const map = bbcsoMap[part.instrument.id];
   if (!map || map.kind !== "pitched") return undefined;
   const instrument = map.section && (part.players > 1 || !map.solo) ? map.section.name : map.solo!;
-  return (
+  const keys =
     inventory[instrument]?.["Long"]?.range ??
-    Object.values(inventory[instrument] ?? {}).find(Boolean)?.range
-  );
+    Object.values(inventory[instrument] ?? {}).find(Boolean)?.range;
+  const offset = map.keyOffset ?? 0;
+  return keys && [keys[0] - offset, keys[1] - offset];
 }
 
 function pitchedLanes(
@@ -296,9 +308,66 @@ function pitchedLanes(
     inventory[instrument]?.["Long"]?.range ??
     Object.values(inventory[instrument] ?? {}).find(Boolean)?.range;
 
+  // Glissandi: a run of notes each sliding into the next (same staff and voice) is played as one
+  // held key on a glide lane, whose tuning follows the pitches (BBC SO ignores pitch bend; its
+  // Global Tune moves a sounding note: docs/research/bbcso.md §4).
+  const glides: { busy: number; notes: LaneNote[] }[] = [];
+  const inGlide = new Set<Note>();
+  const byVoice = new Map<number, Note[]>();
+  for (const n of notes) {
+    const k = n.staff * 4 + n.voice;
+    byVoice.set(k, [...(byVoice.get(k) ?? []), n]);
+  }
+  for (const list of byVoice.values()) {
+    list.sort((a, b) => a.at.cmp(b.at));
+    for (let i = 0; i < list.length; i++) {
+      if (!list[i]!.gliss || !list[i + 1] || inGlide.has(list[i]!)) continue;
+      const chain = [list[i]!];
+      for (let j = i; list[j]!.gliss && list[j + 1]; j++) chain.push(list[j + 1]!);
+      for (const n of chain) inGlide.add(n);
+      if (chain.some((n) => n.pitches.length > 1))
+        warnings.push(`${part.name}: a glissando slides the lowest note of a chord only`);
+      const first = chain[0]!;
+      const last = chain.at(-1)!;
+      const pitchOf = (n: Note) => n.pitches[0]!.midi;
+      const key = Math.floor(pitchOf(first)) + (map.keyOffset ?? 0);
+      const path: [number, number][] = [];
+      const base = key - (map.keyOffset ?? 0);
+      chain.forEach((n, c) => {
+        path.push([sec(n.at.value), pitchOf(n) - base]);
+        const next = chain[c + 1];
+        if (next) path.push([sec(n.at.add(n.glissAfter).value), pitchOf(n) - base]);
+      });
+      path.push([sec(last.end.value), pitchOf(last) - base]);
+      if (path.some(([, s]) => Math.abs(s) > 36))
+        warnings.push(`${part.name}: a glissando wider than 36 semitones from its first note`);
+      const on = sec(first.at.value);
+      const off = sec(last.end.value);
+      const choice = chooseArticulation(map, first, off - on, available);
+      if (range && (key < range[0] || key > range[1]))
+        warnings.push(
+          `${part.name}: pitch ${pitchOf(first)} is outside ${instrument}'s sampled range`,
+        );
+      let lane = glides.find((g) => g.busy <= on);
+      if (!lane) glides.push((lane = { busy: 0, notes: [] }));
+      lane.busy = off + 0.5;
+      lane.notes.push({
+        on,
+        off: Math.max(on + 0.03, off - 0.01),
+        key,
+        velocity: velocityFor(level(first.at.value), accented(first)),
+        articulation: choice.articulation,
+        slur: false,
+        measure: measureOf(first.at.value),
+        glide: path.map(([t, s]) => [t, Math.max(-36, Math.min(36, s))]),
+      });
+    }
+  }
+
   // Split notes by tuning: whole semitones on the plain instance, quarter tones on the +50 cent one.
   const byTune = new Map<number, LaneNote[]>();
   for (const n of notes) {
+    if (inGlide.has(n)) continue;
     const on = sec(n.at.value);
     const off = sec(n.end.value);
     const choice = chooseArticulation(map, n, off - on, available);
@@ -308,7 +377,7 @@ function pitchedLanes(
     const release = n.slur ? off + 0.03 : Math.max(on + 0.03, off - 0.01);
     for (const p of n.pitches) {
       const tune = p.midi % 1 === 0 ? 0 : 0.5;
-      const key = Math.floor(p.midi);
+      const key = Math.floor(p.midi) + (map.keyOffset ?? 0);
       if (range && (key < range[0] || key > range[1]))
         warnings.push(`${part.name}: pitch ${p.midi} is outside ${instrument}'s sampled range`);
       if (!byTune.has(tune)) byTune.set(tune, []);
@@ -326,6 +395,20 @@ function pitchedLanes(
 
   // CC1 follows the part's curve (in quarters, so it moves with the tempo).
   const cc = (seconds: number) => ccFor(level(quartersAt(score.tempo, seconds)));
+  glides.forEach((g, i) => {
+    drafts.push({
+      lane: {
+        kind: "bbcso",
+        id: `${part.id}#glide${i}`,
+        partId: part.id,
+        instrument,
+        tune: 0,
+        notes: g.notes,
+        cc,
+        gain,
+      },
+    });
+  });
   for (const [tune, laneNotes] of byTune) {
     laneNotes.sort((a, b) => a.on - b.on || a.key - b.key);
     drafts.push({

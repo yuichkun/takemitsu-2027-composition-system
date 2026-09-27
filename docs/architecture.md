@@ -30,12 +30,21 @@ flowchart LR
 | 強弱 | 連続値。0 = niente、1 = ppp … 5 = mf … 8 = fff。パートの曲線（`dynamics`、`to: "linear"` で線形に移る）と音符の `dynamic` |
 | 奏法 | 楽器ごとの語彙（[`../src/instruments/catalog.ts`](../src/instruments/catalog.ts)）。組み合わせは `+`（`"tremolo+sul-pont"`） |
 | ディヴィジ | パートが `players`（そのセクションの何人か）を持つ（[`decisions/0015`](./decisions/0015-divisi-first-class.md)） |
+| 拍子 | 小節ごと。`groups` で拍のまとまり（7/8 を `[2, 2, 3]`）。省くと x/4 は 1 拍ずつ、6/8・9/8・12/8 は 3 ずつ、ほかの x/8・x/16 は 2 ずつで奇数なら最後が 3 |
+| テンポ | 変わる所ごと。`to: "linear"` で次の値まで徐々に変わる（accel. / rit. と書く。拍に対して直線） |
+| グリッサンド | 音符の `gliss: true` で同じ声部の次の音へ滑る（その音の長さ全部をかけて）。`glissAfter` でその長さだけ保ってから滑る |
+| フェザードビーム | パートの `feathers`（`at`、`dur`、`kind: "accel" \| "rit"`）。その範囲で始まる音は均等に書き、1 本の連桁を扇形に開く／閉じる。鳴るのは書いた JSON の時刻どおり |
 
 ## 記譜の射影
 
 [`../src/notation/`](../src/notation/)。楽譜の JSON → MusicXML 4.0。
 
-- 小節線と拍で分割してタイでつなぐ。拍の中に奇数の分割があれば、その拍全体を連符にする
+- 小節線と拍（拍子のまとまり）で分割してタイでつなぐ。拍の中に奇数の分割があれば、その拍全体を連符にする。
+  連桁も拍のまとまりごと。休符は付点を使わず、自分の長さの倍数の位置からだけつなぐ（4/4 の 2 拍目からは 4 分休符＋2 分休符）
+- グリッサンドは MusicXML の `<glissando>`。フェザードビームは連桁の `fan`（Verovio は平行に描くので、プレビューでは副連桁を主連桁へ寄せて描き直す）
+- テンポが徐々に変わる所には、テンポ記号の後に accel. / rit. を書く
+- プレビューの帯（1 小節ずつの MusicXML）だけの扱い: 小節線をまたぐグリッサンドは両側で半分ずつ線を描く。
+  1 線の打楽器譜表は、Verovio が線を E4 と読むので E4 で書く（Sibelius に渡す MusicXML は慣例どおり B4）
 - 強弱の曲線から、記号（ppp〜fff、n）とヘアピン（niente を含む）を導く
 - 奏法が変わるところに文字を置く（pizz. → arco、sul pont. → ord. など）。トレモロ、フラッター、ロールは符尾の斜線
 - 臨時記号は小節内の規則で計算して `<accidental>` に書く。四分音は小数の `<alter>`（[`decisions/0011`](./decisions/0011-quarter-tone-notation.md)）
@@ -52,6 +61,12 @@ flowchart LR
 [`../src/performance/`](../src/performance/)、BBC SO の対応表は [`../src/libraries/bbcso/map.ts`](../src/libraries/bbcso/map.ts)。
 
 - **レーン**（音源インスタンス1つ）は「パート × 調律」。四分音は +50 セントに調律したインスタンスで鳴らす（[`decisions/0013`](./decisions/0013-quarter-tones-by-instance-tuning.md)）
+- **グリッサンド**: 滑る音の連なりは、最初の音の鍵を押したまま、BBC SO の Global Tune（±36 半音）を 10 ms ごとに書き換えて鳴らす。
+  そのためのレーン（`<パート>#glide<n>`）に 1 音ずつ置く（BBC SO はピッチベンドを無視する。[`research/bbcso.md`](./research/bbcso.md) §4）。
+  ホストはチャンクの中で音源のパラメータを変えられ、チャンクが終わると元に戻す。和音は一番下の音だけが滑る
+- フェザードビームの音は、書いた時刻ではなく JSON の時刻で鳴る
+- ティンパニは BBC SO では鍵より 1 オクターヴ低く鳴るので、鍵を 12 上げて送る（`keyOffset`）
+- 打楽器の奏法は別のパッチも使える（大太鼓のソフトなロールとハードスティックは Bass Drum 2）。ハープの gliss. は BBC SO の Short Gliss
 - 奏法 → BBC SO の奏法パッチ。レーンで使う奏法だけを読み込み、キースイッチ 0, 1, 2… に割り当てる。
   BBC SO にない組み合わせは近いものに落とし、警告を出す
 - 強弱 → CC1（50 ms ごと）とベロシティ。打楽器は Dorico の鍵盤マップ（[`research/bbcso.md`](./research/bbcso.md) §6）

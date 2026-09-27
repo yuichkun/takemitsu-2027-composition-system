@@ -16,6 +16,8 @@ export interface ChunkJob {
   frames: number;
   tailMax: number;
   events: number[][];
+  /** Parameter changes: [frame, parameter index, normalised value]. */
+  params?: number[][];
   output: string;
 }
 

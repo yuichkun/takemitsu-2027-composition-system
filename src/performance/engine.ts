@@ -153,6 +153,7 @@ function jobOf(chunk: BbcsoChunk, output: string): ChunkJob {
     frames: chunk.frames,
     tailMax: chunk.tailMax,
     events: chunk.events,
+    params: chunk.params,
     output,
   };
 }

@@ -71,9 +71,17 @@ export interface BbcsoChunk extends ChunkBase {
   /** Key of the plugin state; chunks with the same state share an instance. */
   stateKey: string;
   events: MidiEvent[];
+  /** Parameter changes: [frame, parameter index, normalised value] (glissandi move Global Tune). */
+  params?: [number, number, number][];
   /** Frames of the note-ons that must be audible (in the sampled range, not niente). */
   shouldSound: number[];
 }
+
+/** BBC SO's Global Tune: parameter 11, ±36 semitones over 0–1. */
+const globalTune = 11;
+const tuneValue = (semitones: number) => 0.5 + semitones / 72;
+/** A glissando's tuning is sent this often. */
+const glideStep = 0.01;
 
 export interface SampleChunk extends ChunkBase {
   kind: "samples";
@@ -202,11 +210,33 @@ function bbcsoChunk(lane: BbcsoLane, notes: LaneNote[], stateKey: string): Bbcso
     if (audible(lane, n, ccAt(lane, n))) shouldSound.push(rel(n.on));
   }
   events.sort((a, b) => a[0] - b[0]);
+  // Glissandi: the tuning along each gliding note's path (a glide lane plays one note at a time).
+  let params: [number, number, number][] | undefined;
+  for (const n of notes) {
+    if (!n.glide) continue;
+    params ??= [];
+    const path = n.glide;
+    const at = (t: number) => {
+      if (t <= path[0]![0]) return path[0]![1];
+      for (let i = 1; i < path.length; i++) {
+        const [t0, s0] = path[i - 1]!;
+        const [t1, s1] = path[i]!;
+        if (t <= t1) return t1 === t0 ? s1 : s0 + ((s1 - s0) * (t - t0)) / (t1 - t0);
+      }
+      return path.at(-1)![1];
+    };
+    let last = Number.NaN;
+    for (let t = n.on - 0.05; t <= n.off + glideStep; t += glideStep) {
+      const v = Number(tuneValue(at(t)).toFixed(6));
+      if (v !== last) params.push([Math.max(0, rel(t)), globalTune, v]);
+      last = v;
+    }
+  }
   const frames = rel(end) + blockSize;
   const tailMax = tailMaxSeconds * sampleRate;
   return {
     kind: "bbcso",
-    key: hash({ formatVersion, sampleRate, blockSize, stateKey, events, frames, tailMax }),
+    key: hash({ formatVersion, sampleRate, blockSize, stateKey, events, frames, tailMax, params }),
     laneId: lane.id,
     partId: lane.partId,
     origin,
@@ -216,6 +246,7 @@ function bbcsoChunk(lane: BbcsoLane, notes: LaneNote[], stateKey: string): Bbcso
     tailMax,
     stateKey,
     events,
+    params,
     shouldSound,
   };
 }

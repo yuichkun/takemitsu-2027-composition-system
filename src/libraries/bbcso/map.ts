@@ -11,14 +11,22 @@ export interface PitchedMap {
   /** BBC SO instrument for the section, and how many players it holds. */
   section?: { name: string; size: number };
   family: "strings" | "woodwind" | "brass" | "timpani" | "mallets" | "harp" | "keyboard";
+  /**
+   * Keys above the sounding pitch: BBC SO plays its timpani an octave below the key (key 50
+   * sounds D2; docs/research/bbcso.md §7).
+   */
+  keyOffset?: number;
 }
 
 export interface UnpitchedMap {
   kind: "unpitched";
   /** Patch inside "Untuned Percussion". */
   articulation: string;
-  /** Key per technique ("ord" is the plain hit). */
-  keys: Record<string, number>;
+  /**
+   * Key per technique ("ord" is the plain hit; combined techniques joined by "+", sorted). A
+   * [patch, key] pair plays another patch of Untuned Percussion (Bass Drum 2's soft roll).
+   */
+  keys: Record<string, number | [string, number]>;
 }
 
 export type BbcsoMap = PitchedMap | UnpitchedMap;
@@ -76,7 +84,7 @@ export const bbcsoMap: Record<string, BbcsoMap> = {
   cimbasso: { kind: "pitched", solo: "Cimbasso", family: "brass" },
   tuba: { kind: "pitched", solo: "Tuba", family: "brass" },
   "contrabass-tuba": { kind: "pitched", solo: "Contrabass Tuba", family: "brass" },
-  timpani: { kind: "pitched", solo: "Timpani", family: "timpani" },
+  timpani: { kind: "pitched", solo: "Timpani", family: "timpani", keyOffset: 12 },
   glockenspiel: { kind: "pitched", solo: "Glockenspiel", family: "mallets" },
   xylophone: { kind: "pitched", solo: "Xylophone", family: "mallets" },
   marimba: { kind: "pitched", solo: "Marimba", family: "mallets" },
@@ -121,7 +129,15 @@ export const bbcsoMap: Record<string, BbcsoMap> = {
   "bass-drum": {
     kind: "unpitched",
     articulation: "Bass Drum 1",
-    keys: { ord: 48, damped: 52, muted: 53, roll: 57, superball: 58 },
+    keys: {
+      ord: 48,
+      damped: 52,
+      muted: 53,
+      roll: 57,
+      superball: 58,
+      "hard-sticks": ["Bass Drum 2", 52],
+      "roll+soft": ["Bass Drum 2", 59],
+    },
   },
   "suspended-cymbal": {
     kind: "unpitched",
@@ -264,6 +280,7 @@ export function chooseArticulation(
       break;
     case "harp":
       if (has(t, "bisbigliando")) wants.push("Long Bisbigliando Trem");
+      else if (has(t, "gliss")) wants.push("Short Gliss");
       else if (has(t, "damped")) wants.push("Short Damped");
       wants.push("Short Sustained");
       break;

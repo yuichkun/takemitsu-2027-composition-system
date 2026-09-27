@@ -3,13 +3,15 @@
 //   vp node tools/bbcso-probe.ts pitch            pitch bend and global tune accuracy
 //   vp node tools/bbcso-probe.ts stream           offline render speed vs real time (streaming dropouts)
 //   vp node tools/bbcso-probe.ts glide            glissando: Global Tune swept under a held note, and legato transitions
+//   vp node tools/bbcso-probe.ts octave <instrument> <articulation> <key>
+//                                                 the strongest low partials of one note (is the key an octave off?)
 //   vp node tools/bbcso-probe.ts scan <instrument> [articulation…]
 //                                                 which keys sound, their level and pitch (all articulations by default)
 
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { measurePitch, peak, rms, toDb } from "../src/audio/analysis.ts";
+import { measurePitch, peak, rms, spectrum, toDb } from "../src/audio/analysis.ts";
 import { mono, readWav } from "../src/audio/wav.ts";
 import { encodeState, stateXml, type StateSpec } from "../src/libraries/bbcso/state.ts";
 import {
@@ -270,6 +272,41 @@ async function verifyGaps() {
   await writeFile(join(out, "gaps.json"), JSON.stringify(results, null, 2));
 }
 
+async function octave(instrument: string, articulation: string, key: number) {
+  const state = await writeState(`octave-${key}`, singleArticulation(instrument, articulation));
+  const [r] = await render(
+    {
+      sampleRate: rate,
+      blockSize: 512,
+      frames: sec(4),
+      loadWaitMs: 15000,
+      tracks: [
+        await track(`octave-${key}`, state, [cc(0, 1, 100), ...note(sec(0.3), key, 100, sec(2.5))]),
+      ],
+    },
+    join(out, `jobs/octave-${key}.json`),
+  );
+  const samples = mono(await readWav(r!.file));
+  const s = spectrum(samples, sec(0.5), 65536, rate);
+  // The strongest peaks between 30 Hz and 1 kHz, loudest first.
+  const peaks: { hz: number; level: number }[] = [];
+  const m = s.magnitude;
+  for (let i = 2; i < m.length - 2; i++) {
+    const hz = i * s.binHz;
+    if (hz < 30 || hz > 1000) continue;
+    if (m[i]! > m[i - 1]! && m[i]! >= m[i + 1]!) peaks.push({ hz, level: m[i]! });
+  }
+  peaks.sort((a, b) => b.level - a.level);
+  const top = peaks[0]?.level ?? 1;
+  console.log(
+    `${instrument} / ${articulation} key ${key} (${(440 * 2 ** ((key - 69) / 12)).toFixed(1)} Hz):`,
+    peaks
+      .slice(0, 8)
+      .map((p) => `${p.hz.toFixed(1)} Hz ${toDb(p.level / top).toFixed(0)} dB`)
+      .join(", "),
+  );
+}
+
 /** Global Tune is parameter 11, ±36 semitones over 0–1 (0.5 = none). */
 const tuneValue = (semitones: number) => 0.5 + semitones / 72;
 
@@ -345,6 +382,7 @@ const [command, ...rest] = process.argv.slice(2);
 if (command === "pitch") await pitch();
 else if (command === "stream") await stream();
 else if (command === "glide") await glide();
+else if (command === "octave") await octave(rest[0]!, rest[1]!, Number(rest[2]));
 else if (command === "scan") {
   const [lo, hi] = option(rest, "--keys", "12-127").split("-").map(Number);
   const o: ScanOptions = {
