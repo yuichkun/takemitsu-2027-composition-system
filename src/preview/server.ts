@@ -1,8 +1,10 @@
 // The preview's dev-server side (docs/decisions/0016, 0019): lists and watches score JSON files,
 // keeps their chunks rendered in the background, turns them into notation, and serves both.
 //
-// Score folders: examples/, scores/ and sketches/ in the repository, plus any in PREVIEW_SCORE_DIRS
-// (colon-separated), so a composition layer can write its output anywhere.
+// Score folders: examples/, scores/, sketches/ and pieces/ in the repository, plus any in
+// PREVIEW_SCORE_DIRS (colon-separated), so a composition layer can write its output anywhere.
+// A piece (src/sketch/nest.ts) is listed as its tree of sketches, each opening the piece's score
+// with its own knobs.
 //
 // A score is read when the page first asks for it, and again after every save. Its audio is
 // planned here (src/performance/engine.ts) while its notation is made in a worker thread
@@ -20,10 +22,10 @@
 // Drawings are fetched by key (/api/engraving/<key>.svg and .json); a key's content never changes.
 
 import { createHash } from "node:crypto";
-import { existsSync, readdirSync, watch, type FSWatcher } from "node:fs";
+import { existsSync, readdirSync, readFileSync, watch, type FSWatcher } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { basename, dirname, isAbsolute, join, relative, resolve } from "node:path";
+import { basename, dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { Worker } from "node:worker_threads";
 
 import { Engine } from "../performance/engine.ts";
@@ -31,8 +33,16 @@ import { segmentBundle, type SegmentRequest } from "../performance/segments.ts";
 import { repoRoot } from "../render/host.ts";
 import { normalize } from "../score/normalize.ts";
 import type { Score } from "../score/types.ts";
+import { childNodes, rootOf, scoreFileOf, sketchFile } from "../sketch/run.ts";
 import { Engraver, type StripDocs } from "./engraver.ts";
-import { changeSketch, rerun, sketchOf, sketchState, type SketchChange } from "./sketches.ts";
+import {
+  changeSketch,
+  nodeIn,
+  rerun,
+  sketchOf,
+  sketchState,
+  type SketchChange,
+} from "./sketches.ts";
 import type { NotationAnswer, NotationView } from "./notation-thread.ts";
 
 type Next = (err?: unknown) => void;
@@ -43,6 +53,7 @@ export function scoreDirs(): string[] {
     join(repoRoot, "examples"),
     join(repoRoot, "scores"),
     join(repoRoot, "sketches"),
+    join(repoRoot, "pieces"),
     ...extra.map((d) => resolve(d)),
   ];
 }
@@ -54,6 +65,9 @@ interface ScoreEntry {
   root: string;
   /** Its folder inside the score folder ("" at the top); folders nest. */
   dir: string;
+  /** In a piece: the node's folder (the piece's own for the piece), and how deep it is. */
+  node?: string;
+  depth?: number;
 }
 
 function listScores(): ScoreEntry[] {
@@ -68,10 +82,35 @@ function listScores(): ScoreEntry[] {
       for (const e of entries) {
         if (e.name.startsWith(".") || e.name === "node_modules") continue;
         const path = join(dir, e.name);
-        if (e.isDirectory()) walk(path);
+        if (e.isDirectory() && existsSync(sketchFile(path)) && childNodes(path).length)
+          piece(path, relative(top, dir));
+        else if (e.isDirectory()) walk(path);
         else if (e.name.endsWith(".json") && e.name !== "values.json")
           out.push({ path, name: e.name.replace(/\.json$/, ""), root, dir: relative(top, dir) });
       }
+    };
+    // A piece: its nodes in the order they come in the piece (by name before its first score),
+    // each opening the piece's score (written first if it is not yet).
+    const piece = (dir: string, inside: string): void => {
+      const score = scoreFileOf(dir);
+      // Where each node starts, and the order its parent placed it in.
+      const starts = new Map<string, [number, number]>();
+      if (!existsSync(score)) void rerun(dir);
+      else
+        try {
+          const outline = (JSON.parse(readFileSync(score, "utf8")) as Score).outline;
+          outline?.nodes.forEach((n, i) => starts.set(join(dir, n.node), [n.at, i]));
+        } catch {
+          // Being written: by name for now.
+        }
+      const tree = (node: string, depth: number): void => {
+        out.push({ path: score, name: basename(node), root, dir: inside, node, depth });
+        const children = childNodes(node).map((c) => join(node, c));
+        const key = (n: string) => starts.get(n) ?? [Infinity, Infinity];
+        children.sort((a, b) => key(a)[0] - key(b)[0] || key(a)[1] - key(b)[1]);
+        for (const c of children) tree(c, depth + 1);
+      };
+      tree(dir, 0);
     };
     walk(top);
   }
@@ -213,6 +252,8 @@ async function scoreView(path: string): Promise<NotationView | { error: string }
   return now.notation?.view ?? { error: now.notationError ?? "No notation" };
 }
 
+const generatorsDir = join(repoRoot, "generators");
+
 let watchers: FSWatcher[] = [];
 let watched = "";
 function watchScores(): void {
@@ -223,10 +264,18 @@ function watchScores(): void {
     watch(dir, { recursive: true }, (_type, file) => {
       if (!file) return;
       const path = join(dir, file);
-      // A saved sketch writes its score again (which comes back here as a .json).
-      if (basename(file) === "sketch.ts") {
-        const sketchDir = dirname(path);
-        void rerun(sketchDir).then(() => broadcast("sketch", { dir: sketchDir }));
+      // A saved sketch, or a file a piece imports, writes the score again (which comes back here
+      // as a .json). For a node of a piece, that is the piece's score.
+      if (file.endsWith(".ts")) {
+        let d = dirname(path);
+        while (!existsSync(sketchFile(d)) && d.startsWith(dir + sep)) d = dirname(d);
+        if (!existsSync(sketchFile(d))) return;
+        const root = rootOf(d);
+        const changed = basename(file) === "sketch.ts" ? d : root;
+        void rerun(root).then(() => {
+          broadcast("sketch", { dir: changed });
+          broadcast("list", {});
+        });
         return;
       }
       if (!file.endsWith(".json") || basename(file) === "values.json") return;
@@ -235,6 +284,21 @@ function watchScores(): void {
       broadcast("list", {});
     }),
   );
+  // Generators are shared by pieces: a change writes every piece again.
+  if (existsSync(generatorsDir))
+    watchers.push(
+      watch(generatorsDir, { recursive: true }, (_type, file) => {
+        if (!file?.endsWith(".ts")) return;
+        const pieces = [
+          ...new Set(
+            listScores()
+              .filter((e) => e.depth === 0)
+              .map((e) => dirname(e.path)),
+          ),
+        ];
+        for (const root of pieces) void rerun(root).then(() => broadcast("sketch", { dir: root }));
+      }),
+    );
   // A folder that appeared later (or vanished): let the page refresh its list.
   if (watched) broadcast("list", {});
   watched = existing.join(":");
@@ -337,7 +401,10 @@ export function previewMiddleware() {
         return res.end(await segmentBundle(segments));
       }
       if (url.pathname === "/api/sketch") {
-        const dir = allowed(path) ? sketchOf(resolve(path)) : undefined;
+        // `node`: a folder inside the piece whose score is open (default: the piece itself).
+        const root = allowed(path) ? sketchOf(resolve(path)) : undefined;
+        const asked = url.searchParams.get("node");
+        const dir = root && (asked ? nodeIn(root, resolve(asked)) : root);
         if (!dir) return json(res, 404, { error: "Not a sketch's score" });
         if (req.method === "POST") {
           try {
@@ -346,7 +413,7 @@ export function previewMiddleware() {
             return json(res, 400, { error: message(e) });
           }
         }
-        return json(res, 200, await sketchState(dir));
+        return json(res, 200, await sketchState(dir, scoreDirs()));
       }
       if (url.pathname === "/api/mixer") {
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });

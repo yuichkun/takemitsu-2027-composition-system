@@ -23,6 +23,8 @@ export default defineConfig({
         "**/examples/**",
         "**/scores/**",
         "**/sketches/**",
+        "**/pieces/**",
+        "**/generators/**",
         "**/samples/**",
       ],
     },
@@ -44,6 +46,7 @@ export default defineConfig({
       "src/libraries/bbcso/inventory.json",
       // Written by the sketch scripts.
       "sketches/**/*.json",
+      "pieces/**/*.json",
     ],
   },
 });

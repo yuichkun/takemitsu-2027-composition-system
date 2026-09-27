@@ -91,6 +91,9 @@ export class StripView {
   private readonly canvas: HTMLDivElement;
   private readonly margin: HTMLDivElement;
   private readonly playhead: HTMLDivElement;
+  /** The time a chosen part of a piece takes (setSpan), shaded behind the notation. */
+  private readonly span: HTMLDivElement;
+  private spanSeconds?: [number, number];
   private readonly placed = new Map<string, Placed>();
   private readonly anchors = new Map<string, [number, number][]>();
   private readonly fetching = new Set<string>();
@@ -122,7 +125,10 @@ export class StripView {
     this.playhead = document.createElement("div");
     this.playhead.className = "playhead";
     this.playhead.hidden = true;
-    this.canvas.append(this.margin, this.playhead);
+    this.span = document.createElement("div");
+    this.span.className = "span";
+    this.span.hidden = true;
+    this.canvas.append(this.span, this.margin, this.playhead);
     // Keeps the scroll range while a pinch shrinks the picture, so the browser does not pull the
     // view back (which would move the point under the fingers).
     this.sizer = document.createElement("div");
@@ -201,6 +207,12 @@ export class StripView {
    * Moves the playhead; with `follow` (while playing), the view keeps it in sight, except for a
    * moment after the user scrolls by hand.
    */
+  /** Shades the time from one point to another (seconds), or nothing. */
+  setSpan(span?: [number, number]): void {
+    this.spanSeconds = span;
+    this.drawPlayhead();
+  }
+
   setCursor(seconds: number, follow = false): void {
     this.cursor = seconds;
     this.following = follow;
@@ -656,6 +668,16 @@ export class StripView {
   private drawPlayhead(): void {
     const p = this.place(this.cursor);
     const l = this.layout;
+    const from = this.spanSeconds && this.place(this.spanSeconds[0]);
+    const to = this.spanSeconds && this.place(this.spanSeconds[1]);
+    this.span.hidden = !from || !to || !l;
+    if (from && to && l)
+      Object.assign(this.span.style, {
+        left: `${from.x}px`,
+        width: `${Math.max(2, to.x - from.x)}px`,
+        top: `${this.staffTop() - 8}px`,
+        height: `${l.span * l.scale + 16}px`,
+      });
     if (!p || !l) {
       this.playhead.hidden = true;
       return;

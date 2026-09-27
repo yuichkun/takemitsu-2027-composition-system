@@ -1719,3 +1719,141 @@ button.icon:hover {
   margin-right: 5px;
   background: var(--dot);
 }
+
+/* Pieces (src/sketch/nest.ts): in the list, the piece and its parts indented under it. */
+#scores button.piece {
+  font-weight: 600;
+}
+
+#scores button.node {
+  color: var(--muted);
+}
+
+#scores button.node[aria-current="true"] {
+  color: var(--ink);
+}
+
+/* The part of a piece whose knobs show, shaded behind the notation. */
+.span {
+  position: absolute;
+  z-index: 0;
+  background: var(--select);
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+/* The path from the piece to the part shown, at the top of the knobs. */
+.crumbs {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.crumbs button {
+  border: 0;
+  background: none;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+.crumbs button:hover {
+  background: var(--hover);
+  color: var(--ink);
+}
+
+.crumbs button[aria-current="true"] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.crumbs .sep {
+  color: var(--faint);
+}
+
+/* The piece's map. */
+.map-wrap {
+  padding: 10px 14px 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+canvas.map {
+  display: block;
+  width: 100%;
+}
+
+.map-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--faint);
+}
+
+.map-key span::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  margin-right: 4px;
+  background: var(--dot);
+  opacity: 0.6;
+  vertical-align: -1px;
+}
+
+.map-warnings {
+  margin: 6px 0 0;
+  padding: 6px 10px 6px 24px;
+  border-radius: 4px;
+  background: var(--warn-soft);
+  color: var(--warn);
+  font-size: 12px;
+}
+
+/* A number that may follow a flow: [∿] or [flow] from → to. */
+.follow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.follow .scrub {
+  padding: 0 5px;
+}
+
+.follow .dash {
+  color: var(--faint);
+}
+
+.follow-pick {
+  height: 22px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: none;
+  padding: 0 5px;
+  color: var(--faint);
+  font-size: 12px;
+}
+
+.follow-pick:hover {
+  background: var(--hover);
+  color: var(--ink);
+}
+
+.follow-pick.on {
+  border-color: var(--rule);
+  color: var(--ink);
+  font-size: 11px;
+}
+
+/* A motif on a small piano roll. */
+.pad.roll {
+  cursor: default;
+}

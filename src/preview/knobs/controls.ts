@@ -6,7 +6,10 @@ import { spell } from "../../score/pitch.ts";
 import {
   intervalVector,
   primeForm,
+  type Auto,
   type ChoiceKnob,
+  type FollowKnob,
+  type MotifKnob,
   type CurveKnob,
   type EnvelopeKnob,
   type HeatmapKnob,
@@ -37,13 +40,15 @@ export interface Context {
   /** Every knob of the sketch and its value (a control may show one knob through another). */
   knobs: Knobs;
   values: Record<string, Value>;
+  /** The flows of the piece the sketch is part of (a follow knob may follow one). */
+  flows: string[];
 }
 
 export interface Control<K extends Knob = Knob> {
   /** Takes the whole row under its name. */
   wide?: boolean;
   /** How to use it, shown in the tooltip. */
-  how: string;
+  how: string | ((knob: K) => string);
   mount(host: HTMLElement, knob: K, value: K["value"], ctx: Context): void;
 }
 
@@ -367,12 +372,56 @@ function ends(host: HTMLElement, labels: [string, string] | undefined): void {
 //==============================================================================
 // The controls
 
-const numberControl: Control<NumberKnob> = {
-  how: "Drag sideways or ↑↓ (Shift ×10). Click to type.",
+const numberControl: Control<NumberKnob | FollowKnob> = {
+  how: (k) =>
+    k.follow
+      ? "Drag sideways or ↑↓ (Shift ×10). Click to type. ∿ lets it move: follow one of the piece's flows, or ramp over the block, from one value (at 0) to another (at 1)."
+      : "Drag sideways or ↑↓ (Shift ×10). Click to type.",
   mount(host, k, value, ctx) {
-    host.append(scrub(numberSpec(k, value), ctx.commit));
+    if (k.follow) host.append(followRow(k, value, ctx));
+    else host.append(scrub(numberSpec(k, value as number), ctx.commit));
   },
 };
+
+/** A follow knob: a number, or the flow (or ramp) it follows and the values at its 0 and 1. */
+function followRow(k: FollowKnob, value: Auto, ctx: Context): HTMLElement {
+  const row = h("div", "follow");
+  const now = typeof value === "number" ? undefined : value;
+  const pick = h("button", `follow-pick${now ? " on" : ""}`, now ? now.follow : "∿");
+  pick.type = "button";
+  pick.title = now ? `Follows ${now.follow}: choose` : "Let it move: follow a flow, or ramp";
+  pick.addEventListener("click", () => {
+    const r = pick.getBoundingClientRect();
+    const from = now ? now.from : (value as number);
+    const to = now ? now.to : snap(from + (k.max - k.min) / 4, k.min, k.max, k.step);
+    menu(r.left, r.bottom + 4, [
+      { label: "Constant", checked: !now, action: () => ctx.commit(from) },
+      { heading: "Follow, from → to" },
+      ...ctx.flows.map((f) => ({
+        label: f,
+        checked: now?.follow === f,
+        action: () => ctx.commit({ follow: f, from, to }),
+      })),
+      {
+        label: "ramp over the block",
+        checked: now?.follow === "ramp",
+        action: () => ctx.commit({ follow: "ramp", from, to }),
+      },
+    ]);
+  });
+  if (!now) {
+    row.append(scrub(numberSpec(k, value as number), ctx.commit), pick);
+    return row;
+  }
+  const spec = { ...k, unit: undefined };
+  row.append(
+    pick,
+    scrub(numberSpec(spec, now.from), (x) => ctx.commit({ ...now, from: x })),
+    h("span", "dash", "→"),
+    scrub(numberSpec(spec, now.to), (x) => ctx.commit({ ...now, to: x })),
+  );
+  return row;
+}
 
 const pitchControl: Control<PitchKnob> = {
   how: "Drag sideways or ↑↓ key by step (Shift ×10). Click to type a name: C4, F#3, E+4 or E↑4 (quarter sharp), Bb-3.",
@@ -573,14 +622,29 @@ const curveControl: Control<CurveKnob> = {
 
 const envelopeControl: Control<EnvelopeKnob> = {
   wide: true,
-  how: "Drag the points. Click an empty place to add one; right-click a point to remove it. The first and last stay at the edges.",
+  how: (k) =>
+    `Drag the points. Click an empty place to add one; right-click a point to remove it. The first and last stay at the edges.${
+      k.guides
+        ? " Each part between the lines is one section, drawn the same width whatever its length."
+        : ""
+    }`,
   mount(host, k, value, ctx) {
-    const c = canvas(host, 76, "pad");
+    const c = canvas(host, k.guides ? 90 : 76, "pad");
     let points = [...value].map((p) => [...p] as [number, number]).sort((a, b) => a[0] - b[0]);
     const pad = 5;
     const draw = () =>
       c.paint((g, w, hgt, css) => {
         grid(g, w, hgt, css);
+        if (k.guides?.length) {
+          const n = k.guides.length;
+          g.font = `10px ${color(css, "--sans")}`;
+          k.guides.forEach((label, i) => {
+            const gx = pad + (i / n) * (w - 2 * pad);
+            g.fillStyle = color(css, "--faint");
+            if (i) g.fillRect(Math.round(gx), 0, 1, hgt);
+            g.fillText(label, gx + 4, 11, (w - 2 * pad) / n - 8);
+          });
+        }
         const x = (t: number) => pad + t * (w - 2 * pad);
         const y = (v: number) => pad + (1 - v) * (hgt - 2 * pad);
         g.beginPath();
@@ -1168,6 +1232,193 @@ const lanesControl: Control<LanesKnob> = {
 };
 
 //==============================================================================
+// A motif: a few notes on a small piano roll
+
+const motifControl: Control<MotifKnob> = {
+  wide: true,
+  how: "Click an empty place to add a note, then drag to lengthen it. Drag a note to move it, its right end to change its length (to sixteenths). Right-click a note to remove it or move it by an octave or a quarter tone.",
+  mount(host, k, value, ctx) {
+    const [lo, hi] = k.range;
+    const rowH = k.step < 1 ? 4 : 6;
+    const rows = Math.round((hi - lo) / k.step) + 1;
+    const pad = 4;
+    const bottom = 14;
+    const c = canvas(host, rows * rowH + bottom, "pad roll");
+    const summary = h("div", "ends");
+    host.append(summary);
+    let notes = value.map((n) => [...n] as [number, number, number]).sort((a, b) => a[0] - b[0]);
+    let active = -1;
+    let lastDur = 0.5;
+    const grid = k.grid;
+    const x = (t: number, w: number) => pad + (t / k.length) * (w - 2 * pad);
+    const y = (m: number) => Math.round(((hi - m) / k.step) * rowH);
+    const show = () => {
+      const names = notes.map((n) => nameOf(n[2])).join(" ");
+      const end = Math.max(0, ...notes.map((n) => n[0] + n[1]));
+      summary.replaceChildren(h("span", "", names), h("span", "", `${end} beats`));
+    };
+    const draw = () =>
+      c.paint((g, w, hgt, css) => {
+        g.fillStyle = color(css, "--bg");
+        g.fillRect(0, 0, w, hgt);
+        for (let m = lo; m <= hi; m += k.step) {
+          const pc = ((m % 12) + 12) % 12;
+          if ([1, 3, 6, 8, 10].includes(pc) || !Number.isInteger(pc)) {
+            g.fillStyle = color(css, "--hover");
+            g.fillRect(0, y(m), w, rowH);
+          }
+          if (pc === 0) {
+            g.fillStyle = color(css, "--rule");
+            g.fillRect(0, y(m) + rowH - 1, w, 1);
+          }
+        }
+        for (let t = 0; t <= k.length; t += grid) {
+          const beat = Math.abs(t - Math.round(t)) < 1e-6;
+          if (!beat && grid < 0.25) continue;
+          g.fillStyle = color(
+            css,
+            beat ? (Math.round(t) % 4 === 0 ? "--faint" : "--rule") : "--hover",
+          );
+          g.fillRect(Math.round(x(t, w)), 0, 1, rows * rowH);
+        }
+        g.font = `10px ${color(css, "--sans")}`;
+        g.fillStyle = color(css, "--faint");
+        for (let m = Math.ceil(lo / 12) * 12; m <= hi; m += 12)
+          g.fillText(nameOf(m), x(0, w) + 2, y(m) + rowH - 1);
+        for (let t = 0; t < k.length; t++) g.fillText(String(t + 1), x(t, w) + 3, hgt - 3);
+        notes.forEach(([at, dur, m], i) => {
+          const x0 = x(at, w);
+          const x1 = x(at + dur, w);
+          g.fillStyle = color(css, i === active ? "--play" : "--ink");
+          g.beginPath();
+          g.roundRect(x0 + 0.5, y(m) + 0.5, Math.max(3, x1 - x0 - 1), rowH - 1, 2);
+          g.fill();
+        });
+      });
+    draw();
+    show();
+    const box = () => c.el.getBoundingClientRect();
+    const hit = (e: MouseEvent) => {
+      const r = box();
+      const px = e.clientX - r.left;
+      const py = e.clientY - r.top;
+      for (let i = notes.length - 1; i >= 0; i--) {
+        const [at, dur, m] = notes[i]!;
+        const x0 = x(at, r.width);
+        const x1 = x(at + dur, r.width);
+        if (py >= y(m) - 2 && py <= y(m) + rowH + 2 && px >= x0 - 1 && px <= x1 + 3)
+          return { i, edge: px > x1 - 6 };
+      }
+      return undefined;
+    };
+    const timeAt = (e: MouseEvent, floor = true) => {
+      const r = box();
+      const t = ((e.clientX - r.left - pad) / (r.width - 2 * pad)) * k.length;
+      const q = (floor ? Math.floor(t / grid) : Math.round(t / grid)) * grid;
+      return clamp(q, 0, k.length - grid);
+    };
+    const pitchAt = (e: MouseEvent) => {
+      const r = box();
+      const row = Math.floor((e.clientY - r.top) / rowH);
+      return clamp(hi - row * k.step, lo, hi);
+    };
+    /** One note at a time: a note ends where the next begins. */
+    const tidy = () => {
+      notes.sort((a, b) => a[0] - b[0] || a[2] - b[2]);
+      for (let i = 0; i + 1 < notes.length; i++)
+        notes[i]![1] = Math.min(notes[i]![1], notes[i + 1]![0] - notes[i]![0]);
+      notes = notes.filter((n) => n[1] >= grid / 2);
+      if (notes.length === 0) notes = [[0, lastDur, (lo + hi) / 2]];
+    };
+    const commit = () => {
+      tidy();
+      active = -1;
+      draw();
+      show();
+      ctx.commit(notes.map((n) => [...n] as [number, number, number]));
+    };
+    c.el.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0) return;
+      const found = hit(e);
+      if (!found) {
+        // A new note where the pointer is; dragging right lengthens it.
+        const at = timeAt(e);
+        const note: [number, number, number] = [at, Math.min(lastDur, k.length - at), pitchAt(e)];
+        notes.push(note);
+        active = notes.indexOf(note);
+        draw();
+        drag(
+          c.el,
+          e,
+          (m) => {
+            note[1] = clamp(timeAt(m, false) + grid - note[0], grid, k.length - note[0]);
+            lastDur = note[1];
+            draw();
+          },
+          commit,
+        );
+        return;
+      }
+      const note = notes[found.i]!;
+      const [at0, dur0, m0] = note;
+      const t0 = timeAt(e, false);
+      const p0 = pitchAt(e);
+      active = found.i;
+      draw();
+      drag(
+        c.el,
+        e,
+        (m) => {
+          if (found.edge) {
+            note[1] = clamp(timeAt(m, false) - at0, grid, k.length - at0);
+            lastDur = note[1];
+          } else {
+            note[0] = clamp(at0 + timeAt(m, false) - t0, 0, k.length - dur0);
+            note[2] = clamp(m0 + pitchAt(m) - p0, lo, hi);
+          }
+          draw();
+        },
+        commit,
+      );
+    });
+    c.el.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      const found = hit(e);
+      const back = {
+        label: "Back to Claude's motif",
+        action: () => {
+          notes = k.value.map((n) => [...n] as [number, number, number]);
+          commit();
+        },
+      };
+      if (!found) return menu(e.clientX, e.clientY, [back]);
+      const note = notes[found.i]!;
+      const move = (by: number) => () => {
+        note[2] = clamp(note[2] + by, lo, hi);
+        commit();
+      };
+      menu(e.clientX, e.clientY, [
+        { heading: `${nameOf(note[2])}, ${note[1]} beats` },
+        { label: "Octave up", disabled: note[2] + 12 > hi, action: move(12) },
+        { label: "Octave down", disabled: note[2] - 12 < lo, action: move(-12) },
+        { label: "Quarter tone up", action: move(0.5) },
+        { label: "Quarter tone down", action: move(-0.5) },
+        {
+          label: "Remove",
+          disabled: notes.length < 2,
+          action: () => {
+            notes.splice(found.i, 1);
+            commit();
+          },
+        },
+        "rule",
+        back,
+      ]);
+    });
+  },
+};
+
+//==============================================================================
 // Pitch structures: vector → set, lattice
 
 /** Every prime form of 12-note equal temperament, with its interval vector (made once). */
@@ -1401,4 +1652,5 @@ export const controls: { [K in Knob["kind"]]: Control<Extract<Knob, { kind: K }>
   "vector-set": vectorSetControl,
   lattice: latticeControl,
   heatmap: heatmapControl,
+  motif: motifControl,
 };

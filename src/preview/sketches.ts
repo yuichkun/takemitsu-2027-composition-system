@@ -5,21 +5,29 @@
 
 import { execFile } from "node:child_process";
 import { existsSync } from "node:fs";
-import { writeFile } from "node:fs/promises";
-import { basename, dirname, join } from "node:path";
+import { readFile, writeFile } from "node:fs/promises";
+import { basename, dirname, join, relative, sep } from "node:path";
 
 import { repoRoot } from "../render/host.ts";
+import type { Outline } from "../score/types.ts";
 import type { Knobs, Stored, Value } from "../sketch/knobs.ts";
-import { readStored, scoreFileOf, sketchFile, valuesFile } from "../sketch/run.ts";
+import { readStored, rootOf, scoreFileOf, sketchFile, valuesFile } from "../sketch/run.ts";
 
 const runner = join(repoRoot, "src/sketch/run.ts");
 
 export interface SketchState {
+  /** The sketch's folder, from the score folder it is in (a piece's node: "pilot/climax/field"). */
   dir: string;
+  /** The folder of the piece it belongs to (itself for a plain sketch), the same way. */
+  root: string;
+  /** Its folder inside the piece ("" for the piece itself or a plain sketch). */
+  node: string;
   knobs: Knobs;
   values: Record<string, Value>;
   presets: Stored["presets"];
   touched: string[];
+  /** The piece's outline, from its last score (a piece only). */
+  outline?: Outline;
   /** The last run's error, if it failed (the score before stays). */
   error?: string;
 }
@@ -28,6 +36,12 @@ export interface SketchState {
 export function sketchOf(scorePath: string): string | undefined {
   const dir = dirname(scorePath);
   return existsSync(sketchFile(dir)) && scoreFileOf(dir) === scorePath ? dir : undefined;
+}
+
+/** A folder inside a piece (or the piece), given as a path; undefined when it is not one. */
+export function nodeIn(root: string, node: string): string | undefined {
+  const inside = node === root || node.startsWith(root + sep);
+  return inside && existsSync(sketchFile(node)) ? node : undefined;
 }
 
 function run(dir: string, describe = false): Promise<string> {
@@ -72,9 +86,29 @@ export function rerun(dir: string): Promise<void> {
   return entry.done;
 }
 
-export async function sketchState(dir: string): Promise<SketchState> {
-  const described = JSON.parse(await run(dir, true)) as Omit<SketchState, "dir" | "error">;
-  return { dir: basename(dir), ...described, error: errors.get(dir) };
+export async function sketchState(dir: string, scoreDirs: string[]): Promise<SketchState> {
+  const root = rootOf(dir);
+  const described = JSON.parse(await run(dir, true)) as Pick<
+    SketchState,
+    "knobs" | "values" | "presets" | "touched"
+  >;
+  const top = scoreDirs.find((d) => root.startsWith(d + sep));
+  const label = (d: string) => (top ? relative(top, d) : basename(d));
+  let outline: Outline | undefined;
+  try {
+    outline = (JSON.parse(await readFile(scoreFileOf(root), "utf8")) as { outline?: Outline })
+      .outline;
+  } catch {
+    // Not written yet.
+  }
+  return {
+    dir: label(dir),
+    root: label(root),
+    node: relative(root, dir).split(sep).join("/"),
+    ...described,
+    ...(outline ? { outline } : {}),
+    error: errors.get(root),
+  };
 }
 
 export type SketchChange =
@@ -84,7 +118,10 @@ export type SketchChange =
   | { remove: string }
   | { reset: true };
 
-/** Applies a change from the panel to values.json and writes the score again. */
+/**
+ * Applies a change from the panel to values.json and writes the score again (for a node of a
+ * piece, the piece's score).
+ */
 export async function changeSketch(dir: string, change: SketchChange): Promise<void> {
   const stored = readStored(dir);
   if ("set" in change) {
@@ -114,5 +151,5 @@ export async function changeSketch(dir: string, change: SketchChange): Promise<v
     stored.touched = [];
   }
   await writeFile(valuesFile(dir), JSON.stringify(stored, null, 2) + "\n");
-  await rerun(dir);
+  await rerun(rootOf(dir));
 }

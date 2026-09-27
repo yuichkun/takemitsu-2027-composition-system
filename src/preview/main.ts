@@ -12,6 +12,7 @@ import type { NotationSnapshot } from "./engraver.ts";
 import type { NotationView } from "./notation-thread.ts";
 import { Player, type Manifest, type MixerSettings, type Status } from "./player.ts";
 import { KnobPanel } from "./knob-panel.ts";
+import { quartersAt, secondsAt } from "../score/timeline.ts";
 import { maxScale, minScale, StripView, type Zoom } from "./strip-view.ts";
 
 interface ScoreEntry {
@@ -21,6 +22,9 @@ interface ScoreEntry {
   root: string;
   /** The folder inside it, "a/b" ("" at the top). */
   dir: string;
+  /** In a piece: the node's folder (absolute), and how deep it is (0: the piece). */
+  node?: string;
+  depth?: number;
 }
 type ScoreData = NotationView;
 interface Progress {
@@ -68,7 +72,8 @@ player.fetchSegments = async (segments) => {
   return out;
 };
 
-let current: { path: string; data?: ScoreData; manifest?: Manifest } | undefined;
+/** The score open; in a piece, `node` is the part of it whose knobs show ("" for the piece). */
+let current: { path: string; node: string; data?: ScoreData; manifest?: Manifest } | undefined;
 let manifestWarnings: string[] = [];
 /** Problems beyond single chunks (states not loaded, the store over its limit). */
 let notices: string[] = [];
@@ -137,10 +142,16 @@ async function loadList(): Promise<void> {
     const b = document.createElement("button");
     b.type = "button";
     b.textContent = label;
-    b.title = s.path;
-    b.dataset.path = s.path;
-    b.setAttribute("aria-current", String(s.path === current?.path));
-    b.addEventListener("click", () => void open(s.path));
+    const node = nodeOf(s);
+    b.title = s.node ? s.path.split("/").at(-2)! + (node ? `/${node}` : "") : s.path;
+    b.dataset.key = keyOf(s.path, node);
+    b.setAttribute("aria-current", String(b.dataset.key === currentKey()));
+    // The nodes of a piece, indented under it.
+    if (s.depth !== undefined) {
+      b.classList.add(s.depth === 0 ? "piece" : "node");
+      b.style.paddingLeft = `${8 + s.depth * 12}px`;
+    }
+    b.addEventListener("click", () => void open(s.path, node));
     return b;
   };
   // A folder holding one score and nothing else (a sketch) is shown as that score, by the folder's name.
@@ -181,6 +192,15 @@ async function loadList(): Promise<void> {
   }
   if (list.length === 0) scoresNav.textContent = "No scores";
 }
+
+/** A node's folder inside its piece ("" for the piece, and for anything that is not a piece). */
+function nodeOf(s: ScoreEntry): string {
+  if (!s.node) return "";
+  const root = s.path.slice(0, s.path.lastIndexOf("/"));
+  return s.node === root ? "" : s.node.slice(root.length + 1);
+}
+const keyOf = (path: string, node: string) => `${path}#${node}`;
+const currentKey = () => (current ? keyOf(current.path, current.node) : "");
 
 let audioFetch: Promise<void> | undefined;
 let audioAgain = false;
@@ -265,7 +285,22 @@ async function loadScore(path: string): Promise<void> {
   showMessages();
   view.setScore(data.measures, data.tempo);
   view.setCursor(player.position);
+  knobs.setMeasures(
+    data.measures.map((m) => ({ number: m.number, quarters: m.quarters, rehearsal: m.rehearsal })),
+  );
+  showSpan();
   refreshNotation();
+}
+
+/** Shades the chosen part of a piece in the score (nothing for the whole piece or a sketch). */
+function showSpan(): void {
+  const span = current?.node ? knobs.span(current.node) : undefined;
+  const tempo = current?.data?.tempo;
+  view.setSpan(
+    span && tempo
+      ? [secondsAt(tempo, span.at), secondsAt(tempo, span.at + span.length)]
+      : undefined,
+  );
 }
 
 let notationFetch: Promise<void> | undefined;
@@ -308,25 +343,51 @@ view.onFocus = (from, to) => {
   }, 150);
 };
 
-async function open(path: string): Promise<void> {
+async function open(path: string, node = ""): Promise<void> {
   $("empty").hidden = true;
-  if (current?.path !== path) {
-    current = { path };
-    manifestWarnings = [];
-    notices = [];
-    audioError = undefined;
-    progress = { done: 0, total: 0, failed: 0 };
-    player.pause();
-    player.seek(0);
-    for (const b of scoresNav.querySelectorAll("button"))
-      b.setAttribute("aria-current", String(b.dataset.path === path));
+  if (current?.path === path) {
+    // Another part of the same piece: its knobs, and the playhead to where it starts.
+    if (current.node === node) return;
+    current.node = node;
+    markCurrent();
+    await knobs.show(path, node);
+    const span = node ? knobs.span(node) : undefined;
+    if (span && current.data && !player.isPlaying)
+      seekTo(secondsAt(current.data.tempo, span.at), true);
+    showSpan();
+    return;
   }
+  current = { path, node };
+  manifestWarnings = [];
+  notices = [];
+  audioError = undefined;
+  progress = { done: 0, total: 0, failed: 0 };
+  player.pause();
+  player.seek(0);
+  markCurrent();
   statusEl.textContent = "Loading";
   refreshAudio();
-  void knobs.show(path);
-  await loadScore(path);
+  await Promise.all([knobs.show(path, node), loadScore(path)]);
+  // Opened at a part of a piece: start there.
+  const span = node ? knobs.span(node) : undefined;
+  if (span && current?.path === path && current.data)
+    seekTo(secondsAt(current.data.tempo, span.at), true);
   sendPlayhead(true);
 }
+
+/** Marks what is open in the list, and in the address (a reload opens it again). */
+function markCurrent(): void {
+  for (const b of scoresNav.querySelectorAll<HTMLButtonElement>("button"))
+    b.setAttribute("aria-current", String(b.dataset.key === currentKey()));
+  if (!current) return;
+  const q = new URLSearchParams({ score: current.path });
+  if (current.node) q.set("node", current.node);
+  history.replaceState(null, "", `#${q.toString().replace(/%2F/g, "/")}`);
+}
+
+knobs.onSelect = (node) => {
+  if (current) void open(current.path, node);
+};
 
 view.onSeek = (seconds) => seekTo(seconds);
 
@@ -506,6 +567,7 @@ knobsToggle.addEventListener("click", () => knobs.toggle());
 knobs.onChange = (isSketch) => {
   knobsToggle.hidden = !isSketch;
   knobsToggle.setAttribute("aria-pressed", String(!knobs.collapsed));
+  showSpan();
 };
 view.setZoom(prefs.zoom);
 showViewControls();
@@ -576,7 +638,10 @@ events.addEventListener("status", (e) => {
 });
 events.addEventListener("score", (e) => {
   const { path } = JSON.parse((e as MessageEvent<string>).data) as { path: string };
-  if (path === current?.path) void loadScore(path);
+  if (path !== current?.path) return;
+  void loadScore(path);
+  // A piece written again: its map (where each part is) may have changed.
+  if (knobs.outline) void knobs.refresh();
 });
 events.addEventListener("notation", (e) => {
   const { path } = JSON.parse((e as MessageEvent<string>).data) as { path: string };
@@ -740,6 +805,7 @@ setInterval(() => {
   player.tick();
   const cursor = player.position;
   view.setCursor(cursor, player.isPlaying);
+  if (current?.data) knobs.setPlayhead(quartersAt(current.data.tempo, cursor));
   if (player.isPlaying) sendPlayhead();
   const time = `${clock(cursor)} / ${clock(pieceEnd())}`;
   if (timeEl.textContent !== time) timeEl.textContent = time;
@@ -794,6 +860,7 @@ window.addEventListener("resize", () => {
 // For measuring from the browser's console (tools and docs/worklog).
 if (import.meta.env.DEV) Object.assign(window, { preview: { player, view } });
 await loadList();
-// A link can open a score: #score=<path of the score file>.
-const linked = new URLSearchParams(location.hash.slice(1)).get("score");
-if (linked) void open(linked);
+// A link can open a score: #score=<path of the score file>, and in a piece &node=<folder in it>.
+const hash = new URLSearchParams(location.hash.slice(1));
+const linked = hash.get("score");
+if (linked) void open(linked, hash.get("node") ?? "");
