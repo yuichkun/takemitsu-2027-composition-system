@@ -11,7 +11,7 @@ import { compressorParams } from "../audio/dynamics.ts";
 import type { NotationSnapshot } from "./engraver.ts";
 import type { NotationView } from "./notation-thread.ts";
 import { Player, type Manifest, type MixerSettings, type Status } from "./player.ts";
-import { maxScale, minScale, StripView, type Mode, type Zoom } from "./strip-view.ts";
+import { maxScale, minScale, StripView, type Zoom } from "./strip-view.ts";
 
 interface ScoreEntry {
   path: string;
@@ -332,7 +332,6 @@ document.addEventListener("keydown", (e) => {
     ArrowLeft: () => stepMeasure(-1),
     ArrowRight: () => stepMeasure(1),
     KeyM: () => $("mixer-toggle").click(),
-    KeyP: () => setMode(view.currentMode === "page" ? "panorama" : "page"),
     KeyF: toggleFocus,
   };
   const action = e.key === "?" ? () => keysDialog.showModal() : actions[e.code];
@@ -342,16 +341,13 @@ document.addEventListener("keydown", (e) => {
 });
 
 //==============================================================================
-// How the score is shown: page or panorama, zoom, full screen, sidebar
+// How the score is shown: zoom, full screen, sidebar
 
-interface ViewPrefs {
-  mode: Mode;
-  zoom: Record<Mode, Zoom>;
-}
-const prefsKey = "takemitsu.strip-view";
-const prefs: ViewPrefs = { mode: "page", zoom: { page: "fit", panorama: "fit" } };
+const prefsKey = "takemitsu.strip-zoom";
+const prefs: { zoom: Zoom } = { zoom: "fit" };
 try {
-  Object.assign(prefs, JSON.parse(localStorage.getItem(prefsKey) ?? "{}") as Partial<ViewPrefs>);
+  const kept = JSON.parse(localStorage.getItem(prefsKey) ?? "{}") as { zoom?: unknown };
+  if (kept.zoom === "fit" || typeof kept.zoom === "number") prefs.zoom = kept.zoom;
 } catch {
   // Storage may be unavailable (a private window): start from the defaults.
 }
@@ -363,26 +359,15 @@ const savePrefs = () => {
   }
 };
 
-const modeButton = $<HTMLButtonElement>("mode");
 const zoomLabel = $("zoom-level");
 function showViewControls(): void {
-  modeButton.textContent = prefs.mode === "page" ? "ページ" : "パノラマ";
-  modeButton.title = `表示の切り替え（P）: いまは${prefs.mode === "page" ? "ページ" : "パノラマ"}`;
-  const zoom = prefs.zoom[prefs.mode];
-  zoomLabel.textContent = zoom === "fit" ? "高さに合わせる" : `${Math.round(view.scale * 720)} px`;
+  zoomLabel.textContent =
+    prefs.zoom === "fit" ? "高さに合わせる" : `${Math.round(view.scale * 720)} px`;
   zoomLabel.title = "五線 1 段の高さ（⌘0 で高さに合わせる）";
 }
 
-function setMode(mode: Mode): void {
-  prefs.mode = mode;
-  view.setMode(mode, prefs.zoom[mode]);
-  view.reveal();
-  savePrefs();
-  showViewControls();
-}
-
 function setZoom(zoom: Zoom, anchor?: { x: number; y: number }): void {
-  prefs.zoom[prefs.mode] = zoom;
+  prefs.zoom = zoom;
   view.setZoom(zoom, anchor);
   savePrefs();
   showViewControls();
@@ -392,7 +377,6 @@ function zoomBy(factor: number, anchor?: { x: number; y: number }): void {
   setZoom(Math.max(minScale, Math.min(maxScale * 2, view.scale * factor)), anchor);
 }
 
-modeButton.addEventListener("click", () => setMode(prefs.mode === "page" ? "panorama" : "page"));
 $("zoom-in").addEventListener("click", () => zoomBy(1.25));
 $("zoom-out").addEventListener("click", () => zoomBy(1 / 1.25));
 $("zoom-fit").addEventListener("click", () => setZoom("fit"));
@@ -419,14 +403,14 @@ $("score").addEventListener("gesturechange", (e) => {
   gestureScale = g.scale;
 });
 view.onZoom = (scale) => {
-  prefs.zoom[prefs.mode] = scale;
+  prefs.zoom = scale;
   savePrefs();
   showViewControls();
 };
 
+// The score lays itself out again when its area changes size (strip-view.ts).
 function toggleSidebar(): void {
   document.body.classList.toggle("sidebar-hidden");
-  view.resize();
 }
 
 /** Focus: only the score and the transport, and the browser in full screen. */
@@ -435,18 +419,15 @@ function toggleFocus(): void {
   document.body.classList.toggle("focus", on);
   if (on) void document.documentElement.requestFullscreen?.().catch(() => undefined);
   else if (document.fullscreenElement) void document.exitFullscreen();
-  view.resize();
 }
 document.addEventListener("fullscreenchange", () => {
   // Leaving full screen (Esc) leaves focus too; the sidebar and mixer are as they were.
-  if (!document.fullscreenElement && document.body.classList.contains("focus")) {
+  if (!document.fullscreenElement && document.body.classList.contains("focus"))
     document.body.classList.remove("focus");
-    view.resize();
-  }
 });
 $("focus").addEventListener("click", toggleFocus);
 $("sidebar-toggle").addEventListener("click", toggleSidebar);
-view.setMode(prefs.mode, prefs.zoom[prefs.mode]);
+view.setZoom(prefs.zoom);
 showViewControls();
 $("help").addEventListener("click", () => keysDialog.showModal());
 
@@ -713,10 +694,7 @@ function showMeters(): void {
 let resizeTimer = 0;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
-  resizeTimer = window.setTimeout(() => {
-    view.resize();
-    drawReadiness();
-  }, 200);
+  resizeTimer = window.setTimeout(drawReadiness, 200);
 });
 
 // For measuring from the browser's console (tools and docs/worklog).

@@ -271,7 +271,7 @@ dialog#keys form {
 /* The strip (src/preview/strip-view.ts): measures drawn by the server, placed side by side. */
 .strip-canvas {
   position: relative;
-  /* The pinned margin's top margin stays inside (it would push the whole strip down). */
+  /* The margin's top margin stays inside (it would push the whole strip down). */
   display: flow-root;
   /* Its own layer, drawn once at its scale: a pinch then only stretches it (strip-view.ts). */
   will-change: transform;
@@ -297,10 +297,13 @@ dialog#keys form {
   opacity: 0.6;
 }
 
+/* The margin of names and clefs stays at the left edge while the strip scrolls under it. */
 .strip-canvas .margin {
-  position: absolute;
-  z-index: 2;
+  position: sticky;
+  left: 0;
+  z-index: 3;
   background: var(--paper);
+  box-shadow: 1px 0 0 var(--rule);
   overflow: hidden;
   pointer-events: none;
 }
@@ -309,18 +312,6 @@ dialog#keys form {
   position: absolute;
   display: block;
   max-width: none;
-}
-
-/* The panorama's margin stays at the left edge while the strip scrolls under it. */
-.strip-canvas .margin.pinned {
-  position: sticky;
-  left: 0;
-  z-index: 3;
-  box-shadow: 1px 0 0 var(--rule);
-}
-
-.strip-canvas[data-mode="page"] .margin.pinned {
-  display: none;
 }
 
 .ruler-label {

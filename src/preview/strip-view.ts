@@ -1,14 +1,15 @@
 // The score on screen (docs/decisions/0020): the measures drawn by the engraver
-// (src/preview/engraver.ts), laid side by side as one strip. Two ways to read it:
-// - panorama: one long row, scrolled sideways. While playing, it glides so that the playhead
-//   stays a third of the way across.
-// - page: the strip folded at barlines into rows as wide as the screen (at the scale that fits a
-//   row's height), one under the other. Zooming magnifies the page; it does not fold it again.
-//   While playing, it turns when the playhead moves to the next row, keeping how far down the
-//   row you were looking.
+// (src/preview/engraver.ts), laid side by side as one long strip (a panorama), scrolled sideways.
+// While playing, it glides so that the playhead stays a third of the way across. The margin on
+// the left stays put and shows names and the clefs in force; the ruler above shows measure
+// numbers, rehearsal marks, meters and tempi.
+//
 // Zoom scales the drawings; nothing is drawn again, and a window of another size only lays them
-// out again. The margin on the left shows names and the clefs in force; the ruler above shows
-// measure numbers, rehearsal marks, meters and tempi.
+// out again. A pinch (or ⌘-wheel) does not lay out while it goes on: it only scales what is on
+// screen, as one picture (a CSS transform, done by the GPU), and lays out at the new scale once
+// the fingers rest. Laying out resizes dozens of drawings, which the browser must draw again at
+// the new size; doing that for every step of a pinch made it stutter. The point under the fingers
+// stays where it is, during the pinch and after.
 //
 // Time ↔ place: seconds ↔ quarters through the tempo map (src/score/timeline.ts), and quarters
 // ↔ x within a measure through the beats the engraver found in its drawing.
@@ -16,28 +17,20 @@
 // Drawings are images placed by measure. A new layout (zoom, window size, a drawing arriving)
 // moves them; an image is replaced only when its measure's drawing changes, and the old one stays
 // until the new one is ready.
-//
-// A pinch (or ⌘-wheel) does not lay out while it goes on: it only scales what is on screen, as one
-// picture (a CSS transform, done by the GPU), and lays out at the new scale once the fingers rest.
-// Laying out resizes dozens of drawings, which the browser must draw again at the new size; doing
-// that for every step of a pinch made it stutter.
 
 import { quartersAt, secondsAt, type TempoSegment } from "../score/timeline.ts";
 import type { NotationSnapshot, Shot } from "./engraver.ts";
 import type { MeasureInfo } from "./notation-thread.ts";
 
-export type Mode = "page" | "panorama";
 export type Zoom = number | "fit";
 
-/** Height of the ruler above a row, in CSS pixels. */
+/** Height of the ruler above the strip, in CSS pixels. */
 const rulerHeight = 22;
-/** Space between rows on a page, in CSS pixels. */
-const rowGap = 18;
 /** Padding around the strip, in CSS pixels. */
 const pad = 12;
 /** Largest and smallest scale (CSS pixels per drawing unit); a five-line staff is 720 units. */
 export const maxScale = 60 / 720;
-export const minScale = 3 / 720;
+export const minScale = 1 / 720;
 /** Width guessed for a measure not drawn yet, in drawing units. */
 const guessWidth = 3000;
 /** How long following waits after the user scrolls by hand, in ms. */
@@ -45,28 +38,29 @@ const handsOff = 3000;
 
 interface Layout {
   scale: number;
-  /** Drawing units above staff 1, the staves, and below the last staff (the same in every row). */
+  /** Drawing units above staff 1, the staves, and below the last staff. */
   top: number;
   span: number;
   bottom: number;
   /** Width of the margin, in units. */
   margin: number;
-  /** Per measure: its row, x in units from the row's first barline, and its width. */
-  row: number[];
+  /** Per measure: x in units from the first barline, and its width. */
   x: number[];
   width: number[];
-  /** Rows: their first and last measures, and top edge (of the ruler) in CSS pixels. */
-  rows: { first: number; last: number; y: number }[];
   contentWidth: number;
   contentHeight: number;
 }
 
-/** A place in the score, kept across layouts: a measure, how far into it, and how far below the
- * top of staff 1 (in drawing units, so it stays put at another scale). */
+/**
+ * A place in the score, kept across layouts: a measure, how far into it, and how far below the
+ * top of staff 1 in drawing units (so it stays put at another scale), or, above staff 1 (the
+ * ruler, whose height does not scale), in CSS pixels.
+ */
 interface Spot {
   i: number;
   f: number;
   u: number;
+  above: number;
 }
 
 interface Placed {
@@ -87,14 +81,15 @@ export class StripView {
   /** A pinch ended at this scale (to remember it). */
   onZoom?: (scale: number) => void;
 
-  private mode: Mode = "page";
   private zoom: Zoom = "fit";
   private measures: MeasureInfo[] = [];
   private tempo: TempoSegment[] = [];
   private snapshot?: NotationSnapshot;
   private layout?: Layout;
+  private readonly container: HTMLElement;
+  private readonly sizer: HTMLDivElement;
   private readonly canvas: HTMLDivElement;
-  private readonly pinned: HTMLDivElement;
+  private readonly margin: HTMLDivElement;
   private readonly playhead: HTMLDivElement;
   private readonly placed = new Map<string, Placed>();
   private readonly anchors = new Map<string, [number, number][]>();
@@ -104,8 +99,8 @@ export class StripView {
   private userScrolled = -Infinity;
   private frame = 0;
   /**
-   * A pinch going on: the scale it started from, and the transform it has applied so far
-   * (content point c is shown at k·c + t), and where the pointer last was.
+   * A pinch going on: the scale it started from, the transform it has applied so far (content
+   * point c is shown at k·c + t), and where the pointer last was.
    */
   private gesture?: {
     base: number;
@@ -117,26 +112,25 @@ export class StripView {
   };
   private lastFocus = "";
 
-  private readonly container: HTMLElement;
-  private readonly sizer: HTMLDivElement;
-
   constructor(container: HTMLElement) {
     this.container = container;
     this.canvas = document.createElement("div");
     this.canvas.className = "strip-canvas";
-    // The panorama's margin stays at the left edge (sticky); the page draws one per row.
-    this.pinned = document.createElement("div");
-    this.pinned.className = "margin pinned";
+    // Stays at the left edge (sticky) while the strip scrolls under it.
+    this.margin = document.createElement("div");
+    this.margin.className = "margin";
     this.playhead = document.createElement("div");
     this.playhead.className = "playhead";
     this.playhead.hidden = true;
-    this.canvas.append(this.pinned, this.playhead);
+    this.canvas.append(this.margin, this.playhead);
     // Keeps the scroll range while a pinch shrinks the picture, so the browser does not pull the
     // view back (which would move the point under the fingers).
     this.sizer = document.createElement("div");
     this.sizer.className = "strip-sizer";
     container.replaceChildren(this.sizer, this.canvas);
     container.addEventListener("scroll", () => this.schedule(), { passive: true });
+    // The view changes size with the window, the messages, the mixer, the sidebar, full screen.
+    new ResizeObserver(() => this.resize()).observe(container);
     for (const kind of ["wheel", "touchmove", "pointerdown"])
       container.addEventListener(kind, () => (this.userScrolled = performance.now()), {
         passive: true,
@@ -157,14 +151,6 @@ export class StripView {
   setSnapshot(snapshot: NotationSnapshot): void {
     this.snapshot = snapshot;
     this.relayout();
-  }
-
-  setMode(mode: Mode, zoom: Zoom): void {
-    if (mode === this.mode && zoom === this.zoom) return;
-    const at = this.pointAt();
-    this.mode = mode;
-    this.zoom = zoom;
-    this.relayout(at);
   }
 
   /** Zooms, keeping the point under `anchor` (client coordinates), or the middle of the view, in place. */
@@ -201,33 +187,6 @@ export class StripView {
     g.timer = window.setTimeout(() => this.endPinch(), 160);
   }
 
-  private endPinch(): void {
-    const g = this.gesture;
-    if (!g) return;
-    clearTimeout(g.timer);
-    // The point under the pointer, in the layout before the pinch.
-    const q = this.scrolled(g.anchor);
-    const at = this.spotAt((q.x - g.tx) / g.k, (q.y - g.ty) / g.k);
-    this.gesture = undefined;
-    Object.assign(this.canvas.style, { transform: "", transformOrigin: "" });
-    this.zoom = g.base * g.k;
-    this.relayout(at, g.anchor);
-    this.onZoom?.(this.zoom);
-  }
-
-  /** A client point in the scrolled content's coordinates. */
-  private scrolled(at: { x: number; y: number }): { x: number; y: number } {
-    const box = this.container.getBoundingClientRect();
-    return {
-      x: at.x - box.left + this.container.scrollLeft,
-      y: at.y - box.top + this.container.scrollTop,
-    };
-  }
-
-  get currentMode(): Mode {
-    return this.mode;
-  }
-
   /** The scale in use (CSS pixels per unit), to zoom from it. */
   get scale(): number {
     return this.layout?.scale ?? 0.05;
@@ -258,11 +217,6 @@ export class StripView {
     this.schedule();
   }
 
-  /** Stops following (playback paused). */
-  release(): void {
-    this.following = false;
-  }
-
   /** The measure number at a time. */
   measureAt(seconds: number): number {
     return this.measures[this.indexAt(seconds)]?.number ?? 1;
@@ -279,9 +233,10 @@ export class StripView {
     });
   }
 
-  private fitScale(rowUnits: number): number {
+  /** The scale that fits the strip's height in the view (up to a size that stays readable). */
+  private fitScale(units: number): number {
     const h = this.container.clientHeight - rulerHeight - 2 * pad;
-    return Math.max(minScale, Math.min(maxScale, h / rowUnits));
+    return Math.max(minScale, Math.min(maxScale, h / units));
   }
 
   private relayout(keep?: Spot, anchor?: { x: number; y: number }): void {
@@ -299,47 +254,27 @@ export class StripView {
     const known = shots.filter((s): s is Shot => !!s).map((s) => s.right);
     const guess = known.length ? known.reduce((a, b) => a + b, 0) / known.length : guessWidth;
     const width = shots.map((s) => s?.right ?? guess);
-    const rowPx = rulerHeight + (top + span + bottom) * scale;
-    const row: number[] = [];
     const x: number[] = [];
-    const rows: Layout["rows"] = [];
     let at = 0;
-    // A page's rows are as wide as the view at the scale that fits a row's height, whatever the
-    // zoom: zooming magnifies the page (as in a PDF or Sibelius) instead of folding it again, so
-    // the point under the fingers stays there.
-    const fold = this.fitScale(top + span + bottom);
-    const room =
-      this.mode === "panorama" ? Infinity : (this.container.clientWidth - 2 * pad) / fold - margin;
-    width.forEach((w, i) => {
-      if (i > 0 && at + w > room) {
-        rows.at(-1)!.last = i - 1;
-        at = 0;
-      }
-      if (i === 0 || at === 0) rows.push({ first: i, last: i, y: rows.length * (rowPx + rowGap) });
-      row.push(rows.length - 1);
+    for (const w of width) {
       x.push(at);
       at += w;
-    });
-    if (rows.length) rows.at(-1)!.last = width.length - 1;
-    const widest = Math.max(0, ...rows.map((r) => x[r.last]! + width[r.last]!));
+    }
     this.layout = {
       scale,
       top,
       span,
       bottom,
       margin,
-      row,
       x,
       width,
-      rows,
-      contentWidth: (margin + widest) * scale + 2 * pad,
-      contentHeight: rows.length * rowPx + Math.max(0, rows.length - 1) * rowGap + 2 * pad,
+      contentWidth: (margin + at) * scale + 2 * pad,
+      contentHeight: rulerHeight + (top + span + bottom) * scale + 2 * pad,
     };
-    this.canvas.style.width = `${this.layout.contentWidth}px`;
-    this.canvas.style.height = `${this.layout.contentHeight}px`;
-    this.sizer.style.width = `${this.layout.contentWidth}px`;
-    this.sizer.style.height = `${this.layout.contentHeight}px`;
-    this.canvas.dataset.mode = this.mode;
+    for (const el of [this.canvas, this.sizer]) {
+      el.style.width = `${this.layout.contentWidth}px`;
+      el.style.height = `${this.layout.contentHeight}px`;
+    }
     if (keep) this.restore(keep, anchor);
     this.render();
   }
@@ -350,14 +285,24 @@ export class StripView {
     return pad + (l.margin + l.x[i]!) * l.scale;
   }
 
-  private rowTop(r: number): number {
-    return pad + (this.layout!.rows[r]?.y ?? 0);
+  /** Top of staff 1, in CSS pixels of the content. */
+  private staffTop(): number {
+    const l = this.layout!;
+    return pad + rulerHeight + l.top * l.scale;
   }
 
-  /** Top of staff 1 in a row, in CSS pixels of the content. */
-  private staffTop(r: number): number {
-    const l = this.layout!;
-    return this.rowTop(r) + rulerHeight + l.top * l.scale;
+  private endPinch(): void {
+    const g = this.gesture;
+    if (!g) return;
+    clearTimeout(g.timer);
+    // The point under the pointer, in the layout before the pinch.
+    const q = this.scrolled(g.anchor);
+    const at = this.spotAt((q.x - g.tx) / g.k, (q.y - g.ty) / g.k);
+    this.gesture = undefined;
+    Object.assign(this.canvas.style, { transform: "", transformOrigin: "" });
+    this.zoom = g.base * g.k;
+    this.relayout(at, g.anchor);
+    this.onZoom?.(this.zoom);
   }
 
   //============================================================================
@@ -402,8 +347,8 @@ export class StripView {
     return undefined;
   }
 
-  /** The playhead's place: its measure, row and x in CSS pixels of the content. */
-  private place(seconds: number): { i: number; row: number; x: number } | undefined {
+  /** The playhead's place: its measure and x in CSS pixels of the content. */
+  private place(seconds: number): { i: number; x: number } | undefined {
     const l = this.layout;
     if (!l || !this.measures.length) return undefined;
     const i = this.indexAt(seconds);
@@ -418,7 +363,16 @@ export class StripView {
         break;
       }
     }
-    return { i, row: l.row[i]!, x: this.measureLeft(i) + x * l.scale };
+    return { i, x: this.measureLeft(i) + x * l.scale };
+  }
+
+  /** A client point in the scrolled content's coordinates. */
+  private scrolled(at: { x: number; y: number }): { x: number; y: number } {
+    const box = this.container.getBoundingClientRect();
+    return {
+      x: at.x - box.left + this.container.scrollLeft,
+      y: at.y - box.top + this.container.scrollTop,
+    };
   }
 
   /** The spot at a point of the view (client coordinates; default: its top left). */
@@ -431,36 +385,32 @@ export class StripView {
   /** The spot at a point of the content (CSS pixels, in the current layout). */
   private spotAt(cx: number, cy: number): Spot | undefined {
     const l = this.layout;
-    if (!l || !this.measures.length || !l.rows.length) return undefined;
-    const r = this.rowIndexAt(cy);
-    const row = l.rows[r]!;
-    for (let i = row.first; i <= row.last; i++) {
-      const left = this.measureLeft(i);
-      const w = l.width[i]! * l.scale;
-      if (cx < left + w || i === row.last)
-        return {
-          i,
-          f: Math.min(1, Math.max(0, (cx - left) / w)),
-          u: (cy - this.staffTop(r)) / l.scale,
-        };
+    if (!l || !this.measures.length) return undefined;
+    // The last measure starting left of cx.
+    let lo = 0;
+    let hi = this.measures.length - 1;
+    while (lo < hi) {
+      const mid = (lo + hi + 1) >> 1;
+      if (this.measureLeft(mid) <= cx) lo = mid;
+      else hi = mid - 1;
     }
-    return undefined;
-  }
-
-  private rowIndexAt(y: number): number {
-    const rows = this.layout!.rows;
-    let r = 0;
-    while (r + 1 < rows.length && this.rowTop(r + 1) <= y) r++;
-    return r;
+    const w = l.width[lo]! * l.scale;
+    const below = cy - this.staffTop();
+    return {
+      i: lo,
+      f: Math.min(1, Math.max(0, (cx - this.measureLeft(lo)) / w)),
+      u: Math.max(0, below) / l.scale,
+      above: Math.min(0, below),
+    };
   }
 
   /** Scrolls so that a spot is at a point of the view (client coordinates; default: top left). */
   private restore(p: Spot, at?: { x: number; y: number }): void {
     const l = this.layout!;
-    if (p.i >= l.row.length) return;
+    if (p.i >= l.x.length) return;
     const box = this.container.getBoundingClientRect();
     const x = this.measureLeft(p.i) + p.f * l.width[p.i]! * l.scale;
-    const y = this.staffTop(l.row[p.i]!) + p.u * l.scale;
+    const y = this.staffTop() + p.u * l.scale + p.above;
     this.container.scrollLeft = x - (at ? at.x - box.left : 0);
     this.container.scrollTop = y - (at ? at.y - box.top : 0);
   }
@@ -526,45 +476,25 @@ export class StripView {
     if (this.following && this.position) this.cursor = this.position();
     this.follow();
     const c = this.container;
-    const view = {
-      left: c.scrollLeft,
-      top: c.scrollTop,
-      width: c.clientWidth,
-      height: c.clientHeight,
-    };
-    const rowPx = rulerHeight + (l.top + l.span + l.bottom) * l.scale;
-    const near = (x0: number, x1: number, y0: number, y1: number) =>
-      x1 >= view.left - view.width &&
-      x0 <= view.left + 2 * view.width &&
-      y1 >= view.top - view.height &&
-      y0 <= view.top + 2 * view.height;
-    const seen = (x0: number, x1: number, y0: number, y1: number) =>
-      x1 >= view.left &&
-      x0 <= view.left + view.width &&
-      y1 >= view.top &&
-      y0 <= view.top + view.height;
+    const left = c.scrollLeft;
+    const width = c.clientWidth;
     const wanted = new Set<string>();
     const shots = this.shots();
     let seenFrom = Infinity;
     let seenTo = -1;
-    for (const [r, row] of l.rows.entries()) {
-      const y0 = this.rowTop(r);
-      if (!near(0, l.contentWidth, y0, y0 + rowPx)) continue;
-      if (this.mode === "page") this.placeMargin(`g${r}`, row.first, r, wanted);
-      for (let i = row.first; i <= row.last; i++) {
-        const x0 = this.measureLeft(i);
-        const x1 = x0 + l.width[i]! * l.scale;
-        if (!near(x0, x1, y0, y0 + rowPx)) continue;
-        if (seen(x0, x1, y0, y0 + rowPx)) {
-          seenFrom = Math.min(seenFrom, i);
-          seenTo = Math.max(seenTo, i);
-        }
-        this.placeMeasure(i, shots[i] ?? null, r, wanted);
-        this.placeLabel(i, r, wanted);
+    // Place what is in view and a screen on either side.
+    for (let i = 0; i < this.measures.length; i++) {
+      const x0 = this.measureLeft(i);
+      const x1 = x0 + l.width[i]! * l.scale;
+      if (x1 < left - width || x0 > left + 2 * width) continue;
+      if (x1 >= left && x0 <= left + width) {
+        seenFrom = Math.min(seenFrom, i);
+        seenTo = Math.max(seenTo, i);
       }
+      this.placeMeasure(i, shots[i] ?? null, wanted);
+      this.placeLabel(i, wanted);
     }
-    this.pinned.hidden = this.mode !== "panorama";
-    if (this.mode === "panorama") this.fillPinned(this.pointAt()?.i ?? 0);
+    this.fillMargin(this.pointAt()?.i ?? 0);
     for (const [k, p] of this.placed)
       if (!wanted.has(k)) {
         p.el.remove();
@@ -602,14 +532,13 @@ export class StripView {
     const entry: Placed = { el, sig, old: had?.old ?? had?.el };
     if (had?.old && had.el !== entry.old) had.el.remove();
     this.placed.set(k, entry);
-    const img = el instanceof HTMLImageElement ? el : el.querySelector("img");
     const show = () => {
       if (this.placed.get(k) !== entry) return;
       entry.old?.remove();
       entry.old = undefined;
       if (!el.isConnected) this.canvas.insertBefore(el, this.playhead);
     };
-    if (img && entry.old) void img.decode().then(show, show);
+    if (el instanceof HTMLImageElement && entry.old) void el.decode().then(show, show);
     else show();
   }
 
@@ -623,7 +552,7 @@ export class StripView {
     return img;
   }
 
-  private placeMeasure(i: number, shot: Shot | null, r: number, wanted: Set<string>): void {
+  private placeMeasure(i: number, shot: Shot | null, wanted: Set<string>): void {
     const l = this.layout!;
     const bleed = this.snapshot?.bleed ?? 0;
     if (shot)
@@ -633,7 +562,7 @@ export class StripView {
         () => this.image(shot.key, shot.aligned ? "measure" : "measure unaligned"),
         {
           left: `${this.measureLeft(i) - bleed * l.scale}px`,
-          top: `${this.staffTop(r) - shot.top * l.scale}px`,
+          top: `${this.staffTop() - shot.top * l.scale}px`,
           width: `${(shot.width + bleed) * l.scale}px`,
           height: `${shot.height * l.scale}px`,
         },
@@ -646,7 +575,7 @@ export class StripView {
         () => Object.assign(document.createElement("div"), { className: "measure pending" }),
         {
           left: `${this.measureLeft(i)}px`,
-          top: `${this.staffTop(r)}px`,
+          top: `${this.staffTop()}px`,
           width: `${l.width[i]! * l.scale}px`,
           height: `${l.span * l.scale}px`,
         },
@@ -654,13 +583,17 @@ export class StripView {
       );
   }
 
-  private placeLabel(i: number, r: number, wanted: Set<string>): void {
+  private placeLabel(i: number, wanted: Set<string>): void {
     const l = this.layout!;
     const m = this.measures[i]!;
     const prev = this.measures[i - 1];
     const meter = !prev || prev.beats !== m.beats || prev.beatType !== m.beatType;
+    // Where measures are too narrow for their numbers, every tenth one is shown (reaching over
+    // the next ones, which show none).
+    const px = l.width[i]! * l.scale;
+    const narrow = px < 22;
     const html = [
-      `<span class="number">${m.number}</span>`,
+      !narrow || m.number % 10 === 0 ? `<span class="number">${m.number}</span>` : "",
       m.rehearsal ? `<span class="rehearsal">${escape(m.rehearsal)}</span>` : "",
       meter ? `<span class="meter">${m.beats}/${m.beatType}</span>` : "",
       m.tempo ? `<span class="tempo">${escape(m.tempo)}</span>` : "",
@@ -672,54 +605,26 @@ export class StripView {
         Object.assign(document.createElement("div"), { className: "ruler-label", innerHTML: html }),
       {
         left: `${this.measureLeft(i)}px`,
-        top: `${this.rowTop(r)}px`,
-        maxWidth: `${Math.max(16, l.width[i]! * l.scale - 2)}px`,
+        top: `${pad}px`,
+        maxWidth: narrow ? "none" : `${px - 2}px`,
       },
       wanted,
     );
   }
 
-  private marginShot(i: number): Shot | undefined {
+  /** The margin for the measure at the left edge: names, brackets and the clefs in force there. */
+  private fillMargin(i: number): void {
+    const l = this.layout!;
     const s = this.snapshot;
     const which = s?.marginOf[i];
-    const shot = which === undefined ? undefined : s?.margins[which];
-    return shot && shot !== "failed" ? shot : undefined;
-  }
-
-  /** A page row's margin: the names and clefs in force at its first measure. */
-  private placeMargin(k: string, i: number, r: number, wanted: Set<string>): void {
-    const l = this.layout!;
-    const shot = this.marginShot(i);
-    this.put(
-      k,
-      shot?.key ?? "none",
-      () => {
-        const box = Object.assign(document.createElement("div"), { className: "margin" });
-        if (shot) box.append(this.image(shot.key, ""));
-        return box;
-      },
-      {
-        left: "0px",
-        top: `${this.rowTop(r) + rulerHeight}px`,
-        width: `${pad + l.margin * l.scale}px`,
-        height: `${(l.top + l.span + l.bottom) * l.scale}px`,
-      },
-      wanted,
-    );
-    const img = this.placed.get(k)?.el.querySelector("img");
-    if (img && shot) this.sizeMarginImage(img, shot);
-  }
-
-  /** The panorama's margin, for the measure at the left edge. */
-  private fillPinned(i: number): void {
-    const l = this.layout!;
-    const shot = this.marginShot(i);
-    Object.assign(this.pinned.style, {
+    const drawn = which === undefined ? undefined : s?.margins[which];
+    const shot = drawn && drawn !== "failed" ? drawn : undefined;
+    Object.assign(this.margin.style, {
       marginTop: `${pad + rulerHeight}px`,
       width: `${pad + l.margin * l.scale}px`,
       height: `${(l.top + l.span + l.bottom) * l.scale}px`,
     });
-    const img = this.pinned.querySelector("img");
+    const img = this.margin.querySelector("img");
     if (!shot) {
       img?.remove();
       return;
@@ -732,20 +637,16 @@ export class StripView {
           () => img.replaceWith(fresh),
           () => img.replaceWith(fresh),
         );
-      else this.pinned.append(fresh);
+      else this.margin.append(fresh);
     }
-    const now = this.pinned.querySelector("img");
-    if (now) this.sizeMarginImage(now, shot);
-  }
-
-  private sizeMarginImage(img: HTMLImageElement, shot: Shot): void {
-    const l = this.layout!;
-    Object.assign(img.style, {
-      left: `${pad}px`,
-      top: `${(l.top - shot.top) * l.scale}px`,
-      width: `${shot.width * l.scale}px`,
-      height: `${shot.height * l.scale}px`,
-    });
+    const now = this.margin.querySelector("img");
+    if (now)
+      Object.assign(now.style, {
+        left: `${pad}px`,
+        top: `${(l.top - shot.top) * l.scale}px`,
+        width: `${shot.width * l.scale}px`,
+        height: `${shot.height * l.scale}px`,
+      });
   }
 
   private drawPlayhead(): void {
@@ -758,28 +659,19 @@ export class StripView {
     this.playhead.hidden = false;
     Object.assign(this.playhead.style, {
       left: `${p.x}px`,
-      top: `${this.staffTop(p.row) - 8}px`,
+      top: `${this.staffTop() - 8}px`,
       height: `${l.span * l.scale + 16}px`,
     });
   }
 
-  /** Keeps the playhead in sight while playing (see the top of this file). */
+  /** Keeps the playhead a third of the way across while playing (see the top of this file). */
   private follow(): void {
     if (!this.following || performance.now() - this.userScrolled < handsOff) return;
     const p = this.place(this.cursor);
     if (!p) return;
     const c = this.container;
-    if (this.mode === "panorama") {
-      const target = p.x - c.clientWidth / 3;
-      if (Math.abs(c.scrollLeft - target) > 0.5) c.scrollLeft = target;
-      return;
-    }
-    // Page: turn when the playhead's row is not the one in view, keeping the depth in the row.
-    const current = this.rowIndexAt(c.scrollTop + rulerHeight);
-    if (p.row !== current)
-      c.scrollTop = this.rowTop(p.row) + Math.max(0, c.scrollTop - this.rowTop(current));
-    if (p.x < c.scrollLeft || p.x > c.scrollLeft + c.clientWidth)
-      c.scrollLeft = Math.max(0, p.x - c.clientWidth / 3);
+    const target = p.x - c.clientWidth / 3;
+    if (Math.abs(c.scrollLeft - target) > 0.5) c.scrollLeft = target;
   }
 }
 

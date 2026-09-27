@@ -26,7 +26,6 @@
         </button>
         <span id="time" class="time">0:00 / 0:00</span>
         <div class="view-controls" role="group" aria-label="譜面の表示">
-          <button id="mode" type="button" title="表示の切り替え（P）">ページ</button>
           <button id="zoom-out" type="button" title="縮小（⌘−）" aria-label="縮小">−</button>
           <span id="zoom-level" class="zoom-level">高さに合わせる</span>
           <button id="zoom-in" type="button" title="拡大（⌘=）" aria-label="拡大">＋</button>
@@ -49,8 +48,7 @@
           title="保存すると、変わったところだけを裏でレンダし直す"
         ></div>
         <button id="help" type="button" class="keys-button" title="ショートカット（?）">
-          <kbd>Space</kbd> 再生 <kbd>←</kbd><kbd>→</kbd> 小節 <kbd>P</kbd> 表示 <kbd>F</kbd> 全画面
-          <kbd>?</kbd> ほか
+          <kbd>Space</kbd> 再生 <kbd>←</kbd><kbd>→</kbd> 小節 <kbd>F</kbd> 全画面 <kbd>?</kbd> ほか
         </button>
       </header>
       <canvas
@@ -87,10 +85,6 @@
           <tr>
             <td><kbd>←</kbd> <kbd>→</kbd></td>
             <td>前 / 次の小節へ</td>
-          </tr>
-          <tr>
-            <td><kbd>P</kbd></td>
-            <td>ページ / パノラマを切り替える</td>
           </tr>
           <tr>
             <td><kbd>F</kbd></td>
