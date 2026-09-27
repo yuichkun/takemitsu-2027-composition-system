@@ -10,3 +10,9 @@ artifacts/
 *.aiff
 *.flac
 *.mp3
+
+# マシン固有の状態（プラグイン state、レンダーのキャッシュ、プローブ結果）
+.local/
+
+# ネイティブホストのビルド
+native/build/
