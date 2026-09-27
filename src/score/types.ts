@@ -44,6 +44,36 @@ export interface Score {
   /** Rehearsal marks. */
   rehearsal?: { measure: number; label: string }[];
   parts: Part[];
+  /** For a piece made of sketches: where each of them is (the preview draws it as a map). */
+  outline?: Outline;
+}
+
+/**
+ * The structure of a piece made of sketches (src/sketch/nest.ts), written with its score for the
+ * preview's map. Notation and playback ignore it.
+ */
+export interface Outline {
+  /** The piece's length in quarters. */
+  length: number;
+  nodes: OutlineNode[];
+  /** Each flow of the piece, sampled evenly from its start to its end (0–1). */
+  flows: Record<string, number[]>;
+  /** Problems found while putting the nodes together (two nodes giving one player notes at once). */
+  warnings: string[];
+}
+
+export interface OutlineNode {
+  /** The node's folder, from the piece's folder ("" for the piece itself). */
+  node: string;
+  /** Start and length, in quarters from the start of the piece. */
+  at: number;
+  length: number;
+  /** 0 for the piece, 1 for its sections, and so on. */
+  depth: number;
+  /** Forms of the motif it plays (P, I, R, RI). */
+  uses: string[];
+  /** Players it writes for (part ids). */
+  players: string[];
 }
 
 export interface Part {

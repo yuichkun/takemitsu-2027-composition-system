@@ -31,7 +31,37 @@ export interface NumberKnob extends KnobBase {
   max: number;
   step: number;
   unit?: string;
+  follow?: false;
 }
+
+/**
+ * A number that may also move over time: follow one of the piece's flows (src/sketch/nest.ts),
+ * or ramp from one value to another over the node's own length. Read it at a time with
+ * `ctx.value(v.name, t)`.
+ */
+export interface FollowKnob extends KnobBase {
+  kind: "number";
+  value: Auto;
+  min: number;
+  max: number;
+  step: number;
+  unit?: string;
+  follow: true;
+}
+
+/** A follow knob's value when it moves: `follow` is a flow's name, or "ramp" (over the node). */
+export interface Follow {
+  follow: string;
+  from: number;
+  to: number;
+}
+export type Auto = number | Follow;
+export const isFollow = (v: unknown): v is Follow =>
+  typeof v === "object" &&
+  v !== null &&
+  typeof (v as Follow).follow === "string" &&
+  isNumber((v as Follow).from) &&
+  isNumber((v as Follow).to);
 
 /** One of a few options. */
 export interface ChoiceKnob extends KnobBase {
@@ -95,6 +125,11 @@ export interface EnvelopeKnob extends KnobBase {
   kind: "envelope";
   value: [number, number][];
   ends?: [string, string];
+  /**
+   * Names of equal parts of the time axis, drawn as guides: a shape over a piece's sections, each
+   * drawn the same width whatever its length (src/sketch/nest.ts, formCurve).
+   */
+  guides?: string[];
 }
 
 /** Pitch classes, in semitones above a reference (0–11.5), on a clock of 12 or 24 steps. */
@@ -194,8 +229,24 @@ export interface LanesKnob extends KnobBase {
   unit?: string;
 }
 
+/** A short melody: notes as [start, length, pitch] (quarters, quarters, MIDI on the quarter-tone grid). */
+export interface MotifKnob extends KnobBase {
+  kind: "motif";
+  value: [number, number, number][];
+  /** Lowest and highest pitch shown (MIDI). */
+  range: [number, number];
+  /** Quarters shown. */
+  length: number;
+  /** Where starts and lengths snap, in quarters. */
+  grid: number;
+  /** 1 (semitones) or 0.5 (quarter tones). */
+  step: number;
+}
+
 export type Knob =
   | NumberKnob
+  | FollowKnob
+  | MotifKnob
   | ChoiceKnob
   | TextKnob
   | ToggleKnob
@@ -223,7 +274,12 @@ export type Value = Knob["value"];
 type Spec<K extends Knob> = Omit<K, "kind">;
 const midi = (p: number | string) => (typeof p === "number" ? p : parsePitch(p).midi);
 
-export const number = (k: Spec<NumberKnob>): NumberKnob => ({ kind: "number", ...k });
+/** With `follow: true`, the value may follow a flow or ramp (FollowKnob). */
+export function number(k: Spec<FollowKnob>): FollowKnob;
+export function number(k: Spec<NumberKnob>): NumberKnob;
+export function number(k: Spec<NumberKnob> | Spec<FollowKnob>): NumberKnob | FollowKnob {
+  return { kind: "number", ...k } as NumberKnob | FollowKnob;
+}
 export const choice = (k: Spec<ChoiceKnob>): ChoiceKnob => ({ kind: "choice", ...k });
 export const text = (k: Spec<TextKnob>): TextKnob => ({ kind: "text", ...k });
 export const toggle = (k: Spec<ToggleKnob>): ToggleKnob => ({ kind: "toggle", ...k });
@@ -323,6 +379,41 @@ export const heatmap = (
   };
 };
 export const lanes = (k: Spec<LanesKnob>): LanesKnob => ({ kind: "lanes", ...k });
+/**
+ * `value` may be written as notes one after another, "pitch:length" in quarters, with "r:length"
+ * for a rest: "D4:0.5 Eb4:0.5 Ab4:1.5 G4:1.5".
+ */
+export const motif = (
+  k: Omit<Spec<MotifKnob>, "value" | "range" | "length" | "grid" | "step"> & {
+    value: string | [number, number, number][];
+    range?: [number | string, number | string];
+    length?: number;
+    grid?: number;
+    step?: number;
+  },
+): MotifKnob => {
+  let value: [number, number, number][];
+  if (typeof k.value === "string") {
+    value = [];
+    let t = 0;
+    for (const word of k.value.trim().split(/\s+/)) {
+      const [p, d] = word.split(":");
+      const dur = Number(d ?? "1");
+      if (p !== "r") value.push([t, dur, midi(p!)]);
+      t += dur;
+    }
+  } else value = k.value;
+  const end = Math.max(0, ...value.map(([at, dur]) => at + dur));
+  return {
+    ...k,
+    kind: "motif",
+    value,
+    range: [midi(k.range?.[0] ?? "C4"), midi(k.range?.[1] ?? "C6")],
+    length: k.length ?? Math.max(4, Math.ceil(end + 2)),
+    grid: k.grid ?? 0.25,
+    step: k.step ?? 1,
+  };
+};
 
 //==============================================================================
 // Stored values
@@ -345,9 +436,16 @@ const numbers = (v: unknown, length?: number): v is number[] =>
 export function fits(k: Knob, v: unknown): boolean {
   switch (k.kind) {
     case "number":
+      return isNumber(v) || (k.follow === true && isFollow(v));
     case "pitch":
     case "seed":
       return isNumber(v);
+    case "motif":
+      return (
+        Array.isArray(v) &&
+        v.length >= 1 &&
+        v.every((n) => numbers(n, 3) && (n as number[])[0]! >= 0 && (n as number[])[1]! > 0)
+      );
     case "choice":
       return typeof v === "string" && k.options.includes(v);
     case "text":

@@ -3,16 +3,21 @@
 // every knob change and every save of sketch.ts, so the sketch and everything it imports are read
 // anew each time.
 //
+// A piece (pieces/<name>/, src/sketch/nest.ts) is a sketch whose sub-folders are sketches too: it is
+// read with all of them, each with its own values.json, and only the piece's score is written.
+// Given a folder inside a piece, the whole piece is run.
+//
 //   vp node src/sketch/run.ts sketches/<name>              write the score
 //   vp node src/sketch/run.ts sketches/<name> --describe   print the knobs and values as JSON
 //
 // A sketch that throws exits with 1 and its message on stderr.
 
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { basename, dirname, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 import { emptyStored, resolveValues, type Knobs, type Stored } from "./knobs.ts";
+import { Context, type LoadedNode } from "./nest.ts";
 
 export const sketchFile = (dir: string) => join(dir, "sketch.ts");
 export const valuesFile = (dir: string) => join(dir, "values.json");
@@ -25,24 +30,55 @@ export function readStored(dir: string): Stored {
   return { ...emptyStored(), ...raw };
 }
 
+/** The folders under `dir` that are sketches: its children, when `dir` is part of a piece. */
+export function childNodes(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && existsSync(sketchFile(join(dir, e.name))))
+    .map((e) => e.name)
+    .sort();
+}
+
+/** The top of the tree a sketch folder is in: itself, or the piece it is part of. */
+export function rootOf(dir: string): string {
+  let d = resolve(dir);
+  while (existsSync(sketchFile(dirname(d))) && dirname(d) !== d) d = dirname(d);
+  return d;
+}
+
+interface SketchModule {
+  knobs?: Knobs;
+  score: (values: Record<string, unknown>, ctx: Context) => unknown;
+}
+
+async function load(dir: string, path: string): Promise<LoadedNode> {
+  const sketch = (await import(pathToFileURL(sketchFile(dir)).href)) as SketchModule;
+  const values = resolveValues(sketch.knobs ?? {}, readStored(dir).values);
+  const children = new Map<string, LoadedNode>();
+  for (const name of childNodes(dir))
+    children.set(name, await load(join(dir, name), path ? `${path}/${name}` : name));
+  return { name: basename(dir), path, score: sketch.score, values, children };
+}
+
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
-  const dir = resolve(args.find((a) => !a.startsWith("--")) ?? "");
-  if (!existsSync(sketchFile(dir))) throw new Error(`No sketch.ts in ${dir}`);
-  const sketch = (await import(pathToFileURL(sketchFile(dir)).href)) as {
-    knobs?: Knobs;
-    score: (values: Record<string, unknown>) => unknown;
-  };
-  const knobs = sketch.knobs ?? {};
-  const stored = readStored(dir);
-  const values = resolveValues(knobs, stored.values);
+  const given = resolve(args.find((a) => !a.startsWith("--")) ?? "");
+  if (!existsSync(sketchFile(given))) throw new Error(`No sketch.ts in ${given}`);
   if (args.includes("--describe")) {
+    const sketch = (await import(pathToFileURL(sketchFile(given)).href)) as SketchModule;
+    const knobs = sketch.knobs ?? {};
+    const stored = readStored(given);
+    const values = resolveValues(knobs, stored.values);
     process.stdout.write(
       JSON.stringify({ knobs, values, presets: stored.presets, touched: stored.touched }),
     );
     return;
   }
-  const text = JSON.stringify(sketch.score(values), null, 1) + "\n";
+  const dir = rootOf(given);
+  const tree = await load(dir, "");
+  const score = tree.score(tree.values, Context.root(tree));
+  if (!score || typeof score !== "object" || !("parts" in score) || !("meter" in score))
+    throw new Error(`${basename(dir)}: score() must return a whole score (a piece: ctx.score(…))`);
+  const text = JSON.stringify(score, null, 1) + "\n";
   const out = scoreFileOf(dir);
   if (!existsSync(out) || readFileSync(out, "utf8") !== text) writeFileSync(out, text);
 }
