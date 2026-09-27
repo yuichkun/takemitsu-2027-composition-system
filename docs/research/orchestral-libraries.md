@@ -5,7 +5,9 @@
 確度の記号は [`../README.md`](../README.md) の「3. 調査ノート」にある。
 `[文献]` 出典が言っていること / `[実測]` 自分で確認した / `[導出]` 計算 / `[推測]` 根拠のない見込み
 
-選定条件（重要な順）は [`../open-questions.md` Q1](../open-questions.md#q1)。
+音源は BBC Symphony Orchestra Professional に決まった（[`../decisions/0012`](../decisions/0012-bbcso-with-user-samples.md)）。
+実機での調査は [`bbcso.md`](./bbcso.md)。**BBC SO はピッチベンドを無視する**ので、§1 の結論は BBC SO には当てはまらない
+（[`../decisions/0013`](../decisions/0013-quarter-tones-by-instance-tuning.md)）。
 第一条件は**四分音を出せること**（[`../decisions/0008`](../decisions/0008-quarter-tone-native.md)）。
 
 ---

@@ -68,5 +68,10 @@
 | [0007](./0007-own-headless-host.md) | VST ホストは自作のヘッドレス CLI にする | 採用 |
 | [0008](./0008-quarter-tone-native.md) | 四分音を系全体の前提として設計する | 採用 |
 | [0009](./0009-no-linter.md) | 規定適合は自動検査ではなく、提出前の点検で担保する | 採用 |
-| [0010](./0010-pitch-bend-quarter-tones.md) | 四分音はノートごとのピッチベンドで実現する | 採用 |
+| [0010](./0010-pitch-bend-quarter-tones.md) | 四分音はノートごとのピッチベンドで実現する | 差し替え済み → 0013 |
 | [0011](./0011-quarter-tone-notation.md) | 四分音の記譜は Sibelius 標準の記号とし、MusicXML では小数の alter で渡す | 採用 |
+| [0012](./0012-bbcso-with-user-samples.md) | 音源は BBC SO Professional を主にし、足りない音は余湖さんが用意するサンプルで補う | 採用 |
+| [0013](./0013-quarter-tones-by-instance-tuning.md) | 四分音は、チューニングを変えた音源インスタンスで鳴らす | 採用 |
+| [0014](./0014-score-json-contract.md) | 作曲層と、鳴らす・見せる土台を、JSON の楽譜で分ける | 採用 |
+| [0015](./0015-divisi-first-class.md) | ディヴィジを記譜と再生の両方で一級に扱う | 採用 |
+| [0016](./0016-preview-in-browser.md) | プレビューは vp dev のブラウザ画面にする | 採用 |

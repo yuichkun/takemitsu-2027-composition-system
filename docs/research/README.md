@@ -11,6 +11,7 @@
 | --- | --- | --- |
 | [`takemitsu-award-2027.md`](./takemitsu-award-2027.md) | **賞の選考実態、審査員が毎年書く総評、シェパードの人物** | 作品の方向性全般 |
 | [`orchestral-libraries.md`](./orchestral-libraries.md) | **音源の選定。四分音を出す手段の調査と推薦** | Q1 / Q12 / 決定0010 |
+| [`bbcso.md`](./bbcso.md) | **BBC SO Professional を自作ホストで鳴らす実測。**状態の生成、四分音（ピッチベンド不可・調律は可）、打楽器の鍵盤、全奏法の走査 | 決定0012 / 0013 |
 | [`sibelius-musicxml-import.md`](./sibelius-musicxml-import.md) | **Sibelius の MusicXML 取り込みで何が生き残るかの検証計画。**文献で判明した取り込みの制限と、ManuScript で修復できる範囲 | Q12 / Q5 / Q8 / 決定0006 |
 
 ---
