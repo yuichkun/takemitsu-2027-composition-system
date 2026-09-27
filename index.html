@@ -22,12 +22,34 @@
           <input id="to" type="number" min="1" value="1" />
           <button id="all" type="button" title="全小節">全体</button>
         </div>
-        <button id="play" type="button" class="primary">レンダして再生</button>
+        <button id="render" type="button" class="primary">レンダ</button>
         <div id="status" class="status"></div>
-        <audio id="audio" controls preload="auto"></audio>
+        <div class="transport">
+          <button id="play" type="button" class="round" aria-label="再生" disabled>▶</button>
+          <span id="time" class="time">0:00 / 0:00</span>
+          <input
+            id="seek"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0"
+            aria-label="位置"
+            disabled
+          />
+        </div>
       </header>
       <section id="messages" hidden></section>
       <div id="score" class="score"></div>
+      <section id="mixer" aria-label="ミキサー">
+        <div class="mixer-head">
+          <span>ミキサー</span>
+          <span id="mixer-mode" class="mixer-mode"></span>
+          <button id="mixer-reset" type="button">すべて 0 dB に戻す</button>
+          <button id="mixer-toggle" type="button" aria-expanded="true">たたむ</button>
+        </div>
+        <div id="strips" class="strips"></div>
+      </section>
     </main>
     <script type="module" src="/src/preview/main.ts"></script>
   </body>

@@ -12,13 +12,13 @@ import {
   watch,
   type FSWatcher,
 } from "node:fs";
-import { readFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { basename, isAbsolute, join, relative, resolve } from "node:path";
 
 import { musicXmlOf } from "../notation/musicxml.ts";
 import { plan } from "../performance/plan.ts";
-import { renderPlan, type RenderOutput } from "../performance/render.ts";
+import { remix, renderPlan, type RenderOutput } from "../performance/render.ts";
 import { repoRoot } from "../render/host.ts";
 import { normalize } from "../score/normalize.ts";
 import { secondsAt } from "../score/timeline.ts";
@@ -95,6 +95,15 @@ function watchScores(): void {
   watched = existing.join(":");
 }
 
+const rendersRoot = join(repoRoot, ".local/renders");
+
+//==============================================================================
+// Mixer settings, one file per score (the balance is separate from the score's dynamics)
+
+const mixerRoot = join(repoRoot, ".local/mixer");
+const mixerFile = (scorePath: string) =>
+  join(mixerRoot, `${basename(scorePath).replace(/\.json$/, "")}.json`);
+
 //==============================================================================
 // Render jobs (one at a time; a new request waits for the running one)
 
@@ -106,7 +115,12 @@ interface Job {
   status: "queued" | "running" | "done" | "failed";
   message: string;
   fraction: number;
-  result?: RenderOutput & { url: string; startSeconds: number };
+  result?: RenderOutput & {
+    url: string;
+    stemUrls: Record<string, string>;
+    renderDir: string;
+    startSeconds: number;
+  };
   error?: string;
 }
 const jobs = new Map<string, Job>();
@@ -132,9 +146,12 @@ function startRender(path: string, from: number, to: number): Job {
         job.fraction = fraction;
         update();
       });
+      const urlOf = (file: string) => `/renders/${relative(rendersRoot, file)}?v=${Date.now()}`;
       job.result = {
         ...out,
-        url: `/renders/${relative(join(repoRoot, ".local/renders"), out.mix)}?v=${Date.now()}`,
+        url: urlOf(out.mix),
+        stemUrls: Object.fromEntries(Object.entries(out.stems).map(([id, f]) => [id, urlOf(f)])),
+        renderDir: relative(rendersRoot, dir),
         startSeconds: secondsAt(score.tempo, first.start.value),
       };
       job.status = "done";
@@ -175,6 +192,29 @@ export function previewMiddleware() {
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
         const { score: _score, ...rest } = await loadScore(path);
         return json(res, 200, rest);
+      }
+      if (url.pathname === "/api/mixer") {
+        const path = url.searchParams.get("path") ?? "";
+        if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
+        if (req.method === "PUT") {
+          await mkdir(mixerRoot, { recursive: true });
+          await writeFile(mixerFile(path), JSON.stringify(await body(req), null, 2));
+          return json(res, 200, { ok: true });
+        }
+        const file = mixerFile(path);
+        return json(res, 200, existsSync(file) ? JSON.parse(await readFile(file, "utf8")) : {});
+      }
+      if (url.pathname === "/api/remix" && req.method === "POST") {
+        const { renderDir, gains, master } = (await body(req)) as {
+          renderDir: string;
+          gains: Record<string, number>;
+          master: number;
+        };
+        const dir = resolve(rendersRoot, renderDir);
+        if (relative(rendersRoot, dir).startsWith(".."))
+          return json(res, 403, { error: "Outside renders" });
+        const file = await remix(dir, gains, master);
+        return json(res, 200, { url: `/renders/${relative(rendersRoot, file)}?v=${Date.now()}` });
       }
       if (url.pathname === "/api/render" && req.method === "POST") {
         const { path, from, to } = (await body(req)) as { path: string; from: number; to: number };

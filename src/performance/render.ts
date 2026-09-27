@@ -237,6 +237,40 @@ export async function renderPlan(
   return result;
 }
 
+/**
+ * Mixes existing stems again with per-part gains (the preview's mixer, for renders too long to mix
+ * in the browser). Writes mix-mixer.wav next to the stems.
+ */
+export async function remix(
+  dir: string,
+  gains: Record<string, number>,
+  master = 1,
+): Promise<string> {
+  const manifest = await readManifest(dir);
+  if (!manifest) throw new Error(`No render in ${dir}`);
+  let mix: Float32Array[] | undefined;
+  let sampleRate = rate;
+  for (const [partId, file] of Object.entries(manifest.stems)) {
+    const gain = (gains[partId] ?? 1) * master;
+    if (gain === 0) continue;
+    const audio = await readWav(file);
+    sampleRate = audio.sampleRate;
+    mix ??= [
+      new Float32Array(audio.channels[0]!.length),
+      new Float32Array(audio.channels[0]!.length),
+    ];
+    for (let c = 0; c < 2; c++) {
+      const src = audio.channels[Math.min(c, audio.channels.length - 1)]!;
+      const dst = mix[c]!;
+      for (let i = 0; i < dst.length; i++) dst[i]! += src[i]! * gain;
+    }
+  }
+  mix ??= [new Float32Array(1), new Float32Array(1)];
+  const file = join(dir, "mix-mixer.wav");
+  await writeFile(file, encodeWav16({ sampleRate, channels: mix }));
+  return file;
+}
+
 export async function readManifest(dir: string): Promise<RenderOutput | undefined> {
   const file = join(dir, "manifest.json");
   return existsSync(file) ? (JSON.parse(await readFile(file, "utf8")) as RenderOutput) : undefined;
