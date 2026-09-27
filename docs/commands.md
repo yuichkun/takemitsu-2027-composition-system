@@ -27,6 +27,24 @@ vp check --fix  # 整形を直す
 - プレビューが一覧する楽譜は、`examples/`、`scores/`、それに `PREVIEW_SCORE_DIRS` のフォルダ（`:` 区切り）にある `.json`
 - 楽譜を保存すると、プレビューは自動で読み直す。画面を読み込み直す必要はない
 - サーバを止める（Ctrl+C）と、ホストのプロセスも一緒に終わる
+- `http://localhost:5173/#score=<楽譜ファイルのパス>` で、その楽譜を開いた状態のページになる
+
+### 画面の操作
+
+| キー | すること |
+| --- | --- |
+| Space | 再生 / 一時停止 |
+| Enter、Home | 先頭へ |
+| ← → | 前 / 次の小節へ |
+| P | ページ / パノラマを切り替える |
+| F | 全画面で譜面だけにする（Esc で戻る） |
+| ⌘= ⌘− | 拡大 / 縮小（トラックパッドのピンチ、⌘ + ホイールでも） |
+| ⌘0 | 高さに合わせる（全部の段が見える） |
+| ⌘B | 左の一覧をたたむ / ひらく |
+| M | ミキサーをたたむ / ひらく |
+| ? | この一覧 |
+
+譜面をクリックするとそこへ移動、再生位置の線はドラッグで動かせる。表示とズームはブラウザが覚えている
 
 ## 3. 20 分のダミー曲で試す
 
@@ -63,6 +81,8 @@ vp node tools/stress-score.ts     # .local/stress/stress-20min.json を作る
 - そのあと、再生位置の近くからレンダする。画面上部の帯が曲全体で、濃くなった所がレンダ済み
 - Space で再生すると、先の 3 秒がそろった時点で鳴り始める（冒頭なら開いてから約 20 秒）。そろっていない所に来ると、その手前で待つ
 - 曲全体がそろうのは約 4 分後
+- 譜面は、最初の画面が約 1 秒で出る。全 457 小節を測り終わるまで（約 2 分）は段が少しずれ、そのあと近い所から段がそろう。
+  描いた絵は `.local/engravings/` に残るので、2 回目からはすぐ出る
 - ホストは約 16 GB のメモリを使う。保存場所は 1 版で約 20 GB
 
 ### 3.3 編集して、反映を見る
@@ -106,11 +126,16 @@ vp node tools/render.ts examples/showcase.json --stems    # パートごとの W
 ## 5. 確かめる道具
 
 ```sh
+vp node tools/notation-check.ts examples/showcase.json        # 譜面の確かめ
 vp node tools/check.ts examples/showcase.json                 # 答え合わせ
 vp node tools/check.ts examples/showcase.json --self-test     # 答え合わせが欠けを見つけられるかの自己テスト
 vp node tools/bench.ts .local/stress/stress-20min.json        # 編集ベンチ
 ```
 
+- **譜面の確かめ**（[`../tools/notation-check.ts`](../tools/notation-check.ts)）
+  - オクターヴ記譜の楽器が決めた向きで書かれているか
+  - 音部記号とオクターヴ線のあとでも、加線 4 本以上の音が残るか（楽器ごとの数）
+  - 小節を 1 つずつ描いて段がそろうか、描く時間（`--measures 24` で数を変える）
 - **答え合わせ**（[`../tools/check.ts`](../tools/check.ts)）
   - チャンク単位: 選んだチャンクを 1 つずつ新しいプロセスでレンダし直し、保存したものと比べる
   - パート単位: プレビューと同じ規則で混ぜたものを、通しのレンダと比べる
@@ -145,6 +170,9 @@ vp run host:build   # native/host が変わったとき
 | `TAKEMITSU_HOSTS` | 8 | ホストのプロセス数 |
 | `TAKEMITSU_HOSTS_MB` | 24000 | ホストのメモリがこれを超えたら、それ以上は音色を読み込まない（MB） |
 | `TAKEMITSU_HOST` | ビルドしたもの | ホストの実行ファイルのパス |
+| `TAKEMITSU_ENGRAVERS` | 4 | 譜面を描く worker thread の数 |
+| `TAKEMITSU_ENGRAVINGS_DIR` | `.local/engravings` | 描いた譜面の保存場所 |
+| `TAKEMITSU_ENGRAVINGS_GB` | 10 | 描いた譜面の保存場所の上限（GB）。超えると古い順に消す |
 
 ## 8. 溜まるものと消し方
 
@@ -154,6 +182,7 @@ vp run host:build   # native/host が変わったとき
 | --- | --- | --- |
 | `.local/chunks/` | `vp dev` と書き出しのチャンク | プレビューを止めて `rm -rf .local/chunks` |
 | `.local/probe/stress-chunks/` | ダミー曲の試験用のチャンク（約 20〜40 GB） | プレビューを止めて `rm -rf .local/probe/stress-chunks` |
+| `.local/engravings/` | 描いた譜面（1 小節ずつの SVG と位置の情報） | そのまま消してよい（次に開いたとき描き直す） |
 | `.local/mixer/` | 楽譜ごとのミキサーの設定 | 楽譜名の `.json` を消す |
 | `.local/renders/` | 書き出した WAV | そのまま消してよい |
 | `.local/stress/` | ダミー曲 | `vp node tools/stress-score.ts` で作り直せる |
