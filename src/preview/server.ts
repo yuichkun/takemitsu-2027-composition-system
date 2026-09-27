@@ -346,7 +346,15 @@ async function planned(path: string): Promise<string | undefined> {
   return undefined;
 }
 
+/**
+ * The running preview's hosts, threads and watchers. Vite restarts the dev server inside the same
+ * process when a file the config imports changes (this one, say): the preview before must let go
+ * of them, or every restart leaves another set of BBC SO hosts running.
+ */
+const previous = globalThis as typeof globalThis & { takemitsuPreview?: { close(): void } };
+
 export function previewMiddleware() {
+  previous.takemitsuPreview?.close();
   engine = new Engine();
   engine.onStatus = (path) => broadcast("status", { path, ...engine.stamp(path) });
   engraver = new Engraver({
@@ -357,7 +365,22 @@ export function previewMiddleware() {
   });
   engraver.onChange = (path) => broadcast("notation", { path });
   watchScores();
-  setInterval(watchScores, 3000).unref();
+  const rewatch = setInterval(watchScores, 3000);
+  rewatch.unref();
+  previous.takemitsuPreview = {
+    close() {
+      clearInterval(rewatch);
+      for (const w of watchers) w.close();
+      watchers = [];
+      watched = "";
+      engine.stop();
+      engraver.stop();
+      void notationWorker?.terminate();
+      notationWorker = undefined;
+      for (const c of clients) c.end();
+      clients.clear();
+    },
+  };
   return async (req: IncomingMessage, res: ServerResponse, next: Next) => {
     const url = new URL(req.url ?? "/", "http://localhost");
     const path = url.searchParams.get("path") ?? "";
