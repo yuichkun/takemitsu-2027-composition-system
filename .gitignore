@@ -20,3 +20,4 @@ native/build/
 # 余湖さんが用意するサンプル（説明だけ管理する）
 samples/*
 !samples/README.md
+.vscode
