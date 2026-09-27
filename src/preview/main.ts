@@ -11,11 +11,15 @@ import { compressorParams } from "../audio/dynamics.ts";
 import type { NotationSnapshot } from "./engraver.ts";
 import type { NotationView } from "./notation-thread.ts";
 import { Player, type Manifest, type MixerSettings, type Status } from "./player.ts";
+import { KnobPanel } from "./knob-panel.ts";
 import { maxScale, minScale, StripView, type Zoom } from "./strip-view.ts";
 
 interface ScoreEntry {
   path: string;
   name: string;
+  /** The score folder (examples, scores, sketches, …). */
+  root: string;
+  /** The folder inside it, "a/b" ("" at the top). */
   dir: string;
 }
 type ScoreData = NotationView;
@@ -37,6 +41,7 @@ const mixerMode = $("mixer-mode");
 const keysDialog = $<HTMLDialogElement>("keys");
 const readinessEl = $<HTMLCanvasElement>("readiness");
 
+const knobs = new KnobPanel($("knobs"));
 const player = new Player();
 const view = new StripView($("score"));
 view.position = () => player.position;
@@ -92,25 +97,80 @@ const pieceEnd = () => current?.data?.measures.at(-1)?.endSeconds ?? 0;
 //==============================================================================
 // Score list, drawing and the chunk list
 
+interface Folder {
+  folders: Map<string, Folder>;
+  scores: ScoreEntry[];
+}
+
+const openFoldersKey = "takemitsu.closed-folders";
+/** Folders the viewer closed (all are open otherwise). */
+const closedFolders = new Set<string>();
+try {
+  for (const f of JSON.parse(localStorage.getItem(openFoldersKey) ?? "[]") as string[])
+    closedFolders.add(f);
+} catch {
+  // Not kept: every folder starts open.
+}
+
 async function loadList(): Promise<void> {
   const list = (await (await fetch("/api/scores")).json()) as ScoreEntry[];
   scoresNav.innerHTML = "";
-  let dir = "";
+  const roots = new Map<string, Folder>();
+  const folder = (): Folder => ({ folders: new Map(), scores: [] });
   for (const s of list) {
-    if (s.dir !== dir) {
-      dir = s.dir;
-      const label = document.createElement("div");
-      label.className = "dir";
-      label.textContent = dir;
-      scoresNav.append(label);
+    if (!roots.has(s.root)) roots.set(s.root, folder());
+    let f = roots.get(s.root)!;
+    for (const name of s.dir ? s.dir.split("/") : []) {
+      if (!f.folders.has(name)) f.folders.set(name, folder());
+      f = f.folders.get(name)!;
     }
+    f.scores.push(s);
+  }
+  const button = (s: ScoreEntry, label: string): HTMLButtonElement => {
     const b = document.createElement("button");
     b.type = "button";
-    b.textContent = s.name;
+    b.textContent = label;
+    b.title = s.path;
     b.dataset.path = s.path;
     b.setAttribute("aria-current", String(s.path === current?.path));
     b.addEventListener("click", () => void open(s.path));
-    scoresNav.append(b);
+    return b;
+  };
+  // A folder holding one score and nothing else (a sketch) is shown as that score, by the folder's name.
+  const fill = (into: HTMLElement, f: Folder, key: string): void => {
+    for (const [name, sub] of f.folders) {
+      const subKey = `${key}/${name}`;
+      if (sub.folders.size === 0 && sub.scores.length === 1) {
+        into.append(button(sub.scores[0]!, name));
+        continue;
+      }
+      const details = document.createElement("details");
+      details.open = !closedFolders.has(subKey);
+      details.addEventListener("toggle", () => {
+        if (details.open) closedFolders.delete(subKey);
+        else closedFolders.add(subKey);
+        try {
+          localStorage.setItem(openFoldersKey, JSON.stringify([...closedFolders]));
+        } catch {
+          // Not kept.
+        }
+      });
+      const summary = document.createElement("summary");
+      summary.textContent = name;
+      const inner = document.createElement("div");
+      inner.className = "folder";
+      fill(inner, sub, subKey);
+      details.append(summary, inner);
+      into.append(details);
+    }
+    for (const s of f.scores) into.append(button(s, s.name));
+  };
+  for (const [root, f] of roots) {
+    const label = document.createElement("div");
+    label.className = "dir";
+    label.textContent = root;
+    scoresNav.append(label);
+    fill(scoresNav, f, root);
   }
   if (list.length === 0) scoresNav.textContent = "楽譜がない";
 }
@@ -256,6 +316,7 @@ async function open(path: string): Promise<void> {
   }
   statusEl.textContent = "読み込み中";
   refreshAudio();
+  void knobs.show(path);
   await loadScore(path);
   sendPlayhead(true);
 }
@@ -309,7 +370,10 @@ function stepMeasure(delta: number): void {
 playButton.addEventListener("click", togglePlay);
 
 document.addEventListener("keydown", (e) => {
-  if (e.target instanceof HTMLInputElement) return;
+  // Typing goes to fields; a slider keeps its arrows but lets Space and the rest through.
+  const t = e.target;
+  if (t instanceof HTMLSelectElement || t instanceof HTMLTextAreaElement) return;
+  if (t instanceof HTMLInputElement && (t.type !== "range" || e.code.startsWith("Arrow"))) return;
   // With ⌘ (Ctrl elsewhere): the page's own zoom and sidebar, instead of the browser's.
   if (e.metaKey || e.ctrlKey) {
     const withKey: Record<string, () => void> = {
@@ -332,6 +396,7 @@ document.addEventListener("keydown", (e) => {
     ArrowLeft: () => stepMeasure(-1),
     ArrowRight: () => stepMeasure(1),
     KeyM: () => $("mixer-toggle").click(),
+    KeyK: () => knobs.toggle(),
     KeyF: toggleFocus,
   };
   const action = e.key === "?" ? () => keysDialog.showModal() : actions[e.code];
@@ -496,6 +561,10 @@ events.addEventListener("notation", (e) => {
   if (path === current?.path) refreshNotation();
 });
 events.addEventListener("list", () => void loadList());
+events.addEventListener("sketch", (e) => {
+  const { dir } = JSON.parse((e as MessageEvent<string>).data) as { dir: string };
+  if (knobs.isSketch(dir)) void knobs.refresh();
+});
 // After a lost connection, anything may have changed: fetch it all again.
 events.addEventListener("open", () => {
   if (!current) return;

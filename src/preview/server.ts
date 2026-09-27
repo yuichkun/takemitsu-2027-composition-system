@@ -15,6 +15,7 @@
 // - "score": new notation → /api/score (measures, times, names)
 // - "notation": measures drawn (engraver.ts) → /api/notation (where each drawing is)
 // - "list": score files came or went → /api/scores
+// - "sketch": a sketch's knobs may have changed (sketch.ts saved) → /api/sketch
 // Audio is fetched shortly before it plays, mixed from the chunks in 2 s segments (/api/segments).
 // Drawings are fetched by key (/api/engraving/<key>.svg and .json); a key's content never changes.
 
@@ -22,7 +23,7 @@ import { createHash } from "node:crypto";
 import { existsSync, readdirSync, watch, type FSWatcher } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { basename, isAbsolute, join, relative, resolve } from "node:path";
+import { basename, dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { Worker } from "node:worker_threads";
 
 import { Engine } from "../performance/engine.ts";
@@ -31,6 +32,7 @@ import { repoRoot } from "../render/host.ts";
 import { normalize } from "../score/normalize.ts";
 import type { Score } from "../score/types.ts";
 import { Engraver, type StripDocs } from "./engraver.ts";
+import { changeSketch, rerun, sketchOf, sketchState, type SketchChange } from "./sketches.ts";
 import type { NotationAnswer, NotationView } from "./notation-thread.ts";
 
 type Next = (err?: unknown) => void;
@@ -45,15 +47,33 @@ export function scoreDirs(): string[] {
   ];
 }
 
-function listScores(): { path: string; name: string; dir: string }[] {
-  const out: { path: string; name: string; dir: string }[] = [];
-  for (const dir of scoreDirs()) {
-    if (!existsSync(dir)) continue;
-    for (const f of readdirSync(dir).sort()) {
-      if (!f.endsWith(".json")) continue;
-      const path = join(dir, f);
-      out.push({ path, name: f.replace(/\.json$/, ""), dir: relative(repoRoot, dir) || dir });
-    }
+interface ScoreEntry {
+  path: string;
+  name: string;
+  /** The score folder it is in (relative to the repository when inside it). */
+  root: string;
+  /** Its folder inside the score folder ("" at the top); folders nest. */
+  dir: string;
+}
+
+function listScores(): ScoreEntry[] {
+  const out: ScoreEntry[] = [];
+  for (const top of scoreDirs()) {
+    if (!existsSync(top)) continue;
+    const root = relative(repoRoot, top) || top;
+    const walk = (dir: string): void => {
+      const entries = readdirSync(dir, { withFileTypes: true }).sort((a, b) =>
+        a.name.localeCompare(b.name),
+      );
+      for (const e of entries) {
+        if (e.name.startsWith(".") || e.name === "node_modules") continue;
+        const path = join(dir, e.name);
+        if (e.isDirectory()) walk(path);
+        else if (e.name.endsWith(".json") && e.name !== "values.json")
+          out.push({ path, name: e.name.replace(/\.json$/, ""), root, dir: relative(top, dir) });
+      }
+    };
+    walk(top);
   }
   return out;
 }
@@ -200,9 +220,16 @@ function watchScores(): void {
   if (existing.join(":") === watched) return;
   for (const w of watchers) w.close();
   watchers = existing.map((dir) =>
-    watch(dir, (_type, file) => {
-      if (!file?.endsWith(".json")) return;
+    watch(dir, { recursive: true }, (_type, file) => {
+      if (!file) return;
       const path = join(dir, file);
+      // A saved sketch writes its score again (which comes back here as a .json).
+      if (basename(file) === "sketch.ts") {
+        const sketchDir = dirname(path);
+        void rerun(sketchDir).then(() => broadcast("sketch", { dir: sketchDir }));
+        return;
+      }
+      if (!file.endsWith(".json") || basename(file) === "values.json") return;
       // An open score is read again (and starts rendering its changes) before the page asks.
       if (opened.has(path)) void refresh(path);
       broadcast("list", {});
@@ -308,6 +335,18 @@ export function previewMiddleware() {
         const { segments } = (await body(req)) as { segments: SegmentRequest[] };
         res.setHeader("content-type", "application/octet-stream");
         return res.end(await segmentBundle(segments));
+      }
+      if (url.pathname === "/api/sketch") {
+        const dir = allowed(path) ? sketchOf(resolve(path)) : undefined;
+        if (!dir) return json(res, 404, { error: "Not a sketch's score" });
+        if (req.method === "POST") {
+          try {
+            await changeSketch(dir, (await body(req)) as SketchChange);
+          } catch (e) {
+            return json(res, 400, { error: message(e) });
+          }
+        }
+        return json(res, 200, await sketchState(dir));
       }
       if (url.pathname === "/api/mixer") {
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });

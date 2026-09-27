@@ -10,7 +10,7 @@
  "tempo": [
   {
    "at": 0,
-   "bpm": 144
+   "bpm": 82
   }
  ],
  "measures": 20,
@@ -40,21 +40,6 @@
     {
      "at": 0,
      "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": 32,
-     "level": 4.5,
-     "to": "linear"
-    },
-    {
-     "at": 56,
-     "level": 6,
-     "to": "linear"
-    },
-    {
-     "at": 72,
-     "level": 7,
      "to": "linear"
     },
     {
@@ -1933,21 +1918,6 @@
     {
      "at": 0,
      "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": 32,
-     "level": 4.5,
-     "to": "linear"
-    },
-    {
-     "at": 56,
-     "level": 6,
-     "to": "linear"
-    },
-    {
-     "at": 72,
-     "level": 7,
      "to": "linear"
     },
     {
@@ -3906,21 +3876,6 @@
     {
      "at": 0,
      "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": 32,
-     "level": 4.5,
-     "to": "linear"
-    },
-    {
-     "at": 56,
-     "level": 6,
-     "to": "linear"
-    },
-    {
-     "at": 72,
-     "level": 7,
      "to": "linear"
     },
     {
@@ -5939,21 +5894,6 @@
     {
      "at": 0,
      "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": 32,
-     "level": 4.5,
-     "to": "linear"
-    },
-    {
-     "at": 56,
-     "level": 6,
-     "to": "linear"
-    },
-    {
-     "at": 72,
-     "level": 7,
      "to": "linear"
     },
     {

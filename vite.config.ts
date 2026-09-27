@@ -43,7 +43,7 @@ export default defineConfig({
       ".vscode/**",
       "src/libraries/bbcso/inventory.json",
       // Written by the sketch scripts.
-      "sketches/*.json",
+      "sketches/**/*.json",
     ],
   },
 });
