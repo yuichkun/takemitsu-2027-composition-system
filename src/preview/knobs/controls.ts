@@ -3,26 +3,33 @@
 // let go, Enter, a click). Values shown while dragging are not sent.
 
 import { spell } from "../../score/pitch.ts";
-import type {
-  ChoiceKnob,
-  CurveKnob,
-  EnvelopeKnob,
-  Knob,
-  Knobs,
-  NumberKnob,
-  PartialsKnob,
-  PitchKnob,
-  PitchRangeKnob,
-  PitchSetKnob,
-  ProportionsKnob,
-  RangeKnob,
-  SeedKnob,
-  StepsKnob,
-  TextKnob,
-  ToggleKnob,
-  Value,
-  WeightsKnob,
-  XYKnob,
+import {
+  intervalVector,
+  primeForm,
+  type ChoiceKnob,
+  type CurveKnob,
+  type EnvelopeKnob,
+  type HeatmapKnob,
+  type Knob,
+  type LanesKnob,
+  type LatticeKnob,
+  type MarkersKnob,
+  type VectorSetKnob,
+  type Knobs,
+  type NumberKnob,
+  type PartialsKnob,
+  type PitchKnob,
+  type PitchRangeKnob,
+  type PitchSetKnob,
+  type ProportionsKnob,
+  type RangeKnob,
+  type SeedKnob,
+  type StepsKnob,
+  type TextKnob,
+  type ToggleKnob,
+  type Value,
+  type WeightsKnob,
+  type XYKnob,
 } from "../../sketch/knobs.ts";
 
 export interface Context {
@@ -562,18 +569,8 @@ const envelopeControl: Control<EnvelopeKnob> = {
   },
 };
 
-/** Interval-class vector of a set of pitch classes (semitones, integers only). */
-function intervalVector(set: number[]): number[] | undefined {
-  if (!set.every(Number.isInteger)) return undefined;
-  const v = [0, 0, 0, 0, 0, 0];
-  for (let i = 0; i < set.length; i++)
-    for (let j = i + 1; j < set.length; j++) {
-      const d = (((set[j]! - set[i]!) % 12) + 12) % 12;
-      const ic = Math.min(d, 12 - d);
-      if (ic) v[ic - 1]!++;
-    }
-  return v;
-}
+/** Interval-class vector of pitch classes, when they are all semitones (none in 24ths). */
+const vectorOf = (set: number[]) => (set.every(Number.isInteger) ? intervalVector(set) : undefined);
 
 const pitchSetControl: Control<PitchSetKnob> = {
   wide: true,
@@ -650,7 +647,7 @@ const pitchSetControl: Control<PitchSetKnob> = {
       h("div", "set", on.length ? `{${on.join(" ")}}` : "{ }"),
       h("div", "muted", `${on.length} pitch classes`),
     );
-    const iv = intervalVector(on);
+    const iv = vectorOf(on);
     if (iv) info.append(h("div", "muted", `interval vector <${iv.join("")}>`));
     wrap.append(svg, info);
     host.append(wrap);
@@ -855,6 +852,395 @@ const xyControl: Control<XYKnob> = {
   },
 };
 
+//==============================================================================
+// Time and form: markers, lanes
+
+/** Units → x on a band (percent). */
+const pct = (units: number, length: number) => `${(units / length) * 100}%`;
+
+/** Ticks under a timeline: every unit, heavier every 4. */
+function ticks(length: number): HTMLElement {
+  const row = h("div", "ticks");
+  for (let i = 0; i <= length; i++) {
+    const t = h("span", i % 4 === 0 ? "tick major" : "tick");
+    t.style.left = pct(i, length);
+    row.append(t);
+  }
+  return row;
+}
+
+const markersControl: Control<MarkersKnob> = {
+  wide: true,
+  how: "Click the band to add a mark; drag a mark to move it; double-click a mark to remove it. Marks snap to whole units.",
+  mount(host, k, value, ctx) {
+    let marks = [...value].sort((a, b) => a - b);
+    const band = h("div", "timeline");
+    const draw = () => {
+      band.innerHTML = "";
+      band.append(ticks(k.length));
+      marks.forEach((m, i) => {
+        const el = h("div", "mark");
+        el.style.left = pct(m, k.length);
+        el.dataset.i = String(i);
+        el.append(h("span", "mark-label", String.fromCharCode(66 + i)));
+        el.title = `${m}${k.unit ? ` ${k.unit}` : ""}`;
+        band.append(el);
+      });
+    };
+    draw();
+    const unitAt = (e: MouseEvent) => {
+      const r = band.getBoundingClientRect();
+      return clamp(Math.round(((e.clientX - r.left) / r.width) * k.length), 1, k.length - 1);
+    };
+    const commit = () => ctx.commit([...new Set(marks)].sort((a, b) => a - b));
+    band.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0) return;
+      const onMark = (e.target as HTMLElement).closest<HTMLElement>(".mark");
+      let i: number;
+      if (onMark) i = Number(onMark.dataset.i);
+      else {
+        marks.push(unitAt(e));
+        i = marks.length - 1;
+        draw();
+      }
+      drag(
+        band,
+        e,
+        (m) => {
+          marks[i] = unitAt(m);
+          draw();
+        },
+        commit,
+      );
+    });
+    band.addEventListener("dblclick", (e) => {
+      const onMark = (e.target as HTMLElement).closest<HTMLElement>(".mark");
+      if (!onMark) return;
+      marks = marks.filter((_, j) => j !== Number(onMark.dataset.i));
+      draw();
+      commit();
+    });
+    host.append(band);
+    const starts = [0, ...marks.sort((a, b) => a - b)];
+    host.append(
+      h(
+        "div",
+        "ends",
+        starts
+          .map((s, i) => `${String.fromCharCode(65 + i)} ${s}`)
+          .join(" · ")
+          .concat(`  (of ${k.length}${k.unit ? ` ${k.unit}` : ""})`),
+      ),
+    );
+  },
+};
+
+const lanesControl: Control<LanesKnob> = {
+  wide: true,
+  how: "Click a segment to change it to the next option (Shift: the previous). Double-click to cut a segment in two. Drag a boundary to move it; drag it onto the next one to remove a segment.",
+  mount(host, k, value, ctx) {
+    let segs = [...value].map((s) => [...s] as [number, string]).sort((a, b) => a[0] - b[0]);
+    const band = h("div", "lanes");
+    const endOf = (i: number) => (i + 1 < segs.length ? segs[i + 1]![0] : k.length);
+    const draw = () => {
+      band.innerHTML = "";
+      segs.forEach(([start, option], i) => {
+        const seg = h("div", `lane o${k.options.indexOf(option) % 6}`, option);
+        seg.style.left = pct(start, k.length);
+        seg.style.width = pct(endOf(i) - start, k.length);
+        seg.dataset.i = String(i);
+        seg.title = `${option}: ${start}–${endOf(i)}${k.unit ? ` ${k.unit}` : ""}`;
+        band.append(seg);
+        if (i > 0) {
+          const edge = h("div", "lane-edge");
+          edge.style.left = pct(start, k.length);
+          edge.dataset.i = String(i);
+          band.append(edge);
+        }
+      });
+      band.append(ticks(k.length));
+    };
+    draw();
+    const unitAt = (e: MouseEvent) => {
+      const r = band.getBoundingClientRect();
+      return clamp(Math.round(((e.clientX - r.left) / r.width) * k.length), 0, k.length);
+    };
+    /** Drops empty segments and joins neighbours with the same option. */
+    const tidy = () => {
+      const out: [number, string][] = [];
+      segs.forEach((s, i) => {
+        if (endOf(i) <= s[0]) return;
+        if (out.at(-1)?.[1] === s[1]) return;
+        out.push(s);
+      });
+      if (out[0]) out[0][0] = 0;
+      segs = out.length ? out : [[0, k.options[0]!]];
+    };
+    band.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0) return;
+      const edge = (e.target as HTMLElement).closest<HTMLElement>(".lane-edge");
+      if (edge) {
+        const i = Number(edge.dataset.i);
+        drag(
+          band,
+          e,
+          (m) => {
+            segs[i]![0] = clamp(unitAt(m), segs[i - 1]![0], endOf(i));
+            draw();
+          },
+          () => {
+            tidy();
+            ctx.commit(segs.map((s) => [...s] as [number, string]));
+          },
+        );
+        return;
+      }
+      const seg = (e.target as HTMLElement).closest<HTMLElement>(".lane");
+      if (!seg) return;
+      const i = Number(seg.dataset.i);
+      drag(
+        band,
+        e,
+        () => {},
+        (moved) => {
+          if (moved || e.detail > 1) return;
+          const at = k.options.indexOf(segs[i]![1]);
+          const n = k.options.length;
+          segs[i]![1] = k.options[(at + (e.shiftKey ? n - 1 : 1)) % n]!;
+          tidy();
+          ctx.commit(segs.map((s) => [...s] as [number, string]));
+        },
+      );
+    });
+    band.addEventListener("dblclick", (e) => {
+      const seg = (e.target as HTMLElement).closest<HTMLElement>(".lane");
+      if (!seg) return;
+      const i = Number(seg.dataset.i);
+      const at = unitAt(e);
+      if (at <= segs[i]![0] || at >= endOf(i)) return;
+      // The new half takes the next option, so the cut shows at once.
+      const next = k.options[(k.options.indexOf(segs[i]![1]) + 1) % k.options.length]!;
+      segs.splice(i + 1, 0, [at, next]);
+      tidy();
+      ctx.commit(segs.map((s) => [...s] as [number, string]));
+    });
+    host.append(band);
+    host.append(h("div", "ends", `0 → ${k.length}${k.unit ? ` ${k.unit}` : ""}`));
+  },
+};
+
+//==============================================================================
+// Pitch structures: vector → set, lattice
+
+/** Every prime form of 12-note equal temperament, with its interval vector (made once). */
+let primes: { set: number[]; vector: number[] }[] | undefined;
+function allPrimes(): { set: number[]; vector: number[] }[] {
+  if (primes) return primes;
+  const seen = new Map<string, number[]>();
+  for (let mask = 1; mask < 4096; mask++) {
+    const set: number[] = [];
+    for (let p = 0; p < 12; p++) if (mask & (1 << p)) set.push(p);
+    const prime = primeForm(set);
+    seen.set(prime.join(","), prime);
+  }
+  primes = [...seen.values()]
+    .map((set) => ({ set, vector: intervalVector(set) }))
+    .sort((a, b) => a.set.length - b.set.length || a.set.join(",").localeCompare(b.set.join(",")));
+  return primes;
+}
+
+const vectorSetControl: Control<VectorSetKnob> = {
+  wide: true,
+  how: "Set any of the six interval-class counts (leave one empty for any), then pick a set from those that match. The set is shown in prime form, starting on 0.",
+  mount(host, _k, value, ctx) {
+    const current = primeForm(value);
+    const want: (number | undefined)[] = intervalVector(current);
+    const box = h("div", "vector");
+    const head = h("div", "vector-head");
+    head.append(
+      h("span", "set", `{${value.join(" ")}}`),
+      h("span", "muted", `<${intervalVector(value).join("")}>`),
+    );
+    const inputs = h("div", "vector-inputs");
+    const results = h("div", "vector-results");
+    const list = () => {
+      results.innerHTML = "";
+      const found = allPrimes().filter((p) =>
+        p.vector.every((c, i) => want[i] === undefined || want[i] === c),
+      );
+      const shown = found.slice(0, 60);
+      for (const p of shown) {
+        const b = h("button", "chip-set", `{${p.set.join(" ")}}`);
+        b.type = "button";
+        b.title = `${p.set.length} notes, vector <${p.vector.join("")}>`;
+        if (p.set.join(",") === current.join(",")) b.classList.add("on");
+        b.addEventListener("click", () => ctx.commit(p.set));
+        results.append(b);
+      }
+      if (found.length === 0) results.append(h("span", "muted", "No set has this vector"));
+      else if (found.length > shown.length)
+        results.append(
+          h("span", "muted", `… ${found.length - shown.length} more; set more counts`),
+        );
+    };
+    for (let i = 0; i < 6; i++) {
+      const cell = h("label", "ic");
+      const input = h("input");
+      input.value = want[i] === undefined ? "" : String(want[i]);
+      input.placeholder = "any";
+      input.inputMode = "numeric";
+      input.setAttribute("aria-label", `interval class ${i + 1}`);
+      input.addEventListener("input", () => {
+        const n = input.value.trim() === "" ? undefined : Number(input.value);
+        want[i] = n !== undefined && Number.isInteger(n) && n >= 0 ? n : undefined;
+        list();
+      });
+      input.addEventListener("keydown", (e) => e.stopPropagation());
+      cell.append(h("span", "", `ic${i + 1}`), input);
+      inputs.append(cell);
+    }
+    list();
+    box.append(head, inputs, results);
+    host.append(box);
+  },
+};
+
+const latticeControl: Control<LatticeKnob> = {
+  wide: true,
+  how: "Click nodes to add or remove them. Across is one interval, up another; the centre is ringed.",
+  mount(host, k, value, ctx) {
+    const on = new Set(value.map(([x, y]) => `${x},${y}`));
+    const centre = k.centre ? ctx.values[k.centre] : undefined;
+    const [cols, rows] = k.size;
+    const x0 = -Math.floor(cols / 2);
+    const y0 = -Math.floor(rows / 2);
+    const cell = 34;
+    const w = cols * cell;
+    const hgt = rows * cell;
+    const ns = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", `0 0 ${w} ${hgt}`);
+    svg.setAttribute("class", "lattice");
+    const at = (x: number, y: number): [number, number] => [
+      (x - x0 + 0.5) * cell,
+      hgt - (y - y0 + 0.5) * cell,
+    ];
+    // Lines between neighbouring chosen nodes show the shape.
+    for (let x = x0; x < x0 + cols; x++)
+      for (let y = y0; y < y0 + rows; y++) {
+        if (!on.has(`${x},${y}`)) continue;
+        for (const [dx, dy] of [
+          [1, 0],
+          [0, 1],
+          [1, -1],
+        ] as const) {
+          if (!on.has(`${x + dx},${y + dy}`)) continue;
+          const line = document.createElementNS(ns, "line");
+          const [ax, ay] = at(x, y);
+          const [bx, by] = at(x + dx, y + dy);
+          line.setAttribute("x1", String(ax));
+          line.setAttribute("y1", String(ay));
+          line.setAttribute("x2", String(bx));
+          line.setAttribute("y2", String(by));
+          line.setAttribute("class", "edge");
+          svg.append(line);
+        }
+      }
+    for (let x = x0; x < x0 + cols; x++)
+      for (let y = y0; y < y0 + rows; y++) {
+        const key = `${x},${y}`;
+        const [cx, cy] = at(x, y);
+        const g = document.createElementNS(ns, "g");
+        g.setAttribute("class", on.has(key) ? "node on" : "node");
+        g.setAttribute("tabindex", "0");
+        g.setAttribute("role", "checkbox");
+        g.setAttribute("aria-checked", String(on.has(key)));
+        const circle = document.createElementNS(ns, "circle");
+        circle.setAttribute("cx", String(cx));
+        circle.setAttribute("cy", String(cy));
+        circle.setAttribute("r", "13");
+        if (x === 0 && y === 0) circle.setAttribute("class", "centre");
+        const label = document.createElementNS(ns, "text");
+        label.setAttribute("x", String(cx));
+        label.setAttribute("y", String(cy + 3.5));
+        const semis = x * k.axes[0] + y * k.axes[1];
+        label.textContent =
+          typeof centre === "number"
+            ? nameOf(centre + semis).replace(/-?\d+$/, "")
+            : `${semis >= 0 ? "+" : ""}${semis}`;
+        g.append(circle, label);
+        const toggle = () => {
+          const next = new Set(on);
+          if (next.has(key)) next.delete(key);
+          else next.add(key);
+          ctx.commit([...next].map((s) => s.split(",").map(Number) as [number, number]));
+        };
+        g.addEventListener("click", toggle);
+        g.addEventListener("keydown", (e) => {
+          if ((e as KeyboardEvent).key === "Enter") toggle();
+        });
+        svg.append(g);
+      }
+    host.append(svg);
+    host.append(h("div", "ends", `→ +${k.axes[0]} st   ↑ +${k.axes[1]} st   ${on.size} nodes`));
+  },
+};
+
+//==============================================================================
+// A painted field
+
+const heatmapControl: Control<HeatmapKnob> = {
+  wide: true,
+  how: "Pick a strength on the right, then click or drag across the cells to paint it. Time runs left to right.",
+  mount(host, k, value, ctx) {
+    const field = value.map((r) => [...r]);
+    let brush = 1;
+    const box = h("div", "heat");
+    const grid = h("div", "heat-grid");
+    grid.style.setProperty("--cols", String(k.columns));
+    const cells: HTMLElement[][] = [];
+    k.rows.forEach((label, r) => {
+      grid.append(h("span", "hl", label));
+      cells.push([]);
+      for (let c = 0; c < k.columns; c++) {
+        const cell = h("span", "hc");
+        cell.dataset.r = String(r);
+        cell.dataset.c = String(c);
+        cell.style.setProperty("--v", String(field[r]![c]));
+        cells[r]!.push(cell);
+        grid.append(cell);
+      }
+    });
+    const brushes = h("div", "brushes");
+    for (const b of [0, 0.25, 0.5, 0.75, 1]) {
+      const sw = h("button", b === brush ? "swatch on" : "swatch");
+      sw.type = "button";
+      sw.title = b === 0 ? "Erase" : `Paint ${b}`;
+      sw.style.setProperty("--v", String(b));
+      sw.addEventListener("click", () => {
+        brush = b;
+        for (const other of brushes.children) other.classList.toggle("on", other === sw);
+      });
+      brushes.append(sw);
+    }
+    const paint = (e: PointerEvent) => {
+      const el = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
+      if (!el?.classList.contains("hc")) return;
+      const r = Number(el.dataset.r);
+      const c = Number(el.dataset.c);
+      field[r]![c] = brush;
+      el.style.setProperty("--v", String(brush));
+    };
+    grid.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0) return;
+      paint(e);
+      drag(grid, e, paint, () => ctx.commit(field.map((r) => [...r])));
+    });
+    box.append(grid, brushes);
+    host.append(box, h("div", "ends", "time →"));
+  },
+};
+
 export const controls: { [K in Knob["kind"]]: Control<Extract<Knob, { kind: K }>> } = {
   number: numberControl,
   pitch: pitchControl,
@@ -872,4 +1258,9 @@ export const controls: { [K in Knob["kind"]]: Control<Extract<Knob, { kind: K }>
   steps: stepsControl,
   proportions: proportionsControl,
   xy: xyControl,
+  markers: markersControl,
+  lanes: lanesControl,
+  "vector-set": vectorSetControl,
+  lattice: latticeControl,
+  heatmap: heatmapControl,
 };

@@ -20,234 +20,202 @@
    "instrument": "flute",
    "events": [
     {
-     "at": 7.75,
-     "dur": 0.5,
+     "at": 0,
+     "dur": 0.75,
      "pitch": {
-      "midi": 65
+      "midi": 91
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 11,
-     "dur": 0.5,
+     "at": 1.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 62
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 12.5,
-     "dur": 0.5,
+     "at": 2,
+     "dur": 0.75,
      "pitch": {
-      "midi": 65
+      "midi": 60
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 13,
-     "dur": 0.5,
+     "at": 6,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 74
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 7.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 74
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 8.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 74
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 9.5,
+     "dur": 0.75,
      "pitch": {
       "midi": 72
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
      "at": 13.5,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 61
+      "midi": 77
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 14,
-     "dur": 0.5,
+     "at": 15.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 91
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 14.5,
-     "dur": 0.5,
+     "at": 16.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 61
+      "midi": 84
      },
-     "dynamic": 3.5
-    },
-    {
-     "at": 15,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 66
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 16,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 61
-     },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
      "at": 17.5,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 65
+      "midi": 86
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 19.75,
-     "dur": 0.5,
+     "at": 18.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 91
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 20.75,
-     "dur": 0.5,
+     "at": 19.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 84
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 21.75,
-     "dur": 0.5,
+     "at": 20.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 77
+      "midi": 96
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
      "at": 22.25,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 77
+      "midi": 91
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 23.25,
-     "dur": 0.5,
+     "at": 23,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 89
      },
-     "dynamic": 3.5
-    },
-    {
-     "at": 25.25,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 66
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 26,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 73
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 28.25,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 73
-     },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
      "at": 28.75,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 72
+      "midi": 91
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 30,
-     "dur": 0.5,
+     "at": 29.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 72
+      "midi": 91
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 30.5,
-     "dur": 0.5,
+     "at": 30.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 77
+      "midi": 91
      },
-     "dynamic": 3.5
-    },
-    {
-     "at": 31.25,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 73
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 31.75,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 77
-     },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
      "at": 33.5,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 84
+      "midi": 96
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 34.25,
-     "dur": 0.5,
+     "at": 34.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 84
+      "midi": 96
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 35,
-     "dur": 0.5,
+     "at": 35.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 84
+      "midi": 96
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 35.75,
-     "dur": 0.5,
+     "at": 45.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 89
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 46.75,
-     "dur": 0.5,
+     "at": 46,
+     "dur": 0.75,
      "pitch": {
-      "midi": 85
+      "midi": 96
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     }
    ],
    "dynamics": [
     {
      "at": 0,
-     "level": 3.4
+     "level": 4.640000000000001
     }
    ]
   },
@@ -256,106 +224,82 @@
    "instrument": "clarinet",
    "events": [
     {
-     "at": 8.25,
-     "dur": 0.5,
+     "at": 4.25,
+     "dur": 0.75,
      "pitch": {
       "midi": 60
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 16.75,
-     "dur": 0.5,
+     "at": 11.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 74
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 18.75,
-     "dur": 0.5,
+     "at": 12.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 65
+      "midi": 89
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 19.25,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 65
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 21.5,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 66
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 22.75,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 73
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 23.5,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 73
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 27.25,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 72
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 29,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 78
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 30.75,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 72
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 35.5,
-     "dur": 0.5,
+     "at": 14.75,
+     "dur": 0.75,
      "pitch": {
       "midi": 84
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 44.5,
-     "dur": 0.5,
+     "at": 17.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 84
+      "midi": 91
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
+    },
+    {
+     "at": 25.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 36.25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 46.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 47.25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5
     }
    ],
    "dynamics": [
     {
      "at": 0,
-     "level": 3.4
+     "level": 4.640000000000001
     }
    ]
   },
@@ -364,194 +308,210 @@
    "instrument": "harp",
    "events": [
     {
-     "at": 0.25,
-     "dur": 0.5,
+     "at": 1.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 61
+      "midi": 62
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
+    },
+    {
+     "at": 2.25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 65
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 3,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 67
+     },
+     "dynamic": 4.5
     },
     {
      "at": 3.75,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 65
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 4.5,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 61
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 14.25,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
       "midi": 60
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 15.25,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 72
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 18.5,
-     "dur": 0.5,
+     "at": 5,
+     "dur": 0.75,
      "pitch": {
       "midi": 65
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 20.25,
-     "dur": 0.5,
+     "at": 9,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 77
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
+    },
+    {
+     "at": 9.75,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 79
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 15.25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 79
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 16.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 91
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 17.25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 91
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 18.75,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5
     },
     {
      "at": 21.25,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 77
+      "midi": 89
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 24.5,
-     "dur": 0.5,
+     "at": 22.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 91
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 25.5,
-     "dur": 0.5,
+     "at": 25.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 91
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 26.5,
-     "dur": 0.5,
+     "at": 27,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 89
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 27.75,
-     "dur": 0.5,
+     "at": 28.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 77
+      "midi": 89
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 28.5,
-     "dur": 0.5,
+     "at": 29,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 89
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 29.75,
-     "dur": 0.5,
+     "at": 30.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 77
+      "midi": 96
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 32.25,
-     "dur": 0.5,
+     "at": 36,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 96
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 32.75,
-     "dur": 0.5,
+     "at": 36.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 96
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 36.25,
-     "dur": 0.5,
+     "at": 40.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 89
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
-     "at": 37.5,
-     "dur": 0.5,
+     "at": 44.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 85
+      "midi": 89
      },
-     "dynamic": 3.5
-    },
-    {
-     "at": 40,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 77
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 41.75,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 84
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 43.25,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 78
-     },
-     "dynamic": 3.5
-    },
-    {
-     "at": 43.75,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 84
-     },
-     "dynamic": 3.5
+     "dynamic": 4.5
     },
     {
      "at": 45.5,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 89
      },
-     "dynamic": 3.5
+     "dynamic": 4.5
+    },
+    {
+     "at": 46.25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 91
+     },
+     "dynamic": 4.5
+    },
+    {
+     "at": 47.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 91
+     },
+     "dynamic": 4.5
     }
    ],
    "dynamics": [
     {
      "at": 0,
-     "level": 3.4
+     "level": 4.640000000000001
     }
    ]
   },
@@ -560,199 +520,262 @@
    "instrument": "violins-1",
    "events": [
     {
-     "at": 6.25,
-     "dur": 0.5,
+     "at": 0.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 61
+      "midi": 72
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 1.75,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 65
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 2.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 65
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 3.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 60
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 4.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 62
+     },
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
      "at": 7,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 60
+      "midi": 77
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 9.5,
-     "dur": 0.5,
+     "at": 7.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 74
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 12,
-     "dur": 0.5,
+     "at": 10.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 77
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 12.75,
-     "dur": 0.5,
+     "at": 13.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 65
+      "midi": 79
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 16.5,
-     "dur": 0.5,
+     "at": 14.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 84
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 17.75,
-     "dur": 0.5,
+     "at": 15.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 84
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 20.5,
-     "dur": 0.5,
+     "at": 16.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 86
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 17,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 84
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 18,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 19.75,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
      "at": 21,
-     "dur": 0.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 65
+      "midi": 91
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 22,
-     "dur": 0.5,
+     "at": 25.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 91
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 22.5,
-     "dur": 0.5,
+     "at": 26,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 91
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 24.25,
-     "dur": 0.5,
+     "at": 26.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 89
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 24.75,
-     "dur": 0.5,
+     "at": 28,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 91
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 25.75,
-     "dur": 0.5,
+     "at": 30.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 72
+      "midi": 96
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 26.25,
-     "dur": 0.5,
+     "at": 37,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 96
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 27,
-     "dur": 0.5,
+     "at": 39.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 77
+      "midi": 91
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 27.5,
-     "dur": 0.5,
+     "at": 41,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 91
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 32.5,
-     "dur": 0.5,
+     "at": 45,
+     "dur": 0.75,
      "pitch": {
-      "midi": 77
+      "midi": 91
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 33.25,
-     "dur": 0.5,
+     "at": 45.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 89
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 38.75,
-     "dur": 0.5,
+     "at": 47,
+     "dur": 0.75,
      "pitch": {
-      "midi": 84
+      "midi": 91
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 40.25,
-     "dur": 0.5,
+     "at": 47.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 89
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     }
    ],
    "dynamics": [
     {
      "at": 0,
-     "level": 3.4
+     "level": 4.640000000000001
     }
    ]
   },
@@ -761,37 +784,109 @@
    "instrument": "violas",
    "events": [
     {
-     "at": 19.5,
-     "dur": 0.5,
+     "at": 2.75,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 60
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 23.75,
-     "dur": 0.5,
+     "at": 4,
+     "dur": 0.75,
      "pitch": {
-      "midi": 66
+      "midi": 65
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 32,
-     "dur": 0.5,
+     "at": 5.5,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 74
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 6.25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 72
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 8.25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 79
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 10.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 74
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 18.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 86
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 20.75,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 91
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 26.5,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5,
+     "technique": "pizz"
+    },
+    {
+     "at": 27.25,
+     "dur": 0.75,
+     "pitch": {
+      "midi": 89
+     },
+     "dynamic": 4.5,
      "technique": "pizz"
     }
    ],
    "dynamics": [
     {
      "at": 0,
-     "level": 3.4
+     "level": 4.640000000000001
     }
    ]
   },
@@ -800,145 +895,64 @@
    "instrument": "cellos",
    "events": [
     {
-     "at": 9,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 65
-     },
-     "dynamic": 3.5,
-     "technique": "pizz"
-    },
-    {
-     "at": 11.25,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 65
-     },
-     "dynamic": 3.5,
-     "technique": "pizz"
-    },
-    {
-     "at": 12.25,
-     "dur": 0.5,
+     "at": 1,
+     "dur": 0.75,
      "pitch": {
       "midi": 60
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 15.5,
-     "dur": 0.5,
+     "at": 5.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 74
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 18.25,
-     "dur": 0.5,
+     "at": 7.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 65
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 19,
-     "dur": 0.5,
+     "at": 14.25,
+     "dur": 0.75,
      "pitch": {
-      "midi": 73
+      "midi": 84
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 20,
-     "dur": 0.5,
+     "at": 15,
+     "dur": 0.75,
      "pitch": {
-      "midi": 72
+      "midi": 84
      },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     },
     {
-     "at": 24,
-     "dur": 0.5,
+     "at": 16,
+     "dur": 0.75,
      "pitch": {
-      "midi": 78
+      "midi": 84
      },
-     "dynamic": 3.5,
-     "technique": "pizz"
-    },
-    {
-     "at": 25,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 77
-     },
-     "dynamic": 3.5,
-     "technique": "pizz"
-    },
-    {
-     "at": 26.75,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 78
-     },
-     "dynamic": 3.5,
-     "technique": "pizz"
-    },
-    {
-     "at": 28,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 73
-     },
-     "dynamic": 3.5,
-     "technique": "pizz"
-    },
-    {
-     "at": 29.5,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 78
-     },
-     "dynamic": 3.5,
-     "technique": "pizz"
-    },
-    {
-     "at": 31.5,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 77
-     },
-     "dynamic": 3.5,
-     "technique": "pizz"
-    },
-    {
-     "at": 33.75,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 77
-     },
-     "dynamic": 3.5,
-     "technique": "pizz"
-    },
-    {
-     "at": 36,
-     "dur": 0.5,
-     "pitch": {
-      "midi": 77
-     },
-     "dynamic": 3.5,
+     "dynamic": 4.5,
      "technique": "pizz"
     }
    ],
    "dynamics": [
     {
      "at": 0,
-     "level": 3.4
+     "level": 4.640000000000001
     }
    ]
   }

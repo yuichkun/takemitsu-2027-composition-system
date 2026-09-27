@@ -10,7 +10,7 @@
  "tempo": [
   {
    "at": 0,
-   "bpm": 112
+   "bpm": 130
   }
  ],
  "measures": 12,
@@ -41,6 +41,10 @@
      ]
     },
     {
+     "at": 0.25,
+     "dur": 0.25
+    },
+    {
      "at": 0.75,
      "dur": 0.25
     },
@@ -62,6 +66,10 @@
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 4.25,
+     "dur": 0.25
     },
     {
      "at": 4.75,
@@ -87,6 +95,10 @@
      ]
     },
     {
+     "at": 8.25,
+     "dur": 0.25
+    },
+    {
      "at": 8.75,
      "dur": 0.25
     },
@@ -110,6 +122,10 @@
      ]
     },
     {
+     "at": 12.25,
+     "dur": 0.25
+    },
+    {
      "at": 12.75,
      "dur": 0.25
     },
@@ -127,6 +143,10 @@
     },
     {
      "at": 16.25,
+     "dur": 0.25
+    },
+    {
+     "at": 16.5,
      "dur": 0.25
     },
     {
@@ -150,6 +170,10 @@
     },
     {
      "at": 20.5,
+     "dur": 0.25
+    },
+    {
+     "at": 20.75,
      "dur": 0.25
     },
     {
@@ -186,6 +210,13 @@
      "dur": 0.25
     },
     {
+     "at": 25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
      "at": 25.5,
      "dur": 0.25
     },
@@ -209,6 +240,10 @@
      ]
     },
     {
+     "at": 29.25,
+     "dur": 0.25
+    },
+    {
      "at": 29.75,
      "dur": 0.25
     },
@@ -221,13 +256,6 @@
      "dur": 0.25
     },
     {
-     "at": 32,
-     "dur": 0.25,
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
      "at": 33.5,
      "dur": 0.25
     },
@@ -236,43 +264,11 @@
      "dur": 0.25
     },
     {
-     "at": 35.25,
-     "dur": 0.25
-    },
-    {
-     "at": 36.75,
-     "dur": 0.25
-    },
-    {
-     "at": 37.5,
-     "dur": 0.25
-    },
-    {
-     "at": 39.25,
-     "dur": 0.25
-    },
-    {
-     "at": 40,
+     "at": 36,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
-    },
-    {
-     "at": 40.75,
-     "dur": 0.25
-    },
-    {
-     "at": 41.5,
-     "dur": 0.25
-    },
-    {
-     "at": 42.5,
-     "dur": 0.25
-    },
-    {
-     "at": 43.25,
-     "dur": 0.25
     },
     {
      "at": 44,
@@ -286,11 +282,11 @@
      "dur": 0.25
     },
     {
-     "at": 46.5,
+     "at": 45.5,
      "dur": 0.25
     },
     {
-     "at": 47.25,
+     "at": 46.5,
      "dur": 0.25
     }
    ],
@@ -311,7 +307,18 @@
    "instrument": "snare-drum",
    "events": [
     {
+     "at": 0.5,
+     "dur": 0.25
+    },
+    {
      "at": 1,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 2,
      "dur": 0.25,
      "articulations": [
       "accent"
@@ -325,7 +332,18 @@
      ]
     },
     {
+     "at": 4.5,
+     "dur": 0.25
+    },
+    {
      "at": 5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 6,
      "dur": 0.25,
      "articulations": [
       "accent"
@@ -339,7 +357,18 @@
      ]
     },
     {
+     "at": 8.5,
+     "dur": 0.25
+    },
+    {
      "at": 9,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 10,
      "dur": 0.25,
      "articulations": [
       "accent"
@@ -353,7 +382,18 @@
      ]
     },
     {
+     "at": 12.5,
+     "dur": 0.25
+    },
+    {
      "at": 13,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 14,
      "dur": 0.25,
      "articulations": [
       "accent"
@@ -367,7 +407,18 @@
      ]
     },
     {
+     "at": 17,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
      "at": 17.5,
+     "dur": 0.25
+    },
+    {
+     "at": 18.5,
      "dur": 0.25
     },
     {
@@ -382,7 +433,18 @@
      ]
     },
     {
+     "at": 21.5,
+     "dur": 0.25
+    },
+    {
      "at": 22,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 23,
      "dur": 0.25,
      "articulations": [
       "accent"
@@ -393,8 +455,26 @@
      "dur": 0.25
     },
     {
+     "at": 26,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
      "at": 26.5,
      "dur": 0.25
+    },
+    {
+     "at": 27.5,
+     "dur": 0.25
+    },
+    {
+     "at": 28,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": 29,
@@ -404,7 +484,22 @@
      ]
     },
     {
+     "at": 30.5,
+     "dur": 0.25
+    },
+    {
      "at": 31,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 32.5,
+     "dur": 0.25
+    },
+    {
+     "at": 33,
      "dur": 0.25,
      "articulations": [
       "accent"
@@ -418,14 +513,29 @@
      ]
     },
     {
-     "at": 41,
+     "at": 36.5,
+     "dur": 0.25
+    },
+    {
+     "at": 39,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
     },
     {
-     "at": 43,
+     "at": 40.5,
+     "dur": 0.25
+    },
+    {
+     "at": 45,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 47,
      "dur": 0.25,
      "articulations": [
       "accent"
@@ -566,15 +676,18 @@
      "dur": 0.25
     },
     {
-     "at": 32.5,
-     "dur": 0.25
-    },
-    {
-     "at": 34.5,
-     "dur": 0.25
-    },
-    {
      "at": 36.5,
+     "dur": 0.25
+    },
+    {
+     "at": 38,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 40.5,
      "dur": 0.25
     },
     {
@@ -594,6 +707,10 @@
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 46.5,
+     "dur": 0.25
     }
    ],
    "dynamics": [
@@ -620,11 +737,30 @@
      ]
     },
     {
+     "at": 1,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 1.5,
+     "dur": 0.25
+    },
+    {
      "at": 2,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25
+    },
+    {
+     "at": 3.25,
+     "dur": 0.25
     },
     {
      "at": 4,
@@ -634,11 +770,30 @@
      ]
     },
     {
+     "at": 5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25
+    },
+    {
      "at": 6,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25
     },
     {
      "at": 8,
@@ -648,11 +803,30 @@
      ]
     },
     {
+     "at": 9,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 9.5,
+     "dur": 0.25
+    },
+    {
      "at": 10,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 10.5,
+     "dur": 0.25
+    },
+    {
+     "at": 11.25,
+     "dur": 0.25
     },
     {
      "at": 12,
@@ -662,11 +836,34 @@
      ]
     },
     {
+     "at": 13,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 13.5,
+     "dur": 0.25
+    },
+    {
      "at": 14,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25
+    },
+    {
+     "at": 15.25,
+     "dur": 0.25
+    },
+    {
+     "at": 16.25,
+     "dur": 0.25
     },
     {
      "at": 17,
@@ -676,11 +873,26 @@
      ]
     },
     {
+     "at": 18,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 18.5,
+     "dur": 0.25
+    },
+    {
      "at": 19,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25
     },
     {
      "at": 20,
@@ -690,6 +902,14 @@
      ]
     },
     {
+     "at": 20.5,
+     "dur": 0.25
+    },
+    {
+     "at": 21.25,
+     "dur": 0.25
+    },
+    {
      "at": 22,
      "dur": 0.25,
      "articulations": [
@@ -697,11 +917,41 @@
      ]
     },
     {
+     "at": 23,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25
+    },
+    {
+     "at": 24,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 24.5,
+     "dur": 0.25
+    },
+    {
      "at": 25,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 25.5,
+     "dur": 0.25
+    },
+    {
+     "at": 26.25,
+     "dur": 0.25
     },
     {
      "at": 27,
@@ -718,11 +968,30 @@
      ]
     },
     {
+     "at": 29,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 29.5,
+     "dur": 0.25
+    },
+    {
      "at": 30,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 30.5,
+     "dur": 0.25
+    },
+    {
+     "at": 31.25,
+     "dur": 0.25
     },
     {
      "at": 32,
@@ -732,11 +1001,44 @@
      ]
     },
     {
+     "at": 33,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 33.5,
+     "dur": 0.25
+    },
+    {
      "at": 34,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 35.25,
+     "dur": 0.25
+    },
+    {
+     "at": 36,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 37,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 37.5,
+     "dur": 0.25
     },
     {
      "at": 38,
@@ -746,11 +1048,30 @@
      ]
     },
     {
+     "at": 38.5,
+     "dur": 0.25
+    },
+    {
+     "at": 39.25,
+     "dur": 0.25
+    },
+    {
      "at": 40,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 41,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 41.5,
+     "dur": 0.25
     },
     {
      "at": 42,
@@ -760,11 +1081,45 @@
      ]
     },
     {
+     "at": 42.5,
+     "dur": 0.25
+    },
+    {
+     "at": 43.25,
+     "dur": 0.25
+    },
+    {
      "at": 44,
      "dur": 0.25,
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "at": 45,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 45.5,
+     "dur": 0.25
+    },
+    {
+     "at": 46,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 46.5,
+     "dur": 0.25
+    },
+    {
+     "at": 47.25,
+     "dur": 0.25
     }
    ],
    "dynamics": [

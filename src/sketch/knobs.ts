@@ -149,6 +149,51 @@ export interface SeedKnob extends KnobBase {
   value: number;
 }
 
+/** Marks on a timeline of `length` units (bars, beats): section boundaries, events. */
+export interface MarkersKnob extends KnobBase {
+  kind: "markers";
+  /** Positions, in units from the start (0 < p < length). */
+  value: number[];
+  length: number;
+  unit?: string;
+}
+
+/** A pitch-class set (0–11), chosen by its interval vector: set the vector, pick a matching set. */
+export interface VectorSetKnob extends KnobBase {
+  kind: "vector-set";
+  value: number[];
+}
+
+/** Nodes of a two-dimensional pitch lattice: [x, y] steps from the centre, x steps of axes[0]
+ * semitones and y steps of axes[1] (e.g. fifths across, major thirds up). */
+export interface LatticeKnob extends KnobBase {
+  kind: "lattice";
+  value: [number, number][];
+  axes: [number, number];
+  /** Columns and rows shown. */
+  size: [number, number];
+  /** A pitch knob of the same sketch: the centre, used to name the nodes. */
+  centre?: string;
+}
+
+/** A field painted 0–1: rows (listed top to bottom) against time (columns). */
+export interface HeatmapKnob extends KnobBase {
+  kind: "heatmap";
+  value: number[][];
+  rows: string[];
+  columns: number;
+}
+
+/** A band over time, cut into segments, each one of a few options (techniques, colours). */
+export interface LanesKnob extends KnobBase {
+  kind: "lanes";
+  /** Segments as [start in units, option]; the first starts at 0. */
+  value: [number, string][];
+  options: string[];
+  length: number;
+  unit?: string;
+}
+
 export type Knob =
   | NumberKnob
   | ChoiceKnob
@@ -165,7 +210,12 @@ export type Knob =
   | StepsKnob
   | ProportionsKnob
   | XYKnob
-  | SeedKnob;
+  | SeedKnob
+  | MarkersKnob
+  | VectorSetKnob
+  | LatticeKnob
+  | HeatmapKnob
+  | LanesKnob;
 export type Knobs = Record<string, Knob>;
 export type Values<K extends Knobs> = { [N in keyof K]: K[N]["value"] };
 export type Value = Knob["value"];
@@ -243,6 +293,36 @@ export const proportions = (k: Spec<ProportionsKnob>): ProportionsKnob => ({
 });
 export const xy = (k: Spec<XYKnob>): XYKnob => ({ kind: "xy", ...k });
 export const seed = (k: Spec<SeedKnob>): SeedKnob => ({ kind: "seed", ...k });
+export const markers = (k: Spec<MarkersKnob>): MarkersKnob => ({ kind: "markers", ...k });
+export const vectorSet = (k: Spec<VectorSetKnob>): VectorSetKnob => ({ kind: "vector-set", ...k });
+export const lattice = (k: Spec<LatticeKnob>): LatticeKnob => ({ kind: "lattice", ...k });
+/** `value` may be a function of (row from the top 0–1, time 0–1). */
+export const heatmap = (
+  k: Omit<Spec<HeatmapKnob>, "value"> & {
+    value: number[][] | ((row: number, t: number) => number);
+  },
+): HeatmapKnob => {
+  const { value, ...rest } = k;
+  const n = k.rows.length;
+  return {
+    ...rest,
+    kind: "heatmap",
+    value:
+      typeof value === "function"
+        ? Array.from({ length: n }, (_, r) =>
+            Array.from(
+              { length: k.columns },
+              (_, c) =>
+                Math.round(
+                  clamp01(value(n > 1 ? r / (n - 1) : 0, k.columns > 1 ? c / (k.columns - 1) : 0)) *
+                    4,
+                ) / 4,
+            ),
+          )
+        : value,
+  };
+};
+export const lanes = (k: Spec<LanesKnob>): LanesKnob => ({ kind: "lanes", ...k });
 
 //==============================================================================
 // Stored values
@@ -289,6 +369,30 @@ export function fits(k: Knob, v: unknown): boolean {
       return numbers(v, k.labels.length);
     case "proportions":
       return numbers(v, k.labels.length);
+    case "markers":
+      return numbers(v) && v.every((p) => p > 0 && p < k.length);
+    case "vector-set":
+      return numbers(v) && v.every((p) => Number.isInteger(p) && p >= 0 && p < 12);
+    case "lattice":
+      return Array.isArray(v) && v.every((p) => numbers(p, 2));
+    case "heatmap":
+      return (
+        Array.isArray(v) && v.length === k.rows.length && v.every((r) => numbers(r, k.columns))
+      );
+    case "lanes":
+      return (
+        Array.isArray(v) &&
+        v.length >= 1 &&
+        v.every(
+          (s) =>
+            Array.isArray(s) &&
+            s.length === 2 &&
+            isNumber(s[0]) &&
+            typeof s[1] === "string" &&
+            k.options.includes(s[1]),
+        ) &&
+        (v[0] as [number, string])[0] === 0
+      );
     case "steps":
       return (
         Array.isArray(v) &&
@@ -377,4 +481,53 @@ export function pick(weightsOf: number[], r: number): number {
 /** The pitch (MIDI, rounded to the quarter-tone grid) of a partial over a fundamental. */
 export function partialPitch(fundamental: number, n: number): number {
   return Math.round((fundamental + 12 * Math.log2(n)) * 2) / 2;
+}
+
+/** A lattice node's pitch: the centre plus x steps of axes[0] and y steps of axes[1]. */
+export function latticePitch(
+  centre: number,
+  node: [number, number],
+  axes: [number, number],
+): number {
+  return centre + node[0] * axes[0] + node[1] * axes[1];
+}
+
+/** Which lane segment is in force at a time (in the lane's units). */
+export function laneAt(segments: [number, string][], at: number): string {
+  let current = segments[0]![1];
+  for (const [start, option] of [...segments].sort((a, b) => a[0] - b[0]))
+    if (start <= at) current = option;
+  return current;
+}
+
+/** Interval-class vector of a pitch-class set (integers 0–11). */
+export function intervalVector(set: number[]): number[] {
+  const v = [0, 0, 0, 0, 0, 0];
+  const pcs = [...new Set(set.map((p) => ((p % 12) + 12) % 12))];
+  for (let i = 0; i < pcs.length; i++)
+    for (let j = i + 1; j < pcs.length; j++) {
+      const d = (pcs[j]! - pcs[i]! + 12) % 12;
+      const ic = Math.min(d, 12 - d);
+      if (ic) v[ic - 1]!++;
+    }
+  return v;
+}
+
+/** Prime form (transposition and inversion) of a pitch-class set: the most compact, packed to the left. */
+export function primeForm(set: number[]): number[] {
+  const pcs = [...new Set(set.map((p) => ((p % 12) + 12) % 12))].sort((a, b) => a - b);
+  if (pcs.length === 0) return [];
+  let best: number[] | undefined;
+  const better = (a: number[], b: number[]) => {
+    // Smaller span first, then smaller intervals from the left.
+    if (a.at(-1)! !== b.at(-1)!) return a.at(-1)! < b.at(-1)!;
+    for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return a[i]! < b[i]!;
+    return false;
+  };
+  for (const form of [pcs, pcs.map((p) => (12 - p) % 12)])
+    for (const t of form) {
+      const candidate = form.map((p) => (p - t + 12) % 12).sort((a, b) => a - b);
+      if (!best || better(candidate, best)) best = candidate;
+    }
+  return best!;
 }

@@ -181,7 +181,8 @@ flowchart LR
 
 - つまみの部品はスケッチを問わず使い回す（型は [`../src/sketch/knobs.ts`](../src/sketch/knobs.ts)、描画は [`../src/preview/knobs/controls.ts`](../src/preview/knobs/controls.ts)）:
   数、音高、範囲、音域、選択肢、スイッチ、文字、フリーハンドの線（curve）、折れ線（envelope）、音高クラスの円（pitch-set）、
-  倍音（partials）、重みの棒（weights）、ステップの格子（steps）、比率の帯（proportions）、平面上の点（xy）、乱数の種（seed）。
+  倍音（partials）、重みの棒（weights）、ステップの格子（steps）、比率の帯（proportions）、平面上の点（xy）、乱数の種（seed）、
+  時間軸の印（markers）、区間の帯（lanes）、音程ベクトルからの集合（vector-set）、音の格子（lattice）、音域 × 時間の濃さ（heatmap）。
   一覧と見本は [`../sketches/ui-showcase/`](../sketches/ui-showcase/README.md)。
   どれも名前・グループ・意図（何を変えるためのつまみか。欄では名前に重ねると出る）を持つ。
   **つまみはアイデアを形づくる判断ごとに置く。**コードの中の数を機械的に全部出さない。足りなければ余湖さんが言い、足す

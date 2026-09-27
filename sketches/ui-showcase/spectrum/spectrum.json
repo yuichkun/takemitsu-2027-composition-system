@@ -24,7 +24,7 @@
      "dur": 48,
      "pitch": [
       {
-       "midi": 40
+       "midi": 28
       }
      ]
     }
@@ -36,8 +36,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -52,11 +52,11 @@
    "instrument": "cellos",
    "events": [
     {
-     "at": 2,
+     "at": 4,
      "dur": 44,
      "pitch": [
       {
-       "midi": 47
+       "midi": 40
       }
      ]
     }
@@ -68,8 +68,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -84,11 +84,11 @@
    "instrument": "bassoon",
    "events": [
     {
-     "at": 3,
-     "dur": 42,
+     "at": 7,
+     "dur": 40,
      "pitch": [
       {
-       "midi": 56
+       "midi": 47
       }
      ]
     }
@@ -100,8 +100,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -116,11 +116,11 @@
    "instrument": "trombone",
    "events": [
     {
-     "at": 5,
-     "dur": 38,
+     "at": 11,
+     "dur": 36,
      "pitch": [
       {
-       "midi": 61.5
+       "midi": 56
       }
      ]
     }
@@ -132,8 +132,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -148,11 +148,11 @@
    "instrument": "horn",
    "events": [
     {
-     "at": 6,
-     "dur": 36,
+     "at": 14,
+     "dur": 32,
      "pitch": [
       {
-       "midi": 66
+       "midi": 61.5
       }
      ]
     }
@@ -164,8 +164,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -180,11 +180,11 @@
    "instrument": "violas",
    "events": [
     {
-     "at": 8,
-     "dur": 32,
+     "at": 18,
+     "dur": 28,
      "pitch": [
       {
-       "midi": 69.5
+       "midi": 66
       }
      ]
     }
@@ -196,8 +196,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -212,11 +212,11 @@
    "instrument": "clarinet",
    "events": [
     {
-     "at": 10,
-     "dur": 28,
+     "at": 22,
+     "dur": 24,
      "pitch": [
       {
-       "midi": 72.5
+       "midi": 69.5
       }
      ]
     }
@@ -228,8 +228,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -244,11 +244,14 @@
    "instrument": "violins-2",
    "events": [
     {
-     "at": 11,
-     "dur": 26,
+     "at": 25,
+     "dur": 20,
      "pitch": [
       {
-       "midi": 75
+       "midi": 72.5
+      },
+      {
+       "midi": 80.5
       }
      ]
     }
@@ -260,8 +263,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -276,11 +279,11 @@
    "instrument": "oboe",
    "events": [
     {
-     "at": 13,
-     "dur": 22,
+     "at": 29,
+     "dur": 16,
      "pitch": [
       {
-       "midi": 77
+       "midi": 75
       }
      ]
     }
@@ -292,8 +295,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -308,11 +311,14 @@
    "instrument": "violins-1",
    "events": [
     {
-     "at": 14,
-     "dur": 20,
+     "at": 32,
+     "dur": 12,
      "pitch": [
       {
-       "midi": 79
+       "midi": 77
+      },
+      {
+       "midi": 87
       }
      ]
     }
@@ -324,8 +330,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {
@@ -340,11 +346,11 @@
    "instrument": "flute",
    "events": [
     {
-     "at": 16,
-     "dur": 16,
+     "at": 36,
+     "dur": 8,
      "pitch": [
       {
-       "midi": 80.5
+       "midi": 79
       }
      ]
     }
@@ -356,8 +362,8 @@
      "to": "linear"
     },
     {
-     "at": 26.5,
-     "level": 5.5,
+     "at": 31.5,
+     "level": 6,
      "to": "linear"
     },
     {

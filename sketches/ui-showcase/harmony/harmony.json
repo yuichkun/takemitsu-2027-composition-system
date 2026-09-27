@@ -1,0 +1,358 @@
+{
+ "title": "Showcase: harmony",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 24,
+ "rehearsal": [
+  {
+   "measure": 1,
+   "label": "A"
+  },
+  {
+   "measure": 7,
+   "label": "B"
+  },
+  {
+   "measure": 13,
+   "label": "C"
+  },
+  {
+   "measure": 19,
+   "label": "D"
+  }
+ ],
+ "parts": [
+  {
+   "id": "cb",
+   "instrument": "basses",
+   "events": [
+    {
+     "at": 0,
+     "dur": 24,
+     "pitch": [
+      {
+       "midi": 38
+      }
+     ],
+     "technique": "sul-tasto"
+    },
+    {
+     "at": 24,
+     "dur": 8,
+     "pitch": [
+      {
+       "midi": 38
+      }
+     ],
+     "technique": "sul-tasto"
+    },
+    {
+     "at": 32,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 38
+      }
+     ]
+    },
+    {
+     "at": 48,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 38
+      }
+     ]
+    },
+    {
+     "at": 64,
+     "dur": 8,
+     "pitch": [
+      {
+       "midi": 38
+      }
+     ],
+     "technique": "sul-pont"
+    },
+    {
+     "at": 72,
+     "dur": 24,
+     "pitch": [
+      {
+       "midi": 38
+      }
+     ],
+     "technique": "sul-pont"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ]
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "events": [
+    {
+     "at": 0,
+     "dur": 24,
+     "pitch": [
+      {
+       "midi": 54
+      }
+     ],
+     "technique": "sul-tasto"
+    },
+    {
+     "at": 24,
+     "dur": 8,
+     "pitch": [
+      {
+       "midi": 51
+      }
+     ],
+     "technique": "sul-tasto"
+    },
+    {
+     "at": 32,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 51
+      }
+     ]
+    },
+    {
+     "at": 48,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 54
+      }
+     ]
+    },
+    {
+     "at": 64,
+     "dur": 8,
+     "pitch": [
+      {
+       "midi": 54
+      }
+     ],
+     "technique": "sul-pont"
+    },
+    {
+     "at": 72,
+     "dur": 24,
+     "pitch": [
+      {
+       "midi": 51
+      }
+     ],
+     "technique": "sul-pont"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ]
+  },
+  {
+   "id": "va",
+   "instrument": "violas",
+   "events": [
+    {
+     "at": 0,
+     "dur": 24,
+     "pitch": [
+      {
+       "midi": 57
+      }
+     ],
+     "technique": "sul-tasto"
+    },
+    {
+     "at": 24,
+     "dur": 8,
+     "pitch": [
+      {
+       "midi": 66
+      }
+     ],
+     "technique": "sul-tasto"
+    },
+    {
+     "at": 32,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 66
+      }
+     ]
+    },
+    {
+     "at": 48,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 57
+      }
+     ]
+    },
+    {
+     "at": 64,
+     "dur": 8,
+     "pitch": [
+      {
+       "midi": 57
+      }
+     ],
+     "technique": "sul-pont"
+    },
+    {
+     "at": 72,
+     "dur": 24,
+     "pitch": [
+      {
+       "midi": 66
+      }
+     ],
+     "technique": "sul-pont"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ]
+  },
+  {
+   "id": "vn2",
+   "instrument": "violins-2",
+   "events": [
+    {
+     "at": 0,
+     "dur": 24,
+     "pitch": [
+      {
+       "midi": 73
+      }
+     ],
+     "technique": "sul-tasto"
+    },
+    {
+     "at": 24,
+     "dur": 8,
+     "pitch": [
+      {
+       "midi": 80
+      }
+     ],
+     "technique": "sul-tasto"
+    },
+    {
+     "at": 32,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 80
+      }
+     ]
+    },
+    {
+     "at": 48,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 73
+      }
+     ]
+    },
+    {
+     "at": 64,
+     "dur": 8,
+     "pitch": [
+      {
+       "midi": 73
+      }
+     ],
+     "technique": "sul-pont"
+    },
+    {
+     "at": 72,
+     "dur": 24,
+     "pitch": [
+      {
+       "midi": 80
+      }
+     ],
+     "technique": "sul-pont"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ]
+  },
+  {
+   "id": "vn1",
+   "instrument": "violins-1",
+   "events": [
+    {
+     "at": 0,
+     "dur": 24,
+     "pitch": [
+      {
+       "midi": 76
+      }
+     ],
+     "technique": "sul-tasto"
+    },
+    {
+     "at": 48,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 76
+      }
+     ]
+    },
+    {
+     "at": 64,
+     "dur": 8,
+     "pitch": [
+      {
+       "midi": 76
+      }
+     ],
+     "technique": "sul-pont"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ]
+  }
+ ]
+}
