@@ -1,0 +1,23 @@
+{
+  "name": "takemitsu-2027-composition-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "check": "vp check",
+    "test": "vp test",
+    "host:configure": "cmake -S native/host -B native/build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=arm64",
+    "host:build": "cmake --build native/build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "vite-plus": "^1.0.0-rc.0"
+  },
+  "dependencies": {
+    "verovio": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

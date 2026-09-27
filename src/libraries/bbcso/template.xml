@@ -1,0 +1,243 @@
+<SPITFIREAUDIO_AUNTIE>
+  <META family="" name="" productMode="0" version="1.5.0" tags="" modified="0" />
+  <UI uisize="0.9517241379310345" uicollapsed="0" />
+  <ARTICS>
+    <SETTING id="p_syncToTempo" value="1" />
+    <SETTING id="p_dynamicsVelocityMode" value="FULL VELOCITY RANGE" />
+    <SETTING id="p_shortRTMode" value="-2.0" />
+    <SETTING id="p_velocityCurve" value="LINEAR VELOCITY" />
+    <SETTING id="p_quantiseMode" value="" />
+    <SETTING id="p_mixerAdvanced" value="1" />
+    <SETTING id="p_mixerGlobal" value="1" />
+    <SETTING id="p_mixerLock" value="0" />
+    <SETTING id="p_mixerPage" value="" />
+    <SETTING id="p_articLock" value="0" />
+    <SETTING id="p_articPage" value="/Typhon/DynamicArea/ArticulationMatrixLayout/ArticulationMatrixPageSelector/0" />
+    <SETTING id="p_lastSelectedPrimaryArtic" value="0" />
+    <SETTING id="p_midiChannel" value="0" />
+    <SETTING id="p_selectedTags" value="" />
+    <SETTING id="p_selectedInstrumentTags" value="" />
+    <SETTING id="p_filterPos" value="[]" />
+    <SETTING id="p_presetPos" value="[]" />
+    <SETTING id="p_evoContainerPos" value="[]" />
+    <SETTING id="p_octave" value="0" />
+    <SETTING id="p_odestIndices" value="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264" />
+    <SETTING id="p_timeStretch" value="Default" />
+    <SETTING id="p_voiceChoke" value="0.0" />
+    <SETTING id="p_loopEnd" value="0.0" />
+    <SETTING id="p_dynamicSmooth" value="0.0" />
+    <SETTING id="p_overridesToApplyId" value="" />
+    <SETTING id="p_engineConfigName" value="" />
+    <ARTIC>
+      <SETTING id="a_name" value="" />
+      <SETTING id="a_version" value="17104896" />
+      <SETTING id="a_templateIdx" value="0" />
+      <SETTING id="a_voiceLimit" value="-1" />
+      <SETTING id="a_odest" value="REVERB" />
+      <SETTING id="a_active" value="2" />
+      <SETTING id="a_backActive" value="0" />
+      <SETTING id="a_evoOverlay" value="0" />
+      <SETTING id="a_twoHanded" value="0" />
+      <SETTING id="a_overridesToApplyId" value="" />
+      <SETTING id="a_hallTriggerMode" value="-1" />
+      <SETTING id="a_autoMakeUp" value="0" />
+      <SETTING id="t_type" value="1" />
+      <SETTING id="t_enabled" value="1" />
+      <SETTING id="t_latch" value="0" />
+      <SETTING id="t_keyswitch" value="1" />
+      <SETTING id="t_midiChannel" value="1" />
+      <SETTING id="t_velFrom" value="1" />
+      <SETTING id="t_velTo" value="127" />
+      <SETTING id="t_cc" value="32" />
+      <SETTING id="t_ccValueFrom" value="0" />
+      <SETTING id="t_ccValueTo" value="127" />
+      <SETTING id="t_speedFrom" value="0.0" />
+      <SETTING id="t_speedTo" value="0.5" />
+      <SETTING id="t_programChange" value="0" />
+      <SETTING id="t_tempoFrom" value="0.0" />
+      <SETTING id="t_tempoTo" value="0.0" />
+      <SETTING id="rr_timeout" value="-1.0" />
+      <SETTING id="rr_neighbourMin" value="0" />
+      <SETTING id="rr_neighbourMax" value="127" />
+      <SETTING id="rr_useNeighbour" value="0" />
+      <SETTING id="rr_count" value="-1" />
+      <SETTING id="rr_inc" value="1" />
+      <SETTING id="rr_layers" value="1" />
+      <SETTING id="rr_gain" value="1.0" />
+      <SETTING id="rr_start" value="0" />
+      <SETTING id="rr_sync" value="0" />
+      <SETTING id="rr_play" value="1" />
+      <SETTING id="rr_keyswitchFrom" value="-1" />
+      <SETTING id="rr_keyswitchTo" value="-1" />
+      <SETTING id="rr_keyswitchTo" value="-1" />
+      <SETTING id="rr_mode" value="0" />
+      <SETTING id="rr_map" value="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127" />
+      <RRPATTERNS>
+        <RRPATTERN rr_patternKey="-1" rr_patternStart="0" rr_pattern="" rr_patternValidation="" />
+      </RRPATTERNS>
+      <SETTING id="r_midiChannel" value="0" />
+      <SETTING id="r_transpose" value="0" />
+      <SETTING id="r_layerTranspose" value="0" />
+      <SETTING id="i_expression" value="1.0" />
+      <SETTING id="i_dynamics" value="1.0" />
+      <SETTING id="i_reverb" value="0.0" />
+      <SETTING id="i_release" value="0.5" />
+      <SETTING id="i_tight" value="0.0" />
+      <SETTING id="i_vibrato" value="1.0" />
+      <SETTING id="i_variation" value="0.0" />
+      <SETTING id="s_pan" value="0.5" />
+      <SETTING id="s_width" value="0.5" />
+      <SETTING id="s_flip" value="0.0" />
+      <MIX>
+        <SETTING id="m_mono" value="0.0" micId="1" />
+        <SETTING id="e_mono" value="0" micId="1" />
+        <SETTING id="b_mono" value="0" micId="1" />
+        <SETTING id="n_mono" value="1" micId="1" />
+        <SETTING id="m_tree" value="0.0" micId="2" />
+        <SETTING id="e_tree" value="0" micId="2" />
+        <SETTING id="b_tree" value="0" micId="2" />
+        <SETTING id="n_tree" value="1" micId="2" />
+        <SETTING id="m_out" value="0.0" micId="3" />
+        <SETTING id="e_out" value="0" micId="3" />
+        <SETTING id="b_out" value="0" micId="3" />
+        <SETTING id="n_out" value="1" micId="3" />
+        <SETTING id="m_amb" value="0.0" micId="4" />
+        <SETTING id="e_amb" value="0" micId="4" />
+        <SETTING id="b_amb" value="0" micId="4" />
+        <SETTING id="n_amb" value="1" micId="4" />
+        <SETTING id="m_balcony" value="0.0" micId="5" />
+        <SETTING id="e_balcony" value="0" micId="5" />
+        <SETTING id="b_balcony" value="0" micId="5" />
+        <SETTING id="n_balcony" value="1" micId="5" />
+        <SETTING id="m_sides" value="0.0" micId="6" />
+        <SETTING id="e_sides" value="0" micId="6" />
+        <SETTING id="b_sides" value="0" micId="6" />
+        <SETTING id="n_sides" value="1" micId="6" />
+        <SETTING id="m_atmosf" value="0.0" micId="7" />
+        <SETTING id="e_atmosf" value="0" micId="7" />
+        <SETTING id="b_atmosf" value="0" micId="7" />
+        <SETTING id="n_atmosf" value="1" micId="7" />
+        <SETTING id="m_atmosr" value="0.0" micId="8" />
+        <SETTING id="e_atmosr" value="0" micId="8" />
+        <SETTING id="b_atmosr" value="0" micId="8" />
+        <SETTING id="n_atmosr" value="1" micId="8" />
+        <SETTING id="m_mids" value="0.0" micId="9" />
+        <SETTING id="e_mids" value="0" micId="9" />
+        <SETTING id="b_mids" value="0" micId="9" />
+        <SETTING id="n_mids" value="1" micId="9" />
+        <SETTING id="m_stereo" value="0.0" micId="10" />
+        <SETTING id="e_stereo" value="0" micId="10" />
+        <SETTING id="b_stereo" value="0" micId="10" />
+        <SETTING id="n_stereo" value="1" micId="10" />
+        <SETTING id="m_leader" value="0.0" micId="11" />
+        <SETTING id="e_leader" value="0" micId="11" />
+        <SETTING id="b_leader" value="0" micId="11" />
+        <SETTING id="n_leader" value="1" micId="11" />
+        <SETTING id="m_close" value="0.0" micId="12" />
+        <SETTING id="e_close" value="0" micId="12" />
+        <SETTING id="b_close" value="0" micId="12" />
+        <SETTING id="n_close" value="1" micId="12" />
+        <SETTING id="m_clwdpan" value="0.0" micId="13" />
+        <SETTING id="e_clwdpan" value="0" micId="13" />
+        <SETTING id="b_clwdpan" value="0" micId="13" />
+        <SETTING id="n_clwdpan" value="1" micId="13" />
+        <SETTING id="m_spllstr" value="0.0" micId="14" />
+        <SETTING id="e_spllstr" value="0" micId="14" />
+        <SETTING id="b_spllstr" value="0" micId="14" />
+        <SETTING id="n_spllstr" value="1" micId="14" />
+        <SETTING id="m_spllwnd" value="0.0" micId="15" />
+        <SETTING id="e_spllwnd" value="0" micId="15" />
+        <SETTING id="b_spllwnd" value="0" micId="15" />
+        <SETTING id="n_spllwnd" value="1" micId="15" />
+        <SETTING id="m_spllbr" value="0.0" micId="16" />
+        <SETTING id="e_spllbr" value="0" micId="16" />
+        <SETTING id="b_spllbr" value="0" micId="16" />
+        <SETTING id="n_spllbr" value="1" micId="16" />
+        <SETTING id="m_spllper" value="0.0" micId="17" />
+        <SETTING id="e_spllper" value="0" micId="17" />
+        <SETTING id="b_spllper" value="0" micId="17" />
+        <SETTING id="n_spllper" value="1" micId="17" />
+        <SETTING id="m_spllfll" value="0.0" micId="18" />
+        <SETTING id="e_spllfll" value="0" micId="18" />
+        <SETTING id="b_spllfll" value="0" micId="18" />
+        <SETTING id="n_spllfll" value="1" micId="18" />
+        <SETTING id="m_flmxrl" value="1.0" micId="19" />
+        <SETTING id="e_flmxrl" value="1" micId="19" />
+        <SETTING id="b_flmxrl" value="0" micId="19" />
+        <SETTING id="n_flmxrl" value="1" micId="19" />
+        <SETTING id="m_flmxjj" value="0.0" micId="20" />
+        <SETTING id="e_flmxjj" value="0" micId="20" />
+        <SETTING id="b_flmxjj" value="0" micId="20" />
+        <SETTING id="n_flmxjj" value="1" micId="20" />
+        <SETTING id="m_pmix1" value="0.0" micId="21" />
+        <SETTING id="e_pmix1" value="0" micId="21" />
+        <SETTING id="b_pmix1" value="0" micId="21" />
+        <SETTING id="m_pmix2" value="0.0" micId="22" />
+        <SETTING id="e_pmix2" value="0" micId="22" />
+        <SETTING id="b_pmix2" value="0" micId="22" />
+        <SETTING id="m_pham" value="0.0" micId="23" />
+        <SETTING id="e_pham" value="0" micId="23" />
+        <SETTING id="b_pham" value="0" micId="23" />
+        <SETTING id="m_prib" value="0.0" micId="24" />
+        <SETTING id="e_prib" value="0" micId="24" />
+        <SETTING id="b_prib" value="0" micId="24" />
+        <SETTING id="m_pmid" value="0.0" micId="25" />
+        <SETTING id="e_pmid" value="0" micId="25" />
+        <SETTING id="b_pmid" value="0" micId="25" />
+        <SETTING id="m_pfar" value="0.0" micId="26" />
+        <SETTING id="e_pfar" value="0" micId="26" />
+        <SETTING id="b_pfar" value="0" micId="26" />
+        <SETTING id="m_spillall" value="0.0" micId="27" />
+        <SETTING id="e_spillall" value="0" micId="27" />
+        <SETTING id="b_spillall" value="0" micId="27" />
+      </MIX>
+    </ARTIC>
+  </ARTICS>
+  <PARAMETERS>
+    <PARAM id="g_gain" value="1.0" cc="7" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="g_pan" value="0.5" cc="10" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="g_tune" value="0.0" cc="-1" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_reverb" value="0.0" cc="19" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_tight" value="0.0" cc="18" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_release" value="0.5" cc="17" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_expression" value="1.0" cc="11" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_dynamics" value="1.0" cc="1" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_variation" value="0.0" cc="20" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_vibrato" value="1.0" cc="21" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_pedvol" value="0.5" cc="16" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_direction" value="0.0" cc="-1" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_mixsimple" value="0.5" cc="-1" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="s_flip" value="0.0" cc="-1" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="s_width" value="0.5" cc="-1" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="s_pan" value="0.5" cc="-1" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="i_meta[18]" value="0.0" cc="-1" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_mono" value="0.0" cc="28" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_tree" value="0.0" cc="25" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_out" value="0.0" cc="26" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_amb" value="0.0" cc="27" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_balcony" value="0.0" cc="35" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_sides" value="0.0" cc="34" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_atmosf" value="0.0" cc="41" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_atmosr" value="0.0" cc="42" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_mids" value="0.0" cc="33" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_stereo" value="0.0" cc="31" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_leader" value="0.0" cc="29" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_close" value="0.0" cc="24" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_clwdpan" value="0.0" cc="30" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_spllstr" value="0.0" cc="36" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_spllwnd" value="0.0" cc="37" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_spllbr" value="0.0" cc="38" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_spllper" value="0.0" cc="39" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_spllfll" value="0.0" cc="40" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_flmxrl" value="1.0" cc="22" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_flmxjj" value="0.0" cc="23" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_pmix1" value="0.0" cc="43" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_pmix2" value="0.0" cc="44" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_pham" value="0.0" cc="45" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_prib" value="0.0" cc="46" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_pmid" value="0.0" cc="47" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_pfar" value="0.0" cc="48" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_spillall" value="0.0" cc="49" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+    <PARAM id="m_virt_actual" value="1.0" cc="-1" ccFrom="0.0" ccTo="1.0" ccSkew="1.0" ccFlip="0" />
+  </PARAMETERS>
+</SPITFIREAUDIO_AUNTIE>
