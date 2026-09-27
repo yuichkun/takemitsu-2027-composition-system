@@ -66,3 +66,34 @@ export function mono(audio: Audio): Float32Array {
   for (let i = 0; i < out.length; i++) out[i]! /= audio.channels.length;
   return out;
 }
+
+/** Encodes stereo (or mono) audio as 16-bit PCM WAV, which every browser plays. */
+export function encodeWav16(audio: Audio): Uint8Array {
+  const channels = audio.channels.length;
+  const frames = audio.channels[0]?.length ?? 0;
+  const bytes = new Uint8Array(44 + frames * channels * 2);
+  const view = new DataView(bytes.buffer);
+  const tag = (offset: number, s: string) => bytes.set(new TextEncoder().encode(s), offset);
+  tag(0, "RIFF");
+  view.setUint32(4, 36 + frames * channels * 2, true);
+  tag(8, "WAVE");
+  tag(12, "fmt ");
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);
+  view.setUint16(22, channels, true);
+  view.setUint32(24, audio.sampleRate, true);
+  view.setUint32(28, audio.sampleRate * channels * 2, true);
+  view.setUint16(32, channels * 2, true);
+  view.setUint16(34, 16, true);
+  tag(36, "data");
+  view.setUint32(40, frames * channels * 2, true);
+  let at = 44;
+  for (let i = 0; i < frames; i++) {
+    for (let c = 0; c < channels; c++) {
+      const s = Math.max(-1, Math.min(1, audio.channels[c]![i]!));
+      view.setInt16(at, Math.round(s * 32767), true);
+      at += 2;
+    }
+  }
+  return bytes;
+}

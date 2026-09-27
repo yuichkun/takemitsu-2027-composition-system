@@ -35,7 +35,11 @@
       "instrument": "violins-1",
       "players": 8,
       "name": "Violins I (div. 1)",
-      "dynamics": [{ "at": 0, "level": 2, "to": "linear" }, { "at": 8, "level": 6, "to": "linear" }, { "at": 14, "level": 0 }],
+      "dynamics": [
+        { "at": 0, "level": 2, "to": "linear" },
+        { "at": 8, "level": 6, "to": "linear" },
+        { "at": 14, "level": 0 }
+      ],
       "events": [
         { "at": 0, "dur": 3, "pitch": "E5", "technique": "sul-pont" },
         { "at": 3, "dur": 1, "pitch": "E+5", "technique": "sul-pont" },
@@ -48,7 +52,10 @@
       "instrument": "violins-1",
       "players": 8,
       "name": "Violins I (div. 2)",
-      "dynamics": [{ "at": 0, "level": 3 }, { "at": 4, "level": 6 }],
+      "dynamics": [
+        { "at": 0, "level": 3 },
+        { "at": 4, "level": 6 }
+      ],
       "events": [
         { "at": 0, "dur": 0.5, "pitch": "G4", "technique": "pizz" },
         { "at": 0.5, "dur": 0.5, "pitch": "A-4", "technique": "pizz" },
@@ -73,7 +80,10 @@
     {
       "id": "sd",
       "instrument": "snare-drum",
-      "dynamics": [{ "at": 0, "level": 3 }, { "at": 8, "level": 7 }],
+      "dynamics": [
+        { "at": 0, "level": 3 },
+        { "at": 8, "level": 7 }
+      ],
       "events": [
         { "at": 1, "dur": 1, "technique": "rimshot" },
         { "at": 3, "dur": 1 },
