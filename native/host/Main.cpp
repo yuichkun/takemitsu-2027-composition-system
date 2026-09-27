@@ -12,6 +12,8 @@
 
 #include <juce_audio_utils/juce_audio_utils.h>
 
+#include <mach/mach.h>
+
 #include <atomic>
 #include <csignal>
 #include <iostream>
@@ -41,6 +43,16 @@ var object (std::initializer_list<std::pair<const char*, var>> fields)
 }
 
 [[noreturn]] void fail (const String& message) { throw std::runtime_error (message.toStdString()); }
+
+/** This process's memory footprint in MB (what Activity Monitor shows), without asking `ps`. */
+double footprintMB()
+{
+    task_vm_info_data_t info;
+    mach_msg_type_number_t count = TASK_VM_INFO_COUNT;
+    if (task_info (mach_task_self(), TASK_VM_INFO, (task_info_t) &info, &count) != KERN_SUCCESS)
+        return 0.0;
+    return (double) info.phys_footprint / (1024.0 * 1024.0);
+}
 
 double number (const var& v, const char* key, double fallback)
 {
@@ -281,6 +293,8 @@ std::unique_ptr<AudioFormatWriter> openWav (const File& file, double rate)
 //     "chunks": [{ "id": "c1", "frames": 96000, "tailMax": 480000, "output": "…chunk",
 //                  "events": [[frame, status, data1, data2], …] }] }
 //   { "op": "ping", "id": "p1" }
+//
+// "done" carries the process's memory footprint in MB ("mb"), so the caller need not ask `ps`.
 //
 // For each chunk the instance plays the events from frame 0, runs to `frames`, then on until
 // its output stays below −80 dBFS for 250 ms (at most `tailMax` more frames). So a chunk always
@@ -639,7 +653,7 @@ private:
             auto frames = renderChunk (instance, chunk, rate, block);
             report ("chunk", object ({ { "id", chunk.id }, { "frames", (int) frames }, { "seconds", (Time::getMillisecondCounterHiRes() - started) / 1000.0 } }));
         }
-        report ("done", object ({ { "id", text (request, "id") } }));
+        report ("done", object ({ { "id", text (request, "id") }, { "mb", footprintMB() } }));
     }
 
     int64 renderChunk (Instance& instance, const Chunk& chunk, double rate, int block)

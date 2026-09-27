@@ -52,6 +52,8 @@ interface Open {
   /** Measure index of the playhead. */
   playMeasure: number;
   failures: Map<string, string>;
+  /** Keys of the version before, kept in the store too. */
+  previous: Set<string>;
 }
 
 /**
@@ -105,6 +107,7 @@ export class Engine implements WorkSource {
       playhead: previous?.playhead ?? 0,
       playMeasure: previous?.playMeasure ?? 0,
       failures: new Map(),
+      previous: previous?.keys ?? new Set(),
     };
     this.open_.set(path, entry);
     if (playhead !== undefined) this.setPlayhead(path, playhead);
@@ -221,48 +224,46 @@ export class Engine implements WorkSource {
   ): Batch | undefined {
     if (this.queued.size === 0) return undefined;
     // Rank queued chunks by the most urgent open score that needs them.
+    // A chunk from before the playhead that still sounds there (a long note) is as urgent as
+    // the playhead's own measure; its tail is not known yet, so allow a few seconds.
     const rank = (c: Chunk) => {
       let best = Infinity;
       for (const o of this.open_.values()) {
         if (!o.keys.has(c.key)) continue;
         const d = c.measure - o.playMeasure;
-        best = Math.min(best, d >= 0 ? d : 1e6 - d);
+        const sounding = d < 0 && c.origin + c.frames / sampleRate + 3 > o.playhead;
+        best = Math.min(best, d >= 0 ? d : sounding ? 0 : 1e6 - d);
       }
       return best;
     };
     let top: { chunk: Chunk; rank: number } | undefined;
     const bestByState = new Map<string, number>();
+    const nearCount = new Map<string, number>();
     for (const { chunk } of this.queued.values()) {
       if (chunk.kind !== "bbcso") continue;
-      // An idle process that has this state loaded will take it; do not load it twice.
-      if (idleElsewhere.has(chunk.stateKey) && !loaded.has(chunk.stateKey)) continue;
       const r = rank(chunk);
       if (!top || r < top.rank) top = { chunk, rank: r };
       const s = chunk.stateKey;
       if (r < (bestByState.get(s) ?? Infinity)) bestByState.set(s, r);
+      if (r < nearMeasures) nearCount.set(s, (nearCount.get(s) ?? 0) + 1);
     }
     if (!top || top.chunk.kind !== "bbcso") return undefined;
 
-    // Prefer a state this process has; else one no other process has; else the most urgent.
-    // Away from the playhead any loaded state will do: nothing is waiting for that music yet.
+    // Which state: one this process has loaded; else one no other process has (an idle one that
+    // has it is about to be asked, a busy one is occupied); else the most urgent, loading it here
+    // too rather than waiting. Near the playhead only close work counts; away from it any will do.
     const near = top.rank < nearMeasures;
     const slack = near ? loadedSlack : Infinity;
-    let state = top.chunk.stateKey;
-    let stateRank = top.rank;
-    for (const [s, r] of bestByState) {
-      if (loaded.has(s) && r <= top.rank + slack && (!loaded.has(state) || r < stateRank)) {
-        state = s;
-        stateRank = r;
-      }
-    }
-    if (!loaded.has(state) && elsewhere.has(state)) {
+    const within = (r: number) => r <= top.rank + slack;
+    const pick = (ok: (s: string) => boolean) => {
+      let best: [string, number] | undefined;
       for (const [s, r] of bestByState)
-        if (!elsewhere.has(s) && r <= top.rank + slack && r < Infinity) {
-          state = s;
-          stateRank = r;
-          break;
-        }
-    }
+        if (ok(s) && within(r) && (!best || r < best[1])) best = [s, r];
+      return best;
+    };
+    const [state, stateRank] = pick((s) => loaded.has(s)) ??
+      pick((s) => !elsewhere.has(s)) ??
+      (near ? undefined : pick((s) => !idleElsewhere.has(s))) ?? [top.chunk.stateKey, top.rank];
     const isFar = stateRank >= nearMeasures;
     if (isFar && this.far.size >= this.pool.size - 1) return undefined;
     const limit = isFar ? farBatch : nearBatch;
@@ -349,11 +350,28 @@ export class Engine implements WorkSource {
       }
       this.pendingReady.clear();
       if (this.queued.size === 0 && this.inFlight.size === 0) {
-        const keep = new Set<string>();
-        for (const o of this.open_.values()) for (const k of o.keys) keep.add(k);
-        void trimStore(keep);
+        void this.trim();
       }
     }, 150);
+  }
+
+  private trimming = false;
+  private lastTrim = 0;
+  /**
+   * Keeps the store under its limit, at most once a minute and one at a time. The chunks of the
+   * open scores and of their previous versions stay (going back after an edit renders nothing).
+   */
+  private async trim(): Promise<void> {
+    if (this.trimming || Date.now() - this.lastTrim < 60_000) return;
+    this.trimming = true;
+    this.lastTrim = Date.now();
+    try {
+      const keep = new Set<string>();
+      for (const o of this.open_.values()) for (const k of [...o.keys, ...o.previous]) keep.add(k);
+      await trimStore(keep);
+    } finally {
+      this.trimming = false;
+    }
   }
 
   private report(o: Open): void {

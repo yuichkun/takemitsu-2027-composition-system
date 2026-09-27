@@ -8,8 +8,8 @@
 // The store keeps under a size limit by removing the chunks used longest ago (each read or
 // write touches the file's time).
 
-import { existsSync, mkdirSync, readdirSync, statSync, utimesSync } from "node:fs";
-import { readFile, rm, stat, writeFile } from "node:fs/promises";
+import { existsSync, mkdirSync, utimesSync } from "node:fs";
+import { readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { repoRoot } from "../render/host.ts";
@@ -107,7 +107,9 @@ export async function chunkFrames(key: string): Promise<number | undefined> {
 
 /**
  * Removes the least recently used chunks until the store is under its limit, never touching
- * the keys in `keep` (the chunks of the scores in use).
+ * the keys in `keep` (the chunks of the scores in use). Asynchronous throughout: the store can
+ * hold tens of thousands of files, and the server must keep answering (and reading the hosts'
+ * output) meanwhile.
  */
 export async function trimStore(
   keep: Set<string>,
@@ -115,14 +117,28 @@ export async function trimStore(
 ): Promise<{ bytes: number; removed: number }> {
   if (!existsSync(storeRoot)) return { bytes: 0, removed: 0 };
   const files: { path: string; key: string; size: number; used: number }[] = [];
-  for (const dir of readdirSync(storeRoot)) {
-    if (dir === "states") continue;
+  for (const dir of await readdir(storeRoot)) {
+    if (dir === "states" || dir.length !== 2) continue;
     const full = join(storeRoot, dir);
-    if (!statSync(full).isDirectory()) continue;
-    for (const f of readdirSync(full)) {
-      if (!f.endsWith(".tkch")) continue;
-      const s = statSync(join(full, f));
-      files.push({ path: join(full, f), key: f.slice(0, -5), size: s.size, used: s.mtimeMs });
+    const names = (await readdir(full)).filter((f) => f.endsWith(".tkch"));
+    for (let i = 0; i < names.length; i += 256) {
+      const stats = await Promise.all(
+        names.slice(i, i + 256).map(async (f) => {
+          try {
+            return { f, s: await stat(join(full, f)) };
+          } catch {
+            return undefined; // removed meanwhile
+          }
+        }),
+      );
+      for (const x of stats)
+        if (x)
+          files.push({
+            path: join(full, x.f),
+            key: x.f.slice(0, -5),
+            size: x.s.size,
+            used: x.s.mtimeMs,
+          });
     }
   }
   let bytes = files.reduce((n, f) => n + f.size, 0);

@@ -9,7 +9,7 @@
 // Requests are complete ("this state, these events"): a process that dies or is replaced loses
 // nothing but its loaded instances, and a batch can simply be sent again.
 
-import { spawn, execFile, type ChildProcessWithoutNullStreams } from "node:child_process";
+import { spawn, type ChildProcessWithoutNullStreams } from "node:child_process";
 import { createInterface } from "node:readline";
 
 import { hostBinary } from "./host.ts";
@@ -74,6 +74,12 @@ export const defaultPoolOptions: PoolOptions = {
 const instanceMB = 1300;
 
 let nextRequest = 0;
+const started = Date.now();
+/** TAKEMITSU_TRACE=1: one line per batch and per idle process on stderr, for finding stalls. */
+const trace = process.env.TAKEMITSU_TRACE
+  ? (line: string) =>
+      process.stderr.write(`[pool ${((Date.now() - started) / 1000).toFixed(1)}] ${line}\n`)
+  : undefined;
 
 class HostProcess {
   readonly loaded = new Set<string>();
@@ -114,6 +120,7 @@ class HostProcess {
         const id = String(m.data.id);
         const waiter = pending.get(id);
         pending.delete(id);
+        if (m.event === "done" && typeof m.data.mb === "number") this.mb = m.data.mb;
         if (m.event === "done") waiter?.resolve();
         else waiter?.reject(new Error(String(m.data.message)));
       }
@@ -151,15 +158,9 @@ class HostProcess {
     return this.child?.pid;
   }
 
-  /** Resident memory in MB (0 if not running). */
-  memory(): Promise<number> {
-    const pid = this.pid;
-    if (!pid) return Promise.resolve(0);
-    return new Promise((resolve) =>
-      execFile("ps", ["-o", "rss=", "-p", String(pid)], (err, out) =>
-        resolve(err ? 0 : Number(out.trim()) / 1024),
-      ),
-    );
+  /** Memory footprint in MB, as the process last reported it (0 if not running). */
+  memory(): number {
+    return this.child ? this.mb : 0;
   }
 
   stop(): void {
@@ -191,10 +192,9 @@ export class HostPool {
     for (const host of idle) void this.drive(host);
   }
 
-  /** Resident memory of all processes, in MB. */
-  async memory(): Promise<number> {
-    const each = await Promise.all(this.hosts.map((h) => h.memory()));
-    return each.reduce((a, b) => a + b, 0);
+  /** Memory of all processes as they last reported it, in MB. */
+  memory(): Promise<number> {
+    return Promise.resolve(this.hosts.reduce((n, h) => n + h.memory(), 0));
   }
 
   get size(): number {
@@ -220,6 +220,8 @@ export class HostPool {
       h.stop();
     }
     if (total() + instanceMB > this.options.memoryMB) host.stop();
+    // Count the coming instance now: other processes decide before this one is measured again.
+    host.mb += instanceMB;
   }
 
   private async drive(host: HostProcess): Promise<void> {
@@ -246,18 +248,29 @@ export class HostPool {
           if (!s.pending()) this.sources.delete(s);
         }
         if (!batch || !source) break;
-        if (!host.loaded.has(batch.stateKey)) this.makeRoom(host);
+        const fresh = !host.loaded.has(batch.stateKey);
+        if (fresh) this.makeRoom(host);
+        // Counts as loaded from now on, so other processes do not load it too meanwhile.
+        host.loaded.add(batch.stateKey);
+        const t0 = Date.now();
         try {
           await host.run(batch, source);
         } catch (e) {
+          host.loaded.delete(batch.stateKey);
           source.failed(batch, e instanceof Error ? e.message : String(e));
         }
-        host.mb = await host.memory();
+        trace?.(
+          `host ${this.hosts.indexOf(host)} ${batch.stateKey.slice(0, 6)}${fresh ? " (load)" : ""} ` +
+            `${batch.chunks.length} chunks ${((Date.now() - t0) / 1000).toFixed(2)} s`,
+        );
         host.lastUsed = Date.now();
         if (host.mb > this.options.processMemoryMB) host.stop();
+        // Work may have become possible for processes that found none before.
+        for (const other of this.hosts) if (!other.busy) void this.drive(other);
       }
     } finally {
       host.busy = false;
+      trace?.(`host ${this.hosts.indexOf(host)} idle`);
     }
     if (!this.options.resident && !this.busy) this.stop();
   }

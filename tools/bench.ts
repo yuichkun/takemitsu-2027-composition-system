@@ -21,7 +21,11 @@ const option = (name: string) => {
   const i = args.indexOf(name);
   return i >= 0 ? args[i + 1] : undefined;
 };
-const valued = new Set(["--store", "--out"]);
+const valued = new Set(["--store", "--out", "--only", "--shift"]);
+/** Added to every edit's amount, so a run on a used store still changes the music anew. */
+const shift = Number(option("--shift") ?? 0);
+/** Only the edits whose label contains this. */
+const only = option("--only");
 const scorePath = args.find((a, i) => !a.startsWith("--") && !valued.has(args[i - 1] ?? ""));
 if (!scorePath) throw new Error("usage: tools/bench.ts <score.json> [--store dir] [--no-resident]");
 const resident = !args.includes("--no-resident");
@@ -121,34 +125,37 @@ const atQ = at.start.value;
 const atS = secondsAt(normal.tempo, atQ);
 const spanQ = normal.measures.slice(middle, middle + 4).reduce((n, m) => n + m.length.value, 0);
 
-function editOneNote(s: Score): void {
+function editOneNote(s: Score, by = 1): void {
   const part = busiest(s);
   const note = notesOf(part).find((n) => q(n.at) >= atQ)!;
   const p = note.pitch;
-  if (p && typeof p === "object" && "midi" in p) p.midi += 1;
-  else note.articulations = ["accent"];
+  if (p && typeof p === "object" && "midi" in p) p.midi += by;
+  else note.articulations = [by === 1 ? "accent" : "tenuto"];
 }
 
-function editDynamics(s: Score): void {
+function editDynamics(s: Score, by = 1): void {
   const part = busiest(s);
   const dyn = (part.dynamics ?? []).filter((d) => q(d.at) < atQ || q(d.at) > atQ + spanQ);
-  dyn.push({ at: atQ, level: 1, to: "linear" }, { at: atQ + spanQ, level: 7 } as DynamicPoint);
+  dyn.push({ at: atQ, level: by, to: "linear" }, {
+    at: atQ + spanQ,
+    level: 8 - by,
+  } as DynamicPoint);
   part.dynamics = dyn.sort((a, b) => q(a.at) - q(b.at));
 }
 
-function editTutti(s: Score): void {
+function editTutti(s: Score, by = 1): void {
   for (const part of s.parts)
     for (const n of notesOf(part)) {
       if (q(n.at) < atQ || q(n.at) >= atQ + spanQ) continue;
       const p = n.pitch;
       if (Array.isArray(p))
-        n.pitch = p.map((x) => (typeof x === "object" && "midi" in x ? { midi: x.midi + 1 } : x));
-      else if (p && typeof p === "object" && "midi" in p) p.midi += 1;
+        n.pitch = p.map((x) => (typeof x === "object" && "midi" in x ? { midi: x.midi + by } : x));
+      else if (p && typeof p === "object" && "midi" in p) p.midi += by;
       else n.articulations = ["accent"];
     }
 }
 
-function insertMeasure(s: Score): void {
+function insertMeasure(s: Score, _by = 1): void {
   // Exact fractions: a float here would move every later note by a rounding error.
   const len = at.length;
   const shift = (t: Time): Time => {
@@ -166,11 +173,11 @@ function insertMeasure(s: Score): void {
   if (s.measures) s.measures++;
 }
 
-function changeTempo(s: Score): void {
+function changeTempo(s: Score, by = 1): void {
   const tempo = s.tempo ?? [];
   const before = [...tempo].filter((t) => q(t.at) <= atQ).at(-1);
   if (before && q(before.at) < atQ) tempo.push({ at: atQ, bpm: before.bpm });
-  for (const t of tempo) if (q(t.at) >= atQ) t.bpm = Math.round(t.bpm * 1.1);
+  for (const t of tempo) if (q(t.at) >= atQ) t.bpm = Math.round(t.bpm * (1 + 0.1 * by));
   s.tempo = tempo.sort((a, b) => q(a.at) - q(b.at));
 }
 
@@ -186,9 +193,15 @@ for (const [label, edit] of [
   ["insert a measure", insertMeasure],
   ["tempo from here on +10%", changeTempo],
 ] as const) {
+  if (only && !label.includes(only)) continue;
   const s = clone();
-  edit(s);
+  edit(s, 1 + shift);
   await measure(label, s, atS);
+  // The same kind of edit again, as while working on a passage: instances are loaded now.
+  if (edit === insertMeasure) continue;
+  const again = clone();
+  edit(again, 2 + shift);
+  await measure(`  ${label}, again`, again, atS);
 }
 engine.pool.stop();
 
