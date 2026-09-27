@@ -17,7 +17,14 @@ export default defineConfig({
   server: {
     // Renders write here; reloading the page on every render would reset playback.
     watch: {
-      ignored: ["**/.local/**", "**/native/**", "**/examples/**", "**/scores/**", "**/samples/**"],
+      ignored: [
+        "**/.local/**",
+        "**/native/**",
+        "**/examples/**",
+        "**/scores/**",
+        "**/sketches/**",
+        "**/samples/**",
+      ],
     },
   },
   optimizeDeps: { exclude: ["verovio"] },
@@ -35,6 +42,8 @@ export default defineConfig({
       "**/*.md",
       ".vscode/**",
       "src/libraries/bbcso/inventory.json",
+      // Written by the sketch scripts.
+      "sketches/*.json",
     ],
   },
 });

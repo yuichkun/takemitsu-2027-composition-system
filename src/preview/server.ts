@@ -1,7 +1,7 @@
 // The preview's dev-server side (docs/decisions/0016, 0019): lists and watches score JSON files,
 // keeps their chunks rendered in the background, turns them into notation, and serves both.
 //
-// Score folders: examples/ and scores/ in the repository, plus any in PREVIEW_SCORE_DIRS
+// Score folders: examples/, scores/ and sketches/ in the repository, plus any in PREVIEW_SCORE_DIRS
 // (colon-separated), so a composition layer can write its output anywhere.
 //
 // A score is read when the page first asks for it, and again after every save. Its audio is
@@ -37,7 +37,12 @@ type Next = (err?: unknown) => void;
 
 export function scoreDirs(): string[] {
   const extra = (process.env.PREVIEW_SCORE_DIRS ?? "").split(":").filter(Boolean);
-  return [join(repoRoot, "examples"), join(repoRoot, "scores"), ...extra.map((d) => resolve(d))];
+  return [
+    join(repoRoot, "examples"),
+    join(repoRoot, "scores"),
+    join(repoRoot, "sketches"),
+    ...extra.map((d) => resolve(d)),
+  ];
 }
 
 function listScores(): { path: string; name: string; dir: string }[] {

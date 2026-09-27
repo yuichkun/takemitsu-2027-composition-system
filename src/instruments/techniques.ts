@@ -26,6 +26,7 @@ export const techniques: Record<string, Technique> = {
   "sul-pont": { text: "sul pont." },
   "sul-tasto": { text: "sul tasto" },
   flautando: { text: "flautando" },
+  spiccato: { text: "spicc.", cancel: "ord." },
   harmonic: { text: "", cancel: "", mark: "harmonic" },
   tremolo: { text: "", cancel: "", mark: "tremolo" },
   "con-sord": { text: "con sord.", cancel: "senza sord." },

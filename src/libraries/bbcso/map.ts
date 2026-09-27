@@ -204,6 +204,7 @@ export function chooseArticulation(
       else if (has(t, "tremolo") && has(t, "con-sord")) wants.push("Tremolo CS", "Tremolo");
       else if (has(t, "tremolo")) wants.push("Tremolo");
       else if (note.trill) wants.push(note.trill === 1 ? "Trill (Minor 2nd)" : "Trill (Major 2nd)");
+      else if (has(t, "spiccato")) wants.push("Short Spiccato", "Short Staccato");
       else if (short && has(t, "con-sord"))
         wants.push("Short Spiccato CS", "Short Spicc CS", "Short Spiccato");
       else if (a.includes("staccatissimo")) wants.push("Short Spiccato", "Short Staccato");
