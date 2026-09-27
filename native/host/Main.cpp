@@ -295,6 +295,8 @@ std::unique_ptr<AudioFormatWriter> openWav (const File& file, double rate)
 //   { "op": "ping", "id": "p1" }
 //
 // "done" carries the process's memory footprint in MB ("mb"), so the caller need not ask `ps`.
+// "chunk" carries the frames written (0 when silent) and "silentOnsets", the frames of note-ons
+// that stayed silent for 250 ms (see renderChunk).
 //
 // For each chunk the instance plays the events from frame 0, runs to `frames`, then on until
 // its output stays below −80 dBFS for 250 ms (at most `tailMax` more frames). So a chunk always
@@ -316,7 +318,8 @@ struct Chunk
     std::vector<std::pair<int64, MidiMessage>> events;
 };
 
-void writeChunk (const File& file, double rate, const std::vector<float>& left, const std::vector<float>& right, int64 frames)
+/** Writes a chunk file; returns the frames written (0 when the chunk is silent). */
+int64 writeChunk (const File& file, double rate, const std::vector<float>& left, const std::vector<float>& right, int64 frames)
 {
     float peak = 0.0f;
     for (int64 i = 0; i < frames; ++i)
@@ -342,6 +345,7 @@ void writeChunk (const File& file, double rate, const std::vector<float>& left, 
     auto partial = File (file.getFullPathName() + ".partial");
     if (! partial.replaceWithData (out.getData(), out.getDataSize()) || ! partial.moveFileTo (file))
         fail ("Cannot write " + file.getFullPathName());
+    return frames;
 }
 
 //==============================================================================
@@ -650,13 +654,23 @@ private:
             std::stable_sort (chunk.events.begin(), chunk.events.end(), [] (auto& a, auto& b) { return a.first < b.first; });
 
             auto started = Time::getMillisecondCounterHiRes();
-            auto frames = renderChunk (instance, chunk, rate, block);
-            report ("chunk", object ({ { "id", chunk.id }, { "frames", (int) frames }, { "seconds", (Time::getMillisecondCounterHiRes() - started) / 1000.0 } }));
+            Array<var> silentOnsets;
+            auto frames = renderChunk (instance, chunk, rate, block, silentOnsets);
+            report ("chunk", object ({ { "id", chunk.id },
+                                       { "frames", (int) frames },
+                                       { "silentOnsets", silentOnsets },
+                                       { "seconds", (Time::getMillisecondCounterHiRes() - started) / 1000.0 } }));
         }
         report ("done", object ({ { "id", text (request, "id") }, { "mb", footprintMB() } }));
     }
 
-    int64 renderChunk (Instance& instance, const Chunk& chunk, double rate, int block)
+    /**
+     * Renders a chunk and writes it; returns the frames written (0 when silent). `silentOnsets`
+     * gets the frame of every note-on (key 12 and up; lower keys are keyswitches) whose first
+     * 250 ms stayed below −90 dBFS: BBC SO plays silence while its samples are still loading
+     * (docs/decisions/0019), and the caller decides which of those notes should have sounded.
+     */
+    int64 renderChunk (Instance& instance, const Chunk& chunk, double rate, int block, Array<var>& silentOnsets)
     {
         auto& plugin = *instance.plugin;
         const float quiet = 1.0e-4f; // −80 dBFS
@@ -715,8 +729,19 @@ private:
             left[(size_t) (length - 1 - i)] *= g;
             right[(size_t) (length - 1 - i)] *= g;
         }
-        writeChunk (chunk.output, rate, left, right, length);
-        return length;
+        const auto window = (int64) (rate * 0.25);
+        const float silent = 3.1623e-5f; // −90 dBFS
+        for (auto& [frame, message] : chunk.events)
+        {
+            if (! message.isNoteOn() || message.getNoteNumber() < 12 || frame >= length)
+                continue;
+            float peak = 0.0f;
+            for (auto i = frame; i < jmin (length, frame + window); ++i)
+                peak = jmax (peak, std::abs (left[(size_t) i]), std::abs (right[(size_t) i]));
+            if (peak < silent)
+                silentOnsets.add ((int) frame);
+        }
+        return writeChunk (chunk.output, rate, left, right, length);
     }
 
     void render()
