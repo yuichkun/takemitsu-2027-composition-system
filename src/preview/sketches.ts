@@ -92,18 +92,22 @@ export async function changeSketch(dir: string, change: SketchChange): Promise<v
     stored.touched = [...new Set([...stored.touched, ...Object.keys(change.set)])];
   } else if ("save" in change) {
     const name = change.save.trim();
-    if (!name) throw new Error("名前が空");
+    if (!name) throw new Error("A preset needs a name");
     const { values } = JSON.parse(await run(dir, true)) as {
       values: Record<string, number | string>;
     };
     stored.presets[name] = values;
   } else if ("load" in change) {
     const preset = stored.presets[change.load];
-    if (!preset) throw new Error(`「${change.load}」という組はない`);
+    if (!preset) throw new Error(`No preset "${change.load}"`);
     stored.values = { ...preset };
+    // A preset was chosen by someone: its values that differ from Claude's are no longer provisional.
+    const { knobs } = JSON.parse(await run(dir, true)) as { knobs: Knobs };
+    const chosen = Object.keys(knobs).filter((k) => k in preset && preset[k] !== knobs[k]!.value);
+    stored.touched = [...new Set([...stored.touched, ...chosen])];
   } else if ("remove" in change) delete stored.presets[change.remove];
   else {
-    // Back to Claude's values, so they are 仮 again.
+    // Back to Claude's values, so they are provisional again.
     stored.values = {};
     stored.touched = [];
   }

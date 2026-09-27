@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,141 +8,128 @@
   </head>
   <body class="mixer-collapsed">
     <aside id="sidebar">
-      <h1>Score Preview</h1>
-      <nav id="scores"></nav>
-      <p class="hint">
-        examples/、scores/、sketches/ の JSON を表示する。ファイルを保存すると描き直す。
-      </p>
+      <nav id="scores" aria-label="Scores"></nav>
     </aside>
     <main>
       <header id="toolbar">
-        <div class="title"><span id="title">楽譜を選ぶ</span></div>
-        <button
-          id="play"
-          type="button"
-          class="round"
-          aria-label="再生"
-          title="再生 / 一時停止（Space）"
-        >
+        <button id="play" type="button" class="play" aria-label="Play" title="Play / pause (Space)">
           ▶
         </button>
         <span id="time" class="time">0:00 / 0:00</span>
-        <div class="view-controls" role="group" aria-label="譜面の表示">
-          <button id="zoom-out" type="button" title="縮小（⌘−）" aria-label="縮小">−</button>
-          <span id="zoom-level" class="zoom-level">高さに合わせる</span>
-          <button id="zoom-in" type="button" title="拡大（⌘=）" aria-label="拡大">＋</button>
-          <button id="zoom-fit" type="button" title="高さに合わせる（⌘0）">高さ</button>
-          <button id="focus" type="button" title="全画面で譜面だけにする（F、戻るのは Esc）">
-            全画面
-          </button>
-          <button
-            id="sidebar-toggle"
-            type="button"
-            title="左の一覧をたたむ / ひらく（⌘B）"
-            aria-label="左の一覧"
-          >
-            一覧
-          </button>
-        </div>
-        <div
+        <span id="title" class="title">Choose a score</span>
+        <span
           id="status"
           class="status"
-          title="保存すると、変わったところだけを裏でレンダし直す"
-        ></div>
-        <button id="help" type="button" class="keys-button" title="ショートカット（?）">
-          <kbd>Space</kbd> 再生 <kbd>←</kbd><kbd>→</kbd> 小節 <kbd>F</kbd> 全画面 <kbd>?</kbd> ほか
-        </button>
+          title="After a save, only what changed is rendered again"
+        ></span>
+        <div class="tools" role="group" aria-label="View">
+          <button id="zoom-out" type="button" title="Zoom out (⌘−)" aria-label="Zoom out">−</button>
+          <span id="zoom-level" class="zoom-level">Fit</span>
+          <button id="zoom-in" type="button" title="Zoom in (⌘=)" aria-label="Zoom in">+</button>
+          <button id="zoom-fit" type="button" title="Fit every staff (⌘0)">Fit</button>
+          <span class="sep"></span>
+          <button id="sidebar-toggle" type="button" title="Score list (⌘B)">List</button>
+          <button id="knobs-toggle" type="button" title="Knobs (K)" hidden>Knobs</button>
+          <button id="focus" type="button" title="Full screen, score only (F; Esc to leave)">
+            Focus
+          </button>
+          <button id="help" type="button" title="Shortcuts (?)" aria-label="Shortcuts">?</button>
+        </div>
       </header>
       <canvas
         id="readiness"
         class="readiness"
-        height="10"
-        title="曲全体。濃い所はレンダ済み、薄い所はレンダ中。クリックでそこへ移動"
+        height="4"
+        title="The whole piece: dark where rendered. Click to go there"
       ></canvas>
       <section id="messages" hidden></section>
       <div id="score" class="score"></div>
-      <p id="empty" class="empty">左から楽譜を選ぶ</p>
-      <section id="mixer" aria-label="ミキサー">
+      <p id="empty" class="empty">Choose a score</p>
+      <section id="mixer" aria-label="Mixer">
         <div class="mixer-head">
-          <span>ミキサー</span>
+          <span>Mixer</span>
           <span id="mixer-mode" class="mixer-mode"></span>
-          <button id="mixer-reset" type="button">すべて戻す</button>
-          <button id="mixer-toggle" type="button" aria-expanded="false">ひらく</button>
+          <button id="mixer-reset" type="button" class="quiet">Reset</button>
+          <button id="mixer-toggle" type="button" class="quiet" aria-expanded="false">Show</button>
         </div>
         <div id="strips" class="strips"></div>
       </section>
     </main>
-    <aside id="knobs" aria-label="つまみ" hidden></aside>
+    <aside id="knobs" aria-label="Knobs" hidden></aside>
     <dialog id="keys">
-      <h2>操作</h2>
+      <h2>Shortcuts</h2>
       <table>
         <tbody>
           <tr>
             <td><kbd>Space</kbd></td>
-            <td>再生 / 一時停止</td>
+            <td>Play / pause</td>
           </tr>
           <tr>
             <td><kbd>Enter</kbd> <kbd>Home</kbd></td>
-            <td>先頭へ戻る</td>
+            <td>Back to the start</td>
           </tr>
           <tr>
             <td><kbd>←</kbd> <kbd>→</kbd></td>
-            <td>前 / 次の小節へ</td>
+            <td>Previous / next bar</td>
           </tr>
           <tr>
             <td><kbd>F</kbd></td>
-            <td>全画面で譜面だけにする（<kbd>Esc</kbd> で戻る）</td>
+            <td>Full screen, score only (<kbd>Esc</kbd> to leave)</td>
           </tr>
           <tr>
             <td><kbd>⌘</kbd><kbd>=</kbd> <kbd>⌘</kbd><kbd>−</kbd></td>
-            <td>拡大 / 縮小（ピンチ、⌘ + ホイールでも）</td>
+            <td>Zoom in / out (also pinch, or ⌘ + wheel)</td>
           </tr>
           <tr>
             <td><kbd>⌘</kbd><kbd>0</kbd></td>
-            <td>高さに合わせる（全部の段が見える）</td>
+            <td>Fit every staff</td>
           </tr>
           <tr>
             <td><kbd>⌘</kbd><kbd>B</kbd></td>
-            <td>左の一覧をたたむ / ひらく</td>
+            <td>Score list</td>
           </tr>
           <tr>
             <td><kbd>M</kbd></td>
-            <td>ミキサーをたたむ / ひらく</td>
+            <td>Mixer</td>
           </tr>
           <tr>
             <td><kbd>K</kbd></td>
-            <td>つまみの欄をたたむ / ひらく（スケッチを開いているとき）</td>
+            <td>Knobs (when a sketch is open)</td>
           </tr>
           <tr>
             <td><kbd>?</kbd></td>
-            <td>この一覧</td>
+            <td>This list</td>
           </tr>
           <tr>
-            <td>譜面をクリック</td>
-            <td>そこへ再生位置を移す</td>
+            <td>Click the score</td>
+            <td>Move the playhead there</td>
           </tr>
           <tr>
-            <td>再生位置の線をドラッグ</td>
-            <td>再生位置を動かす</td>
+            <td>Drag the playhead</td>
+            <td>Move it</td>
           </tr>
           <tr>
-            <td>上の帯をクリック</td>
-            <td>曲のその位置へ移す（帯の濃い所はレンダ済み）</td>
+            <td>Click the top strip</td>
+            <td>Go there in the piece (dark where rendered)</td>
           </tr>
           <tr>
-            <td>フェーダーをダブルクリック</td>
-            <td>0 dB に戻す</td>
+            <td>Drag a number knob</td>
+            <td>Change it (<kbd>↑</kbd><kbd>↓</kbd> too, Shift ×10; click to type)</td>
           </tr>
           <tr>
-            <td>S を Alt+クリック</td>
-            <td>そのパートだけをソロ</td>
+            <td>Double-click a fader</td>
+            <td>Back to 0 dB</td>
+          </tr>
+          <tr>
+            <td>Alt+click S</td>
+            <td>Solo only that part</td>
           </tr>
         </tbody>
       </table>
       <p class="hint">
-        楽譜を保存すると、変わったところだけを裏でレンダし直す。再生位置の近くから先に作る。
+        After a save, only what changed is rendered again, nearest the playhead first.
       </p>
-      <form method="dialog"><button type="submit">閉じる</button></form>
+      <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
     <script type="module" src="/src/preview/main.ts"></script>
   </body>

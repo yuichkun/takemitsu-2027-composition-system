@@ -28,7 +28,7 @@ export function readStored(dir: string): Stored {
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   const dir = resolve(args.find((a) => !a.startsWith("--")) ?? "");
-  if (!existsSync(sketchFile(dir))) throw new Error(`${dir} に sketch.ts がない`);
+  if (!existsSync(sketchFile(dir))) throw new Error(`No sketch.ts in ${dir}`);
   const sketch = (await import(pathToFileURL(sketchFile(dir)).href)) as {
     knobs?: Knobs;
     score: (values: Record<string, number | string>) => unknown;

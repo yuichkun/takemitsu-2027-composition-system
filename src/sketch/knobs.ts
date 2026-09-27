@@ -8,13 +8,21 @@
 // - <folder>.json: the score, written by run.ts from sketch.ts and values.json
 //
 // A knob's `value` is the value Claude put there; until someone changes it in the preview the
-// panel marks it 仮 (provisional).
+// panel marks it provisional. Knobs carry intent: each one is a musical decision about the idea,
+// named and grouped as such, not every number the code happens to use.
 
 import { parsePitch } from "../score/pitch.ts";
 
-export interface NumberKnob {
-  kind: "number";
+/** What every knob has. Knobs with the same `group`, written one after another, are shown together. */
+interface KnobBase {
   label: string;
+  /** Why the knob is there: what it changes in the music (shown on hover). */
+  help?: string;
+  group?: string;
+}
+
+export interface NumberKnob extends KnobBase {
+  kind: "number";
   value: number;
   min: number;
   max: number;
@@ -22,17 +30,15 @@ export interface NumberKnob {
   unit?: string;
 }
 
-export interface ChoiceKnob {
+export interface ChoiceKnob extends KnobBase {
   kind: "choice";
-  label: string;
   value: string;
   options: string[];
 }
 
 /** Free text: a pitch ("D3", "E+4"), a list of numbers, … The sketch reads it (see below). */
-export interface TextKnob {
+export interface TextKnob extends KnobBase {
   kind: "text";
-  label: string;
   value: string;
   hint?: string;
 }
@@ -81,7 +87,7 @@ export function pitchOf(label: string, value: string): number {
   try {
     return parsePitch(value).midi;
   } catch {
-    throw new Error(`${label}: 「${value}」は音高として読めない（例: C4、F#3、E+4、Bb-3）`);
+    throw new Error(`${label}: cannot read "${value}" as a pitch (e.g. C4, F#3, E+4, Bb-3)`);
   }
 }
 
@@ -90,6 +96,6 @@ export function numbersOf(label: string, value: string): number[] {
   const words = value.split(/[\s,、]+/).filter(Boolean);
   const out = words.map(Number);
   if (out.length === 0 || out.some((n) => !Number.isFinite(n)))
-    throw new Error(`${label}: 「${value}」は数の並びとして読めない（例: 0 1 0 3）`);
+    throw new Error(`${label}: cannot read "${value}" as numbers (e.g. 0 1 3 4)`);
   return out;
 }

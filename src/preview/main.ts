@@ -81,7 +81,9 @@ const escapeHtml = (s: string) =>
 
 function showMessages(): void {
   const lines = [
-    ...(audioError ? [`保存した楽譜を読めなかった（前の版のまま）: ${audioError}`] : []),
+    ...(audioError
+      ? [`Could not read the saved score (the previous version plays on): ${audioError}`]
+      : []),
     ...notices,
     ...(current?.data?.warnings ?? []),
     ...manifestWarnings,
@@ -172,7 +174,7 @@ async function loadList(): Promise<void> {
     scoresNav.append(label);
     fill(scoresNav, f, root);
   }
-  if (list.length === 0) scoresNav.textContent = "楽譜がない";
+  if (list.length === 0) scoresNav.textContent = "No scores";
 }
 
 let audioFetch: Promise<void> | undefined;
@@ -235,7 +237,7 @@ async function loadScore(path: string): Promise<void> {
   if (current?.path !== path) return;
   if (!res.ok || data.error) {
     messages.hidden = false;
-    messages.textContent = `読み込めなかった: ${data.error ?? res.statusText}`;
+    messages.textContent = `Could not open: ${data.error ?? res.statusText}`;
     return;
   }
   const partsBefore = current.data?.parts.map((p) => p.id).join("|");
@@ -314,7 +316,7 @@ async function open(path: string): Promise<void> {
     for (const b of scoresNav.querySelectorAll("button"))
       b.setAttribute("aria-current", String(b.dataset.path === path));
   }
-  statusEl.textContent = "読み込み中";
+  statusEl.textContent = "Loading";
   refreshAudio();
   void knobs.show(path);
   await loadScore(path);
@@ -374,6 +376,8 @@ document.addEventListener("keydown", (e) => {
   const t = e.target;
   if (t instanceof HTMLSelectElement || t instanceof HTMLTextAreaElement) return;
   if (t instanceof HTMLInputElement && (t.type !== "range" || e.code.startsWith("Arrow"))) return;
+  // The knobs use arrows and Enter themselves (knob-panel.ts); Space still plays.
+  if (t instanceof HTMLElement && t.closest("#knobs") && e.code !== "Space") return;
   // With ⌘ (Ctrl elsewhere): the page's own zoom and sidebar, instead of the browser's.
   if (e.metaKey || e.ctrlKey) {
     const withKey: Record<string, () => void> = {
@@ -426,9 +430,9 @@ const savePrefs = () => {
 
 const zoomLabel = $("zoom-level");
 function showViewControls(): void {
-  zoomLabel.textContent =
-    prefs.zoom === "fit" ? "高さに合わせる" : `${Math.round(view.scale * 720)} px`;
-  zoomLabel.title = "五線 1 段の高さ（⌘0 で高さに合わせる）";
+  zoomLabel.textContent = `${Math.round(view.scale * 720)} px`;
+  zoomLabel.title = "Height of one staff";
+  $("zoom-fit").setAttribute("aria-pressed", String(prefs.zoom === "fit"));
 }
 
 function setZoom(zoom: Zoom, anchor?: { x: number; y: number }): void {
@@ -492,6 +496,12 @@ document.addEventListener("fullscreenchange", () => {
 });
 $("focus").addEventListener("click", toggleFocus);
 $("sidebar-toggle").addEventListener("click", toggleSidebar);
+const knobsToggle = $<HTMLButtonElement>("knobs-toggle");
+knobsToggle.addEventListener("click", () => knobs.toggle());
+knobs.onChange = (isSketch) => {
+  knobsToggle.hidden = !isSketch;
+  knobsToggle.setAttribute("aria-pressed", String(!knobs.collapsed));
+};
 view.setZoom(prefs.zoom);
 showViewControls();
 $("help").addEventListener("click", () => keysDialog.showModal());
@@ -501,12 +511,12 @@ $("help").addEventListener("click", () => keysDialog.showModal());
 
 function showProgress(): void {
   const { done, total, failed } = progress;
-  const drawing = notationPending ? `（譜面をそろえ中 残り ${notationPending} 小節）` : "";
-  if (player.isWaiting) statusEl.textContent = "この先がそろうのを待っている";
+  const drawing = notationPending ? ` · aligning ${notationPending} bars` : "";
+  if (player.isWaiting) statusEl.textContent = "Waiting for audio ahead";
   else if (!current || total === 0) statusEl.textContent = drawing;
   else if (done + failed >= total)
-    statusEl.textContent = (failed ? `レンダ失敗 ${failed} か所` : "全体を鳴らせる") + drawing;
-  else statusEl.textContent = `裏でレンダ中 ${Math.floor((100 * done) / total)}%${drawing}`;
+    statusEl.textContent = (failed ? `${failed} chunks failed` : "Ready") + drawing;
+  else statusEl.textContent = `Rendering ${Math.floor((100 * done) / total)}%${drawing}`;
 }
 
 let readinessQueued = false;
@@ -518,11 +528,12 @@ function drawReadiness(): void {
     const manifest = current?.manifest;
     const canvas = readinessEl;
     const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
     canvas.width = width * devicePixelRatio;
-    canvas.height = 10 * devicePixelRatio;
+    canvas.height = height * devicePixelRatio;
     const g = canvas.getContext("2d")!;
     g.scale(devicePixelRatio, devicePixelRatio);
-    g.clearRect(0, 0, width, 10);
+    g.clearRect(0, 0, width, height);
     if (!manifest || manifest.duration <= 0) return;
     const style = getComputedStyle(document.documentElement);
     const ready = player.readiness(manifest.measures);
@@ -530,13 +541,13 @@ function drawReadiness(): void {
     manifest.measures.forEach((m, i) => {
       const r = ready[i]!;
       // A measure with a chunk that failed to render shows in the warning colour.
-      g.fillStyle = style.getPropertyValue(r.failed ? "--warn" : "--accent");
+      g.fillStyle = style.getPropertyValue(r.failed ? "--warn" : "--ready");
       g.globalAlpha = r.failed ? 0.9 : 0.15 + 0.7 * r.share;
-      g.fillRect(x(m.start), 2, Math.max(1, x(m.end) - x(m.start)), 6);
+      g.fillRect(x(m.start), 0, Math.max(1, x(m.end) - x(m.start)), height);
     });
     g.globalAlpha = 1;
     g.fillStyle = style.getPropertyValue("--play");
-    g.fillRect(x(player.position) - 1, 0, 2, 10);
+    g.fillRect(x(player.position) - 1, 0, 2, height);
   }, 100);
 }
 
@@ -593,8 +604,8 @@ const formatDb = (db: number) => (db <= -60 ? "−∞" : `${db > 0 ? "+" : ""}${
 const compTitle = (amount: number) => {
   const p = compressorParams(amount);
   return amount === 0
-    ? "圧縮なし"
-    : `しきい値 ${p.threshold.toFixed(0)} dB、比率 ${p.ratio.toFixed(1)}:1、嵩上げ +${p.makeup.toFixed(1)} dB`;
+    ? "No compression"
+    : `Threshold ${p.threshold.toFixed(0)} dB, ratio ${p.ratio.toFixed(1)}:1, makeup +${p.makeup.toFixed(1)} dB`;
 };
 
 function strip(id: string | undefined, name: string): HTMLElement {
@@ -606,17 +617,17 @@ function strip(id: string | undefined, name: string): HTMLElement {
   el.innerHTML = `
     <div class="strip-buttons">${
       id
-        ? '<button type="button" class="mute" title="ミュート">M</button><button type="button" class="solo" title="ソロ（Alt+クリックでこれだけ）">S</button>'
-        : '<span class="limit-label" title="マスターの最後に常に入っているリミッター（−1 dBFS）">LIMIT</span>'
+        ? '<button type="button" class="mute" title="Mute">M</button><button type="button" class="solo" title="Solo (Alt+click: only this)">S</button>'
+        : '<span class="limit-label" title="Limiter always on at the end of the master (−1 dBFS)">LIMIT</span>'
     }</div>
     <div class="comp">${
       id
-        ? `<label for="${compId}">圧縮</label><input id="${compId}" type="range" min="0" max="100" step="1" value="${Math.round(state.comp * 100)}" title="${compTitle(state.comp)}" />`
+        ? `<label for="${compId}">Comp</label><input id="${compId}" type="range" min="0" max="100" step="1" value="${Math.round(state.comp * 100)}" title="${compTitle(state.comp)}" />`
         : ""
-    }<span class="gr" title="いま圧縮で下げている量"></span></div>
+    }<span class="gr" title="Gain reduction now"></span></div>
     <div class="strip-body">
       <div class="meter"><div class="meter-fill"></div></div>
-      <input id="${faderId}" class="fader" type="range" min="-60" max="12" step="0.5" value="${state.db}" aria-label="${escapeHtml(name)} の音量" title="ダブルクリックで 0 dB" />
+      <input id="${faderId}" class="fader" type="range" min="-60" max="12" step="0.5" value="${state.db}" aria-label="${escapeHtml(name)} level" title="Double-click: 0 dB" />
     </div>
     <output class="db" for="${faderId}">${formatDb(state.db)}</output>
     <label class="name" for="${faderId}" title="${escapeHtml(name)}">${escapeHtml(name)}</label>`;
@@ -698,7 +709,7 @@ $("mixer-reset").addEventListener("click", () => {
 $("mixer-toggle").addEventListener("click", (e) => {
   const button = e.currentTarget as HTMLButtonElement;
   const collapsed = document.body.classList.toggle("mixer-collapsed");
-  button.textContent = collapsed ? "ひらく" : "たたむ";
+  button.textContent = collapsed ? "Show" : "Hide";
   button.setAttribute("aria-expanded", String(!collapsed));
 });
 
@@ -709,7 +720,8 @@ $("mixer-toggle").addEventListener("click", (e) => {
 const clock = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 player.onChange = () => {
   playButton.textContent = player.isPlaying ? "❚❚" : "▶";
-  playButton.setAttribute("aria-label", player.isPlaying ? "一時停止" : "再生");
+  playButton.classList.toggle("on", player.isPlaying);
+  playButton.setAttribute("aria-label", player.isPlaying ? "Pause" : "Play");
 };
 
 let ticks = 0;
@@ -723,6 +735,8 @@ setInterval(() => {
   if (++ticks % 10 === 0) {
     drawReadiness();
     showProgress();
+    // "Fit" follows the window, so the staff height it shows can change without a zoom.
+    showViewControls();
   }
   showMeters();
 }, 50);

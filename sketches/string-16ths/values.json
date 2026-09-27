@@ -1,9 +1,47 @@
 {
   "values": {
-    "tempo": 82
+    "tempo": 150,
+    "articulation": "spiccato",
+    "vn1": "A4",
+    "vn2": "D4",
+    "va": "A3",
+    "vc": "D3",
+    "wedge": "0 1 0 3 0 4 0 6 0 7 0 9 0 10 0 12",
+    "hammer": "0 0 1 0 0 0 1 0 3 3 1 0 4 3 1 0",
+    "scale": "0 1 3 4 6 7 9 10",
+    "barsA": 17,
+    "gapA": 20,
+    "barsB": 6,
+    "gapB": 8,
+    "length": 39,
+    "liftB": 8,
+    "barsC": 4,
+    "liftC": 6,
+    "startLevel": 3,
+    "endLevel": 8
   },
-  "presets": {},
-  "touched": [
-    "tempo"
-  ]
+  "presets": {
+    "a": {
+      "tempo": 150,
+      "articulation": "spiccato",
+      "vn1": "A4",
+      "vn2": "D4",
+      "va": "A3",
+      "vc": "D3",
+      "wedge": "0 1 0 3 0 4 0 6 0 7 0 9 0 10 0 12",
+      "hammer": "0 0 1 0 0 0 1 0 3 3 1 0 4 3 1 0",
+      "scale": "0 1 3 4 6 7 9 10",
+      "barsA": 17,
+      "gapA": 20,
+      "barsB": 6,
+      "gapB": 8,
+      "length": 39,
+      "liftB": 8,
+      "barsC": 4,
+      "liftC": 6,
+      "startLevel": 3,
+      "endLevel": 8
+    }
+  },
+  "touched": []
 }
