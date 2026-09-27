@@ -10,7 +10,8 @@ export function rms(samples: Float32Array, start = 0, end = samples.length): num
 
 export function peak(samples: Float32Array, start = 0, end = samples.length): number {
   let max = 0;
-  for (let i = Math.max(0, start); i < Math.min(samples.length, end); i++) max = Math.max(max, Math.abs(samples[i]!));
+  for (let i = Math.max(0, start); i < Math.min(samples.length, end); i++)
+    max = Math.max(max, Math.abs(samples[i]!));
   return max;
 }
 
@@ -57,7 +58,12 @@ export interface Spectrum {
   binHz: number;
 }
 
-export function spectrum(samples: Float32Array, start: number, size = 65536, sampleRate = 48000): Spectrum {
+export function spectrum(
+  samples: Float32Array,
+  start: number,
+  size = 65536,
+  sampleRate = 48000,
+): Spectrum {
   const re = new Float64Array(size);
   const im = new Float64Array(size);
   for (let i = 0; i < size; i++) {
@@ -71,9 +77,16 @@ export function spectrum(samples: Float32Array, start: number, size = 65536, sam
 }
 
 /** Strongest peak within ±`windowCents` of `hz`, refined by parabolic interpolation on log magnitude. */
-export function peakNear(s: Spectrum, hz: number, windowCents = 80): { hz: number; level: number } | undefined {
+export function peakNear(
+  s: Spectrum,
+  hz: number,
+  windowCents = 80,
+): { hz: number; level: number } | undefined {
   const lo = Math.max(1, Math.floor((hz * 2 ** (-windowCents / 1200)) / s.binHz));
-  const hi = Math.min(s.magnitude.length - 2, Math.ceil((hz * 2 ** (windowCents / 1200)) / s.binHz));
+  const hi = Math.min(
+    s.magnitude.length - 2,
+    Math.ceil((hz * 2 ** (windowCents / 1200)) / s.binHz),
+  );
   let best = -1;
   for (let i = lo; i <= hi; i++) if (best < 0 || s.magnitude[i]! > s.magnitude[best]!) best = i;
   if (best < 0) return undefined;

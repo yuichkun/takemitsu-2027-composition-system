@@ -15,7 +15,9 @@ export function hostBinary(): string {
     "native/build/TakemitsuHost_artefacts/Release/Takemitsu Host.app/Contents/MacOS/Takemitsu Host",
   );
   if (!existsSync(built)) {
-    throw new Error(`Host not built. Run: vp run host:configure && vp run host:build (looked for ${built})`);
+    throw new Error(
+      `Host not built. Run: vp run host:configure && vp run host:build (looked for ${built})`,
+    );
   }
   return built;
 }

@@ -30,7 +30,8 @@ export interface StateSpec {
   reverb?: number;
 }
 
-const escapeAttr = (s: string) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+const escapeAttr = (s: string) =>
+  s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
 function setSetting(block: string, id: string, value: string): string {
   const pattern = new RegExp(`(<SETTING id="${id}" value=")[^"]*(")`);

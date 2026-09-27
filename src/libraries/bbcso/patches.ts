@@ -11,7 +11,10 @@ export const pluginPath = "/Library/Audio/Plug-Ins/VST3/BBC Symphony Orchestra.v
 /** Library root from Spitfire's settings (~/Music/Spitfire Audio/Settings/Spitfire.properties). */
 export function libraryRoot(): string {
   const settings = join(homedir(), "Music/Spitfire Audio/Settings/Spitfire.properties");
-  const parsed = JSON.parse(readFileSync(settings, "utf8")) as Record<string, { patches?: string[] }>;
+  const parsed = JSON.parse(readFileSync(settings, "utf8")) as Record<
+    string,
+    { patches?: string[] }
+  >;
   const patches = parsed["BBC Symphony Orchestra"]?.patches?.[0];
   if (!patches) throw new Error(`BBC Symphony Orchestra is not registered in ${settings}`);
   return join(patches, "..");
@@ -32,7 +35,9 @@ export function installedPatches(root = libraryRoot()): Patch[] {
   return readdirSync(dir)
     .filter((f) => f.startsWith("BBCSO_") && f.endsWith(".zmulti"))
     .map((f) => {
-      const [letter, instrument, articulation] = f.slice("BBCSO_".length, -".zmulti".length).split("___");
+      const [letter, instrument, articulation] = f
+        .slice("BBCSO_".length, -".zmulti".length)
+        .split("___");
       const words = (s: string) => s.replaceAll("_", " ");
       return {
         name: `${letter} - ${words(instrument!)} - ${words(articulation!)}`,

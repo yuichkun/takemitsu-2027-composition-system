@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2023",
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "types": ["node", "vite-plus/client"],
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "noEmit": true
+  },
+  "include": ["src/**/*.ts", "tools/**/*.ts", "*.ts"]
+}

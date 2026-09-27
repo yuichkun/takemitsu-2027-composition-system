@@ -32,12 +32,17 @@ const dir = join(repoRoot, ".local/probe/scans");
 // Keys re-played in isolation by `bbcso-probe.ts verify-gaps` (the fast scan misses slow attacks after a ringing note).
 const verifiedPath = join(repoRoot, ".local/probe/gaps.json");
 const verified = existsSync(verifiedPath)
-  ? (JSON.parse(readFileSync(verifiedPath, "utf8")) as Record<string, Record<string, { key: number; attackDb: number }[]>>)
+  ? (JSON.parse(readFileSync(verifiedPath, "utf8")) as Record<
+      string,
+      Record<string, { key: number; attackDb: number }[]>
+    >)
   : {};
 const unpitched = new Set(["Untuned Percussion"]);
 const inventory: Record<string, Record<string, ArticulationInventory | null>> = {};
 
-for (const file of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
+for (const file of readdirSync(dir)
+  .filter((f) => f.endsWith(".json"))
+  .sort()) {
   const instrument = file.replace(/\.json$/, "").replaceAll("_", " ");
   const scans = JSON.parse(readFileSync(join(dir, file), "utf8")) as Record<string, Row[]>;
   inventory[instrument] = {};
@@ -49,12 +54,20 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
     }
     const lo = sounding[0]!.key;
     const hi = sounding.at(-1)!.key;
-    const soundsAlone = new Set((verified[instrument]?.[articulation] ?? []).filter((v) => v.attackDb > -60).map((v) => v.key));
-    const gaps = rows.filter((r) => r.key > lo && r.key < hi && !r.sounding && !soundsAlone.has(r.key)).map((r) => r.key);
+    const soundsAlone = new Set(
+      (verified[instrument]?.[articulation] ?? [])
+        .filter((v) => v.attackDb > -60)
+        .map((v) => v.key),
+    );
+    const gaps = rows
+      .filter((r) => r.key > lo && r.key < hi && !r.sounding && !soundsAlone.has(r.key))
+      .map((r) => r.key);
     let medianCents: number | null = null;
     let offKeys: number[] = [];
     if (!unpitched.has(instrument)) {
-      const deviations = sounding.filter((r) => r.pitch !== null).map((r) => ({ key: r.key, cents: (r.pitch! - r.key) * 100 }));
+      const deviations = sounding
+        .filter((r) => r.pitch !== null)
+        .map((r) => ({ key: r.key, cents: (r.pitch! - r.key) * 100 }));
       const sorted = deviations.map((d) => Math.abs(d.cents)).sort((a, b) => a - b);
       medianCents = sorted.length ? Math.round(sorted[Math.floor(sorted.length / 2)]!) : null;
       offKeys = deviations.filter((d) => Math.abs(d.cents) > 30).map((d) => d.key);
@@ -63,10 +76,15 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
   }
 }
 
-writeFileSync(join(repoRoot, "src/libraries/bbcso/inventory.json"), JSON.stringify(inventory, null, 1) + "\n");
+writeFileSync(
+  join(repoRoot, "src/libraries/bbcso/inventory.json"),
+  JSON.stringify(inventory, null, 1) + "\n",
+);
 
 // Console report
-const noteName = (k: number) => ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"][k % 12] + String(Math.floor(k / 12) - 1);
+const noteName = (k: number) =>
+  ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"][k % 12] +
+  String(Math.floor(k / 12) - 1);
 for (const [instrument, arts] of Object.entries(inventory)) {
   console.log(`\n## ${instrument}`);
   for (const [articulation, inv] of Object.entries(arts)) {
@@ -79,6 +97,8 @@ for (const [instrument, arts] of Object.entries(inventory)) {
       inv.medianCents !== null ? `median ${inv.medianCents}¢` : "",
       inv.offKeys.length ? `off ${inv.offKeys.length}` : "",
     ].filter(Boolean);
-    console.log(`  ${articulation}: ${noteName(inv.range[0])}–${noteName(inv.range[1])} ${flags.join(", ")}`);
+    console.log(
+      `  ${articulation}: ${noteName(inv.range[0])}–${noteName(inv.range[1])} ${flags.join(", ")}`,
+    );
   }
 }

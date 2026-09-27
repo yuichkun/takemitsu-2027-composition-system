@@ -44,7 +44,10 @@ export function parseWav(bytes: Uint8Array): Audio {
               : bits === 16
                 ? view.getInt16(at, true) / 32768
                 : bits === 24
-                  ? ((view.getUint8(at) | (view.getUint8(at + 1) << 8) | (view.getInt8(at + 2) << 16)) / 8388608)
+                  ? (view.getUint8(at) |
+                      (view.getUint8(at + 1) << 8) |
+                      (view.getInt8(at + 2) << 16)) /
+                    8388608
                   : view.getInt32(at, true) / 2147483648;
         }
       }
