@@ -1,0 +1,11 @@
+{
+  "values": {
+    "top": "first note",
+    "hit": 2.5
+  },
+  "presets": {},
+  "touched": [
+    "top",
+    "hit"
+  ]
+}
