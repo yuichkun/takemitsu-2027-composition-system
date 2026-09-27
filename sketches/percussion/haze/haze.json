@@ -1,0 +1,293 @@
+{
+ "title": "Percussion: haze",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 56
+  }
+ ],
+ "measures": 16,
+ "parts": [
+  {
+   "id": "bd",
+   "instrument": "bass-drum",
+   "name": "BD soft roll",
+   "events": [
+    {
+     "at": 0,
+     "dur": 64,
+     "technique": "roll+soft"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": 38.5,
+     "level": 3.5,
+     "to": "linear"
+    },
+    {
+     "at": 51.25,
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": 64,
+     "level": 0,
+     "to": "linear"
+    }
+   ]
+  },
+  {
+   "id": "tt",
+   "instrument": "tam-tam",
+   "name": "Tam-tam bowed",
+   "events": [
+    {
+     "at": 6,
+     "dur": 7,
+     "technique": "bowed"
+    },
+    {
+     "at": 20,
+     "dur": 5,
+     "technique": "bowed"
+    },
+    {
+     "at": 46,
+     "dur": 6,
+     "technique": "bowed"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": 38.5,
+     "level": 3.5,
+     "to": "linear"
+    },
+    {
+     "at": 51.25,
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": 64,
+     "level": 0,
+     "to": "linear"
+    }
+   ]
+  },
+  {
+   "id": "ttc",
+   "instrument": "tam-tam",
+   "name": "Tam-tam swell",
+   "events": [
+    {
+     "at": 5,
+     "dur": 6,
+     "technique": "crescendo"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": 38.5,
+     "level": 3.5,
+     "to": "linear"
+    },
+    {
+     "at": 51.25,
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": 64,
+     "level": 0,
+     "to": "linear"
+    }
+   ]
+  },
+  {
+   "id": "cym",
+   "instrument": "suspended-cymbal",
+   "name": "Cymbal bowed",
+   "events": [
+    {
+     "at": 1,
+     "dur": 3,
+     "technique": "bowed"
+    },
+    {
+     "at": 19,
+     "dur": 7,
+     "technique": "bowed"
+    },
+    {
+     "at": 27,
+     "dur": 6,
+     "technique": "bowed"
+    },
+    {
+     "at": 50,
+     "dur": 6,
+     "technique": "bowed"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": 38.5,
+     "level": 3.5,
+     "to": "linear"
+    },
+    {
+     "at": 51.25,
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": 64,
+     "level": 0,
+     "to": "linear"
+    }
+   ]
+  },
+  {
+   "id": "cymr",
+   "instrument": "suspended-cymbal",
+   "name": "Cymbal roll",
+   "events": [
+    {
+     "at": 12,
+     "dur": 6,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": 38.5,
+     "level": 3.5,
+     "to": "linear"
+    },
+    {
+     "at": 51.25,
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": 64,
+     "level": 0,
+     "to": "linear"
+    }
+   ]
+  },
+  {
+   "id": "tri",
+   "instrument": "triangle",
+   "name": "Triangle roll",
+   "events": [
+    {
+     "at": 57,
+     "dur": 7,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": 38.5,
+     "level": 3.5,
+     "to": "linear"
+    },
+    {
+     "at": 51.25,
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": 64,
+     "level": 0,
+     "to": "linear"
+    }
+   ]
+  },
+  {
+   "id": "crot",
+   "instrument": "crotales",
+   "name": "Crotales bowed",
+   "events": [
+    {
+     "at": 15,
+     "dur": 4,
+     "technique": "bowed",
+     "pitch": {
+      "midi": 92
+     }
+    },
+    {
+     "at": 54,
+     "dur": 6,
+     "technique": "bowed",
+     "pitch": {
+      "midi": 92
+     }
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": 38.5,
+     "level": 3.5,
+     "to": "linear"
+    },
+    {
+     "at": 51.25,
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": 64,
+     "level": 0,
+     "to": "linear"
+    }
+   ]
+  }
+ ]
+}

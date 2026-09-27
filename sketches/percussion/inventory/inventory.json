@@ -1,0 +1,1017 @@
+{
+ "title": "Percussion inventory (all)",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 69,
+ "parts": [
+  {
+   "id": "bass-drum",
+   "instrument": "bass-drum",
+   "events": [
+    {
+     "type": "text",
+     "at": 0,
+     "text": "Bass drum"
+    },
+    {
+     "at": 0,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 4,
+     "text": "Bass drum, damped"
+    },
+    {
+     "at": 4,
+     "dur": 1,
+     "technique": "damped"
+    },
+    {
+     "type": "text",
+     "at": 8,
+     "text": "Bass drum, muted by hand"
+    },
+    {
+     "at": 8,
+     "dur": 1,
+     "technique": "muted"
+    },
+    {
+     "type": "text",
+     "at": 12,
+     "text": "Bass drum, hard sticks"
+    },
+    {
+     "at": 12,
+     "dur": 1,
+     "technique": "hard-sticks"
+    },
+    {
+     "type": "text",
+     "at": 16,
+     "text": "Bass drum, superball"
+    },
+    {
+     "at": 16,
+     "dur": 3.5,
+     "technique": "superball"
+    },
+    {
+     "type": "text",
+     "at": 20,
+     "text": "Bass drum, roll"
+    },
+    {
+     "at": 20,
+     "dur": 3.5,
+     "technique": "roll"
+    },
+    {
+     "type": "text",
+     "at": 24,
+     "text": "Bass drum, soft roll"
+    },
+    {
+     "at": 24,
+     "dur": 3.5,
+     "technique": "roll+soft"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "snare-drum",
+   "instrument": "snare-drum",
+   "events": [
+    {
+     "type": "text",
+     "at": 28,
+     "text": "Snare"
+    },
+    {
+     "at": 28,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 32,
+     "text": "Snare, rim shot"
+    },
+    {
+     "at": 32,
+     "dur": 1,
+     "technique": "rimshot"
+    },
+    {
+     "type": "text",
+     "at": 36,
+     "text": "Snare, side stick"
+    },
+    {
+     "at": 36,
+     "dur": 1,
+     "technique": "side-stick"
+    },
+    {
+     "type": "text",
+     "at": 40,
+     "text": "Snare, roll"
+    },
+    {
+     "at": 40,
+     "dur": 3.5,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "tenor-drum",
+   "instrument": "tenor-drum",
+   "events": [
+    {
+     "type": "text",
+     "at": 44,
+     "text": "Tenor drum"
+    },
+    {
+     "at": 44,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 48,
+     "text": "Tenor drum, rim shot"
+    },
+    {
+     "at": 48,
+     "dur": 1,
+     "technique": "rimshot"
+    },
+    {
+     "type": "text",
+     "at": 52,
+     "text": "Tenor drum, roll"
+    },
+    {
+     "at": 52,
+     "dur": 3.5,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "military-drum",
+   "instrument": "military-drum",
+   "events": [
+    {
+     "type": "text",
+     "at": 56,
+     "text": "Military drum"
+    },
+    {
+     "at": 56,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 60,
+     "text": "Military drum, side stick"
+    },
+    {
+     "at": 60,
+     "dur": 1,
+     "technique": "side-stick"
+    },
+    {
+     "type": "text",
+     "at": 64,
+     "text": "Military drum, roll"
+    },
+    {
+     "at": 64,
+     "dur": 3.5,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "timpani",
+   "instrument": "timpani",
+   "events": [
+    {
+     "type": "text",
+     "at": 68,
+     "text": "Timpani"
+    },
+    {
+     "at": 68,
+     "dur": 1,
+     "pitch": "D2"
+    },
+    {
+     "type": "text",
+     "at": 72,
+     "text": "Timpani, soft sticks"
+    },
+    {
+     "at": 72,
+     "dur": 1,
+     "technique": "soft",
+     "pitch": "D2"
+    },
+    {
+     "type": "text",
+     "at": 76,
+     "text": "Timpani, hot rods"
+    },
+    {
+     "at": 76,
+     "dur": 1,
+     "technique": "hotrods",
+     "pitch": "D2"
+    },
+    {
+     "type": "text",
+     "at": 80,
+     "text": "Timpani, damped"
+    },
+    {
+     "at": 80,
+     "dur": 1,
+     "technique": "damped",
+     "pitch": "D2"
+    },
+    {
+     "type": "text",
+     "at": 84,
+     "text": "Timpani, soft roll"
+    },
+    {
+     "at": 84,
+     "dur": 3.5,
+     "technique": "roll+soft",
+     "pitch": "D2"
+    },
+    {
+     "type": "text",
+     "at": 88,
+     "text": "Timpani, roll"
+    },
+    {
+     "at": 88,
+     "dur": 3.5,
+     "technique": "roll",
+     "pitch": "D2"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "suspended-cymbal",
+   "instrument": "suspended-cymbal",
+   "events": [
+    {
+     "type": "text",
+     "at": 92,
+     "text": "Suspended cymbal"
+    },
+    {
+     "at": 92,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 96,
+     "text": "Suspended cymbal, muted"
+    },
+    {
+     "at": 96,
+     "dur": 1,
+     "technique": "muted"
+    },
+    {
+     "type": "text",
+     "at": 100,
+     "text": "Suspended cymbal, hard sticks"
+    },
+    {
+     "at": 100,
+     "dur": 1,
+     "technique": "hard-sticks"
+    },
+    {
+     "type": "text",
+     "at": 104,
+     "text": "Suspended cymbal, roll"
+    },
+    {
+     "at": 104,
+     "dur": 3.5,
+     "technique": "roll"
+    },
+    {
+     "type": "text",
+     "at": 108,
+     "text": "Suspended cymbal, bowed"
+    },
+    {
+     "at": 108,
+     "dur": 3.5,
+     "technique": "bowed"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "clash-cymbals",
+   "instrument": "clash-cymbals",
+   "events": [
+    {
+     "type": "text",
+     "at": 112,
+     "text": "Clash cymbals"
+    },
+    {
+     "at": 112,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 116,
+     "text": "Clash cymbals, choked"
+    },
+    {
+     "at": 116,
+     "dur": 1,
+     "technique": "choke"
+    },
+    {
+     "type": "text",
+     "at": 120,
+     "text": "Clash cymbals, roll"
+    },
+    {
+     "at": 120,
+     "dur": 3.5,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "tam-tam",
+   "instrument": "tam-tam",
+   "events": [
+    {
+     "type": "text",
+     "at": 124,
+     "text": "Tam-tam"
+    },
+    {
+     "at": 124,
+     "dur": 3.5
+    },
+    {
+     "type": "text",
+     "at": 128,
+     "text": "Tam-tam, damped"
+    },
+    {
+     "at": 128,
+     "dur": 1,
+     "technique": "damped"
+    },
+    {
+     "type": "text",
+     "at": 132,
+     "text": "Tam-tam, roll"
+    },
+    {
+     "at": 132,
+     "dur": 3.5,
+     "technique": "roll"
+    },
+    {
+     "type": "text",
+     "at": 136,
+     "text": "Tam-tam, bowed"
+    },
+    {
+     "at": 136,
+     "dur": 3.5,
+     "technique": "bowed"
+    },
+    {
+     "type": "text",
+     "at": 140,
+     "text": "Tam-tam, swell"
+    },
+    {
+     "at": 140,
+     "dur": 3.5,
+     "technique": "crescendo"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "triangle",
+   "instrument": "triangle",
+   "events": [
+    {
+     "type": "text",
+     "at": 144,
+     "text": "Triangle"
+    },
+    {
+     "at": 144,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 148,
+     "text": "Triangle, muted"
+    },
+    {
+     "at": 148,
+     "dur": 1,
+     "technique": "muted"
+    },
+    {
+     "type": "text",
+     "at": 152,
+     "text": "Triangle, roll"
+    },
+    {
+     "at": 152,
+     "dur": 3.5,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "anvil",
+   "instrument": "anvil",
+   "events": [
+    {
+     "type": "text",
+     "at": 156,
+     "text": "Anvil"
+    },
+    {
+     "at": 156,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 160,
+     "text": "Anvil, choked"
+    },
+    {
+     "at": 160,
+     "dur": 1,
+     "technique": "choke"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "cowbell",
+   "instrument": "cowbell",
+   "events": [
+    {
+     "type": "text",
+     "at": 164,
+     "text": "Cowbell"
+    },
+    {
+     "at": 164,
+     "dur": 1
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "sleigh-bells",
+   "instrument": "sleigh-bells",
+   "events": [
+    {
+     "type": "text",
+     "at": 168,
+     "text": "Sleigh bells"
+    },
+    {
+     "at": 168,
+     "dur": 3.5
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "tambourine",
+   "instrument": "tambourine",
+   "events": [
+    {
+     "type": "text",
+     "at": 172,
+     "text": "Tambourine"
+    },
+    {
+     "at": 172,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 176,
+     "text": "Tambourine, shaken"
+    },
+    {
+     "at": 176,
+     "dur": 3.5,
+     "technique": "shake"
+    },
+    {
+     "type": "text",
+     "at": 180,
+     "text": "Tambourine, roll"
+    },
+    {
+     "at": 180,
+     "dur": 3.5,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "woodblock-high",
+   "instrument": "woodblock-high",
+   "events": [
+    {
+     "type": "text",
+     "at": 184,
+     "text": "Woodblock, high"
+    },
+    {
+     "at": 184,
+     "dur": 1
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "woodblock-medium",
+   "instrument": "woodblock-medium",
+   "events": [
+    {
+     "type": "text",
+     "at": 188,
+     "text": "Woodblock, medium"
+    },
+    {
+     "at": 188,
+     "dur": 1
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "woodblock-low",
+   "instrument": "woodblock-low",
+   "events": [
+    {
+     "type": "text",
+     "at": 192,
+     "text": "Woodblock, low"
+    },
+    {
+     "at": 192,
+     "dur": 1
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "castanets",
+   "instrument": "castanets",
+   "events": [
+    {
+     "type": "text",
+     "at": 196,
+     "text": "Castanets"
+    },
+    {
+     "at": 196,
+     "dur": 1
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "guiro",
+   "instrument": "guiro",
+   "events": [
+    {
+     "type": "text",
+     "at": 200,
+     "text": "Guiro, short"
+    },
+    {
+     "at": 200,
+     "dur": 1
+    },
+    {
+     "type": "text",
+     "at": 204,
+     "text": "Guiro, long"
+    },
+    {
+     "at": 204,
+     "dur": 3.5,
+     "technique": "long"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "vibraslap",
+   "instrument": "vibraslap",
+   "events": [
+    {
+     "type": "text",
+     "at": 208,
+     "text": "Vibraslap"
+    },
+    {
+     "at": 208,
+     "dur": 3.5
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "glockenspiel",
+   "instrument": "glockenspiel",
+   "events": [
+    {
+     "type": "text",
+     "at": 212,
+     "text": "Glockenspiel"
+    },
+    {
+     "at": 212,
+     "dur": 1,
+     "pitch": "E6"
+    },
+    {
+     "type": "text",
+     "at": 216,
+     "text": "Glockenspiel, trill"
+    },
+    {
+     "at": 216,
+     "dur": 3.5,
+     "technique": "roll",
+     "pitch": "E6"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "xylophone",
+   "instrument": "xylophone",
+   "events": [
+    {
+     "type": "text",
+     "at": 220,
+     "text": "Xylophone"
+    },
+    {
+     "at": 220,
+     "dur": 1,
+     "pitch": "E5"
+    },
+    {
+     "type": "text",
+     "at": 224,
+     "text": "Xylophone, trill"
+    },
+    {
+     "at": 224,
+     "dur": 3.5,
+     "technique": "roll",
+     "pitch": "E5"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "marimba",
+   "instrument": "marimba",
+   "events": [
+    {
+     "type": "text",
+     "at": 228,
+     "text": "Marimba"
+    },
+    {
+     "at": 228,
+     "dur": 1,
+     "pitch": "E3"
+    },
+    {
+     "type": "text",
+     "at": 232,
+     "text": "Marimba, trill"
+    },
+    {
+     "at": 232,
+     "dur": 3.5,
+     "technique": "roll",
+     "pitch": "E3"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "vibraphone",
+   "instrument": "vibraphone",
+   "events": [
+    {
+     "type": "text",
+     "at": 236,
+     "text": "Vibraphone"
+    },
+    {
+     "at": 236,
+     "dur": 3.5,
+     "pitch": "E4"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "crotales",
+   "instrument": "crotales",
+   "events": [
+    {
+     "type": "text",
+     "at": 240,
+     "text": "Crotales"
+    },
+    {
+     "at": 240,
+     "dur": 3.5,
+     "pitch": "E6"
+    },
+    {
+     "type": "text",
+     "at": 244,
+     "text": "Crotales, bowed"
+    },
+    {
+     "at": 244,
+     "dur": 3.5,
+     "technique": "bowed",
+     "pitch": "E6"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "tubular-bells",
+   "instrument": "tubular-bells",
+   "events": [
+    {
+     "type": "text",
+     "at": 248,
+     "text": "Tubular bells"
+    },
+    {
+     "at": 248,
+     "dur": 3.5,
+     "pitch": "E4"
+    },
+    {
+     "type": "text",
+     "at": 252,
+     "text": "Tubular bells, damped"
+    },
+    {
+     "at": 252,
+     "dur": 1,
+     "technique": "damped",
+     "pitch": "E4"
+    },
+    {
+     "type": "text",
+     "at": 256,
+     "text": "Tubular bells, roll"
+    },
+    {
+     "at": 256,
+     "dur": 3.5,
+     "technique": "roll",
+     "pitch": "E4"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  },
+  {
+   "id": "harp",
+   "instrument": "harp",
+   "events": [
+    {
+     "type": "text",
+     "at": 260,
+     "text": "Harp"
+    },
+    {
+     "at": 260,
+     "dur": 3.5,
+     "pitch": "E3"
+    },
+    {
+     "type": "text",
+     "at": 264,
+     "text": "Harp, damped"
+    },
+    {
+     "at": 264,
+     "dur": 1,
+     "technique": "damped",
+     "pitch": "E3"
+    },
+    {
+     "type": "text",
+     "at": 268,
+     "text": "Harp, bisbigliando"
+    },
+    {
+     "at": 268,
+     "dur": 3.5,
+     "technique": "bisbigliando",
+     "pitch": "E3"
+    },
+    {
+     "type": "text",
+     "at": 272,
+     "text": "Harp, glissando"
+    },
+    {
+     "at": 272,
+     "dur": 3.5,
+     "technique": "gliss",
+     "pitch": "E3"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 5
+    }
+   ]
+  }
+ ]
+}

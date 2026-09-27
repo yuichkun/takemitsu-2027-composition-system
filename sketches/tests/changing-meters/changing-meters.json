@@ -1,0 +1,6142 @@
+{
+ "title": "Test: changing meters",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 2,
+   "beatType": 16
+  },
+  {
+   "measure": 2,
+   "beats": 3,
+   "beatType": 16
+  },
+  {
+   "measure": 3,
+   "beats": 2,
+   "beatType": 16
+  },
+  {
+   "measure": 4,
+   "beats": 5,
+   "beatType": 16,
+   "groups": [
+    3,
+    2
+   ]
+  },
+  {
+   "measure": 5,
+   "beats": 2,
+   "beatType": 8
+  },
+  {
+   "measure": 6,
+   "beats": 3,
+   "beatType": 16
+  },
+  {
+   "measure": 8,
+   "beats": 5,
+   "beatType": 16
+  },
+  {
+   "measure": 9,
+   "beats": 2,
+   "beatType": 16
+  },
+  {
+   "measure": 10,
+   "beats": 7,
+   "beatType": 8,
+   "groups": [
+    2,
+    2,
+    3
+   ]
+  },
+  {
+   "measure": 11,
+   "beats": 3,
+   "beatType": 16
+  },
+  {
+   "measure": 12,
+   "beats": 2,
+   "beatType": 16
+  },
+  {
+   "measure": 14,
+   "beats": 3,
+   "beatType": 16
+  },
+  {
+   "measure": 15,
+   "beats": 2,
+   "beatType": 16
+  },
+  {
+   "measure": 16,
+   "beats": 5,
+   "beatType": 16,
+   "groups": [
+    3,
+    2
+   ]
+  },
+  {
+   "measure": 17,
+   "beats": 2,
+   "beatType": 8
+  },
+  {
+   "measure": 18,
+   "beats": 3,
+   "beatType": 16
+  },
+  {
+   "measure": 20,
+   "beats": 5,
+   "beatType": 16
+  },
+  {
+   "measure": 21,
+   "beats": 2,
+   "beatType": 16
+  },
+  {
+   "measure": 22,
+   "beats": 7,
+   "beatType": 8,
+   "groups": [
+    2,
+    2,
+    3
+   ]
+  },
+  {
+   "measure": 23,
+   "beats": 3,
+   "beatType": 16
+  },
+  {
+   "measure": 24,
+   "beats": 2,
+   "beatType": 16
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 252,
+   "beat": 0.5
+  }
+ ],
+ "measures": 24,
+ "parts": [
+  {
+   "id": "timp",
+   "instrument": "timpani",
+   "events": [
+    {
+     "at": 0,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 0.5,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 1.25,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 1.75,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 3,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 4.75,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 6,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 6.75,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 8.25,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 9.25,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 10.75,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 11.5,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 13.25,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 13.75,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 15,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 16,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 16.75,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 17.5,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 18,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 19.25,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 20.25,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 21.25,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 22.75,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25,
+     "pitch": "D2",
+     "articulations": [
+      "accent"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 6
+    }
+   ]
+  },
+  {
+   "id": "bd",
+   "instrument": "bass-drum",
+   "events": [
+    {
+     "at": 0,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 0.5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 1.25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 1.75,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 3,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 4.75,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 6,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 6.75,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 8.25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 9.25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 10.75,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 11.5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 13.25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 13.75,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 15,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 16,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 16.75,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 17.5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 18,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 19.25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 20.25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 21.25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 22.75,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 6
+    }
+   ]
+  },
+  {
+   "id": "vn1",
+   "instrument": "violins-1",
+   "events": [
+    {
+     "at": 0,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.25,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.75,
+     "dur": 0.25,
+     "pitch": [
+      "A4",
+      "B4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 6
+    }
+   ]
+  },
+  {
+   "id": "vn2",
+   "instrument": "violins-2",
+   "events": [
+    {
+     "at": 0,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.25,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.75,
+     "dur": 0.25,
+     "pitch": [
+      "E4",
+      "A4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 6
+    }
+   ]
+  },
+  {
+   "id": "va",
+   "instrument": "violas",
+   "events": [
+    {
+     "at": 0,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.25,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.75,
+     "dur": 0.25,
+     "pitch": [
+      "F3",
+      "C4"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 6
+    }
+   ]
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "events": [
+    {
+     "at": 0,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.25,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.75,
+     "dur": 0.25,
+     "pitch": [
+      "A2",
+      "E3"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 6
+    }
+   ]
+  },
+  {
+   "id": "cb",
+   "instrument": "basses",
+   "events": [
+    {
+     "at": 0,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 0.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.25,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "accent",
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.75,
+     "dur": 0.25,
+     "pitch": [
+      "D2",
+      "A2"
+     ],
+     "articulations": [
+      "staccato"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 6
+    }
+   ]
+  }
+ ]
+}

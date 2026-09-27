@@ -1,0 +1,451 @@
+{
+ "title": "Percussion: metal",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 72
+  }
+ ],
+ "measures": 20,
+ "parts": [
+  {
+   "id": "tri",
+   "instrument": "triangle",
+   "events": [
+    {
+     "at": 26,
+     "dur": 1
+    },
+    {
+     "at": 30,
+     "dur": 1
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ]
+  },
+  {
+   "id": "glk",
+   "instrument": "glockenspiel",
+   "events": [
+    {
+     "at": 9,
+     "dur": 1,
+     "pitch": {
+      "midi": 87
+     }
+    },
+    {
+     "at": 13,
+     "dur": 1,
+     "pitch": {
+      "midi": 93
+     }
+    },
+    {
+     "at": 25,
+     "dur": 1,
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": 27,
+     "dur": 1,
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": 32,
+     "dur": 1,
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": 33,
+     "dur": 1,
+     "pitch": {
+      "midi": 93
+     }
+    },
+    {
+     "at": 34,
+     "dur": 1,
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": 37,
+     "dur": 1,
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": 53,
+     "dur": 1,
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": 57,
+     "dur": 1,
+     "pitch": {
+      "midi": 93
+     }
+    },
+    {
+     "at": 74,
+     "dur": 1,
+     "pitch": {
+      "midi": 93
+     }
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ]
+  },
+  {
+   "id": "sl",
+   "instrument": "sleigh-bells",
+   "events": [
+    {
+     "at": 14,
+     "dur": 6
+    },
+    {
+     "at": 38,
+     "dur": 6
+    },
+    {
+     "at": 62,
+     "dur": 6
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 14,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 20,
+     "level": 7
+    },
+    {
+     "at": 22,
+     "level": 3
+    },
+    {
+     "at": 38,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 44,
+     "level": 7
+    },
+    {
+     "at": 46,
+     "level": 3
+    },
+    {
+     "at": 62,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 68,
+     "level": 7
+    },
+    {
+     "at": 70,
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "tamb",
+   "instrument": "tambourine",
+   "events": [
+    {
+     "at": 17,
+     "dur": 3,
+     "technique": "roll"
+    },
+    {
+     "at": 41,
+     "dur": 3,
+     "technique": "roll"
+    },
+    {
+     "at": 65,
+     "dur": 3,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 14,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 20,
+     "level": 7
+    },
+    {
+     "at": 22,
+     "level": 3
+    },
+    {
+     "at": 38,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 44,
+     "level": 7
+    },
+    {
+     "at": 46,
+     "level": 3
+    },
+    {
+     "at": 62,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 68,
+     "level": 7
+    },
+    {
+     "at": 70,
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "cym",
+   "instrument": "suspended-cymbal",
+   "events": [
+    {
+     "at": 14,
+     "dur": 6,
+     "technique": "roll"
+    },
+    {
+     "at": 38,
+     "dur": 6,
+     "technique": "roll"
+    },
+    {
+     "at": 62,
+     "dur": 6,
+     "technique": "roll"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 14,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 20,
+     "level": 7
+    },
+    {
+     "at": 22,
+     "level": 3
+    },
+    {
+     "at": 38,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 44,
+     "level": 7
+    },
+    {
+     "at": 46,
+     "level": 3
+    },
+    {
+     "at": 62,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 68,
+     "level": 7
+    },
+    {
+     "at": 70,
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "clash",
+   "instrument": "clash-cymbals",
+   "events": [
+    {
+     "at": 20,
+     "dur": 4,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 44,
+     "dur": 4,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 68,
+     "dur": 4,
+     "articulations": [
+      "accent"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 7
+    }
+   ]
+  },
+  {
+   "id": "tt",
+   "instrument": "tam-tam",
+   "events": [
+    {
+     "at": 14,
+     "dur": 6,
+     "technique": "crescendo"
+    },
+    {
+     "at": 20,
+     "dur": 4
+    },
+    {
+     "at": 38,
+     "dur": 6,
+     "technique": "crescendo"
+    },
+    {
+     "at": 44,
+     "dur": 4
+    },
+    {
+     "at": 62,
+     "dur": 6,
+     "technique": "crescendo"
+    },
+    {
+     "at": 68,
+     "dur": 4
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 14,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 20,
+     "level": 7
+    },
+    {
+     "at": 22,
+     "level": 3
+    },
+    {
+     "at": 38,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 44,
+     "level": 7
+    },
+    {
+     "at": 46,
+     "level": 3
+    },
+    {
+     "at": 62,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 68,
+     "level": 7
+    },
+    {
+     "at": 70,
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "bells",
+   "instrument": "tubular-bells",
+   "events": [
+    {
+     "at": 20,
+     "dur": 4,
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": 44,
+     "dur": 4,
+     "pitch": {
+      "midi": 63
+     }
+    },
+    {
+     "at": 68,
+     "dur": 4,
+     "pitch": {
+      "midi": 69
+     }
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 6
+    }
+   ]
+  }
+ ]
+}

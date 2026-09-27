@@ -1,0 +1,474 @@
+{
+ "title": "Test: quarter tones",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 12,
+ "rehearsal": [
+  {
+   "measure": 1,
+   "label": "A"
+  },
+  {
+   "measure": 5,
+   "label": "B"
+  },
+  {
+   "measure": 9,
+   "label": "C"
+  }
+ ],
+ "parts": [
+  {
+   "id": "fl",
+   "instrument": "flute",
+   "events": [
+    {
+     "at": 16,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": 16.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 75.5
+     },
+     "slur": true
+    },
+    {
+     "at": 17,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 77.5
+     },
+     "slur": true
+    },
+    {
+     "at": 17.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 79
+     },
+     "slur": true
+    },
+    {
+     "at": 18,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 81
+     },
+     "slur": true
+    },
+    {
+     "at": 18.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 82.5
+     },
+     "slur": true
+    },
+    {
+     "at": 19,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 84.5
+     },
+     "slur": true
+    },
+    {
+     "at": 19.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 86
+     },
+     "slur": true
+    },
+    {
+     "at": 20,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 84.5
+     },
+     "slur": true
+    },
+    {
+     "at": 20.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 82.5
+     },
+     "slur": true
+    },
+    {
+     "at": 21,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 81
+     },
+     "slur": true
+    },
+    {
+     "at": 21.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 79
+     },
+     "slur": true
+    },
+    {
+     "at": 22,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 77.5
+     },
+     "slur": true
+    },
+    {
+     "at": 22.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 75.5
+     },
+     "slur": true
+    },
+    {
+     "at": 23,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 74
+     },
+     "slur": false
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ]
+  },
+  {
+   "id": "cl",
+   "instrument": "clarinet",
+   "events": [
+    {
+     "at": 17,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 62
+     },
+     "slur": true
+    },
+    {
+     "at": 17.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 63.5
+     },
+     "slur": true
+    },
+    {
+     "at": 18,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 65.5
+     },
+     "slur": true
+    },
+    {
+     "at": 18.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 67
+     },
+     "slur": true
+    },
+    {
+     "at": 19,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 69
+     },
+     "slur": true
+    },
+    {
+     "at": 19.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 70.5
+     },
+     "slur": true
+    },
+    {
+     "at": 20,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 72.5
+     },
+     "slur": true
+    },
+    {
+     "at": 20.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": 21,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 72.5
+     },
+     "slur": true
+    },
+    {
+     "at": 21.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 70.5
+     },
+     "slur": true
+    },
+    {
+     "at": 22,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 69
+     },
+     "slur": true
+    },
+    {
+     "at": 22.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 67
+     },
+     "slur": true
+    },
+    {
+     "at": 23,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 65.5
+     },
+     "slur": true
+    },
+    {
+     "at": 23.5,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 63.5
+     },
+     "slur": true
+    },
+    {
+     "at": 24,
+     "dur": 0.5,
+     "pitch": {
+      "midi": 62
+     },
+     "slur": false
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ]
+  },
+  {
+   "id": "vn1",
+   "instrument": "violins-1",
+   "events": [
+    {
+     "at": 0,
+     "dur": 8,
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": 32,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 64.5
+      }
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 3
+    },
+    {
+     "at": 32,
+     "level": 1,
+     "to": "linear"
+    },
+    {
+     "at": 42,
+     "level": 6,
+     "to": "linear"
+    },
+    {
+     "at": 48,
+     "level": 0
+    }
+   ]
+  },
+  {
+   "id": "vn2",
+   "instrument": "violins-2",
+   "events": [
+    {
+     "at": 0,
+     "dur": 8,
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": 32,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 63
+      },
+      {
+       "midi": 65
+      }
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 3
+    },
+    {
+     "at": 32,
+     "level": 1,
+     "to": "linear"
+    },
+    {
+     "at": 42,
+     "level": 6,
+     "to": "linear"
+    },
+    {
+     "at": 48,
+     "level": 0
+    }
+   ]
+  },
+  {
+   "id": "va",
+   "instrument": "violas",
+   "events": [
+    {
+     "at": 8,
+     "dur": 8,
+     "pitch": {
+      "midi": 57
+     }
+    },
+    {
+     "at": 32,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 65.5
+      }
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 3
+    },
+    {
+     "at": 32,
+     "level": 1,
+     "to": "linear"
+    },
+    {
+     "at": 42,
+     "level": 6,
+     "to": "linear"
+    },
+    {
+     "at": 48,
+     "level": 0
+    }
+   ]
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "events": [
+    {
+     "at": 8,
+     "dur": 8,
+     "pitch": {
+      "midi": 57.5
+     }
+    },
+    {
+     "at": 32,
+     "dur": 16,
+     "pitch": [
+      {
+       "midi": 64
+      }
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 3
+    },
+    {
+     "at": 32,
+     "level": 1,
+     "to": "linear"
+    },
+    {
+     "at": 42,
+     "level": 6,
+     "to": "linear"
+    },
+    {
+     "at": 48,
+     "level": 0
+    }
+   ]
+  }
+ ]
+}
