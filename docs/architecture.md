@@ -179,11 +179,14 @@ flowchart LR
 | `<名前>.json` | 楽譜。`sketch.ts` と `values.json` から書き出す | [`../src/sketch/run.ts`](../src/sketch/run.ts) |
 | `README.md` | カード: 問い、注文、仮の値、事実、聴いた感想 | Claude |
 
-- つまみは 3 種類（[`../src/sketch/knobs.ts`](../src/sketch/knobs.ts)）: 数、選択肢、文字（音高や数の並び。スケッチが読む）。
+- つまみの部品はスケッチを問わず使い回す（型は [`../src/sketch/knobs.ts`](../src/sketch/knobs.ts)、描画は [`../src/preview/knobs/controls.ts`](../src/preview/knobs/controls.ts)）:
+  数、音高、範囲、音域、選択肢、スイッチ、文字、フリーハンドの線（curve）、折れ線（envelope）、音高クラスの円（pitch-set）、
+  倍音（partials）、重みの棒（weights）、ステップの格子（steps）、比率の帯（proportions）、平面上の点（xy）、乱数の種（seed）。
+  一覧と見本は [`../sketches/ui-showcase/`](../sketches/ui-showcase/README.md)。
   どれも名前・グループ・意図（何を変えるためのつまみか。欄では名前に重ねると出る）を持つ。
   **つまみはアイデアを形づくる判断ごとに置く。**コードの中の数を機械的に全部出さない。足りなければ余湖さんが言い、足す
-- プレビューで開くと右につまみの欄が出る（K か Knobs で隠す）。1 行 1 つまみ。数は横にドラッグ、↑↓（Shift で 10 倍）、クリックで入力。
-  短い選択肢は並んだボタン、長いものはメニュー。値を確定すると（ドラッグを離す、Enter、欄を出る、選ぶ）、
+- プレビューで開くと右につまみの欄が出る（K か Knobs で隠す。左端をドラッグで幅を変えられ、ブラウザが覚える）。1 行 1 つまみ。
+  行に重ねると、何のためのつまみかと使い方が出る。値を確定すると（ドラッグを離す、Enter、欄を出る、選ぶ）、
   サーバが `values.json` を書き換え、別の Node プロセスで `sketch.ts` を走らせて楽譜を書き直す（[`../src/preview/sketches.ts`](../src/preview/sketches.ts)）。
   あとはふつうの保存と同じで、変わった小節と区間だけが描き直され、再生位置はそのまま
 - `sketch.ts` を保存しても、同じように書き直す

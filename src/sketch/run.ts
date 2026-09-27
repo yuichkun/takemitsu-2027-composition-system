@@ -31,7 +31,7 @@ async function main(): Promise<void> {
   if (!existsSync(sketchFile(dir))) throw new Error(`No sketch.ts in ${dir}`);
   const sketch = (await import(pathToFileURL(sketchFile(dir)).href)) as {
     knobs?: Knobs;
-    score: (values: Record<string, number | string>) => unknown;
+    score: (values: Record<string, unknown>) => unknown;
   };
   const knobs = sketch.knobs ?? {};
   const stored = readStored(dir);

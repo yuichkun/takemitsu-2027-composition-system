@@ -13,7 +13,7 @@
   --accent: #17181c;
   --accent-soft: #e9eaee;
   /* Rendered audio in the strip over the whole piece. */
-  --ready: #8b8f98;
+  --ready: #4b4f58;
   --select: rgba(23, 24, 28, 0.06);
   --play: #e5484d;
   --warn: #b45309;
@@ -282,7 +282,7 @@ main {
 .readiness {
   display: block;
   width: 100%;
-  height: 4px;
+  height: 5px;
   background: var(--paper);
   cursor: pointer;
 }
@@ -684,7 +684,8 @@ body.mixer-collapsed .strips {
 
 #knobs {
   grid-area: knobs;
-  width: 280px;
+  position: relative;
+  width: var(--knobs-width, 380px);
   border-left: 1px solid var(--rule);
   background: var(--paper);
   overflow-y: auto;
@@ -827,7 +828,7 @@ button.chip.add {
 
 .knob {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 132px;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 45%);
   align-items: center;
   column-gap: 8px;
   min-height: var(--row);
@@ -839,10 +840,16 @@ button.chip.add {
   background: var(--bg);
 }
 
-/* Text (scales, pitch lists) takes the whole row under its name. */
+/* Wide controls (text, drawings, grids) take the whole row under their name. */
 .knob.wide {
   grid-template-columns: 1fr;
-  padding-bottom: 4px;
+  row-gap: 4px;
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
+.knob .control {
+  min-width: 0;
 }
 
 .knob label {
@@ -968,4 +975,362 @@ button.chip.add {
 
 .knobs-legend .prov {
   margin-left: 0;
+}
+
+.knobs-resize {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -3px;
+  width: 6px;
+  cursor: col-resize;
+  z-index: 2;
+}
+
+.knobs-resize:hover,
+body.resizing .knobs-resize {
+  background: var(--rule);
+}
+
+body.resizing {
+  cursor: col-resize;
+  user-select: none;
+}
+
+/* The tooltip beside a knob row: what it is for, how to use it. */
+.knob-tip {
+  position: fixed;
+  z-index: 50;
+  max-width: 300px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: #f3f4f6;
+  font-size: 12px;
+  line-height: 1.45;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.knob-tip p {
+  margin: 4px 0 0;
+}
+
+.knob-tip .how {
+  color: #a3a7af;
+}
+
+.knob-tip .prov {
+  margin-left: 0;
+}
+
+/* Two values side by side (range, pitch range, seed). */
+.pair {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.pair .scrub {
+  flex: 1;
+  min-width: 0;
+}
+
+.pair .dash {
+  color: var(--faint);
+}
+
+button.icon {
+  border: 0;
+  background: none;
+  width: 22px;
+  height: 24px;
+  padding: 0;
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+button.icon:hover {
+  background: var(--hover);
+  color: var(--ink);
+}
+
+.switch {
+  justify-self: end;
+  width: 30px;
+  height: 18px;
+  padding: 2px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--rule);
+  display: flex;
+}
+
+.switch span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: transform 0.12s;
+}
+
+.switch[aria-checked="true"] {
+  background: var(--ink);
+}
+
+.switch[aria-checked="true"] span {
+  transform: translateX(12px);
+}
+
+.knob .control:has(.switch) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Drawings (curve, envelope, xy) */
+.pad {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.ends {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--faint);
+  margin-top: 2px;
+}
+
+/* Pitch-class clock */
+.clock {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.clock svg {
+  flex: none;
+}
+
+.clock .ring {
+  fill: none;
+  stroke: var(--rule);
+}
+
+.clock .shape {
+  fill: var(--accent-soft);
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.clock .pc {
+  fill: var(--paper);
+  stroke: var(--faint);
+  cursor: pointer;
+}
+
+.clock .pc:hover {
+  stroke: var(--ink);
+}
+
+.clock .pc.on {
+  fill: var(--ink);
+  stroke: var(--ink);
+}
+
+.clock .pc-label {
+  font-size: 8px;
+  fill: var(--faint);
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.clock-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  min-width: 0;
+}
+
+.clock-info .set {
+  font-family: var(--mono);
+  word-break: break-word;
+}
+
+.clock-info .muted {
+  color: var(--faint);
+  font-size: 11px;
+}
+
+/* Partials */
+.partials {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 3px;
+}
+
+.partial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 3px 0;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--muted);
+}
+
+.partial:hover {
+  border-color: var(--faint);
+}
+
+.partial .n {
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.partial .p {
+  font-size: 9.5px;
+  color: var(--faint);
+}
+
+.partial.on {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.partial.on .p {
+  color: #c9ccd2;
+}
+
+/* Weights */
+.weights {
+  display: flex;
+  gap: 4px;
+  height: 84px;
+  cursor: ns-resize;
+  touch-action: none;
+  user-select: none;
+}
+
+.weight {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.weight .track {
+  flex: 1;
+  position: relative;
+  border-radius: 3px;
+  background: var(--bg);
+}
+
+.weight .fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background: var(--ink);
+}
+
+.weight .wl {
+  font-size: 10px;
+  color: var(--faint);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Steps */
+.steps {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 3px 6px;
+  touch-action: none;
+  user-select: none;
+}
+
+.steps .sl {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.steps .srow {
+  display: grid;
+  grid-template-columns: repeat(var(--steps), 1fr);
+  gap: 2px;
+}
+
+.steps .cell {
+  height: 16px;
+  border-radius: 2px;
+  background: var(--hover);
+  cursor: pointer;
+}
+
+.steps .cell.beat {
+  background: var(--accent-soft);
+}
+
+.steps .cell.on {
+  background: var(--ink);
+}
+
+/* Proportions */
+.props {
+  display: flex;
+  height: 30px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg);
+  user-select: none;
+  touch-action: none;
+}
+
+.prop {
+  flex-basis: 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.prop:nth-child(4n + 1) {
+  background: var(--accent-soft);
+}
+
+.prop .pl {
+  color: var(--muted);
+}
+
+.prop .pv {
+  font-family: var(--mono);
+}
+
+.divider {
+  flex: none;
+  width: 4px;
+  background: var(--paper);
+  cursor: col-resize;
+}
+
+.divider:hover {
+  background: var(--ink);
 }

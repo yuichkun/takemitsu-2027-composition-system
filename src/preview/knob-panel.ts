@@ -1,29 +1,20 @@
 // The knob panel: shown beside the score when the open score belongs to a sketch
 // (src/sketch/knobs.ts, src/preview/sketches.ts). One row per knob, grouped as the sketch groups
-// them. A change is sent when it is committed; the server writes the sketch's score again and the
-// preview picks the new score up like any save, keeping the playhead where it is.
+// them; each kind draws itself (knobs/controls.ts). A change is sent when it is finished; the
+// server writes the sketch's score again and the preview picks it up like any save, keeping the
+// playhead where it is.
 //
-// Numbers are values you drag sideways (or step with ↑↓, Shift for ×10, or click to type); a few
-// short choices are a segmented control; text is a plain field.
+// Hovering a row shows what the knob is for and how to use it. The panel's left edge drags to
+// resize it (remembered by the browser).
 
-import type { ChoiceKnob, Knob, NumberKnob } from "../sketch/knobs.ts";
+import type { Value } from "../sketch/knobs.ts";
+import { controls, type Context } from "./knobs/controls.ts";
 import type { SketchChange, SketchState } from "./sketches.ts";
 
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 
-/** Pixels of drag per step. */
-const pxPerStep = 6;
-
-const decimals = (step: number) => (String(step).split(".")[1] ?? "").length;
-const clamp = (k: NumberKnob, v: number) =>
-  Math.min(
-    k.max,
-    Math.max(k.min, Number((Math.round(v / k.step) * k.step).toFixed(decimals(k.step)))),
-  );
-const format = (k: NumberKnob, v: number) => v.toFixed(decimals(k.step));
-const segmented = (k: ChoiceKnob) =>
-  k.options.length <= 4 && k.options.every((o) => o.length <= 10);
+const widthKey = "takemitsu.knobs-width";
 
 export class KnobPanel {
   private path: string | undefined;
@@ -31,29 +22,32 @@ export class KnobPanel {
   private busy = false;
   private error: string | undefined;
   private naming = false;
-  private stepTimer = 0;
   /** Hidden with K (or the toolbar button) while a sketch is open. */
   collapsed = false;
   /** Called when the panel appears or goes, so the page can show its toolbar button. */
   onChange?: (isSketch: boolean) => void;
 
   private readonly el: HTMLElement;
+  private readonly tip: HTMLElement;
+  private tipTimer = 0;
 
   constructor(el: HTMLElement) {
     this.el = el;
-    el.addEventListener("change", (e) => {
-      const t = e.target as HTMLElement;
-      if (
-        t instanceof HTMLSelectElement ||
-        (t instanceof HTMLInputElement && t.classList.contains("text"))
-      )
-        this.commit(t.dataset.knob!, t.value);
-    });
+    try {
+      const w = Number(localStorage.getItem(widthKey));
+      if (w) document.documentElement.style.setProperty("--knobs-width", `${w}px`);
+    } catch {
+      // The default width.
+    }
+    this.tip = document.createElement("div");
+    this.tip.className = "knob-tip";
+    this.tip.hidden = true;
+    document.body.append(this.tip);
+
     el.addEventListener("click", (e) => {
       const b = (e.target as HTMLElement).closest("button");
       if (!b) return;
-      if (b.dataset.option !== undefined) this.commit(b.dataset.knob!, b.dataset.option);
-      else if (b.dataset.load) void this.send({ load: b.dataset.load });
+      if (b.dataset.load) void this.send({ load: b.dataset.load });
       else if (b.dataset.remove) void this.send({ remove: b.dataset.remove });
       else if (b.dataset.action === "reset") void this.send({ reset: true });
       else if (b.dataset.action === "name") {
@@ -64,20 +58,16 @@ export class KnobPanel {
     });
     el.addEventListener("keydown", (e) => {
       const t = e.target as HTMLElement;
-      if (t.id === "preset-name") {
-        if (e.key === "Enter") {
-          const name = (t as HTMLInputElement).value.trim();
-          this.naming = false;
-          if (name) void this.send({ save: name });
-          else this.render();
-        } else if (e.key === "Escape") {
-          this.naming = false;
-          this.render();
-        }
-        return;
+      if (t.id !== "preset-name") return;
+      if (e.key === "Enter") {
+        const name = (t as HTMLInputElement).value.trim();
+        this.naming = false;
+        if (name) void this.send({ save: name });
+        else this.render();
+      } else if (e.key === "Escape") {
+        this.naming = false;
+        this.render();
       }
-      if (t instanceof HTMLInputElement && e.key === "Enter") t.blur();
-      if (t.classList.contains("scrub")) this.scrubKey(t, e);
     });
     el.addEventListener("focusout", (e) => {
       if ((e.target as HTMLElement).id === "preset-name" && this.naming) {
@@ -85,9 +75,23 @@ export class KnobPanel {
         this.render();
       }
     });
+    // Tooltips: what the knob is for, and how to use it.
+    el.addEventListener("pointerover", (e) => {
+      const row = (e.target as HTMLElement).closest<HTMLElement>(".knob");
+      if (!row || row.dataset.tip === undefined) return;
+      clearTimeout(this.tipTimer);
+      this.tipTimer = window.setTimeout(() => this.showTip(row), this.tip.hidden ? 350 : 0);
+    });
+    el.addEventListener("pointerout", (e) => {
+      const to = (e.relatedTarget as HTMLElement | null)?.closest(".knob");
+      if (to === (e.target as HTMLElement).closest(".knob")) return;
+      clearTimeout(this.tipTimer);
+      this.tipTimer = window.setTimeout(() => (this.tip.hidden = true), 80);
+    });
     el.addEventListener("pointerdown", (e) => {
-      const t = (e.target as HTMLElement).closest<HTMLElement>(".scrub");
-      if (t && e.button === 0) this.scrubDrag(t, e);
+      this.tip.hidden = true;
+      clearTimeout(this.tipTimer);
+      if ((e.target as HTMLElement).classList.contains("knobs-resize")) this.resize(e);
     });
   }
 
@@ -123,99 +127,45 @@ export class KnobPanel {
     this.render();
   }
 
-  //============================================================================
-  // Numbers: drag, keys, typing
-
-  private numberKnob(name: string): NumberKnob | undefined {
-    const k = this.state?.knobs[name];
-    return k?.kind === "number" ? k : undefined;
+  private showTip(row: HTMLElement): void {
+    this.tip.innerHTML = row.dataset.tip!;
+    this.tip.hidden = false;
+    const r = row.getBoundingClientRect();
+    const t = this.tip.getBoundingClientRect();
+    this.tip.style.left = `${Math.max(8, r.left - t.width - 10)}px`;
+    this.tip.style.top = `${Math.min(window.innerHeight - t.height - 8, Math.max(8, r.top))}px`;
   }
 
-  private shown(el: HTMLElement, k: NumberKnob, v: number): void {
-    el.querySelector(".v")!.textContent = format(k, v);
-    el.dataset.value = String(v);
-  }
-
-  private scrubDrag(el: HTMLElement, e: PointerEvent): void {
-    const name = el.dataset.knob!;
-    const k = this.numberKnob(name);
-    if (!k) return;
+  /** Drags the panel's left edge. */
+  private resize(e: PointerEvent): void {
+    const handle = e.target as HTMLElement;
     e.preventDefault();
-    el.focus();
-    const x0 = e.clientX;
-    const start = Number(el.dataset.value);
-    let moved = false;
-    el.setPointerCapture(e.pointerId);
-    el.classList.add("dragging");
+    handle.setPointerCapture(e.pointerId);
+    const start = this.el.getBoundingClientRect().width;
+    let width = start;
+    document.body.classList.add("resizing");
     const move = (m: PointerEvent) => {
-      const dx = m.clientX - x0;
-      if (!moved && Math.abs(dx) < 3) return;
-      moved = true;
-      const factor = m.shiftKey ? 10 : 1;
-      this.shown(el, k, clamp(k, start + Math.round(dx / pxPerStep) * k.step * factor));
+      width = Math.round(Math.min(760, Math.max(280, start + e.clientX - m.clientX)));
+      document.documentElement.style.setProperty("--knobs-width", `${width}px`);
     };
     const up = () => {
-      el.removeEventListener("pointermove", move);
-      el.removeEventListener("pointerup", up);
-      el.removeEventListener("pointercancel", up);
-      el.classList.remove("dragging");
-      if (moved) this.commit(name, Number(el.dataset.value));
-      else this.edit(el, k);
+      handle.removeEventListener("pointermove", move);
+      handle.removeEventListener("pointerup", up);
+      document.body.classList.remove("resizing");
+      try {
+        localStorage.setItem(widthKey, String(width));
+      } catch {
+        // Not kept.
+      }
     };
-    el.addEventListener("pointermove", move);
-    el.addEventListener("pointerup", up);
-    el.addEventListener("pointercancel", up);
+    handle.addEventListener("pointermove", move);
+    handle.addEventListener("pointerup", up);
   }
 
-  private scrubKey(el: HTMLElement, e: KeyboardEvent): void {
-    const name = el.dataset.knob!;
-    const k = this.numberKnob(name);
-    if (!k) return;
-    const dir = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1 }[e.key];
-    if (e.key === "Enter") {
-      e.preventDefault();
-      this.edit(el, k);
-      return;
-    }
-    if (!dir) return;
-    e.preventDefault();
-    this.shown(el, k, clamp(k, Number(el.dataset.value) + dir * k.step * (e.shiftKey ? 10 : 1)));
-    // Held keys send once they rest.
-    clearTimeout(this.stepTimer);
-    this.stepTimer = window.setTimeout(() => this.commit(name, Number(el.dataset.value)), 450);
-  }
-
-  /** Click (or Enter): type the value. */
-  private edit(el: HTMLElement, k: NumberKnob): void {
-    const input = document.createElement("input");
-    input.className = "scrub-input";
-    input.value = format(k, Number(el.dataset.value));
-    input.setAttribute("aria-label", k.label);
-    el.replaceWith(input);
-    input.focus();
-    input.select();
-    let done = false;
-    const finish = (keep: boolean) => {
-      if (done) return;
-      done = true;
-      const v = Number(input.value);
-      if (keep && Number.isFinite(v)) this.commit(el.dataset.knob!, clamp(k, v));
-      else this.render();
-    };
-    input.addEventListener("keydown", (e) => {
-      e.stopPropagation();
-      if (e.key === "Enter") finish(true);
-      else if (e.key === "Escape") finish(false);
-    });
-    input.addEventListener("blur", () => finish(true));
-  }
-
-  //============================================================================
-
-  private commit(name: string, value: number | string): void {
+  private commit(name: string, value: Value): void {
     const s = this.state;
     if (!s || !(name in s.knobs)) return;
-    if (s.values[name] === value) return this.render();
+    if (JSON.stringify(s.values[name]) === JSON.stringify(value)) return;
     s.values[name] = value;
     void this.send({ set: { [name]: value } });
   }
@@ -224,7 +174,7 @@ export class KnobPanel {
     const path = this.path;
     if (!path) return;
     this.busy = true;
-    this.render();
+    this.el.querySelector(".knobs-busy")?.removeAttribute("hidden");
     const res = await fetch(`/api/sketch?path=${encodeURIComponent(path)}`, {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -247,25 +197,21 @@ export class KnobPanel {
     const s = this.state;
     this.el.hidden = !s || this.collapsed;
     this.onChange?.(s !== undefined);
-    if (!s || this.collapsed) return;
+    if (!s || this.collapsed) {
+      this.tip.hidden = true;
+      return;
+    }
     // Keep keyboard focus on the same knob across a redraw.
-    const focused = (document.activeElement as HTMLElement | null)?.dataset?.knob;
+    const focused = (document.activeElement as HTMLElement | null)?.closest<HTMLElement>(".knob")
+      ?.dataset.name;
+    const scroll = this.el.scrollTop;
     const error = this.error ?? s.error;
     const touched = new Set(s.touched);
     const presets = Object.keys(s.presets);
     const current = presets.find((p) => same(s.presets[p]!, s.values));
 
-    let rows = "";
-    let group: string | undefined;
-    for (const [name, k] of Object.entries(s.knobs)) {
-      if (k.group !== group) {
-        group = k.group;
-        if (group) rows += `<h3 class="group">${escapeHtml(group)}</h3>`;
-      }
-      rows += this.row(name, k, s.values[name]!, !touched.has(name));
-    }
-
     this.el.innerHTML = `
+      <div class="knobs-resize" title="Drag to resize"></div>
       <header class="knobs-head">
         <span class="knobs-title" title="sketches/${escapeHtml(s.dir)}">${escapeHtml(s.dir)}</span>
         <span class="knobs-busy" ${this.busy ? "" : "hidden"} title="Writing the score">●</span>
@@ -287,49 +233,60 @@ export class KnobPanel {
         }
       </div>
       ${error ? `<p class="knobs-error">${escapeHtml(error)}</p>` : ""}
-      <div class="knob-list">${rows}</div>
+      <div class="knob-list"></div>
       <p class="knobs-legend"><span class="prov"></span>provisional: Claude's value, not moved yet</p>`;
+
+    const list = this.el.querySelector<HTMLElement>(".knob-list")!;
+    const ctx = (name: string): Context => ({
+      commit: (v) => this.commit(name, v),
+      knobs: s.knobs,
+      values: s.values,
+    });
+    let group: string | undefined;
+    for (const [name, k] of Object.entries(s.knobs)) {
+      if (k.group !== group) {
+        group = k.group;
+        if (group) {
+          const g = document.createElement("h3");
+          g.className = "group";
+          g.textContent = group;
+          list.append(g);
+        }
+      }
+      const control = controls[k.kind] as (typeof controls)["number"];
+      const provisional = !touched.has(name);
+      const row = document.createElement("div");
+      row.className = `knob${control.wide ? " wide" : ""}`;
+      row.dataset.name = name;
+      row.dataset.tip = `<b>${escapeHtml(k.label)}</b>${
+        k.help ? `<p>${escapeHtml(k.help)}</p>` : ""
+      }<p class="how">${escapeHtml(control.how)}</p>${
+        provisional
+          ? `<p class="how"><span class="prov"></span>Claude's value, not moved yet</p>`
+          : ""
+      }`;
+      const label = document.createElement("label");
+      label.textContent = k.label;
+      if (provisional) {
+        const dot = document.createElement("span");
+        dot.className = "prov";
+        label.append(dot);
+      }
+      const host = document.createElement("div");
+      host.className = "control";
+      row.append(label, host);
+      list.append(row);
+      control.mount(host, k as never, s.values[name] as never, ctx(name));
+    }
+    this.el.scrollTop = scroll;
     if (focused)
       this.el
-        .querySelector<HTMLElement>(`[data-knob="${CSS.escape(focused)}"]:not(button)`)
-        ?.focus();
-  }
-
-  private row(name: string, k: Knob, value: number | string, provisional: boolean): string {
-    const id = `knob-${name}`;
-    const help = k.help ? ` title="${escapeHtml(k.help)}"` : "";
-    const label = `<label for="${id}"${help}>${escapeHtml(k.label)}${
-      provisional
-        ? `<span class="prov" title="Provisional: Claude's value, not moved yet"></span>`
-        : ""
-    }</label>`;
-    let control: string;
-    if (k.kind === "number") {
-      const v = Number(value);
-      control = `<div id="${id}" class="scrub" tabindex="0" role="spinbutton" data-knob="${name}" data-value="${v}"
-        aria-valuemin="${k.min}" aria-valuemax="${k.max}" aria-valuenow="${v}" aria-label="${escapeHtml(k.label)}"
-        title="Drag sideways or ↑↓ (Shift ×10); click to type"><span class="v">${format(k, v)}</span>${
-          k.unit ? `<span class="u">${escapeHtml(k.unit)}</span>` : ""
-        }</div>`;
-    } else if (k.kind === "choice" && segmented(k)) {
-      control = `<div id="${id}" class="seg" role="radiogroup" aria-label="${escapeHtml(k.label)}">${k.options
-        .map(
-          (o) =>
-            `<button type="button" role="radio" aria-checked="${o === value}" data-knob="${name}" data-option="${escapeHtml(o)}">${escapeHtml(o)}</button>`,
+        .querySelector<HTMLElement>(
+          `.knob[data-name="${CSS.escape(focused)}"] [tabindex], .knob[data-name="${CSS.escape(focused)}"] button`,
         )
-        .join("")}</div>`;
-    } else if (k.kind === "choice") {
-      control = `<select id="${id}" class="select" data-knob="${name}">${k.options
-        .map((o) => `<option${o === value ? " selected" : ""}>${escapeHtml(o)}</option>`)
-        .join("")}</select>`;
-    } else {
-      control = `<input id="${id}" class="text" type="text" value="${escapeHtml(String(value))}" data-knob="${name}"${
-        k.hint ? ` placeholder="${escapeHtml(k.hint)}"` : ""
-      } spellcheck="false" />`;
-    }
-    return `<div class="knob${k.kind === "text" ? " wide" : ""}">${label}${control}</div>`;
+        ?.focus();
   }
 }
 
 const same = (a: Record<string, unknown>, b: Record<string, unknown>) =>
-  Object.keys(b).every((k) => a[k] === b[k]);
+  Object.keys(b).every((k) => JSON.stringify(a[k]) === JSON.stringify(b[k]));

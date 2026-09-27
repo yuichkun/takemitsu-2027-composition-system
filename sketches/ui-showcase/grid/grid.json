@@ -1,0 +1,783 @@
+{
+ "title": "Showcase: grid",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 112
+  }
+ ],
+ "measures": 12,
+ "rehearsal": [
+  {
+   "measure": 1,
+   "label": "A"
+  },
+  {
+   "measure": 5,
+   "label": "B"
+  },
+  {
+   "measure": 9,
+   "label": "C"
+  }
+ ],
+ "parts": [
+  {
+   "id": "wb",
+   "instrument": "woodblock-high",
+   "events": [
+    {
+     "at": 0,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 0.75,
+     "dur": 0.25
+    },
+    {
+     "at": 1.5,
+     "dur": 0.25
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25
+    },
+    {
+     "at": 3.25,
+     "dur": 0.25
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 4.75,
+     "dur": 0.25
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25
+    },
+    {
+     "at": 8,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 8.75,
+     "dur": 0.25
+    },
+    {
+     "at": 9.5,
+     "dur": 0.25
+    },
+    {
+     "at": 10.5,
+     "dur": 0.25
+    },
+    {
+     "at": 11.25,
+     "dur": 0.25
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 12.75,
+     "dur": 0.25
+    },
+    {
+     "at": 13.5,
+     "dur": 0.25
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25
+    },
+    {
+     "at": 15.25,
+     "dur": 0.25
+    },
+    {
+     "at": 16.25,
+     "dur": 0.25
+    },
+    {
+     "at": 17,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 17.75,
+     "dur": 0.25
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25
+    },
+    {
+     "at": 20.5,
+     "dur": 0.25
+    },
+    {
+     "at": 21.25,
+     "dur": 0.25
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 23,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 23.75,
+     "dur": 0.25
+    },
+    {
+     "at": 24,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 24.75,
+     "dur": 0.25
+    },
+    {
+     "at": 25.5,
+     "dur": 0.25
+    },
+    {
+     "at": 26.25,
+     "dur": 0.25
+    },
+    {
+     "at": 27.25,
+     "dur": 0.25
+    },
+    {
+     "at": 28.25,
+     "dur": 0.25
+    },
+    {
+     "at": 29,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 29.75,
+     "dur": 0.25
+    },
+    {
+     "at": 30.5,
+     "dur": 0.25
+    },
+    {
+     "at": 31.5,
+     "dur": 0.25
+    },
+    {
+     "at": 32,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 33.5,
+     "dur": 0.25
+    },
+    {
+     "at": 34.5,
+     "dur": 0.25
+    },
+    {
+     "at": 35.25,
+     "dur": 0.25
+    },
+    {
+     "at": 36.75,
+     "dur": 0.25
+    },
+    {
+     "at": 37.5,
+     "dur": 0.25
+    },
+    {
+     "at": 39.25,
+     "dur": 0.25
+    },
+    {
+     "at": 40,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 40.75,
+     "dur": 0.25
+    },
+    {
+     "at": 41.5,
+     "dur": 0.25
+    },
+    {
+     "at": 42.5,
+     "dur": 0.25
+    },
+    {
+     "at": 43.25,
+     "dur": 0.25
+    },
+    {
+     "at": 44,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 44.75,
+     "dur": 0.25
+    },
+    {
+     "at": 46.5,
+     "dur": 0.25
+    },
+    {
+     "at": 47.25,
+     "dur": 0.25
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 48,
+     "level": 7
+    }
+   ]
+  },
+  {
+   "id": "sd",
+   "instrument": "snare-drum",
+   "events": [
+    {
+     "at": 1,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 3,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 5,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 7,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 9,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 11,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 13,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 15,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 17.5,
+     "dur": 0.25
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 24.5,
+     "dur": 0.25
+    },
+    {
+     "at": 26.5,
+     "dur": 0.25
+    },
+    {
+     "at": 29,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 31,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 35,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 41,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 43,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 48,
+     "level": 7
+    }
+   ]
+  },
+  {
+   "id": "td",
+   "instrument": "tenor-drum",
+   "events": [
+    {
+     "at": 0.5,
+     "dur": 0.25
+    },
+    {
+     "at": 2,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25
+    },
+    {
+     "at": 4.5,
+     "dur": 0.25
+    },
+    {
+     "at": 6,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25
+    },
+    {
+     "at": 8.5,
+     "dur": 0.25
+    },
+    {
+     "at": 10,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 10.5,
+     "dur": 0.25
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25
+    },
+    {
+     "at": 14,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25
+    },
+    {
+     "at": 17.25,
+     "dur": 0.25
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25
+    },
+    {
+     "at": 19.25,
+     "dur": 0.25
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25
+    },
+    {
+     "at": 24.25,
+     "dur": 0.25
+    },
+    {
+     "at": 24.75,
+     "dur": 0.25
+    },
+    {
+     "at": 26.75,
+     "dur": 0.25
+    },
+    {
+     "at": 29,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 29.5,
+     "dur": 0.25
+    },
+    {
+     "at": 31.5,
+     "dur": 0.25
+    },
+    {
+     "at": 32.5,
+     "dur": 0.25
+    },
+    {
+     "at": 34.5,
+     "dur": 0.25
+    },
+    {
+     "at": 36.5,
+     "dur": 0.25
+    },
+    {
+     "at": 42,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 44.5,
+     "dur": 0.25
+    },
+    {
+     "at": 46,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 48,
+     "level": 7
+    }
+   ]
+  },
+  {
+   "id": "bd",
+   "instrument": "bass-drum",
+   "events": [
+    {
+     "at": 0,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 2,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 6,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 8,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 10,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 14,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 17,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 19,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 25,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 27,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 28,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 30,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 32,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 34,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 38,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 40,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 42,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": 44,
+     "dur": 0.25,
+     "articulations": [
+      "accent"
+     ]
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": 48,
+     "level": 7
+    }
+   ]
+  }
+ ]
+}

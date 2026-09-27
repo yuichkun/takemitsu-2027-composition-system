@@ -541,9 +541,15 @@ function drawReadiness(): void {
     manifest.measures.forEach((m, i) => {
       const r = ready[i]!;
       // A measure with a chunk that failed to render shows in the warning colour.
+      // Not rendered: the light track. Rendered: dark, in proportion to how much is.
+      const left = x(m.start);
+      const w = Math.max(1, x(m.end) - left);
+      g.globalAlpha = 1;
+      g.fillStyle = style.getPropertyValue("--rule");
+      g.fillRect(left, 0, w, height);
       g.fillStyle = style.getPropertyValue(r.failed ? "--warn" : "--ready");
-      g.globalAlpha = r.failed ? 0.9 : 0.15 + 0.7 * r.share;
-      g.fillRect(x(m.start), 0, Math.max(1, x(m.end) - x(m.start)), height);
+      g.globalAlpha = r.failed ? 1 : r.share;
+      if (r.failed || r.share > 0) g.fillRect(left, 0, w, height);
     });
     g.globalAlpha = 1;
     g.fillStyle = style.getPropertyValue("--play");

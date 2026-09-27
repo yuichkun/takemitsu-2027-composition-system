@@ -9,7 +9,7 @@ import { writeFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 
 import { repoRoot } from "../render/host.ts";
-import type { Knobs, Stored } from "../sketch/knobs.ts";
+import type { Knobs, Stored, Value } from "../sketch/knobs.ts";
 import { readStored, scoreFileOf, sketchFile, valuesFile } from "../sketch/run.ts";
 
 const runner = join(repoRoot, "src/sketch/run.ts");
@@ -17,7 +17,7 @@ const runner = join(repoRoot, "src/sketch/run.ts");
 export interface SketchState {
   dir: string;
   knobs: Knobs;
-  values: Record<string, number | string>;
+  values: Record<string, Value>;
   presets: Stored["presets"];
   touched: string[];
   /** The last run's error, if it failed (the score before stays). */
@@ -78,7 +78,7 @@ export async function sketchState(dir: string): Promise<SketchState> {
 }
 
 export type SketchChange =
-  | { set: Record<string, number | string> }
+  | { set: Record<string, Value> }
   | { save: string }
   | { load: string }
   | { remove: string }
@@ -94,7 +94,7 @@ export async function changeSketch(dir: string, change: SketchChange): Promise<v
     const name = change.save.trim();
     if (!name) throw new Error("A preset needs a name");
     const { values } = JSON.parse(await run(dir, true)) as {
-      values: Record<string, number | string>;
+      values: Record<string, Value>;
     };
     stored.presets[name] = values;
   } else if ("load" in change) {
@@ -103,7 +103,9 @@ export async function changeSketch(dir: string, change: SketchChange): Promise<v
     stored.values = { ...preset };
     // A preset was chosen by someone: its values that differ from Claude's are no longer provisional.
     const { knobs } = JSON.parse(await run(dir, true)) as { knobs: Knobs };
-    const chosen = Object.keys(knobs).filter((k) => k in preset && preset[k] !== knobs[k]!.value);
+    const chosen = Object.keys(knobs).filter(
+      (k) => k in preset && JSON.stringify(preset[k]) !== JSON.stringify(knobs[k]!.value),
+    );
     stored.touched = [...new Set([...stored.touched, ...chosen])];
   } else if ("remove" in change) delete stored.presets[change.remove];
   else {
