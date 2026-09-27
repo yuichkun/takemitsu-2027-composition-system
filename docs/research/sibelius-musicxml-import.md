@@ -184,8 +184,7 @@ Codex が挙げた出典のうち、手元の Sibelius 同梱文書で原文確�
 ### 2.4 Sibelius 24.3.1 の MusicXML 書き出し方言（逆方向プローブ）`[実測]`
 
 2026-09-06。Sibelius 上で20小節のスコアを手入力し（操作は GPT-6 Astra の computer-use、英語 UI）、
-非圧縮 MusicXML と PDF に書き出した。ファイルは `artifacts/sibelius-probe/`（git 管理外）。
-`sibelius-probe-notes.md` に小節ごとの入力内容がある。
+非圧縮 MusicXML と PDF に書き出した。生のファイル（git 管理外）は 2026-09-27 に削除した。以下の観察が記録のすべて。
 
 **書き出しの外形**
 
@@ -224,8 +223,8 @@ Symbols（矢印臨時記号、Bartók pizz.）・niente・羽根連桁・l.v. �
 ### 2.5 取り込みテスト第1回の結果 `[実測]`
 
 2026-09-06〜07。手作りの MusicXML フィクスチャ21本（git の 3462df4 まで `verification/sibelius-import/fixtures/` にあった）を Sibelius 24.3.1 build 3317（英語 UI、macOS 26.2）で
-File > Open した。操作と記録は GPT-6 Astra。生の記録（300 dpi の PNG、選択時の UI 読み取り、`.sib`、再書き出し MusicXML、
-`observations.md`）は `artifacts/sibelius-import/<fixture>/`（git 管理外）。総括は同ディレクトリの `summary.md`。
+File > Open した。操作と記録は GPT-6 Astra。生の記録（PNG、`.sib`、再書き出し MusicXML、観察メモ。git 管理外）は
+2026-09-27 に削除した。以下の観察が記録のすべて。
 21本すべて開けて、警告ダイアログは1つも出なかった。
 
 **四分音**
