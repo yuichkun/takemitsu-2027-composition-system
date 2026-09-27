@@ -1642,3 +1642,80 @@ button.icon:hover {
   outline: 2px solid var(--play);
   outline-offset: 1px;
 }
+
+/* The menu a control opens at the pointer (knobs/controls.ts). */
+.knob-menu {
+  position: fixed;
+  z-index: 60;
+  min-width: 180px;
+  padding: 4px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+}
+
+.knob-menu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 26px;
+  padding: 0 10px 0 22px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  text-align: left;
+  font-size: 12.5px;
+  color: var(--ink);
+  position: relative;
+}
+
+.knob-menu button:hover:not(:disabled),
+.knob-menu button:focus-visible {
+  background: var(--hover);
+  outline: none;
+}
+
+.knob-menu button:disabled {
+  color: var(--faint);
+  cursor: default;
+}
+
+.knob-menu button.on::before {
+  content: "✓";
+  position: absolute;
+  left: 7px;
+  font-size: 11px;
+}
+
+.menu-heading {
+  padding: 4px 10px 2px;
+  font-size: 11px;
+  color: var(--faint);
+}
+
+.menu-rule {
+  height: 1px;
+  margin: 4px 6px;
+  background: var(--rule);
+}
+
+/* The key to coloured notes, under the messages. */
+#messages .key {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 4px;
+  color: var(--muted);
+}
+
+#messages .key span::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background: var(--dot);
+}

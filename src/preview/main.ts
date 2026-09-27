@@ -89,8 +89,13 @@ function showMessages(): void {
     ...manifestWarnings,
   ];
   messages.hidden = lines.length === 0;
+  // Out-of-range notes are coloured in the score (notation-thread.ts): say what the colours mean.
+  const ranges = lines.some((l) => / is outside (its range|.*'s sampled range)/.test(l));
+  const key = ranges
+    ? `<div class="key"><span style="--dot: #E5484D">red notes: outside the instrument's range</span><span style="--dot: #D97706">amber: no BBC SO samples there</span></div>`
+    : "";
   messages.innerHTML = lines.length
-    ? `<ul>${lines.map((l) => `<li>${escapeHtml(l)}</li>`).join("")}</ul>`
+    ? `${key}<ul>${lines.map((l) => `<li>${escapeHtml(l)}</li>`).join("")}</ul>`
     : "";
 }
 

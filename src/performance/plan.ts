@@ -256,6 +256,20 @@ export function plan(score: NormalScore): Plan {
   return { lanes, measures, duration, warnings: [...new Set(warnings)] };
 }
 
+/**
+ * The keys a pitched part's BBC SO patch has samples for (the solo or the section patch, as the
+ * part is played), or none if it is not played by BBC SO. The preview marks notes outside it.
+ */
+export function sampledRange(part: NormalPart): [number, number] | undefined {
+  const map = bbcsoMap[part.instrument.id];
+  if (!map || map.kind !== "pitched") return undefined;
+  const instrument = map.section && (part.players > 1 || !map.solo) ? map.section.name : map.solo!;
+  return (
+    inventory[instrument]?.["Long"]?.range ??
+    Object.values(inventory[instrument] ?? {}).find(Boolean)?.range
+  );
+}
+
 function pitchedLanes(
   part: NormalPart,
   map: PitchedMap,

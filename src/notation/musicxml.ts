@@ -138,7 +138,15 @@ interface NoteMarks {
   cutTieOut: boolean;
   /** Octaves an octave line draws the note lower (8va 1, 8vb −1). */
   lowered: number;
+  /** A colour for the whole note (preview only: see NoteFlag). */
+  color?: string;
 }
+
+/**
+ * A colour for a note the preview should point out (a pitch out of range, say), or none.
+ * Only strip documents use it: what goes to Sibelius is never coloured.
+ */
+export type NoteFlag = (part: NormalPart, midi: number) => string | undefined;
 
 function noteXml(
   piece: Piece,
@@ -155,7 +163,8 @@ function noteXml(
   const n = piece.note;
   const tieStop = piece.tieFromPrevious && !marks.cutTieIn;
   const tieStart = piece.tieToNext && !marks.cutTieOut;
-  const out: string[] = [marks.id ? `<note id="${marks.id}">` : "<note>"];
+  const attrs = `${marks.id ? ` id="${marks.id}"` : ""}${marks.color ? ` color="${marks.color}"` : ""}`;
+  const out: string[] = [`<note${attrs}>`];
   if (chord) out.push("<chord/>");
   if (!n) {
     out.push(piece.measureRest ? '<rest measure="yes"/>' : "<rest/>");
@@ -403,6 +412,7 @@ function partXml(
   seam?: Seam,
   /** Staves of the parts before this one, to number staves in the whole score. */
   staffOffset = 0,
+  flag?: NoteFlag,
 ): string {
   const strip = seam !== undefined;
   const inst = part.instrument;
@@ -685,6 +695,7 @@ function partXml(
               cutTieIn,
               cutTieOut,
               lowered: down,
+              color: p && flag ? flag(part, p.midi) : undefined,
             }),
           );
         });
@@ -741,11 +752,13 @@ export function musicXmlOf(
   span: Span = { first: 0, last: score.measures.length - 1 },
   /** Write a strip document (see stripMeasures) and collect what crosses its barlines here. */
   seam?: Seam,
+  /** Colours for notes to point out (strip documents only). */
+  flag?: NoteFlag,
 ): NotationResult {
   const warnings = [...score.warnings];
   let offset = 0;
   const parts = score.parts.map((p, i) => {
-    const xml = partXml(p, i, score, warnings, span, seam, offset);
+    const xml = partXml(p, i, score, warnings, span, seam, offset, seam ? flag : undefined);
     offset += p.instrument.clefs.length;
     return xml;
   });
@@ -783,7 +796,11 @@ export interface StripMeasure {
  * - What crosses a barline is listed in its Seam instead: ties and slurs, octave lines (closed
  *   here, but marked as coming in or running on), and hairpins (how open they are at the cut).
  */
-export function stripMeasures(score: NormalScore): {
+export function stripMeasures(
+  score: NormalScore,
+  /** Notes to colour in the preview (see NoteFlag). */
+  flag?: NoteFlag,
+): {
   measures: StripMeasure[];
   /** Left margins: one for each set of clefs in force somewhere in the score. */
   margins: string[];
@@ -794,7 +811,7 @@ export function stripMeasures(score: NormalScore): {
   const marginOf = new Map<string, number>();
   const measures = score.measures.map((m, i) => {
     const seam = emptySeam(m.beats + 1);
-    const { musicxml, warnings: w } = musicXmlOf(score, { first: i, last: i }, seam);
+    const { musicxml, warnings: w } = musicXmlOf(score, { first: i, last: i }, seam, flag);
     for (const x of w) warnings.add(x);
     const clefs = JSON.stringify(clefsAt(score, i));
     if (!marginOf.has(clefs)) {

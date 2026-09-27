@@ -6,7 +6,8 @@
 
 import { parentPort } from "node:worker_threads";
 
-import { stripMeasures } from "../notation/musicxml.ts";
+import { stripMeasures, type NoteFlag } from "../notation/musicxml.ts";
+import { sampledRange } from "../performance/plan.ts";
 import { normalize } from "../score/normalize.ts";
 import { secondsAt, type TempoSegment } from "../score/timeline.ts";
 import type { Score } from "../score/types.ts";
@@ -46,9 +47,25 @@ export type NotationAnswer = { id: number } & (
   | { error: string }
 );
 
+/** Colours for notes out of range: the same red as the playhead, and amber (--play, --prov). */
+export const outOfRange = { instrument: "#E5484D", samples: "#D97706" };
+
+/**
+ * Notes out of range, coloured: red when the instrument cannot play them (the catalog's range),
+ * amber when it can but BBC SO has no samples there (the note plays silent or wrong).
+ */
+const rangeFlag: NoteFlag = (part, midi) => {
+  const r = part.instrument.range;
+  if (r && (midi < r[0] || midi > r[1])) return outOfRange.instrument;
+  const s = sampledRange(part);
+  const key = Math.floor(midi);
+  if (s && (key < s[0] || key > s[1])) return outOfRange.samples;
+  return undefined;
+};
+
 function notation(text: string): { view: NotationView; strip: StripDocs } {
   const score = normalize(JSON.parse(text) as Score);
-  const { measures, margins, warnings } = stripMeasures(score);
+  const { measures, margins, warnings } = stripMeasures(score, rangeFlag);
   const rehearsal = new Map(score.rehearsal.map((r) => [r.measure, r.label]));
   const view: NotationView = {
     title: score.title,
