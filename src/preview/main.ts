@@ -2,11 +2,12 @@
 // (src/preview/player.ts).
 //
 // There is no render step to start: the server renders every open score in the background and
-// again after each save, nearest the playhead first. The page follows its progress, plays what
-// is ready, and tells the server where the playhead is.
+// again after each save, nearest the playhead first. The page is told when something is newer and
+// fetches the whole of it (docs/decisions/0019): a version's chunk list and which chunks are
+// rendered, and the notation. It plays what is complete and tells the server where the playhead is.
 
 import { compressorParams } from "../audio/dynamics.ts";
-import { Player, type Manifest, type MixerSettings } from "./player.ts";
+import { Player, type Manifest, type MixerSettings, type Status } from "./player.ts";
 import { ScoreView, type MeasureTime, type WindowInfo } from "./score-view.ts";
 
 interface ScoreEntry {
@@ -67,22 +68,31 @@ player.fetchSegments = async (segments) => {
   return out;
 };
 
-let current: { path: string; data: ScoreData; manifest?: Manifest } | undefined;
+let current: { path: string; data?: ScoreData; manifest?: Manifest } | undefined;
 let manifestWarnings: string[] = [];
+/** Problems beyond single chunks (states not loaded, the store over its limit). */
+let notices: string[] = [];
+/** The last save could not be read or planned (the version before plays on). */
+let audioError: string | undefined;
 let progress: Progress = { done: 0, total: 0, failed: 0 };
 
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 
 function showMessages(): void {
-  const lines = [...(current?.data.warnings ?? []), ...manifestWarnings];
+  const lines = [
+    ...(audioError ? [`保存した楽譜を読めなかった（前の版のまま）: ${audioError}`] : []),
+    ...notices,
+    ...(current?.data?.warnings ?? []),
+    ...manifestWarnings,
+  ];
   messages.hidden = lines.length === 0;
   messages.innerHTML = lines.length
     ? `<ul>${lines.map((l) => `<li>${escapeHtml(l)}</li>`).join("")}</ul>`
     : "";
 }
 
-const pieceEnd = () => current?.data.measures.at(-1)?.endSeconds ?? 0;
+const pieceEnd = () => current?.data?.measures.at(-1)?.endSeconds ?? 0;
 
 //==============================================================================
 // Score list, drawing and the chunk list
@@ -110,60 +120,106 @@ async function loadList(): Promise<void> {
   if (list.length === 0) scoresNav.textContent = "楽譜がない";
 }
 
-async function loadManifest(path: string): Promise<void> {
-  const res = await fetch(`/api/manifest?path=${encodeURIComponent(path)}`);
-  const data = (await res.json()) as Manifest & {
-    progress: Progress;
-    warnings: string[];
-    error?: string;
-  };
-  if (!res.ok || data.error || current?.path !== path) return;
-  current.manifest = data;
-  manifestWarnings = data.warnings;
-  progress = data.progress;
-  player.setManifest(data);
-  showMessages();
-  showProgress();
-  drawReadiness();
-  updateStripAvailability();
+let audioFetch: Promise<void> | undefined;
+let audioAgain = false;
+
+/**
+ * Fetches the newest status and, when it is for a newer version, that version's chunk list: both
+ * whole, never as changes. One fetch at a time; news meanwhile makes it fetch once more.
+ */
+function refreshAudio(): void {
+  if (audioFetch) {
+    audioAgain = true;
+    return;
+  }
+  audioFetch = (async () => {
+    do {
+      audioAgain = false;
+      const path = current?.path;
+      if (!path) return;
+      const res = await fetch(`/api/status?path=${encodeURIComponent(path)}`);
+      const status = (await res.json()) as Status &
+        Progress & { notices: string[]; error?: string };
+      if (current?.path !== path) continue;
+      audioError = status.error;
+      if (!res.ok) {
+        showMessages();
+        continue;
+      }
+      if (status.version !== player.version) {
+        const r = await fetch(`/api/manifest?path=${encodeURIComponent(path)}`);
+        const manifest = (await r.json()) as Manifest & { warnings: string[] };
+        if (current?.path !== path || !r.ok) continue;
+        if (manifest.version !== status.version) {
+          // Another version came meanwhile: fetch its status too.
+          audioAgain = true;
+          continue;
+        }
+        current.manifest = manifest;
+        manifestWarnings = manifest.warnings;
+        player.setManifest(manifest, status);
+      } else player.setStatus(status);
+      progress = status;
+      notices = status.notices;
+      showMessages();
+      showProgress();
+      drawReadiness();
+      updateStripAvailability();
+    } while (audioAgain);
+  })().finally(() => {
+    audioFetch = undefined;
+  });
 }
 
-async function open(path: string): Promise<void> {
-  statusEl.textContent = "読み込み中";
+let mixerOf: string | undefined;
+
+/** Fetches the notation (and the parts and measures) and draws what changed. */
+async function loadScore(path: string): Promise<void> {
   const res = await fetch(`/api/score?path=${encodeURIComponent(path)}`);
   const data = (await res.json()) as ScoreData & { error?: string };
+  if (current?.path !== path) return;
   if (!res.ok || data.error) {
     messages.hidden = false;
     messages.textContent = `読み込めなかった: ${data.error ?? res.statusText}`;
     return;
   }
-  const changed = current?.path !== path;
-  current = { path, data };
-  for (const b of scoresNav.querySelectorAll("button"))
-    b.setAttribute("aria-current", String(b.dataset.path === path));
+  const partsBefore = current.data?.parts.map((p) => p.id).join("|");
+  current.data = data;
   titleEl.textContent = data.title;
-  if (changed) {
-    manifestWarnings = [];
-    player.pause();
-    player.seek(0);
+  const ids = data.parts.map((p) => p.id);
+  if (mixerOf !== path) {
+    mixerOf = path;
     const settings = (await (
       await fetch(`/api/mixer?path=${encodeURIComponent(path)}`)
     ).json()) as MixerSettings;
-    player.setParts(
-      data.parts.map((p) => p.id),
-      settings,
-    );
-  } else {
-    player.setParts(
-      data.parts.map((p) => p.id),
-      player.settings(),
-    );
+    if (current?.path !== path) return;
+    player.setParts(ids, settings);
+    buildStrips();
+  } else if (partsBefore !== ids.join("|")) {
+    // Only when the parts changed: new channels stop what sounds.
+    player.setParts(ids, player.settings());
+    buildStrips();
   }
-  buildStrips();
   showMessages();
   view.draw(data.windows, data.measures);
   view.setCursor(player.position);
-  await loadManifest(path);
+}
+
+async function open(path: string): Promise<void> {
+  if (current?.path !== path) {
+    current = { path };
+    manifestWarnings = [];
+    notices = [];
+    audioError = undefined;
+    progress = { done: 0, total: 0, failed: 0 };
+    player.pause();
+    player.seek(0);
+    for (const b of scoresNav.querySelectorAll("button"))
+      b.setAttribute("aria-current", String(b.dataset.path === path));
+  }
+  statusEl.textContent = "読み込み中";
+  refreshAudio();
+  await loadScore(path);
   sendPlayhead(true);
 }
 
@@ -202,7 +258,7 @@ function togglePlay(): void {
 
 function stepMeasure(delta: number): void {
   if (!current) return;
-  const measures = current.data.measures;
+  const measures = current.data?.measures ?? [];
   const cursor = player.position;
   const here = view.measureAt(cursor);
   const m = measures.find((x) => x.number === here)!;
@@ -242,7 +298,8 @@ $("help").addEventListener("click", () => keysDialog.showModal());
 
 function showProgress(): void {
   const { done, total, failed } = progress;
-  if (!current || total === 0) statusEl.textContent = "";
+  if (player.isWaiting) statusEl.textContent = "この先がそろうのを待っている";
+  else if (!current || total === 0) statusEl.textContent = "";
   else if (done + failed >= total)
     statusEl.textContent = failed ? `レンダ失敗 ${failed} か所` : "全体を鳴らせる";
   else statusEl.textContent = `裏でレンダ中 ${Math.floor((100 * done) / total)}%`;
@@ -267,8 +324,10 @@ function drawReadiness(): void {
     const ready = player.readiness(manifest.measures);
     const x = (s: number) => (s / manifest.duration) * width;
     manifest.measures.forEach((m, i) => {
-      g.fillStyle = style.getPropertyValue("--accent");
-      g.globalAlpha = 0.15 + 0.7 * ready[i]!;
+      const r = ready[i]!;
+      // A measure with a chunk that failed to render shows in the warning colour.
+      g.fillStyle = style.getPropertyValue(r.failed ? "--warn" : "--accent");
+      g.globalAlpha = r.failed ? 0.9 : 0.15 + 0.7 * r.share;
       g.fillRect(x(m.start), 2, Math.max(1, x(m.end) - x(m.start)), 6);
     });
     g.globalAlpha = 1;
@@ -285,26 +344,20 @@ readinessEl.addEventListener("click", (e) => {
 });
 
 const events = new EventSource("/api/events");
-events.addEventListener("chunks", (e) => {
-  const data = JSON.parse((e as MessageEvent<string>).data) as {
-    path: string;
-    version: number;
-    ready: [string, number][];
-  };
-  if (data.path !== current?.path) return;
-  player.ready(data.ready);
-  drawReadiness();
-});
-events.addEventListener("progress", (e) => {
-  const data = JSON.parse((e as MessageEvent<string>).data) as Progress & { path: string };
-  if (data.path !== current?.path) return;
-  progress = data;
-  showProgress();
-});
-events.addEventListener("changed", (e) => {
+events.addEventListener("status", (e) => {
   const { path } = JSON.parse((e as MessageEvent<string>).data) as { path: string };
-  void loadList();
-  if (path === current?.path) void open(path);
+  if (path === current?.path) refreshAudio();
+});
+events.addEventListener("score", (e) => {
+  const { path } = JSON.parse((e as MessageEvent<string>).data) as { path: string };
+  if (path === current?.path) void loadScore(path);
+});
+events.addEventListener("list", () => void loadList());
+// After a lost connection, anything may have changed: fetch it all again.
+events.addEventListener("open", () => {
+  if (!current) return;
+  refreshAudio();
+  void loadScore(current.path);
 });
 
 //==============================================================================
@@ -394,7 +447,7 @@ function strip(id: string | undefined, name: string): HTMLElement {
     });
     solo.addEventListener("click", (e) => {
       if (e.altKey)
-        for (const p of current?.data.parts ?? []) player.set(p.id, { solo: p.id === id });
+        for (const p of current?.data?.parts ?? []) player.set(p.id, { solo: p.id === id });
       else player.set(id, { solo: !player.channel(id)!.solo });
       for (const s of strips.querySelectorAll<HTMLElement>(".strip"))
         s.dispatchEvent(new Event("sync"));
@@ -409,7 +462,7 @@ function strip(id: string | undefined, name: string): HTMLElement {
 
 function buildStrips(): void {
   strips.innerHTML = "";
-  for (const p of current?.data.parts ?? []) strips.append(strip(p.id, p.name));
+  for (const p of current?.data?.parts ?? []) strips.append(strip(p.id, p.name));
   strips.append(strip(undefined, "Master"));
   updateStripAvailability();
 }
@@ -424,7 +477,7 @@ function updateStripAvailability(): void {
 }
 
 $("mixer-reset").addEventListener("click", () => {
-  for (const p of current?.data.parts ?? [])
+  for (const p of current?.data?.parts ?? [])
     player.set(p.id, { db: 0, mute: false, solo: false, comp: 0 });
   player.setMaster(0);
   buildStrips();
@@ -459,7 +512,10 @@ setInterval(() => {
     view.highlight(undefined);
   }
   timeEl.textContent = `${clock(cursor)} / ${clock(pieceEnd())}`;
-  if (++ticks % 10 === 0) drawReadiness();
+  if (++ticks % 10 === 0) {
+    drawReadiness();
+    showProgress();
+  }
 
   for (const s of strips.querySelectorAll<HTMLElement>(".strip")) {
     const id = s.dataset.id || undefined;

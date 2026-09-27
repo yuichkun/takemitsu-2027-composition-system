@@ -8,6 +8,24 @@ import { join } from "node:path";
 
 export const pluginPath = "/Library/Audio/Plug-Ins/VST3/BBC Symphony Orchestra.vst3";
 
+/** Folders under the library's Patches/ that patches are read from: 1.5.0, and 1.7.0 for Discover Piano. */
+export const patchFolders = { main: "v1.5.0", discoverPiano: "v1.7.0" };
+
+let version: string | undefined;
+/** The plugin's build (its bundle's short version, e.g. "1.12.14-95f7150"); rendered sound depends on it. */
+export function pluginVersion(): string {
+  if (version) return version;
+  try {
+    const plist = readFileSync(join(pluginPath, "Contents/Info.plist"), "utf8");
+    version =
+      /<key>CFBundleShortVersionString<\/key>\s*<string>([^<]*)<\/string>/.exec(plist)?.[1] ??
+      "unknown";
+  } catch {
+    version = "unknown";
+  }
+  return version;
+}
+
 /** Library root from Spitfire's settings (~/Music/Spitfire Audio/Settings/Spitfire.properties). */
 export function libraryRoot(): string {
   const settings = join(homedir(), "Music/Spitfire Audio/Settings/Spitfire.properties");
@@ -30,7 +48,7 @@ export interface Patch {
 }
 
 export function installedPatches(root = libraryRoot()): Patch[] {
-  const dir = join(root, "Patches/v1.5.0");
+  const dir = join(root, "Patches", patchFolders.main);
   if (!existsSync(dir)) throw new Error(`No patches at ${dir}`);
   return readdirSync(dir)
     .filter((f) => f.startsWith("BBCSO_") && f.endsWith(".zmulti"))
@@ -54,7 +72,12 @@ export function installedPatches(root = libraryRoot()): Patch[] {
  * and it needs product mode 10 and its own mic ("pmix1"); see pluginSettings.
  */
 function discoverPiano(root: string): Patch[] {
-  const file = join(root, "Patches/v1.7.0/Discover Piano/BBCSO_Discover_Piano_Piano.zmulti");
+  const file = join(
+    root,
+    "Patches",
+    patchFolders.discoverPiano,
+    "Discover Piano/BBCSO_Discover_Piano_Piano.zmulti",
+  );
   return existsSync(file)
     ? [{ name: "Piano", instrument: "Discover Piano", articulation: "Piano" }]
     : [];

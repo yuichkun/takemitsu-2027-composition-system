@@ -19,13 +19,15 @@ if (!file) throw new Error("usage: tools/render.ts <score.json> [--stems]");
 
 const score = normalize(JSON.parse(await readFile(file, "utf8")) as Score);
 const engine = new Engine();
-engine.onProgress = (_path, p) =>
+engine.onStatus = (path) => {
+  const p = engine.progress(path);
   process.stdout.write(
     `\rRendering ${p.done}/${p.total} chunks${p.failed ? `, ${p.failed} failed` : ""}   `,
   );
+};
 const manifest = await engine.open(file, score);
 const progress = await engine.whenDone(file);
-engine.pool.stop();
+engine.stop();
 if (progress.failed) console.log(`\n${progress.failed} chunk(s) failed`);
 
 const name = basename(file).replace(/\.json$/, "");

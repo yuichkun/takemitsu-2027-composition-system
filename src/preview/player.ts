@@ -2,14 +2,31 @@
 // solo, meter) and a master with a limiter. Every channel goes through a compressor, even at 0,
 // so the compressor's look-ahead delays all channels alike.
 //
-// The player gets the score's whole list of chunks (the manifest) each time the score changes.
-// It streams each part as consecutive 2-second segments, mixed by the server from that part's
-// rendered chunks (src/performance/segments.ts), and keeps only the few segments around the
-// playhead. A segment is named by exactly what it mixes (which chunks, where, at what gain),
-// so when a chunk becomes ready or the score changes, the segments that differ get new names
-// and are fetched again; the rest stay. A chunk that is not rendered yet is silent.
+// The player holds the score's list of chunk places (the manifest, one per version) and their
+// status (which are rendered), each replaced whole whenever the server has a newer one
+// (docs/decisions/0019). It streams each part as consecutive 2-second segments, mixed by the
+// server from that part's rendered chunks (src/performance/segments.ts), and keeps only the few
+// segments around the playhead. A segment is named by exactly what it mixes (which chunks, where,
+// at what gain), so a new version changes the names of the segments that differ only.
+//
+// Rules:
+// - Nothing incomplete is played. A segment is complete when every chunk that may sound in it is
+//   rendered (or failed, which plays as a hole); a chunk not rendered yet may sound for its notes
+//   plus the longest tail. All parts go on together: if the next segment of any part is not
+//   complete and here, playback waits at the segment boundary.
+// - Playback starts, and resumes after waiting, once the next 3 seconds are complete.
+// - The player always plays the newest version: a new version takes over at the next segment
+//   boundary. If the version moves the time of the playhead's measure (a tempo change or a
+//   measure inserted before it), the playhead keeps its measure and its place in it.
 
 import { compressorParams, limiterParams, type CompressorParams } from "../audio/dynamics.ts";
+import {
+  placeReach,
+  segmentContents,
+  segmentSeconds,
+  type Contribution,
+  type Place,
+} from "./segment-contents.ts";
 
 export interface ChannelState {
   db: number;
@@ -24,8 +41,8 @@ export interface MixerSettings {
   parts?: Record<string, ChannelState>;
 }
 
-/** [key, part index, origin (s), gain, stored frames or -1 while not rendered] */
-export type ManifestChunk = [string, number, number, number, number];
+/** [key, part index, origin (s), gain, frames of its notes, frames of tail at most] */
+export type ManifestChunk = [string, number, number, number, number, number];
 
 export interface Manifest {
   version: number;
@@ -35,8 +52,14 @@ export interface Manifest {
   chunks: ManifestChunk[];
 }
 
-/** [chunk key, the chunk's frame 0 relative to the segment's start, gain] */
-export type Contribution = [string, number, number];
+export interface Status {
+  version: number;
+  serial: number;
+  /** Per chunk place: frames stored, -1 while not rendered, -2 when failed. */
+  frames: number[];
+}
+
+export type { Contribution };
 
 export interface SegmentRequest {
   id: string;
@@ -51,13 +74,8 @@ interface Channel extends ChannelState {
   analyser: AnalyserNode;
 }
 
-interface Entry {
-  key: string;
+interface Entry extends Place {
   part: string;
-  origin: number;
-  gain: number;
-  /** Stored frames; undefined while not rendered. */
-  frames?: number;
 }
 
 interface Wanted extends SegmentRequest {
@@ -66,12 +84,13 @@ interface Wanted extends SegmentRequest {
 }
 
 const sampleRate = 48000;
-/** Segment length in seconds; segment i covers [i·S, (i+1)·S) of the piece. */
-const segmentSeconds = 2;
+/** Segment i covers [i·S, (i+1)·S) of the piece (S = segmentSeconds). */
 const segmentFrames = segmentSeconds * sampleRate;
 /** Segments fetched ahead of the playhead, and scheduled ahead on the audio clock. */
 const fetchAhead = 3;
 const scheduleAhead = 1;
+/** Seconds that must be complete before playback starts or resumes. */
+const startMargin = 3;
 
 function setCompressor(node: DynamicsCompressorNode, p: CompressorParams, ctx: AudioContext): void {
   const t = ctx.currentTime;
@@ -114,6 +133,21 @@ function nameOf(part: string, index: number, contributions: Contribution[]): str
   return `${part}|${index}|${(h >>> 0).toString(36)}|${contributions.length}`;
 }
 
+/** Where `seconds` falls in `from` (measure, fraction), placed in `to`; undefined if unchanged. */
+function carry(
+  seconds: number,
+  from: { start: number; end: number }[],
+  to: { start: number; end: number }[],
+): number | undefined {
+  const m = from.findIndex((x) => seconds < x.end);
+  if (m < 0 || !to[m]) return undefined;
+  const a = from[m]!;
+  const b = to[m]!;
+  if (Math.abs(a.start - b.start) < 1e-6 && Math.abs(a.end - b.end) < 1e-6) return undefined;
+  const f = a.end > a.start ? (seconds - a.start) / (a.end - a.start) : 0;
+  return b.start + f * (b.end - b.start);
+}
+
 export class Player {
   readonly ctx = new AudioContext({ sampleRate });
   readonly masterGain = this.ctx.createGain();
@@ -126,19 +160,27 @@ export class Player {
   fetchSegments?: (requests: SegmentRequest[]) => Promise<Map<string, Uint8Array>>;
 
   private channels = new Map<string, Channel>();
-  /** Chunks per part, sorted by origin, and the longest chunk per part (seconds). */
-  private byPart = new Map<string, Entry[]>();
-  private longest = new Map<string, number>();
-  private byKey = new Map<string, Entry>();
+  private manifest?: Manifest;
+  /** In manifest order (status arrays index them), and per part by origin. */
   private entries: Entry[] = [];
+  private sorted: Entry[] = [];
+  private byPart = new Map<string, Entry[]>();
+  /** Longest a chunk of each part may reach (seconds), for finding the ones in a segment. */
+  private reach = new Map<string, number>();
   /** Decoded segments by name (null: silent). */
   private segments = new Map<string, AudioBuffer | null>();
   private fetching = new Set<string>();
   /** What is scheduled per part and segment index ("part|index"). */
-  private scheduled = new Map<string, { name: string; source?: AudioBufferSourceNode }>();
+  private scheduled = new Map<
+    string,
+    { name: string; index: number; source?: AudioBufferSourceNode }
+  >();
   private startedAt = 0;
   private offset = 0;
+  /** Playing as far as the user is concerned (it may be waiting for audio). */
   private running = false;
+  /** Holding at `offset` until the next seconds are complete. */
+  private waiting = false;
 
   constructor() {
     setCompressor(this.limiter, limiterParams, this.ctx);
@@ -175,7 +217,7 @@ export class Player {
     this.channels = next;
     this.masterDb = settings.master ?? this.masterDb;
     // Sounding segments were connected to the old channels.
-    if (this.running) this.restart();
+    if (this.running) this.hold(this.position);
     this.apply();
   }
 
@@ -194,82 +236,109 @@ export class Player {
     return (this.byPart.get(id)?.length ?? 0) > 0;
   }
 
-  /** Takes a new list of chunks. Segments that mix the same things as before are kept. */
-  setManifest(manifest: Manifest): void {
+  get version(): number | undefined {
+    return this.manifest?.version;
+  }
+
+  /**
+   * Takes a version's list of chunk places, with its status. If the version moves the
+   * playhead's measure in time, the playhead goes with the measure.
+   */
+  setManifest(manifest: Manifest, status?: Status): void {
+    const before = this.manifest;
+    const moved = before ? carry(this.position, before.measures, manifest.measures) : undefined;
+    this.manifest = manifest;
     this.duration = manifest.duration;
-    this.entries = manifest.chunks
-      .map(([key, part, origin, gain, frames]) => ({
-        key,
-        part: manifest.parts[part]!,
-        origin,
-        gain,
-        frames: frames >= 0 ? frames : undefined,
-      }))
-      .sort((a, b) => a.origin - b.origin);
-    this.byKey = new Map(this.entries.map((e) => [e.key, e]));
+    this.entries = manifest.chunks.map(([key, part, origin, gain, noteFrames, tailMax]) => ({
+      key,
+      part: manifest.parts[part]!,
+      origin,
+      gain,
+      noteFrames,
+      tailMax,
+      failed: false,
+    }));
     this.byPart = new Map();
-    this.longest = new Map();
-    for (const e of this.entries) {
+    this.reach = new Map();
+    this.sorted = [...this.entries].sort((a, b) => a.origin - b.origin);
+    for (const e of this.sorted) {
       const list = this.byPart.get(e.part) ?? [];
       list.push(e);
       this.byPart.set(e.part, list);
-      this.longest.set(
-        e.part,
-        Math.max(this.longest.get(e.part) ?? 0, (e.frames ?? 0) / sampleRate),
-      );
+      this.reach.set(e.part, Math.max(this.reach.get(e.part) ?? 0, placeReach(e)));
     }
+    if (status) this.applyStatus(status);
+    if (moved !== undefined) {
+      if (this.running) this.hold(moved);
+      else this.offset = moved;
+    } else this.dropUnstarted();
     this.tick();
   }
 
-  /** Chunks that finished rendering. */
-  ready(chunks: [string, number][]): void {
-    for (const [key, frames] of chunks) {
-      const e = this.byKey.get(key);
-      if (!e) continue;
-      e.frames = frames;
-      this.longest.set(e.part, Math.max(this.longest.get(e.part) ?? 0, frames / sampleRate));
-    }
-    this.tick();
+  /** Takes the status of the current version (ignored for another version). */
+  setStatus(status: Status): void {
+    if (this.applyStatus(status)) this.tick();
   }
 
-  /** How much of the piece is rendered: per measure, the share of its chunks that are ready. */
-  readiness(measures: { start: number; end: number }[]): number[] {
-    // One sweep: entries and measures are both in time order.
-    const all = Array.from({ length: measures.length }, () => 0);
-    const done = Array.from({ length: measures.length }, () => 0);
+  private applyStatus(status: Status): boolean {
+    if (status.version !== this.manifest?.version) return false;
+    status.frames.forEach((f, i) => {
+      const e = this.entries[i];
+      if (!e) return;
+      e.frames = f >= 0 ? f : undefined;
+      e.failed = f === -2;
+    });
+    return true;
+  }
+
+  /** Per measure: the share of its chunks that are rendered, and whether any failed. */
+  readiness(measures: { start: number; end: number }[]): { share: number; failed: boolean }[] {
+    const all = measures.map(() => 0);
+    const done = measures.map(() => 0);
+    const failed = measures.map(() => false);
     let m = 0;
-    for (const e of this.entries) {
+    for (const e of this.sorted) {
       const onset = e.origin + 0.06;
       while (m < measures.length - 1 && onset >= measures[m]!.end) m++;
       all[m]!++;
-      if (e.frames !== undefined) done[m]!++;
+      if (e.frames !== undefined || e.failed) done[m]!++;
+      if (e.failed) failed[m] = true;
     }
-    return all.map((n, i) => (n ? done[i]! / n : 1));
+    return all.map((n, i) => ({ share: n ? done[i]! / n : 1, failed: failed[i]! }));
   }
 
-  /** What segment `index` of a part mixes: its rendered chunks sounding in it. */
-  private contributions(part: string, index: number): Contribution[] {
+  /** What segment `index` of a part mixes, and whether all of it is known yet. */
+  private contents(part: string, index: number): { complete: boolean; mix: Contribution[] } {
     const list = this.byPart.get(part);
-    if (!list) return [];
-    const start = index * segmentSeconds;
-    const end = start + segmentSeconds;
-    const earliest = start - (this.longest.get(part) ?? 0) - 1;
-    let lo = 0;
-    let hi = list.length;
-    while (lo < hi) {
-      const mid = (lo + hi) >> 1;
-      if (list[mid]!.origin < earliest) lo = mid + 1;
-      else hi = mid;
+    if (!list) return { complete: true, mix: [] };
+    return segmentContents(list, this.reach.get(part) ?? 0, index);
+  }
+
+  /** Segments of indices [from, to]: the complete ones with anything in them, and whether all are complete. */
+  private wanted(from: number, to: number): { wanted: Wanted[]; complete: boolean[] } {
+    const wanted: Wanted[] = [];
+    const complete: boolean[] = [];
+    for (let index = Math.max(-1, from); index <= to; index++) {
+      let all = true;
+      for (const part of this.byPart.keys()) {
+        const { complete: done, mix } = this.contents(part, index);
+        if (!done) {
+          all = false;
+          continue;
+        }
+        if (!mix.length) continue;
+        const id = nameOf(part, index, mix);
+        wanted.push({ id, part, index, frames: segmentFrames, contributions: mix });
+      }
+      complete[index - from] = all;
     }
-    const out: Contribution[] = [];
-    for (let i = lo; i < list.length && list[i]!.origin < end; i++) {
-      const e = list[i]!;
-      if (!e.frames) continue;
-      const offset = Math.round((e.origin - start) * sampleRate);
-      if (offset + e.frames <= 0) continue;
-      out.push([e.key, offset, e.gain]);
-    }
-    return out;
+    return { wanted, complete };
+  }
+
+  /** Whether segments [from, to] are complete and fetched, for every part. */
+  private ready(from: number, to: number): boolean {
+    const { wanted, complete } = this.wanted(from, to);
+    return complete.every(Boolean) && wanted.every((w) => this.segments.has(w.id));
   }
 
   private effectiveGains(): Record<string, number> {
@@ -309,25 +378,17 @@ export class Player {
     return this.running;
   }
 
-  /** Playhead in seconds from the start of the piece. */
-  get position(): number {
-    // Sources start slightly after play() is called; hold the offset until then.
-    return this.running
-      ? this.offset + Math.max(0, this.ctx.currentTime - this.startedAt)
-      : this.offset;
+  /** Playing but held until the next seconds are complete. */
+  get isWaiting(): boolean {
+    return this.running && this.waiting;
   }
 
-  /** The segments with anything in them, for indices [from, to]. */
-  private wanted(from: number, to: number): Wanted[] {
-    const out: Wanted[] = [];
-    for (let index = Math.max(-1, from); index <= to; index++)
-      for (const part of this.byPart.keys()) {
-        const contributions = this.contributions(part, index);
-        if (!contributions.length) continue;
-        const id = nameOf(part, index, contributions);
-        out.push({ id, part, index, frames: segmentFrames, contributions });
-      }
-    return out;
+  /** Playhead in seconds from the start of the piece. */
+  get position(): number {
+    // Sources start slightly after playback (re)starts; hold the offset until then.
+    return this.running && !this.waiting
+      ? this.offset + Math.max(0, this.ctx.currentTime - this.startedAt)
+      : this.offset;
   }
 
   /** Fetches segments not here yet. */
@@ -353,17 +414,8 @@ export class Player {
 
   async play(from = this.position): Promise<void> {
     await this.ctx.resume();
-    this.stopSources();
-    this.offset = Math.max(0, Math.min(from, this.duration));
-    // Have the first moments here before starting, so the start is not ragged.
-    const first = Math.floor(this.offset / segmentSeconds);
-    await Promise.race([
-      this.load(this.wanted(first, first)),
-      new Promise((r) => setTimeout(r, 1500)),
-    ]);
-    this.startedAt = this.ctx.currentTime + 0.05;
     this.running = true;
-    this.tick();
+    this.hold(from);
     this.onChange?.();
   }
 
@@ -371,24 +423,26 @@ export class Player {
     const at = this.position;
     this.stopSources();
     this.running = false;
+    this.waiting = false;
     this.offset = at;
     this.onChange?.();
   }
 
   seek(seconds: number): void {
-    if (this.running) void this.play(seconds);
+    const at = Math.max(0, Math.min(seconds, this.duration));
+    if (this.running) this.hold(at);
     else {
-      this.offset = Math.max(0, Math.min(seconds, this.duration));
+      this.offset = at;
       this.onChange?.();
       this.tick();
     }
   }
 
-  private restart(): void {
-    const at = this.position;
+  /** Stops what sounds and waits at `seconds` until the next seconds are complete. */
+  private hold(seconds: number): void {
     this.stopSources();
-    this.offset = at;
-    this.startedAt = this.ctx.currentTime + 0.05;
+    this.offset = Math.max(0, Math.min(seconds, this.duration));
+    this.waiting = true;
     this.tick();
   }
 
@@ -404,52 +458,80 @@ export class Player {
     this.scheduled.clear();
   }
 
+  /** Forgets scheduled segments that have not started (a new version may mix them otherwise). */
+  private dropUnstarted(): void {
+    const current = Math.floor(this.position / segmentSeconds);
+    for (const [slot, s] of this.scheduled) {
+      if (s.index <= current) continue;
+      try {
+        s.source?.stop();
+      } catch {
+        // already stopped
+      }
+      s.source?.disconnect();
+      this.scheduled.delete(slot);
+    }
+  }
+
   /** Fetches, schedules and forgets segments around the playhead. Call regularly. */
   tick(): void {
     const now = this.position;
-    if (this.running && now >= this.duration + 30) {
+    if (this.running && !this.waiting && now >= this.duration + 30) {
       this.pause();
       this.offset = 0;
       return;
     }
     const index = Math.floor(now / segmentSeconds);
-    const soon = this.wanted(index, index + fetchAhead);
+    const { wanted: soon } = this.wanted(index, index + fetchAhead);
     void this.load(soon);
     // Forget segments that are not wanted any more (behind, or replaced by newer ones).
     const keep = new Set(soon.map((r) => r.id));
     for (const id of this.segments.keys()) if (!keep.has(id)) this.segments.delete(id);
     if (!this.running) return;
 
-    for (const r of soon) {
-      if (r.index > index + scheduleAhead) continue;
-      const slot = `${r.part}|${r.index}`;
-      const current = this.scheduled.get(slot);
-      if (current?.name === r.id) continue;
-      const buffer = this.segments.get(r.id);
-      if (buffer === undefined) continue; // not here yet
-      // A newer version of a segment that is already playing takes over from here.
-      try {
-        current?.source?.stop();
-      } catch {
-        // already stopped
+    if (this.waiting) {
+      // Resume once the next seconds are complete and here.
+      const last = Math.floor((now + startMargin) / segmentSeconds);
+      if (!this.ready(index, last)) return;
+      this.waiting = false;
+      this.startedAt = this.ctx.currentTime + 0.05;
+      this.onChange?.();
+    }
+
+    const at = (i: number) => this.startedAt + (i * segmentSeconds - this.offset);
+    for (let i = index; i <= index + scheduleAhead; i++) {
+      // What sounds now plays to its end, even if a newer version mixes this segment otherwise.
+      const sounding = [...this.scheduled.values()].some((x) => x.index === i && i === index);
+      if (sounding) continue;
+      if (!this.ready(i, i)) {
+        // All parts wait at the boundary of a segment that is not complete and here yet.
+        if (this.ctx.currentTime >= at(i) - 0.02) {
+          this.hold(Math.max(now, i * segmentSeconds));
+          this.onChange?.();
+        }
+        break;
       }
-      const channel = this.channels.get(r.part);
-      const at = this.startedAt + (r.index * segmentSeconds - this.offset);
-      const lateBy = Math.max(0, this.ctx.currentTime + 0.02 - at);
-      if (buffer === null || !channel || lateBy >= buffer.duration) {
-        this.scheduled.set(slot, { name: r.id });
-        continue;
+      for (const r of soon) {
+        if (r.index !== i) continue;
+        const slot = `${r.part}|${r.index}`;
+        if (this.scheduled.get(slot)?.name === r.id) continue;
+        const buffer = this.segments.get(r.id);
+        const channel = this.channels.get(r.part);
+        const lateBy = Math.max(0, this.ctx.currentTime + 0.02 - at(r.index));
+        if (!buffer || !channel || lateBy >= buffer.duration) {
+          this.scheduled.set(slot, { name: r.id, index: r.index });
+          continue;
+        }
+        const source = this.ctx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(channel.compressor);
+        source.start(at(r.index) + lateBy, lateBy);
+        source.onended = () => source.disconnect();
+        this.scheduled.set(slot, { name: r.id, index: r.index, source });
       }
-      const source = this.ctx.createBufferSource();
-      source.buffer = buffer;
-      source.connect(channel.compressor);
-      source.start(at + lateBy, lateBy);
-      source.onended = () => source.disconnect();
-      this.scheduled.set(slot, { name: r.id, source });
     }
     // Forget what was scheduled for segments that have ended.
-    for (const slot of this.scheduled.keys())
-      if (Number(slot.slice(slot.lastIndexOf("|") + 1)) < index - 1) this.scheduled.delete(slot);
+    for (const [slot, s] of this.scheduled) if (s.index < index - 1) this.scheduled.delete(slot);
   }
 
   /** Current gain reduction in dB (≤ 0) of a channel's compressor, or of the master limiter. */

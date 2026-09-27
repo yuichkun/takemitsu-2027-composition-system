@@ -39,11 +39,17 @@ export async function mixdown(
   const stems: Record<string, string> = {};
   await mkdir(outDir, { recursive: true });
   const parts = [...new Set(lanes.map((l) => l.lane.partId))];
+  /** Chunks that failed to render: left out, as the preview plays them (a hole). */
+  let failed = 0;
   // One part at a time, so a long piece with many parts does not need every stem in memory.
   for (const part of parts) {
     const stem = options.stems ? [new Float32Array(frames), new Float32Array(frames)] : undefined;
     for (const l of lanes.filter((x) => x.lane.partId === part)) {
       for (const c of l.chunks) {
+        if (engine.framesOf(c.key) === undefined) {
+          failed++;
+          continue;
+        }
         const audio = decodeChunk(await readFile(chunkPath(c.key)));
         const start = Math.round(c.origin * sampleRate);
         for (let i = 0; i < audio.frames; i++) {
@@ -70,6 +76,7 @@ export async function mixdown(
   let peak = 0;
   for (const ch of mix) for (const s of ch) peak = Math.max(peak, Math.abs(s));
   const warnings = [...plan.warnings];
+  if (failed) warnings.push(`${failed} chunk(s) failed to render and are silent in the mix`);
   // Keep a fixed level so mixdowns compare; only pull down when the mix would clip.
   const master = peak > 0.98 ? 0.98 / peak : 1;
   if (master < 1)

@@ -1,27 +1,34 @@
-// The preview's dev-server side (docs/decisions/0016): lists and watches score JSON files,
-// turns them into MusicXML, keeps their chunks rendered in the background, and serves chunks.
+// The preview's dev-server side (docs/decisions/0016, 0019): lists and watches score JSON files,
+// keeps their chunks rendered in the background, turns them into notation, and serves both.
 //
 // Score folders: examples/ and scores/ in the repository, plus any in PREVIEW_SCORE_DIRS
 // (colon-separated), so a composition layer can write its output anywhere.
 //
-// Rendering: opening a score, and every save of an open score, plans it and queues the chunks
-// that are not stored yet (src/performance/engine.ts), nearest the playhead first. The page gets
-// the list of chunks (/api/manifest), hears which become ready ("chunks" events), and fetches
-// the parts' audio shortly before it plays, mixed from the chunks in 2 s segments (/api/segments).
+// A score is read when the page first asks for it, and again after every save. Its audio is
+// planned here (src/performance/engine.ts) while its notation is made in a worker thread
+// (notation-thread.ts). A save that comes while the score is being read is not lost: the file is
+// read again until it has not changed.
+//
+// The page is only told that something is newer, and then fetches the whole of it:
+// - "status": a new version, or chunks rendered → /api/manifest (a version's chunk places) and
+//   /api/status (which of them are rendered)
+// - "score": new notation → /api/score
+// - "list": score files came or went → /api/scores
+// Audio is fetched shortly before it plays, mixed from the chunks in 2 s segments (/api/segments).
 
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, watch, type FSWatcher } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { basename, isAbsolute, join, relative, resolve } from "node:path";
+import { Worker } from "node:worker_threads";
 
-import { musicXmlWindows } from "../notation/musicxml.ts";
-import { Engine, type Manifest } from "../performance/engine.ts";
+import { Engine } from "../performance/engine.ts";
 import { segmentBundle, type SegmentRequest } from "../performance/segments.ts";
 import { repoRoot } from "../render/host.ts";
-import { normalize, type NormalScore } from "../score/normalize.ts";
-import { secondsAt } from "../score/timeline.ts";
+import { normalize } from "../score/normalize.ts";
 import type { Score } from "../score/types.ts";
+import type { NotationAnswer, NotationView } from "./notation-thread.ts";
 
 type Next = (err?: unknown) => void;
 
@@ -52,86 +59,7 @@ function allowed(path: string): boolean {
   );
 }
 
-//==============================================================================
-// Open scores: parsed once per content, planned and queued for rendering
-
-const engine = new Engine();
-
-interface Loaded {
-  hash: string;
-  score: NormalScore;
-  manifest: Manifest;
-}
-const loaded = new Map<string, Loaded>();
-const loading = new Map<string, Promise<Loaded>>();
-
-/** The score at `path` as it is on disk now, planned and queued (again only if it changed). */
-async function load(path: string): Promise<Loaded> {
-  const text = await readFile(path, "utf8");
-  const hash = createHash("sha256").update(text).digest("hex");
-  const current = loaded.get(path);
-  if (current?.hash === hash) return current;
-  const pending = loading.get(path);
-  if (pending) return pending;
-  const work = (async () => {
-    const score = normalize(JSON.parse(text) as Score);
-    const manifest = await engine.open(path, score);
-    const entry = { hash, score, manifest };
-    loaded.set(path, entry);
-    return entry;
-  })();
-  loading.set(path, work);
-  try {
-    return await work;
-  } finally {
-    loading.delete(path);
-  }
-}
-
-/**
- * The notation of each loaded score, as short MusicXML documents ("windows") the page draws one
- * by one, by content hash: after an edit, only windows whose MusicXML changed are drawn again.
- */
-const notation = new Map<
-  string,
-  { hash: string; windows: { from: number; to: number; hash: string }[]; warnings: string[] }
->();
-const windowXml = new Map<string, string>();
-
-function notationOf(path: string, entry: Loaded) {
-  const known = notation.get(path);
-  if (known?.hash === entry.hash) return known;
-  const { windows, warnings } = musicXmlWindows(entry.score);
-  const list = windows.map((w) => {
-    const hash = createHash("sha256").update(w.musicxml).digest("hex").slice(0, 32);
-    windowXml.set(hash, w.musicxml);
-    return { from: w.from, to: w.to, hash };
-  });
-  const result = { hash: entry.hash, windows: list, warnings };
-  notation.set(path, result);
-  // Keep the documents of the loaded scores only.
-  const used = new Set([...notation.values()].flatMap((n) => n.windows.map((w) => w.hash)));
-  for (const h of windowXml.keys()) if (!used.has(h)) windowXml.delete(h);
-  return result;
-}
-
-async function scoreView(path: string) {
-  const entry = await load(path);
-  const { score } = entry;
-  const { windows, warnings } = notationOf(path, entry);
-  return {
-    title: score.title,
-    windows,
-    warnings,
-    measures: score.measures.map((m) => ({
-      number: m.number,
-      quarters: m.start.value,
-      seconds: secondsAt(score.tempo, m.start.value),
-      endSeconds: secondsAt(score.tempo, m.start.add(m.length).value),
-    })),
-    parts: score.parts.map((p) => ({ id: p.id, name: p.name })),
-  };
-}
+const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
 
 //==============================================================================
 // Events to the browser (server-sent events)
@@ -142,13 +70,130 @@ function broadcast(event: string, data: unknown): void {
   for (const c of clients) c.write(payload);
 }
 
-engine.onReady = (path, keys) =>
-  broadcast("chunks", {
-    path,
-    version: loaded.get(path)?.manifest.version,
-    ready: keys.map((k) => [k, engine.framesOf(k) ?? 0]),
+//==============================================================================
+// Open scores
+
+// Made when the dev server starts (previewMiddleware): importing this module (the Vite config
+// does, for `vp check` too) must not start anything or touch the store.
+let engine!: Engine;
+
+type View = Omit<NotationView, "windows"> & {
+  windows: { from: number; to: number; hash: string }[];
+};
+
+interface Opened {
+  /** Hash of the file content whose audio is planned. */
+  audio?: string;
+  /** Why the file could not be read or planned (a save in the middle of editing, say). */
+  error?: string;
+  notation?: { seq: number; view: View };
+  notationError?: string;
+  /** Notation requests so far; an answer older than the one shown is dropped. */
+  requested: number;
+}
+const opened = new Map<string, Opened>();
+/** MusicXML of the open scores' windows, by hash. */
+const windowXml = new Map<string, string>();
+const reading = new Map<string, Promise<void>>();
+const stale = new Set<string>();
+const notationWaiters = new Map<string, (() => void)[]>();
+
+// Started on first use: importing this module (the Vite config does) must not start threads.
+let notationWorker: Worker | undefined;
+let nextNotation = 0;
+const answers = new Map<number, (a: NotationAnswer) => void>();
+function notationOf(text: string): Promise<NotationAnswer> {
+  if (!notationWorker) {
+    notationWorker = new Worker(new URL("./notation-thread.ts", import.meta.url));
+    notationWorker.unref();
+    notationWorker.on("message", (a: NotationAnswer) => {
+      answers.get(a.id)?.(a);
+      answers.delete(a.id);
+    });
+  }
+  const worker = notationWorker;
+  return new Promise<NotationAnswer>((resolve) => {
+    const id = nextNotation++;
+    answers.set(id, resolve);
+    worker.postMessage({ id, text });
   });
-engine.onProgress = (path, progress) => broadcast("progress", { path, ...progress });
+}
+
+function applyNotation(path: string, seq: number, answer: NotationAnswer): void {
+  const entry = opened.get(path);
+  if (!entry || (entry.notation?.seq ?? -1) > seq) return;
+  if ("error" in answer) entry.notationError = answer.error;
+  else {
+    entry.notationError = undefined;
+    for (const w of answer.view.windows) windowXml.set(w.hash, w.musicxml);
+    entry.notation = {
+      seq,
+      view: {
+        ...answer.view,
+        windows: answer.view.windows.map(({ from, to, hash }) => ({ from, to, hash })),
+      },
+    };
+    // Keep the documents of the open scores only.
+    const used = new Set(
+      [...opened.values()].flatMap((o) => o.notation?.view.windows.map((w) => w.hash) ?? []),
+    );
+    for (const h of windowXml.keys()) if (!used.has(h)) windowXml.delete(h);
+  }
+  for (const done of notationWaiters.get(path)?.splice(0) ?? []) done();
+  broadcast("score", { path });
+}
+
+/**
+ * Brings a score up to what is on disk now: plans its audio here and has its notation made in the
+ * worker. Resolves once the audio is planned (the notation follows with a "score" event).
+ */
+function refresh(path: string): Promise<void> {
+  stale.add(path);
+  const running = reading.get(path);
+  if (running) return running;
+  const entry = opened.get(path) ?? { requested: 0 };
+  opened.set(path, entry);
+  const run = (async () => {
+    while (stale.delete(path)) {
+      let text: string;
+      try {
+        text = await readFile(path, "utf8");
+      } catch (e) {
+        entry.error = message(e);
+        continue;
+      }
+      const hash = createHash("sha256").update(text).digest("hex");
+      if (entry.audio === hash && !entry.error) continue;
+      const seq = ++entry.requested;
+      void notationOf(text).then((a) => applyNotation(path, seq, a));
+      try {
+        await engine.open(path, normalize(JSON.parse(text) as Score));
+        entry.audio = hash;
+        entry.error = undefined;
+      } catch (e) {
+        entry.error = message(e);
+      }
+    }
+  })().finally(() => {
+    reading.delete(path);
+    broadcast("status", { path, ...engine.stamp(path), error: entry.error });
+  });
+  reading.set(path, run);
+  return run;
+}
+
+async function scoreView(path: string): Promise<View | { error: string }> {
+  const entry = opened.get(path);
+  if (!entry?.notation && !entry?.notationError) {
+    const drawn = new Promise<void>((resolve) =>
+      notationWaiters.set(path, [...(notationWaiters.get(path) ?? []), resolve]),
+    );
+    void refresh(path);
+    await drawn;
+  }
+  const now = opened.get(path)!;
+  return now.notation?.view ?? { error: now.notationError ?? "No notation" };
+}
 
 let watchers: FSWatcher[] = [];
 let watched = "";
@@ -160,17 +205,13 @@ function watchScores(): void {
     watch(dir, (_type, file) => {
       if (!file?.endsWith(".json")) return;
       const path = join(dir, file);
-      // An open score starts rendering its changes before the page asks.
-      if (loaded.has(path))
-        void load(path).then(
-          () => broadcast("changed", { path }),
-          () => broadcast("changed", { path }),
-        );
-      else broadcast("changed", { path });
+      // An open score is read again (and starts rendering its changes) before the page asks.
+      if (opened.has(path)) void refresh(path);
+      broadcast("list", {});
     }),
   );
   // A folder that appeared later (or vanished): let the page refresh its list.
-  if (watched) broadcast("changed", { path: "" });
+  if (watched) broadcast("list", {});
   watched = existing.join(":");
 }
 
@@ -195,7 +236,17 @@ async function body(req: IncomingMessage): Promise<unknown> {
   return raw ? JSON.parse(raw) : {};
 }
 
+/** The score read and planned (reading it first if needed); an error text if it cannot be. */
+async function planned(path: string): Promise<string | undefined> {
+  if (!opened.get(path)?.audio) await refresh(path);
+  const entry = opened.get(path)!;
+  if (!entry.audio) return entry.error ?? "Not read";
+  return undefined;
+}
+
 export function previewMiddleware() {
+  engine = new Engine();
+  engine.onStatus = (path) => broadcast("status", { path, ...engine.stamp(path) });
   watchScores();
   setInterval(watchScores, 3000).unref();
   return async (req: IncomingMessage, res: ServerResponse, next: Next) => {
@@ -205,7 +256,8 @@ export function previewMiddleware() {
       if (url.pathname === "/api/scores") return json(res, 200, listScores());
       if (url.pathname === "/api/score") {
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
-        return json(res, 200, await scoreView(path));
+        const view = await scoreView(path);
+        return json(res, "error" in view ? 500 : 200, view);
       }
       if (url.pathname === "/api/window") {
         const xml = windowXml.get(url.searchParams.get("hash") ?? "");
@@ -215,8 +267,15 @@ export function previewMiddleware() {
       }
       if (url.pathname === "/api/manifest") {
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
-        await load(path);
-        return json(res, 200, { ...engine.manifest(path), progress: engine.progress(path) });
+        const error = await planned(path);
+        if (error) return json(res, 500, { error });
+        return json(res, 200, engine.manifest(path));
+      }
+      if (url.pathname === "/api/status") {
+        if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
+        const error = await planned(path);
+        if (error) return json(res, 500, { error });
+        return json(res, 200, { ...engine.status(path), error: opened.get(path)?.error });
       }
       if (url.pathname === "/api/playhead" && req.method === "POST") {
         const { path: p, seconds } = (await body(req)) as { path: string; seconds: number };
@@ -250,7 +309,7 @@ export function previewMiddleware() {
         return;
       }
     } catch (e) {
-      return json(res, 500, { error: e instanceof Error ? e.message : String(e) });
+      return json(res, 500, { error: message(e) });
     }
     next();
   };

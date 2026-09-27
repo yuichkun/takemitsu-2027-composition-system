@@ -15,8 +15,8 @@ import { join } from "node:path";
 import { repoRoot } from "../render/host.ts";
 
 export const storeRoot = process.env.TAKEMITSU_CHUNKS_DIR ?? join(repoRoot, ".local/chunks");
-/** Size limit of the store (bytes), from TAKEMITSU_CHUNKS_GB (default 30). */
-export const storeLimit = Number(process.env.TAKEMITSU_CHUNKS_GB ?? 30) * 1e9;
+/** Size limit of the store (bytes), from TAKEMITSU_CHUNKS_GB (default 60: a 20-minute piece is about 20 GB a version). */
+export const storeLimit = Number(process.env.TAKEMITSU_CHUNKS_GB ?? 60) * 1e9;
 
 export const chunkPath = (key: string) => join(storeRoot, key.slice(0, 2), `${key}.tkch`);
 export const statePath = (stateKey: string) => join(storeRoot, "states", `${stateKey}.bin`);
