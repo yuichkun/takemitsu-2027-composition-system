@@ -223,7 +223,7 @@ Symbols（矢印臨時記号、Bartók pizz.）・niente・羽根連桁・l.v. �
 
 ### 2.5 取り込みテスト第1回の結果 `[実測]`
 
-2026-09-06〜07。`verification/sibelius-import/fixtures/` の21本を Sibelius 24.3.1 build 3317（英語 UI、macOS 26.2）で
+2026-09-06〜07。手作りの MusicXML フィクスチャ21本（git の 3462df4 まで `verification/sibelius-import/fixtures/` にあった）を Sibelius 24.3.1 build 3317（英語 UI、macOS 26.2）で
 File > Open した。操作と記録は GPT-6 Astra。生の記録（300 dpi の PNG、選択時の UI 読み取り、`.sib`、再書き出し MusicXML、
 `observations.md`）は `artifacts/sibelius-import/<fixture>/`（git 管理外）。総括は同ディレクトリの `summary.md`。
 21本すべて開けて、警告ダイアログは1つも出なかった。
