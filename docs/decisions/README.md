@@ -76,3 +76,5 @@
 | [0015](./0015-divisi-first-class.md) | ディヴィジを記譜と再生の両方で一級に扱う | 採用 |
 | [0016](./0016-preview-in-browser.md) | プレビューは vp dev のブラウザ画面にする | 採用 |
 | [0017](./0017-score-in-c.md) | 総譜は実音（in C）で書く | 採用 |
+| [0018](./0018-chunked-render-resident-host.md) | レンダは小節ごとのチャンクで、常駐ホストに丸ごと頼む | 採用 |
+| [0019](./0019-fixed-hosts-verified-chunks.md) | レンダの担当を固定し、確かめた音だけを出す | 採用 |
