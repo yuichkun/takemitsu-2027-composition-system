@@ -7,12 +7,15 @@
 //          Render one or more tracks (one plugin instance each) to WAV stems. See RenderJob below.
 //   editor <plugin> <state.bin> [--state <in.bin>]
 //          Open the plugin window so a person can set it up; the state is saved on close.
+//   serve  [--rate 48000] [--block 512]
+//          Stay running and render chunks on request (JSON lines on stdin). See Serve below.
 
 #include <juce_audio_utils/juce_audio_utils.h>
 
 #include <atomic>
 #include <csignal>
 #include <iostream>
+#include <map>
 #include <thread>
 
 using namespace juce;
@@ -226,7 +229,7 @@ var describeBuses (AudioPluginInstance& plugin)
 // Job JSON:
 // {
 //   "sampleRate": 48000, "blockSize": 512, "frames": 480000, "bpm": 120,
-//   "loadWaitMs": 5000,        // wall-clock wait after applying state (sample loading)
+//   "loadWaitMs": 0,           // wall-clock wait after applying state (BBC SO needs none)
 //   "maxSpeed": 0,             // 0 = as fast as possible, 1 = real time, 4 = 4x real time
 //   "tracks": [{
 //     "id": "vn1", "plugin": "/Library/Audio/Plug-Ins/VST3/…vst3", "state": "…bin",
@@ -265,6 +268,66 @@ std::unique_ptr<AudioFormatWriter> openWav (const File& file, double rate)
     if (writer == nullptr)
         fail ("Cannot create WAV writer for " + file.getFullPathName());
     return writer;
+}
+
+//==============================================================================
+// serve
+//
+// The host keeps plugin instances loaded between requests, one per plugin state. It knows
+// nothing about scores: every request says in full what to play (docs/worklog on the render
+// speed-up). Requests, one JSON object per line on stdin:
+//
+//   { "op": "render", "id": "r1", "plugin": "…vst3", "key": "<state id>", "state": "…bin",
+//     "chunks": [{ "id": "c1", "frames": 96000, "tailMax": 480000, "output": "…chunk",
+//                  "events": [[frame, status, data1, data2], …] }] }
+//   { "op": "ping", "id": "p1" }
+//
+// For each chunk the instance plays the events from frame 0, runs to `frames`, then on until
+// its output stays below −80 dBFS for 250 ms (at most `tailMax` more frames). So a chunk always
+// ends silent and the next chunk on the same instance starts from quiet. Chunks are written as
+// "TKCH" files: a 24-byte header (magic, version 1, sample rate, frames, channels, float scale)
+// followed by interleaved 16-bit samples scaled by `scale` (the chunk's peak), so quiet chunks
+// keep their resolution.
+//
+// Replies: {"event":"loaded"}, {"event":"chunk"} per chunk, then {"event":"done"} (or
+// {"event":"error"}) with the request id. Closing stdin ends the process. Instances are never
+// destroyed: BBC SO can spin while being torn down, so the caller recycles whole processes.
+
+struct Chunk
+{
+    String id;
+    int64 frames = 0;
+    int64 tailMax = 0;
+    File output;
+    std::vector<std::pair<int64, MidiMessage>> events;
+};
+
+void writeChunk (const File& file, double rate, const std::vector<float>& left, const std::vector<float>& right, int64 frames)
+{
+    float peak = 0.0f;
+    for (int64 i = 0; i < frames; ++i)
+        peak = jmax (peak, std::abs (left[(size_t) i]), std::abs (right[(size_t) i]));
+    if (peak == 0.0f)
+        frames = 0;
+
+    MemoryOutputStream out;
+    out.write ("TKCH", 4);
+    out.writeInt (1);
+    out.writeInt ((int) rate);
+    out.writeInt ((int) frames);
+    out.writeInt (2);
+    out.writeFloat (peak);
+    auto scale = peak > 0.0f ? 32767.0f / peak : 0.0f;
+    for (int64 i = 0; i < frames; ++i)
+    {
+        out.writeShort ((short) roundToInt (left[(size_t) i] * scale));
+        out.writeShort ((short) roundToInt (right[(size_t) i] * scale));
+    }
+
+    file.getParentDirectory().createDirectory();
+    auto partial = File (file.getFullPathName() + ".partial");
+    if (! partial.replaceWithData (out.getData(), out.getDataSize()) || ! partial.moveFileTo (file))
+        fail ("Cannot write " + file.getFullPathName());
 }
 
 //==============================================================================
@@ -346,6 +409,8 @@ public:
                 render();
             else if (command == "editor")
                 openEditor();
+            else if (command == "serve")
+                serve();
             else
                 fail ("Unknown command " + command);
         }
@@ -463,6 +528,183 @@ private:
         report ("editor-open", single->getName());
     }
 
+    //==========================================================================
+    // serve
+
+    struct Instance
+    {
+        std::unique_ptr<AudioPluginInstance> plugin;
+        Transport transport;
+    };
+    std::map<String, std::unique_ptr<Instance>> instances;
+
+    void serve()
+    {
+        auto rate = option ("--rate", "48000").getDoubleValue();
+        auto block = option ("--block", "512").getIntValue();
+        worker = std::thread ([this, rate, block] {
+            std::string line;
+            while (! cancelled && std::getline (std::cin, line))
+            {
+                if (line.empty())
+                    continue;
+                auto request = JSON::parse (String (line));
+                auto id = text (request, "id");
+                try
+                {
+                    auto op = text (request, "op");
+                    if (op == "ping")
+                        report ("pong", object ({ { "id", id } }));
+                    else if (op == "render")
+                        serveRender (request, rate, block);
+                    else
+                        fail ("Unknown op " + op);
+                }
+                catch (const std::exception& e)
+                {
+                    report ("error", object ({ { "id", id }, { "message", String (e.what()) } }));
+                }
+            }
+            // stdin closed: leave without tearing plugins down (see process()).
+            std::cout.flush();
+            std::_Exit (0);
+        });
+    }
+
+    /** Loads (once) the instance for a state, on the message thread as plugins expect. */
+    Instance& instanceFor (const var& request, double rate, int block)
+    {
+        auto key = text (request, "key");
+        if (auto found = instances.find (key); found != instances.end())
+            return *found->second;
+
+        auto started = Time::getMillisecondCounterHiRes();
+        std::unique_ptr<Instance> created;
+        String error;
+        WaitableEvent loaded;
+        MessageManager::callAsync ([&] {
+            try
+            {
+                auto instance = std::make_unique<Instance>();
+                instance->plugin = plugins.load (text (request, "plugin"), rate, block);
+                if (auto state = text (request, "state"); state.isNotEmpty())
+                    applyState (*instance->plugin, File (state));
+                instance->plugin->setNonRealtime (true);
+                instance->transport.rate = rate;
+                instance->plugin->setPlayHead (&instance->transport);
+                prepareStereo (*instance->plugin, rate, block);
+                created = std::move (instance);
+            }
+            catch (const std::exception& e)
+            {
+                error = e.what();
+            }
+            loaded.signal();
+        });
+        loaded.wait();
+        if (created == nullptr)
+            fail (error.isNotEmpty() ? error : "Could not load " + key);
+        report ("loaded", object ({ { "key", key }, { "seconds", (Time::getMillisecondCounterHiRes() - started) / 1000.0 } }));
+        return *(instances[key] = std::move (created));
+    }
+
+    void serveRender (const var& request, double rate, int block)
+    {
+        auto& instance = instanceFor (request, rate, block);
+        auto* list = request["chunks"].getArray();
+        if (list == nullptr)
+            fail ("Request has no chunks");
+
+        for (auto& spec : *list)
+        {
+            if (cancelled)
+                return;
+            Chunk chunk;
+            chunk.id = text (spec, "id");
+            chunk.frames = (int64) number (spec, "frames", 0);
+            chunk.tailMax = (int64) number (spec, "tailMax", rate * 10);
+            chunk.output = File (text (spec, "output"));
+            if (auto* events = spec["events"].getArray())
+                for (auto& e : *events)
+                    if (auto* a = e.getArray(); a != nullptr && a->size() >= 2)
+                    {
+                        std::vector<uint8> bytes;
+                        for (int i = 1; i < a->size(); ++i)
+                            bytes.push_back ((uint8) (int) (*a)[i]);
+                        chunk.events.emplace_back ((int64) (*a)[0], MidiMessage (bytes.data(), (int) bytes.size()));
+                    }
+            std::stable_sort (chunk.events.begin(), chunk.events.end(), [] (auto& a, auto& b) { return a.first < b.first; });
+
+            auto started = Time::getMillisecondCounterHiRes();
+            auto frames = renderChunk (instance, chunk, rate, block);
+            report ("chunk", object ({ { "id", chunk.id }, { "frames", (int) frames }, { "seconds", (Time::getMillisecondCounterHiRes() - started) / 1000.0 } }));
+        }
+        report ("done", object ({ { "id", text (request, "id") } }));
+    }
+
+    int64 renderChunk (Instance& instance, const Chunk& chunk, double rate, int block)
+    {
+        auto& plugin = *instance.plugin;
+        const float quiet = 1.0e-4f; // −80 dBFS
+        const auto quietNeeded = (int64) (rate * 0.25);
+        const auto limit = chunk.frames + chunk.tailMax;
+
+        std::vector<float> left, right;
+        left.reserve ((size_t) (chunk.frames + rate * 3));
+        right.reserve ((size_t) (chunk.frames + rate * 3));
+
+        AudioBuffer<float> buffer (jmax (2, plugin.getTotalNumOutputChannels()), block);
+        MidiBuffer midi;
+        size_t next = 0;
+        int64 quietFrames = 0;
+        int64 pos = 0;
+        for (; pos < limit && ! cancelled; pos += block)
+        {
+            instance.transport.sample = pos;
+            buffer.clear();
+            midi.clear();
+            while (next < chunk.events.size() && chunk.events[next].first < pos + block)
+            {
+                auto& [frame, message] = chunk.events[next++];
+                midi.addEvent (message, (int) jmax ((int64) 0, frame - pos));
+            }
+            plugin.processBlock (buffer, midi);
+
+            float blockPeak = 0.0f;
+            for (int i = 0; i < block; ++i)
+            {
+                auto l = buffer.getSample (0, i);
+                auto r = buffer.getSample (1, i);
+                if (! std::isfinite (l) || ! std::isfinite (r))
+                    fail ("Non-finite sample in chunk " + chunk.id);
+                left.push_back (l);
+                right.push_back (r);
+                blockPeak = jmax (blockPeak, std::abs (l), std::abs (r));
+            }
+            quietFrames = blockPeak < quiet ? quietFrames + block : 0;
+            if (pos + block >= chunk.frames && next >= chunk.events.size() && quietFrames >= quietNeeded)
+            {
+                pos += block;
+                break;
+            }
+        }
+        if (cancelled)
+            fail ("cancelled");
+
+        // Drop the quiet end, keeping a few milliseconds, and fade the last of it out.
+        auto length = jmax ((int64) 0, pos - jmax ((int64) 0, quietFrames - (int64) (rate * 0.02)));
+        length = jmax (length, jmin (chunk.frames, pos));
+        auto fade = jmin (length, (int64) (rate * 0.01));
+        for (int64 i = 0; i < fade; ++i)
+        {
+            auto g = (float) i / (float) fade;
+            left[(size_t) (length - 1 - i)] *= g;
+            right[(size_t) (length - 1 - i)] *= g;
+        }
+        writeChunk (chunk.output, rate, left, right, length);
+        return length;
+    }
+
     void render()
     {
         if (args.size() < 2)
@@ -508,7 +750,7 @@ private:
 
         transport.rate = rate;
         transport.bpm = number (job, "bpm", 120.0);
-        after ((int) number (job, "loadWaitMs", 3000), [this, job, rate, block] {
+        after ((int) number (job, "loadWaitMs", 0), [this, job, rate, block] {
             worker = std::thread ([this, job, rate, block] {
                 try
                 {
