@@ -1,107 +1,211 @@
-// Measures how long it takes from a saved score to playable audio, for a few editing scenarios.
+// Measures how long it takes from a saved score to playable audio, for editing scenarios.
 //
-//   vp node tools/bench.ts <score.json> [--out .local/bench/<name>.json]
+//   vp node tools/bench.ts <score.json> [--store <dir>] [--no-resident] [--out <file.json>]
 //
-// Every run starts from an empty cache of its own (so "cold" is really cold) and leaves the
-// shared cache alone. Host memory is sampled while it runs.
+// --store reuses a chunk store (default: a new empty one, so "cold" is really cold).
+// --no-resident stops the host processes whenever there is no work (every edit loads again).
+//
+// Each edit starts from the original score with the playhead at the edited place. "near" is the
+// time until everything sounding in the 10 s from there is rendered (what you wait for before
+// pressing play); "all" until the whole piece is.
 
 import { execSync } from "node:child_process";
-import { mkdtempSync, readFileSync, rmSync, writeFileSync, mkdirSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { basename, dirname, join } from "node:path";
 
-import type { Score, NoteEvent, Part } from "../src/score/types.ts";
+import type { DynamicPoint, NoteEvent, Part, Score, Time } from "../src/score/types.ts";
 
 const args = process.argv.slice(2);
-const scorePath = args.find((a) => !a.startsWith("--"));
-if (!scorePath) throw new Error("usage: tools/bench.ts <score.json> [--out file]");
-const outIndex = args.indexOf("--out");
-const name = basename(scorePath).replace(/\.json$/, "");
+const option = (name: string) => {
+  const i = args.indexOf(name);
+  return i >= 0 ? args[i + 1] : undefined;
+};
+const valued = new Set(["--store", "--out"]);
+const scorePath = args.find((a, i) => !a.startsWith("--") && !valued.has(args[i - 1] ?? ""));
+if (!scorePath) throw new Error("usage: tools/bench.ts <score.json> [--store dir] [--no-resident]");
+const resident = !args.includes("--no-resident");
+process.env.TAKEMITSU_CHUNKS_DIR =
+  option("--store") ?? mkdtempSync(join(tmpdir(), "takemitsu-bench-"));
+process.env.TAKEMITSU_RESIDENT = resident ? "1" : "0";
 
-const cache = mkdtempSync(join(tmpdir(), "takemitsu-bench-"));
-process.env.TAKEMITSU_CACHE_DIR = cache;
-const { renderPlan } = await import("../src/performance/render.ts");
-const { plan } = await import("../src/performance/plan.ts");
+const { Engine } = await import("../src/performance/engine.ts");
 const { normalize } = await import("../src/score/normalize.ts");
 const { repoRoot } = await import("../src/render/host.ts");
+const { HostPool } = await import("../src/render/pool.ts");
 
+const name = basename(scorePath).replace(/\.json$/, "");
 const outFile =
-  outIndex >= 0
-    ? args[outIndex + 1]!
-    : join(repoRoot, ".local/bench", `${name}-${Date.now()}.json`);
+  option("--out") ??
+  join(repoRoot, ".local/bench", `${name}-${resident ? "resident" : "oneshot"}-${Date.now()}.json`);
 
-/** Peak resident memory of all host processes while `work` runs, in MB. */
-async function withMemory<T>(work: () => Promise<T>): Promise<{ value: T; hostMB: number }> {
-  let peak = 0;
-  const timer = setInterval(() => {
-    try {
-      const kb = execSync(
-        `ps -A -o rss=,comm= | grep 'Takemitsu Host' | awk '{s+=$1} END {print s+0}'`,
-      ).toString();
-      peak = Math.max(peak, Number(kb) / 1024);
-    } catch {
-      // ps can fail while processes come and go
-    }
-  }, 250);
-  try {
-    return { value: await work(), hostMB: Math.round(peak) };
-  } finally {
-    clearInterval(timer);
-  }
-}
+const original = JSON.parse(readFileSync(scorePath, "utf8")) as Score;
+const engine = new Engine(new HostPool({ resident }));
+const path = scorePath;
 
 interface Result {
   scenario: string;
-  seconds: number;
+  /** Planning and chunking. */
+  openSeconds: number;
+  nearSeconds: number;
+  allSeconds: number;
+  chunks: number;
+  rendered: number;
   hostMB: number;
+  /** This process (planning, the queue). */
+  nodeMB: number;
+  loads: number;
 }
 const results: Result[] = [];
+let loads = 0;
+engine.loaded = () => loads++;
 
-async function measure(scenario: string, score: Score): Promise<void> {
+async function measure(scenario: string, score: Score, playhead = 0): Promise<void> {
   const started = performance.now();
-  const { hostMB } = await withMemory(async () => {
-    const p = plan(normalize(score));
-    await renderPlan(p, join(cache, "out", scenario.replace(/\W+/g, "-")));
-  });
-  const seconds = (performance.now() - started) / 1000;
-  results.push({ scenario, seconds, hostMB });
-  console.log(`${scenario.padEnd(40)} ${seconds.toFixed(2).padStart(7)} s   host ${hostMB} MB`);
+  loads = 0;
+  let hostMB = 0;
+  let nodeMB = 0;
+  const memory = setInterval(() => {
+    nodeMB = Math.max(nodeMB, process.memoryUsage().rss / 1e6);
+    void engine.pool.memory().then((mb) => (hostMB = Math.max(hostMB, mb)));
+  }, 500);
+  const manifest = await engine.open(path, normalize(score), playhead);
+  const missing = manifest.chunks.filter((c) => c[4] < 0).length;
+  const openSeconds = (performance.now() - started) / 1000;
+  const soon = new Set(
+    manifest.chunks.filter((c) => c[2] < playhead + 10 && c[2] > playhead - 30).map((c) => c[0]),
+  );
+  let nearSeconds = 0;
+  for (;;) {
+    const p = engine.progress(path);
+    if (!nearSeconds && [...soon].every((k) => engine.framesOf(k) !== undefined))
+      nearSeconds = (performance.now() - started) / 1000;
+    if (p.done + p.failed >= p.total && nearSeconds) break;
+    await new Promise((r) => setTimeout(r, 20));
+  }
+  clearInterval(memory);
+  const allSeconds = (performance.now() - started) / 1000;
+  const r: Result = {
+    scenario,
+    openSeconds,
+    nearSeconds,
+    allSeconds,
+    chunks: manifest.chunks.length,
+    rendered: missing,
+    hostMB: Math.round(hostMB),
+    nodeMB: Math.round(nodeMB),
+    loads,
+  };
+  results.push(r);
+  console.log(
+    `${scenario.padEnd(34)} plan ${openSeconds.toFixed(2)} s  near ${nearSeconds.toFixed(2).padStart(6)} s  all ${allSeconds.toFixed(2).padStart(7)} s  ` +
+      `chunks ${r.rendered}/${r.chunks}  loads ${loads}  host ${r.hostMB} MB  node ${r.nodeMB} MB`,
+  );
 }
 
-const original = JSON.parse(readFileSync(scorePath, "utf8")) as Score;
+//==============================================================================
+// Edits
+
+const q = (t: Time) => (Array.isArray(t) ? t[0] / t[1] : t);
 const clone = () => structuredClone(original);
 const notesOf = (p: Part) => p.events.filter((e): e is NoteEvent => "dur" in e);
+const busiest = (s: Score) =>
+  [...s.parts].sort((a, b) => notesOf(b).length - notesOf(a).length)[0]!;
 
-/** The part with the most notes that sounds through BBC SO (not unpitched percussion). */
-function busiestPart(score: Score): Part {
-  return [...score.parts].sort((a, b) => notesOf(b).length - notesOf(a).length)[0]!;
+// Measure starts in quarters and seconds, from the normalised original.
+const normal = normalize(original);
+const { secondsAt } = await import("../src/score/timeline.ts");
+const middle = Math.floor(normal.measures.length / 2);
+const at = normal.measures[middle]!;
+const atQ = at.start.value;
+const atS = secondsAt(normal.tempo, atQ);
+const spanQ = normal.measures.slice(middle, middle + 4).reduce((n, m) => n + m.length.value, 0);
+
+function editOneNote(s: Score): void {
+  const part = busiest(s);
+  const note = notesOf(part).find((n) => q(n.at) >= atQ)!;
+  const p = note.pitch;
+  if (p && typeof p === "object" && "midi" in p) p.midi += 1;
+  else note.articulations = ["accent"];
 }
 
-await measure("cold (nothing rendered)", clone());
-await measure("warm (everything rendered)", clone());
+function editDynamics(s: Score): void {
+  const part = busiest(s);
+  const dyn = (part.dynamics ?? []).filter((d) => q(d.at) < atQ || q(d.at) > atQ + spanQ);
+  dyn.push({ at: atQ, level: 1, to: "linear" }, { at: atQ + spanQ, level: 7 } as DynamicPoint);
+  part.dynamics = dyn.sort((a, b) => q(a.at) - q(b.at));
+}
 
-{
+function editTutti(s: Score): void {
+  for (const part of s.parts)
+    for (const n of notesOf(part)) {
+      if (q(n.at) < atQ || q(n.at) >= atQ + spanQ) continue;
+      const p = n.pitch;
+      if (Array.isArray(p))
+        n.pitch = p.map((x) => (typeof x === "object" && "midi" in x ? { midi: x.midi + 1 } : x));
+      else if (p && typeof p === "object" && "midi" in p) p.midi += 1;
+      else n.articulations = ["accent"];
+    }
+}
+
+function insertMeasure(s: Score): void {
+  // Exact fractions: a float here would move every later note by a rounding error.
+  const len = at.length;
+  const shift = (t: Time): Time => {
+    if (q(t) < atQ) return t;
+    const [n, d] = Array.isArray(t) ? t : [t, 1];
+    return [n * len.d + len.n * d, d * len.d];
+  };
+  for (const part of s.parts) {
+    for (const e of part.events) e.at = shift(e.at);
+    for (const d of part.dynamics ?? []) d.at = shift(d.at);
+  }
+  for (const t of s.tempo ?? []) t.at = shift(t.at);
+  for (const m of s.meter) if (m.measure > at.number) m.measure++;
+  for (const r of s.rehearsal ?? []) if (r.measure > at.number) r.measure++;
+  if (s.measures) s.measures++;
+}
+
+function changeTempo(s: Score): void {
+  const tempo = s.tempo ?? [];
+  const before = [...tempo].filter((t) => q(t.at) <= atQ).at(-1);
+  if (before && q(before.at) < atQ) tempo.push({ at: atQ, bpm: before.bpm });
+  for (const t of tempo) if (q(t.at) >= atQ) t.bpm = Math.round(t.bpm * 1.1);
+  s.tempo = tempo.sort((a, b) => q(a.at) - q(b.at));
+}
+
+console.log(
+  `${name}: ${normal.parts.length} parts, ${normal.measures.length} measures; edits at measure ${at.number} (${atS.toFixed(0)} s); ${resident ? "resident" : "one-shot"} hosts`,
+);
+await measure("open (as stored)", clone());
+await measure("open again, unchanged", clone());
+for (const [label, edit] of [
+  ["one note", editOneNote],
+  ["dynamics of one part (4 bars)", editDynamics],
+  ["tutti, 4 bars", editTutti],
+  ["insert a measure", insertMeasure],
+  ["tempo from here on +10%", changeTempo],
+] as const) {
   const s = clone();
-  const part = busiestPart(s);
-  const notes = notesOf(part);
-  const note = notes[Math.floor(notes.length / 2)]!;
-  note.dynamic = 7;
-  await measure(`edit one note (${part.id})`, s);
+  edit(s);
+  await measure(label, s, atS);
 }
-{
-  const s = clone();
-  const part = busiestPart(s);
-  part.dynamics = [
-    { at: 0, level: 2, to: "linear" },
-    { at: 8, level: 7 },
-  ];
-  await measure(`edit dynamics (${part.id})`, s);
-}
+engine.pool.stop();
 
+const disk = execSync(`du -sk "${process.env.TAKEMITSU_CHUNKS_DIR}"`).toString().split("\t")[0];
 mkdirSync(dirname(outFile), { recursive: true });
 writeFileSync(
   outFile,
-  JSON.stringify({ score: scorePath, when: new Date().toISOString(), results }, null, 2),
+  JSON.stringify(
+    {
+      score: scorePath,
+      resident,
+      when: new Date().toISOString(),
+      storeMB: Math.round(Number(disk) / 1024),
+      results,
+    },
+    null,
+    2,
+  ),
 );
-console.log(`\nwritten ${outFile}`);
-rmSync(cache, { recursive: true, force: true });
+console.log(`store ${Math.round(Number(disk) / 1024)} MB\nwritten ${outFile}`);

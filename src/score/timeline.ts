@@ -66,3 +66,10 @@ export function secondsAt(map: TempoSegment[], quarters: number): number {
   for (const s of map) if (s.at <= quarters) seg = s;
   return seg.seconds + ((quarters - seg.at) * 60) / seg.qpm;
 }
+
+/** The inverse of secondsAt. */
+export function quartersAt(map: TempoSegment[], seconds: number): number {
+  let seg = map[0]!;
+  for (const s of map) if (s.seconds <= seconds) seg = s;
+  return seg.at + ((seconds - seg.seconds) * seg.qpm) / 60;
+}

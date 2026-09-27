@@ -1,46 +1,72 @@
 // Score → lanes. A lane is one sound source playing one part: a BBC SO plugin instance
 // (one tuning, a set of articulations on keyswitches) or a folder of user samples.
+// Lanes cover the whole piece in seconds; src/performance/chunks.ts cuts them into chunks.
 //
 // - Quarter tones: notes a quarter tone up go to a second instance tuned +50 cents (docs/decisions/0013).
 // - Players: 1 → the solo patch, more → the section patch at a lower gain (docs/decisions/0015).
 // - Dynamics: the part's continuous level drives CC1 and the velocity.
 // - Missing sounds: samples/<instrument>/ (docs/decisions/0012).
+// - Articulations: every lane of one BBC SO instrument loads the same set (all the articulations
+//   the piece uses on it, in the library's order), so lanes share plugin instances and a note
+//   elsewhere in the piece changes nothing unless it brings a new articulation.
 
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 import { bbcsoMap, chooseArticulation, type PitchedMap } from "../libraries/bbcso/map.ts";
-import { levelAt, type NormalPart, type NormalScore, type Note } from "../score/normalize.ts";
-import { Rational } from "../score/rational.ts";
-import { secondsAt } from "../score/timeline.ts";
+import type { Dynamic, NormalPart, NormalScore, Note } from "../score/normalize.ts";
+import { quartersAt, secondsAt } from "../score/timeline.ts";
 
 const inventory = JSON.parse(
   readFileSync(join(import.meta.dirname, "../libraries/bbcso/inventory.json"), "utf8"),
 ) as Record<string, Record<string, { range: [number, number] } | null>>;
 
-export interface TimedEvent {
-  seconds: number;
-  bytes: number[];
+export interface LaneNote {
+  /** Onset and release in seconds from the start of the piece. */
+  on: number;
+  off: number;
+  key: number;
+  velocity: number;
+  /** Articulation name (a BBC SO patch articulation). */
+  articulation: string;
+  /** Legato into the next note: the two must be played by the same instance, in one go. */
+  slur: boolean;
+  /** Index of the measure holding the onset. */
+  measure: number;
+  /** CC1 at the onset (unpitched percussion, which has no curve). */
+  cc?: number;
 }
 
 export interface BbcsoLane {
   kind: "bbcso";
+  /** Unique within the plan: part and tuning. */
+  id: string;
   partId: string;
   /** BBC SO instrument, e.g. "Violins 1". */
   instrument: string;
-  /** Articulations in keyswitch order (keyswitch = index). */
+  /** Articulations in keyswitch order (keyswitch = index), shared by all lanes of the instrument. */
   articulations: string[];
   /** Global tune in semitones: 0 or 0.5. */
   tune: number;
-  events: TimedEvent[];
+  notes: LaneNote[];
+  /** CC1 at a time in seconds, from the part's dynamic curve; undefined: CC1 only at onsets. */
+  cc?: (seconds: number) => number;
   gain: number;
+}
+
+export interface SampleHit {
+  seconds: number;
+  gain: number;
+  seed: number;
+  measure: number;
 }
 
 export interface SampleLane {
   kind: "samples";
+  id: string;
   partId: string;
   files: string[];
-  hits: { seconds: number; gain: number; seed: number }[];
+  hits: SampleHit[];
   gain: number;
 }
 
@@ -48,16 +74,11 @@ export type Lane = BbcsoLane | SampleLane;
 
 export interface Plan {
   lanes: Lane[];
-  /** Seconds covered, from the range start. */
+  /** Start and end of each measure in seconds. */
+  measures: { start: number; end: number }[];
+  /** Seconds to the end of the last measure. */
   duration: number;
   warnings: string[];
-}
-
-export interface Range {
-  /** Quarter-note time where playback starts. */
-  from: Rational;
-  /** Quarter-note time where playback stops (notes still ring out). */
-  to: Rational;
 }
 
 export const samplesRoot = join(import.meta.dirname, "../../samples");
@@ -83,22 +104,65 @@ const velocityFor = (level: number, accent: boolean) =>
 /** Linear gain for a sample hit at a dynamic level (mf = 1, 6 dB per level). */
 const sampleGainFor = (level: number) => (level <= 0 ? 0 : 10 ** (((level - 5) * 6) / 20));
 
-export function plan(score: NormalScore, range?: Range): Plan {
-  const from = range?.from ?? Rational.zero;
-  const to = range?.to ?? score.end;
-  const t0 = secondsAt(score.tempo, from.value);
-  const sec = (q: Rational) => secondsAt(score.tempo, q.value) - t0;
+/** The dynamic level at a time in quarters (as normalize.levelAt, on plain numbers). */
+function levelOf(dynamics: Dynamic[]): (quarters: number) => number {
+  const at = dynamics.map((d) => d.at.value);
+  return (q) => {
+    if (dynamics.length === 0) return 5;
+    let lo = 0;
+    let hi = at.length - 1;
+    if (q < at[0]!) return dynamics[0]!.level;
+    while (lo < hi) {
+      const mid = (lo + hi + 1) >> 1;
+      if (at[mid]! <= q) lo = mid;
+      else hi = mid - 1;
+    }
+    const d = dynamics[lo]!;
+    const next = dynamics[lo + 1];
+    if (d.to === "linear" && next) {
+      const span = at[lo + 1]! - at[lo]!;
+      return d.level + (next.level - d.level) * (span > 0 ? (q - at[lo]!) / span : 1);
+    }
+    return d.level;
+  };
+}
+
+const techniqueKey = (n: Note) => n.technique.join("+") || "ord";
+const accented = (n: Note) =>
+  n.articulations.includes("accent") || n.articulations.includes("marcato");
+
+interface Draft {
+  lane: Omit<BbcsoLane, "articulations">;
+}
+
+export function plan(score: NormalScore): Plan {
   const warnings: string[] = [];
   const lanes: Lane[] = [];
-  const duration = sec(to);
+  const drafts: Draft[] = [];
+  const sec = (q: number) => secondsAt(score.tempo, q);
+  const measureStarts = score.measures.map((m) => m.start.value);
+  const measureOf = (q: number) => {
+    let lo = 0;
+    let hi = measureStarts.length - 1;
+    while (lo < hi) {
+      const mid = (lo + hi + 1) >> 1;
+      if (measureStarts[mid]! <= q + 1e-9) lo = mid;
+      else hi = mid - 1;
+    }
+    return lo;
+  };
+  const measures = score.measures.map((m) => ({
+    start: sec(m.start.value),
+    end: sec(m.start.add(m.length).value),
+  }));
+  const duration = measures.at(-1)?.end ?? 0;
 
   for (const part of score.parts) {
-    const notes = part.notes.filter((n) => n.end.gt(from) && n.at.lt(to));
-    const techniqueKey = (n: Note) => n.technique.join("+") || "ord";
     const map = bbcsoMap[part.instrument.id];
+    const level = levelOf(part.dynamics);
 
     // User samples replace the library for this instrument (or a technique of it).
-    const withSamples = notes.filter(
+    const withSamples = part.notes.filter(
       (n) => sampleFiles(part.instrument.id, techniqueKey(n)).length > 0,
     );
     if (withSamples.length) {
@@ -107,17 +171,24 @@ export function plan(score: NormalScore, range?: Range): Plan {
         const files = sampleFiles(part.instrument.id, techniqueKey(n));
         const key = files.join("|");
         if (!byFiles.has(key))
-          byFiles.set(key, { kind: "samples", partId: part.id, files, hits: [], gain: 1 });
-        if (n.at.lt(from)) continue;
+          byFiles.set(key, {
+            kind: "samples",
+            id: `${part.id}#samples${byFiles.size}`,
+            partId: part.id,
+            files,
+            hits: [],
+            gain: 1,
+          });
         byFiles.get(key)!.hits.push({
-          seconds: sec(n.at),
-          gain: sampleGainFor(levelAt(part.dynamics, n.at)),
+          seconds: sec(n.at.value),
+          gain: sampleGainFor(level(n.at.value)),
           seed: n.index,
+          measure: measureOf(n.at.value),
         });
       }
       lanes.push(...byFiles.values());
     }
-    const rest = notes.filter((n) => !withSamples.includes(n));
+    const rest = part.notes.filter((n) => !withSamples.includes(n));
     if (rest.length === 0) continue;
     if (!map) {
       warnings.push(
@@ -127,56 +198,74 @@ export function plan(score: NormalScore, range?: Range): Plan {
     }
 
     if (map.kind === "unpitched") {
-      const events: TimedEvent[] = [];
+      const notes: LaneNote[] = [];
       for (const n of rest) {
         const t = techniqueKey(n);
         const key = map.keys[t] ?? map.keys.ord!;
         if (map.keys[t] === undefined)
           warnings.push(`${part.name}: ${t} is not available, played as ord`);
-        if (n.at.lt(from)) continue;
-        const on = sec(n.at);
-        const off = sec(n.end);
-        const level = levelAt(part.dynamics, n.at);
-        events.push({ seconds: on, bytes: [0xb0, 1, ccFor(level)] });
-        events.push({
-          seconds: on,
-          bytes: [
-            0x90,
-            key,
-            velocityFor(
-              level,
-              n.articulations.includes("accent") || n.articulations.includes("marcato"),
-            ),
-          ],
+        const on = sec(n.at.value);
+        const lv = level(n.at.value);
+        notes.push({
+          on,
+          off: Math.max(on + 0.05, sec(n.end.value)),
+          key,
+          velocity: velocityFor(lv, accented(n)),
+          articulation: map.articulation,
+          slur: false,
+          measure: measureOf(n.at.value),
+          cc: ccFor(lv),
         });
-        events.push({ seconds: Math.max(on + 0.05, off), bytes: [0x80, key, 0] });
       }
-      lanes.push({
-        kind: "bbcso",
-        partId: part.id,
-        instrument: "Untuned Percussion",
-        articulations: [map.articulation],
-        tune: 0,
-        events,
-        gain: 1,
+      drafts.push({
+        lane: {
+          kind: "bbcso",
+          id: part.id,
+          partId: part.id,
+          instrument: "Untuned Percussion",
+          tune: 0,
+          notes,
+          gain: 1,
+        },
       });
       continue;
     }
 
-    pitchedLanes(part, map, rest, from, sec, warnings, lanes);
+    pitchedLanes(part, map, rest, score, sec, measureOf, level, warnings, drafts);
   }
 
-  return { lanes, duration, warnings: [...new Set(warnings)] };
+  // One articulation set per BBC SO instrument, in the library's order.
+  const used = new Map<string, Set<string>>();
+  for (const { lane } of drafts) {
+    const set = used.get(lane.instrument) ?? new Set<string>();
+    for (const n of lane.notes) set.add(n.articulation);
+    used.set(lane.instrument, set);
+  }
+  const order = (instrument: string) => {
+    const known = Object.keys(inventory[instrument] ?? {});
+    const set = used.get(instrument)!;
+    return [...set].sort((a, b) => known.indexOf(a) - known.indexOf(b) || a.localeCompare(b));
+  };
+  for (const { lane } of drafts) {
+    const articulations = order(lane.instrument);
+    if (articulations.length > 20)
+      warnings.push(`${lane.instrument}: more than 20 articulations in one instance`);
+    lanes.push({ ...lane, articulations });
+  }
+
+  return { lanes, measures, duration, warnings: [...new Set(warnings)] };
 }
 
 function pitchedLanes(
   part: NormalPart,
   map: PitchedMap,
   notes: Note[],
-  from: Rational,
-  sec: (q: Rational) => number,
+  score: NormalScore,
+  sec: (q: number) => number,
+  measureOf: (q: number) => number,
+  level: (q: number) => number,
   warnings: string[],
-  lanes: Lane[],
+  drafts: Draft[],
 ): void {
   // Solo or section, and gain for the players it stands for.
   const players = part.players;
@@ -189,78 +278,53 @@ function pitchedLanes(
     warnings.push(`${part.name}: ${players} players approximated by the solo patch`);
   }
   const available = new Set(Object.keys(inventory[instrument] ?? {}));
+  const range =
+    inventory[instrument]?.["Long"]?.range ??
+    Object.values(inventory[instrument] ?? {}).find(Boolean)?.range;
 
   // Split notes by tuning: whole semitones on the plain instance, quarter tones on the +50 cent one.
-  const byTune = new Map<number, { note: Note; key: number }[]>();
+  const byTune = new Map<number, LaneNote[]>();
   for (const n of notes) {
+    const on = sec(n.at.value);
+    const off = sec(n.end.value);
+    const choice = chooseArticulation(map, n, off - on, available);
+    if (choice.approximate) warnings.push(`${part.name}: ${choice.approximate}`);
+    const velocity = velocityFor(level(n.at.value), accented(n));
+    // Legato transitions need a small overlap; other notes release just before the next onset.
+    const release = n.slur ? off + 0.03 : Math.max(on + 0.03, off - 0.01);
     for (const p of n.pitches) {
       const tune = p.midi % 1 === 0 ? 0 : 0.5;
       const key = Math.floor(p.midi);
-      if (!byTune.has(tune)) byTune.set(tune, []);
-      byTune.get(tune)!.push({ note: n, key });
-      const r =
-        inventory[instrument]?.["Long"]?.range ??
-        Object.values(inventory[instrument] ?? {}).find(Boolean)?.range;
-      if (r && (key < r[0] || key > r[1]))
+      if (range && (key < range[0] || key > range[1]))
         warnings.push(`${part.name}: pitch ${p.midi} is outside ${instrument}'s sampled range`);
+      if (!byTune.has(tune)) byTune.set(tune, []);
+      byTune.get(tune)!.push({
+        on,
+        off: release,
+        key,
+        velocity,
+        articulation: choice.articulation,
+        slur: n.slur,
+        measure: measureOf(n.at.value),
+      });
     }
   }
 
-  for (const [tune, items] of byTune) {
-    const articulations: string[] = [];
-    const events: TimedEvent[] = [];
-    let current = "";
-    // Dynamics as CC1 every 50 ms through the lane's span, plus at each onset.
-    const start = items.reduce((m, i) => (i.note.at.lt(m) ? i.note.at : m), items[0]!.note.at);
-    const end = items.reduce((m, i) => (i.note.end.gt(m) ? i.note.end : m), items[0]!.note.end);
-    const s0 = Math.max(0, sec(start));
-    const s1 = sec(end);
-    const quarterAt = (s: number) => {
-      // Invert the tempo map by bisection between start and end.
-      let lo = start.value;
-      let hi = end.value;
-      for (let k = 0; k < 40; k++) {
-        const mid = (lo + hi) / 2;
-        if (sec(Rational.of(Math.round(mid * 10080) / 10080)) < s) lo = mid;
-        else hi = mid;
-      }
-      return Math.round(lo * 10080) / 10080;
-    };
-    let lastCc = -1;
-    for (let s = s0; s <= s1 + 0.05; s += 0.05) {
-      const cc = ccFor(levelAt(part.dynamics, Rational.of(quarterAt(s))));
-      if (cc !== lastCc) events.push({ seconds: s, bytes: [0xb0, 1, cc] });
-      lastCc = cc;
-    }
-    events.push({ seconds: 0, bytes: [0xb0, 11, 110] });
-
-    const sorted = [...items].sort((a, b) => a.note.at.cmp(b.note.at));
-    for (const { note, key } of sorted) {
-      if (note.at.lt(from)) continue; // started before the range: skip rather than cut in mid-note
-      const on = sec(note.at);
-      const off = sec(note.end);
-      const choice = chooseArticulation(map, note, off - on, available);
-      if (choice.approximate) warnings.push(`${part.name}: ${choice.approximate}`);
-      let ks = articulations.indexOf(choice.articulation);
-      if (ks < 0) {
-        ks = articulations.length;
-        articulations.push(choice.articulation);
-      }
-      if (choice.articulation !== current) {
-        events.push({ seconds: Math.max(0, on - 0.03), bytes: [0x90, ks, 100] });
-        events.push({ seconds: Math.max(0, on - 0.02), bytes: [0x80, ks, 0] });
-        current = choice.articulation;
-      }
-      const level = levelAt(part.dynamics, note.at);
-      const accent =
-        note.articulations.includes("accent") || note.articulations.includes("marcato");
-      // Legato transitions need a small overlap; other notes release just before the next onset.
-      const release = note.slur ? off + 0.03 : Math.max(on + 0.03, off - 0.01);
-      events.push({ seconds: on, bytes: [0x90, key, velocityFor(level, accent)] });
-      events.push({ seconds: release, bytes: [0x80, key, 0] });
-    }
-    if (articulations.length > 20)
-      warnings.push(`${part.name}: more than 20 articulations in one lane`);
-    lanes.push({ kind: "bbcso", partId: part.id, instrument, articulations, tune, events, gain });
+  // CC1 follows the part's curve (in quarters, so it moves with the tempo).
+  const cc = (seconds: number) => ccFor(level(quartersAt(score.tempo, seconds)));
+  for (const [tune, laneNotes] of byTune) {
+    laneNotes.sort((a, b) => a.on - b.on || a.key - b.key);
+    drafts.push({
+      lane: {
+        kind: "bbcso",
+        id: tune ? `${part.id}#+50` : part.id,
+        partId: part.id,
+        instrument,
+        tune,
+        notes: laneNotes,
+        cc,
+        gain,
+      },
+    });
   }
 }

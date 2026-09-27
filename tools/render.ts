@@ -1,39 +1,38 @@
-// Renders a score JSON with BBC SO: writes the mix and one stem per part.
+// Renders a score JSON with BBC SO and writes the mix (and with --stems, one WAV per part).
 //
-//   vp node tools/render.ts examples/showcase.json [--from 3] [--to 8]   (measure numbers, inclusive)
+//   vp node tools/render.ts examples/showcase.json [--stems]
+//
+// Uses the same chunks as the preview (.local/chunks), so it only renders what is missing.
 
 import { readFile } from "node:fs/promises";
 import { basename, join } from "node:path";
 
-import { plan } from "../src/performance/plan.ts";
-import { renderPlan } from "../src/performance/render.ts";
+import { Engine } from "../src/performance/engine.ts";
+import { mixdown } from "../src/performance/render.ts";
 import { repoRoot } from "../src/render/host.ts";
 import { normalize } from "../src/score/normalize.ts";
 import type { Score } from "../src/score/types.ts";
 
 const args = process.argv.slice(2);
-const option = (name: string) => {
-  const i = args.indexOf(name);
-  return i >= 0 ? Number(args.splice(i, 2)[1]) : undefined;
-};
-const fromMeasure = option("--from");
-const toMeasure = option("--to");
-const file = args[0];
-if (!file) throw new Error("usage: tools/render.ts <score.json> [--from m] [--to m]");
+const file = args.find((a) => !a.startsWith("--"));
+if (!file) throw new Error("usage: tools/render.ts <score.json> [--stems]");
 
 const score = normalize(JSON.parse(await readFile(file, "utf8")) as Score);
-const first = score.measures.find((m) => m.number === (fromMeasure ?? 1)) ?? score.measures[0]!;
-const last =
-  score.measures.find((m) => m.number === (toMeasure ?? score.measures.length)) ??
-  score.measures.at(-1)!;
-const range = { from: first.start, to: last.start.add(last.length) };
-const p = plan(score, range);
-console.log(`${p.lanes.length} lanes, ${p.duration.toFixed(1)} s`);
+const engine = new Engine();
+engine.onProgress = (_path, p) =>
+  process.stdout.write(
+    `\rRendering ${p.done}/${p.total} chunks${p.failed ? `, ${p.failed} failed` : ""}   `,
+  );
+const manifest = await engine.open(file, score);
+const progress = await engine.whenDone(file);
+engine.pool.stop();
+if (progress.failed) console.log(`\n${progress.failed} chunk(s) failed`);
+
 const name = basename(file).replace(/\.json$/, "");
-const out = await renderPlan(
-  p,
-  join(repoRoot, ".local/renders", name, `m${first.number}-${last.number}`),
-  (m, f) => process.stdout.write(`\r${m} ${Math.round(f * 100)}%   `),
+const out = await mixdown(engine, file, join(repoRoot, ".local/renders", name), {
+  stems: args.includes("--stems"),
+});
+console.log(
+  `\n${manifest.chunks.length} chunks, ${out.seconds.toFixed(1)} s\n${out.mix}\npeak ${(20 * Math.log10(out.peak)).toFixed(1)} dBFS`,
 );
-console.log(`\n${out.mix}\npeak ${(20 * Math.log10(out.peak)).toFixed(1)} dBFS`);
 for (const w of out.warnings) console.log(`warning: ${w}`);
