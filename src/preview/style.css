@@ -250,6 +250,7 @@ dialog#keys form {
 }
 
 .score {
+  position: relative;
   flex: 1;
   min-height: 0;
   overflow: auto;
@@ -258,11 +259,22 @@ dialog#keys form {
   overscroll-behavior: contain;
 }
 
+/* Holds the scroll range while a pinch shrinks the strip (strip-view.ts). */
+.strip-sizer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /* The strip (src/preview/strip-view.ts): measures drawn by the server, placed side by side. */
 .strip-canvas {
   position: relative;
   /* The pinned margin's top margin stays inside (it would push the whole strip down). */
   display: flow-root;
+  /* Its own layer, drawn once at its scale: a pinch then only stretches it (strip-view.ts). */
+  will-change: transform;
   background: var(--paper);
   cursor: text;
   user-select: none;
@@ -594,12 +606,12 @@ body.mixer-collapsed .strips {
   overflow: hidden;
 }
 
+/* The level shows by clipping the top off a full-height fill (main.ts): repainting it does not
+   lay out the page, which a hundred meters changing height every 50 ms did. */
 .meter-fill {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0;
+  inset: 0;
+  clip-path: inset(100% 0 0 0);
   background: linear-gradient(to top, #2e7d4f 0%, #2e7d4f 70%, #d9a400 88%, #c2410c 100%);
 }
 

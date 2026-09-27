@@ -396,16 +396,33 @@ modeButton.addEventListener("click", () => setMode(prefs.mode === "page" ? "pano
 $("zoom-in").addEventListener("click", () => zoomBy(1.25));
 $("zoom-out").addEventListener("click", () => zoomBy(1 / 1.25));
 $("zoom-fit").addEventListener("click", () => setZoom("fit"));
-// Pinch on a trackpad (a wheel event with Ctrl) and ⌘/Ctrl + wheel zoom around the pointer.
+// Pinch on a trackpad (a wheel event with Ctrl; Safari sends gesture events) and ⌘/Ctrl + wheel
+// zoom around the pointer.
 $("score").addEventListener(
   "wheel",
   (e) => {
     if (!e.ctrlKey && !e.metaKey) return;
     e.preventDefault();
-    zoomBy(Math.exp(-e.deltaY / 300), { x: e.clientX, y: e.clientY });
+    view.pinch(Math.exp(-e.deltaY / 150), { x: e.clientX, y: e.clientY });
   },
   { passive: false },
 );
+let gestureScale = 1;
+$("score").addEventListener("gesturestart", (e) => {
+  e.preventDefault();
+  gestureScale = 1;
+});
+$("score").addEventListener("gesturechange", (e) => {
+  e.preventDefault();
+  const g = e as Event & { scale: number; clientX: number; clientY: number };
+  view.pinch(g.scale / gestureScale, { x: g.clientX, y: g.clientY });
+  gestureScale = g.scale;
+});
+view.onZoom = (scale) => {
+  prefs.zoom[prefs.mode] = scale;
+  savePrefs();
+  showViewControls();
+};
 
 function toggleSidebar(): void {
   document.body.classList.toggle("sidebar-hidden");
@@ -651,23 +668,47 @@ setInterval(() => {
   const cursor = player.position;
   view.setCursor(cursor, player.isPlaying);
   if (player.isPlaying) sendPlayhead();
-  timeEl.textContent = `${clock(cursor)} / ${clock(pieceEnd())}`;
+  const time = `${clock(cursor)} / ${clock(pieceEnd())}`;
+  if (timeEl.textContent !== time) timeEl.textContent = time;
   if (++ticks % 10 === 0) {
     drawReadiness();
     showProgress();
   }
-
-  for (const s of strips.querySelectorAll<HTMLElement>(".strip")) {
-    const id = s.dataset.id || undefined;
-    const level = player.meter(id);
-    const db = level > 0 ? 20 * Math.log10(level) : -90;
-    const fill = s.querySelector<HTMLElement>(".meter-fill")!;
-    fill.style.height = `${Math.max(0, Math.min(100, ((db + 60) / 66) * 100))}%`;
-    fill.classList.toggle("clip", level >= 1);
-    const gr = player.reduction(id);
-    s.querySelector<HTMLElement>(".gr")!.textContent = gr < -0.5 ? gr.toFixed(1) : "";
-  }
+  showMeters();
 }, 50);
+
+/** The meters' elements and what they show, so a tick touches only what changed. */
+let meters: { id?: string; fill: HTMLElement; gr: HTMLElement; shown: string }[] = [];
+function showMeters(): void {
+  const hidden =
+    document.body.classList.contains("mixer-collapsed") ||
+    document.body.classList.contains("focus");
+  if (hidden) return;
+  if (meters.length !== strips.children.length)
+    meters = [...strips.querySelectorAll<HTMLElement>(".strip")].map((s) => ({
+      id: s.dataset.id || undefined,
+      fill: s.querySelector<HTMLElement>(".meter-fill")!,
+      gr: s.querySelector<HTMLElement>(".gr")!,
+      shown: "",
+    }));
+  for (const m of meters) {
+    if (!m.fill.isConnected) {
+      meters = [];
+      return;
+    }
+    const level = player.meter(m.id);
+    const db = level > 0 ? 20 * Math.log10(level) : -90;
+    const top = Math.round(100 - Math.max(0, Math.min(100, ((db + 60) / 66) * 100)));
+    const gr = player.reduction(m.id);
+    const grText = gr < -0.5 ? gr.toFixed(1) : "";
+    const shown = `${top}:${level >= 1}:${grText}`;
+    if (shown === m.shown) continue;
+    m.shown = shown;
+    m.fill.style.clipPath = `inset(${top}% 0 0 0)`;
+    m.fill.classList.toggle("clip", level >= 1);
+    m.gr.textContent = grText;
+  }
+}
 
 let resizeTimer = 0;
 window.addEventListener("resize", () => {
