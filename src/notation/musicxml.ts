@@ -4,11 +4,12 @@
 
 import type { Instrument } from "../instruments/catalog.ts";
 import { techniqueOf } from "../instruments/techniques.ts";
-import { normalize, type NormalPart, type NormalScore } from "../score/normalize.ts";
+import { normalize, type Note, type NormalPart, type NormalScore } from "../score/normalize.ts";
 import { accidentalName, type Spelled } from "../score/pitch.ts";
 import { lcm, Rational } from "../score/rational.ts";
 import type { Measure } from "../score/timeline.ts";
 import type { Score } from "../score/types.ts";
+import { registersOf, type Ottava, type StaffRegisters } from "./registers.ts";
 import { layoutMeasure, type Piece } from "./rhythm.ts";
 
 export interface NotationResult {
@@ -104,9 +105,10 @@ function techniqueChanges(part: NormalPart): { at: Rational; text: string }[] {
 //==============================================================================
 // Notes
 
-function written(p: Spelled, inst: Instrument): Spelled {
+/** The pitch as written: sounding pitch moved by the instrument's octave (piccolo down, basses up). */
+export function written(p: Spelled, inst: Instrument): Spelled {
   const shift = inst.writtenOctave ?? 0;
-  return { ...p, octave: p.octave - shift, midi: p.midi - 12 * shift };
+  return { ...p, octave: p.octave + shift, midi: p.midi + 12 * shift };
 }
 
 class AccidentalState {
@@ -136,6 +138,8 @@ function noteXml(
   inst: Instrument,
   accidentals: AccidentalState,
   slur: { open: boolean },
+  /** Octaves an octave line draws the note lower (8va 1, 8vb −1). */
+  lowered: number,
 ): string {
   const n = piece.note;
   const out: string[] = ["<note>"];
@@ -159,7 +163,8 @@ function noteXml(
   if (!piece.measureRest) out.push(`<type>${piece.type}</type>`);
   for (let i = 0; i < piece.dots; i++) out.push("<dot/>");
   if (n && pitch && !inst.unpitched) {
-    const acc = accidentals.next(written(pitch, inst), piece.tieFromPrevious);
+    const w = written(pitch, inst);
+    const acc = accidentals.next({ ...w, octave: w.octave - lowered }, piece.tieFromPrevious);
     if (acc) out.push(`<accidental>${acc}</accidental>`);
   }
   if (piece.tuplet) {
@@ -255,6 +260,28 @@ function clefXml(c: Instrument["clefs"][number], number: number, staves: number)
   return `<clef${n}><sign>${c.sign}</sign><line>${c.line}</line></clef>`;
 }
 
+/**
+ * Start or end of an octave line on a staff. The staff is always named: without it, Verovio 5.7
+ * moves the notes only in the first part.
+ */
+function octaveShiftXml(o: Ottava, type: "start" | "stop", staff: number): string {
+  const size = Math.abs(o.octaves) === 2 ? 15 : 8;
+  // MusicXML names the way the notes are drawn: 8va draws them lower ("down").
+  const kind = type === "stop" ? "stop" : o.octaves > 0 ? "down" : "up";
+  return `<direction placement="${o.octaves > 0 ? "above" : "below"}"><direction-type><octave-shift type="${kind}" size="${size}" number="${staff}"/></direction-type><staff>${staff}</staff></direction>`;
+}
+
+const registerCache = new WeakMap<NormalPart, StaffRegisters[]>();
+/** Clefs and octave lines of a part's staves, worked out once for the whole score. */
+function registersFor(part: NormalPart, score: NormalScore): StaffRegisters[] {
+  let r = registerCache.get(part);
+  if (!r) {
+    r = registersOf(part, score.measures, written);
+    registerCache.set(part, r);
+  }
+  return r;
+}
+
 /** What a part's documents share, worked out once per part (a long score has many documents). */
 interface PartFacts {
   marks: Mark[];
@@ -326,6 +353,24 @@ function partXml(
   const staves = inst.clefs.length;
   const known = factsOf(part);
   const voicesByStaff = known.voicesByStaff;
+  const registers = registersFor(part, score);
+  // Octave lines over this document's notes: each starts before its first note here and stops
+  // after its last note, if that ends here (otherwise the line runs on to the document's end).
+  const lineStarts = new Map<Note, { line: Ottava; staff: number }>();
+  const lineStops = new Map<Note, { line: Ottava; staff: number }>();
+  const lowered = new Map<Note, number>();
+  registers.forEach((r, i) => {
+    for (const line of r.ottavas) {
+      const here = line.notes.filter((n) => n.at.lt(spanEnd) && n.end.gt(spanStart));
+      if (!here.length) continue;
+      for (const n of here) lowered.set(n, line.octaves);
+      lineStarts.set(here[0]!, { line, staff: i + 1 });
+      const last = here.at(-1)!;
+      if (last === line.notes.at(-1) && last.end.lte(spanEnd))
+        lineStops.set(last, { line, staff: i + 1 });
+    }
+  });
+  const started = new Set<Ottava>();
 
   // Lay out every measure first so divisions can cover all durations.
   const layouts = measures.map((m) => {
@@ -440,11 +485,15 @@ function partXml(
     if (mi === 0) attrs.push(`<divisions>${divisions}</divisions><key><fifths>0</fifths></key>`);
     if (meter !== previousMeter)
       attrs.push(`<time><beats>${m.beats}</beats><beat-type>${m.beatType}</beat-type></time>`);
-    if (mi === 0) {
-      if (staves > 1) attrs.push(`<staves>${staves}</staves>`);
-      inst.clefs.forEach((c, i) => attrs.push(clefXml(c, i + 1, staves)));
-      if (inst.unpitched) attrs.push("<staff-details><staff-lines>1</staff-lines></staff-details>");
-    }
+    const at = span.first + mi;
+    if (mi === 0 && staves > 1) attrs.push(`<staves>${staves}</staves>`);
+    registers.forEach((r, i) => {
+      // Every document states its clefs; later measures only where the clef changes.
+      if (mi === 0 || r.clefs[at] !== r.clefs[at - 1])
+        attrs.push(clefXml(r.clefs[at]!, i + 1, staves));
+    });
+    if (mi === 0 && inst.unpitched)
+      attrs.push("<staff-details><staff-lines>1</staff-lines></staff-details>");
     previousMeter = meter;
     if (attrs.length) out.push(`<attributes>${attrs.join("")}</attributes>`);
 
@@ -483,11 +532,22 @@ function partXml(
             out.push(direction(d, offset, divisions, staves));
           }
         }
+        const note = piece.note;
+        const start = note && lineStarts.get(note);
+        if (start && !started.has(start.line)) {
+          out.push(octaveShiftXml(start.line, "start", start.staff));
+          started.add(start.line);
+        }
         const pitches: (Spelled | undefined)[] =
-          piece.note && !inst.unpitched ? piece.note.pitches : [undefined];
+          note && !inst.unpitched ? note.pitches : [undefined];
+        const down = (note && lowered.get(note)) ?? 0;
         pitches.forEach((p, pi) =>
-          out.push(noteXml(piece, p, pi > 0, g.voice, g.staff, staves, divisions, inst, acc, slur)),
+          out.push(
+            noteXml(piece, p, pi > 0, g.voice, g.staff, staves, divisions, inst, acc, slur, down),
+          ),
         );
+        const stop = note && !piece.tieToNext && lineStops.get(note);
+        if (stop) out.push(octaveShiftXml(stop.line, "stop", stop.staff));
       }
     });
     out.push("</measure>");
