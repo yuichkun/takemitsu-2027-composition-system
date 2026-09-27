@@ -3,7 +3,7 @@
 import { instrument, playersOf, type Instrument } from "../instruments/catalog.ts";
 import { techniqueOf } from "../instruments/techniques.ts";
 import { parsePitch, type Spelled } from "./pitch.ts";
-import { max, Rational } from "./rational.ts";
+import { max, min, Rational } from "./rational.ts";
 import { measures, tempoMap, type Measure, type TempoSegment } from "./timeline.ts";
 import type { Articulation, DynamicPoint, NoteEvent, Part, Score, TextEvent } from "./types.ts";
 
@@ -19,6 +19,16 @@ export interface Note {
   technique: string[];
   articulations: Articulation[];
   slur: boolean;
+  /**
+   * A feathered group (Part.feathers): `at`/`dur` are then where the note is written, evenly in
+   * the span; `play` is when it sounds. `group` tells the groups apart; `first` begins the beam.
+   */
+  feather?: { kind: "accel" | "rit"; group: number; first: boolean };
+  play?: { at: Rational; dur: Rational; end: Rational };
+  /** Slides into the next note of the same voice over its whole length. */
+  gliss: boolean;
+  /** Quarters to hold before the slide starts. */
+  glissAfter: Rational;
   trill?: 1 | 2;
   /** Index in the part's events, for messages. */
   index: number;
@@ -46,7 +56,8 @@ export interface NormalScore {
   parts: NormalPart[];
   measures: Measure[];
   tempo: TempoSegment[];
-  tempoMarks: { at: Rational; bpm: number; beat: Rational; text?: string }[];
+  /** `change`: a gradual change starts here (accel. or rit., to the next mark). */
+  tempoMarks: { at: Rational; bpm: number; beat: Rational; text?: string; change?: string }[];
   rehearsal: { measure: number; label: string }[];
   end: Rational;
   warnings: string[];
@@ -116,12 +127,37 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
       technique,
       articulations: e.articulations ?? [],
       slur: e.slur ?? false,
+      gliss: e.gliss ?? false,
+      glissAfter: min(Rational.of(e.glissAfter ?? 0), dur),
       trill: e.trill,
       index,
     });
   });
 
   notes.sort((a, b) => a.at.cmp(b.at) || a.voice - b.voice);
+  (part.feathers ?? []).forEach((f, group) => {
+    const start = Rational.of(f.at);
+    const span = Rational.of(f.dur);
+    const end = start.add(span);
+    const inside = notes.filter(
+      (n) =>
+        n.voice === (f.voice ?? 1) && n.staff === (f.staff ?? 1) && n.at.gte(start) && n.at.lt(end),
+    );
+    if (inside.length < 2) {
+      warnings.push(
+        `part "${part.id}": a feathered beam at ${start.value} holds fewer than 2 notes`,
+      );
+      return;
+    }
+    const each = span.div(new Rational(inside.length));
+    inside.forEach((n, i) => {
+      n.play = { at: n.at, dur: n.dur, end: n.end };
+      n.at = start.add(each.mul(new Rational(i)));
+      n.dur = each;
+      n.end = n.at.add(each);
+      n.feather = { kind: f.kind, group, first: i === 0 };
+    });
+  });
   dynamics.sort((a, b) => a.at.cmp(b.at));
   // A later point at the same time replaces an earlier one.
   const merged: Dynamic[] = [];
@@ -210,12 +246,20 @@ export function normalize(score: Score): NormalScore {
     parts,
     measures: measures(score, end),
     tempo: tempoMap(score),
-    tempoMarks: (score.tempo ?? []).map((t) => ({
-      at: Rational.of(t.at),
-      bpm: t.bpm,
-      beat: Rational.of(t.beat ?? 1),
-      text: t.text,
-    })),
+    tempoMarks: (score.tempo ?? [])
+      .map((t) => ({ ...t, at: Rational.of(t.at), beat: Rational.of(t.beat ?? 1) }))
+      .sort((a, b) => a.at.value - b.at.value)
+      .map((t, i, all) => {
+        const next = all[i + 1];
+        const qpm = (x: typeof t) => x.bpm * x.beat.value;
+        const change =
+          t.to === "linear" && next && qpm(next) !== qpm(t)
+            ? qpm(next) > qpm(t)
+              ? "accel."
+              : "rit."
+            : undefined;
+        return { at: t.at, bpm: t.bpm, beat: t.beat, text: t.text, change };
+      }),
     rehearsal: score.rehearsal ?? [],
     end,
     warnings,

@@ -2,7 +2,8 @@
 // splits at beats, detects tuplets per beat, picks note values with dots, and beams.
 //
 // Rules (kept simple and predictable):
-// - A beat is a quarter in x/4, an eighth in x/8, a dotted quarter in compound x/8 (6/8, 9/8, 12/8).
+// - A beat is a group of the meter (Score.meter groups): a quarter in x/4, a dotted quarter in
+//   6/8, 9/8, 12/8, and twos and threes of eighths or 16ths in other x/8 and x/16 (7/8 = 2+2+3).
 // - If the onsets and ends inside a beat need an odd subdivision (3, 5, 7…), the whole beat
 //   becomes one tuplet k:n where n is the largest power of two below k.
 // - Anything crossing a beat is split and tied, except a piece that starts and ends on beats
@@ -78,9 +79,17 @@ const oddPart = (n: number) => {
 };
 const powerBelow = (k: number) => 2 ** Math.floor(Math.log2(k));
 
-export function beatLength(m: Measure): Rational {
-  if (m.beatType === 8 && m.beats % 3 === 0 && m.beats > 3) return new Rational(3, 2);
-  return new Rational(4, m.beatType);
+/** The measure's beats as [start, end], one per beat group (see Score.meter). */
+export function beatSpans(m: Measure): [Rational, Rational][] {
+  const unit = new Rational(4, m.beatType);
+  const out: [Rational, Rational][] = [];
+  let at = m.start;
+  for (const g of m.groups) {
+    const end = at.add(unit.mul(new Rational(g)));
+    out.push([at, end]);
+    at = end;
+  }
+  return out;
 }
 
 interface Span {
@@ -129,10 +138,9 @@ export function layoutMeasure(notes: Note[], m: Measure, restIfEmpty: boolean): 
   if (cursor.lt(mEnd)) spans.push({ start: cursor, end: mEnd, tiedIn: false, tiedOut: false });
 
   // Beats and their tuplet ratio.
-  const beat = beatLength(m);
   const beats: { start: Rational; end: Rational; actual: number; normal: number }[] = [];
-  for (let b = m.start; b.lt(mEnd); b = b.add(beat)) {
-    const bEnd = min(b.add(beat), mEnd);
+  for (const [b, spanEnd] of beatSpans(m)) {
+    const bEnd = min(spanEnd, mEnd);
     let den = 1;
     for (const sp of spans) {
       for (const t of [sp.start, sp.end]) {
@@ -265,11 +273,16 @@ function beam(pieces: Piece[], beatStarts: Rational[]): void {
     group = [];
   };
   let currentBeat = -1;
+  let feather: number | undefined;
   for (const p of pieces) {
     const flagged = p.note !== undefined && (flags[p.type] ?? 0) > 0;
     const b = beatOf(p);
-    if (!flagged || b !== currentBeat) flush();
+    // A feathered group is one beam, whatever beats it crosses.
+    const f = p.note?.feather?.group;
+    const sameFeather = f !== undefined && f === feather && !p.note!.feather!.first;
+    if (!flagged || (b !== currentBeat && !sameFeather) || (f !== feather && group.length)) flush();
     currentBeat = b;
+    feather = f;
     if (flagged) group.push(p);
   }
   flush();

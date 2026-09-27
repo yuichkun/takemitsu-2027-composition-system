@@ -23,9 +23,22 @@ export type Step = "C" | "D" | "E" | "F" | "G" | "A" | "B";
 export interface Score {
   title?: string;
   /** Time signatures, each starting at a measure (1-based). The first must be at measure 1. */
-  meter: { measure: number; beats: number; beatType: number }[];
-  /** Tempo changes. `beat` is the beat unit in quarter notes (default 1). */
-  tempo?: { at: Time; bpm: number; beat?: Time; text?: string }[];
+  meter: {
+    measure: number;
+    beats: number;
+    beatType: number;
+    /**
+     * How the beats group, in units of beatType: [2, 2, 3] for 7/8 as 2+2+3. Notes split and
+     * beam by these groups. Default: x/4 and x/2 one by one; 6/8, 9/8, 12/8 in threes; other
+     * x/8 and x/16 in twos, with a three at the end when odd.
+     */
+    groups?: number[];
+  }[];
+  /**
+   * Tempo changes. `beat` is the beat unit in quarter notes (default 1). With `to: "linear"` the
+   * tempo moves gradually to the next change (written accel. or rit.); otherwise it holds, then jumps.
+   */
+  tempo?: { at: Time; bpm: number; beat?: Time; text?: string; to?: "linear" | "step" }[];
   /** Total number of measures. Defaults to just enough to hold every event. */
   measures?: number;
   /** Rehearsal marks. */
@@ -47,7 +60,21 @@ export interface Part {
   players?: number;
   /** Dynamic curve for the part (see Dynamics). */
   dynamics?: DynamicPoint[];
+  /**
+   * Feathered beams: the notes of a voice that start within each span are written evenly under
+   * one beam that fans out (accel) or in (rit), and played at their own times.
+   */
+  feathers?: Feather[];
   events: Event[];
+}
+
+export interface Feather {
+  at: Time;
+  dur: Time;
+  kind: "accel" | "rit";
+  /** Default 1. */
+  voice?: number;
+  staff?: number;
 }
 
 export interface DynamicPoint {
@@ -74,6 +101,13 @@ export interface NoteEvent {
   articulations?: Articulation[];
   /** Slurred into the next note of the same voice. */
   slur?: boolean;
+  /**
+   * Slides into the next note of the same voice (a glissando line), taking this note's whole
+   * length: tie a held note before it to slide only at the end.
+   */
+  gliss?: boolean;
+  /** With gliss: hold the pitch this long (quarters) before sliding. Default 0. */
+  glissAfter?: Time;
   /** Trill to the upper neighbour at this interval in semitones (1 or 2). */
   trill?: 1 | 2;
   /** Dynamic level at the onset. Adds a point to the part's curve. */

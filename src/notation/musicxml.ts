@@ -106,6 +106,12 @@ function techniqueChanges(part: NormalPart): { at: Rational; text: string }[] {
 // Notes
 
 /** The pitch as written: sounding pitch moved by the instrument's octave (piccolo down, basses up). */
+/** A note's staff position (diatonic steps, first pitch) as written, under any octave line. */
+function stepOf(n: Note, inst: Instrument, lowered: number): number {
+  const w = written(n.pitches[0]!, inst);
+  return (w.octave - lowered) * 7 + "CDEFGAB".indexOf(w.step);
+}
+
 export function written(p: Spelled, inst: Instrument): Spelled {
   const shift = inst.writtenOctave ?? 0;
   return { ...p, octave: p.octave + shift, midi: p.midi + 12 * shift };
@@ -133,6 +139,9 @@ interface NoteMarks {
   id?: string;
   slurStart: boolean;
   slurStop: boolean;
+  /** A glissando line starts here, or ends here (both within this document). */
+  glissStart?: boolean;
+  glissStop?: boolean;
   /** Ties over the document's first or last barline, left to the seam (see Seam). */
   cutTieIn: boolean;
   cutTieOut: boolean;
@@ -140,6 +149,11 @@ interface NoteMarks {
   lowered: number;
   /** A colour for the whole note (preview only: see NoteFlag). */
   color?: string;
+  /**
+   * Unpitched notes for Verovio (the preview): it reads a one-line staff's line as E4, where
+   * the MusicXML convention (and Sibelius) puts it at B4, the middle line.
+   */
+  lineIsE4?: boolean;
 }
 
 /**
@@ -169,8 +183,9 @@ function noteXml(
   if (!n) {
     out.push(piece.measureRest ? '<rest measure="yes"/>' : "<rest/>");
   } else if (inst.unpitched) {
+    const [step, octave] = marks.lineIsE4 ? ["E", 4] : ["B", 4];
     out.push(
-      "<unpitched><display-step>B</display-step><display-octave>4</display-octave></unpitched>",
+      `<unpitched><display-step>${step}</display-step><display-octave>${octave}</display-octave></unpitched>`,
     );
   } else {
     const w = written(pitch!, inst);
@@ -195,7 +210,13 @@ function noteXml(
     );
   }
   if (staves > 1) out.push(`<staff>${staff}</staff>`);
-  if (!chord) piece.beams.forEach((b, i) => b && out.push(`<beam number="${i + 1}">${b}</beam>`));
+  // A feathered group's first beam carries the fan (accel: the beams spread out to the right).
+  const fan = n?.feather?.first && !piece.tieFromPrevious ? ` fan="${n.feather.kind}"` : "";
+  if (!chord)
+    piece.beams.forEach(
+      (b, i) =>
+        b && out.push(`<beam number="${i + 1}"${i === 0 && b === "begin" ? fan : ""}>${b}</beam>`),
+    );
 
   const notations: string[] = [];
   if (tieStop) notations.push('<tied type="stop"/>');
@@ -206,6 +227,8 @@ function noteXml(
     const firstPiece = !piece.tieFromPrevious;
     if (marks.slurStop) notations.push('<slur type="stop" number="1"/>');
     if (marks.slurStart) notations.push('<slur type="start" number="1"/>');
+    if (marks.glissStop) notations.push('<glissando type="stop" number="1"/>');
+    if (marks.glissStart) notations.push('<glissando type="start" number="1" line-type="solid"/>');
     const ornaments: string[] = [];
     if (hasMark(n.technique, "tremolo")) ornaments.push('<tremolo type="single">3</tremolo>');
     if (n.trill && firstPiece) ornaments.push("<trill-mark/>");
@@ -307,6 +330,8 @@ interface PartFacts {
   longest: number;
   /** The next note of the same staff and voice: a slur from a note ends there. */
   next: Map<Note, Note>;
+  /** The note before, in the same staff and voice. */
+  previous: Map<Note, Note>;
   /** The notes of each staff and voice (key (staff − 1) × 4 + voice), by onset. */
   byVoice: Map<number, Note[]>;
 }
@@ -328,14 +353,19 @@ function factsOf(part: NormalPart): PartFacts {
       byVoice.get(key)!.push(n);
     }
     const next = new Map<Note, Note>();
+    const previous = new Map<Note, Note>();
     for (const notes of byVoice.values())
-      for (let i = 0; i + 1 < notes.length; i++) next.set(notes[i]!, notes[i + 1]!);
+      for (let i = 0; i + 1 < notes.length; i++) {
+        next.set(notes[i]!, notes[i + 1]!);
+        previous.set(notes[i + 1]!, notes[i]!);
+      }
     f = {
       ...dynamicMarks(part),
       changes: techniqueChanges(part),
       voicesByStaff,
       longest: Math.max(0, ...part.notes.map((n) => n.dur.value)),
       next,
+      previous,
       byVoice,
     };
     facts.set(part, f);
@@ -374,6 +404,11 @@ export interface SeamEnd {
   staff: number;
 }
 
+/** A glissando crossing the barline: its note here, and how many staff steps the other end is above it. */
+export interface SeamGliss extends SeamEnd {
+  steps: number;
+}
+
 /**
  * Marks that cross the barlines of a strip document (see stripMeasures). MusicXML cannot draw a
  * tie or slur whose other end is in another document, so they are left out of it and listed
@@ -386,6 +421,8 @@ export interface Seam {
   tiesOut: SeamEnd[];
   slursIn: SeamEnd[];
   slursOut: SeamEnd[];
+  glissIn: SeamGliss[];
+  glissOut: SeamGliss[];
   /** Octave lines of each staff, in order: whether each comes in from before or runs on after. */
   octaves: { staff: number; in: boolean; out: boolean }[];
   /** Hairpins cut at a barline: how open each end is here, as a share of the full opening. */
@@ -398,6 +435,8 @@ const emptySeam = (barline: number): Seam => ({
   tiesOut: [],
   slursIn: [],
   slursOut: [],
+  glissIn: [],
+  glissOut: [],
   octaves: [],
   hairpins: [],
 });
@@ -564,7 +603,7 @@ function partXml(
         at: t.at,
         staff: 1,
         placement: "above",
-        xml: `${t.text ? `<words font-weight="bold">${esc(t.text)} </words></direction-type><direction-type>` : ""}<metronome>${beatUnit(t.beat)}<per-minute>${t.bpm}</per-minute></metronome>`,
+        xml: `${t.text ? `<words font-weight="bold">${esc(t.text)} </words></direction-type><direction-type>` : ""}<metronome>${beatUnit(t.beat)}<per-minute>${t.bpm}</per-minute></metronome>${t.change ? `</direction-type><direction-type><words font-style="italic"> ${t.change}</words>` : ""}`,
       });
     }
   }
@@ -681,9 +720,27 @@ function partXml(
           else slurStart = true;
           slurOpen.set(g.voice, true);
         }
+        // Glissandi: from a note's last piece to the next note's first. One that crosses this
+        // document's barline is the seam's, with the distance to its other end in staff steps.
+        const down = (note && lowered.get(note)) ?? 0;
+        const steps = (from: Note, to: Note) =>
+          stepOf(to, inst, lowered.get(to) ?? 0) - stepOf(from, inst, lowered.get(from) ?? 0);
+        let glissStart = false;
+        let glissStop = false;
+        const target = note?.gliss && !inst.unpitched ? known.next.get(note) : undefined;
+        if (note && target && !piece.tieToNext) {
+          if (strip && !target.at.lt(spanEnd))
+            seam!.glissOut.push({ note: id(0)!, staff: staffNumber, steps: steps(note, target) });
+          else glissStart = true;
+        }
+        const source = note && !inst.unpitched ? known.previous.get(note) : undefined;
+        if (note && source?.gliss && !piece.tieFromPrevious) {
+          if (strip && source.end.lte(spanStart))
+            seam!.glissIn.push({ note: id(0)!, staff: staffNumber, steps: steps(note, source) });
+          else glissStop = true;
+        }
         const pitches: (Spelled | undefined)[] =
           note && !inst.unpitched ? note.pitches : [undefined];
-        const down = (note && lowered.get(note)) ?? 0;
         pitches.forEach((p, pi) => {
           if (note && cutTieIn) seam!.tiesIn.push({ note: id(pi)!, staff: staffNumber });
           if (note && cutTieOut) seam!.tiesOut.push({ note: id(pi)!, staff: staffNumber });
@@ -692,10 +749,13 @@ function partXml(
               id: note ? id(pi) : undefined,
               slurStart: pi === 0 && slurStart,
               slurStop: pi === 0 && slurStop,
+              glissStart: pi === 0 && glissStart,
+              glissStop: pi === 0 && glissStop,
               cutTieIn,
               cutTieOut,
               lowered: down,
               color: p && flag ? flag(part, p.midi) : undefined,
+              lineIsE4: strip,
             }),
           );
         });

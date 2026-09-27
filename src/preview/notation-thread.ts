@@ -82,7 +82,11 @@ function notation(text: string): { view: NotationView; strip: StripDocs } {
         beatType: m.beatType,
         rehearsal: rehearsal.get(m.number),
         tempo: marks.length
-          ? marks.map((t) => `${t.text ? `${t.text} ` : ""}♩=${t.bpm}`).join(", ")
+          ? marks
+              .map(
+                (t) => `${t.text ? `${t.text} ` : ""}♩=${t.bpm}${t.change ? ` ${t.change}` : ""}`,
+              )
+              .join(", ")
           : undefined,
       };
     }),

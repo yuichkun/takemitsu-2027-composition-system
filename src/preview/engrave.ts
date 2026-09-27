@@ -69,11 +69,14 @@ export interface Engraving {
 /** Draws one document. The toolkit must have `engraveOptions` set. */
 export function engrave(tk: VerovioToolkit, request: EngraveRequest): Engraving {
   tk.loadData(request.musicxml);
-  tk.loadData(annotate(tk.getMEI(), request));
+  const mei = tk.getMEI();
+  tk.loadData(annotate(mei, request));
   let svg = tk.renderToSVG(1);
+  svg = fanBeams(svg, mei);
   const timemap = tk.renderToTimemap({ includeRests: true });
   if (!request.margin) svg = dropSystemStart(svg);
   if (request.seam) svg = reshapeHairpins(svg, request.seam);
+  if (request.seam) svg = seamGlisses(svg, request.seam);
   // An octave line coming in from the measure before shows no number.
   svg = svg.replace(
     /(<g id="octave-in-\d+" class="octave">)([\s\S]*?)<\/g>/g,
@@ -185,6 +188,85 @@ function reshapeHairpins(svg: string, seam: Seam): string {
       const d = `M${xs} ${mid - os} L${xe} ${mid - oe} M${xs} ${mid + os} L${xe} ${mid + oe}`;
       return `${head}<path ${attrs.replace(/fill="[^"]*" ?/, "")}fill="none" d="${d}"/>`;
     });
+  }
+  return svg;
+}
+
+/**
+ * Feathered beams (MusicXML fan, MEI beam@form): Verovio draws them parallel. Slide each beam
+ * other than the main one onto the main one towards the slow end: at the left for accel, the
+ * right for rit, keeping its thickness.
+ */
+function fanBeams(svg: string, mei: string): string {
+  for (const [, id, form] of mei.matchAll(/<beam xml:id="([^"]+)" form="(acc|rit)"/g)) {
+    svg = svg.replace(
+      new RegExp(`(<g id="${id}" class="beam">)([\\s\\S]*?)(<g id=|</g>\\s*</g>)`),
+      (whole, head: string, inner: string, tail: string) => {
+        const polys = [...inner.matchAll(/<polygon ([^>]*?)points="([^"]+)"/g)];
+        if (polys.length < 2) return whole;
+        const pts = (p: string) =>
+          p
+            .trim()
+            .split(/\s+/)
+            .map((xy) => xy.split(",").map(Number) as [number, number]);
+        const main = pts(polys[0]![2]!);
+        const xs = polys.flatMap((p) => pts(p[2]!).map(([x]) => x));
+        const [x0, x1] = [Math.min(...xs), Math.max(...xs)];
+        // The main beam's edge nearest the others, as a line.
+        const [a, b] = [main[0]!, main[1]!];
+        const mainY = (x: number) =>
+          b[0] === a[0] ? a[1] : a[1] + ((b[1] - a[1]) * (x - a[0])) / (b[0] - a[0]);
+        const spread = (x: number) =>
+          form === "acc" ? (x - x0) / (x1 - x0) : (x1 - x) / (x1 - x0);
+        let out = inner;
+        for (const p of polys.slice(1)) {
+          const moved = pts(p[2]!).map(([x, y], i, all) => {
+            // Shift both edges at this x by the same amount, so the beam keeps its thickness.
+            const edge = all.filter(([ox]) => ox === x).map(([, oy]) => oy);
+            const near = edge.reduce(
+              (m, oy) => (Math.abs(oy - mainY(x)) < Math.abs(m - mainY(x)) ? oy : m),
+              edge[0]!,
+            );
+            void i;
+            return [x, y + (mainY(x) - near) * (1 - spread(x))];
+          });
+          out = out.replace(p[2]!, moved.map(([x, y]) => `${x},${Math.round(y!)}`).join(" "));
+        }
+        return head + out + tail;
+      },
+    );
+  }
+  return svg;
+}
+
+/**
+ * Glissandi over a barline: Verovio draws none whose other note is in another document, so each
+ * side draws its half, meeting at the barline halfway between the two notes' heights.
+ */
+function seamGlisses(svg: string, seam: Seam): string {
+  const step = 90; // one staff step (half a space) in SVG units: 5 lines = 8 steps = 720
+  const left = Number(svg.match(/class="staff">\s*<path d="M(-?\d+)/)?.[1] ?? 0);
+  const right = staffLineEnd(svg);
+  const head = (id: string) => {
+    const m = svg.match(
+      new RegExp(`<g id="${id}" class="note">[\\s\\S]*?translate\\((-?[\\d.]+),\\s*(-?[\\d.]+)\\)`),
+    );
+    return m ? { x: Number(m[1]), y: Number(m[2]) } : undefined;
+  };
+  const line = (id: string, d: string) => {
+    svg = svg.replace(
+      `<g id="${id}" class="note">`,
+      (g) =>
+        `${g}<path class="gliss" d="${d}" stroke="currentColor" stroke-width="16" fill="none"/>`,
+    );
+  };
+  for (const g of seam.glissOut) {
+    const h = head(g.note);
+    if (h) line(g.note, `M${h.x + 300} ${h.y} L${right} ${h.y - (g.steps * step) / 2}`);
+  }
+  for (const g of seam.glissIn) {
+    const h = head(g.note);
+    if (h) line(g.note, `M${left} ${h.y - (g.steps * step) / 2} L${h.x - 60} ${h.y}`);
   }
   return svg;
 }
