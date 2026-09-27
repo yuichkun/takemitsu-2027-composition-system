@@ -147,15 +147,6 @@ flowchart LR
 
 ## 手元での動かし方
 
-```sh
-vp install
-vp run host:configure   # JUCE はローカルの checkout を使うなら -DJUCE_SOURCE_DIR=… を足す
-vp run host:build
-vp dev                  # プレビュー
-vp node tools/render.ts examples/showcase.json [--stems]   # ミックス（とパートごと）を WAV に書き出す
-vp node tools/check.ts examples/showcase.json             # 答え合わせ（チャンクとパートを、単独・通しのレンダと比べる）
-vp node tools/stress-score.ts                             # 20 分のダミー曲を .local/stress/ に作る
-vp node tools/bench.ts .local/stress/stress-20min.json    # 編集の場面ごとに、保存から止まらずに鳴らせるまでを測る
-```
+コマンドは [`commands.md`](./commands.md) にまとめてある（準備、プレビュー、20 分のダミー曲、書き出し、答え合わせ、ベンチ、環境変数、溜まるものの消し方）。
 
 BBC SO の実測と道具は [`research/bbcso.md`](./research/bbcso.md)（`tools/bbcso-probe.ts`、`tools/bbcso-summary.ts`）。

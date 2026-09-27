@@ -14,7 +14,8 @@
 | [`proposal.md`](./proposal.md) | 提案 | **全体像・作曲行為の定義・AIとの境界・システム構成・開発のステップ。単体で読める** |
 | [`competition.md`](./competition.md) | 仕様 | 応募規定。**動かせない外形条件** |
 | [`open-questions.md`](./open-questions.md) | 仕様 | **未決事項の一覧。相談の目次** |
-| [`architecture.md`](./architecture.md) | 仕様 | **鳴らす仕組みと見せる仕組みの構成。楽譜の JSON、記譜と演奏の射影、プレビュー、動かし方** |
+| [`architecture.md`](./architecture.md) | 仕様 | **鳴らす仕組みと見せる仕組みの構成。楽譜の JSON、記譜と演奏の射影、プレビュー** |
+| [`commands.md`](./commands.md) | 仕様 | **このリポジトリで打つコマンド。準備、プレビュー、20 分のダミー曲での試し方、書き出し、答え合わせ、ベンチ、環境変数、溜まるものの消し方** |
 | [`glossary.md`](./glossary.md) | 仕様 | 用語の統一表 |
 | [`decisions/`](./decisions/) | 決定記録 | 1決定1ファイル。なぜそう決めたか。索引は [`decisions/README.md`](./decisions/README.md) |
 | [`research/`](./research/) | 調査ノート | 調べてわかったこと。出典つき。索引は [`research/README.md`](./research/README.md) |

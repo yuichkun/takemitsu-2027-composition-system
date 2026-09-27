@@ -29,6 +29,7 @@
 | --- | --- |
 | [`docs/README.md`](./docs/README.md) | 文書の地図と運用ルール |
 | [`docs/architecture.md`](./docs/architecture.md) | 鳴らす仕組みと見せる仕組みの構成 |
+| [`docs/commands.md`](./docs/commands.md) | このリポジトリで打つコマンドの一覧 |
 | [`docs/competition.md`](./docs/competition.md) | 応募規定。動かせない外形条件 |
 | [`docs/open-questions.md`](./docs/open-questions.md) | 未決事項。相談の目次 |
 | [`docs/decisions/`](./docs/decisions/) | 決定記録 |
@@ -43,7 +44,7 @@ vp run host:configure && vp run host:build   # 自作ホスト（C++/JUCE）
 vp dev                                        # プレビュー: 楽譜の JSON を譜面で見て BBC SO で聴く
 ```
 
-構成と詳しい使い方は [`docs/architecture.md`](./docs/architecture.md)。
+コマンドの一覧は [`docs/commands.md`](./docs/commands.md)、構成は [`docs/architecture.md`](./docs/architecture.md)。
 
 ## 動かせない条件
 
