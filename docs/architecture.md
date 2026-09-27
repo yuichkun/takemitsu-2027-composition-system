@@ -182,8 +182,12 @@ flowchart LR
   楽器ごとの基準音量の差と、広い強弱の幅を詰めて聴きやすくするためのもの
 - ミキサーはブラウザでパートごとの音を混ぜるので、曲の長さによらず操作はすぐ効く
 - 画面の文字は英語。見た目は白黒を基本に、色は状態（再生位置、警告、仮の値）だけに使う
-- ツールバーの **Export** で、開いている楽譜を MusicXML でダウンロードする（Sibelius で開く。曲は曲全体）。
-  中身はコマンドの [`../tools/export.ts`](../tools/export.ts) と同じ（`toMusicXml`）。プレビューだけの印（音域外の色、1 線譜の E4）は付かない
+- ツールバーの **Export** で、開いている楽譜を書き出す（曲は曲全体）
+  - MusicXML: Sibelius で開く。中身はコマンドの [`../tools/export.ts`](../tools/export.ts) と同じ（`toMusicXml`）。
+    プレビューだけの印（音域外の色、1 線譜の E4）は付かない
+  - WAV: ミキサーの設定どおりに混ぜた音（[`../src/performance/render.ts`](../src/performance/render.ts) の `mixAsHeard`。
+    ページのコンプレッサーと同じ曲線を [`../src/audio/dynamics.ts`](../src/audio/dynamics.ts) でオフラインにかける）。
+    ページが今のミキサーの設定を送る。全チャンクのレンダが済むのを待ってから混ぜる
 - **一覧**は楽譜のフォルダ（examples、scores、sketches、pieces、`PREVIEW_SCORE_DIRS`）ごとに見出しを立て、その下のフォルダを入れ子で出す。
   開け閉めはブラウザが覚えている。楽譜が 1 つだけのフォルダ（スケッチ）は、フォルダの名前でその楽譜として並ぶ
 

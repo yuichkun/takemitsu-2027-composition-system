@@ -20,6 +20,7 @@
 //   measure inserted before it), the playhead keeps its measure and its place in it.
 
 import { compressorParams, limiterParams, type CompressorParams } from "../audio/dynamics.ts";
+import { dbToGain, type ChannelState, type MixerSettings } from "../audio/mixer.ts";
 import {
   placeReach,
   segmentContents,
@@ -28,18 +29,7 @@ import {
   type Place,
 } from "./segment-contents.ts";
 
-export interface ChannelState {
-  db: number;
-  mute: boolean;
-  solo: boolean;
-  /** Compression amount, 0–1 (src/audio/dynamics.ts). */
-  comp: number;
-}
-
-export interface MixerSettings {
-  master?: number;
-  parts?: Record<string, ChannelState>;
-}
+export type { ChannelState, MixerSettings };
 
 /** [key, part index, origin (s), gain, frames of its notes, frames of tail at most] */
 export type ManifestChunk = [string, number, number, number, number, number];
@@ -103,8 +93,6 @@ function setCompressor(node: DynamicsCompressorNode, p: CompressorParams, ctx: A
   node.attack.setValueAtTime(p.attack, t);
   node.release.setValueAtTime(p.release, t);
 }
-
-export const dbToGain = (db: number) => (db <= -60 ? 0 : 10 ** (db / 20));
 
 /** Decodes the chunk format ("TKCH", see src/performance/store.ts) into an AudioBuffer. */
 function decode(ctx: AudioContext, bytes: Uint8Array): AudioBuffer | null {

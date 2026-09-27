@@ -12,6 +12,7 @@ import type { NotationSnapshot } from "./engraver.ts";
 import type { NotationView } from "./notation-thread.ts";
 import { Player, type Manifest, type MixerSettings, type Status } from "./player.ts";
 import { KnobPanel } from "./knob-panel.ts";
+import { menu } from "./knobs/controls.ts";
 import { quartersAt, secondsAt } from "../score/timeline.ts";
 import { maxScale, minScale, StripView, type Zoom } from "./strip-view.ts";
 
@@ -247,6 +248,7 @@ function refreshAudio(): void {
       showProgress();
       drawReadiness();
       updateStripAvailability();
+      if (audioExport) void exportAudio();
     } while (audioAgain);
   })().finally(() => {
     audioFetch = undefined;
@@ -563,16 +565,81 @@ document.addEventListener("fullscreenchange", () => {
 });
 $("focus").addEventListener("click", toggleFocus);
 $("sidebar-toggle").addEventListener("click", toggleSidebar);
-// Export: the open score as MusicXML, downloaded by the browser (a piece: the whole piece).
+//==============================================================================
+// Export: the open score as MusicXML (for Sibelius) or as audio, downloaded by the browser.
+// A piece exports whole, whichever part of it is chosen.
+
 const exportButton = $<HTMLButtonElement>("export");
-exportButton.addEventListener("click", () => {
-  if (!current) return;
+
+function download(href: string, name = ""): void {
   const a = document.createElement("a");
-  a.href = `/api/musicxml?path=${encodeURIComponent(current.path)}`;
-  a.download = "";
+  a.href = href;
+  a.download = name;
   document.body.append(a);
   a.click();
   a.remove();
+}
+
+/** The score waiting for its chunks before its audio is exported, and whether it is being mixed. */
+let audioExport: string | undefined;
+let mixing = false;
+
+/** Exports the audio once every chunk is rendered (refreshAudio calls this again as they come). */
+async function exportAudio(): Promise<void> {
+  const path = audioExport;
+  if (!path || current?.path !== path) {
+    audioExport = undefined;
+    return showProgress();
+  }
+  const { done, total, failed } = progress;
+  if (total === 0 || done + failed < total) return showProgress();
+  audioExport = undefined;
+  mixing = true;
+  showProgress();
+  try {
+    const q = new URLSearchParams({ path, mixer: JSON.stringify(player.settings()) });
+    const res = await fetch(`/api/wav?${q}`);
+    if (!res.ok) throw new Error(((await res.json()) as { error: string }).error);
+    const warned = JSON.parse(decodeURIComponent(res.headers.get("x-mix-warnings") ?? "[]"));
+    notices = [...notices, ...(warned as string[]).filter((w) => /failed|Clipped/.test(w))];
+    const url = URL.createObjectURL(await res.blob());
+    download(
+      url,
+      `${path
+        .split("/")
+        .at(-1)!
+        .replace(/\.json$/, "")}.wav`,
+    );
+    setTimeout(() => URL.revokeObjectURL(url), 60_000);
+  } catch (e) {
+    notices = [
+      ...notices,
+      `Could not export the audio: ${e instanceof Error ? e.message : String(e)}`,
+    ];
+  } finally {
+    mixing = false;
+    showMessages();
+    showProgress();
+  }
+}
+
+exportButton.addEventListener("click", () => {
+  if (!current) return;
+  const path = current.path;
+  const r = exportButton.getBoundingClientRect();
+  menu(r.left, r.bottom + 4, [
+    {
+      label: "MusicXML, for Sibelius",
+      action: () => download(`/api/musicxml?path=${encodeURIComponent(path)}`),
+    },
+    {
+      label: "Audio (WAV), as the mixer plays it",
+      action: () => {
+        audioExport = path;
+        void exportAudio();
+      },
+    },
+  ]);
 });
 const knobsToggle = $<HTMLButtonElement>("knobs-toggle");
 knobsToggle.addEventListener("click", () => knobs.toggle());
@@ -591,11 +658,13 @@ $("help").addEventListener("click", () => keysDialog.showModal());
 function showProgress(): void {
   const { done, total, failed } = progress;
   const drawing = notationPending ? ` · aligning ${notationPending} bars` : "";
-  if (player.isWaiting) statusEl.textContent = "Waiting for audio ahead";
-  else if (!current || total === 0) statusEl.textContent = drawing;
+  const exporting = mixing ? " · mixing the WAV" : audioExport ? " · the WAV follows" : "";
+  if (player.isWaiting) statusEl.textContent = "Waiting for audio ahead" + exporting;
+  else if (!current || total === 0) statusEl.textContent = drawing + exporting;
   else if (done + failed >= total)
-    statusEl.textContent = (failed ? `${failed} chunks failed` : "Ready") + drawing;
-  else statusEl.textContent = `Rendering ${Math.floor((100 * done) / total)}%${drawing}`;
+    statusEl.textContent = (failed ? `${failed} chunks failed` : "Ready") + drawing + exporting;
+  else
+    statusEl.textContent = `Rendering ${Math.floor((100 * done) / total)}%${drawing}${exporting}`;
 }
 
 let readinessQueued = false;

@@ -18,7 +18,8 @@
 // - "notation": measures drawn (engraver.ts) → /api/notation (where each drawing is)
 // - "list": score files came or went → /api/scores
 // - "sketch": a sketch's knobs may have changed (sketch.ts saved) → /api/sketch
-// The open score can be downloaded as MusicXML for Sibelius (/api/musicxml; docs/decisions/0003).
+// The open score can be downloaded as MusicXML for Sibelius (/api/musicxml; docs/decisions/0003),
+// and as audio mixed the way the page's mixer plays it (/api/wav).
 // Audio is fetched shortly before it plays, mixed from the chunks in 2 s segments (/api/segments).
 // Drawings are fetched by key (/api/engraving/<key>.svg and .json); a key's content never changes.
 
@@ -29,8 +30,10 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { Worker } from "node:worker_threads";
 
+import type { MixerSettings } from "../audio/mixer.ts";
 import { toMusicXml } from "../notation/musicxml.ts";
 import { Engine } from "../performance/engine.ts";
+import { mixAsHeard } from "../performance/render.ts";
 import { segmentBundle, type SegmentRequest } from "../performance/segments.ts";
 import { repoRoot } from "../render/host.ts";
 import { normalize } from "../score/normalize.ts";
@@ -321,6 +324,14 @@ function json(res: ServerResponse, status: number, body: unknown): void {
   res.end(JSON.stringify(body));
 }
 
+/** Asks the browser to save the response as a file with this name. */
+function attachment(res: ServerResponse, name: string): void {
+  res.setHeader(
+    "content-disposition",
+    `attachment; filename="${name.replace(/[^\x20-\x7e]|"/g, "_")}"; filename*=UTF-8''${encodeURIComponent(name)}`,
+  );
+}
+
 async function body(req: IncomingMessage): Promise<unknown> {
   let raw = "";
   for await (const chunk of req) raw += chunk;
@@ -421,13 +432,28 @@ export function previewMiddleware() {
         // The whole score as one MusicXML file, as Sibelius opens it (a piece: the whole piece).
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
         const { musicxml } = toMusicXml(JSON.parse(await readFile(path, "utf8")) as Score);
-        const name = `${basename(path, ".json")}.musicxml`;
         res.setHeader("content-type", "application/vnd.recordare.musicxml+xml; charset=utf-8");
-        res.setHeader(
-          "content-disposition",
-          `attachment; filename="${name.replace(/[^\x20-\x7e]|"/g, "_")}"; filename*=UTF-8''${encodeURIComponent(name)}`,
-        );
+        attachment(res, `${basename(path, ".json")}.musicxml`);
         return res.end(musicxml);
+      }
+      if (url.pathname === "/api/wav") {
+        // The audio as the page's mixer plays it (its settings come with the request), once
+        // every chunk is rendered: 48 kHz, 16-bit stereo, to the end of the last note's tail.
+        if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
+        const error = await planned(path);
+        if (error) return json(res, 500, { error });
+        let settings: MixerSettings = {};
+        try {
+          settings = JSON.parse(url.searchParams.get("mixer") ?? "{}") as MixerSettings;
+        } catch {
+          // The saved balance is only a convenience: mix at 0 dB.
+        }
+        await engine.whenDone(path);
+        const mix = await mixAsHeard(engine, path, settings);
+        res.setHeader("content-type", "audio/wav");
+        res.setHeader("x-mix-warnings", encodeURIComponent(JSON.stringify(mix.warnings)));
+        attachment(res, `${basename(path, ".json")}.wav`);
+        return res.end(mix.wav);
       }
       if (url.pathname === "/api/mixer") {
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });

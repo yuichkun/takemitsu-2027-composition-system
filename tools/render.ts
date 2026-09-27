@@ -1,21 +1,27 @@
 // Renders a score JSON with BBC SO and writes the mix (and with --stems, one WAV per part).
 //
 //   vp node tools/render.ts examples/showcase.json [--stems]
+//   vp node tools/render.ts pieces/pilot            (a sketch or piece folder: its score)
 //
 // Uses the same chunks as the preview (.local/chunks), so it only renders what is missing.
+// Every part at its own level (no mixer); the preview's Export gives the mix as its mixer plays it.
 
+import { statSync } from "node:fs";
 import { readFile } from "node:fs/promises";
-import { basename, join } from "node:path";
+import { basename, join, resolve } from "node:path";
 
 import { Engine } from "../src/performance/engine.ts";
 import { mixdown } from "../src/performance/render.ts";
 import { repoRoot } from "../src/render/host.ts";
 import { normalize } from "../src/score/normalize.ts";
 import type { Score } from "../src/score/types.ts";
+import { rootOf, scoreFileOf } from "../src/sketch/run.ts";
 
 const args = process.argv.slice(2);
-const file = args.find((a) => !a.startsWith("--"));
-if (!file) throw new Error("usage: tools/render.ts <score.json> [--stems]");
+const given = args.find((a) => !a.startsWith("--"));
+if (!given)
+  throw new Error("usage: tools/render.ts <score.json | sketch or piece folder> [--stems]");
+const file = statSync(given).isDirectory() ? scoreFileOf(rootOf(resolve(given))) : given;
 
 const score = normalize(JSON.parse(await readFile(file, "utf8")) as Score);
 const engine = new Engine();
