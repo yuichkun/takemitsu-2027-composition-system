@@ -386,7 +386,6 @@ document.addEventListener("keydown", (e) => {
   // With ⌘ (Ctrl elsewhere): the page's own zoom and sidebar, instead of the browser's.
   if (e.metaKey || e.ctrlKey) {
     const withKey: Record<string, () => void> = {
-      KeyB: toggleSidebar,
       Equal: () => zoomBy(1.25),
       Semicolon: () => zoomBy(1.25),
       Minus: () => zoomBy(1 / 1.25),
@@ -406,6 +405,7 @@ document.addEventListener("keydown", (e) => {
     ArrowRight: () => stepMeasure(1),
     KeyM: () => $("mixer-toggle").click(),
     KeyK: () => knobs.toggle(),
+    KeyJ: toggleSidebar,
     KeyF: toggleFocus,
   };
   const action = e.key === "?" ? () => keysDialog.showModal() : actions[e.code];

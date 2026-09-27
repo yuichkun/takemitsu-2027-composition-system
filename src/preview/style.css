@@ -183,7 +183,7 @@ kbd {
   padding-left: 14px;
 }
 
-/* ⌘B: without the score list. */
+/* J: without the score list. */
 body.sidebar-hidden #sidebar {
   display: none;
 }
