@@ -213,9 +213,10 @@ function measure(svg: string, timemap: TimemapEntry[]): Omit<Engraving, "svg"> {
     const ys = [...m[1]!.matchAll(/M-?\d+ (-?\d+)/g)].map((x) => Number(x[1]));
     staves.push([ys[0]!, ys.at(-1)!]);
   }
-  // A five-line staff is 8 MEI units tall.
+  // A five-line staff is 8 MEI units tall. A score of one-line staves only (percussion) has
+  // none to measure: then Verovio's own size, 9 px a unit at 10 SVG units a px.
   const five = staves.find(([t, b]) => b > t);
-  const unit = five ? (five[1] - five[0]) / 8 : 1;
+  const unit = five ? (five[1] - five[0]) / 8 : 90;
   const gaps = staves.map((s, i) => (i === 0 ? 0 : (s[0] - staves[i - 1]![1]) / unit));
   const right = staffLineEnd(svg);
   // x of each note and rest head.

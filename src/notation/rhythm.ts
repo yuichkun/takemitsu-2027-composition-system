@@ -6,7 +6,8 @@
 // - If the onsets and ends inside a beat need an odd subdivision (3, 5, 7…), the whole beat
 //   becomes one tuplet k:n where n is the largest power of two below k.
 // - Anything crossing a beat is split and tied, except a piece that starts and ends on beats
-//   outside tuplets and fits one note value (with up to two dots).
+//   outside tuplets and fits one note value (with up to two dots). Rests join only into undotted
+//   values that start on a multiple of their length (a half rest on beat 1 or 3 in 4/4).
 
 import type { Note } from "../score/normalize.ts";
 import { lcm, max, min, Rational } from "../score/rational.ts";
@@ -146,7 +147,8 @@ export function layoutMeasure(notes: Note[], m: Measure, restIfEmpty: boolean): 
   const beatAt = (t: Rational) => beats.findIndex((b) => t.gte(b.start) && t.lt(b.end));
 
   // Split spans at beat boundaries, then merge plain whole-beat runs back where one value fits.
-  type Cut = Span & { beat: number };
+  /** A piece of a span within beats `beat` … `last`. */
+  type Cut = Span & { beat: number; last: number };
   const cuts: Cut[] = [];
   for (const sp of spans) {
     let s = sp.start;
@@ -158,6 +160,7 @@ export function layoutMeasure(notes: Note[], m: Measure, restIfEmpty: boolean): 
         start: s,
         end: e,
         beat: bi,
+        last: bi,
         tiedIn: s.gt(sp.start) || sp.tiedIn,
         tiedOut: e.lt(sp.end) || sp.tiedOut,
       });
@@ -167,15 +170,21 @@ export function layoutMeasure(notes: Note[], m: Measure, restIfEmpty: boolean): 
   const merged: Cut[] = [];
   for (const c of cuts) {
     const prev = merged.at(-1);
+    // Whole beats, none of them a tuplet (a run already merged spans several).
     const plain = (x: Cut) =>
-      beats[x.beat]!.actual === 1 &&
+      beats.slice(x.beat, x.last + 1).every((b) => b.actual === 1) &&
       x.start.eq(beats[x.beat]!.start) &&
-      x.end.eq(beats[x.beat]!.end);
+      x.end.eq(beats[x.last]!.end);
     if (prev && prev.note === c.note && prev.end.eq(c.start) && plain(prev) && plain(c)) {
       const joined = c.end.sub(prev.start);
       const startsOnBeat = prev.start.eq(beats[beatAt(prev.start)]!.start);
-      if (startsOnBeat && value(joined)) {
-        merged[merged.length - 1] = { ...prev, end: c.end, tiedOut: c.tiedOut };
+      const v = value(joined);
+      // Rests are stricter: no dots, and a rest starts on a multiple of its own length
+      // (a half rest on beat 1 or 3 in 4/4), so beat 2 to the end is a quarter rest and a half rest.
+      const restFits =
+        prev.note !== undefined || (v?.dots === 0 && prev.start.sub(m.start).div(joined).d === 1);
+      if (startsOnBeat && v && restFits) {
+        merged[merged.length - 1] = { ...prev, end: c.end, last: c.last, tiedOut: c.tiedOut };
         continue;
       }
     }
