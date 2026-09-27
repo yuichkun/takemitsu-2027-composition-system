@@ -253,51 +253,107 @@ dialog#keys form {
   flex: 1;
   min-height: 0;
   overflow: auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  background: var(--bg);
+  /* The page keeps the zoom gestures (trackpad pinch) for the score. */
+  overscroll-behavior: contain;
 }
 
-/* One window: a few measures drawn as one document (src/preview/score-view.ts). */
-.score .window {
+/* The strip (src/preview/strip-view.ts): measures drawn by the server, placed side by side. */
+.strip-canvas {
   position: relative;
-  width: 100%;
+  /* The pinned margin's top margin stays inside (it would push the whole strip down). */
+  display: flow-root;
   background: var(--paper);
-  box-shadow: 0 1px 3px rgba(20, 30, 50, 0.12);
   cursor: text;
   user-select: none;
-  flex: none;
-  /* A long score has hundreds of windows: the browser skips laying out the ones off screen. */
-  content-visibility: auto;
-  contain-intrinsic-size: auto 600px;
 }
 
-.score .window svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Not drawn yet: a placeholder of about the right height, labelled with its measures. */
-.score .window.waiting::before {
-  content: "m. " attr(data-label);
+.strip-canvas .measure {
   position: absolute;
-  top: 12px;
-  left: 16px;
+  display: block;
+  max-width: none;
+  pointer-events: none;
+}
+
+/* Drawn with the least spacing, before every measure is measured: staves may not line up. */
+.strip-canvas .measure.unaligned {
+  opacity: 0.8;
+}
+
+.strip-canvas .measure.pending {
+  background: repeating-linear-gradient(90deg, transparent 0 6px, var(--accent-soft) 6px 7px);
+  opacity: 0.6;
+}
+
+.strip-canvas .margin {
+  position: absolute;
+  z-index: 2;
+  background: var(--paper);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.strip-canvas .margin img {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+
+/* The panorama's margin stays at the left edge while the strip scrolls under it. */
+.strip-canvas .margin.pinned {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  box-shadow: 1px 0 0 var(--rule);
+}
+
+.strip-canvas[data-mode="page"] .margin.pinned {
+  display: none;
+}
+
+.ruler-label {
+  position: absolute;
+  height: 22px;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 0 0 3px 3px;
+  border-left: 1px solid var(--rule);
+  font-size: 11px;
+  line-height: 1;
   color: var(--muted);
-  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ruler-label .number {
   font-family: var(--mono);
+}
+
+.ruler-label .rehearsal {
+  padding: 1px 3px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.ruler-label .meter {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.ruler-label .tempo {
+  font-style: italic;
 }
 
 .playhead {
   position: absolute;
+  z-index: 4;
   width: 2px;
   margin-left: -1px;
   background: var(--play);
   cursor: ew-resize;
-  z-index: 2;
 }
 
 .playhead::before {
@@ -315,15 +371,74 @@ dialog#keys form {
   inset: 0 -6px;
 }
 
-.score g.note.playing,
-.score g.chord.playing {
-  fill: var(--play);
-  color: var(--play);
+.view-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.view-controls button {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.view-controls button:hover {
+  background: var(--accent-soft);
+}
+
+.zoom-level {
+  min-width: 7em;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ⌘B: without the score list. */
+body.sidebar-hidden {
+  grid-template-columns: 1fr;
+}
+
+body.sidebar-hidden #sidebar {
+  display: none;
+}
+
+/* F: only the score and the transport, in full screen. */
+body.focus {
+  grid-template-columns: 1fr;
+}
+
+body.focus #sidebar,
+body.focus #messages,
+body.focus #mixer,
+body.focus #toolbar .title,
+body.focus #toolbar .status,
+body.focus #toolbar .keys-button,
+body.focus #sidebar-toggle {
+  display: none;
+}
+
+body.focus #toolbar {
+  padding: 4px 12px;
+}
+
+main {
+  position: relative;
 }
 
 .empty {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
   color: var(--muted);
-  margin-top: 20vh;
+  pointer-events: none;
 }
 
 /* Mixer */

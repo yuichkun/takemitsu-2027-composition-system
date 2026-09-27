@@ -1,57 +1,86 @@
-// The notation of a score, made in a worker thread of the dev server (docs/decisions/0019): for a
-// save, the MusicXML windows are made here while the server plans the audio.
+// The notation of a score, made in a worker thread of the dev server (docs/decisions/0019, 0020):
+// for a save, the strip's documents are made here while the server plans the audio.
 //
-// A request is the score file's text; the answer is everything the page needs to draw it.
+// A request is the score file's text; the answer is what the page needs to lay out and follow the
+// score, and the documents the engraver draws (engraver.ts).
 
-import { createHash } from "node:crypto";
 import { parentPort } from "node:worker_threads";
 
-import { musicXmlWindows } from "../notation/musicxml.ts";
+import { stripMeasures } from "../notation/musicxml.ts";
 import { normalize } from "../score/normalize.ts";
-import { secondsAt } from "../score/timeline.ts";
+import { secondsAt, type TempoSegment } from "../score/timeline.ts";
 import type { Score } from "../score/types.ts";
+import type { StripDocs } from "./engraver.ts";
 
 export interface NotationRequest {
   id: number;
   text: string;
 }
 
+export interface MeasureInfo {
+  number: number;
+  /** Start and length in quarters. */
+  quarters: number;
+  length: number;
+  seconds: number;
+  endSeconds: number;
+  beats: number;
+  beatType: number;
+  /** Rehearsal mark at its start. */
+  rehearsal?: string;
+  /** Tempo marked in it. */
+  tempo?: string;
+}
+
 export interface NotationView {
   title: string;
-  windows: { from: number; to: number; hash: string; musicxml: string }[];
+  measures: MeasureInfo[];
+  /** For turning seconds into quarters on the page (src/score/timeline.ts, quartersAt). */
+  tempo: TempoSegment[];
   warnings: string[];
-  measures: { number: number; quarters: number; seconds: number; endSeconds: number }[];
   parts: { id: string; name: string }[];
 }
 
-export type NotationAnswer = { id: number } & ({ view: NotationView } | { error: string });
+export type NotationAnswer = { id: number } & (
+  | { view: NotationView; strip: StripDocs }
+  | { error: string }
+);
 
-function notation(text: string): NotationView {
+function notation(text: string): { view: NotationView; strip: StripDocs } {
   const score = normalize(JSON.parse(text) as Score);
-  const { windows, warnings } = musicXmlWindows(score);
-  return {
+  const { measures, margins, warnings } = stripMeasures(score);
+  const rehearsal = new Map(score.rehearsal.map((r) => [r.measure, r.label]));
+  const view: NotationView = {
     title: score.title,
-    windows: windows.map((w) => ({
-      from: w.from,
-      to: w.to,
-      hash: createHash("sha256").update(w.musicxml).digest("hex").slice(0, 32),
-      musicxml: w.musicxml,
-    })),
+    measures: score.measures.map((m) => {
+      const end = m.start.add(m.length);
+      const marks = score.tempoMarks.filter((t) => t.at.gte(m.start) && t.at.lt(end));
+      return {
+        number: m.number,
+        quarters: m.start.value,
+        length: m.length.value,
+        seconds: secondsAt(score.tempo, m.start.value),
+        endSeconds: secondsAt(score.tempo, end.value),
+        beats: m.beats,
+        beatType: m.beatType,
+        rehearsal: rehearsal.get(m.number),
+        tempo: marks.length
+          ? marks.map((t) => `${t.text ? `${t.text} ` : ""}♩=${t.bpm}`).join(", ")
+          : undefined,
+      };
+    }),
+    tempo: score.tempo,
     warnings,
-    measures: score.measures.map((m) => ({
-      number: m.number,
-      quarters: m.start.value,
-      seconds: secondsAt(score.tempo, m.start.value),
-      endSeconds: secondsAt(score.tempo, m.start.add(m.length).value),
-    })),
     parts: score.parts.map((p) => ({ id: p.id, name: p.name })),
   };
+  const staves = score.parts.reduce((n, p) => n + p.instrument.clefs.length, 0);
+  return { view, strip: { measures, margins, staves } };
 }
 
 parentPort?.on("message", (request: NotationRequest) => {
   let answer: NotationAnswer;
   try {
-    answer = { id: request.id, view: notation(request.text) };
+    answer = { id: request.id, ...notation(request.text) };
   } catch (e) {
     answer = { id: request.id, error: e instanceof Error ? e.message : String(e) };
   }

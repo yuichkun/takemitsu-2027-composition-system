@@ -25,13 +25,31 @@
           ▶
         </button>
         <span id="time" class="time">0:00 / 0:00</span>
+        <div class="view-controls" role="group" aria-label="譜面の表示">
+          <button id="mode" type="button" title="表示の切り替え（P）">ページ</button>
+          <button id="zoom-out" type="button" title="縮小（⌘−）" aria-label="縮小">−</button>
+          <span id="zoom-level" class="zoom-level">高さに合わせる</span>
+          <button id="zoom-in" type="button" title="拡大（⌘=）" aria-label="拡大">＋</button>
+          <button id="zoom-fit" type="button" title="高さに合わせる（⌘0）">高さ</button>
+          <button id="focus" type="button" title="全画面で譜面だけにする（F、戻るのは Esc）">
+            全画面
+          </button>
+          <button
+            id="sidebar-toggle"
+            type="button"
+            title="左の一覧をたたむ / ひらく（⌘B）"
+            aria-label="左の一覧"
+          >
+            一覧
+          </button>
+        </div>
         <div
           id="status"
           class="status"
           title="保存すると、変わったところだけを裏でレンダし直す"
         ></div>
         <button id="help" type="button" class="keys-button" title="ショートカット（?）">
-          <kbd>Space</kbd> 再生 <kbd>Enter</kbd> 先頭 <kbd>←</kbd><kbd>→</kbd> 小節
+          <kbd>Space</kbd> 再生 <kbd>←</kbd><kbd>→</kbd> 小節 <kbd>P</kbd> 表示 <kbd>F</kbd> 全画面
           <kbd>?</kbd> ほか
         </button>
       </header>
@@ -43,6 +61,7 @@
       ></canvas>
       <section id="messages" hidden></section>
       <div id="score" class="score"></div>
+      <p id="empty" class="empty">左から楽譜を選ぶ</p>
       <section id="mixer" aria-label="ミキサー">
         <div class="mixer-head">
           <span>ミキサー</span>
@@ -68,6 +87,26 @@
           <tr>
             <td><kbd>←</kbd> <kbd>→</kbd></td>
             <td>前 / 次の小節へ</td>
+          </tr>
+          <tr>
+            <td><kbd>P</kbd></td>
+            <td>ページ / パノラマを切り替える</td>
+          </tr>
+          <tr>
+            <td><kbd>F</kbd></td>
+            <td>全画面で譜面だけにする（<kbd>Esc</kbd> で戻る）</td>
+          </tr>
+          <tr>
+            <td><kbd>⌘</kbd><kbd>=</kbd> <kbd>⌘</kbd><kbd>−</kbd></td>
+            <td>拡大 / 縮小（ピンチ、⌘ + ホイールでも）</td>
+          </tr>
+          <tr>
+            <td><kbd>⌘</kbd><kbd>0</kbd></td>
+            <td>高さに合わせる（全部の段が見える）</td>
+          </tr>
+          <tr>
+            <td><kbd>⌘</kbd><kbd>B</kbd></td>
+            <td>左の一覧をたたむ / ひらく</td>
           </tr>
           <tr>
             <td><kbd>M</kbd></td>

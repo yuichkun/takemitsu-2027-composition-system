@@ -1,27 +1,24 @@
-// Preview UI: the score (src/preview/score-view.ts) and playback through a mixer
+// Preview UI: the score (src/preview/strip-view.ts) and playback through a mixer
 // (src/preview/player.ts).
 //
 // There is no render step to start: the server renders every open score in the background and
-// again after each save, nearest the playhead first. The page is told when something is newer and
-// fetches the whole of it (docs/decisions/0019): a version's chunk list and which chunks are
-// rendered, and the notation. It plays what is complete and tells the server where the playhead is.
+// again after each save, nearest the playhead first, and draws its measures (engraver.ts). The page
+// is told when something is newer and fetches the whole of it (docs/decisions/0019, 0020): a
+// version's chunk list and which chunks are rendered, the measures and times, and where each
+// drawing is. It plays what is complete and tells the server where the playhead and the view are.
 
 import { compressorParams } from "../audio/dynamics.ts";
+import type { NotationSnapshot } from "./engraver.ts";
+import type { NotationView } from "./notation-thread.ts";
 import { Player, type Manifest, type MixerSettings, type Status } from "./player.ts";
-import { ScoreView, type MeasureTime, type WindowInfo } from "./score-view.ts";
+import { maxScale, minScale, StripView, type Mode, type Zoom } from "./strip-view.ts";
 
 interface ScoreEntry {
   path: string;
   name: string;
   dir: string;
 }
-interface ScoreData {
-  title: string;
-  windows: WindowInfo[];
-  warnings: string[];
-  measures: (MeasureTime & { quarters: number })[];
-  parts: { id: string; name: string }[];
-}
+type ScoreData = NotationView;
 interface Progress {
   done: number;
   total: number;
@@ -41,10 +38,8 @@ const keysDialog = $<HTMLDialogElement>("keys");
 const readinessEl = $<HTMLCanvasElement>("readiness");
 
 const player = new Player();
-const view = new ScoreView($("score"), async (hash) => {
-  const res = await fetch(`/api/window?hash=${hash}`);
-  return res.text();
-});
+const view = new StripView($("score"));
+view.position = () => player.position;
 
 player.fetchSegments = async (segments) => {
   const res = await fetch("/api/segments", {
@@ -201,11 +196,53 @@ async function loadScore(path: string): Promise<void> {
     buildStrips();
   }
   showMessages();
-  view.draw(data.windows, data.measures);
+  view.setScore(data.measures, data.tempo);
   view.setCursor(player.position);
+  refreshNotation();
 }
 
+let notationFetch: Promise<void> | undefined;
+let notationAgain = false;
+
+/** Fetches where each measure's drawing is: whole, one fetch at a time (like refreshAudio). */
+function refreshNotation(): void {
+  if (notationFetch) {
+    notationAgain = true;
+    return;
+  }
+  notationFetch = (async () => {
+    do {
+      notationAgain = false;
+      const path = current?.path;
+      if (!path || !current?.data) return;
+      const res = await fetch(`/api/notation?path=${encodeURIComponent(path)}`);
+      if (current?.path !== path || !res.ok) continue;
+      const snapshot = (await res.json()) as NotationSnapshot;
+      if (snapshot.measures.length === current.data?.measures.length) view.setSnapshot(snapshot);
+      notationPending = snapshot.pending;
+      showProgress();
+    } while (notationAgain);
+  })().finally(() => {
+    notationFetch = undefined;
+  });
+}
+let notationPending = 0;
+
+let focusTimer = 0;
+view.onFocus = (from, to) => {
+  clearTimeout(focusTimer);
+  focusTimer = window.setTimeout(() => {
+    if (!current) return;
+    void fetch("/api/view", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ path: current.path, from, to }),
+    });
+  }, 150);
+};
+
 async function open(path: string): Promise<void> {
+  $("empty").hidden = true;
   if (current?.path !== path) {
     current = { path };
     manifestWarnings = [];
@@ -246,7 +283,8 @@ function sendPlayhead(force = false): void {
 function seekTo(seconds: number, follow = false): void {
   const t = Math.max(0, Math.min(seconds, pieceEnd()));
   player.seek(t);
-  view.setCursor(t, follow);
+  view.setCursor(t, player.isPlaying);
+  if (follow) view.reveal();
   sendPlayhead(true);
 }
 
@@ -271,26 +309,128 @@ function stepMeasure(delta: number): void {
 playButton.addEventListener("click", togglePlay);
 
 document.addEventListener("keydown", (e) => {
-  if (e.target instanceof HTMLInputElement || e.metaKey || e.ctrlKey) return;
+  if (e.target instanceof HTMLInputElement) return;
+  // With ⌘ (Ctrl elsewhere): the page's own zoom and sidebar, instead of the browser's.
+  if (e.metaKey || e.ctrlKey) {
+    const withKey: Record<string, () => void> = {
+      KeyB: toggleSidebar,
+      Equal: () => zoomBy(1.25),
+      Semicolon: () => zoomBy(1.25),
+      Minus: () => zoomBy(1 / 1.25),
+      Digit0: () => setZoom("fit"),
+    };
+    const action = withKey[e.code];
+    if (!action || e.altKey) return;
+    e.preventDefault();
+    action();
+    return;
+  }
   const actions: Record<string, () => void> = {
     Space: togglePlay,
-    Enter: () => {
-      seekTo(0);
-      view.scrollToTop();
-    },
-    Home: () => {
-      seekTo(0);
-      view.scrollToTop();
-    },
+    Enter: () => seekTo(0, true),
+    Home: () => seekTo(0, true),
     ArrowLeft: () => stepMeasure(-1),
     ArrowRight: () => stepMeasure(1),
     KeyM: () => $("mixer-toggle").click(),
+    KeyP: () => setMode(view.currentMode === "page" ? "panorama" : "page"),
+    KeyF: toggleFocus,
   };
   const action = e.key === "?" ? () => keysDialog.showModal() : actions[e.code];
   if (!action) return;
   e.preventDefault();
   action();
 });
+
+//==============================================================================
+// How the score is shown: page or panorama, zoom, full screen, sidebar
+
+interface ViewPrefs {
+  mode: Mode;
+  zoom: Record<Mode, Zoom>;
+}
+const prefsKey = "takemitsu.strip-view";
+const prefs: ViewPrefs = { mode: "page", zoom: { page: "fit", panorama: "fit" } };
+try {
+  Object.assign(prefs, JSON.parse(localStorage.getItem(prefsKey) ?? "{}") as Partial<ViewPrefs>);
+} catch {
+  // Storage may be unavailable (a private window): start from the defaults.
+}
+const savePrefs = () => {
+  try {
+    localStorage.setItem(prefsKey, JSON.stringify(prefs));
+  } catch {
+    // Not kept; the view still works.
+  }
+};
+
+const modeButton = $<HTMLButtonElement>("mode");
+const zoomLabel = $("zoom-level");
+function showViewControls(): void {
+  modeButton.textContent = prefs.mode === "page" ? "ページ" : "パノラマ";
+  modeButton.title = `表示の切り替え（P）: いまは${prefs.mode === "page" ? "ページ" : "パノラマ"}`;
+  const zoom = prefs.zoom[prefs.mode];
+  zoomLabel.textContent = zoom === "fit" ? "高さに合わせる" : `${Math.round(view.scale * 720)} px`;
+  zoomLabel.title = "五線 1 段の高さ（⌘0 で高さに合わせる）";
+}
+
+function setMode(mode: Mode): void {
+  prefs.mode = mode;
+  view.setMode(mode, prefs.zoom[mode]);
+  view.reveal();
+  savePrefs();
+  showViewControls();
+}
+
+function setZoom(zoom: Zoom, anchor?: { x: number; y: number }): void {
+  prefs.zoom[prefs.mode] = zoom;
+  view.setZoom(zoom, anchor);
+  savePrefs();
+  showViewControls();
+}
+
+function zoomBy(factor: number, anchor?: { x: number; y: number }): void {
+  setZoom(Math.max(minScale, Math.min(maxScale * 2, view.scale * factor)), anchor);
+}
+
+modeButton.addEventListener("click", () => setMode(prefs.mode === "page" ? "panorama" : "page"));
+$("zoom-in").addEventListener("click", () => zoomBy(1.25));
+$("zoom-out").addEventListener("click", () => zoomBy(1 / 1.25));
+$("zoom-fit").addEventListener("click", () => setZoom("fit"));
+// Pinch on a trackpad (a wheel event with Ctrl) and ⌘/Ctrl + wheel zoom around the pointer.
+$("score").addEventListener(
+  "wheel",
+  (e) => {
+    if (!e.ctrlKey && !e.metaKey) return;
+    e.preventDefault();
+    zoomBy(Math.exp(-e.deltaY / 300), { x: e.clientX, y: e.clientY });
+  },
+  { passive: false },
+);
+
+function toggleSidebar(): void {
+  document.body.classList.toggle("sidebar-hidden");
+  view.resize();
+}
+
+/** Focus: only the score and the transport, and the browser in full screen. */
+function toggleFocus(): void {
+  const on = !document.body.classList.contains("focus");
+  document.body.classList.toggle("focus", on);
+  if (on) void document.documentElement.requestFullscreen?.().catch(() => undefined);
+  else if (document.fullscreenElement) void document.exitFullscreen();
+  view.resize();
+}
+document.addEventListener("fullscreenchange", () => {
+  // Leaving full screen (Esc) leaves focus too; the sidebar and mixer are as they were.
+  if (!document.fullscreenElement && document.body.classList.contains("focus")) {
+    document.body.classList.remove("focus");
+    view.resize();
+  }
+});
+$("focus").addEventListener("click", toggleFocus);
+$("sidebar-toggle").addEventListener("click", toggleSidebar);
+view.setMode(prefs.mode, prefs.zoom[prefs.mode]);
+showViewControls();
 $("help").addEventListener("click", () => keysDialog.showModal());
 
 //==============================================================================
@@ -298,11 +438,12 @@ $("help").addEventListener("click", () => keysDialog.showModal());
 
 function showProgress(): void {
   const { done, total, failed } = progress;
+  const drawing = notationPending ? `（譜面をそろえ中 残り ${notationPending} 小節）` : "";
   if (player.isWaiting) statusEl.textContent = "この先がそろうのを待っている";
-  else if (!current || total === 0) statusEl.textContent = "";
+  else if (!current || total === 0) statusEl.textContent = drawing;
   else if (done + failed >= total)
-    statusEl.textContent = failed ? `レンダ失敗 ${failed} か所` : "全体を鳴らせる";
-  else statusEl.textContent = `裏でレンダ中 ${Math.floor((100 * done) / total)}%`;
+    statusEl.textContent = (failed ? `レンダ失敗 ${failed} か所` : "全体を鳴らせる") + drawing;
+  else statusEl.textContent = `裏でレンダ中 ${Math.floor((100 * done) / total)}%${drawing}`;
 }
 
 let readinessQueued = false;
@@ -351,6 +492,10 @@ events.addEventListener("status", (e) => {
 events.addEventListener("score", (e) => {
   const { path } = JSON.parse((e as MessageEvent<string>).data) as { path: string };
   if (path === current?.path) void loadScore(path);
+});
+events.addEventListener("notation", (e) => {
+  const { path } = JSON.parse((e as MessageEvent<string>).data) as { path: string };
+  if (path === current?.path) refreshNotation();
 });
 events.addEventListener("list", () => void loadList());
 // After a lost connection, anything may have changed: fetch it all again.
@@ -491,8 +636,8 @@ $("mixer-toggle").addEventListener("click", (e) => {
 });
 
 //==============================================================================
-// Display loop: time, playhead, sounding notes, meters. A timer rather than animation frames,
-// which stop while the window is hidden.
+// Display loop: time, playhead, meters. A timer rather than animation frames, which stop while the
+// window is hidden (the score glides on animation frames while it is shown: strip-view.ts).
 
 const clock = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 player.onChange = () => {
@@ -504,13 +649,8 @@ let ticks = 0;
 setInterval(() => {
   player.tick();
   const cursor = player.position;
-  if (player.isPlaying) {
-    view.setCursor(cursor, true);
-    view.highlight(cursor);
-    sendPlayhead();
-  } else {
-    view.highlight(undefined);
-  }
+  view.setCursor(cursor, player.isPlaying);
+  if (player.isPlaying) sendPlayhead();
   timeEl.textContent = `${clock(cursor)} / ${clock(pieceEnd())}`;
   if (++ticks % 10 === 0) {
     drawReadiness();
@@ -533,13 +673,14 @@ let resizeTimer = 0;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = window.setTimeout(() => {
-    if (!current) return;
-    view.redraw();
+    view.resize();
     drawReadiness();
   }, 200);
 });
 
-$("score").innerHTML = '<p class="empty">左から楽譜を選ぶ</p>';
 // For measuring from the browser's console (tools and docs/worklog).
 if (import.meta.env.DEV) Object.assign(window, { preview: { player, view } });
 await loadList();
+// A link can open a score: #score=<path of the score file>.
+const linked = new URLSearchParams(location.hash.slice(1)).get("score");
+if (linked) void open(linked);

@@ -127,6 +127,19 @@ class AccidentalState {
   }
 }
 
+/** What partXml decided for one note element, besides its piece. */
+interface NoteMarks {
+  /** The element's id (strip documents name their notes, so seams can point at them). */
+  id?: string;
+  slurStart: boolean;
+  slurStop: boolean;
+  /** Ties over the document's first or last barline, left to the seam (see Seam). */
+  cutTieIn: boolean;
+  cutTieOut: boolean;
+  /** Octaves an octave line draws the note lower (8va 1, 8vb −1). */
+  lowered: number;
+}
+
 function noteXml(
   piece: Piece,
   pitch: Spelled | undefined,
@@ -137,12 +150,12 @@ function noteXml(
   divisions: number,
   inst: Instrument,
   accidentals: AccidentalState,
-  slur: { open: boolean },
-  /** Octaves an octave line draws the note lower (8va 1, 8vb −1). */
-  lowered: number,
+  marks: NoteMarks,
 ): string {
   const n = piece.note;
-  const out: string[] = ["<note>"];
+  const tieStop = piece.tieFromPrevious && !marks.cutTieIn;
+  const tieStart = piece.tieToNext && !marks.cutTieOut;
+  const out: string[] = [marks.id ? `<note id="${marks.id}">` : "<note>"];
   if (chord) out.push("<chord/>");
   if (!n) {
     out.push(piece.measureRest ? '<rest measure="yes"/>' : "<rest/>");
@@ -157,14 +170,14 @@ function noteXml(
     );
   }
   out.push(`<duration>${piece.dur.mul(new Rational(divisions)).value}</duration>`);
-  if (piece.tieFromPrevious) out.push('<tie type="stop"/>');
-  if (piece.tieToNext) out.push('<tie type="start"/>');
+  if (tieStop) out.push('<tie type="stop"/>');
+  if (tieStart) out.push('<tie type="start"/>');
   out.push(`<voice>${voice}</voice>`);
   if (!piece.measureRest) out.push(`<type>${piece.type}</type>`);
   for (let i = 0; i < piece.dots; i++) out.push("<dot/>");
   if (n && pitch && !inst.unpitched) {
     const w = written(pitch, inst);
-    const acc = accidentals.next({ ...w, octave: w.octave - lowered }, piece.tieFromPrevious);
+    const acc = accidentals.next({ ...w, octave: w.octave - marks.lowered }, piece.tieFromPrevious);
     if (acc) out.push(`<accidental>${acc}</accidental>`);
   }
   if (piece.tuplet) {
@@ -176,21 +189,14 @@ function noteXml(
   if (!chord) piece.beams.forEach((b, i) => b && out.push(`<beam number="${i + 1}">${b}</beam>`));
 
   const notations: string[] = [];
-  if (piece.tieFromPrevious) notations.push('<tied type="stop"/>');
-  if (piece.tieToNext) notations.push('<tied type="start"/>');
+  if (tieStop) notations.push('<tied type="stop"/>');
+  if (tieStart) notations.push('<tied type="start"/>');
   if (!chord && piece.tuplet?.first) notations.push('<tuplet type="start" bracket="yes"/>');
   if (!chord && piece.tuplet?.last) notations.push('<tuplet type="stop"/>');
   if (n && !chord) {
     const firstPiece = !piece.tieFromPrevious;
-    const lastPiece = !piece.tieToNext;
-    if (slur.open && firstPiece) {
-      notations.push('<slur type="stop" number="1"/>');
-      slur.open = false;
-    }
-    if (n.slur && lastPiece) {
-      notations.push('<slur type="start" number="1"/>');
-      slur.open = true;
-    }
+    if (marks.slurStop) notations.push('<slur type="stop" number="1"/>');
+    if (marks.slurStart) notations.push('<slur type="start" number="1"/>');
     const ornaments: string[] = [];
     if (hasMark(n.technique, "tremolo")) ornaments.push('<tremolo type="single">3</tremolo>');
     if (n.trill && firstPiece) ornaments.push("<trill-mark/>");
@@ -290,6 +296,10 @@ interface PartFacts {
   voicesByStaff: Map<number, Set<number>>;
   /** Longest note, to find notes sounding into a span without scanning them all. */
   longest: number;
+  /** The next note of the same staff and voice: a slur from a note ends there. */
+  next: Map<Note, Note>;
+  /** The notes of each staff and voice (key (staff − 1) × 4 + voice), by onset. */
+  byVoice: Map<number, Note[]>;
 }
 const facts = new WeakMap<NormalPart, PartFacts>();
 function factsOf(part: NormalPart): PartFacts {
@@ -302,11 +312,22 @@ function factsOf(part: NormalPart): PartFacts {
     }
     for (let s = 1; s <= part.instrument.clefs.length; s++)
       if (!voicesByStaff.has(s)) voicesByStaff.set(s, new Set([1]));
+    const byVoice = new Map<number, Note[]>();
+    for (const n of part.notes) {
+      const key = (n.staff - 1) * 4 + n.voice;
+      if (!byVoice.has(key)) byVoice.set(key, []);
+      byVoice.get(key)!.push(n);
+    }
+    const next = new Map<Note, Note>();
+    for (const notes of byVoice.values())
+      for (let i = 0; i + 1 < notes.length; i++) next.set(notes[i]!, notes[i + 1]!);
     f = {
       ...dynamicMarks(part),
       changes: techniqueChanges(part),
       voicesByStaff,
       longest: Math.max(0, ...part.notes.map((n) => n.dur.value)),
+      next,
+      byVoice,
     };
     facts.set(part, f);
   }
@@ -336,13 +357,54 @@ interface Span {
   last: number;
 }
 
+/** A note at one end of a tie or slur that crosses a strip document's barline. */
+export interface SeamEnd {
+  /** The note element's id in the document. */
+  note: string;
+  /** Staff in the whole score, from 1 (as Verovio numbers them). */
+  staff: number;
+}
+
+/**
+ * Marks that cross the barlines of a strip document (see stripMeasures). MusicXML cannot draw a
+ * tie or slur whose other end is in another document, so they are left out of it and listed
+ * here; the engraver draws them from the barline (src/preview/engrave-thread.ts).
+ */
+export interface Seam {
+  /** MEI time stamp of the closing barline: beats + 1. */
+  barline: number;
+  tiesIn: SeamEnd[];
+  tiesOut: SeamEnd[];
+  slursIn: SeamEnd[];
+  slursOut: SeamEnd[];
+  /** Octave lines of each staff, in order: whether each comes in from before or runs on after. */
+  octaves: { staff: number; in: boolean; out: boolean }[];
+  /** Hairpins cut at a barline: how open each end is here, as a share of the full opening. */
+  hairpins: { id: string; start: number; end: number; in: boolean; out: boolean }[];
+}
+
+const emptySeam = (barline: number): Seam => ({
+  barline,
+  tiesIn: [],
+  tiesOut: [],
+  slursIn: [],
+  slursOut: [],
+  octaves: [],
+  hairpins: [],
+});
+
 function partXml(
   part: NormalPart,
   index: number,
   score: NormalScore,
   warnings: string[],
   span: Span,
+  /** A strip document (see stripMeasures): what crosses its barlines goes here, not into the XML. */
+  seam?: Seam,
+  /** Staves of the parts before this one, to number staves in the whole score. */
+  staffOffset = 0,
 ): string {
+  const strip = seam !== undefined;
   const inst = part.instrument;
   const measures = score.measures.slice(span.first, span.last + 1);
   const spanStart = measures[0]!.start;
@@ -356,6 +418,7 @@ function partXml(
   const registers = registersFor(part, score);
   // Octave lines over this document's notes: each starts before its first note here and stops
   // after its last note, if that ends here (otherwise the line runs on to the document's end).
+  // A strip document always closes them (a line left open is not drawn) and tells the seam.
   const lineStarts = new Map<Note, { line: Ottava; staff: number }>();
   const lineStops = new Map<Note, { line: Ottava; staff: number }>();
   const lowered = new Map<Note, number>();
@@ -366,8 +429,13 @@ function partXml(
       for (const n of here) lowered.set(n, line.octaves);
       lineStarts.set(here[0]!, { line, staff: i + 1 });
       const last = here.at(-1)!;
-      if (last === line.notes.at(-1) && last.end.lte(spanEnd))
-        lineStops.set(last, { line, staff: i + 1 });
+      const endsHere = last === line.notes.at(-1) && last.end.lte(spanEnd);
+      if (endsHere || strip) lineStops.set(last, { line, staff: i + 1 });
+      seam?.octaves.push({
+        staff: staffOffset + i + 1,
+        in: here[0] !== line.notes[0] || here[0]!.at.lt(spanStart),
+        out: !endsHere,
+      });
     }
   });
   const started = new Set<Ottava>();
@@ -396,13 +464,15 @@ function partXml(
       for (const p of g.pieces) divisions = lcm(divisions, lcm(p.dur.d, p.start.d));
 
   // Directions. A document that starts mid-piece repeats what is in force at its start
-  // (dynamic, technique, tempo), and hairpins crossing its edges are cut at them.
+  // (dynamic, technique, tempo), and hairpins crossing its edges are cut at them. A strip
+  // document repeats nothing: it is read after the one before it.
+  const restate = !whole && !strip;
   const directions: Direction[] = [];
   const marks = [...known.marks];
   const wedges = known.wedges;
   const firstNote = notesInSpan.find((n) => n.at.gte(spanStart));
   const inWedge = (at: Rational) => wedges.some((w) => w.start.lt(at) && w.end.gt(at));
-  if (!whole && firstNote && !marks.some((m) => m.at.eq(spanStart)) && !inWedge(spanStart)) {
+  if (restate && firstNote && !marks.some((m) => m.at.eq(spanStart)) && !inWedge(spanStart)) {
     const before = marks.filter((m) => m.at.lt(spanStart)).at(-1);
     if (before) marks.push({ at: firstNote.at, mark: before.mark });
   }
@@ -416,16 +486,29 @@ function partXml(
       xml: `<dynamics>${inner}</dynamics>`,
     });
   }
-  for (const w of wedges) {
-    if (w.end.lte(spanStart) || w.start.gte(spanEnd)) continue;
+  wedges.forEach((w, k) => {
+    if (w.end.lte(spanStart) || w.start.gte(spanEnd)) return;
     const start = w.start.lt(spanStart) ? spanStart : w.start;
     // A hairpin running past the end stops at the last barline (see isLast below).
     const end = w.end.gt(spanEnd) ? spanEnd : w.end;
+    const cut = start !== w.start || end !== w.end;
+    const id = strip && cut ? ` id="h${index + 1}-${k}"` : "";
+    if (strip && cut) {
+      const share = (t: Rational) => t.sub(w.start).value / w.end.sub(w.start).value;
+      const open = (f: number) => (w.type === "crescendo" ? f : 1 - f);
+      seam!.hairpins.push({
+        id: `h${index + 1}-${k}`,
+        start: open(share(start)),
+        end: open(share(end)),
+        in: start !== w.start,
+        out: end !== w.end,
+      });
+    }
     directions.push({
       at: start,
       staff: 1,
       placement: "below",
-      xml: `<wedge type="${w.type}"${w.nienteStart && start === w.start ? ' niente="yes"' : ""}/>`,
+      xml: `<wedge type="${w.type}"${id}${w.nienteStart && start === w.start ? ' niente="yes"' : ""}/>`,
     });
     directions.push({
       at: end,
@@ -433,9 +516,9 @@ function partXml(
       placement: "below",
       xml: `<wedge type="stop"${w.nienteEnd && end === w.end ? ' niente="yes"' : ""}/>`,
     });
-  }
+  });
   const changes = [...known.changes];
-  if (!whole && firstNote && !changes.some((c) => c.at.eq(firstNote.at))) {
+  if (restate && firstNote && !changes.some((c) => c.at.eq(firstNote.at))) {
     const before = changes.filter((c) => c.at.lt(spanStart)).at(-1);
     const cancel = (t: string) => t === "ord." || t === "arco" || t.startsWith("senza");
     if (before && !cancel(before.text) && firstNote.technique.length)
@@ -460,7 +543,8 @@ function partXml(
   if (index === 0) {
     const tempos = score.tempoMarks.filter((t) => inSpan(t.at));
     // Verovio times the notes from the tempo in the document, so it must know it at the start.
-    if (!tempos.some((t) => t.at.eq(spanStart))) {
+    // (The strip times notes in quarters, not by Verovio's clock.)
+    if (!strip && !tempos.some((t) => t.at.eq(spanStart))) {
       const before = score.tempoMarks.filter((t) => t.at.lt(spanStart)).at(-1);
       if (before) tempos.unshift({ ...before, at: spanStart });
     }
@@ -475,22 +559,50 @@ function partXml(
     }
   }
 
+  // Slurs, per staff and voice: a note's slur runs to the next note of its voice. In a strip
+  // document, one that came in over the first barline, or goes out over the last, is the seam's.
+  const slurOpen = new Map<number, boolean>();
+  const slurCameIn = new Set<number>();
+  if (strip)
+    for (const [key, notes] of known.byVoice) {
+      let before: Note | undefined;
+      for (const n of notes) {
+        if (n.at.gte(spanStart)) break;
+        before = n;
+      }
+      const next = before && known.next.get(before);
+      if (before?.slur && before.end.lte(spanStart) && next && inSpan(next.at)) {
+        slurOpen.set(key, true);
+        slurCameIn.add(key);
+      }
+    }
+
   const out: string[] = [`<part id="P${index + 1}">`];
-  const slur = { open: false };
   let previousMeter = "";
   measures.forEach((m: Measure, mi) => {
-    out.push(`<measure number="${m.number}">`);
+    const at = span.first + mi;
+    // A strip document is numbered from 1, so it reads the same wherever the measure is.
+    out.push(`<measure number="${strip ? mi + 1 : m.number}">`);
     const meter = `${m.beats}/${m.beatType}`;
     const attrs: string[] = [];
     if (mi === 0) attrs.push(`<divisions>${divisions}</divisions><key><fifths>0</fifths></key>`);
-    if (meter !== previousMeter)
-      attrs.push(`<time><beats>${m.beats}</beats><beat-type>${m.beatType}</beat-type></time>`);
-    const at = span.first + mi;
+    if (meter !== previousMeter) {
+      // A strip shows a time signature only where the meter changes.
+      const before = score.measures[at - 1];
+      const hidden = strip && mi === 0 && before && `${before.beats}/${before.beatType}` === meter;
+      attrs.push(
+        `<time${hidden ? ' print-object="no"' : ""}><beats>${m.beats}</beats><beat-type>${m.beatType}</beat-type></time>`,
+      );
+    }
     if (mi === 0 && staves > 1) attrs.push(`<staves>${staves}</staves>`);
     registers.forEach((r, i) => {
-      // Every document states its clefs; later measures only where the clef changes.
-      if (mi === 0 || r.clefs[at] !== r.clefs[at - 1])
-        attrs.push(clefXml(r.clefs[at]!, i + 1, staves));
+      // Every document states its clefs; later measures only where the clef changes. A strip
+      // shows them only where they change (its left margin shows the clefs in force).
+      const changed = at > 0 && r.clefs[at] !== r.clefs[at - 1];
+      if (mi === 0 || changed) {
+        const xml = clefXml(r.clefs[at]!, i + 1, staves);
+        attrs.push(strip && !changed ? xml.replace("<clef", '<clef print-object="no"') : xml);
+      }
     });
     if (mi === 0 && inst.unpitched)
       attrs.push("<staff-details><staff-lines>1</staff-lines></staff-details>");
@@ -521,7 +633,8 @@ function partXml(
       const acc = accidentals.get(g.staff) ?? new AccidentalState();
       accidentals.set(g.staff, acc);
       const carriesDirections = gi === groups.findIndex((x) => x.staff === 1);
-      for (const piece of g.pieces) {
+      const staffNumber = staffOffset + g.staff;
+      g.pieces.forEach((piece, k) => {
         if (carriesDirections) {
           const pieceEnd = piece.start.add(piece.dur);
           const lastPiece = piece === g.pieces.at(-1);
@@ -538,28 +651,65 @@ function partXml(
           out.push(octaveShiftXml(start.line, "start", start.staff));
           started.add(start.line);
         }
+        const id = (pi: number) =>
+          strip ? `n${index + 1}-${mi + 1}-${g.voice}-${k}-${pi}` : undefined;
+        const cutTieIn = strip && piece.tieFromPrevious && piece.start.eq(spanStart);
+        const cutTieOut = strip && piece.tieToNext && piece.start.add(piece.dur).eq(spanEnd);
+        // Slur ends: only on notes (not rests), and on the first element of a chord.
+        let slurStop = false;
+        let slurStart = false;
+        if (note && !piece.tieFromPrevious && slurOpen.get(g.voice)) {
+          if (slurCameIn.has(g.voice)) seam!.slursIn.push({ note: id(0)!, staff: staffNumber });
+          else slurStop = true;
+          slurOpen.set(g.voice, false);
+          slurCameIn.delete(g.voice);
+        }
+        if (note?.slur && !piece.tieToNext) {
+          const next = known.next.get(note);
+          if (strip && !(next && next.at.lt(spanEnd)))
+            seam!.slursOut.push({ note: id(0)!, staff: staffNumber });
+          else slurStart = true;
+          slurOpen.set(g.voice, true);
+        }
         const pitches: (Spelled | undefined)[] =
           note && !inst.unpitched ? note.pitches : [undefined];
         const down = (note && lowered.get(note)) ?? 0;
-        pitches.forEach((p, pi) =>
+        pitches.forEach((p, pi) => {
+          if (note && cutTieIn) seam!.tiesIn.push({ note: id(pi)!, staff: staffNumber });
+          if (note && cutTieOut) seam!.tiesOut.push({ note: id(pi)!, staff: staffNumber });
           out.push(
-            noteXml(piece, p, pi > 0, g.voice, g.staff, staves, divisions, inst, acc, slur, down),
-          ),
-        );
-        const stop = note && !piece.tieToNext && lineStops.get(note);
-        if (stop) out.push(octaveShiftXml(stop.line, "stop", stop.staff));
-      }
+            noteXml(piece, p, pi > 0, g.voice, g.staff, staves, divisions, inst, acc, {
+              id: note ? id(pi) : undefined,
+              slurStart: pi === 0 && slurStart,
+              slurStop: pi === 0 && slurStop,
+              cutTieIn,
+              cutTieOut,
+              lowered: down,
+            }),
+          );
+        });
+        // A line stops after the last piece of its last note here; a strip document stops it at
+        // the barline even when that note is tied on past it.
+        const lastHere = !piece.tieToNext || (strip && piece.start.add(piece.dur).eq(spanEnd));
+        const stop = note && lastHere ? lineStops.get(note) : undefined;
+        if (stop) {
+          out.push(octaveShiftXml(stop.line, "stop", stop.staff));
+          lineStops.delete(note!);
+        }
+      });
     });
     out.push("</measure>");
   });
   out.push("</part>");
-  if (slur.open && span.last === score.measures.length - 1)
+  if (!strip && [...slurOpen.values()].some(Boolean) && span.last === score.measures.length - 1)
     warnings.push(`part "${part.id}": a slur runs past the last note`);
   return out.join("\n");
 }
 
-function partList(score: NormalScore): string {
+function partList(score: NormalScore, strip: boolean): string {
   const out: string[] = ["<part-list>"];
+  // The strip's names are drawn once, in its left margin.
+  const hide = strip ? ' print-object="no"' : "";
   let group = 0;
   score.parts.forEach((p, i) => {
     const prev = score.parts[i - 1];
@@ -572,7 +722,7 @@ function partList(score: NormalScore): string {
       );
     }
     out.push(
-      `<score-part id="P${i + 1}"><part-name>${esc(p.name)}</part-name><part-abbreviation>${esc(p.abbreviation)}</part-abbreviation></score-part>`,
+      `<score-part id="P${i + 1}"><part-name${hide}>${esc(p.name)}</part-name><part-abbreviation${hide}>${esc(p.abbreviation)}</part-abbreviation></score-part>`,
     );
     if (prev?.instrument.family === family && next?.instrument.family !== family) {
       out.push(`<part-group type="stop" number="${group}"/>`);
@@ -589,76 +739,108 @@ export function toMusicXml(input: Score): NotationResult {
 export function musicXmlOf(
   score: NormalScore,
   span: Span = { first: 0, last: score.measures.length - 1 },
+  /** Write a strip document (see stripMeasures) and collect what crosses its barlines here. */
+  seam?: Seam,
 ): NotationResult {
   const warnings = [...score.warnings];
-  const parts = score.parts.map((p, i) => partXml(p, i, score, warnings, span));
+  let offset = 0;
+  const parts = score.parts.map((p, i) => {
+    const xml = partXml(p, i, score, warnings, span, seam, offset);
+    offset += p.instrument.clefs.length;
+    return xml;
+  });
   const musicxml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">',
     '<score-partwise version="4.0">',
     // Only the first document carries the title (a long score is drawn as many).
-    ...(span.first === 0 ? [`<work><work-title>${esc(score.title)}</work-title></work>`] : []),
-    partList(score),
+    ...(span.first === 0 && !seam
+      ? [`<work><work-title>${esc(score.title)}</work-title></work>`]
+      : []),
+    partList(score, seam !== undefined),
     ...parts,
     "</score-partwise>",
   ].join("\n");
   return { musicxml, warnings };
 }
 
-/** A stretch of measures written as its own MusicXML document, for drawing a long score in pieces. */
-export interface NotationWindow {
-  /** Measure numbers (1-based, inclusive). */
-  from: number;
-  to: number;
+/** One measure of the score as its own MusicXML document, to be drawn as a piece of the strip. */
+export interface StripMeasure {
   musicxml: string;
+  seam: Seam;
+  /** The margin in force at this measure (an index into the margins), for its clefs. */
+  margin: number;
 }
 
 /**
- * The score as short documents of up to `size` measures, and fewer where the music is dense
- * (a document stays under about `notes` notes, so none takes long to draw). Documents restart at
- * every rehearsal mark and meter change, so an edit moves as few boundaries as possible. Each one
- * repeats what is in force at its start (dynamics, technique, tempo).
+ * The score as one document per measure, for the preview's strip (docs/decisions/0020): drawn one
+ * by one and laid side by side, with nothing between them.
+ *
+ * - A document reads the same wherever its measure is: it is numbered 1, and states only what the
+ *   measure itself holds. Clefs and the time signature are hidden unless they change at its first
+ *   barline; names are hidden (the strip's margin shows names and clefs). Dynamics, techniques
+ *   and tempo are not repeated.
+ * - What crosses a barline is listed in its Seam instead: ties and slurs, octave lines (closed
+ *   here, but marked as coming in or running on), and hairpins (how open they are at the cut).
  */
-export function musicXmlWindows(
-  score: NormalScore,
-  size = 4,
-  notes = 600,
-): { windows: NotationWindow[]; warnings: string[] } {
-  const breaks = new Set<number>(score.rehearsal.map((r) => r.measure));
-  score.measures.forEach((m, i) => {
-    const prev = score.measures[i - 1];
-    if (prev && (prev.beats !== m.beats || prev.beatType !== m.beatType)) breaks.add(m.number);
-  });
-  // Notes starting in each measure, over all parts.
-  const starts = score.measures.map((m) => m.start.value);
-  const count = Array.from({ length: score.measures.length }, () => 0);
-  for (const p of score.parts)
-    for (const n of p.notes) {
-      let i = starts.length - 1;
-      while (i > 0 && starts[i]! > n.at.value) i--;
-      count[i]! += Math.max(1, n.pitches.length);
-    }
-  const spans: Span[] = [];
-  let first = 0;
-  let inWindow = count[0] ?? 0;
-  for (let i = 1; i <= score.measures.length; i++) {
-    const m = score.measures[i];
-    if (!m || i - first >= size || breaks.has(m.number) || inWindow + count[i]! > notes) {
-      spans.push({ first, last: i - 1 });
-      first = i;
-      inWindow = 0;
-    }
-    inWindow += count[i] ?? 0;
-  }
-  const warnings = new Set<string>();
-  const windows = spans.map((span) => {
-    const { musicxml, warnings: w } = musicXmlOf(score, span);
+export function stripMeasures(score: NormalScore): {
+  measures: StripMeasure[];
+  /** Left margins: one for each set of clefs in force somewhere in the score. */
+  margins: string[];
+  warnings: string[];
+} {
+  const warnings = new Set<string>(score.warnings);
+  const margins: string[] = [];
+  const marginOf = new Map<string, number>();
+  const measures = score.measures.map((m, i) => {
+    const seam = emptySeam(m.beats + 1);
+    const { musicxml, warnings: w } = musicXmlOf(score, { first: i, last: i }, seam);
     for (const x of w) warnings.add(x);
-    return {
-      from: score.measures[span.first]!.number,
-      to: score.measures[span.last]!.number,
-      musicxml,
-    };
+    const clefs = JSON.stringify(clefsAt(score, i));
+    if (!marginOf.has(clefs)) {
+      marginOf.set(clefs, margins.length);
+      margins.push(stripMargin(score, i));
+    }
+    return { musicxml, seam, margin: marginOf.get(clefs)! };
   });
-  return { windows, warnings: [...warnings] };
+  return { measures, margins, warnings: [...warnings] };
+}
+
+/** The clefs in force at a measure, over all staves of the score (from the top). */
+export function clefsAt(score: NormalScore, index: number): Instrument["clefs"] {
+  return score.parts.flatMap((p) => registersFor(p, score).map((r) => r.clefs[index]!));
+}
+
+/**
+ * The strip's left margin for the clefs in force at a measure: names, brackets and clefs over an
+ * empty measure, drawn with the same staff spacing as the measures so its staves meet theirs.
+ */
+export function stripMargin(score: NormalScore, index: number): string {
+  const m = score.measures[index]!;
+  const duration = m.length.mul(new Rational(4)).value; // in 16ths: divisions 4
+  const parts = score.parts.map((p, i) => {
+    const regs = registersFor(p, score);
+    const staves = p.instrument.clefs.length;
+    const attrs = [
+      "<divisions>4</divisions><key><fifths>0</fifths></key>",
+      `<time print-object="no"><beats>${m.beats}</beats><beat-type>${m.beatType}</beat-type></time>`,
+      staves > 1 ? `<staves>${staves}</staves>` : "",
+      ...regs.map((r, s) => clefXml(r.clefs[index]!, s + 1, staves)),
+      p.instrument.unpitched ? "<staff-details><staff-lines>1</staff-lines></staff-details>" : "",
+    ];
+    const rests = regs.map(
+      (_, s) =>
+        `${s > 0 ? `<backup><duration>${duration}</duration></backup>` : ""}<note print-object="no"><rest/><duration>${duration}</duration><voice>${s * 4 + 1}</voice>${staves > 1 ? `<staff>${s + 1}</staff>` : ""}</note>`,
+    );
+    return `<part id="P${i + 1}"><measure number="1"><attributes>${attrs.join("")}</attributes>${rests.join("")}</measure></part>`;
+  });
+  // The margin shows the short names.
+  const named = { ...score, parts: score.parts.map((p) => ({ ...p, name: p.abbreviation })) };
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<score-partwise version="4.0">',
+    partList(named, false),
+    ...parts,
+    "</score-partwise>",
+  ].join("\n");
 }

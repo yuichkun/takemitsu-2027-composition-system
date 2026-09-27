@@ -12,9 +12,11 @@
 // The page is only told that something is newer, and then fetches the whole of it:
 // - "status": a new version, or chunks rendered → /api/manifest (a version's chunk places) and
 //   /api/status (which of them are rendered)
-// - "score": new notation → /api/score
+// - "score": new notation → /api/score (measures, times, names)
+// - "notation": measures drawn (engraver.ts) → /api/notation (where each drawing is)
 // - "list": score files came or went → /api/scores
 // Audio is fetched shortly before it plays, mixed from the chunks in 2 s segments (/api/segments).
+// Drawings are fetched by key (/api/engraving/<key>.svg and .json); a key's content never changes.
 
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, watch, type FSWatcher } from "node:fs";
@@ -28,6 +30,7 @@ import { segmentBundle, type SegmentRequest } from "../performance/segments.ts";
 import { repoRoot } from "../render/host.ts";
 import { normalize } from "../score/normalize.ts";
 import type { Score } from "../score/types.ts";
+import { Engraver, type StripDocs } from "./engraver.ts";
 import type { NotationAnswer, NotationView } from "./notation-thread.ts";
 
 type Next = (err?: unknown) => void;
@@ -76,24 +79,21 @@ function broadcast(event: string, data: unknown): void {
 // Made when the dev server starts (previewMiddleware): importing this module (the Vite config
 // does, for `vp check` too) must not start anything or touch the store.
 let engine!: Engine;
-
-type View = Omit<NotationView, "windows"> & {
-  windows: { from: number; to: number; hash: string }[];
-};
+let engraver!: Engraver;
+/** The score the page shows: the engraver draws only its measures. */
+let shown = "";
 
 interface Opened {
   /** Hash of the file content whose audio is planned. */
   audio?: string;
   /** Why the file could not be read or planned (a save in the middle of editing, say). */
   error?: string;
-  notation?: { seq: number; view: View };
+  notation?: { seq: number; view: NotationView; strip: StripDocs };
   notationError?: string;
   /** Notation requests so far; an answer older than the one shown is dropped. */
   requested: number;
 }
 const opened = new Map<string, Opened>();
-/** MusicXML of the open scores' windows, by hash. */
-const windowXml = new Map<string, string>();
 const reading = new Map<string, Promise<void>>();
 const stale = new Set<string>();
 const notationWaiters = new Map<string, (() => void)[]>();
@@ -125,19 +125,8 @@ function applyNotation(path: string, seq: number, answer: NotationAnswer): void 
   if ("error" in answer) entry.notationError = answer.error;
   else {
     entry.notationError = undefined;
-    for (const w of answer.view.windows) windowXml.set(w.hash, w.musicxml);
-    entry.notation = {
-      seq,
-      view: {
-        ...answer.view,
-        windows: answer.view.windows.map(({ from, to, hash }) => ({ from, to, hash })),
-      },
-    };
-    // Keep the documents of the open scores only.
-    const used = new Set(
-      [...opened.values()].flatMap((o) => o.notation?.view.windows.map((w) => w.hash) ?? []),
-    );
-    for (const h of windowXml.keys()) if (!used.has(h)) windowXml.delete(h);
+    entry.notation = { seq, view: answer.view, strip: answer.strip };
+    if (path === shown) engraver.show(path, answer.strip);
   }
   for (const done of notationWaiters.get(path)?.splice(0) ?? []) done();
   broadcast("score", { path });
@@ -182,7 +171,7 @@ function refresh(path: string): Promise<void> {
   return run;
 }
 
-async function scoreView(path: string): Promise<View | { error: string }> {
+async function scoreView(path: string): Promise<NotationView | { error: string }> {
   const entry = opened.get(path);
   if (!entry?.notation && !entry?.notationError) {
     const drawn = new Promise<void>((resolve) =>
@@ -192,6 +181,10 @@ async function scoreView(path: string): Promise<View | { error: string }> {
     await drawn;
   }
   const now = opened.get(path)!;
+  if (now.notation && path !== shown) {
+    shown = path;
+    engraver.show(path, now.notation.strip);
+  }
   return now.notation?.view ?? { error: now.notationError ?? "No notation" };
 }
 
@@ -247,6 +240,13 @@ async function planned(path: string): Promise<string | undefined> {
 export function previewMiddleware() {
   engine = new Engine();
   engine.onStatus = (path) => broadcast("status", { path, ...engine.stamp(path) });
+  engraver = new Engraver({
+    threads: Number(process.env.TAKEMITSU_ENGRAVERS ?? 4),
+    dir: resolve(process.env.TAKEMITSU_ENGRAVINGS_DIR ?? join(repoRoot, ".local/engravings")),
+    memoryBytes: 1.5e9,
+    diskBytes: Number(process.env.TAKEMITSU_ENGRAVINGS_GB ?? 10) * 1e9,
+  });
+  engraver.onChange = (path) => broadcast("notation", { path });
   watchScores();
   setInterval(watchScores, 3000).unref();
   return async (req: IncomingMessage, res: ServerResponse, next: Next) => {
@@ -259,11 +259,28 @@ export function previewMiddleware() {
         const view = await scoreView(path);
         return json(res, "error" in view ? 500 : 200, view);
       }
-      if (url.pathname === "/api/window") {
-        const xml = windowXml.get(url.searchParams.get("hash") ?? "");
-        if (xml === undefined) return json(res, 404, { error: "Unknown window" });
-        res.setHeader("content-type", "application/xml");
-        return res.end(xml);
+      if (url.pathname === "/api/notation") {
+        const snapshot = engraver.snapshot(path);
+        if (!snapshot) return json(res, 404, { error: "Not the score being shown" });
+        return json(res, 200, snapshot);
+      }
+      const drawing = url.pathname.match(/^\/api\/engraving\/([0-9a-f]{32})\.(svg|json)$/);
+      if (drawing) {
+        const kind = drawing[2] as "svg" | "json";
+        const content = engraver.file(drawing[1]!, kind);
+        if (content === undefined) return json(res, 404, { error: "Unknown drawing" });
+        res.setHeader("content-type", kind === "svg" ? "image/svg+xml" : "application/json");
+        res.setHeader("cache-control", "public, max-age=31536000, immutable");
+        return res.end(content);
+      }
+      if (url.pathname === "/api/view" && req.method === "POST") {
+        const {
+          path: p,
+          from,
+          to,
+        } = (await body(req)) as { path: string; from: number; to: number };
+        engraver.setFocus(p, from, to);
+        return json(res, 200, { ok: true });
       }
       if (url.pathname === "/api/manifest") {
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
