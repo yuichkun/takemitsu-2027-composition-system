@@ -91,6 +91,9 @@ const fetchAhead = 3;
 const scheduleAhead = 1;
 /** Seconds that must be complete before playback starts or resumes. */
 const startMargin = 3;
+/** Segments per request, and requests at once (a tutti is ~100 parts, each ~400 KB a segment). */
+const batchSize = 20;
+const fetchers = 4;
 
 function setCompressor(node: DynamicsCompressorNode, p: CompressorParams, ctx: AudioContext): void {
   const t = ctx.currentTime;
@@ -391,25 +394,30 @@ export class Player {
       : this.offset;
   }
 
-  /** Fetches segments not here yet. */
+  /** Fetches segments not here yet: small batches, earliest first, a few at a time. */
   private async load(requests: Wanted[]): Promise<void> {
     const missing = requests.filter((r) => !this.segments.has(r.id) && !this.fetching.has(r.id));
     if (!missing.length || !this.fetchSegments) return;
+    const fetchSegments = this.fetchSegments;
     for (const r of missing) this.fetching.add(r.id);
-    try {
-      // Small batches, earliest first: the segment under the playhead arrives soonest.
-      missing.sort((a, b) => a.index - b.index);
-      for (let i = 0; i < missing.length; i += 40) {
-        const batch = missing
-          .slice(i, i + 40)
-          .map(({ id, frames, contributions }) => ({ id, frames, contributions }));
-        const got = await this.fetchSegments(batch);
-        for (const [id, bytes] of got) this.segments.set(id, decode(this.ctx, bytes));
+    missing.sort((a, b) => a.index - b.index);
+    const batches: Wanted[][] = [];
+    for (let i = 0; i < missing.length; i += batchSize)
+      batches.push(missing.slice(i, i + batchSize));
+    const next = async (): Promise<void> => {
+      for (let batch = batches.shift(); batch; batch = batches.shift()) {
+        try {
+          const got = await fetchSegments(
+            batch.map(({ id, frames, contributions }) => ({ id, frames, contributions })),
+          );
+          for (const [id, bytes] of got) this.segments.set(id, decode(this.ctx, bytes));
+        } finally {
+          for (const r of batch) this.fetching.delete(r.id);
+        }
         this.tick();
       }
-    } finally {
-      for (const r of missing) this.fetching.delete(r.id);
-    }
+    };
+    await Promise.all(Array.from({ length: fetchers }, next));
   }
 
   async play(from = this.position): Promise<void> {

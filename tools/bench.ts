@@ -61,11 +61,19 @@ interface Result {
   failed: number;
   places: number;
   loads: number;
+  /** Chunks tried again (a silent onset that should sound, a host that died). */
+  retries: number;
   hostMB: number;
 }
 const results: Result[] = [];
 let loads = 0;
 engine.loaded = () => loads++;
+let retries = 0;
+const reasons = new Map<string, number>();
+engine.onRetry = (_key, why) => {
+  retries++;
+  reasons.set(why, (reasons.get(why) ?? 0) + 1);
+};
 /** When each chunk was stored or given up, in seconds since the save. */
 let doneAt = new Map<string, number>();
 let started = 0;
@@ -75,6 +83,8 @@ async function measure(scenario: string, score: Score, playhead = 0): Promise<vo
   started = performance.now();
   doneAt = new Map();
   loads = 0;
+  retries = 0;
+  reasons.clear();
   let hostMB = 0;
   const memory = setInterval(() => (hostMB = Math.max(hostMB, engine.memoryMB())), 250);
   const manifest = await engine.open(path, normalize(score), playhead);
@@ -120,14 +130,16 @@ async function measure(scenario: string, score: Score, playhead = 0): Promise<vo
     failed: status.failed,
     places: manifest.chunks.length,
     loads,
+    retries,
     hostMB: Math.round(hostMB),
   };
   results.push(r);
   const s = (x: number) => `${x.toFixed(2).padStart(7)} s`;
   console.log(
     `${scenario.padEnd(32)} plan ${r.plan.toFixed(2)} s  start ${s(r.start)}  window ${s(r.window)}  near ${s(r.near)}  all ${s(r.all)}  ` +
-      `rendered ${r.rendered}${r.failed ? ` (failed ${r.failed})` : ""}  loads ${loads}  host ${r.hostMB} MB`,
+      `rendered ${r.rendered}${r.failed ? ` (failed ${r.failed})` : ""}  retries ${retries}  loads ${loads}  host ${r.hostMB} MB`,
   );
+  for (const [why, n] of reasons) console.log(`    retried ${n}×: ${why}`);
 }
 
 //==============================================================================

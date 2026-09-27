@@ -184,6 +184,8 @@ export class Engine {
   loaded?: (stateKey: string, seconds: number) => void;
   /** A chunk was stored (ok) or given up (for measuring). */
   onChunk?: (key: string, ok: boolean) => void;
+  /** A chunk is tried again, and why (for measuring). */
+  onRetry?: (key: string, why: string) => void;
 
   private readonly options: EngineOptions;
   private readonly hosts: HostProcess[];
@@ -699,6 +701,7 @@ export class Engine {
   }
 
   private retry(key: string, w: Work, why: string): void {
+    this.onRetry?.(key, why);
     w.tries++;
     if (w.tries >= maxTries) {
       this.fail(key, why);
