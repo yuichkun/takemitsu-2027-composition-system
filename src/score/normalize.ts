@@ -155,15 +155,48 @@ export function normalize(score: Score): NormalScore {
   }
   const parts = score.parts.map((p) => normalizePart(p, warnings));
 
-  // Divisi: players of parts from the same section must fit in the section.
-  const bySection = new Map<string, number>();
-  for (const p of parts)
-    if (p.instrument.sectionSize)
-      bySection.set(p.instrument.id, (bySection.get(p.instrument.id) ?? 0) + p.players);
-  for (const [id, total] of bySection) {
+  // Divisi: parts of one section sounding at the same time must fit in the section. Parts that
+  // take turns (the tutti part, then the divided parts) share the same players.
+  const bySection = new Map<string, { at: number; delta: number }[]>();
+  for (const p of parts) {
+    if (!p.instrument.sectionSize) continue;
+    const changes = bySection.get(p.instrument.id) ?? [];
+    // The part's sounding spans, merged so chords and voices count the players once.
+    const spans = p.notes
+      .map((n) => [n.at.value, n.end.value] as const)
+      .sort((a, b) => a[0] - b[0]);
+    let open: [number, number] | undefined;
+    for (const [a, b] of spans) {
+      if (open && a <= open[1]) open[1] = Math.max(open[1], b);
+      else {
+        if (open)
+          changes.push({ at: open[0], delta: p.players }, { at: open[1], delta: -p.players });
+        open = [a, b];
+      }
+    }
+    if (open) changes.push({ at: open[0], delta: p.players }, { at: open[1], delta: -p.players });
+    bySection.set(p.instrument.id, changes);
+  }
+  for (const [id, changes] of bySection) {
     const size = instrument(id).sectionSize!;
-    if (total > size)
-      warnings.push(`${instrument(id).name}: parts use ${total} players, the section has ${size}`);
+    // Ends before starts at the same moment: one part handing over to another.
+    changes.sort((a, b) => a.at - b.at || a.delta - b.delta);
+    let now = 0;
+    let worst = { players: 0, at: 0 };
+    for (const c of changes) {
+      now += c.delta;
+      if (now > worst.players) worst = { players: now, at: c.at };
+    }
+    if (worst.players > size) {
+      const at = Rational.of(worst.at);
+      const m =
+        measures(score, at.add(new Rational(1)))
+          .filter((x) => x.start.lte(at))
+          .at(-1)?.number ?? 1;
+      warnings.push(
+        `${instrument(id).name}: ${worst.players} players at once (measure ${m}), the section has ${size}`,
+      );
+    }
   }
 
   let end = Rational.zero;
