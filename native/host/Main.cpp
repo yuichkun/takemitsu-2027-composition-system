@@ -247,15 +247,51 @@ var describeBuses (AudioPluginInstance& plugin)
 //     "id": "vn1", "plugin": "/Library/Audio/Plug-Ins/VST3/…vst3", "state": "…bin",
 //     "parameters": [{ "index": 3, "value": 0.5 } | { "name": "Reverb", "value": 0 }],
 //     "events": [{ "frame": 0, "bytes": [144, 60, 100] }],
+//     "automation": [{ "frame": 4800, "index": 11, "value": 0.52 }],   // normalised, set at block starts
 //     "output": "…/vn1.wav"
 //   }]
 // }
+
+/** A parameter change at a frame (normalised value), applied at the start of the block holding it. */
+struct Automation
+{
+    int64 frame;
+    int index;
+    float value;
+};
+
+std::vector<Automation> readAutomation (const var& list)
+{
+    std::vector<Automation> out;
+    if (auto* a = list.getArray())
+        for (auto& e : *a)
+        {
+            if (auto* t = e.getArray(); t != nullptr && t->size() >= 3)
+                out.push_back ({ (int64) (*t)[0], (int) (*t)[1], (float) (double) (*t)[2] });
+            else if (e.isObject())
+                out.push_back ({ (int64) e["frame"], (int) e["index"], (float) (double) e["value"] });
+        }
+    std::stable_sort (out.begin(), out.end(), [] (auto& a, auto& b) { return a.frame < b.frame; });
+    return out;
+}
+
+/** Applies the changes due before `end`; returns the next one to apply. */
+size_t applyAutomation (AudioPluginInstance& plugin, const std::vector<Automation>& list, size_t next, int64 end)
+{
+    auto& params = plugin.getParameters();
+    for (; next < list.size() && list[next].frame < end; ++next)
+        if (isPositiveAndBelow (list[next].index, params.size()))
+            params[list[next].index]->setValue (list[next].value);
+    return next;
+}
 
 struct Track
 {
     String id;
     std::unique_ptr<AudioPluginInstance> plugin;
     std::vector<std::pair<int64, MidiMessage>> events;
+    std::vector<Automation> automation;
+    size_t nextAutomation = 0;
     size_t next = 0;
     File output, partial;
     std::unique_ptr<AudioFormatWriter> writer;
@@ -291,7 +327,11 @@ std::unique_ptr<AudioFormatWriter> openWav (const File& file, double rate)
 //
 //   { "op": "render", "id": "r1", "plugin": "…vst3", "key": "<state id>", "state": "…bin",
 //     "chunks": [{ "id": "c1", "frames": 96000, "tailMax": 480000, "output": "…chunk",
-//                  "events": [[frame, status, data1, data2], …] }] }
+//                  "events": [[frame, status, data1, data2], …],
+//                  "params": [[frame, index, normalised value], …] }] }   // optional automation
+//
+// Automated parameters go back to the values they had before the chunk once it is written, so
+// the next chunk on the instance starts as the state left it.
 //   { "op": "ping", "id": "p1" }
 //
 // "done" carries the process's memory footprint in MB ("mb"), so the caller need not ask `ps`.
@@ -316,6 +356,7 @@ struct Chunk
     int64 tailMax = 0;
     File output;
     std::vector<std::pair<int64, MidiMessage>> events;
+    std::vector<Automation> automation;
 };
 
 /** Writes a chunk file; returns the frames written (0 when the chunk is silent). */
@@ -652,6 +693,7 @@ private:
                         chunk.events.emplace_back ((int64) (*a)[0], MidiMessage (bytes.data(), (int) bytes.size()));
                     }
             std::stable_sort (chunk.events.begin(), chunk.events.end(), [] (auto& a, auto& b) { return a.first < b.first; });
+            chunk.automation = readAutomation (spec["params"]);
 
             auto started = Time::getMillisecondCounterHiRes();
             Array<var> silentOnsets;
@@ -684,6 +726,11 @@ private:
         AudioBuffer<float> buffer (jmax (2, plugin.getTotalNumOutputChannels()), block);
         MidiBuffer midi;
         size_t next = 0;
+        size_t nextAutomation = 0;
+        std::map<int, float> before;
+        for (auto& a : chunk.automation)
+            if (isPositiveAndBelow (a.index, plugin.getParameters().size()) && ! before.count (a.index))
+                before[a.index] = plugin.getParameters()[a.index]->getValue();
         int64 quietFrames = 0;
         int64 pos = 0;
         for (; pos < limit && ! cancelled; pos += block)
@@ -691,6 +738,7 @@ private:
             instance.transport.sample = pos;
             buffer.clear();
             midi.clear();
+            nextAutomation = applyAutomation (plugin, chunk.automation, nextAutomation, pos + block);
             while (next < chunk.events.size() && chunk.events[next].first < pos + block)
             {
                 auto& [frame, message] = chunk.events[next++];
@@ -716,6 +764,8 @@ private:
                 break;
             }
         }
+        for (auto& [index, value] : before)
+            plugin.getParameters()[index]->setValue (value);
         if (cancelled)
             fail ("cancelled");
 
@@ -777,6 +827,7 @@ private:
                         track->events.emplace_back ((int64) e["frame"], MidiMessage (bytes.data(), (int) bytes.size()));
                 }
             std::stable_sort (track->events.begin(), track->events.end(), [] (auto& a, auto& b) { return a.first < b.first; });
+            track->automation = readAutomation (spec["automation"]);
 
             track->output = File (text (spec, "output"));
             track->partial = File (track->output.getFullPathName() + ".partial");
@@ -829,6 +880,7 @@ private:
                 buffer.setSize (jmax (2, t->plugin->getTotalNumOutputChannels()), block, false, false, true);
                 buffer.clear();
                 midi.clear();
+                t->nextAutomation = applyAutomation (*t->plugin, t->automation, t->nextAutomation, pos + count);
                 while (t->next < t->events.size() && t->events[t->next].first < pos + count)
                 {
                     auto& [frame, message] = t->events[t->next++];

@@ -2,6 +2,7 @@
 //
 //   vp node tools/bbcso-probe.ts pitch            pitch bend and global tune accuracy
 //   vp node tools/bbcso-probe.ts stream           offline render speed vs real time (streaming dropouts)
+//   vp node tools/bbcso-probe.ts glide            glissando: Global Tune swept under a held note, and legato transitions
 //   vp node tools/bbcso-probe.ts scan <instrument> [articulation…]
 //                                                 which keys sound, their level and pitch (all articulations by default)
 
@@ -269,6 +270,72 @@ async function verifyGaps() {
   await writeFile(join(out, "gaps.json"), JSON.stringify(results, null, 2));
 }
 
+/** Global Tune is parameter 11, ±36 semitones over 0–1 (0.5 = none). */
+const tuneValue = (semitones: number) => 0.5 + semitones / 72;
+
+/** The sounding pitch every 50 ms, near what it should be. */
+function pitchTrack(
+  samples: Float32Array,
+  from: number,
+  to: number,
+  expected: (t: number) => number,
+): string {
+  const out: string[] = [];
+  for (let t = from; t <= to + 1e-9; t += 0.25) {
+    const m = measurePitch(samples, sec(t), expected(t), rate, 4096);
+    out.push(`${t.toFixed(2)}s ${m === undefined ? "—" : m.toFixed(2)}`);
+  }
+  return out.join("  ");
+}
+
+async function glide() {
+  const long = await writeState("vn1-long", singleArticulation("Violins 1", "Long"));
+  const legato = await writeState("vn1-legato", singleArticulation("Violins 1", "Legato"));
+  const sweep = (from: number, to: number, semis: number) => {
+    const out: { frame: number; index: number; value: number }[] = [];
+    for (let t = from; t <= to + 1e-9; t += 0.01)
+      out.push({ frame: sec(t), index: 11, value: tuneValue((semis * (t - from)) / (to - from)) });
+    return out;
+  };
+  const expressive = [cc(0, 1, 90), cc(0, 11, 110)];
+  const tracks = [
+    // A4 held 0.5–4.5 s; tune swept 0 → +7 over 1.5–3.5 s.
+    {
+      ...(await track("glide-tune", long, [...expressive, ...note(sec(0.5), 69, 90, sec(4))])),
+      automation: sweep(1.5, 3.5, 7),
+    },
+    // Legato A4 → E5 at two velocities (BBC SO: velocity sets the transition).
+    await track("glide-legato-slow", legato, [
+      ...expressive,
+      ...note(sec(0.5), 69, 90, sec(2.05)),
+      ...note(sec(2.5), 76, 20, sec(2)),
+    ]),
+    await track("glide-legato-fast", legato, [
+      ...expressive,
+      ...note(sec(0.5), 69, 90, sec(2.05)),
+      ...note(sec(2.5), 76, 120, sec(2)),
+    ]),
+  ];
+  const results = await render(
+    { sampleRate: rate, blockSize: 512, frames: sec(5.5), loadWaitMs: 15000, tracks },
+    join(out, "jobs/glide.json"),
+  );
+  for (const r of results) {
+    const samples = mono(await readWav(r.file));
+    const expected =
+      r.id === "glide-tune"
+        ? (t: number) => 69 + 7 * Math.min(1, Math.max(0, (t - 1.5) / 2))
+        : (t: number) => (t < 2.5 ? 69 : 76);
+    console.log(
+      r.id,
+      "peak",
+      toDb(r.peak).toFixed(1),
+      "dB\n ",
+      pitchTrack(samples, 1.0, 4.0, expected),
+    );
+  }
+}
+
 function option(args: string[], name: string, fallback: string): string {
   const i = args.indexOf(name);
   return i >= 0 ? args.splice(i, 2)[1]! : fallback;
@@ -277,6 +344,7 @@ function option(args: string[], name: string, fallback: string): string {
 const [command, ...rest] = process.argv.slice(2);
 if (command === "pitch") await pitch();
 else if (command === "stream") await stream();
+else if (command === "glide") await glide();
 else if (command === "scan") {
   const [lo, hi] = option(rest, "--keys", "12-127").split("-").map(Number);
   const o: ScanOptions = {

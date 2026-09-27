@@ -35,6 +35,8 @@ export interface TrackJob {
   state?: string;
   parameters?: ({ index: number; value: number } | { name: string; value: number })[];
   events: MidiEvent[];
+  /** Parameter changes during the render (normalised values), applied at the start of their block. */
+  automation?: { frame: number; index: number; value: number }[];
   output: string;
 }
 
