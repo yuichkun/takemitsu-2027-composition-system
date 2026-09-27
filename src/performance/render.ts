@@ -15,10 +15,14 @@ import type { BbcsoLane, Lane, Plan, SampleLane } from "./plan.ts";
 
 const rate = 48000;
 const tailSeconds = 4;
-const cacheDir = join(repoRoot, ".local/cache");
-/** Plugin instances per host process, and processes at once (BBC SO holds samples in RAM). */
-const tracksPerProcess = 12;
-const processes = 2;
+const cacheDir = process.env.TAKEMITSU_CACHE_DIR ?? join(repoRoot, ".local/cache");
+/**
+ * Host processes at once, and plugin instances per process at most. Each instance costs about
+ * 1 s to load and holds about 270 MB (BBC SO keeps samples in RAM); a process loads and runs its
+ * instances one after another, so spreading lanes over processes is what makes renders fast.
+ */
+const processes = 8;
+const maxTracksPerProcess = 4;
 
 export interface RenderOutput {
   dir: string;
@@ -82,9 +86,9 @@ async function renderBbcso(
       return { lane, key, file: join(cacheDir, `${key}.wav`), state };
     });
   const todo = tracks.filter((t) => !existsSync(t.file));
+  const perProcess = Math.min(maxTracksPerProcess, Math.ceil(todo.length / processes));
   const batches: HostTrack[][] = [];
-  for (let i = 0; i < todo.length; i += tracksPerProcess)
-    batches.push(todo.slice(i, i + tracksPerProcess));
+  for (let i = 0; i < todo.length; i += perProcess) batches.push(todo.slice(i, i + perProcess));
 
   let done = 0;
   const runBatch = async (batch: HostTrack[], index: number) => {
@@ -105,7 +109,8 @@ async function renderBbcso(
         sampleRate: rate,
         blockSize: 512,
         frames,
-        loadWaitMs: Math.min(30000, 12000 + 1500 * batch.length),
+        // BBC SO renders the same with no wait after loading (measured: 0–27 s give identical output).
+        loadWaitMs: 0,
         tracks: jobTracks,
       },
       join(cacheDir, `job-${Date.now()}-${index}.json`),
