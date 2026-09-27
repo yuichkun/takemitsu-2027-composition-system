@@ -17,7 +17,7 @@
 //
 // Round robins differ between a fresh instance and a used one, so waveforms are not compared. Per
 // 50 ms window, the loudness must agree: over the whole part on average, and in no chunk's span
-// may a window be loud in one and silent in the other. Nothing else renders meanwhile (renders
+// may one side be audible (above -60 dB) and the other 20 dB or more below it. Nothing else renders meanwhile (renders
 // made while other processes render can come out silent), and every fresh instance first plays
 // its test notes. Exits with 1 when something fails.
 
@@ -71,7 +71,8 @@ function envelope(samples: Float32Array): number[] {
   return out;
 }
 
-const mismatch = (x: number, y: number) => (x > -40 && y < -70) || (y > -40 && x < -70);
+/** One side audible and the other 20 dB or more below it: a note missing, late or cut. */
+const mismatch = (x: number, y: number) => Math.max(x, y) > -60 && Math.abs(x - y) > 20;
 
 interface Verdict {
   meanDb: number;
@@ -119,10 +120,14 @@ rmSync(scratch, { recursive: true, force: true });
 mkdirSync(scratch, { recursive: true });
 let fresh = 0;
 
-/** Renders one request on a fresh process, after its test notes sound. Returns interleaved audio. */
+/**
+ * Renders one request on a fresh process, after its test notes sound, and again while an onset
+ * that should sound came out silent (the samples still loading). Returns interleaved audio.
+ */
 async function renderFresh(
   lane: ChunkedLane,
   job: Omit<ChunkJob, "output">,
+  shouldSound: number[],
 ): Promise<Float32Array> {
   const host = new HostProcess();
   const key = `${lane.stateKey}-check-${fresh++}`;
@@ -159,7 +164,20 @@ async function renderFresh(
       }
     }
     const output = join(scratch, `${job.id}.tkch`);
-    await host.render(key, statePath(lane.stateKey!), pluginPath, [{ ...job, output }], 600_000);
+    const should = new Set(shouldSound);
+    for (let tries = 0; ; tries++) {
+      const [r] = await host.render(
+        key,
+        statePath(lane.stateKey!),
+        pluginPath,
+        [{ ...job, output }],
+        600_000,
+      );
+      const silent = r!.frames === 0 ? shouldSound : r!.silentOnsets.filter((f) => should.has(f));
+      if (!silent.length) break;
+      if (tries >= 5) throw new Error(`${lane.lane.id}: ${silent.length} onsets stayed silent`);
+      await new Promise((res) => setTimeout(res, 1000));
+    }
     return decodeChunk(new Uint8Array(await readFile(output))).samples;
   } finally {
     host.stop();
@@ -192,12 +210,16 @@ const candidates = shuffled(
 ).slice(0, chunkCount);
 for (const { lane, chunk } of candidates) {
   const stored = decodeChunk(new Uint8Array(await readFile(chunkPath(chunk.key)))).samples;
-  const again = await renderFresh(lane, {
-    id: chunk.key,
-    frames: chunk.frames,
-    tailMax: chunk.tailMax,
-    events: chunk.events,
-  });
+  const again = await renderFresh(
+    lane,
+    {
+      id: chunk.key,
+      frames: chunk.frames,
+      tailMax: chunk.tailMax,
+      events: chunk.events,
+    },
+    chunk.shouldSound,
+  );
   const v = compare(stored, again);
   if (!v.ok) failures++;
   console.log(
@@ -259,12 +281,16 @@ for (const part of parts) {
   for (const [i, w] of whole.entries()) {
     const c = w.chunks[0] as BbcsoChunk;
     const origin = Math.round(c.origin * sampleRate);
-    const audio = await renderFresh(partLanes[i]!, {
-      id: `whole-${c.key}`,
-      frames: c.frames,
-      tailMax: c.tailMax,
-      events: c.events,
-    });
+    const audio = await renderFresh(
+      partLanes[i]!,
+      {
+        id: `whole-${c.key}`,
+        frames: c.frames,
+        tailMax: c.tailMax,
+        events: c.events,
+      },
+      c.shouldSound,
+    );
     const needed = (origin + audio.length / 2) * 2;
     if (needed > reference.length) {
       const grown = new Float32Array(needed);
