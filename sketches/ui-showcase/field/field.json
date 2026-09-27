@@ -31,10 +31,43 @@
      ]
     },
     {
-     "at": 0.75,
+     "at": 0.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 39
+      "midi": 38
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 1.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 43
      },
      "staff": 2,
      "articulations": [
@@ -45,7 +78,18 @@
      "at": 2.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 43
+      "midi": 38
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
      },
      "staff": 2,
      "articulations": [
@@ -64,10 +108,43 @@
      ]
     },
     {
-     "at": 4.25,
+     "at": 3.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 43
+      "midi": 41
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 38
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 41
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
      },
      "staff": 2,
      "articulations": [
@@ -78,7 +155,7 @@
      "at": 4.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 50
+      "midi": 53
      },
      "staff": 2,
      "articulations": [
@@ -86,7 +163,28 @@
      ]
     },
     {
+     "at": 4.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
      "at": 5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 38
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.25,
      "dur": 0.25,
      "pitch": {
       "midi": 36
@@ -100,7 +198,7 @@
      "at": 5.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 38
+      "midi": 43
      },
      "staff": 2,
      "articulations": [
@@ -108,7 +206,29 @@
      ]
     },
     {
-     "at": 6,
+     "at": 5.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 43
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.75,
      "dur": 0.25,
      "pitch": {
       "midi": 36
@@ -122,7 +242,18 @@
      "at": 7,
      "dur": 0.25,
      "pitch": {
-      "midi": 36
+      "midi": 53
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 43
      },
      "staff": 2,
      "articulations": [
@@ -133,7 +264,7 @@
      "at": 7.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 39
+      "midi": 55
      },
      "staff": 2,
      "articulations": [
@@ -141,21 +272,20 @@
      ]
     },
     {
-     "at": 8.5,
+     "at": 8,
      "dur": 0.25,
      "pitch": {
-      "midi": 39
+      "midi": 60
      },
-     "staff": 2,
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 8.75,
+     "at": 8.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 50
+      "midi": 43
      },
      "staff": 2,
      "articulations": [
@@ -166,7 +296,29 @@
      "at": 9,
      "dur": 0.25,
      "pitch": {
-      "midi": 39
+      "midi": 38
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 36
      },
      "staff": 2,
      "articulations": [
@@ -177,7 +329,7 @@
      "at": 10,
      "dur": 0.25,
      "pitch": {
-      "midi": 36
+      "midi": 43
      },
      "staff": 2,
      "articulations": [
@@ -185,10 +337,10 @@
      ]
     },
     {
-     "at": 11.25,
+     "at": 10.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 39
+      "midi": 43
      },
      "staff": 2,
      "articulations": [
@@ -199,7 +351,7 @@
      "at": 11.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 38
+      "midi": 41
      },
      "staff": 2,
      "articulations": [
@@ -207,10 +359,10 @@
      ]
     },
     {
-     "at": 11.75,
+     "at": 12.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 36
+      "midi": 48
      },
      "staff": 2,
      "articulations": [
@@ -218,10 +370,10 @@
      ]
     },
     {
-     "at": 12,
+     "at": 13,
      "dur": 0.25,
      "pitch": {
-      "midi": 50
+      "midi": 43
      },
      "staff": 2,
      "articulations": [
@@ -232,7 +384,18 @@
      "at": 13.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 36
+      "midi": 38
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
      },
      "staff": 2,
      "articulations": [
@@ -243,7 +406,17 @@
      "at": 14,
      "dur": 0.25,
      "pitch": {
-      "midi": 43
+      "midi": 67
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
      },
      "staff": 2,
      "articulations": [
@@ -254,6 +427,17 @@
      "at": 15,
      "dur": 0.25,
      "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.25,
+     "dur": 0.25,
+     "pitch": {
       "midi": 36
      },
      "staff": 2,
@@ -262,10 +446,10 @@
      ]
     },
     {
-     "at": 15.5,
+     "at": 16,
      "dur": 0.25,
      "pitch": {
-      "midi": 39
+      "midi": 36
      },
      "staff": 2,
      "articulations": [
@@ -273,10 +457,10 @@
      ]
     },
     {
-     "at": 16.25,
+     "at": 16.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 39
+      "midi": 53
      },
      "staff": 2,
      "articulations": [
@@ -284,10 +468,10 @@
      ]
     },
     {
-     "at": 16.5,
+     "at": 17,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 62
      },
      "articulations": [
       "staccato"
@@ -297,8 +481,9 @@
      "at": 17.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 67
+      "midi": 41
      },
+     "staff": 2,
      "articulations": [
       "staccato"
      ]
@@ -307,7 +492,18 @@
      "at": 17.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 43
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
      },
      "staff": 2,
      "articulations": [
@@ -318,37 +514,7 @@
      "at": 18,
      "dur": 0.25,
      "pitch": {
-      "midi": 67
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 19,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 74
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 19.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 67
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 20.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 43
+      "midi": 53
      },
      "staff": 2,
      "articulations": [
@@ -356,20 +522,10 @@
      ]
     },
     {
-     "at": 21.25,
+     "at": 18.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 62
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 23,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 39
+      "midi": 38
      },
      "staff": 2,
      "articulations": [
@@ -377,10 +533,10 @@
      ]
     },
     {
-     "at": 23.5,
+     "at": 18.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 51
+      "midi": 41
      },
      "staff": 2,
      "articulations": [
@@ -388,7 +544,29 @@
      ]
     },
     {
-     "at": 23.75,
+     "at": 19.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.25,
      "dur": 0.25,
      "pitch": {
       "midi": 50
@@ -399,10 +577,96 @@
      ]
     },
     {
-     "at": 25,
+     "at": 21.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.5,
      "dur": 0.25,
      "pitch": {
       "midi": 55
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 24,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 24.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
      },
      "staff": 2,
      "articulations": [
@@ -413,37 +677,7 @@
      "at": 25.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 63
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 25.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 79
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 26.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 79
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 26.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 51
+      "midi": 50
      },
      "staff": 2,
      "articulations": [
@@ -451,58 +685,17 @@
      ]
     },
     {
-     "at": 27.5,
+     "at": 25.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 77
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 29.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 84
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 30.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 74
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 31.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 51
-     },
-     "staff": 2,
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 31.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 60
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 32.5,
+     "at": 26,
      "dur": 0.25,
      "pitch": {
       "midi": 72
@@ -512,17 +705,7 @@
      ]
     },
     {
-     "at": 33.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 67
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 35.5,
+     "at": 26.25,
      "dur": 0.25,
      "pitch": {
       "midi": 55
@@ -533,17 +716,17 @@
      ]
     },
     {
-     "at": 36,
+     "at": 26.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 62
+      "midi": 77
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 38.25,
+     "at": 27.5,
      "dur": 0.25,
      "pitch": {
       "midi": 79
@@ -553,27 +736,72 @@
      ]
     },
     {
-     "at": 39,
+     "at": 27.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 60
+      "midi": 65
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 39.25,
+     "at": 28,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 50
      },
+     "staff": 2,
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 40.75,
+     "at": 28.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 43
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 28.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 28.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 38
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 29,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 29.25,
      "dur": 0.25,
      "pitch": {
       "midi": 74
@@ -583,107 +811,137 @@
      ]
     },
     {
-     "at": 42.75,
+     "at": 29.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 99
+      "midi": 41
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 29.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 43.25,
+     "at": 30.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 99
+      "midi": 38
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 38
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 31,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 41
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 31.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 31.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 41
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 31.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 32,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 43.5,
+     "at": 32.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 67
+      "midi": 48
      },
+     "staff": 2,
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 45.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 98
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 46,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 99
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 47.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 99
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 47.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 75
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 49.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 96
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 50,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 96
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 51.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 98
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 53,
+     "at": 32.75,
      "dur": 0.25,
      "pitch": {
       "midi": 91
@@ -693,7 +951,205 @@
      ]
     },
     {
-     "at": 53.5,
+     "at": 33.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 36.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 36.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 37,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 37.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 37.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41,
      "dur": 0.25,
      "pitch": {
       "midi": 84
@@ -703,17 +1159,162 @@
      ]
     },
     {
-     "at": 54,
+     "at": 41.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 91
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 55.5,
+     "at": 41.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 46,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 46.5,
      "dur": 0.25,
      "pitch": {
       "midi": 103
@@ -723,17 +1324,293 @@
      ]
     },
     {
+     "at": 47.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 48,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 48.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 48.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 96
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 96
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 51.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 51.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 96
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 54,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 54.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 54.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 56,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 56.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
      "at": 56.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 98
+      "midi": 103
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 59.5,
+     "at": 57,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 57.5,
      "dur": 0.25,
      "pitch": {
       "midi": 98
@@ -743,7 +1620,28 @@
      ]
     },
     {
-     "at": 60.5,
+     "at": 58,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 58.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 58.75,
      "dur": 0.25,
      "pitch": {
       "midi": 84
@@ -753,11 +1651,83 @@
      ]
     },
     {
+     "at": 59,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 101
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 103
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 61.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 61.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "staff": 2,
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 61.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
      "at": 62,
      "dur": 0.25,
      "pitch": {
-      "midi": 86
+      "midi": 50
      },
+     "staff": 2,
      "articulations": [
       "staccato"
      ]
@@ -766,7 +1736,17 @@
      "at": 62.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 99
+      "midi": 101
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 62.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
      },
      "articulations": [
       "staccato"
@@ -777,6 +1757,36 @@
      "dur": 0.25,
      "pitch": {
       "midi": 103
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 63.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 101
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 63.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 63.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 96
      },
      "articulations": [
       "staccato"
@@ -795,7 +1805,17 @@
    "instrument": "marimba",
    "events": [
     {
-     "at": 0.5,
+     "at": 3.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.25,
      "dur": 0.25,
      "pitch": {
       "midi": 50
@@ -805,7 +1825,67 @@
      ]
     },
     {
-     "at": 1,
+     "at": 5.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 7.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.5,
      "dur": 0.25,
      "pitch": {
       "midi": 50
@@ -818,34 +1898,14 @@
      "at": 11,
      "dur": 0.25,
      "pitch": {
-      "midi": 48
+      "midi": 62
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 12.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 60
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 14.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 51
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 15,
+     "at": 11.25,
      "dur": 0.25,
      "pitch": {
       "midi": 48
@@ -855,7 +1915,7 @@
      ]
     },
     {
-     "at": 16.5,
+     "at": 11.5,
      "dur": 0.25,
      "pitch": {
       "midi": 50
@@ -865,7 +1925,17 @@
      ]
     },
     {
-     "at": 18.5,
+     "at": 11.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17,
      "dur": 0.25,
      "pitch": {
       "midi": 50
@@ -875,37 +1945,7 @@
      ]
     },
     {
-     "at": 19,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 51
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 19.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 72
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 21.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 75
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 22,
+     "at": 17.5,
      "dur": 0.25,
      "pitch": {
       "midi": 60
@@ -915,20 +1955,40 @@
      ]
     },
     {
-     "at": 23.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 63
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 24.5,
+     "at": 18,
      "dur": 0.25,
      "pitch": {
       "midi": 62
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
      },
      "articulations": [
       "staccato"
@@ -938,27 +1998,67 @@
      "at": 25.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 51
+      "midi": 50
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 26.5,
+     "at": 29,
      "dur": 0.25,
      "pitch": {
-      "midi": 63
+      "midi": 79
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 27.5,
+     "at": 29.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 62
+      "midi": 48
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 31,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
      },
      "articulations": [
       "staccato"
@@ -968,14 +2068,84 @@
      "at": 31.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 63
+      "midi": 67
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 33.75,
+     "at": 32,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 32.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 32.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 86
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35,
      "dur": 0.25,
      "pitch": {
       "midi": 91
@@ -988,7 +2158,7 @@
      "at": 35.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 79
+      "midi": 48
      },
      "articulations": [
       "staccato"
@@ -998,27 +2168,17 @@
      "at": 36.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 91
+      "midi": 50
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 37.25,
+     "at": 37.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 37.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 79
+      "midi": 77
      },
      "articulations": [
       "staccato"
@@ -1028,14 +2188,14 @@
      "at": 38.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 60
+      "midi": 48
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 39,
+     "at": 38.75,
      "dur": 0.25,
      "pitch": {
       "midi": 79
@@ -1045,107 +2205,7 @@
      ]
     },
     {
-     "at": 40,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 91
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 40.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 67
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 42.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 67
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 45.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 79
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 46,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 84
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 47,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 60
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 47.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 72
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 49.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 79
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 49.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 75
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 52,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 79
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 52.75,
+     "at": 39.25,
      "dur": 0.25,
      "pitch": {
       "midi": 86
@@ -1155,7 +2215,147 @@
      ]
     },
     {
-     "at": 54,
+     "at": 39.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 46.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47.5,
      "dur": 0.25,
      "pitch": {
       "midi": 84
@@ -1165,20 +2365,160 @@
      ]
     },
     {
-     "at": 54.5,
+     "at": 48,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 53
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 57.25,
+     "at": 48.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 50
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 51.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 86
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 54.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 96
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 56.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 56.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 57.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
      },
      "articulations": [
       "staccato"
@@ -1188,7 +2528,17 @@
      "at": 57.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 58,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
      },
      "articulations": [
       "staccato"
@@ -1198,7 +2548,47 @@
      "at": 58.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 96
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 59.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 86
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 61,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 62,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
      },
      "articulations": [
       "staccato"
@@ -1217,7 +2607,27 @@
    "instrument": "vibraphone",
    "events": [
     {
-     "at": 7.5,
+     "at": 2,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8,
      "dur": 0.25,
      "pitch": {
       "midi": 55
@@ -1227,7 +2637,7 @@
      ]
     },
     {
-     "at": 20.25,
+     "at": 8.5,
      "dur": 0.25,
      "pitch": {
       "midi": 55
@@ -1237,27 +2647,27 @@
      ]
     },
     {
-     "at": 21,
+     "at": 8.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 65
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 28.75,
+     "at": 13.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 72
+      "midi": 65
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 29,
+     "at": 13.75,
      "dur": 0.25,
      "pitch": {
       "midi": 60
@@ -1267,37 +2677,37 @@
      ]
     },
     {
-     "at": 32,
+     "at": 17.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 55
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 32.75,
+     "at": 19.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 53
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 33.75,
+     "at": 19.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 72
+      "midi": 79
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 35.75,
+     "at": 20,
      "dur": 0.25,
      "pitch": {
       "midi": 62
@@ -1307,67 +2717,57 @@
      ]
     },
     {
-     "at": 36.5,
+     "at": 20.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 72
+      "midi": 67
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 36.75,
+     "at": 20.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 79
+      "midi": 53
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 37.25,
+     "at": 21.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 55
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 41.5,
+     "at": 22.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 55
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 41.75,
+     "at": 23,
      "dur": 0.25,
      "pitch": {
-      "midi": 74
+      "midi": 67
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 42.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 84
-     },
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 45,
+     "at": 24.25,
      "dur": 0.25,
      "pitch": {
       "midi": 79
@@ -1377,17 +2777,57 @@
      ]
     },
     {
-     "at": 47,
+     "at": 24.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 65
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 47.25,
+     "at": 25.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 26,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 27,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 27.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 27.75,
      "dur": 0.25,
      "pitch": {
       "midi": 74
@@ -1397,47 +2837,47 @@
      ]
     },
     {
-     "at": 50.5,
+     "at": 28,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 65
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 51.5,
+     "at": 28.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 55
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 52.25,
+     "at": 30.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 65
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 56.5,
+     "at": 31.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 74
      },
      "articulations": [
       "staccato"
      ]
     },
     {
-     "at": 56.75,
+     "at": 32,
      "dur": 0.25,
      "pitch": {
       "midi": 86
@@ -1447,10 +2887,520 @@
      ]
     },
     {
+     "at": 32.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 32.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 33.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 37,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 37.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 37.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 37.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 46.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 46.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 48.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 86
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 51,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 51.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 54,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 57.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
      "at": 58.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 84
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 62.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 63.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 63.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
      },
      "articulations": [
       "staccato"
@@ -1469,7 +3419,7 @@
    "instrument": "violins-1",
    "events": [
     {
-     "at": 6.5,
+     "at": 5,
      "dur": 0.25,
      "pitch": {
       "midi": 62
@@ -1480,7 +3430,7 @@
      ]
     },
     {
-     "at": 8.25,
+     "at": 6,
      "dur": 0.25,
      "pitch": {
       "midi": 55
@@ -1491,10 +3441,21 @@
      ]
     },
     {
-     "at": 9.75,
+     "at": 9,
      "dur": 0.25,
      "pitch": {
       "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
      },
      "technique": "pizz",
      "articulations": [
@@ -1505,7 +3466,7 @@
      "at": 10.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 63
+      "midi": 67
      },
      "technique": "pizz",
      "articulations": [
@@ -1513,18 +3474,7 @@
      ]
     },
     {
-     "at": 14.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 62
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 15.25,
+     "at": 13,
      "dur": 0.25,
      "pitch": {
       "midi": 60
@@ -1535,10 +3485,43 @@
      ]
     },
     {
-     "at": 16.75,
+     "at": 14.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 67
+      "midi": 62
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
      },
      "technique": "pizz",
      "articulations": [
@@ -1557,10 +3540,10 @@
      ]
     },
     {
-     "at": 21.75,
+     "at": 19.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 62
+      "midi": 65
      },
      "technique": "pizz",
      "articulations": [
@@ -1568,10 +3551,10 @@
      ]
     },
     {
-     "at": 22.25,
+     "at": 20.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 60
+      "midi": 77
      },
      "technique": "pizz",
      "articulations": [
@@ -1579,10 +3562,10 @@
      ]
     },
     {
-     "at": 28.25,
+     "at": 21.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 65
      },
      "technique": "pizz",
      "articulations": [
@@ -1590,10 +3573,10 @@
      ]
     },
     {
-     "at": 29,
+     "at": 22.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 72
      },
      "technique": "pizz",
      "articulations": [
@@ -1601,10 +3584,10 @@
      ]
     },
     {
-     "at": 29.25,
+     "at": 23.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 63
+      "midi": 55
      },
      "technique": "pizz",
      "articulations": [
@@ -1612,10 +3595,10 @@
      ]
     },
     {
-     "at": 34,
+     "at": 23.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 65
      },
      "technique": "pizz",
      "articulations": [
@@ -1623,7 +3606,7 @@
      ]
     },
     {
-     "at": 34.25,
+     "at": 24.5,
      "dur": 0.25,
      "pitch": {
       "midi": 67
@@ -1634,10 +3617,10 @@
      ]
     },
     {
-     "at": 35.75,
+     "at": 26.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 65
      },
      "technique": "pizz",
      "articulations": [
@@ -1645,10 +3628,10 @@
      ]
     },
     {
-     "at": 36,
+     "at": 27.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 86
+      "midi": 77
      },
      "technique": "pizz",
      "articulations": [
@@ -1656,18 +3639,7 @@
      ]
     },
     {
-     "at": 39.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 91
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 40.5,
+     "at": 28,
      "dur": 0.25,
      "pitch": {
       "midi": 91
@@ -1678,7 +3650,18 @@
      ]
     },
     {
-     "at": 41.5,
+     "at": 28.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 29.75,
      "dur": 0.25,
      "pitch": {
       "midi": 91
@@ -1689,7 +3672,40 @@
      ]
     },
     {
-     "at": 42.5,
+     "at": 30,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 31.25,
      "dur": 0.25,
      "pitch": {
       "midi": 62
@@ -1700,7 +3716,84 @@
      ]
     },
     {
-     "at": 43,
+     "at": 31.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 32.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 32.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 33,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35.75,
      "dur": 0.25,
      "pitch": {
       "midi": 86
@@ -1711,10 +3804,10 @@
      ]
     },
     {
-     "at": 43.25,
+     "at": 36.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 74
      },
      "technique": "pizz",
      "articulations": [
@@ -1722,10 +3815,230 @@
      ]
     },
     {
-     "at": 46.5,
+     "at": 36.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 37.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39,
      "dur": 0.25,
      "pitch": {
       "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 86
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 101
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 101
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 86
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 86
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 46,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 96
      },
      "technique": "pizz",
      "articulations": [
@@ -1744,10 +4057,10 @@
      ]
     },
     {
-     "at": 49.25,
+     "at": 47.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 86
+      "midi": 96
      },
      "technique": "pizz",
      "articulations": [
@@ -1755,10 +4068,21 @@
      ]
     },
     {
-     "at": 49.75,
+     "at": 48.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 103
+      "midi": 101
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 101
      },
      "technique": "pizz",
      "articulations": [
@@ -1769,7 +4093,18 @@
      "at": 50,
      "dur": 0.25,
      "pitch": {
-      "midi": 91
+      "midi": 101
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 86
      },
      "technique": "pizz",
      "articulations": [
@@ -1780,7 +4115,18 @@
      "at": 50.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 103
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
      },
      "technique": "pizz",
      "articulations": [
@@ -1791,7 +4137,7 @@
      "at": 51,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 101
      },
      "technique": "pizz",
      "articulations": [
@@ -1799,18 +4145,7 @@
      ]
     },
     {
-     "at": 51.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 84
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 52,
+     "at": 52.5,
      "dur": 0.25,
      "pitch": {
       "midi": 96
@@ -1824,7 +4159,7 @@
      "at": 53,
      "dur": 0.25,
      "pitch": {
-      "midi": 98
+      "midi": 91
      },
      "technique": "pizz",
      "articulations": [
@@ -1835,7 +4170,7 @@
      "at": 53.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 96
      },
      "technique": "pizz",
      "articulations": [
@@ -1846,7 +4181,7 @@
      "at": 53.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 103
+      "midi": 55
      },
      "technique": "pizz",
      "articulations": [
@@ -1857,7 +4192,18 @@
      "at": 53.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 86
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 54.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
      },
      "technique": "pizz",
      "articulations": [
@@ -1868,7 +4214,7 @@
      "at": 54.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 98
+      "midi": 96
      },
      "technique": "pizz",
      "articulations": [
@@ -1879,7 +4225,7 @@
      "at": 54.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 96
+      "midi": 91
      },
      "technique": "pizz",
      "articulations": [
@@ -1890,7 +4236,7 @@
      "at": 55,
      "dur": 0.25,
      "pitch": {
-      "midi": 86
+      "midi": 101
      },
      "technique": "pizz",
      "articulations": [
@@ -1901,7 +4247,7 @@
      "at": 55.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 86
+      "midi": 98
      },
      "technique": "pizz",
      "articulations": [
@@ -1909,10 +4255,32 @@
      ]
     },
     {
-     "at": 56.25,
+     "at": 55.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 101
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55.75,
      "dur": 0.25,
      "pitch": {
       "midi": 91
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 56.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 98
      },
      "technique": "pizz",
      "articulations": [
@@ -1931,73 +4299,7 @@
      ]
     },
     {
-     "at": 57.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 103
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 58.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 96
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 58.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 99
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
      "at": 58.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 96
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 59,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 91
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 60,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 91
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 60.75,
      "dur": 0.25,
      "pitch": {
       "midi": 98
@@ -2008,10 +4310,65 @@
      ]
     },
     {
-     "at": 61,
+     "at": 59,
      "dur": 0.25,
      "pitch": {
-      "midi": 99
+      "midi": 96
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 59.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 59.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 101
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 101
      },
      "technique": "pizz",
      "articulations": [
@@ -2022,7 +4379,7 @@
      "at": 61.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 99
+      "midi": 55
      },
      "technique": "pizz",
      "articulations": [
@@ -2033,18 +4390,7 @@
      "at": 61.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 86
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 61.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 96
+      "midi": 91
      },
      "technique": "pizz",
      "articulations": [
@@ -2063,32 +4409,10 @@
      ]
     },
     {
-     "at": 63,
+     "at": 62.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 63.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 91
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 63.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 84
+      "midi": 98
      },
      "technique": "pizz",
      "articulations": [
@@ -2108,29 +4432,7 @@
    "instrument": "violas",
    "events": [
     {
-     "at": 4.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 60
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 7,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 51
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 8,
+     "at": 0.5,
      "dur": 0.25,
      "pitch": {
       "midi": 50
@@ -2141,73 +4443,7 @@
      ]
     },
     {
-     "at": 10,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 12.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 48
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 13.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 51
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 18,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 48
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 19.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 51
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 19.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 51
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 20,
+     "at": 1.25,
      "dur": 0.25,
      "pitch": {
       "midi": 55
@@ -2218,7 +4454,227 @@
      ]
     },
     {
+     "at": 2.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 2.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 14.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
      "at": 21.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22,
      "dur": 0.25,
      "pitch": {
       "midi": 50
@@ -2240,10 +4696,76 @@
      ]
     },
     {
-     "at": 25.75,
+     "at": 23.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 74
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 24.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 24.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 24.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 25.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 26,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 27,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
      },
      "technique": "pizz",
      "articulations": [
@@ -2254,7 +4776,7 @@
      "at": 27.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 51
+      "midi": 53
      },
      "technique": "pizz",
      "articulations": [
@@ -2262,10 +4784,10 @@
      ]
     },
     {
-     "at": 28.75,
+     "at": 29.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 63
+      "midi": 74
      },
      "technique": "pizz",
      "articulations": [
@@ -2276,7 +4798,7 @@
      "at": 31,
      "dur": 0.25,
      "pitch": {
-      "midi": 91
+      "midi": 79
      },
      "technique": "pizz",
      "articulations": [
@@ -2284,10 +4806,10 @@
      ]
     },
     {
-     "at": 33,
+     "at": 32.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 67
+      "midi": 55
      },
      "technique": "pizz",
      "articulations": [
@@ -2295,10 +4817,76 @@
      ]
     },
     {
-     "at": 33.25,
+     "at": 33.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 75
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 36,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 36.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
      },
      "technique": "pizz",
      "articulations": [
@@ -2309,7 +4897,73 @@
      "at": 38.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 74
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
      },
      "technique": "pizz",
      "articulations": [
@@ -2320,6 +4974,94 @@
      "at": 41.75,
      "dur": 0.25,
      "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 44.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45,
+     "dur": 0.25,
+     "pitch": {
       "midi": 91
      },
      "technique": "pizz",
@@ -2328,10 +5070,10 @@
      ]
     },
     {
-     "at": 44.5,
+     "at": 45.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 84
+      "midi": 55
      },
      "technique": "pizz",
      "articulations": [
@@ -2339,18 +5081,7 @@
      ]
     },
     {
-     "at": 48.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 84
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 49,
+     "at": 45.75,
      "dur": 0.25,
      "pitch": {
       "midi": 74
@@ -2361,7 +5092,29 @@
      ]
     },
     {
-     "at": 49.5,
+     "at": 46.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 48,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 48.25,
      "dur": 0.25,
      "pitch": {
       "midi": 86
@@ -2372,10 +5125,65 @@
      ]
     },
     {
-     "at": 50.75,
+     "at": 49,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 91
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 51,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 51.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
      },
      "technique": "pizz",
      "articulations": [
@@ -2386,7 +5194,18 @@
      "at": 52,
      "dur": 0.25,
      "pitch": {
-      "midi": 87
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
      },
      "technique": "pizz",
      "articulations": [
@@ -2397,7 +5216,183 @@
      "at": 52.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 74
+      "midi": 91
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 54,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 86
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 56,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 56.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 57.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 58,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 58.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 58.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 59.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 61.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 63,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 63.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
      },
      "technique": "pizz",
      "articulations": [
@@ -2420,7 +5415,7 @@
      "at": 0,
      "dur": 0.25,
      "pitch": {
-      "midi": 39
+      "midi": 41
      },
      "technique": "pizz",
      "articulations": [
@@ -2439,10 +5434,21 @@
      ]
     },
     {
+     "at": 0.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
      "at": 1,
      "dur": 0.25,
      "pitch": {
-      "midi": 36
+      "midi": 41
      },
      "technique": "pizz",
      "articulations": [
@@ -2450,7 +5456,7 @@
      ]
     },
     {
-     "at": 2.75,
+     "at": 1.25,
      "dur": 0.25,
      "pitch": {
       "midi": 38
@@ -2461,62 +5467,7 @@
      ]
     },
     {
-     "at": 4.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 38
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 4.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 36
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 5.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 36
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 6,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 51
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 6.25,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 36
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 8,
+     "at": 1.5,
      "dur": 0.25,
      "pitch": {
       "midi": 43
@@ -2527,10 +5478,10 @@
      ]
     },
     {
-     "at": 8.25,
+     "at": 1.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 67
+      "midi": 53
      },
      "technique": "pizz",
      "articulations": [
@@ -2538,10 +5489,10 @@
      ]
     },
     {
-     "at": 8.5,
+     "at": 2,
      "dur": 0.25,
      "pitch": {
-      "midi": 60
+      "midi": 43
      },
      "technique": "pizz",
      "articulations": [
@@ -2549,7 +5500,18 @@
      ]
     },
     {
-     "at": 9,
+     "at": 2.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 36
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3,
      "dur": 0.25,
      "pitch": {
       "midi": 55
@@ -2560,7 +5522,117 @@
      ]
     },
     {
-     "at": 9.5,
+     "at": 3.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 3.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 41
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 36
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 4.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 5.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 36
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 6.75,
      "dur": 0.25,
      "pitch": {
       "midi": 48
@@ -2571,10 +5643,10 @@
      ]
     },
     {
-     "at": 10.25,
+     "at": 7.25,
      "dur": 0.25,
      "pitch": {
-      "midi": 39
+      "midi": 41
      },
      "technique": "pizz",
      "articulations": [
@@ -2582,10 +5654,10 @@
      ]
     },
     {
-     "at": 12.75,
+     "at": 7.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 63
+      "midi": 48
      },
      "technique": "pizz",
      "articulations": [
@@ -2593,18 +5665,7 @@
      ]
     },
     {
-     "at": 13,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 38
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 16,
+     "at": 7.75,
      "dur": 0.25,
      "pitch": {
       "midi": 43
@@ -2615,7 +5676,40 @@
      ]
     },
     {
-     "at": 19,
+     "at": 8,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 41
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 8.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 9.25,
      "dur": 0.25,
      "pitch": {
       "midi": 38
@@ -2626,10 +5720,10 @@
      ]
     },
     {
-     "at": 20.5,
+     "at": 9.5,
      "dur": 0.25,
      "pitch": {
-      "midi": 63
+      "midi": 60
      },
      "technique": "pizz",
      "articulations": [
@@ -2637,10 +5731,10 @@
      ]
     },
     {
-     "at": 22.75,
+     "at": 9.75,
      "dur": 0.25,
      "pitch": {
-      "midi": 50
+      "midi": 41
      },
      "technique": "pizz",
      "articulations": [
@@ -2648,10 +5742,10 @@
      ]
     },
     {
-     "at": 23,
+     "at": 10,
      "dur": 0.25,
      "pitch": {
-      "midi": 63
+      "midi": 65
      },
      "technique": "pizz",
      "articulations": [
@@ -2659,73 +5753,7 @@
      ]
     },
     {
-     "at": 24.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 63
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 28.5,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 84
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 31,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 31.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 72
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 34.75,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 84
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 37,
-     "dur": 0.25,
-     "pitch": {
-      "midi": 63
-     },
-     "technique": "pizz",
-     "articulations": [
-      "staccato"
-     ]
-    },
-    {
-     "at": 38.5,
+     "at": 10.25,
      "dur": 0.25,
      "pitch": {
       "midi": 62
@@ -2736,7 +5764,183 @@
      ]
     },
     {
-     "at": 38.75,
+     "at": 10.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 43
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 10.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 38
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 11.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 38
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 38
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 12.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 41
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 13.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 15.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 16.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 41
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 17.75,
      "dur": 0.25,
      "pitch": {
       "midi": 72
@@ -2747,7 +5951,667 @@
      ]
     },
     {
-     "at": 40,
+     "at": 18,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 43
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 18.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 19.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 41
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 20.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 36
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 21.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 22.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 23.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 24,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 24.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 25.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 25.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 26.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 27,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 27.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 27.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 28,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 28.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 28.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 28.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 29.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 29.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 29.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 30.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 31.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 31.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 32,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 33.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 34.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 35.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 36.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 36.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 37.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 38.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 39.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 40.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 41.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 42.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 41
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 43.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 45.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 46.5,
      "dur": 0.25,
      "pitch": {
       "midi": 79
@@ -2761,7 +6625,381 @@
      "at": 46.75,
      "dur": 0.25,
      "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 47.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 48.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 49.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 50.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 51,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 51.5,
+     "dur": 0.25,
+     "pitch": {
       "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 52.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 55
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 53.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 54,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 54.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 55.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 56,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 56.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 57,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 57.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 57.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 58.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 58.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 59.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 60.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 61,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 61.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 62.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 62.5,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 62.75,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "pizz",
+     "articulations": [
+      "staccato"
+     ]
+    },
+    {
+     "at": 63.25,
+     "dur": 0.25,
+     "pitch": {
+      "midi": 84
      },
      "technique": "pizz",
      "articulations": [

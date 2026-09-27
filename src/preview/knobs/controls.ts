@@ -107,6 +107,67 @@ function drag(
 }
 
 //==============================================================================
+// A small menu at the pointer (click or right-click on parts of a control)
+
+export type MenuItem =
+  | { label: string; checked?: boolean; disabled?: boolean; action: () => void }
+  | { heading: string }
+  | "rule";
+
+let openMenu: HTMLElement | undefined;
+
+export function closeMenu(): void {
+  openMenu?.remove();
+  openMenu = undefined;
+}
+
+/** Opens a menu at a point; it closes on a choice, a click elsewhere, Escape or scrolling. */
+export function menu(x: number, y: number, items: MenuItem[]): void {
+  closeMenu();
+  const el = h("div", "knob-menu");
+  el.setAttribute("role", "menu");
+  for (const item of items) {
+    if (item === "rule") {
+      el.append(h("div", "menu-rule"));
+      continue;
+    }
+    if ("heading" in item) {
+      el.append(h("div", "menu-heading", item.heading));
+      continue;
+    }
+    const b = h("button", item.checked ? "on" : "", item.label);
+    b.type = "button";
+    b.setAttribute("role", item.checked === undefined ? "menuitem" : "menuitemradio");
+    if (item.checked !== undefined) b.setAttribute("aria-checked", String(item.checked));
+    b.disabled = !!item.disabled;
+    b.addEventListener("click", () => {
+      closeMenu();
+      item.action();
+    });
+    el.append(b);
+  }
+  // Opened on a mouse-up, the click that follows must not land on an item under the pointer.
+  el.style.pointerEvents = "none";
+  document.body.append(el);
+  openMenu = el;
+  const r = el.getBoundingClientRect();
+  el.style.left = `${Math.min(x, window.innerWidth - r.width - 8)}px`;
+  el.style.top = `${Math.min(y, window.innerHeight - r.height - 8)}px`;
+  el.querySelector<HTMLButtonElement>("button:not([disabled])")?.focus();
+  const away = (e: Event) => {
+    if (e.type === "keydown" && (e as KeyboardEvent).key !== "Escape") return;
+    if (e.type === "pointerdown" && el.contains(e.target as Node)) return;
+    closeMenu();
+    for (const t of ["pointerdown", "keydown", "scroll"]) window.removeEventListener(t, away, true);
+  };
+  // After this event, so the click that opened it does not close it.
+  setTimeout(() => {
+    el.style.pointerEvents = "";
+    for (const t of ["pointerdown", "keydown", "scroll"]) window.addEventListener(t, away, true);
+  }, 50);
+}
+
+//==============================================================================
 // A value dragged sideways (numbers, pitches, seeds)
 
 interface ScrubSpec {
@@ -429,7 +490,7 @@ const seedControl: Control<SeedKnob> = {
 
 const curveControl: Control<CurveKnob> = {
   wide: true,
-  how: "Draw the shape freehand, left to right is time. Double-click to flatten at that height.",
+  how: "Draw the shape freehand; left to right is time. Right-click for more: flatten, smooth, reverse, turn upside down.",
   mount(host, k, value, ctx) {
     const c = canvas(host, 76, "pad");
     let points = [...value];
@@ -476,11 +537,35 @@ const curveControl: Control<CurveKnob> = {
         () => ctx.commit(points.map((v) => Math.round(v * 1000) / 1000)),
       );
     });
-    c.el.addEventListener("dblclick", (e) => {
+    c.el.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
       const [, v] = at(e as PointerEvent);
-      points = points.map(() => Math.round(v * 1000) / 1000);
-      draw();
-      ctx.commit(points);
+      const round = (x: number) => Math.round(x * 1000) / 1000;
+      const set = (next: number[]) => {
+        points = next.map(round);
+        draw();
+        ctx.commit(points);
+      };
+      menu(e.clientX, e.clientY, [
+        { label: `Flatten at ${v.toFixed(2)}`, action: () => set(points.map(() => v)) },
+        {
+          label: "Smooth",
+          action: () =>
+            set(
+              points.map(
+                (_, i) =>
+                  (points[Math.max(0, i - 1)]! +
+                    2 * points[i]! +
+                    points[Math.min(points.length - 1, i + 1)]!) /
+                  4,
+              ),
+            ),
+        },
+        { label: "Reverse in time", action: () => set([...points].reverse()) },
+        { label: "Turn upside down", action: () => set(points.map((x) => 1 - x)) },
+        "rule",
+        { label: "Back to Claude's shape", action: () => set(k.value) },
+      ]);
     });
     ends(host, k.ends);
   },
@@ -488,7 +573,7 @@ const curveControl: Control<CurveKnob> = {
 
 const envelopeControl: Control<EnvelopeKnob> = {
   wide: true,
-  how: "Drag the points. Click an empty place to add one; double-click a point to remove it. The first and last stay at the edges.",
+  how: "Drag the points. Click an empty place to add one; right-click a point to remove it. The first and last stay at the edges.",
   mount(host, k, value, ctx) {
     const c = canvas(host, 76, "pad");
     let points = [...value].map((p) => [...p] as [number, number]).sort((a, b) => a[0] - b[0]);
@@ -558,12 +643,34 @@ const envelopeControl: Control<EnvelopeKnob> = {
         () => ctx.commit(points.map(round)),
       );
     });
-    c.el.addEventListener("dblclick", (e) => {
+    c.el.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
       const i = near(e);
-      if (i <= 0 || i >= points.length - 1) return;
-      points.splice(i, 1);
-      draw();
-      ctx.commit(points.map(round));
+      const inner = i > 0 && i < points.length - 1;
+      menu(e.clientX, e.clientY, [
+        {
+          label: inner
+            ? "Remove this point"
+            : i < 0
+              ? "Remove a point (right-click on it)"
+              : "The first and last points stay",
+          disabled: !inner,
+          action: () => {
+            points.splice(i, 1);
+            draw();
+            ctx.commit(points.map(round));
+          },
+        },
+        "rule",
+        {
+          label: "Back to Claude's shape",
+          action: () => {
+            points = k.value.map((p) => [...p] as [number, number]);
+            draw();
+            ctx.commit(points.map(round));
+          },
+        },
+      ]);
     });
     ends(host, k.ends);
   },
@@ -871,7 +978,7 @@ function ticks(length: number): HTMLElement {
 
 const markersControl: Control<MarkersKnob> = {
   wide: true,
-  how: "Click the band to add a mark; drag a mark to move it; double-click a mark to remove it. Marks snap to whole units.",
+  how: "Click an empty place on the band to add a mark; drag a mark to move it; click a mark (or right-click) for its menu. Marks snap to whole units.",
   mount(host, k, value, ctx) {
     let marks = [...value].sort((a, b) => a - b);
     const band = h("div", "timeline");
@@ -893,6 +1000,20 @@ const markersControl: Control<MarkersKnob> = {
       return clamp(Math.round(((e.clientX - r.left) / r.width) * k.length), 1, k.length - 1);
     };
     const commit = () => ctx.commit([...new Set(marks)].sort((a, b) => a - b));
+    const markMenu = (i: number, e: MouseEvent) =>
+      menu(e.clientX, e.clientY, [
+        {
+          heading: `Mark ${String.fromCharCode(66 + i)} at ${marks[i]}${k.unit ? ` ${k.unit}` : ""}`,
+        },
+        {
+          label: "Remove this mark",
+          action: () => {
+            marks = marks.filter((_, j) => j !== i);
+            draw();
+            commit();
+          },
+        },
+      ]);
     band.addEventListener("pointerdown", (e) => {
       if (e.button !== 0) return;
       const onMark = (e.target as HTMLElement).closest<HTMLElement>(".mark");
@@ -910,15 +1031,17 @@ const markersControl: Control<MarkersKnob> = {
           marks[i] = unitAt(m);
           draw();
         },
-        commit,
+        (moved) => {
+          // A click on a mark (no drag) opens its menu; a new mark or a moved one is kept.
+          if (onMark && !moved) markMenu(i, e);
+          else commit();
+        },
       );
     });
-    band.addEventListener("dblclick", (e) => {
+    band.addEventListener("contextmenu", (e) => {
       const onMark = (e.target as HTMLElement).closest<HTMLElement>(".mark");
-      if (!onMark) return;
-      marks = marks.filter((_, j) => j !== Number(onMark.dataset.i));
-      draw();
-      commit();
+      e.preventDefault();
+      if (onMark) markMenu(Number(onMark.dataset.i), e);
     });
     host.append(band);
     const starts = [0, ...marks.sort((a, b) => a - b)];
@@ -937,11 +1060,12 @@ const markersControl: Control<MarkersKnob> = {
 
 const lanesControl: Control<LanesKnob> = {
   wide: true,
-  how: "Click a segment to change it to the next option (Shift: the previous). Double-click to cut a segment in two. Drag a boundary to move it; drag it onto the next one to remove a segment.",
+  how: "Click a segment (or right-click) for its menu: choose what it is, cut it in two where you clicked, or remove it. Drag a boundary to move it.",
   mount(host, k, value, ctx) {
     let segs = [...value].map((s) => [...s] as [number, string]).sort((a, b) => a[0] - b[0]);
     const band = h("div", "lanes");
     const endOf = (i: number) => (i + 1 < segs.length ? segs[i + 1]![0] : k.length);
+    const unit = k.unit ? ` ${k.unit}` : "";
     const draw = () => {
       band.innerHTML = "";
       segs.forEach(([start, option], i) => {
@@ -949,7 +1073,7 @@ const lanesControl: Control<LanesKnob> = {
         seg.style.left = pct(start, k.length);
         seg.style.width = pct(endOf(i) - start, k.length);
         seg.dataset.i = String(i);
-        seg.title = `${option}: ${start}–${endOf(i)}${k.unit ? ` ${k.unit}` : ""}`;
+        seg.title = `${option}: ${start}–${endOf(i)}${unit}`;
         band.append(seg);
         if (i > 0) {
           const edge = h("div", "lane-edge");
@@ -965,16 +1089,46 @@ const lanesControl: Control<LanesKnob> = {
       const r = band.getBoundingClientRect();
       return clamp(Math.round(((e.clientX - r.left) / r.width) * k.length), 0, k.length);
     };
-    /** Drops empty segments and joins neighbours with the same option. */
-    const tidy = () => {
-      const out: [number, string][] = [];
-      segs.forEach((s, i) => {
-        if (endOf(i) <= s[0]) return;
-        if (out.at(-1)?.[1] === s[1]) return;
-        out.push(s);
-      });
-      if (out[0]) out[0][0] = 0;
-      segs = out.length ? out : [[0, k.options[0]!]];
+    /** Drops segments with no length left (neighbours with the same option stay apart: a change re-plays). */
+    const commit = () => {
+      segs = segs.filter((s, i) => endOf(i) > s[0]);
+      if (segs.length === 0) segs = [[0, k.options[0]!]];
+      segs[0]![0] = 0;
+      ctx.commit(segs.map((s) => [...s] as [number, string]));
+    };
+    const segmentMenu = (i: number, e: MouseEvent) => {
+      const at = unitAt(e);
+      const [start, option] = segs[i]!;
+      const canCut = at > start && at < endOf(i);
+      menu(e.clientX, e.clientY, [
+        { heading: `${start}–${endOf(i)}${unit}` },
+        ...k.options.map((o) => ({
+          label: o,
+          checked: o === option,
+          action: () => {
+            segs[i]![1] = o;
+            commit();
+          },
+        })),
+        "rule",
+        {
+          label: canCut ? `Cut in two at ${at}${unit}` : "Cut in two (click inside, off the edges)",
+          disabled: !canCut,
+          action: () => {
+            segs.splice(i + 1, 0, [at, option]);
+            commit();
+          },
+        },
+        {
+          label: "Remove this segment",
+          disabled: segs.length < 2,
+          action: () => {
+            // The segment before it (or after it, for the first) takes its time.
+            segs.splice(i, 1);
+            commit();
+          },
+        },
+      ]);
     };
     band.addEventListener("pointerdown", (e) => {
       if (e.button !== 0) return;
@@ -988,44 +1142,28 @@ const lanesControl: Control<LanesKnob> = {
             segs[i]![0] = clamp(unitAt(m), segs[i - 1]![0], endOf(i));
             draw();
           },
-          () => {
-            tidy();
-            ctx.commit(segs.map((s) => [...s] as [number, string]));
-          },
+          commit,
         );
         return;
       }
       const seg = (e.target as HTMLElement).closest<HTMLElement>(".lane");
       if (!seg) return;
-      const i = Number(seg.dataset.i);
       drag(
         band,
         e,
         () => {},
         (moved) => {
-          if (moved || e.detail > 1) return;
-          const at = k.options.indexOf(segs[i]![1]);
-          const n = k.options.length;
-          segs[i]![1] = k.options[(at + (e.shiftKey ? n - 1 : 1)) % n]!;
-          tidy();
-          ctx.commit(segs.map((s) => [...s] as [number, string]));
+          if (!moved) segmentMenu(Number(seg.dataset.i), e);
         },
       );
     });
-    band.addEventListener("dblclick", (e) => {
+    band.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
       const seg = (e.target as HTMLElement).closest<HTMLElement>(".lane");
-      if (!seg) return;
-      const i = Number(seg.dataset.i);
-      const at = unitAt(e);
-      if (at <= segs[i]![0] || at >= endOf(i)) return;
-      // The new half takes the next option, so the cut shows at once.
-      const next = k.options[(k.options.indexOf(segs[i]![1]) + 1) % k.options.length]!;
-      segs.splice(i + 1, 0, [at, next]);
-      tidy();
-      ctx.commit(segs.map((s) => [...s] as [number, string]));
+      if (seg) segmentMenu(Number(seg.dataset.i), e);
     });
     host.append(band);
-    host.append(h("div", "ends", `0 → ${k.length}${k.unit ? ` ${k.unit}` : ""}`));
+    host.append(h("div", "ends", `0 → ${k.length}${unit}`));
   },
 };
 
