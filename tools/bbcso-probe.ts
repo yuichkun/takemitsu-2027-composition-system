@@ -5,7 +5,7 @@
 //   vp node tools/bbcso-probe.ts scan <instrument> [articulation…]
 //                                                 which keys sound, their level and pitch (all articulations by default)
 
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { measurePitch, peak, rms, toDb } from "../src/audio/analysis.ts";
@@ -136,6 +136,50 @@ async function scan(instrument: string, articulations: string[], o: ScanOptions,
   await writeFile(join(dir, `${instrument}.json`.replace(/\s+/g, "_")), JSON.stringify(report, null, 2));
 }
 
+/** Re-plays keys that the scan reported silent inside an articulation's range, one at a time with long gaps. */
+async function verifyGaps() {
+  const inventory = JSON.parse(await readFile(join(repoRoot, "src/libraries/bbcso/inventory.json"), "utf8")) as Record<
+    string,
+    Record<string, { gaps: number[] } | null>
+  >;
+  const jobs: { instrument: string; articulation: string; keys: number[] }[] = [];
+  for (const [instrument, arts] of Object.entries(inventory)) {
+    if (instrument === "Untuned Percussion") continue;
+    for (const [articulation, inv] of Object.entries(arts)) if (inv?.gaps.length) jobs.push({ instrument, articulation, keys: inv.gaps });
+  }
+  const spacing = 4;
+  const results: Record<string, Record<string, { key: number; attackDb: number; sustainDb: number }[]>> = {};
+  for (let i = 0; i < jobs.length; i += 16) {
+    const batch = jobs.slice(i, i + 16);
+    const tracks = await Promise.all(
+      batch.map(async (j) => {
+        const id = `gap-${j.instrument}-${j.articulation}`.replace(/\W+/g, "_");
+        const events: MidiEvent[] = [cc(0, 1, 100), cc(0, 11, 127)];
+        j.keys.forEach((k, n) => events.push(...note(sec(1 + n * spacing), k, 100, sec(2))));
+        return track(id, await writeState(id, singleArticulation(j.instrument, j.articulation)), events);
+      }),
+    );
+    const longest = Math.max(...batch.map((j) => j.keys.length));
+    const rendered = await render(
+      { sampleRate: rate, blockSize: 512, frames: sec(2 + longest * spacing), loadWaitMs: 25000, tracks },
+      join(out, `jobs/gaps-${i}.json`),
+    );
+    for (const [n, r] of rendered.entries()) {
+      const j = batch[n]!;
+      const s = mono(await readWav(r.file));
+      const rows = j.keys.map((k, m) => {
+        const t = sec(1 + m * spacing);
+        return { key: k, attackDb: Number(toDb(peak(s, t, t + sec(0.5))).toFixed(1)), sustainDb: Number(toDb(rms(s, t + sec(1), t + sec(1.8))).toFixed(1)) };
+      });
+      ((results[j.instrument] ??= {})[j.articulation] = rows);
+      const silent = rows.filter((row) => row.attackDb < -60);
+      console.log(`${j.instrument} / ${j.articulation}: ${rows.length - silent.length}/${rows.length} sound` + (silent.length ? `; silent ${silent.map((row) => row.key).join(" ")}` : ""));
+      await rm(r.file);
+    }
+  }
+  await writeFile(join(out, "gaps.json"), JSON.stringify(results, null, 2));
+}
+
 function option(args: string[], name: string, fallback: string): string {
   const i = args.indexOf(name);
   return i >= 0 ? args.splice(i, 2)[1]! : fallback;
@@ -160,4 +204,5 @@ else if (command === "scan-all") {
     await scan(instrument, [], { keys: [12, 127], spacing: 1.2, length: 0.8, velocity: 100 }, join(out, "scans"));
   }
 }
+else if (command === "verify-gaps") await verifyGaps();
 else console.log("pitch | stream | scan <instrument> [articulation…] [--keys 12-127] [--spacing s] [--length s] [--velocity v]");

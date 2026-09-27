@@ -1,0 +1,5436 @@
+{
+ "Bass Clarinet": {
+  "Legato": {
+   "range": [
+    34,
+    76
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    34,
+    76
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    34,
+    76
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    34,
+    72
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    34,
+    76
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    34,
+    76
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    34,
+    59,
+    60
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    45,
+    46,
+    49,
+    50,
+    51
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    34,
+    76
+   ],
+   "gaps": [],
+   "medianCents": 20,
+   "offKeys": [
+    37,
+    38,
+    39,
+    40,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60
+   ]
+  }
+ },
+ "Bass Flute": {
+  "Long": {
+   "range": [
+    48,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    48,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    48,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    48,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    48,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    48,
+    80
+   ],
+   "gaps": [],
+   "medianCents": 13,
+   "offKeys": [
+    53,
+    54,
+    65,
+    66,
+    73,
+    74,
+    77,
+    78
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    49,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 24,
+   "offKeys": [
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    61,
+    62,
+    63,
+    64,
+    77,
+    81,
+    82
+   ]
+  }
+ },
+ "Bass Leader": {
+  "Legato": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    48,
+    78
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long Sul Tasto": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Col Legno": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    37,
+    38
+   ]
+  },
+  "Short Harmonics": {
+   "range": [
+    48,
+    78
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    25,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Pizzicato": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    30,
+    41,
+    42,
+    43,
+    44
+   ]
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": []
+  },
+  "Short Spiccato": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": [
+    24,
+    46
+   ]
+  },
+  "Short Staccato": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 13,
+   "offKeys": [
+    29,
+    30,
+    41,
+    42,
+    43,
+    44,
+    46
+   ]
+  },
+  "Tremolo": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 34,
+   "offKeys": [
+    25,
+    26,
+    29,
+    30,
+    31,
+    32,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 40,
+   "offKeys": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 25,
+   "offKeys": [
+    24,
+    25,
+    26,
+    35,
+    36,
+    37,
+    38,
+    43,
+    44,
+    46,
+    51,
+    52
+   ]
+  }
+ },
+ "Bass Trombones a2": {
+  "Legato": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long (Muted)": {
+   "range": [
+    28,
+    66
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": [
+    31
+   ]
+  },
+  "Long Cuivre": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Sfz": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    28,
+    66
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Marcato (Muted)": {
+   "range": [
+    28,
+    66
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": [
+    31,
+    32
+   ]
+  },
+  "Short Staccatissimo": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Staccatissimo (Muted)": {
+   "range": [
+    28,
+    66
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    28,
+    29,
+    30
+   ]
+  }
+ },
+ "Basses": {
+  "Legato": {
+   "range": [
+    24,
+    55
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    24,
+    50
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    48,
+    78
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Marcato Attack": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long Sul Pont": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    25,
+    26
+   ]
+  },
+  "Long Sul Tasto": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Col Legno": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 22,
+   "offKeys": [
+    25,
+    26,
+    27,
+    29,
+    45,
+    46,
+    53,
+    54
+   ]
+  },
+  "Short Harmonics": {
+   "range": [
+    48,
+    78
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Pizzicato": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    41,
+    42
+   ]
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    35,
+    36,
+    39,
+    40,
+    45
+   ]
+  },
+  "Short Spiccato": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 12,
+   "offKeys": [
+    31,
+    32,
+    37,
+    38,
+    39,
+    40
+   ]
+  },
+  "Short Spiccato CS": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": [
+    27,
+    28
+   ]
+  },
+  "Short Staccato": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Tremolo": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 15,
+   "offKeys": [
+    29,
+    30,
+    38,
+    43,
+    44,
+    47,
+    48
+   ]
+  },
+  "Tremolo CS": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 27,
+   "offKeys": [
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    37,
+    39,
+    40,
+    43,
+    45,
+    46,
+    49,
+    50
+   ]
+  },
+  "Tremolo Sul Pont": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 13,
+   "offKeys": [
+    24,
+    31,
+    32,
+    39,
+    40,
+    49,
+    50
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 12,
+   "offKeys": [
+    24,
+    35,
+    36,
+    49,
+    53,
+    54
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    24,
+    54
+   ],
+   "gaps": [],
+   "medianCents": 13,
+   "offKeys": [
+    53,
+    54
+   ]
+  }
+ },
+ "Bassoon": {
+  "Legato": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    34,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    34,
+    35,
+    40,
+    41,
+    43,
+    44,
+    50
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 41,
+   "offKeys": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    55,
+    56,
+    59,
+    60,
+    61,
+    63,
+    69,
+    70
+   ]
+  }
+ },
+ "Bassoons a3": {
+  "Legato": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    34,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    34,
+    72
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    36,
+    37,
+    39,
+    41,
+    42,
+    57,
+    58,
+    69,
+    70,
+    71,
+    72
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    34,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 29,
+   "offKeys": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    43,
+    44,
+    45,
+    46,
+    51,
+    60,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74
+   ]
+  }
+ },
+ "Celeste": {
+  "Short Damped": {
+   "range": [
+    48,
+    112
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Damped Medium": {
+   "range": [
+    48,
+    112
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Sustained": {
+   "range": [
+    48,
+    112
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Short Sustained Discover": {
+   "range": [
+    48,
+    112
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  }
+ },
+ "Celli": {
+  "Legato": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    60,
+    92
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": [
+    90
+   ]
+  },
+  "Long Marcato Attack": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Sul Pont": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Sul Tasto": {
+   "range": [
+    36,
+    81
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Col Legno": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    51,
+    52,
+    67,
+    68
+   ]
+  },
+  "Short Harmonics": {
+   "range": [
+    60,
+    98
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": [
+    91,
+    92
+   ]
+  },
+  "Short Pizzicato": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    39,
+    40,
+    71,
+    78
+   ]
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    36,
+    68
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    44
+   ]
+  },
+  "Short Spicc CS": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 14,
+   "offKeys": [
+    39,
+    40,
+    73,
+    74
+   ]
+  },
+  "Short Spiccato": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Short Staccato": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Tremolo": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    39,
+    40,
+    50,
+    53,
+    55,
+    56,
+    57,
+    58
+   ]
+  },
+  "Tremolo CS": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": [
+    39,
+    40
+   ]
+  },
+  "Tremolo Sul Pont": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    55,
+    56
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    36,
+    80
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    37
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 13,
+   "offKeys": [
+    41,
+    42,
+    49,
+    50,
+    53,
+    54
+   ]
+  }
+ },
+ "Celli Leader": {
+  "Legato": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    36,
+    79
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    60,
+    98
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long Sul Tasto": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Col Legno": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    36,
+    46,
+    47,
+    48,
+    67,
+    68,
+    77,
+    78
+   ]
+  },
+  "Short Harmonics": {
+   "range": [
+    60,
+    102
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Pizzicato": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    36,
+    68
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": []
+  },
+  "Short Spiccato": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Staccato": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Tremolo": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 12,
+   "offKeys": [
+    55,
+    56
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    36,
+    80
+   ],
+   "gaps": [],
+   "medianCents": 19,
+   "offKeys": [
+    36,
+    39,
+    40,
+    41,
+    42,
+    49,
+    50,
+    65,
+    67,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    36,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 30,
+   "offKeys": [
+    36,
+    43,
+    44,
+    49,
+    50,
+    55,
+    57,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    71,
+    72,
+    75,
+    76,
+    78,
+    79,
+    80,
+    81,
+    82
+   ]
+  }
+ },
+ "Cimbasso": {
+  "Long": {
+   "range": [
+    28,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Cuivre": {
+   "range": [
+    28,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Long Sfz": {
+   "range": [
+    28,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    28,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    28,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  }
+ },
+ "Clarinet": {
+  "Legato": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    50,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 12,
+   "offKeys": [
+    51,
+    52,
+    53,
+    54,
+    57,
+    58
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 13,
+   "offKeys": [
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58
+   ]
+  }
+ },
+ "Clarinets a3": {
+  "Legato": {
+   "range": [
+    50,
+    89
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    89
+   ]
+  },
+  "Long": {
+   "range": [
+    50,
+    89
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    89
+   ]
+  },
+  "Long Flutter": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    50,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 14,
+   "offKeys": [
+    51,
+    52
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    50,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    50,
+    51,
+    52,
+    53,
+    54,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+   ]
+  }
+ },
+ "Contrabass Clarinet": {
+  "Legato": {
+   "range": [
+    22,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    22,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    22,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    22,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    22,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 19,
+   "offKeys": [
+    25,
+    26,
+    34,
+    43,
+    44
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    22,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 45,
+   "offKeys": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    55,
+    56,
+    57,
+    58
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    22,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 53,
+   "offKeys": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    58
+   ]
+  }
+ },
+ "Contrabass Trombone": {
+  "Legato": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Long Cuivre": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Sfz": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    28,
+    67
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    28,
+    32,
+    33
+   ]
+  }
+ },
+ "Contrabass Tuba": {
+  "Legato": {
+   "range": [
+    26,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    21,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long Cuivre": {
+   "range": [
+    21,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long Sfz": {
+   "range": [
+    23,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 15,
+   "offKeys": [
+    45,
+    46
+   ]
+  },
+  "Short Marcato": {
+   "range": [
+    21,
+    45
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    26,
+    28
+   ]
+  },
+  "Short Staccatissimo": {
+   "range": [
+    21,
+    60
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    22
+   ]
+  }
+ },
+ "Contrabassoon": {
+  "Legato": {
+   "range": [
+    22,
+    58
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    22,
+    58
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    22,
+    58
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    22,
+    56
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    22,
+    58
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    27
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    22,
+    52
+   ],
+   "gaps": [],
+   "medianCents": 31,
+   "offKeys": [
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    41,
+    42,
+    45,
+    46
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    22,
+    58
+   ],
+   "gaps": [],
+   "medianCents": 12,
+   "offKeys": [
+    47,
+    48,
+    49
+   ]
+  }
+ },
+ "Cor Anglais": {
+  "Legato": {
+   "range": [
+    52,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    52,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    52,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    52,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    52,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    52,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    52,
+    78
+   ],
+   "gaps": [],
+   "medianCents": 12,
+   "offKeys": []
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    52,
+    82
+   ],
+   "gaps": [],
+   "medianCents": 24,
+   "offKeys": [
+    55,
+    56,
+    61,
+    62,
+    65,
+    66,
+    67,
+    68,
+    71,
+    72,
+    77,
+    78,
+    82
+   ]
+  }
+ },
+ "Crotales": {
+  "Short Hits": {
+   "range": [
+    84,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 21,
+   "offKeys": [
+    93,
+    94,
+    107,
+    108
+   ]
+  },
+  "Short Hits Bowed": {
+   "range": [
+    109,
+    109
+   ],
+   "gaps": [],
+   "medianCents": 69,
+   "offKeys": [
+    109
+   ]
+  }
+ },
+ "Flute": {
+  "Legato": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    59,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    81,
+    82
+   ]
+  },
+  "Long": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    60,
+    98
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    81,
+    82
+   ]
+  },
+  "Short Staccatissimo": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    60,
+    98
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    60,
+    94
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    89,
+    90,
+    91,
+    92,
+    93,
+    94
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    63,
+    66,
+    67,
+    69,
+    70,
+    71,
+    72,
+    87,
+    88
+   ]
+  }
+ },
+ "Flutes a3": {
+  "Legato": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    95,
+    96
+   ]
+  },
+  "Multitongue": {
+   "range": [
+    60,
+    98
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    60,
+    98
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 19,
+   "offKeys": [
+    83,
+    84,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    60,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    60,
+    61,
+    65,
+    66,
+    85,
+    86,
+    87,
+    88,
+    92
+   ]
+  }
+ },
+ "Glockenspiel": {
+  "Long Trills": {
+   "range": [
+    77,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Hits": {
+   "range": [
+    77,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Hits Discover": {
+   "range": [
+    77,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  }
+ },
+ "Harp": {
+  "Long Bisbigliando Trem": {
+   "range": [
+    42,
+    102
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": [
+    54,
+    61,
+    62,
+    70
+   ]
+  },
+  "Short Damped": {
+   "range": [
+    24,
+    104
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Damped Medium": {
+   "range": [
+    24,
+    104
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Gliss": {
+   "range": [
+    36,
+    70
+   ],
+   "gaps": [],
+   "medianCents": 17,
+   "offKeys": [
+    41,
+    42,
+    45,
+    46,
+    58,
+    65,
+    66
+   ]
+  },
+  "Short Sustained": {
+   "range": [
+    24,
+    104
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Sustained Discover": {
+   "range": [
+    24,
+    104
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  }
+ },
+ "Horn": {
+  "Legato": {
+   "range": [
+    40,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    40,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long (Muted)": {
+   "range": [
+    33,
+    75
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long Cuivre": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    33
+   ]
+  },
+  "Long Sfz": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Marcato (Muted)": {
+   "range": [
+    33,
+    75
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Staccatissimo (Muted)": {
+   "range": [
+    33,
+    75
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    44,
+    45
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 21,
+   "offKeys": [
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    44,
+    45,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 39,
+   "offKeys": [
+    35,
+    39,
+    40,
+    41,
+    42,
+    43,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    64,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73
+   ]
+  }
+ },
+ "Horns a4": {
+  "Legato": {
+   "range": [
+    40,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long (Muted)": {
+   "range": [
+    33,
+    75
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    36,
+    37
+   ]
+  },
+  "Long Cuivre": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    36,
+    37
+   ]
+  },
+  "Long Flutter": {
+   "range": [
+    33,
+    78
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    78
+   ]
+  },
+  "Long Sfz": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Marcato (Muted)": {
+   "range": [
+    33,
+    75
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    33,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    34,
+    35
+   ]
+  },
+  "Short Staccatissimo (Muted)": {
+   "range": [
+    33,
+    75
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    34,
+    35
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    33,
+    75
+   ],
+   "gaps": [],
+   "medianCents": 21,
+   "offKeys": [
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    41,
+    42,
+    43,
+    50,
+    51,
+    54,
+    55,
+    58,
+    59,
+    72,
+    73,
+    74,
+    75
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    33,
+    76
+   ],
+   "gaps": [],
+   "medianCents": 19,
+   "offKeys": [
+    33,
+    36,
+    37,
+    50,
+    51,
+    57,
+    60,
+    61,
+    62,
+    64,
+    65,
+    67
+   ]
+  }
+ },
+ "Marimba": {
+  "Long Trills": {
+   "range": [
+    36,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Hits": {
+   "range": [
+    36,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Hits Discover": {
+   "range": [
+    36,
+    96
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  }
+ },
+ "Oboe": {
+  "Legato": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    58,
+    89
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    58,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    57,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 20,
+   "offKeys": [
+    68,
+    71,
+    72,
+    75,
+    76,
+    79,
+    80,
+    85,
+    86,
+    89,
+    90
+   ]
+  }
+ },
+ "Oboes a3": {
+  "Legato": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    58,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Tenuto": {
+   "range": [
+    58,
+    91
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": [
+    91
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    58,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 19,
+   "offKeys": [
+    85,
+    86,
+    87,
+    88
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    58,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 13,
+   "offKeys": [
+    58,
+    59,
+    60,
+    85,
+    86,
+    87,
+    88
+   ]
+  }
+ },
+ "Piccolo": {
+  "Falls": {
+   "range": [
+    78,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    79,
+    80,
+    85,
+    86,
+    87,
+    97,
+    98,
+    105,
+    106
+   ]
+  },
+  "Legato": {
+   "range": [
+    74,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    74,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    74,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    74,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    74,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Rips": {
+   "range": [
+    78,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    74,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    74,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    105,
+    106,
+    107,
+    108
+   ]
+  },
+  "Short Tenuto": {
+   "range": [
+    74,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    74,
+    106
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    103,
+    104,
+    105,
+    106
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    74,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    75,
+    76,
+    107,
+    108
+   ]
+  }
+ },
+ "Tenor Trombone": {
+  "Legato": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long (Muted)": {
+   "range": [
+    31,
+    73
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Cuivre": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    43,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Sfz": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    36,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Marcato (Muted)": {
+   "range": [
+    31,
+    73
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Staccatissimo (Muted)": {
+   "range": [
+    31,
+    73
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    34,
+    35,
+    36,
+    37
+   ]
+  }
+ },
+ "Tenor Trombones a3": {
+  "Legato": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long (Muted)": {
+   "range": [
+    31,
+    73
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Cuivre": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    43,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Sfz": {
+   "range": [
+    36,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    36,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Marcato (Muted)": {
+   "range": [
+    31,
+    73
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    31,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Short Staccatissimo (Muted)": {
+   "range": [
+    31,
+    73
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    32,
+    33,
+    34,
+    35,
+    36
+   ]
+  }
+ },
+ "Timpani": {
+  "Hotrods Hits Damped": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 15,
+   "offKeys": [
+    55,
+    56,
+    63,
+    64
+   ]
+  },
+  "Long Rolls": {
+   "range": [
+    48,
+    73
+   ],
+   "gaps": [],
+   "medianCents": 26,
+   "offKeys": [
+    48,
+    51,
+    52,
+    54,
+    63,
+    64,
+    67,
+    68,
+    73
+   ]
+  },
+  "Long Rolls Hotrods": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 15,
+   "offKeys": [
+    48,
+    51,
+    63,
+    64
+   ]
+  },
+  "Long Rolls Soft": {
+   "range": [
+    48,
+    73
+   ],
+   "gaps": [],
+   "medianCents": 18,
+   "offKeys": [
+    49,
+    50,
+    57,
+    58
+   ]
+  },
+  "Short Hits": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    49,
+    50,
+    51,
+    52
+   ]
+  },
+  "Short Hits Damped": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    48,
+    71
+   ]
+  },
+  "Short Hits Damped Soft": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 15,
+   "offKeys": [
+    49,
+    59,
+    60
+   ]
+  },
+  "Short Hits Discover": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 16,
+   "offKeys": [
+    49,
+    50,
+    51,
+    52
+   ]
+  },
+  "Short Hits Hotrods": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 14,
+   "offKeys": [
+    52,
+    62
+   ]
+  },
+  "Short Hits Soft": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Short Hits Super Damped": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [],
+   "medianCents": 25,
+   "offKeys": [
+    48,
+    49,
+    50,
+    55,
+    63,
+    71
+   ]
+  }
+ },
+ "Trumpet": {
+  "Legato": {
+   "range": [
+    52,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long (Muted)": {
+   "range": [
+    52,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long Cuivre": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    57,
+    58
+   ]
+  },
+  "Long Sfz": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Marcato (Muted)": {
+   "range": [
+    52,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Staccatissimo (Muted)": {
+   "range": [
+    52,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 15,
+   "offKeys": [
+    53,
+    56,
+    57,
+    61,
+    65,
+    66
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 22,
+   "offKeys": [
+    52,
+    54,
+    55,
+    58,
+    59,
+    62,
+    65,
+    66,
+    74,
+    77,
+    78,
+    83,
+    84,
+    85,
+    86
+   ]
+  }
+ },
+ "Trumpets a2": {
+  "Legato": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": []
+  },
+  "Legato (Extended)": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Long (Muted)": {
+   "range": [
+    52,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long Cuivre": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Sfz": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Multitongue": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Marcato (Muted)": {
+   "range": [
+    52,
+    77
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Staccatissimo (Muted)": {
+   "range": [
+    52,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 25,
+   "offKeys": [
+    52,
+    59,
+    60,
+    65,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    52,
+    86
+   ],
+   "gaps": [],
+   "medianCents": 18,
+   "offKeys": [
+    52,
+    53,
+    54,
+    59,
+    60,
+    66,
+    71,
+    72,
+    83,
+    84,
+    85,
+    86
+   ]
+  }
+ },
+ "Tuba": {
+  "Legato": {
+   "range": [
+    26,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    26,
+    63
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long Cuivre": {
+   "range": [
+    26,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Flutter": {
+   "range": [
+    26,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    59,
+    60
+   ]
+  },
+  "Long Sfz": {
+   "range": [
+    26,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    29,
+    30
+   ]
+  },
+  "Multitongue": {
+   "range": [
+    26,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    26,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Staccatissimo": {
+   "range": [
+    26,
+    64
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  }
+ },
+ "Tubular bells": {
+  "Long Rolls": {
+   "range": [
+    61,
+    78
+   ],
+   "gaps": [],
+   "medianCents": 18,
+   "offKeys": []
+  },
+  "Short Hits": {
+   "range": [
+    61,
+    79
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    79
+   ]
+  },
+  "Short Hits Damped": {
+   "range": [
+    61,
+    79
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Short Hits Discover": {
+   "range": [
+    61,
+    79
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    79
+   ]
+  }
+ },
+ "Untuned Percussion": {
+  "Anvil": {
+   "range": [
+    48,
+    53
+   ],
+   "gaps": [
+    49,
+    51
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Bass Drum 1": {
+   "range": [
+    48,
+    57
+   ],
+   "gaps": [
+    49,
+    51,
+    54,
+    55,
+    56
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Bass Drum 2": {
+   "range": [
+    48,
+    59
+   ],
+   "gaps": [
+    49,
+    51,
+    55,
+    58
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Cymbal": {
+   "range": [
+    48,
+    62
+   ],
+   "gaps": [
+    58,
+    59,
+    60
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Hits": {
+   "range": [
+    48,
+    74
+   ],
+   "gaps": [
+    49,
+    51,
+    54,
+    55,
+    56,
+    58,
+    61,
+    63,
+    66,
+    68,
+    70,
+    73
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Military Drum": {
+   "range": [
+    48,
+    57
+   ],
+   "gaps": [
+    49,
+    51
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Piatti": {
+   "range": [
+    48,
+    53
+   ],
+   "gaps": [
+    49,
+    51
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Snare 1": {
+   "range": [
+    48,
+    57
+   ],
+   "gaps": [
+    49,
+    51
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Snare 2": {
+   "range": [
+    48,
+    57
+   ],
+   "gaps": [
+    49,
+    51
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Tam Tam": {
+   "range": [
+    48,
+    62
+   ],
+   "gaps": [
+    49,
+    51,
+    54,
+    56,
+    58,
+    59,
+    61
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Tambourine": {
+   "range": [
+    48,
+    57
+   ],
+   "gaps": [
+    49,
+    51,
+    53,
+    54,
+    55,
+    56
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Tenor Drum": {
+   "range": [
+    48,
+    57
+   ],
+   "gaps": [
+    49,
+    51
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Toys": {
+   "range": [
+    48,
+    60
+   ],
+   "gaps": [
+    49,
+    51
+   ],
+   "medianCents": null,
+   "offKeys": []
+  },
+  "Triangle": {
+   "range": [
+    48,
+    57
+   ],
+   "gaps": [
+    49,
+    51,
+    54,
+    55,
+    56
+   ],
+   "medianCents": null,
+   "offKeys": []
+  }
+ },
+ "Vibraphone": {
+  "Short Hits": {
+   "range": [
+    53,
+    89
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  }
+ },
+ "Viola Leader": {
+  "Legato": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    65,
+    68
+   ],
+   "gaps": [],
+   "medianCents": 18,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    72,
+    102
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    101,
+    102
+   ]
+  },
+  "Long Sul Tasto": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Col Legno": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": [
+    55,
+    56,
+    65,
+    66
+   ]
+  },
+  "Short Harmonics": {
+   "range": [
+    72,
+    102
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Pizzicato": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    53,
+    54,
+    65,
+    66,
+    67,
+    68
+   ]
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    48,
+    88
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": [
+    79,
+    80
+   ]
+  },
+  "Short Spiccato": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Staccato": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Tremolo": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 12,
+   "offKeys": [
+    48,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    63,
+    64,
+    67,
+    68,
+    77,
+    78
+   ]
+  }
+ },
+ "Violas": {
+  "Legato": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    72,
+    104
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long Marcato Attack": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    85
+   ]
+  },
+  "Long Sul Pont": {
+   "range": [
+    48,
+    91
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    91
+   ]
+  },
+  "Long Sul Tasto": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Col Legno": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": []
+  },
+  "Short Harmonics": {
+   "range": [
+    72,
+    102
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    99,
+    100
+   ]
+  },
+  "Short Pizzicato": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    57,
+    65,
+    66
+   ]
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    48,
+    84
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Spiccato": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Short Spiccato CS": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Staccato": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    55,
+    56,
+    89,
+    90
+   ]
+  },
+  "Tremolo": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Tremolo CS": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Tremolo Sul Pont": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    48,
+    90
+   ],
+   "gaps": [],
+   "medianCents": 13,
+   "offKeys": [
+    48,
+    53,
+    61,
+    62,
+    66,
+    87,
+    88,
+    89,
+    90
+   ]
+  }
+ },
+ "Violin 1 Leader": {
+  "Legato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    79,
+    109
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long Sul Tasto": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Col Legno": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    73
+   ]
+  },
+  "Short Harmonics": {
+   "range": [
+    79,
+    109
+   ],
+   "gaps": [],
+   "medianCents": 1,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Short Pizzicato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    62,
+    63
+   ]
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    96
+   ]
+  },
+  "Short Spiccato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Staccato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    60
+   ]
+  },
+  "Tremolo": {
+   "range": [
+    55,
+    98
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    98
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    55,
+    58,
+    59,
+    92,
+    93
+   ]
+  }
+ },
+ "Violin 2 Leader": {
+  "Legato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    79,
+    109
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": []
+  },
+  "Long Sul Tasto": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Short Col Legno": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    73,
+    86,
+    87
+   ]
+  },
+  "Short Harmonics": {
+   "range": [
+    79,
+    109
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Short Marcato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Pizzicato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    84,
+    85,
+    86,
+    87
+   ]
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Spiccato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Staccato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 2,
+   "offKeys": []
+  },
+  "Tremolo": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 14,
+   "offKeys": [
+    55,
+    58,
+    59,
+    62,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    76,
+    78,
+    82,
+    88,
+    89
+   ]
+  }
+ },
+ "Violins 1": {
+  "Legato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    79,
+    109
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long Marcato Attack": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Long Sul Pont": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": [
+    94,
+    95
+   ]
+  },
+  "Long Sul Tasto": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Col Legno": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    92,
+    93,
+    94,
+    95,
+    96,
+    97
+   ]
+  },
+  "Short Harmonics": {
+   "range": [
+    79,
+    109
+   ],
+   "gaps": [],
+   "medianCents": 13,
+   "offKeys": [
+    106,
+    107
+   ]
+  },
+  "Short Pizzicato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": [
+    84,
+    85,
+    92,
+    93,
+    96,
+    97
+   ]
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    55,
+    93
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": []
+  },
+  "Short Spiccato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 12,
+   "offKeys": [
+    92,
+    93,
+    96,
+    97
+   ]
+  },
+  "Short Spiccato CS": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    62,
+    63
+   ]
+  },
+  "Short Staccato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    90,
+    91
+   ]
+  },
+  "Tremolo": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": [
+    56
+   ]
+  },
+  "Tremolo CS": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Tremolo Sul Pont": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 12,
+   "offKeys": [
+    61,
+    84,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97
+   ]
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": []
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 15,
+   "offKeys": [
+    55,
+    58,
+    59,
+    64,
+    65,
+    82,
+    84,
+    85,
+    90,
+    91,
+    96,
+    97
+   ]
+  }
+ },
+ "Violins 2": {
+  "Legato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Long": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long CS": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Flautando": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Long Harmonics": {
+   "range": [
+    79,
+    109
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    107
+   ]
+  },
+  "Long Marcato Attack": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Long Sul Pont": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": [
+    92,
+    93
+   ]
+  },
+  "Long Sul Tasto": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": [
+    96,
+    97
+   ]
+  },
+  "Short Col Legno": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": [
+    88,
+    89,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97
+   ]
+  },
+  "Short Harmonics": {
+   "range": [
+    79,
+    107
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": []
+  },
+  "Short Pizzicato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 10,
+   "offKeys": [
+    86,
+    87,
+    94,
+    95,
+    96,
+    97
+   ]
+  },
+  "Short Pizzicato Bartok": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    94,
+    95,
+    96,
+    97
+   ]
+  },
+  "Short Spiccato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 8,
+   "offKeys": [
+    92,
+    93,
+    96,
+    97
+   ]
+  },
+  "Short Spiccato CS": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Short Staccato": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 7,
+   "offKeys": []
+  },
+  "Tremolo": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 5,
+   "offKeys": []
+  },
+  "Tremolo CS": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 4,
+   "offKeys": [
+    68,
+    69
+   ]
+  },
+  "Tremolo Sul Pont": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Trill (Major 2nd)": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 3,
+   "offKeys": [
+    96,
+    97
+   ]
+  },
+  "Trill (Minor 2nd)": {
+   "range": [
+    55,
+    97
+   ],
+   "gaps": [],
+   "medianCents": 11,
+   "offKeys": [
+    56,
+    57,
+    58,
+    59,
+    76,
+    77
+   ]
+  }
+ },
+ "Xylophone": {
+  "Long Trills": {
+   "range": [
+    65,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 6,
+   "offKeys": []
+  },
+  "Short Hits": {
+   "range": [
+    65,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  },
+  "Short Hits Discover": {
+   "range": [
+    65,
+    108
+   ],
+   "gaps": [],
+   "medianCents": 9,
+   "offKeys": []
+  }
+ }
+}

@@ -101,7 +101,41 @@
 `[実測]` 全 467 パッチについて、MIDI 12〜127 の各鍵を順に鳴らし、鳴る鍵・音量・音高を測った
 （`vp node tools/bbcso-probe.ts scan-all`、結果は `.local/probe/scans/*.json`）。
 
-結果の要約（鳴らない奏法、音域、音高のずれ）は走査の完了後にここへ書く。
+集計は [`../../src/libraries/bbcso/inventory.json`](../../src/libraries/bbcso/inventory.json)
+（`vp node tools/bbcso-summary.ts` で再生成。奏法ごとに鳴る鍵の範囲、範囲内で鳴らない鍵、音高のずれ）。
+
+- `[実測]` **全 467 パッチが鳴った。** 鳴らない奏法はない
+- `[実測]` **音高のある楽器は、どの奏法も音域の中で半音ごとに切れ目なく鳴る。**
+  速い走査では「範囲内で鳴らない鍵」が 400 余り出たが、1鍵ずつ 4 秒空けて鳴らし直すと全部鳴った
+  （`verify-gaps`）。前の鍵の残響に、立ち上がりの遅い音（flautando、sul tasto、harmonics など）が埋もれた誤検出だった
+- `[実測]` 打楽器（Untuned Percussion）は、割り当てのある鍵だけが鳴る。§6 の表と一致する
+- `[実測]` 鍵と実音のずれは、トリル・トレモロ・マルチタンギングを除く奏法の中央値で、ほとんどの楽器が 10 セント以内
+  （弦のセクションで最大 22 セント、ティンパニ 8〜26、チューブラーベル 8〜18）。
+  トリル類は二つの音が混ざるので、この測り方では意味がない
+- `[要検証]` **クロタルだけ、ずれが 21〜69 セントと大きい。** 鍵と実音のオクターヴ関係が他と違う可能性がある。実際の楽譜で鳴らして確かめる
+
+楽器ごとの、鳴る鍵の全体の範囲（全奏法の合併。ハーモニクスを含むので実音域より広い）:
+
+| 楽器 | 範囲 | 楽器 | 範囲 |
+| --- | --- | --- | --- |
+| Piccolo | D5–C8 | Horn / Horns a4 | A1–F#5 |
+| Flute / Flutes a3 | B3–D7 | Trumpet / Trumpets a2 | E3–D6 |
+| Bass Flute | C3–C6 | Tenor Trombone(s) | G1–D5 |
+| Oboe / Oboes a3 | A3–G6 | Bass Trombones a2 | E1–G4 |
+| Cor Anglais | E3–C6 | Contrabass Trombone | E1–G4 |
+| Clarinet / Clarinets a3 | D3–F6 | Tuba | D1–E4 |
+| Bass Clarinet | Bb1–E5 | Contrabass Tuba | A0–C4 |
+| Contrabass Clarinet | Bb0–C4 | Cimbasso | E1–E4 |
+| Bassoon / Bassoons a3 | Bb1–D5 | Timpani | C3–D5 |
+| Contrabassoon | Bb0–Bb3 | Harp | C1–Ab7 |
+| Violins 1・2（Leader 含む） | G3–C#8 | Celeste | C3–E8 |
+| Violas / Viola Leader | C3–Ab7 | Glockenspiel | F5–C8 |
+| Celli / Celli Leader | C2–F#7 | Xylophone | F4–C8 |
+| Basses / Bass Leader | C1–F#5 | Marimba | C2–C7 |
+| Crotales | C6–C#8 | Vibraphone | F3–F6 |
+| Tubular bells | C#4–G5 | | |
+
+`[実測]` 読み込み待ちは、16 インスタンス同時で 25 秒あれば足りた。
 
 ## 8. BBC SO にないもの
 
