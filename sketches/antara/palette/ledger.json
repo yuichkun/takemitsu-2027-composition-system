@@ -11,7 +11,14 @@
       "instruments": "弦 10 声の分奏",
       "uses": "",
       "length": "1:00",
-      "round": 0
+      "round": 0,
+      "audit": {
+        "verdict": "fix",
+        "strength": 4,
+        "why": "一声ずつしか動かず外側が動かない和音の変わり方は、伴奏にも移り目にもそのまま使える基本の道具で、すでに三つの B が使っている。",
+        "problems": "音の側に問題はない。楽譜で確認した: 最上声 vni-1 と最下声 vc-3 は 1 音のまま。ほかの 8 声で 36 回動き、10 声とも 60 拍を通して鳴る。平らな密度で、盛り上げもない。問題はカードで、「事実」が長さと警告 0 だけしかない（README 35 行目）。GUIDE のコツ 5 が求める、仕組みを数で確かめた値がない。時間の値（波の中 {3 4}、波のあいだ {6 9}、3 の仲間、♩=60）を選んだ理由も書いていない。見本のスケッチなのに、カードだけ GUIDE より前の形のまま",
+        "near": "A にはない。B の colour-by-between、trades-in-time、line-in-the-trades がこれを使う"
+      }
     },
     {
       "path": "b/colour-by-between",
@@ -24,7 +31,14 @@
       "instruments": "金管 9、弦の分奏、コントラバス",
       "uses": "a/pitch-trade-places",
       "length": "1:28",
-      "round": 0
+      "round": 0,
+      "audit": {
+        "verdict": "fix",
+        "strength": 4,
+        "why": "下の間という関係だけで色が決まり、同じ高さのまま弦と金管が受け渡す所がはっきり 40 回出るので、和音を保ったまま色を動かす場面の素材としてそのまま使える。",
+        "problems": "音は仕組みどおりに鳴っている。問題はカードで、手引きより前の古い形のまま。「仕組みと聴こえ方」（仮の値の理由）、「つまみ」がなく、「事実」は長さと警告の有無だけで、数で確かめた仕組みがない。楽譜から数えると、同じ高さのまま色が替わる受け渡しは 40 回（登りで金管→弦 20、戻りで弦→金管 20）あるが、カードには書かれていない。もう一つ、戻りだけ強弱を一段上げている。sketch.ts の LEVEL は、登りが弦 4・金管 3.5、戻りが弦 5・金管 4.5 で、動いた声はさらに +1（戻りの弦は 6）。カードは「少し大きく鳴り」と書くだけで、構造の理由がない。",
+        "near": "a/texture-side-of-the-standpoint（動かない音の色だけが関係で替わる。決め方の関係は違う）"
+      }
     },
     {
       "path": "a/pitch-unplayed-centre",
@@ -37,7 +51,14 @@
       "instruments": "Vn I 4 部と Vn II 4 部の分奏",
       "uses": "",
       "length": "1:05",
-      "round": 1
+      "round": 1,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "格子の外の軸をはさむ対称の組が、空いた幅へ一組ずつ動く。pp の弦の地や区間の背景に使える静かで透明な和音の場だが、軸そのものが聴こえるかは、ふつうの鏡の対位法と同じく弱い。",
+        "problems": "",
+        "near": "a/pitch-cross-a-between（和音を間の真ん中で裏返す）、b/two-chords-trade-sets（誰も弾かない 68.5 を軸に上下対称になる）。どちらも鏡の軸を使うが、仕組みは別"
+      }
     },
     {
       "path": "a/texture-side-of-the-standpoint",
@@ -50,7 +71,14 @@
       "instruments": "弦 10 部の分奏（sul tasto / sul pont.）、コントラバス",
       "uses": "",
       "length": "0:47",
-      "round": 1
+      "round": 1,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "保った和音の色をコントラバスの一歩（.5 が付くかどうか）で一斉に裏返す装置として混じりけがなく、楽譜も規則どおり（弾き直し 0/10/10/0/10/0）だが、状態が二通りしかないので、これだけで場面を支えるのは難しい。",
+        "problems": "",
+        "near": "同じ仕組みの A はない（b/standpoint-calls-both-sides はこれを使った B）。b/colour-by-between も関係から色を決めるが、使う関係が違う（下の間の大きさ。こちらは立ち位置との格子の偶奇）"
+      }
     },
     {
       "path": "a/time-unsounded-origin",
@@ -63,7 +91,14 @@
       "instruments": "ウッドブロック 3（高・中・低）",
       "uses": "",
       "length": "0:48",
-      "round": 1
+      "round": 1,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "鳴らない一点を寄り合いだけで立てる身振りは、誰も弾かない拍を中心にする素材になるが、4 拍ちょうどの繰り返しなので、そのままでは 4 秒のループに聴こえる。",
+        "problems": "",
+        "near": "a/pitch-unplayed-centre (the same unsounded centre, on the pitch axis); b/chord-nobody-plays is its B; a/time-steps-back (the other reading that adds time backwards)"
+      }
     },
     {
       "path": "b/families-return-displaced",
@@ -76,7 +111,14 @@
       "instruments": "弦 12 声の分奏（pizz.）、木管 12、弱音器の金管",
       "uses": "ideas/lines の a-families-part（仲間がほどける）",
       "length": "1:32",
-      "round": 1
+      "round": 1,
+      "audit": {
+        "verdict": "keep",
+        "strength": 4,
+        "why": "和音という縦の名前は戻っても時間の関係は戻らない、ということを、各声の道のりがずれとして残ることと、共通の拍との関係で決まる色で聴かせる。一つの節として立つ素材で、真ん中がいちばん細かく、盛り上げの型にもならない。",
+        "problems": "",
+        "near": "b/chord-nobody-plays（同じ和音・配り・12×3 の編成）、b/peel-off-three-families（仲間ごとに一人ずつ離れる）、ideas/lines/a-families-part（使っている A）"
+      }
     },
     {
       "path": "a/pitch-two-sets",
@@ -89,7 +131,14 @@
       "instruments": "独奏チェロ 2",
       "uses": "",
       "length": "0:58",
-      "round": 2
+      "round": 2,
+      "audit": {
+        "verdict": "keep",
+        "strength": 4,
+        "why": "「合う縦の響き」を名前でなくセットが決めるという、前提をそのまま書き方にした二声の対位法。旋律と下の声を組む一般的な技法として曲の中で何度でも使える。",
+        "problems": "",
+        "near": "なし（b/steps-reach-down がこれを使う）"
+      }
     },
     {
       "path": "a/pitch-two-standpoints",
@@ -102,7 +151,14 @@
       "instruments": "独奏ヴィオラ 2",
       "uses": "",
       "length": "0:52",
-      "round": 2
+      "round": 2,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "縦の間が歩く人のずれそのものになって弧を描き、0 に戻るので、二声のヘテロフォニーや対の素材になる。ただ組の中は平行の二声なので、聴こえ方は平行音程の連続に寄りやすい。",
+        "problems": "",
+        "near": "a/time-from-the-head（組の頭に立つ人と歩き続ける人を、時間の軸で試す。足し方は違う）。この A を使った B は b/thread-that-returns"
+      }
     },
     {
       "path": "a/texture-wind-across",
@@ -115,7 +171,14 @@
       "instruments": "チェロ（sul tasto のグリッサンド）、金管 8",
       "uses": "",
       "length": "1:00",
-      "round": 2
+      "round": 2,
+      "audit": {
+        "verdict": "fix",
+        "strength": 3,
+        "why": "音程の間がそのまま入りの待ちになる対応ははっきり聴こえ、和音を描き出す出だしや移りに使える。ただ、いまの形は上行グリッサンドで積み上げる盛り上げの型に寄っている。",
+        "problems": "上りの一回が、チェロの上行グリッサンド、金管が下から一人ずつ積み重なること、全員が折り返しへ向けて pp から p へ膨らむこと（sketch.ts の points: 入り 2 → 折り返し 3）の三つでできている。これは上行で厚みを積んで頂点へ向かう盛り上げの型そのもの。二回目は同じ形を 5/3 倍に引き伸ばすので、上りだけで約 16 秒の長い盛り上げになる。カードは「膨らみは一段だけなので盛り上げではない」とするが、厚み（1 → 8 声）の積み上がりそのものが頂点へ向かっている。ほかに、間の並びを「どの二音も 12・24 離れない」ものに絞った理由がカードに書かれていない。構造の理由がないと、オクターブを名前で避けた条件に読める。",
+        "near": "b/wind-is-the-cut（この A を使った B。こちらは積み上げではなく、古い和音と新しい和音の切り替えにしている）"
+      }
     },
     {
       "path": "b/rain-on-a-moving-roof",
@@ -128,7 +191,14 @@
       "instruments": "弦 8 声の分奏、弱音器のトランペット 2、ハープ I・チェレスタ・グロッケン、四分音低いハープ II とピアノ",
       "uses": "ideas/lines の b-ceiling（天井で止まる）と two-grids の鏡",
       "length": "1:51",
-      "round": 2
+      "round": 2,
+      "audit": {
+        "verdict": "fix",
+        "strength": 3,
+        "why": "三つの仲間でずれて降るピッツィカートの雨と、格子ごとに光る鏡は色として使えるが、いまは全体の 6 割が一つの音で、屋根が線を切る仕組みは二度しか聴こえない。",
+        "problems": "屋根の間は −2.5, −1.5, +6.5, −3, −4.5, −2 で、上がるのは 16 小節の一回だけ。下りる 5 回は、声がそのまま屋根の音を取るだけ。仕組みの芯（線が上って屋根に切られ、セットにない間ができ、鏡が光る）が起きるのは 4〜6 小節（約 6.5 秒）と 16 小節（約 2 秒）の二回だけ。楽譜を数えると、110 秒のうち 68.5 秒は、アンサンブル全体が一つの音（屋根。ピッツィカートの反復とトランペット）しか鳴らしていない。雨の密度は約 23 小節のあいだ一小節 33〜38 で、強弱も p で平らなまま。終わりに残る 81.5、82、88.5、96.5、97 は再生サンプルの上限（Vc 82、Va 90、Vn 97）で決まっていて、仕組みの結果ではない。",
+        "near": "パレットの中に同じ仕組みはない（元の仕組みは ideas/lines/b-ceiling）"
+      }
     },
     {
       "path": "a/pitch-same-sum-meets",
@@ -141,7 +211,14 @@
       "instruments": "ヴァイオリン 4 部の分奏",
       "uses": "",
       "length": "0:56",
-      "round": 3
+      "round": 3,
+      "audit": {
+        "verdict": "keep",
+        "strength": 4,
+        "why": "順番の違う声が、セットの和だけで決まる所に必ず戻るという仕組みは、区切りや合流点を名前でなく関係から置く道具として、節の骨組みに使える。",
+        "problems": "",
+        "near": "b/meetings-handed-around is its B; partly a/pitch-two-standpoints and a/pitch-one-count-three-units (voices meet because the sums of their betweens come out equal)"
+      }
     },
     {
       "path": "a/time-unsounded-betweens",
@@ -154,7 +231,14 @@
       "instruments": "クラリネット 1（一つの音）",
       "uses": "",
       "length": "0:54",
-      "round": 3
+      "round": 3,
+      "audit": {
+        "verdict": "keep",
+        "strength": 4,
+        "why": "原則でまだ決まっていない「休み」に一つの答えを出していて、すでに B に転用されるほど使い回しが効く。ただ単音一本なので、曲の素材になるのはほかの軸と組んだときになる。",
+        "problems": "",
+        "near": "a/time-wait-to-change（休みの別の読み）、a/time-between-of-betweens（一つの楽器・一つの音で時間だけを聴く形）"
+      }
     },
     {
       "path": "a/texture-ring-from-now",
@@ -167,7 +251,14 @@
       "instruments": "ハープ 2 台（II は四分音低く調弦）",
       "uses": "",
       "length": "1:04",
-      "round": 3
+      "round": 3,
+      "audit": {
+        "verdict": "fix",
+        "strength": 4,
+        "why": "いま鳴っている音どうしがいつもセットの間だけでできる、線から和声を生む仕組みで、伴奏や響きの層として強い。ただし今の線だと反復進行に聴こえてしまう。",
+        "problems": "線を引く規則が、組合せの辞書順で 12 音ごとに同じ間の並びを繰り返す。だから線は 2 小節ごとに同じ形を前半 +6、後半 +7.5 ずつ移すだけの反復進行になる。楽譜で確認した: 1 小節目は 60 56.5 55.5 52 54.5 51。3 小節目はその全部を +6 した列、5 小節目は全部を +12 した列で、同じ列がそのまま 12 上に戻る。厚さも 8 拍ごとに同じ形（2 2 2 3 …）を繰り返す。カードはこれを「耳で判断してほしい所」に書いて残しているが、1 分のあいだ耳にまず届くのは、残る響きではなくこの反復進行。余湖さんが退けた「間の並びを固定すると、形を移していくだけになる」そのもの。音域を狭めて端での逆向きを増やす案も試算した。線が 12 音の輪に閉じて、かえって悪くなる",
+        "near": "なし（b/accompaniment-from-now がこれを使い、旋律も同じ組合せの規則）"
+      }
     },
     {
       "path": "a/pitch-dictionary-order",
@@ -180,7 +271,14 @@
       "instruments": "ホルン 5",
       "uses": "",
       "length": "1:04",
-      "round": 3
+      "round": 3,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "規則の順だけで、動く声の数が波ごとに 1 から 4 へ深まるので、コラール状の和声進行の骨組みに使える。ただ辞書順なので、30 回の動きのうち 25 回が上向きで、和音は一方向に開き上がり続ける。長く使うのは難しい。",
+        "problems": "",
+        "near": "同じ仕組みはない（和音を立ち位置に積んだ間として持ち、規則がどの声を残すかを決める、という枠は a/pitch-trade-places と a/pitch-half-moves に近い）"
+      }
     },
     {
       "path": "a/texture-names-trade-at-unison",
@@ -193,7 +291,14 @@
       "instruments": "フルート、オーボエ、クラリネット",
       "uses": "",
       "length": "1:04",
-      "round": 3
+      "round": 3,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "線と楽器の対応が同じ音でだけ入れ替わる仕組みは、木管の対位法の書き方としてそのまま使える。ただ、耳はふつう音色を追うので、「線が楽器を乗り換えた」と聴こえるかどうかが成否を握る。",
+        "problems": "",
+        "near": "a/texture-braid（隣どうしが音を交換し、楽器と線の対応が入れ替わる）に一部近い"
+      }
     },
     {
       "path": "b/breaths-walk",
@@ -206,7 +311,14 @@
       "instruments": "管 16（一人一音）、弦 16 部の分奏",
       "uses": "ideas/lines の a-late-by-one（一つずつ遅れる）",
       "length": "1:48",
-      "round": 3
+      "round": 3,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "静止した和音の中を欠けが上っていく最初の一、二回は、はっきりした素材になる。ただしそのあとは、ちらつく保続和音の背景の層に近くなる。",
+        "problems": "",
+        "near": "a/texture-leaf-gates（動かない和音を、声ごとの周期的な休みで開け閉めし、厚さが結果として決まる。こちらは周期が声ごとに atom 一つずつ違う、一つずつ遅れる形）"
+      }
     },
     {
       "path": "a/pitch-half-moves",
@@ -219,7 +331,14 @@
       "instruments": "弦 8 声の分奏",
       "uses": "",
       "length": "0:56",
-      "round": 4
+      "round": 4,
+      "audit": {
+        "verdict": "keep",
+        "strength": 4,
+        "why": "半分が鳴ったまま残り半分が同じ幅で動く 8 つの和音は、共通音を関係から持った和声の場として、ひと区間の土台にそのまま使える。",
+        "problems": "",
+        "near": "partly a/pitch-dictionary-order (the order of the rule decides which voices of a stacked chord move)"
+      }
     },
     {
       "path": "a/pitch-cross-a-between",
@@ -232,7 +351,14 @@
       "instruments": "チェロ 6 声の分奏",
       "uses": "",
       "length": "1:00",
-      "round": 4
+      "round": 4,
+      "audit": {
+        "verdict": "keep",
+        "strength": 4,
+        "why": "立ち位置の移動から「残る共通音の数」が決まる和音の進み方の規則で、.5 の間をまたぐと軸が二つの格子の真ん中に来る。和声の節の骨組みになりうる。",
+        "problems": "",
+        "near": "a/pitch-half-moves（一部の声が残り、残りが同じ幅で動く聴こえ）、a/pitch-unplayed-centre（格子のあいだの軸と鏡）、a/pitch-two-standpoints（立ち位置の読み替え）"
+      }
     },
     {
       "path": "a/pitch-split-by-grid",
@@ -245,7 +371,14 @@
       "instruments": "ヴィオラ 3 部の分奏",
       "uses": "",
       "length": "1:00",
-      "round": 4
+      "round": 4,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": ".5 の付かない声は起点の格子を一度も出ないので、固定の音の楽器とそれ以外を関係から分けられる。ただ、響きは平行に動く二声と一つの保続に限られる。",
+        "problems": "",
+        "near": "a/pitch-two-standpoints（一本の流れを二人が読み、縦の間が片方の部分和になる、近い仕組み）、a/pitch-standpoint-steps-back（一本の流れを複数の声に配る。向こうは順番で、こちらは .5 の有無で）"
+      }
     },
     {
       "path": "a/time-between-of-betweens",
@@ -258,7 +391,14 @@
       "instruments": "ハープ 1（一つの音）",
       "uses": "",
       "length": "1:05",
-      "round": 4
+      "round": 4,
+      "audit": {
+        "verdict": "fix",
+        "strength": 3,
+        "why": "差の差が 0 の所にだけパルスが生じる、つまり拍を書かずに拍を出す仕組みは、時間の層の素材として有望。ただ、いまの規則では前半でしか試せていない。",
+        "problems": "辞書順で組を取るので、−3 を含む 7 組がすべて前半に来る。そのため線は後半でほぼ倍遅くなる（楽譜では、前半 34.6 拍に 30 打、後半 34.6 拍に 13 打。平均の間は 6.0 atom から 12.8 atom）。結果は終わりへ向かうリタルダンドという既知の形になる。しかも後半のパルス（12・14・15 atom、2.2〜2.7 秒おき）は、カード自身が書くとおり、パルスとしてまとまりにくい。だから課題（差が 0 の所にだけパルスが生じるか）は、実質前半でしか試せていない。下の境界での折り返し 3 回も、この偏りを押し戻すために働いている。カードはこれを作曲の段で考える点として挙げているが、仕組みの根ではなく、仮の値の規則から来ている。",
+        "near": "同じ仕組みはない（境界での折り返しは a/dynamics-a-between と同じ種類の約束）"
+      }
     },
     {
       "path": "b/weight-by-relations",
@@ -271,7 +411,14 @@
       "instruments": "弦 12 声の分奏（sul tasto）、木管 12、金管 10",
       "uses": "ideas/two-grids（ガラスの和音）",
       "length": "1:51",
-      "round": 4
+      "round": 4,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 3,
+        "why": "関係の数がそのまま重ねの厚さになる仕組みは、和音の配器を関係から決める道具として使いでがある。ただ、立ち位置を替えた効果が密度の落差に隠れやすい。",
+        "problems": "後半のレンズは「休んでいる和音のどの二音のあいだにも当たらない大きさ」として選ばれている。そのため、つながりは離れている少数の声のまわりにしか生じない。管が鳴っている延べの長さは、前半 421 拍から後半 102 拍に落ちる。留まる声一つあたりの管は、前半が家の音 1.37・離れた音 0.77、後半が 0.20・0.30 で、後半の差は前半の差の 5 分の 1 ほどしかない。耳には「重みの場所が裏返る」よりも「13 小節で管が去り、あとはときどき光る」と聴こえる公算が大きく、裏返りと単なる減衰が区別できない。これはレンズの選び方の根にある。家の音どうしを 0 にするレンズは、声の多くが家にいる限り、必ず薄くなる。",
+        "near": "a/texture-ring-from-now、b/accompaniment-from-now（間の大きさがセットにあるかどうかで、鳴るか鳴らないかを決める）、b/colour-by-between（関係が色を付ける）"
+      }
     },
     {
       "path": "b/zeros-fan-and-gather",
@@ -284,7 +431,14 @@
       "instruments": "フルート・オーボエ・クラリネット、Vn I・Vn II・Va・Vc の 7 声",
       "uses": "ideas/lines の b-zeros-spread（0 が増える）",
       "length": "1:20",
-      "round": 4
+      "round": 4,
+      "audit": {
+        "verdict": "fix",
+        "strength": 4,
+        "why": "一本の線から「遅れ」で和音を作り、また一音へ畳む弧がはっきりしている。一つの区間にも、移り変わりの所にも使える。",
+        "problems": "楽器の重さの釣り合いが合っていない。フルート・オーボエ・クラリネットは 2 本ずつ、弦はセクション全員（Vn I 16、Vn II 14、Va 12、Vc 10）で、7 声とも同じ帯 60〜73 を同じ p で弾く。聴きどころの「7 色のずれ」のうち木管の 3 声（特に低い所のフルート）が弦に埋もれ、弦 4 声のずれとして聴こえるおそれが強い。カードはこれを作曲の段に回しているが、仕組みが聴こえるかどうかに直結する。もう一つ、形は「ユニゾン → 広がる → 一つの音へ集まる」で、0.67 秒の一定の刻みが約 50 秒続く。強弱は下がっていくので盛り上げではないが、刻みからユニゾンへ向かう輪郭は残る（カードも自覚している）。",
+        "near": "同じ仕組みはない（ゆるく近いのは a/pitch-same-sum-meets。声が分かれてから同じ音で会う点）"
+      }
     },
     {
       "path": "a/time-handed-at-meetings",
@@ -297,7 +451,14 @@
       "instruments": "マリンバ、チェロのピッツィカート（四分音ずれた格子）",
       "uses": "",
       "length": "0:58",
-      "round": 5
+      "round": 5,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "線どうしの出会いがセットの変化を書くという、セットの物語そのものを作る仕組みで、二層のリズムを入れ替えていく過程に使えるが、出会いがまばらで変化はゆっくりしか聴こえない。",
+        "problems": "",
+        "near": "partly a/texture-names-trade-at-unison (the same shape, where two lines meeting triggers an exchange, on the pitch/instrument axis)"
+      }
     },
     {
       "path": "a/texture-braid",
@@ -310,7 +471,14 @@
       "instruments": "テナー・トロンボーン 3、チェロの分奏 3 部",
       "uses": "",
       "length": "0:55",
-      "round": 5
+      "round": 5,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "和音をまったく動かさずに、金管と弦の上下だけを入れ替える移行の手段として使える。ただ交差の 4 割は色が同じで聴こえず、滑りの手触りが先に立つおそれがある。",
+        "problems": "",
+        "near": "a/texture-names-trade-at-unison（同音で楽器という名前が入れ替わる。前提の同じ一点目）、a/pitch-trade-places（隣どうしの入れ替え）、b/colour-by-between（動かない音の色だけが替わる）"
+      }
     },
     {
       "path": "a/time-change-where-it-lands",
@@ -323,7 +491,14 @@
       "instruments": "ウッドブロック 1",
       "uses": "",
       "length": "0:53",
-      "round": 5
+      "round": 5,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "原則で決まっていない「仲間を替える所が拍として目立ちすぎないか」を直接聴ける。ただ仮の値の結果は 21 拍の輪で、線の素材としては周期に縛られる。",
+        "problems": "",
+        "near": "a/time-wait-to-change（仲間の替わり目と拍の関係を扱う。替わる引き金は違う）"
+      }
     },
     {
       "path": "b/trades-in-time",
@@ -336,7 +511,14 @@
       "instruments": "木管 5 とホルン、ハープとコントラバスのピッツィカート、弦 6 声の分奏（con sord.）",
       "uses": "palette/a/pitch-trade-places（間が入れ替わる）",
       "length": "1:43",
-      "round": 5
+      "round": 5,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 2,
+        "why": "周期を「時間の和音」として持つ見方は面白い。ただこの写し方では、どうしても同じ昇りの分散和音のループになり、場面の素材としては反復する伴奏型に限られる。",
+        "problems": "声 k を鳴り始め k にして、時間と音高を同じ立ち位置から積んでいる。そのため、どの周期も同じ 6 声がファゴットからフルートへ昇る分散和音になり、この順は 26 周期で一度も変わらない。前半の 18 周期（約 66 秒）は和音も同じで、3.9 秒の周期のループの中で、一音ずつ位置がずれていく反復として聴こえる（漸進的に一音ずつずらすミニマルの過程に近い）。さらに速い連なりが一周期ずつ次の頭へ運ばれ、頭の直前に着く。頭はファゴット、ハープ、1 オクターブ下のコントラバスのピッツィカートの 3 本重ねで、ほかの声は 1 本ずつ。だから弱起から重い下拍へ、という形が周期ごとに強まる（カードは「頭を重くせず」と書くが、配器で重くなっている）。刻み→盛り上げ→一撃の型そのものではない（いちばん大きくて mp、クレッシェンド 0、最後は pp の頭一つ）。それでも、反復する周期が主役になる点は、周期を和音として持つという仕組みの根から来ていて、値を替えても消えない。",
+        "near": "時間の軸では同じ仕組みはない（同じ A を音高で使うのは b/colour-by-between と b/line-in-the-trades）"
+      }
     },
     {
       "path": "b/two-chords-trade-sets",
@@ -349,7 +531,14 @@
       "instruments": "木管 6、弦（ヴィオラ・チェロの分奏、コントラバス）",
       "uses": "ideas/lines の b-narrowing（間が四分音ずつ縮む）",
       "length": "1:20",
-      "round": 5
+      "round": 5,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 2,
+        "why": "二つの群が交互に一段ずつ動く、沈んでいく和音の連なりとして、下降の移りには使える。ただ、一方向の単調な過程で、仕組みの中心である鏡の関係が音として立たない。",
+        "problems": "16 段はどれも同じ種類の出来事で、片方の群の 5 声が 0.5〜2.5 ずつ下がる。どちらの和音が動いても声は必ず下がるので、80 秒全体が、内側の 10 声が一様に沈んでいく一本の過程になる。展開は規則が自動で運ぶ位置の変化だけで、3〜4 段で先が読める。仕組みの中心の「真ん中で上下逆さの同じセット」は、43〜94 にまたがる鏡で、弦と木管の二つの層に分かれている（隙間はいつも 16 か 18.5）。何も印を付けないので、聴こえる見込みは薄い。実際に聴こえるのは「二つの層がゆっくり沈む」ことだけ。終わりはチェロ・ヴィオラの 43〜50.5 に 6 音が固まり、pp では濁りやすい。",
+        "near": "a/pitch-unplayed-centre（誰も弾かない一点を軸にした上下対称）、a/pitch-cross-a-between（和音の裏返し）"
+      }
     },
     {
       "path": "b/line-in-the-trades",
@@ -362,7 +551,14 @@
       "instruments": "弦 9 声の分奏、独奏の木管 5",
       "uses": "palette/a/pitch-trade-places（間が入れ替わる）",
       "length": "1:45",
-      "round": 5
+      "round": 5,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 2,
+        "why": "声部の動きから旋律を取り出す手は使えるが、この A の規則の上では、どの旋律も一方向に進む分散和音にしかならない。",
+        "problems": "使った A の規則では、和音は狭い間を下に並べて始まり、波はいちばん広い間を上から降ろす。だから越える間はいつも大きい順に並ぶ。その結果、前半の旋律は例外なく下がり、一歩は必ず狭まり、最後はセットのいちばん小さい間（0.5）で着く。後半は逆に、必ず上がって一歩が広がる。14 本の旋律はすべて、向きの変わらない分散和音になる（各旋律が、波の終わりの和音で隣り合う声の一続きと同じ: 14/14）。カードは「一様に狭まるのは等差にした値の結果」として、狭い組を不揃いにする案を出している。しかし狭まる向きと 0.5 の着地は値ではなく規則から来るので、値を変えても消えない。形も、旋律の長さが 7→1→7 の回文で、後半は前半を逆にたどるだけ。",
+        "near": "同じ A を使う b/colour-by-between と b/trades-in-time があるが、足した仕組みは違う"
+      }
     },
     {
       "path": "a/time-from-the-head",
@@ -375,7 +571,14 @@
       "instruments": "ウッドブロック 2（高・低、ともに p）",
       "uses": "",
       "length": "0:48",
-      "round": 6
+      "round": 6,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "同じセットから「歩幅」と「位置」という二つの層を引き出すので、もう一本のリズム層や伴奏を同じ関係から作る方法になるが、合成された 16 分の刻みに聴こえるおそれがある。",
+        "problems": "",
+        "near": "a/pitch-two-standpoints (the same standpoint question on pitch, acknowledged on the card); a/pitch-standpoint-steps-back (where a line adds from)"
+      }
     },
     {
       "path": "a/dynamics-a-between",
@@ -388,7 +591,14 @@
       "instruments": "独奏チェロ 1（一つの音）",
       "uses": "",
       "length": "0:44",
-      "round": 6
+      "round": 6,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 2,
+        "why": "強弱を四つ目の軸として間で書くという問い自体は新しい。ただ、聴かせどころの折り返しが音程からの借り物で、既定の順が折り返しを強いているため、課題が二つに割れている。",
+        "problems": "聴きどころの中心は、端での折り返し。ところがこれは音程のオクターブを強弱に借りた比喩で、強弱の側に根拠がない。幅 8 で折り返すと 9→1、−1→7 になり、niente（0）と fff（8）を同じと見なすことになる。聴こえでこれに当たるものはない（カードも推測として認めている）。しかも既定の順（−1 −4 2 3）は、カードが書くとおり端を越えるように並べたもの。8 段のうち 4 段が折り返しで、+2 と −4 はそのままの形で一度も鳴らない。聴こえる段差は {−1 +3 +4 −6} になる。つまりこの A は「強弱を間で書く」と「端で折り返す」の二つの課題を持っていて、聴こえるのは後者の副作用（ff→ppp のような突然の弱音、段ごとの強弱）が中心になる。課題を一つにするなら、順を −1 2 −4 3 にすれば折り返しは起きない（4→3→5→1→4、逆順で 7→3→5→4）。大きさが全部違う、1 を含む、和が 0、後半が前半の上下反転の逆読みになる、というカードの理由はどれも保たれる。端でどうするか（折り返す／跳ね返る／止まる）は、別の問いとして扱う。",
+        "near": "なし（強弱の軸はこれだけ。量を間で決める点では a/texture-thickness-is-the-step が遠い親戚）"
+      }
     },
     {
       "path": "a/time-steps-back",
@@ -401,7 +611,14 @@
       "instruments": "ウッドブロック 3（高・中・低）",
       "uses": "",
       "length": "1:00",
-      "round": 6
+      "round": 6,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 2,
+        "why": "結び目とほどけが交互に来る型や、時間の間 0 の同時打ちを作る道具にはなる。ただ、負の間という読みは聴こえず、結果は 6 回繰り返す一つの型に留まる。",
+        "problems": "聴く人に届くのは、時間の順に並べ直した打ちだけ。足した順は計算の中にしかない。同じ打ちの列は、正の間だけのセットからでも作れる。違いとして残るのは木の高さだけで、それは「どちら向きの一歩で着いたか」という、聴いても分からない札。楽譜では 28 atom の型がまったく同じまま 6 回続く（型は hll.hBlBhhlh...h.h...h.h....）。聴こえるのは一つのリズムの型の刻み（オスティナート）になる。「足した順と聴こえる順が別になる」という課題そのものが、耳に届かない作りになっている",
+        "near": "a/time-unsounded-origin（起点から後ろへ足す、同じ負の向きの読み）"
+      }
     },
     {
       "path": "b/steps-reach-down",
@@ -414,7 +631,14 @@
       "instruments": "Vn I・Va・Vc が各 1 声を pp で保ち、Ob 2・Cl 2・Fg 2 が動いた声だけを p で鳴らす（Cb は再生の音域の都合で外した）",
       "uses": "palette/a/pitch-two-sets（縦の間と横の間）",
       "length": "1:16",
-      "round": 6
+      "round": 6,
+      "audit": {
+        "verdict": "fix",
+        "strength": 4,
+        "why": "縦のセットの個数という一つのつまみで、旋律の一歩が下へ届く深さ（動く声の数）が変わり、塊から一声ずつほどけていく。伴奏の書き方として、場面にそのまま使える。",
+        "problems": "旋律の一歩の一巡の和が 0 なので、旋律は 6 歩で 74 に戻る。一方、時間の間 {3 4 5} の一巡の和がちょうど 1 小節（12 atom）。この二つが重なって、旋律は 2 小節ごとに必ず小節の頭で 74 に戻る（10 回の戻りがすべて小節の頭。21 の小節の頭のうち 14 が 74）。結果、76 秒のあいだ、2 小節の句が同じ音で下拍に着く形がずっと続く。中心の音が「現れて消える」ことがなく、21 の小節の頭すべてに鳴り始めがあるので、4/4 の小節線も聴こえる。さらに旋律と時間の周期が 36 歩でそろうので、4 段目からの 24 歩は高さもリズムもまるごと再現になる。カードはどれも耳で判断する点として挙げている。だが、どれも B の仕組み（縦のセットの個数で深さが変わる）とは関係がなく、時間の値の偶然から来ている。",
+        "near": "同じ仕組みはない（使っている A は a/pitch-two-sets）"
+      }
     },
     {
       "path": "b/accompaniment-from-now",
@@ -427,7 +651,14 @@
       "instruments": "独奏クラリネット、弱音器の弦 6 部の分奏（Vn I 2・Vn II 2・Va 2）",
       "uses": "palette/a/texture-ring-from-now（今から見て残る響き）",
       "length": "1:38",
-      "round": 6
+      "round": 6,
+      "audit": {
+        "verdict": "fix",
+        "strength": 4,
+        "why": "旋律のいまの音から見た関係だけで伴奏が決まり、四分音一つの差で伴奏の厚さが動く。独奏と伴奏の場面にそのまま使える、手応えのある仕組み。",
+        "problems": "段のセットに 5 と 7 が入っている。1 段目 {1.5, 4, 5, 7.5}、3 段目 {1.5, 4, 5.5, 7}、4 段目 {1.5, 4, 5, 7}。手引きは 2・5・7 を仮の値に置かないとしている。種になる 1.5 と 4 には構造の理由が書かれておらず、5 と 7 はその和や四分音一つ隣として出てくる。最後の段は、旋律が −7・−5・+7・+5・+4 で歩き（楽譜で確認。完全 5 度・4 度と長 3 度が中心）、影の二音も 4・5・7 が中心になる。終わりは 65 と 69（長 3 度）を 4 拍保って消える。四分音一つで厚さが変わる仕組みそのものは良いが、終わりが名前のある協和の方へ戻っていく。4 段目の 5.5 → 5 は「1 段目へ戻る」ために選ばれているが、両方の和を切る一歩は 5.5 → 6（{1.5, 4, 6, 7}）でもよい。",
+        "near": "a/texture-ring-from-now（元の A）、b/weight-by-relations（関係がセットに当たるかどうかで鳴らす）"
+      }
     },
     {
       "path": "a/pitch-frost-freeze",
@@ -440,7 +671,14 @@
       "instruments": "弦 9 声の分奏（Vc 3・Va 2・Vn II 2・Vn I 2）、arco pp non vib.",
       "uses": "",
       "length": "0:49",
-      "round": 6
+      "round": 6,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 2,
+        "why": "和音が一音ずつ育つ入りの素材にはなる。ただし規則は種からの距離の順に並べているだけで、課題の芯が音に出ていない。",
+        "problems": "候補の殻は「届く、鳴っている音の殻 + 1」だが、殻は内側から順に全部埋まる。そのため候補の殻はいつも種からの最短の数と同じになり（カードの事実にも書いてある）、選ばれる順は「種からの殻の数、同じなら低い方」で最初から全部決まっている。$TMPDIR で、鳴った音を使わず種からの距離だけで並べた順を計算すると、楽譜の 9 音と完全に一致した（69.5 65.5 68.5 71 72 61.5 64.5 67 67.5）。課題の芯として書かれている「鳴った音はどれも立ち位置になり、次の候補が変わる」は、結果に効いていない。聴こえるのは、セットを低い順に並べた入り、大きく下がって、それを 4 下げた同じ形（カードも認めている）。それが 1 小節に一音ずつ、9 声まで一様に積み上がる。候補の選び方が、いま鳴っている和音との関係で決まるようにならない限り（例: 鳴っている音のうちいちばん多くから届く候補を選ぶ）、「霜」は聴こえない。",
+        "near": "a/pitch-cut-from-both-ends（和音が一声ずつ、セットの間で切れ目に入って育つ。前提の三点目）"
+      }
     },
     {
       "path": "a/texture-leaf-gates",
@@ -453,7 +691,14 @@
       "instruments": "弦 8 声の分奏（Vc・Va・Vn II・Vn I を各 2 部、52 人、arco pp senza vib.）",
       "uses": "",
       "length": "1:11",
-      "round": 6
+      "round": 6,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "誰も指図しない厚さで息をする和音は、背景の保続や場の色として使いやすいが、音高が動かず、実質 6 つの開閉の周期に縮んでいる。",
+        "problems": "",
+        "near": "b/breaths-walk (the same surface, a held chord whose voices drop out and come back, from ideas/lines a-late-by-one); a different mechanism"
+      }
     },
     {
       "path": "b/chord-nobody-plays",
@@ -466,7 +711,14 @@
       "instruments": "弦 12 部（ピッツィカート）、木管 12、金管 12",
       "uses": "palette/a/time-unsounded-origin（鳴らない起点）",
       "length": "1:16",
-      "round": 6
+      "round": 6,
+      "audit": {
+        "verdict": "keep",
+        "strength": 4,
+        "why": "和音の替わり目と色の替わり目を、どちらも誰も弾かない点に置く仕組みで、前提の三点目を直接音にしている。一つの節として使える。ただ、段ごとに厚くなる量の形と、後から足した沈黙の規則は、余湖さんが確かめる点。",
+        "problems": "",
+        "near": "a/time-unsounded-origin（使っている A）、b/families-return-displaced（同じ和音・配り・12×3 の編成）"
+      }
     },
     {
       "path": "a/pitch-standpoint-steps-back",
@@ -479,7 +731,14 @@
       "instruments": "独奏クラリネット 1 本",
       "uses": "",
       "length": "0:58",
-      "round": 8
+      "round": 8,
+      "audit": {
+        "verdict": "fix",
+        "strength": 4,
+        "why": "一本の線を糸に割り、隣どうしの音のあいだに誰も選んでいない間を立たせる。前提の三点目を旋律の中で鳴らす仕組みで、独奏の線の書き方として広く使える。",
+        "problems": "各区間のはじめの d 個の立ち位置を、前の区間の最後の音から上へ 8.5 ずつ積んでいる（sketch.ts 145 行目）。そのため深さが 1→2→3 と増えるのと一緒に、区間の音の平均が 62.8 → 64.5 → 75.8 と上がる。d = 3 の上の糸は 78〜87（クラリネットの高い音域）。糸の数、音域、跳躍の大きさが揃って一方向に増えるので、割れて聴こえたのが深さのせいなのか音域のせいなのか区別できない。1 分かけて高く厚くなっていく形にもなっている",
+        "near": "a/pitch-split-by-grid（一本の流れを複数の声に配る。向こうは .5 の有無で、こちらは順番で）"
+      }
     },
     {
       "path": "a/pitch-cut-from-both-ends",
@@ -492,7 +751,14 @@
       "instruments": "弦 12 声の分奏（Vc・Va・Vn II・Vn I 各 3 部、全員ふつうの弓）",
       "uses": "",
       "length": "0:52",
-      "round": 8
+      "round": 8,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "枠を切って、セットにない「残り」の間が定義される、という考えは前提の三点目にいちばん直に届く。ただ音としては一声ずつ入って保つ静的な和音で、霜が育つ和音と聴こえ方が近い。",
+        "problems": "",
+        "near": "a/pitch-frost-freeze（鳴った声は動かず、規則が選んだ空いた切れ目に一定のパルスで一声ずつ入り、和音が育つ。どの切れ目を選ぶかは違う）"
+      }
     },
     {
       "path": "a/pitch-one-count-three-units",
@@ -505,7 +771,14 @@
       "instruments": "独奏チェロ 3 本",
       "uses": "",
       "length": "0:52",
-      "round": 8
+      "round": 8,
+      "audit": {
+        "verdict": "keep",
+        "strength": 3,
+        "why": "一つの数えを三つの単位で読む扇形の動きは、一本の線を比例で太らせる書き方として独特。ただ、巡ごとの同じ音が区切りとして強く、単位 3 の線は歩みの半分が 12 半音以上の跳びになる。",
+        "problems": "",
+        "near": "a/pitch-same-sum-meets（一巡の和がそろうので、6 歩ごとに全員が同じ音に着く）"
+      }
     },
     {
       "path": "b/meetings-handed-around",
@@ -518,7 +791,14 @@
       "instruments": "ホルン 4、クラリネット 3 + バスクラリネット、Vn I 4 部分奏。受け手はチェロ全員、ヴィオラ全員、フルート 2 本のユニゾン",
       "uses": "palette/a/pitch-same-sum-meets（順番が違っても同じ所に着く）",
       "length": "1:04",
-      "round": 8
+      "round": 8,
+      "audit": {
+        "verdict": "fix",
+        "strength": 3,
+        "why": "出会いの音を受け手が拾って遅い線にする二層の作りは使える。ただし、12 声が同じ刻みで動き続ける一様な織物と、受け手どうしのオクターブのちらつきが目立ちそう。",
+        "problems": "起点の差 12.5 は、「12 だと同じ名前の音（オクターブ違い）になり、名前が変わるのが聴こえない」という音名の理由で選ばれている。手引きの「平均律の音名で選ばない」に当たり、前提の「名前」を音名に写してしまっている。その結果、段 1 では受け手どうし（チェロとヴィオラ、ヴィオラとフルート）が 12.5 で 46〜47.5 拍鳴り、各巡の 1.5 拍だけ 12 に揃う（計 9 拍）。純正なオクターブと、四分音広いオクターブのあいだを周期的に行き来する響きになり、四分音が「ずれ」の効果として聴こえるおそれがある。群をまたぐ声がちょうど 12 か 24 になる組も 541 組ある。もう一つ、12 声が 0.75 拍の同じ刻みで、77 の鳴り始めのうち 69 で同時に動き、p 一定で 57 秒続く。一様な刻みの織物になる。",
+        "near": "b/thread-that-returns（A を三つの群に分け、入りをずらして重ね、戻る所・出会う所を持続の層が保つ。B としての作り方が同じ）"
+      }
     },
     {
       "path": "a/time-wait-to-change",
@@ -531,7 +811,14 @@
       "instruments": "ウッドブロック 3（高 = 5 の仲間、中 = 2、低 = 3）",
       "uses": "",
       "length": "1:00",
-      "round": 7
+      "round": 7,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 2,
+        "why": "休みが構造上いつも 1 拍未満にしかならず、色の替わりなしには休みとして聴こえないので、休みの扱い方の案としては射程が狭い。",
+        "problems": "(1) The wait is, by definition, the time to the next beat (wait = (TICKS - at % TICKS) % TICKS), so it is always shorter than one beat, at any value of the knobs. Here it is 0-0.8 beat (mean 0.37), shorter than both of its group's betweens in 16 of 30 groups, and every nonzero wait length also occurs as a between inside a group. So this reading of a rest can only ever make a sub-beat gap that cannot be told apart from a between. It is heard as a rest only because the woodblock changes colour afterwards. (2) The second question (does a family change stand out as a beat) is confounded: every hea",
+        "near": "a/time-change-where-it-lands (same constraint, change family only on beats, with the causality reversed; similar woodblock-line surface); a/time-unsounded-betweens (another reading of rests)"
+      }
     },
     {
       "path": "b/handed-by-size",
@@ -544,7 +831,14 @@
       "instruments": "フルート 2＋クラリネット 2 のユニゾン、ヴァイオリン I（16）＋ヴィオラ（12）のユニゾン、arco",
       "uses": "palette/a/time-unsounded-betweens（鳴らない間）",
       "length": "1:17",
-      "round": 7
+      "round": 7,
+      "audit": {
+        "verdict": "fix",
+        "strength": 3,
+        "why": "一本の線を、間の大きさごとに別の群へ渡していく経過句として使いやすい。ただ既定の値では、音域の上昇と 4 人→28 人への重さの移りが重なり、盛り上げの型に聴こえる。",
+        "problems": "線は巡ごとに 1.5 半音上がる（巡の平均音高は、木管が 67.75→71.2、弦が 68.7→73.75）。その線が、同じ p のまま 4 人の木管から 28 人の弦（Vn I 16＋Va 12）へ移っていく。最後の巡が、いちばん高く、いちばん重い群になる。音域の上昇と量の増加が一方向に重なっていて、盛り上げの型に聴こえる。カードも「似て聴こえるおそれ」に挙げているが、値は変えていない。上昇は音程の間の和が +0.5 であることから来ている。カードは「帯にとどまる」と書くが、実際は 6 半音上がり、和 +0.5 を選んだ構造上の理由は書かれていない。あわせて、長い音がいつも重い弦の側にある。",
+        "near": "a/time-unsounded-betweens（使っている A）、b/colour-by-between（間の大きさで色を決める。あちらは音程の間）、a/texture-names-trade-at-unison（一本の線の楽器が替わる）"
+      }
     },
     {
       "path": "b/wind-is-the-cut",
@@ -557,7 +851,14 @@
       "instruments": "チェロ 10（sul tasto のグリッサンド）、金管 9 と木管 9 が和音を交互に受け持つ",
       "uses": "palette/a/texture-wind-across（風が和音を渡る）",
       "length": "1:42",
-      "round": 7
+      "round": 7,
+      "audit": {
+        "verdict": "fix",
+        "strength": 4,
+        "why": "動く線の高さそのものが二つの和音の切れ目になるので、「あいだは切れ目そのもの」を和音の移り目として一番直接に鳴らせる。今は同じ回を繰り返していて、展開がない。",
+        "problems": "入れ替えの 4 回（2〜5 回目）が、どれも同じ出来事になっている。枠 45–75 は 1 分 42 秒のあいだ一度も変わらず、どの回も止み 7、入り 7、受け渡し 2。鳴っている音の数は 10 拍目から 100 拍目までずっと 9〜11（楽譜で確認）で、強弱は pp のまま。回ごとに変わるのは仲間（速さ）と色の交互だけで、仲間の 5, 3, 2 を二回回すので、形としては同じ回の繰り返しになる。B に求められる「展開を作りながら」がない。もう一つ、和音の間の並びを「読み始めを変えたどの和音にも 12 や 24 離れた二音がない」ことで選んでいる（README 97 行目。A の texture-wind-across も 57 行目で同じ）。これはオクターブ違いの同じ音名を除く選び方で、構造の理由ではなく音名で選んでいる",
+        "near": "a/texture-wind-across（この B の元の A。最初と最後の通過は A と同じ形）"
+      }
     },
     {
       "path": "a/texture-thickness-is-the-step",
@@ -570,7 +871,14 @@
       "instruments": "ヴァイオリン I 16 人（1｜2〜4｜5〜8｜9〜12｜13〜16 の分奏 5 段）",
       "uses": "",
       "length": "0:44",
-      "round": 7
+      "round": 7,
+      "audit": {
+        "verdict": "fix",
+        "strength": 2,
+        "why": "一歩の大きさがそのまま人数になるので、旋律線を着色する素材にはなる。ただ大きな跳躍ほど大勢のユニゾンになり、厚み＝音量＝強調という配器の常識と重なりやすいので、単独の素材としての幅は狭い。",
+        "problems": "問題は二つ。(1) 人数を 4 人ずつ等しく増やすところ（4・8・12・16 人）から間 {2 4 6 8} を作ったので、0.5 以外の間がすべて 2 半音の倍数になり、各巡りの 5 音が全音音階に乗る。2 巡り目は 59 57 61 67 59、4 巡り目は 58 56 60 66 58 で、どちらも 12 平均律の全音音階そのもの。規則では一歩の四分音の個数が人数なので、.5 の付く一歩はちょうど奇数人数の音になる。偶数の刻みを選んだことで、四分音は 1 人の音だけに押し込められ、巡りの頭で線を四分音ずらす役にしか残っていない。値は人数の構造から選ばれているのに、結果は名前の付いた音階になる。(2) 小さい順に読むので、どの巡りも 1→4→8→12→16 人と段々に厚くなり、巡りの最後は必ず 16 人のユニゾン（8 半音の跳躍の着地）になる。これが 10 秒ごとに 4 回来て、曲も 16 人のユニゾンを 4 拍保って終わる。強弱は mp で一定でも、厚みを積んで全員のユニゾンに着く形そのもの。「セットが持つ順は大きさの順しかない」という理由は弱い。原則の規則（書いた順、一巡ごとにずらす）はほかの順を許す。",
+        "near": "b/weight-by-relations（重なる人数を関係の数で決める。数える関係は違う）"
+      }
     },
     {
       "path": "b/peel-off-three-families",
@@ -583,7 +891,14 @@
       "instruments": "金管 10（Hn 4・Tpt 3・Tbn 3）、木管 10（Fl 2・Ob 2・C.A.・Cl 2・B.Cl・Bsn 2）、弦ピッツィカート 10 声の分奏",
       "uses": "ideas/lines の a-peel-off（一人ずつ離れる）",
       "length": "1:53",
-      "round": 7
+      "round": 7,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 3,
+        "why": "和音が一人ずつの列にほどけていく過程をオーケストラの中で受け渡すリレーは、移りや解体の場面に使える。ただ、音高が凍っているので、単独では展開にならない。",
+        "problems": "30 人全員が、最初から最後まで一つの音だけを鳴らす。10 の音は三つの合奏で同じで、強弱は全員 mp で平ら。音高・強弱・和音は 113 秒動かず、変わるのは「一人ずつ離れる」を三つの atom で三回ずらして走らせることだけ。三つが重なる 28〜54.4 拍（約 24 秒）を過ぎると、あとは同じ過程が終わっていくのを聴くことになり、最後の約 35 秒は弦のピッツィカートが一人ずつ鳴る列（1 小節に 3〜4 音）だけになる。B としての展開が、同じ A を三回ずらして重ねることに留まっている。冒頭は金管 10 人のアクセント付きの和音が 1.45 秒ごとに繰り返され、4 小節と 8 小節で合奏が加わるたびに、1 小節の鳴り始めが 20 → 29 → 33 と増える。そのため最初の 25 秒は「刻みに層を足していく」型に寄る（カードも作曲の段の点として注意している）。",
+        "near": "b/families-return-displaced（三つの仲間で、縦の和音を時間にほどく）、b/chord-nobody-plays（三つの仲間・三つの色で一つの和音を分け持つ）"
+      }
     },
     {
       "path": "b/thread-that-returns",
@@ -596,7 +911,14 @@
       "instruments": "フルート 2、クラリネット 2、独奏チェロ 2、弦の保続音（Vn I・Va・Vc）",
       "uses": "palette/a/pitch-two-standpoints（戻る人と歩く人）",
       "length": "1:20",
-      "round": 7
+      "round": 7,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 3,
+        "why": "三つの対と起点の保続音でできる透明な多声は、静かな区間に使える。ただし育ちが一段で止まるので、A を三つ重ねたものに近い。",
+        "problems": "A「戻る人と歩く人」は、すでに大きさ 2 の組で一巡している（クラリネットは A と同じ値で、同じ縦の間 0, −6.5, −9.5, −11, −9.5, −6.5 をたどる）。B で足した「育つ」は、大きさ 1 の短い一巡を前に付けただけで、半分で止めたので一段しかない。A の二巡目（逆の順で上へ出る弧）は落としたので、歩く人はいつも下へ出るだけ。結果は、A を三つ時間をずらして重ね、起点を保続したもの（独奏が 2→4→6→4→2 人の山形）で、展開が薄い。カードの作曲の段にある「間を 6 つ以上にする」「A の二巡目を足す」が、育ちを作る道になる。ほかに、フルートのリズムは一周がちょうど 1 小節で、同じ 1 小節の型が 8 回続く。",
+        "near": "b/meetings-handed-around（A を三つの群でずらして重ね、持続の層が戻る所・出会う所を保つ。B としての作り方が同じ）"
+      }
     },
     {
       "path": "b/standpoint-calls-both-sides",
@@ -609,7 +931,14 @@
       "instruments": "弦 16 声の分奏、コントラバス、トランペット 5（ミュート）、ホルン 5",
       "uses": "palette/a/texture-side-of-the-standpoint（立ち位置が裏返す色）",
       "length": "1:23",
-      "round": 7
+      "round": 7,
+      "audit": {
+        "verdict": "doubt",
+        "strength": 2,
+        "why": "同じ五音が立ち位置の四分音一つで別の楽器の名前になる瞬間は良いが、一つの .5 の有無が二択しか選べないため、状態が三つほどの静止した和音に留まり、展開する素材になっていない。",
+        "problems": "This is essentially the A with more instruments and no development. (1) One bit (does the double-bass step contain .5 or not) drives both the string flip and which wind group enters, so the winds carry no information the strings do not: trumpets always mean a flip, horns always mean no flip. (2) The semitone-grid chord tones cover 11 of the 12 pitch classes, and the standpoint may not be an octave of a chord tone, so it can stand on only 6 pitches, and on the semitone grid only on 32. As a result the horns always hold the same 5 notes, the trumpets alternate between two fixed 5-note sets, and ",
+        "near": "a/texture-side-of-the-standpoint (its A; the B adds only a second two-state colour switched by the same signal)"
+      }
     }
   ],
   "rejected": [
