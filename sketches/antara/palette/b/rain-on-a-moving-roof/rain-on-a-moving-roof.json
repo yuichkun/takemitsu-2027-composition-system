@@ -1,0 +1,15914 @@
+{
+ "title": "antara · palette B · rain on a moving roof",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 76
+  }
+ ],
+ "measures": 35,
+ "parts": [
+  {
+   "id": "tpt1",
+   "instrument": "trumpet",
+   "name": "Trumpet 1",
+   "abbreviation": "Tpt. 1",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      36,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      12,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      84,
+      1
+     ],
+     "dur": [
+      12,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      108,
+      1
+     ],
+     "dur": [
+      12,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "muted"
+    }
+   ]
+  },
+  {
+   "id": "tpt2",
+   "instrument": "trumpet",
+   "name": "Trumpet 2",
+   "abbreviation": "Tpt. 2",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      12,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      24,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "dur": [
+      12,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "muted"
+    }
+   ]
+  },
+  {
+   "id": "glk",
+   "instrument": "glockenspiel",
+   "name": "Glockenspiel",
+   "abbreviation": "Glk.",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      125,
+      2
+     ],
+     "text": "l.v. sempre"
+    },
+    {
+     "at": [
+      125,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": [
+      {
+       "midi": 94
+      }
+     ]
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 94
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hp1",
+   "instrument": "harp",
+   "name": "Harp I",
+   "abbreviation": "Hp. I",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      309,
+      5
+     ],
+     "text": "l.v. sempre"
+    },
+    {
+     "at": [
+      309,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 82
+      }
+     ]
+    },
+    {
+     "at": [
+      314,
+      5
+     ],
+     "dur": [
+      8,
+      15
+     ],
+     "pitch": [
+      {
+       "midi": 82
+      }
+     ]
+    },
+    {
+     "at": [
+      190,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 82
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hp2",
+   "instrument": "harp",
+   "name": "Harp II (tuned ¼ tone low)",
+   "abbreviation": "Hp. II",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      14,
+      1
+     ],
+     "text": "l.v. sempre"
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 79.5
+      }
+     ]
+    },
+    {
+     "at": [
+      69,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 79.5
+      }
+     ]
+    },
+    {
+     "at": [
+      77,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 79.5
+      }
+     ]
+    },
+    {
+     "at": [
+      64,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 79.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cel",
+   "instrument": "celesta",
+   "name": "Celesta",
+   "abbreviation": "Cel.",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      249,
+      4
+     ],
+     "text": "l.v. sempre"
+    },
+    {
+     "at": [
+      249,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": [
+      {
+       "midi": 82
+      }
+     ]
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": [
+      {
+       "midi": 82
+      }
+     ]
+    },
+    {
+     "at": [
+      193,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 82
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pno",
+   "instrument": "piano",
+   "name": "Piano (tuned ¼ tone low)",
+   "abbreviation": "Pno.",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      81,
+      5
+     ],
+     "text": "l.v. sempre"
+    },
+    {
+     "at": [
+      81,
+      5
+     ],
+     "dur": [
+      13,
+      10
+     ],
+     "pitch": [
+      {
+       "midi": 91.5
+      }
+     ]
+    },
+    {
+     "at": [
+      35,
+      2
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 91.5
+      }
+     ]
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": [
+      {
+       "midi": 91.5
+      }
+     ]
+    },
+    {
+     "at": [
+      67,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 91.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vn1-1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      14,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      77,
+      4
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      79,
+      4
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      125,
+      2
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      140,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     }
+    },
+    {
+     "at": [
+      63,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75
+     }
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     }
+    },
+    {
+     "at": [
+      77,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      79,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      41,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      45,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      95,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      49,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      51,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      105,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      55,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      57,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      121,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      63,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      65,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      147,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      39,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      161,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      163,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      83,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      87,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      179,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      91,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      93,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      189,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      99,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      203,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      205,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      105,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      107,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      221,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      57,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      231,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      59,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 78.5
+     }
+    },
+    {
+     "at": [
+      245,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      247,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 81
+     }
+    },
+    {
+     "at": [
+      125,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      64,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      129,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      263,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      133,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      135,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      273,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      139,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      141,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      287,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      289,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      73,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      147,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      149,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      75,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      305,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      77,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      78,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      315,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      80,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      81,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      329,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      331,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      167,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      84,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      85,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      171,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      347,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      175,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      177,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      357,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      181,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      183,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      371,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      373,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      94,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      189,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      191,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      389,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      98,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      99,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      399,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      101,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      102,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      413,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      415,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      209,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      105,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      106,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      213,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      431,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      217,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      219,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      441,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      223,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      225,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      455,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      457,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      115,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      231,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      233,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      117,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      473,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      483,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75
+     }
+    },
+    {
+     "at": [
+      122,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     }
+    },
+    {
+     "at": [
+      123,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 80.5
+     }
+    },
+    {
+     "at": [
+      497,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      499,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 84.5
+     }
+    },
+    {
+     "at": [
+      251,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 87.5
+     }
+    },
+    {
+     "at": [
+      126,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 88.5
+     }
+    },
+    {
+     "at": [
+      127,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 91
+     }
+    },
+    {
+     "at": [
+      255,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 94
+     }
+    },
+    {
+     "at": [
+      515,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 95
+     }
+    },
+    {
+     "at": [
+      259,
+      2
+     ],
+     "dur": [
+      21,
+      2
+     ],
+     "pitch": {
+      "midi": 96.5
+     }
+    }
+   ],
+   "name": "Violins I 1",
+   "abbreviation": "Vn. I 1",
+   "players": 8
+  },
+  {
+   "id": "vn1-2",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      65,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      181,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      193,
+      3
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      197,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      140,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      43,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 71
+     }
+    },
+    {
+     "at": [
+      46,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77.5
+     }
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     }
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      65,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      67,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      71,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      88,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      107,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      109,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      113,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      115,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      127,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      130,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      139,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      146,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      149,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      151,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      155,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      157,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      169,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      172,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      59,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      181,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      188,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
+     }
+    },
+    {
+     "at": [
+      191,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 81.5
+     }
+    },
+    {
+     "at": [
+      193,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      197,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      199,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      68,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      69,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      211,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      214,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      73,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      223,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      76,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      230,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      233,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      235,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      239,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      241,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      82,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      83,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      253,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      256,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      87,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      265,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      90,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      272,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      275,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      277,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      281,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      283,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      295,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      298,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      101,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      307,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      314,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      317,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      319,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      323,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      325,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      110,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      111,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      337,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      340,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      115,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      349,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      118,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      356,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      359,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      361,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75
+     }
+    },
+    {
+     "at": [
+      365,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      367,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      124,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      125,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 85
+     }
+    },
+    {
+     "at": [
+      379,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      382,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 88.5
+     }
+    },
+    {
+     "at": [
+      129,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 91.5
+     }
+    },
+    {
+     "at": [
+      391,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 92.5
+     }
+    },
+    {
+     "at": [
+      132,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 94
+     }
+    },
+    {
+     "at": [
+      398,
+      3
+     ],
+     "dur": [
+      22,
+      3
+     ],
+     "pitch": {
+      "midi": 97
+     }
+    }
+   ],
+   "name": "Violins I 2",
+   "abbreviation": "Vn. I 2",
+   "players": 8
+  },
+  {
+   "id": "vn2-1",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      10,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      81,
+      5
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      84,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      314,
+      5
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      317,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      140,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "at": [
+      58,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      62,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      74,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     }
+    },
+    {
+     "at": [
+      79,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      81,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      84,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      86,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      107,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      112,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      116,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      121,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      123,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      126,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      128,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      132,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      134,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      139,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      142,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      146,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      149,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      154,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      158,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      163,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      174,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      176,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      181,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      184,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      188,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      191,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      196,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      207,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      212,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      216,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      218,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      223,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      233,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      242,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      247,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      249,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      252,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      254,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      258,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      268,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      272,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      284,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      289,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      291,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      294,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      296,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      302,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      307,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 80.5
+     }
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 81.5
+     }
+    },
+    {
+     "at": [
+      314,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      317,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      322,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      326,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      331,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      333,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      336,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      338,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      342,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      344,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      349,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      352,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      356,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      359,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      364,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      368,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      373,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      75,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      378,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      76,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      384,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      386,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      391,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      394,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      398,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      401,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      406,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      82,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      83,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      417,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      84,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      422,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      426,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      428,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      433,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      436,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      88,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      443,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      448,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      452,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      457,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      459,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      462,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      464,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      468,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      94,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      95,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      478,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      482,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      98,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      494,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      499,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      501,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      504,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      506,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      102,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      512,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      517,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      524,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      527,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      532,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      536,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      541,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      543,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      546,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      548,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      552,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      554,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      559,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      562,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      566,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      569,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      574,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      578,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      583,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      117,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      588,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      118,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      594,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      596,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      601,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75
+     }
+    },
+    {
+     "at": [
+      604,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      608,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      611,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      616,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 85
+     }
+    },
+    {
+     "at": [
+      124,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      125,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 88.5
+     }
+    },
+    {
+     "at": [
+      627,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 91.5
+     }
+    },
+    {
+     "at": [
+      126,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 92.5
+     }
+    },
+    {
+     "at": [
+      632,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 94
+     }
+    },
+    {
+     "at": [
+      636,
+      5
+     ],
+     "dur": [
+      64,
+      5
+     ],
+     "pitch": {
+      "midi": 97
+     }
+    }
+   ],
+   "name": "Violins II 1",
+   "abbreviation": "Vn. II 1",
+   "players": 7
+  },
+  {
+   "id": "vn2-2",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      8,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      35,
+      2
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      37,
+      2
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      121,
+      2
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      64,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      140,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "at": [
+      17,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 59.5
+     }
+    },
+    {
+     "at": [
+      39,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      21,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "at": [
+      23,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      49,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      27,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      29,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     }
+    },
+    {
+     "at": [
+      63,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      65,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      35,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      37,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      81,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      91,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      105,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      107,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      55,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      59,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      123,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      63,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      65,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      133,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      69,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      71,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      147,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      149,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      77,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      79,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      165,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      175,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      189,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      191,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      49,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      101,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      207,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      105,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      107,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      217,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      111,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      113,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      231,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      233,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      59,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      121,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      61,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     }
+    },
+    {
+     "at": [
+      249,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 80.5
+     }
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      64,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      259,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      67,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      273,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      275,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      139,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      70,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      71,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      143,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      291,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      147,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      149,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      301,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      153,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      155,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      315,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      317,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      80,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      161,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      163,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      82,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      333,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      84,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      85,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      343,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      87,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      88,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      357,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      359,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      181,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      91,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      185,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      375,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      189,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      191,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      385,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      195,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      197,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      399,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      401,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      101,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      203,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      205,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      103,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      417,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      105,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      106,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      427,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      108,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      109,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      441,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      443,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      223,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      112,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      113,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      227,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      459,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      231,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      233,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      469,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      237,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      239,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      483,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     }
+    },
+    {
+     "at": [
+      485,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      122,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      245,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      247,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 83.5
+     }
+    },
+    {
+     "at": [
+      124,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      501,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      126,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      127,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 91.5
+     }
+    },
+    {
+     "at": [
+      511,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 94.5
+     }
+    },
+    {
+     "at": [
+      129,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 95.5
+     }
+    },
+    {
+     "at": [
+      130,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 97
+     }
+    }
+   ],
+   "name": "Violins II 2",
+   "abbreviation": "Vn. II 2",
+   "players": 7
+  },
+  {
+   "id": "va-1",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      6,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      64,
+      3
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      181,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      190,
+      3
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      64,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      140,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    },
+    {
+     "at": [
+      22,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 56.5
+     }
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "at": [
+      29,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    },
+    {
+     "at": [
+      32,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 71
+     }
+    },
+    {
+     "at": [
+      53,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     }
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     }
+    },
+    {
+     "at": [
+      58,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      64,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      71,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      74,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      95,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      100,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      113,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      116,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      128,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      139,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      142,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      148,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      155,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      158,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      170,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      58,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      179,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      181,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      184,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 80.5
+     }
+    },
+    {
+     "at": [
+      190,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      64,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      197,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      200,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      68,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      69,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      212,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      72,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      221,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      223,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      226,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      76,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      232,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      78,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      239,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      242,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      82,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      83,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      254,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      86,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      263,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      265,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      268,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      90,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      274,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      281,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      284,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      296,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      100,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      305,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      307,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      310,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      316,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      106,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      323,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      326,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      110,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      111,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      338,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      114,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      347,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      349,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      118,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      358,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      365,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      368,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      124,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
+     }
+    },
+    {
+     "at": [
+      125,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 83
+     }
+    },
+    {
+     "at": [
+      380,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      128,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 87
+     }
+    },
+    {
+     "at": [
+      389,
+      3
+     ],
+     "dur": [
+      31,
+      3
+     ],
+     "pitch": {
+      "midi": 88.5
+     }
+    }
+   ],
+   "name": "Violas 1",
+   "abbreviation": "Va. 1",
+   "players": 6
+  },
+  {
+   "id": "va-2",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      309,
+      5
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      311,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      140,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 49
+     }
+    },
+    {
+     "at": [
+      22,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 51.5
+     }
+    },
+    {
+     "at": [
+      26,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 54.5
+     }
+    },
+    {
+     "at": [
+      28,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    },
+    {
+     "at": [
+      33,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     }
+    },
+    {
+     "at": [
+      36,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      43,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "at": [
+      48,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      52,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      57,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      59,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      62,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      64,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 76
+     }
+    },
+    {
+     "at": [
+      68,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 78.5
+     }
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      78,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      82,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      94,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      99,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      101,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      106,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      112,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      117,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      124,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      127,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      132,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      136,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      141,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      143,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      146,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      148,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      152,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      154,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      159,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      162,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      166,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      169,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      174,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      178,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      183,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      188,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      194,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      196,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      201,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      204,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      208,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      211,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      216,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      227,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      232,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      236,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      243,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      246,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      253,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      258,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      262,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      267,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      269,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      272,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      274,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      278,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      57,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      288,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      292,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      59,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      304,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      309,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      311,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      314,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      316,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      64,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      322,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      327,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      334,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      337,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      342,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      346,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      351,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      353,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      356,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      358,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      362,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      364,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      369,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      372,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      376,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      379,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      384,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      388,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      393,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      79,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      398,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      80,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      404,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      406,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      411,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      414,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      418,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      421,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      426,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      86,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      87,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      437,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      88,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      442,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      446,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      448,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      453,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      456,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      463,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      468,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      472,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      477,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      479,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      482,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      484,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      488,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      98,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      99,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      498,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      502,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      101,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      102,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      514,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      519,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      521,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      524,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      526,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      106,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      532,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      537,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      108,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      544,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      547,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      552,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      556,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      561,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      563,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      566,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      568,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      572,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      574,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      579,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      582,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      586,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      589,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      594,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      598,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      603,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      121,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      608,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      122,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 80.5
+     }
+    },
+    {
+     "at": [
+      614,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 83
+     }
+    },
+    {
+     "at": [
+      616,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      621,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 87
+     }
+    },
+    {
+     "at": [
+      624,
+      5
+     ],
+     "dur": [
+      76,
+      5
+     ],
+     "pitch": {
+      "midi": 88.5
+     }
+    }
+   ],
+   "name": "Violas 2",
+   "abbreviation": "Va. 2",
+   "players": 6
+  },
+  {
+   "id": "vc-1",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      69,
+      4
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      73,
+      4
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      241,
+      4
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      249,
+      4
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      253,
+      4
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      140,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 44.5
+     }
+    },
+    {
+     "at": [
+      11,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 46
+     }
+    },
+    {
+     "at": [
+      13,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 48.5
+     }
+    },
+    {
+     "at": [
+      17,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 51.5
+     }
+    },
+    {
+     "at": [
+      19,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 53
+     }
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 55.5
+     }
+    },
+    {
+     "at": [
+      27,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 58.5
+     }
+    },
+    {
+     "at": [
+      31,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 59.5
+     }
+    },
+    {
+     "at": [
+      17,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      39,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "at": [
+      43,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      25,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      53,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      55,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      59,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     }
+    },
+    {
+     "at": [
+      61,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      33,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      69,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      73,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      81,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      85,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      45,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      95,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      103,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      111,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      115,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      59,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      123,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      127,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      67,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      139,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      143,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      145,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      75,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      153,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      157,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      165,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      169,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      87,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      179,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      181,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      185,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      187,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      195,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      199,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      101,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      207,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      211,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      109,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      221,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      223,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      227,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      229,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      117,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      237,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      241,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 78.5
+     }
+    },
+    {
+     "at": [
+      61,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      249,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      253,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      129,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      65,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      263,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      265,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      269,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      271,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      69,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      279,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      283,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      143,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      291,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      295,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      75,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      151,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      305,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      307,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      311,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      313,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      159,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      321,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      325,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      82,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      333,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      337,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      171,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      86,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      347,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      349,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      353,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      355,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      90,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      363,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      367,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      185,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      375,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      379,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      193,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      389,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      391,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      395,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      397,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      201,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      405,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      409,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      103,
+      1
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      417,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      421,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      213,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      107,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      431,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      433,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      437,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      439,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      111,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      447,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      451,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      227,
+      2
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      459,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      463,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      117,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      235,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      473,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      475,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      479,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      481,
+      4
+     ],
+     "dur": [
+      5,
+      4
+     ],
+     "pitch": {
+      "midi": 75.5
+     }
+    },
+    {
+     "at": [
+      243,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      489,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     }
+    },
+    {
+     "at": [
+      493,
+      4
+     ],
+     "dur": [
+      67,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    }
+   ],
+   "name": "Violoncellos 1",
+   "abbreviation": "Vc. 1",
+   "players": 5
+  },
+  {
+   "id": "vc-2",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      67,
+      3
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      181,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      193,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      120,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      140,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 40
+     }
+    },
+    {
+     "at": [
+      2,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 41
+     }
+    },
+    {
+     "at": [
+      5,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 42.5
+     }
+    },
+    {
+     "at": [
+      7,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 45
+     }
+    },
+    {
+     "at": [
+      11,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    },
+    {
+     "at": [
+      13,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 49.5
+     }
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 52
+     }
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 55
+     }
+    },
+    {
+     "at": [
+      25,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    },
+    {
+     "at": [
+      28,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 58.5
+     }
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "at": [
+      37,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      47,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      49,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      53,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      67,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      79,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      89,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      91,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      95,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      97,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      109,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      112,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      39,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      121,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      128,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      131,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      133,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      139,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      49,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      151,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      154,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      163,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      170,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      173,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      175,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      179,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      181,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      193,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      196,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      67,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      205,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      70,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      212,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      215,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      217,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      221,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      223,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      76,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      77,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      235,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      238,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      81,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      247,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      84,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      254,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      257,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      259,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      263,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      265,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      90,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      91,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      277,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      280,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      95,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      289,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      98,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      296,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      299,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      301,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      305,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      307,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      105,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      319,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      322,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      109,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      331,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      112,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      338,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      341,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      343,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      347,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      349,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      118,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      361,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      364,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 76
+     }
+    },
+    {
+     "at": [
+      123,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79
+     }
+    },
+    {
+     "at": [
+      373,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      126,
+      1
+     ],
+     "dur": [
+      14,
+      1
+     ],
+     "pitch": {
+      "midi": 81.5
+     }
+    }
+   ],
+   "name": "Violoncellos 2",
+   "abbreviation": "Vc. 2",
+   "players": 5
+  }
+ ],
+ "rehearsal": [
+  {
+   "measure": 10,
+   "label": "roof −2.5"
+  },
+  {
+   "measure": 13,
+   "label": "roof −1.5"
+  },
+  {
+   "measure": 16,
+   "label": "roof +6.5"
+  },
+  {
+   "measure": 22,
+   "label": "roof −3"
+  },
+  {
+   "measure": 25,
+   "label": "roof −4.5"
+  },
+  {
+   "measure": 28,
+   "label": "roof −2"
+  },
+  {
+   "measure": 31,
+   "label": "roof off"
+  }
+ ]
+}

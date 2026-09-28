@@ -1,0 +1,781 @@
+{
+ "title": "antara · palette A · the wind across the chord",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 56
+  }
+ ],
+ "measures": 14,
+ "parts": [
+  {
+   "id": "hn1",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": [
+      33,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      59,
+      5
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      33,
+      5
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    }
+   ],
+   "name": "Horn 1",
+   "abbreviation": "Hn. 1"
+  },
+  {
+   "id": "hn2",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": [
+      24,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      68,
+      5
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      128,
+      3
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      24,
+      5
+     ],
+     "dur": [
+      44,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      44,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    }
+   ],
+   "name": "Horn 2",
+   "abbreviation": "Hn. 2"
+  },
+  {
+   "id": "hn3",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": [
+      22,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      82,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      130,
+      3
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      22,
+      5
+     ],
+     "dur": [
+      48,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      82,
+      3
+     ],
+     "dur": [
+      16,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    }
+   ],
+   "name": "Horn 3",
+   "abbreviation": "Hn. 3"
+  },
+  {
+   "id": "hn4",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": [
+      11,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      81,
+      5
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      71,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      47,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      11,
+      5
+     ],
+     "dur": [
+      14,
+      1
+     ],
+     "pitch": {
+      "midi": 55.5
+     }
+    },
+    {
+     "at": [
+      71,
+      3
+     ],
+     "dur": [
+      70,
+      3
+     ],
+     "pitch": {
+      "midi": 55.5
+     }
+    }
+   ],
+   "name": "Horn 4",
+   "abbreviation": "Hn. 4"
+  },
+  {
+   "id": "tpt1",
+   "instrument": "trumpet",
+   "dynamics": [
+    {
+     "at": [
+      9,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      47,
+      5
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      107,
+      3
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     }
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     }
+    }
+   ],
+   "name": "Trumpet 1",
+   "abbreviation": "Tpt. 1"
+  },
+  {
+   "id": "tpt2",
+   "instrument": "trumpet",
+   "dynamics": [
+    {
+     "at": [
+      38,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      54,
+      5
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      98,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      38,
+      5
+     ],
+     "dur": [
+      16,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      98,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    }
+   ],
+   "name": "Trumpet 2",
+   "abbreviation": "Tpt. 2"
+  },
+  {
+   "id": "tbn1",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": [
+      7,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      67,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      145,
+      3
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      7,
+      5
+     ],
+     "dur": [
+      78,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    },
+    {
+     "at": [
+      67,
+      3
+     ],
+     "dur": [
+      26,
+      1
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    }
+   ],
+   "name": "Trombone 1",
+   "abbreviation": "Tbn. 1"
+  },
+  {
+   "id": "tbn2",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": [
+      1,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      91,
+      5
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      61,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      151,
+      3
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      1,
+      5
+     ],
+     "dur": [
+      18,
+      1
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    },
+    {
+     "at": [
+      61,
+      3
+     ],
+     "dur": [
+      30,
+      1
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    }
+   ],
+   "name": "Trombone 2",
+   "abbreviation": "Tbn. 2"
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      46,
+      5
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "gliss": true,
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "dur": [
+      46,
+      5
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "gliss": true,
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      92,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      46,
+      3
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "gliss": true,
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "dur": [
+      46,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "gliss": true,
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      152,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violoncellos",
+   "abbreviation": "Vc.",
+   "players": 10
+  }
+ ]
+}
