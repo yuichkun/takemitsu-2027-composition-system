@@ -1,0 +1,32 @@
+{
+  "sketches": [
+    {
+      "path": "a/pitch-trade-places",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "間が入れ替わる",
+      "issue": "間は大きさを変えず、隣どうしで位置だけ入れ替わる。動くのは一声ずつで、外側の 2 声は動かない",
+      "mechanism": "a chord is its betweens stacked on a standpoint; neighbouring betweens trade places (sizes kept), so one voice moves at a time by their difference and the outer voices never move; waves carry the knot of narrow betweens from the bottom to the top",
+      "listen": "どの声が動いたか、外側の 2 声が動かないこと、密な所が下から上へ移ること",
+      "instruments": "弦 10 声の分奏",
+      "uses": "",
+      "length": "1:00",
+      "round": 0
+    },
+    {
+      "path": "b/colour-by-between",
+      "kind": "B",
+      "axis": "texture",
+      "title": "下の間が付ける音色の名前",
+      "issue": "各声の音色を下の間が決める（狭い間は弦、広い間は金管）。動かない音が色だけ変わる。登りは一声ずつ、戻りは数声ずつ",
+      "mechanism": "the trades of pitch-trade-places in strings and brass; each voice's colour is named by the between below it (narrow -> strings, wide -> brass), so a held pitch can change colour; up one voice at a time, back several at once",
+      "listen": "同じ音のまま金管と弦が入れ替わる所、弦の固まりが金管を抜けていく過程",
+      "instruments": "金管 9、弦の分奏、コントラバス",
+      "uses": "a/pitch-trade-places",
+      "length": "1:28",
+      "round": 0
+    }
+  ],
+  "rejected": [],
+  "rounds": []
+}
