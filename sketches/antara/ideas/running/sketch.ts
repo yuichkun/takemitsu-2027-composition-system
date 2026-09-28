@@ -13,8 +13,12 @@
 // (3, 2 and 5 strokes' families: faster at the same tempo). A change reaches the sections one after
 // another, bottom up, so for a moment sections run in different families and meet only on the beat.
 // The basses play only where the heads of several sections meet: the beat that arises, sounded after
-// the fact. At the end every section meets on one downbeat, on the anchor in octaves or on the
-// split. Card: README.md.
+// the fact. At the end every section meets on one downbeat, on the split or on the anchor in octaves.
+//
+// Betweens are counted on the quarter-tone grid from the start. The grid holds two twelves a quarter
+// tone apart: a between of an odd number of quarter tones takes a line from one to the other, an
+// even one keeps it where it is. So a set with both kinds keeps changing which twelve each line (and
+// each standpoint) is in, as a result of the relations. Card: README.md.
 
 import type { Articulation, NoteEvent, Part, Score } from "../../../../src/score/types.ts";
 import {
@@ -42,8 +46,8 @@ export const knobs = {
   setA: betweenSet({
     group: "Pitch",
     label: "Set A",
-    help: "The betweens the lines draw from while the Set band says A, in semitones (quarter tones as .5; one written twice comes up more often)",
-    value: "-5 -2 3 4",
+    help: "The betweens the lines draw from while the Set band says A, on the quarter-tone grid (in semitones, .5 for a quarter tone; one written twice comes up more often). An odd number of quarter tones moves a line into the other twelve",
+    value: "-3.5 -1 2.5 4",
     min: -12,
     max: 12,
     step: 0.5,
@@ -53,8 +57,8 @@ export const knobs = {
   setB: betweenSet({
     group: "Pitch",
     label: "Set B",
-    help: "The betweens the lines draw from while the Set band says B",
-    value: "-2 -1 2 3",
+    help: "The betweens the lines draw from while the Set band says B. As it starts: every between of A made one quarter tone wider, so each one that stayed now crosses and each one that crossed now stays",
+    value: "-4 -1.5 3 4.5",
     min: -12,
     max: 12,
     step: 0.5,
@@ -80,8 +84,8 @@ export const knobs = {
   lengths: betweenSet({
     group: "Time",
     label: "Group lengths",
-    help: "How many strokes a group lasts. Each group begins with an accent and plays one pitch group, so these lengths are the metre that is heard",
-    value: "2 3 3 4",
+    help: "How many strokes a group lasts. Each group begins with an accent and plays one pitch group, so these lengths are the metre that is heard. As it starts: one length that fits the beat of each gear (3; 2 and 4; 5), so which groups fit and which cross changes with the gear",
+    value: "2 3 4 5",
     min: 1,
     max: 8,
     step: 1,
@@ -131,8 +135,8 @@ export const knobs = {
   end: choice({
     group: "Story",
     label: "Meet on",
-    help: "Where every section lands together on the last downbeat: the anchor in octaves, or the notes of the split",
-    value: "the anchor",
+    help: "Where every section lands together on the last downbeat: the notes of the split (of the set in force), or the anchor in octaves",
+    value: "the split",
     options: ["the anchor", "the split"],
   }),
   gears: lanes({
@@ -178,7 +182,7 @@ export const knobs = {
     group: "Layers",
     label: "Meeting",
     help: "How many sections must begin a group at the same moment for the basses to play",
-    value: 3,
+    value: 2,
     min: 2,
     max: 4,
     step: 1,
