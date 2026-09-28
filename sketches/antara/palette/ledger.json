@@ -628,6 +628,30 @@
       "title": "大きさの違う三つの鐘",
       "gist": "ideas/lines a-peel-off three times in three instrument groups (bells of different sizes and brightness), tails overlapping",
       "reason": "「仲間ごとに抜けていく」と同じ仕組み（一人ずつ離れるを三群で重ねる）の近い案。三群の違いを明るさ（名前のある対比）で付けているので、仲間（原則）で違いを付けた方を残した"
+    },
+    {
+      "round": 9,
+      "kind": "B",
+      "axis": "pitch",
+      "title": "残る間が声を増やす",
+      "gist": "pitch-dictionary-order across six ensembles; ensembles whose between was kept add desks",
+      "reason": "厚みの満ち引きを、案自身が「大きな高まりの一部」と呼んでいて、盛り上げの型に近い。人数を増やす規則も、使う A の外から足した二つ目の仕組み"
+    },
+    {
+      "round": 9,
+      "kind": "B",
+      "axis": "texture",
+      "title": ".5 が決める、どの鍵盤が鳴るか",
+      "gist": "pitch-split-by-grid on fixed-pitch keyboards",
+      "reason": "「格子が決める、誰が弾けるか」と同じ A を同じ使い方（格子で楽器を決める）で使う近い案"
+    },
+    {
+      "round": 9,
+      "kind": "B",
+      "axis": "texture",
+      "title": "和音が色を編み直す",
+      "gist": "texture-braid with three colours and nine voices",
+      "reason": "A「交差して入れ替わる色」を 3 色に広げただけに近い。同じ A を使う「床を渡る光」の方が、形として新しい"
     }
   ],
   "rounds": [
