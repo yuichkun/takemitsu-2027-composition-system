@@ -1,0 +1,35 @@
+{
+  "values": {},
+  "presets": {
+    "The story": {},
+    "In step": {
+      "entries": 8,
+      "ripple": 0
+    },
+    "All at once": {
+      "ripple": 0
+    },
+    "One gear": {
+      "gears": [[0, "2 · 16ths"]]
+    },
+    "Meet on the split": {
+      "end": "the split"
+    },
+    "Rising thirds, then steps": {
+      "setA": [1, 3, 4],
+      "setB": [1, 2]
+    },
+    "Semitones and tritones": {
+      "setA": [-6, -1, 1, 6],
+      "setB": [-6, -2, 1, 5]
+    },
+    "3.5 in place of 3": {
+      "setA": [-5, -2, 3.5, 4]
+    },
+    "Fourths and fifths": {
+      "setA": [-5, -2, 2, 5, 7],
+      "setB": [-2, 2, 5]
+    }
+  },
+  "touched": []
+}

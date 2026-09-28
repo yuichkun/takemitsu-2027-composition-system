@@ -20,6 +20,8 @@ import { numbersOf } from "../../src/sketch/knobs.ts";
 export const TICKS = 60;
 export type Family = 2 | 3 | 5;
 const atomTicks: Record<Family, number> = { 2: 15, 3: 20, 5: 12 };
+/** A family's atom, in ticks. */
+export const atomOf = (family: Family): number => atomTicks[family];
 
 export const FAMILY_OPTIONS = ["2 (16ths)", "3 (triplet 8ths)", "5 (quintuplet 16ths)"];
 export const familyOf = (option: string): Family => Number(option.split(" ")[0]) as Family;
