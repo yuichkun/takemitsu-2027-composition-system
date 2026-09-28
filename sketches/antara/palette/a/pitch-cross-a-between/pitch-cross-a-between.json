@@ -1,0 +1,1135 @@
+{
+ "title": "antara · palette A · the chord turns over across a between",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 15,
+ "parts": [
+  {
+   "id": "vc-1",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      51,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      15,
+      1
+     ],
+     "pitch": {
+      "midi": 58.5
+     }
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 47.5
+     }
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 57
+     }
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 54.5
+     }
+    }
+   ],
+   "name": "Violoncello 1",
+   "abbreviation": "Vc. 1",
+   "players": 1
+  },
+  {
+   "id": "vc-2",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      51,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 56.5
+     }
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      15,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    }
+   ],
+   "name": "Violoncello 2",
+   "abbreviation": "Vc. 2",
+   "players": 1
+  },
+  {
+   "id": "vc-3",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 54.5
+     }
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    }
+   ],
+   "name": "Violoncello 3",
+   "abbreviation": "Vc. 3",
+   "players": 1
+  },
+  {
+   "id": "vc-4",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 51
+     }
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 51
+     }
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      25,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    }
+   ],
+   "name": "Violoncello 4",
+   "abbreviation": "Vc. 4",
+   "players": 1
+  },
+  {
+   "id": "vc-5",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      51,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 47
+     }
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 53
+     }
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      15,
+      1
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    }
+   ],
+   "name": "Violoncello 5",
+   "abbreviation": "Vc. 5",
+   "players": 1
+  },
+  {
+   "id": "vc-6",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      51,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      15,
+      1
+     ],
+     "pitch": {
+      "midi": 54.5
+     }
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 49
+     }
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 58.5
+     }
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    }
+   ],
+   "name": "Violoncello 6",
+   "abbreviation": "Vc. 6",
+   "players": 1
+  }
+ ]
+}
