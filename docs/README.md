@@ -12,6 +12,7 @@
 | ファイル | 種別 | 何が書いてあるか |
 | --- | --- | --- |
 | [`proposal.md`](./proposal.md) | 提案 | **全体像・作曲行為の定義・AIとの境界・システム構成・開発のステップ。単体で読める** |
+| [`antara/`](./antara/README.md) | 曲 | **応募作 antara の構想。コンセプトと音の組み方（音程のセリー）** |
 | [`competition.md`](./competition.md) | 仕様 | 応募規定。**動かせない外形条件** |
 | [`open-questions.md`](./open-questions.md) | 仕様 | **未決事項の一覧。相談の目次** |
 | [`architecture.md`](./architecture.md) | 仕様 | **鳴らす仕組みと見せる仕組みの構成。楽譜の JSON、記譜と演奏の射影、プレビュー** |
