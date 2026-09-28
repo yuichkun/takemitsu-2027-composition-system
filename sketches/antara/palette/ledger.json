@@ -129,6 +129,84 @@
       "uses": "ideas/lines の b-ceiling（天井で止まる）と two-grids の鏡",
       "length": "1:51",
       "round": 2
+    },
+    {
+      "path": "a/pitch-same-sum-meets",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "順番が違っても同じ所に着く",
+      "issue": "同じセットを 4 つの違う順で読む 4 声は、間の和が順番によらないので、一巡（6 歩）ごとに必ず同じ音で出会う。出会う音はセットの和（四分音一つ）ずつ動き、格子を交互に替える",
+      "mechanism": "four voices read one set in four different orders (written, reversed, narrow-first, wide-first, each shifted every pass); the sum of a pass does not depend on the order, so they meet in unison at the end of every pass; the meeting pitch moves by the set's sum",
+      "listen": "4.5 秒ごとに、開いていた 4 声が一歩で一つの音に溶け、次の一歩でまた開くこと。溶ける音が四分音ずつ上がっていくこと",
+      "instruments": "ヴァイオリン 4 部の分奏",
+      "uses": "",
+      "length": "0:56",
+      "round": 3
+    },
+    {
+      "path": "a/time-unsounded-betweens",
+      "kind": "A",
+      "axis": "time",
+      "title": "鳴らない間",
+      "issue": "休みを「鳴らない間」として持つ。足し算は続き、鳴らない大きさの項だけが休みになる。休みをはさんだ所に、セットにない間が生じる（原則で未決の「休み」の一つの案）",
+      "mechanism": "a rest is a between left unsounded while the addition carries on; each round of the rule one more size (largest first) goes unsounded; betweens that are not in the set appear across the rests",
+      "listen": "同じ 20 の間の取り出しが 5 回戻り、回ごとに大きい方から一つずつ鳴らなくなる。休みをはさんだ鳴り始めの間隔が、セットにない新しい長さとして聴こえるか",
+      "instruments": "クラリネット 1（一つの音）",
+      "uses": "",
+      "length": "0:54",
+      "round": 3
+    },
+    {
+      "path": "a/texture-ring-from-now",
+      "kind": "A",
+      "axis": "texture",
+      "title": "今から見て残る響き",
+      "issue": "一本の線を 2 台のハープで弾く。前の音が鳴り続けるか止められるかを、いま鳴った音からの間の大きさがセットにあるかだけで決める。響きの厚さは今の立ち位置から見た関係の結果になる",
+      "mechanism": "one line on two harps (one per grid, harp II a quarter tone low); an earlier note keeps ringing only if its between to the newest note is a size in the set, otherwise it is damped; one between widened by a quarter tone halfway changes how many notes can ring together",
+      "listen": "新しい音と関係のない前の音だけが消える。8 小節目で間が一つ四分音広がると、残る響きが 2〜3 音から 3〜4 音へ厚くなる",
+      "instruments": "ハープ 2 台（II は四分音低く調弦）",
+      "uses": "",
+      "length": "1:04",
+      "round": 3
+    },
+    {
+      "path": "a/pitch-dictionary-order",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "辞書の順で変わる和音",
+      "issue": "六つの間から四つを選ぶ組を全部、辞書順に、動かない立ち位置から積んで和音にする。隣の組と共有する並びまでの声は残り、そこから上だけが動くので、何声が動くかを規則の順番が決める",
+      "mechanism": "every 4-of-6 combination of a between set in dictionary order (the combinations rule read vertically), stacked on a fixed standpoint; voices up to the first differing position hold, all above move",
+      "listen": "いちばん上の声は毎回動き、下ほど長く残る。動く声の数が波ごとに深くなる",
+      "instruments": "ホルン 5",
+      "uses": "",
+      "length": "1:04",
+      "round": 3
+    },
+    {
+      "path": "a/texture-names-trade-at-unison",
+      "kind": "A",
+      "axis": "texture",
+      "title": "同じ音で名前が入れ替わる",
+      "issue": "三本の線（それぞれ自分のセット）のうち二本が同じ音に着いた所でだけ、楽器が線を乗り換える。交差では何も替わらない。線は関係で、楽器は後から付く名前",
+      "mechanism": "three lines (narrow, middle, wide sets) are computed first; two instruments exchange lines only after an onset where their lines sound the same pitch (between 0); crossings without a unison change nothing",
+      "listen": "二つの楽器が同じ音に着いた次の瞬間、跳ぶ・這う・中くらいの手触りが楽器を乗り換えるか。「線が楽器を乗り換えた」と「楽器が歩き方を変えた」のどちらに聴こえるか",
+      "instruments": "フルート、オーボエ、クラリネット",
+      "uses": "",
+      "length": "1:04",
+      "round": 3
+    },
+    {
+      "path": "b/breaths-walk",
+      "kind": "B",
+      "axis": "texture",
+      "title": "息つぎが和音を歩く",
+      "issue": "「一つずつ遅れる」を、16 人の管が一つの和音を保つときの息つぎに使う。全員同時の切れ目が、下から上へ和音を上る穴になり、欠けた声の上下に和音にない間が立つ。後半は弦が保ち、欠けるのは管の色だけになる",
+      "mechanism": "ideas/lines a-late-by-one applied to breaths: 16 winds hold a chord and each breathes on its own period, one atom longer per rank; the silent gaps walk up the chord; strings enter and hold, so only the winds' colour goes missing; winds leave one by one",
+      "listen": "最初の 2 回は全員同時の 1 拍の無音。次に穴が下から上へ上り、回ごとに細く長くなる。後半は欠けが管の色だけになり、最後は弦だけが残る",
+      "instruments": "管 16（一人一音）、弦 16 部の分奏",
+      "uses": "ideas/lines の a-late-by-one（一つずつ遅れる）",
+      "length": "1:48",
+      "round": 3
     }
   ],
   "rejected": [
@@ -165,6 +243,20 @@
       ],
       "rejected": 0,
       "commit": "c05886a"
+    },
+    {
+      "round": 3,
+      "ended": "2026-09-29 04:21",
+      "added": [
+        "順番が違っても同じ所に着く",
+        "鳴らない間",
+        "今から見て残る響き",
+        "辞書の順で変わる和音",
+        "同じ音で名前が入れ替わる",
+        "息つぎが和音を歩く"
+      ],
+      "rejected": 0,
+      "commit": "c44ba6f"
     }
   ]
 }
