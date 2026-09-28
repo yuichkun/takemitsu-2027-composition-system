@@ -1,0 +1,1134 @@
+{
+ "title": "antara · palette A · the standpoint names the side",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 46
+  }
+ ],
+ "measures": 9,
+ "parts": [
+  {
+   "id": "vni-1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "sul-pont"
+    }
+   ],
+   "name": "Violins I 1",
+   "abbreviation": "Vn. I 1",
+   "players": 8
+  },
+  {
+   "id": "vni-2",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-pont"
+    }
+   ],
+   "name": "Violins I 2",
+   "abbreviation": "Vn. I 2",
+   "players": 8
+  },
+  {
+   "id": "vnii-1",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 1",
+   "abbreviation": "Vn. II 1",
+   "players": 5
+  },
+  {
+   "id": "vnii-2",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "sul-pont"
+    }
+   ],
+   "name": "Violins II 2",
+   "abbreviation": "Vn. II 2",
+   "players": 5
+  },
+  {
+   "id": "vnii-3",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-pont"
+    }
+   ],
+   "name": "Violins II 3",
+   "abbreviation": "Vn. II 3",
+   "players": 4
+  },
+  {
+   "id": "va-1",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "sul-pont"
+    }
+   ],
+   "name": "Violas 1",
+   "abbreviation": "Va. 1",
+   "players": 6
+  },
+  {
+   "id": "va-2",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violas 2",
+   "abbreviation": "Va. 2",
+   "players": 6
+  },
+  {
+   "id": "vc-1",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 55.5
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 55.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 55.5
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 55.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violoncellos 1",
+   "abbreviation": "Vc. 1",
+   "players": 4
+  },
+  {
+   "id": "vc-2",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 52
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 52
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 52
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 52
+     },
+     "technique": "sul-pont"
+    }
+   ],
+   "name": "Violoncellos 2",
+   "abbreviation": "Vc. 2",
+   "players": 3
+  },
+  {
+   "id": "vc-3",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "sul-pont"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      29,
+      3
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "technique": "sul-pont"
+    }
+   ],
+   "name": "Violoncellos 3",
+   "abbreviation": "Vc. 3",
+   "players": 3
+  },
+  {
+   "id": "cb",
+   "instrument": "basses",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 34
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 36
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 34.5
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 35
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 34
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      73,
+      3
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 37.5
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 34.5
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    }
+   ],
+   "name": "Contrabasses",
+   "abbreviation": "Cb.",
+   "players": 8
+  }
+ ]
+}
