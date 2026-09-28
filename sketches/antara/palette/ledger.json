@@ -207,6 +207,84 @@
       "uses": "ideas/lines の a-late-by-one（一つずつ遅れる）",
       "length": "1:48",
       "round": 3
+    },
+    {
+      "path": "a/pitch-half-moves",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "半分ずつ動く和音",
+      "issue": "和音を「立ち位置に三つの間を足すか足さないか」の全部の組み合わせ（8 声）として持つ。間を一つ替えると、その間を含む半分の 4 声だけが同じ幅で動き、残りの半分は鳴ったまま残る",
+      "mechanism": "a chord of every subset sum of three betweens on a standpoint (8 voices); one between toggles between two sizes at a time (a fixed order visiting all 8 combinations), moving exactly the 4 voices whose subset contains it",
+      "listen": "6 秒ごとにちょうど 4 声だけが同じ幅で動き、いちばん下は一度も、いちばん上は毎回動く。b の替わりだけ格子に留まること。最初の和音は格子ごとに三和音の形に分かれる（結果。耳で判断を）",
+      "instruments": "弦 8 声の分奏",
+      "uses": "",
+      "length": "0:56",
+      "round": 4
+    },
+    {
+      "path": "a/pitch-cross-a-between",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "間をまたいで裏返る和音",
+      "issue": "和音を立ち位置からの符号つきの間のセットとして持つ。立ち位置が自分の間の一つをまたいで向こうの音へ移ると、全部の間が逆向きに読まれ、和音はまたいだ間の真ん中を軸に裏返る",
+      "mechanism": "a chord as signed betweens from a standpoint inside it; the standpoint moves across one of its betweens to that tone and all betweens read the other way (reflection about the crossed between's middle); tones facing each other across the axis stay",
+      "listen": "5 秒ごとに、弾き直されずに残る音の数が 2、3、4、4、2 と替わる。狭い間の固まりが下と上に交互に来て、最後に最初の和音へ戻る",
+      "instruments": "チェロ 6 声の分奏",
+      "uses": "",
+      "length": "1:00",
+      "round": 4
+    },
+    {
+      "path": "a/pitch-split-by-grid",
+      "kind": "A",
+      "axis": "pitch",
+      "title": ".5 の有無で分かれる一本の線",
+      "issue": "一本の間の流れを .5 の付く間と付かない間に分け、全部を取る声・付かない間だけ取る声・付く間だけ取る声の三声で、同じ起点から歩かせる",
+      "mechanism": "one stream of betweens; voice F takes all, voice E only the betweens without .5, voice O only those with .5 (the others hold); F - s = (E - s) + (O - s); E never leaves the standpoint's grid, F and O always share a grid",
+      "listen": "いつも二声が同じ間で平行に動き、一声が保つこと。付かない声は起点の格子を出ないこと。平行の間が、保つ声の起点からの距離に等しいこと",
+      "instruments": "ヴィオラ 3 部の分奏",
+      "uses": "",
+      "length": "1:00",
+      "round": 4
+    },
+    {
+      "path": "a/time-between-of-betweens",
+      "kind": "A",
+      "axis": "time",
+      "title": "間の間",
+      "issue": "時間の間の並びそのものを一本の線にする。起点の間に、差のセットから取り出した差を足していく。差が 0 の所にだけパルスが結果として生じる（原則の形を一段上に当てた読み。余湖さんに確かめる点）",
+      "mechanism": "the time betweens form a line: b(i+1) = b(i) + d, d drawn from a set of differences (combinations); pulses arise only where d = 0; bounds reflect",
+      "listen": "1 atom ずつ詰まる・ほどける打ちの速さ。差が 0 の所だけで立って、次の差で消えるパルス",
+      "instruments": "ハープ 1（一つの音）",
+      "uses": "",
+      "length": "1:05",
+      "round": 4
+    },
+    {
+      "path": "b/weight-by-relations",
+      "kind": "B",
+      "axis": "texture",
+      "title": "つながりの数が重みになる",
+      "issue": "ガラスの和音の各声に木管・金管が付き、その声がいま持つ「つながり」（ほかの留まっている声との間がレンズのセットの大きさに当たる数）だけ重なる。13 小節でレンズを替えると、同じ動きなのに重みの場所が裏返る",
+      "mechanism": "ideas/two-grids voice process (12 divided strings, glides between the grids), reflections off; each voice is doubled by as many winds as it has relations (betweens in the lens set) to the other held voices; the lens changes at bar 13",
+      "listen": "動いていない音に、別の声が着いたり滑り出したりしたせいで管が入る・抜ける所。前半は休んでいる和音が厚く、後半は離れた声とその周りにだけ管が付く",
+      "instruments": "弦 12 声の分奏（sul tasto）、木管 12、金管 10",
+      "uses": "ideas/two-grids（ガラスの和音）",
+      "length": "1:51",
+      "round": 4
+    },
+    {
+      "path": "b/zeros-fan-and-gather",
+      "kind": "B",
+      "axis": "pitch",
+      "title": "0 で遅れ、0 で待つ",
+      "issue": "「0 が増える」の段（0 が 0〜6 個）を同時に鳴る 7 声に並べる。一本の線が、足踏みの 0 で自分の点どうしの和音に広がり、待つ 0 で一人ずつ一つの音に集まる",
+      "mechanism": "ideas/lines b-zeros-spread: voice k's steps are the line's steps plus k zeros; all play the same line at different positions (heterophony of one line); in the gather, 0 means waiting (tied) until the others catch up",
+      "listen": "7 色のユニゾンが足踏みでずれて線の別々の点が同時に鳴る和音になり、集まる段で遅れた声が一人ずつ同じ音に着くこと",
+      "instruments": "フルート・オーボエ・クラリネット、Vn I・Vn II・Va・Vc の 7 声",
+      "uses": "ideas/lines の b-zeros-spread（0 が増える）",
+      "length": "1:20",
+      "round": 4
     }
   ],
   "rejected": [
@@ -257,6 +335,20 @@
       ],
       "rejected": 0,
       "commit": "c44ba6f"
+    },
+    {
+      "round": 4,
+      "ended": "2026-09-29 04:37",
+      "added": [
+        "半分ずつ動く和音",
+        "間をまたいで裏返る和音",
+        ".5 の有無で分かれる一本の線",
+        "間の間",
+        "つながりの数が重みになる",
+        "0 で遅れ、0 で待つ"
+      ],
+      "rejected": 0,
+      "commit": "565c4ed"
     }
   ]
 }
