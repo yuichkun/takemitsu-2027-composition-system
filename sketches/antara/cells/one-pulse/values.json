@@ -1,0 +1,34 @@
+{
+  "values": {},
+  "presets": {
+    "Same note": {
+      "between": 0
+    },
+    "Whole tones": {
+      "between": 2,
+      "stand": "walk on"
+    },
+    "Fifths": {
+      "between": 7,
+      "stand": "walk on"
+    },
+    "Minor thirds": {
+      "between": 3,
+      "stand": "walk on"
+    },
+    "Trill": {
+      "between": 2,
+      "stand": "back to the anchor",
+      "pulse": 1
+    },
+    "Same note in triplets": {
+      "family": "3 (triplet 8ths)",
+      "pulse": 1
+    },
+    "Same note in fives": {
+      "family": "5 (quintuplet 16ths)",
+      "pulse": 1
+    }
+  },
+  "touched": []
+}

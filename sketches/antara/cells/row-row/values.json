@@ -1,0 +1,19 @@
+{
+  "values": {},
+  "presets": {
+    "Three against four": {},
+    "Three against three (locked)": {
+      "rhythm": "2 1 1"
+    },
+    "Sequence over a groove": {
+      "row": "2 5",
+      "rhythm": "3 3 2"
+    },
+    "Five against three in triplets": {
+      "row": "2 2 -1 3 -6",
+      "family": "3 (triplet 8ths)",
+      "rhythm": "2 1 2"
+    }
+  },
+  "touched": []
+}

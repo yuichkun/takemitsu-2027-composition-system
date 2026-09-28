@@ -1,0 +1,840 @@
+{
+ "title": "row × moving rule",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 72
+  }
+ ],
+ "measures": 8,
+ "parts": [
+  {
+   "id": "ob",
+   "instrument": "oboe",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "slur": true
+    },
+    {
+     "at": [
+      1,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      3,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      5,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      3,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      11,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      3,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      7,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      9,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      19,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      11,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      13,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      15,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      33,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      35,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      37,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      41,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      43,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      23,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      25,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      51,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      53,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      55,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      29,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      61,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      31,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      69,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      39,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      85,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      87,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      91,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      93,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      103,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      105,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      53,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      111,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      57,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      59,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      119,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      61,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "slur": true
+    },
+    {
+     "at": [
+      63,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ]
+    }
+   ]
+  }
+ ]
+}

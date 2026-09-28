@@ -1,0 +1,17 @@
+{
+  "values": {},
+  "presets": {
+    "Call": {},
+    "Shift each time": {
+      "timeRule": "shift each time",
+      "rhythm": "3 2 1 2"
+    },
+    "Long first": {
+      "timeOrder": "descending"
+    },
+    "In triplets": {
+      "family": "3 (triplet 8ths)"
+    }
+  },
+  "touched": []
+}

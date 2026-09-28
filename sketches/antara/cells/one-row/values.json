@@ -1,0 +1,26 @@
+{
+  "values": {},
+  "presets": {
+    "3 3 2": {
+      "rhythm": "3 3 2"
+    },
+    "3 2 (drifts)": {
+      "rhythm": "3 2"
+    },
+    "2 2 3": {
+      "rhythm": "2 2 3"
+    },
+    "Row in triplets": {
+      "family": "3 (triplet 8ths)",
+      "rhythm": "2 1"
+    },
+    "Row in fives": {
+      "family": "5 (quintuplet 16ths)",
+      "rhythm": "3 2"
+    },
+    "Row that moves": {
+      "rhythm": "3 3 2 | 3 2 | 2 2 3 | 3 3 2"
+    }
+  },
+  "touched": []
+}

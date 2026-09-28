@@ -1,0 +1,17 @@
+{
+  "values": {},
+  "presets": {
+    "Groove 3 3 2": {},
+    "Groove in triplets": {
+      "family": "3 (triplet 8ths)",
+      "rhythm": "2 1"
+    },
+    "Walk on": {
+      "stand": "walk on"
+    },
+    "Groove of five": {
+      "rhythm": "3 2"
+    }
+  },
+  "touched": []
+}

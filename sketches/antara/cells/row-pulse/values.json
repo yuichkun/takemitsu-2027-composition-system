@@ -1,0 +1,26 @@
+{
+  "values": {},
+  "presets": {
+    "Ostinato": {
+      "row": "2 5 7",
+      "stand": "back to the anchor"
+    },
+    "Sequence": {
+      "row": "2 5 7",
+      "stand": "walk on"
+    },
+    "Closed row": {
+      "row": "2 5 -7",
+      "stand": "walk on"
+    },
+    "Quarter-tone row": {
+      "row": "3.5 3.5 -2",
+      "stand": "walk on"
+    },
+    "Row in triplets": {
+      "family": "3 (triplet 8ths)",
+      "pulse": 1
+    }
+  },
+  "touched": []
+}

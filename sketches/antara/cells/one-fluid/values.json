@@ -1,0 +1,20 @@
+{
+  "values": {},
+  "presets": {
+    "Combinations": {},
+    "Shift each time": {
+      "timeRule": "shift each time",
+      "rhythm": "3 3 2"
+    },
+    "Longer groups": {
+      "timeGroup": 4
+    },
+    "Long first": {
+      "timeOrder": "descending"
+    },
+    "In triplets": {
+      "family": "3 (triplet 8ths)"
+    }
+  },
+  "touched": []
+}
