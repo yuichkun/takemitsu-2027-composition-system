@@ -1,0 +1,252 @@
+{
+ "title": "antara · palette A · loudness as a between",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 54
+  }
+ ],
+ "measures": 10,
+ "parts": [
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "level": 7
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "level": 1
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "level": 7
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "level": 1
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "level": 5
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    }
+   ],
+   "name": "Violoncello (solo)",
+   "abbreviation": "Vc.",
+   "players": 1
+  }
+ ],
+ "rehearsal": [
+  {
+   "measure": 6,
+   "label": "reversed"
+  }
+ ]
+}

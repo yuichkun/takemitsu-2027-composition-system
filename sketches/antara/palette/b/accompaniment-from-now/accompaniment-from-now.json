@@ -1,0 +1,2868 @@
+{
+ "title": "antara · palette B · the accompaniment the melody leaves",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 76
+  }
+ ],
+ "measures": 31,
+ "parts": [
+  {
+   "id": "cl",
+   "instrument": "clarinet",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      364,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      2,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      11,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    },
+    {
+     "at": [
+      20,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      22,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      29,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      53,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      68,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      77,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      88,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      95,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      101,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      110,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      121,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      128,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      134,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      143,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      49,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "at": [
+      152,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      154,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      161,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      167,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      57,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      176,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      185,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    },
+    {
+     "at": [
+      187,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      64,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      194,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      200,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    },
+    {
+     "at": [
+      68,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      209,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      71,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      218,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      220,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      75,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      227,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      77,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      233,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      79,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      242,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      82,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      251,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      253,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    },
+    {
+     "at": [
+      86,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      260,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      88,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      266,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 63
+     }
+    },
+    {
+     "at": [
+      90,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "at": [
+      275,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "at": [
+      93,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      284,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 59.5
+     }
+    },
+    {
+     "at": [
+      286,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      97,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58.5
+     }
+    },
+    {
+     "at": [
+      293,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      99,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "at": [
+      299,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      101,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      308,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      104,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      317,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      319,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      108,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 71
+     }
+    },
+    {
+     "at": [
+      326,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      110,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      332,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 63
+     }
+    },
+    {
+     "at": [
+      112,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      341,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 59.5
+     }
+    },
+    {
+     "at": [
+      115,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      350,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    }
+   ],
+   "name": "Clarinet",
+   "abbreviation": "Cl."
+  },
+  {
+   "id": "vn1-1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      364,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      22,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      88,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      110,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      154,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      176,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      194,
+      3
+     ],
+     "dur": [
+      10,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      71,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      242,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      260,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      93,
+      1
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      299,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      108,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      115,
+      1
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violins I 1",
+   "abbreviation": "Vn. I 1",
+   "players": 8
+  },
+  {
+   "id": "vn1-2",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      364,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      2,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      68,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      134,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      200,
+      3
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      220,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      79,
+      1
+     ],
+     "dur": [
+      14,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      86,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      284,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 59.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      101,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      326,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      350,
+      3
+     ],
+     "dur": [
+      14,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violins I 2",
+   "abbreviation": "Vn. I 2",
+   "players": 8
+  },
+  {
+   "id": "vn2-1",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      364,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      29,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      53,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      95,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      161,
+      3
+     ],
+     "dur": [
+      10,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      185,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      68,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      75,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      82,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      266,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      97,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      104,
+      1
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      332,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violins II 1",
+   "abbreviation": "Vn. II 1",
+   "players": 7
+  },
+  {
+   "id": "vn2-2",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      364,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      11,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      77,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      121,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      143,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      187,
+      3
+     ],
+     "dur": [
+      22,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      218,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      233,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      253,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      275,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      99,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      319,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      341,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 59.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violins II 2",
+   "abbreviation": "Vn. II 2",
+   "players": 7
+  },
+  {
+   "id": "va-1",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      364,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      101,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      49,
+      1
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      167,
+      3
+     ],
+     "dur": [
+      20,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      22,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      227,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      251,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      90,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      293,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      317,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      112,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violas 1",
+   "abbreviation": "Va. 1",
+   "players": 6
+  },
+  {
+   "id": "va-2",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      364,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      20,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      14,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      128,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      152,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      57,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      64,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      209,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      77,
+      1
+     ],
+     "dur": [
+      22,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      88,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      286,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      308,
+      3
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      110,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      352,
+      3
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violas 2",
+   "abbreviation": "Va. 2",
+   "players": 6
+  }
+ ]
+}
