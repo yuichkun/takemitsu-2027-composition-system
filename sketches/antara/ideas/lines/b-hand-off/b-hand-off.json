@@ -1,0 +1,787 @@
+{
+ "title": "antara · B · one note handed on",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 66
+  }
+ ],
+ "measures": 12,
+ "parts": [
+  {
+   "id": "fl",
+   "instrument": "flute",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      53,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      83,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      113,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    }
+   ]
+  },
+  {
+   "id": "ob",
+   "instrument": "oboe",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      14,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 71
+     }
+    },
+    {
+     "at": [
+      101,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      131,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    }
+   ]
+  },
+  {
+   "id": "cl",
+   "instrument": "clarinet",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      7,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      122,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    }
+   ]
+  },
+  {
+   "id": "hn",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      2,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      29,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      116,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    }
+   ]
+  },
+  {
+   "id": "tpt",
+   "instrument": "trumpet",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      20,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      77,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      107,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      137,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "muted"
+    }
+   ]
+  },
+  {
+   "id": "vib",
+   "instrument": "vibraphone",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      17,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      74,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 71
+     }
+    },
+    {
+     "at": [
+      103,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      134,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    }
+   ]
+  },
+  {
+   "id": "hp",
+   "instrument": "harp",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      38,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      65,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      125,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    }
+   ]
+  },
+  {
+   "id": "vn",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      5,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      31,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 76.5
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      59,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      89,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "flautando"
+    }
+   ],
+   "name": "Violin (solo)",
+   "abbreviation": "Vn.",
+   "players": 1
+  },
+  {
+   "id": "va",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      11,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      41,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      68,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      98,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      127,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Viola (solo)",
+   "abbreviation": "Va.",
+   "players": 1
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      50,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      79,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      110,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      140,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    }
+   ],
+   "name": "Cello (solo)",
+   "abbreviation": "Vc.",
+   "players": 1
+  }
+ ]
+}

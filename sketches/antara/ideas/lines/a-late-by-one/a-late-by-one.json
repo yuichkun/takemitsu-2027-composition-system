@@ -1,0 +1,810 @@
+{
+ "title": "antara · A · late by one atom",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 72
+  }
+ ],
+ "measures": 10,
+ "parts": [
+  {
+   "id": "glk",
+   "instrument": "glockenspiel",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 92
+     }
+    },
+    {
+     "at": [
+      49,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 92
+     }
+    },
+    {
+     "at": [
+      98,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 92
+     }
+    },
+    {
+     "at": [
+      147,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 92
+     }
+    },
+    {
+     "at": [
+      196,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 92
+     }
+    }
+   ]
+  },
+  {
+   "id": "vib",
+   "instrument": "vibraphone",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      92,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      138,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      184,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    }
+   ]
+  },
+  {
+   "id": "mar",
+   "instrument": "marimba",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      41,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      82,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      123,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      164,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    }
+   ]
+  },
+  {
+   "id": "hp1",
+   "instrument": "harp",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      44,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      88,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      132,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      176,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    }
+   ],
+   "name": "Harp I",
+   "abbreviation": "Hp. I"
+  },
+  {
+   "id": "hp2",
+   "instrument": "harp",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      43,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      86,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      129,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      172,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    }
+   ],
+   "name": "Harp II (tuned ¼ tone low)",
+   "abbreviation": "Hp. II"
+  },
+  {
+   "id": "cel",
+   "instrument": "celesta",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      48,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      96,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      144,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      192,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    }
+   ]
+  },
+  {
+   "id": "pno",
+   "instrument": "piano",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    }
+   ],
+   "name": "Piano (tuned ¼ tone low)",
+   "abbreviation": "Pno."
+  },
+  {
+   "id": "vn",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 81.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      47,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 81.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      94,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 81.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      141,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 81.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      188,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 81.5
+     },
+     "technique": "pizz"
+    }
+   ]
+  },
+  {
+   "id": "va",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      42,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      84,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      126,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "pizz"
+    }
+   ]
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    }
+   ]
+  }
+ ]
+}
