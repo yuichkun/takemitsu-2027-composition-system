@@ -1,0 +1,2130 @@
+{
+ "title": "antara · palette B · percussion takes the line at 0",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 66
+  }
+ ],
+ "measures": 21,
+ "parts": [
+  {
+   "id": "fl",
+   "instrument": "flute",
+   "name": "Flute",
+   "abbreviation": "Fl.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      77,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      81,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      25,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      79,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "at": [
+      55,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      245,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      275,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      77,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    }
+   ]
+  },
+  {
+   "id": "ob",
+   "instrument": "oboe",
+   "name": "Oboe",
+   "abbreviation": "Ob.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      11,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      41,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      79,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      203,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "at": [
+      59,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      269,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      299,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "cl",
+   "instrument": "clarinet",
+   "name": "Clarinet",
+   "abbreviation": "Cl.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      29,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      59,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      89,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      221,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      127,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      71,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    }
+   ]
+  },
+  {
+   "id": "bcl",
+   "instrument": "bass-clarinet",
+   "name": "Bass Clarinet",
+   "abbreviation": "B. Cl.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      65,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      73,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      65,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      145,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "bsn",
+   "instrument": "bassoon",
+   "name": "Bassoon",
+   "abbreviation": "Bsn.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      31,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      31,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      61,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      175,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      223,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      257,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      72,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "hn",
+   "instrument": "horn",
+   "name": "Horn",
+   "abbreviation": "Hn.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      5,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      19,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      151,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      197,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      115,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    }
+   ]
+  },
+  {
+   "id": "tpt",
+   "instrument": "trumpet",
+   "name": "Trumpet",
+   "abbreviation": "Tpt.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      13,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      55,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      43,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      173,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      109,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      251,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      281,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "muted"
+    }
+   ]
+  },
+  {
+   "id": "tbn",
+   "instrument": "trombone",
+   "name": "Trombone",
+   "abbreviation": "Tbn.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      7,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      37,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      103,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      161,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      103,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      271,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 63
+     }
+    },
+    {
+     "at": [
+      151,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "bells",
+   "instrument": "tubular-bells",
+   "name": "Tubular Bells",
+   "abbreviation": "T. Bells",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      7,
+      4
+     ],
+     "text": "l.v."
+    },
+    {
+     "at": [
+      7,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      155,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      199,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      233,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      133,
+      2
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      295,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    }
+   ]
+  },
+  {
+   "id": "vib",
+   "instrument": "vibraphone",
+   "name": "Vibraphone",
+   "abbreviation": "Vib.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      17,
+      4
+     ],
+     "text": "l.v."
+    },
+    {
+     "at": [
+      17,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      77,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      107,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      209,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      121,
+      2
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      305,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    }
+   ]
+  },
+  {
+   "id": "trgl",
+   "instrument": "triangle",
+   "name": "Triangle",
+   "abbreviation": "Trgl.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      131,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      185,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      103,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      223,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      121,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      65,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      139,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      295,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "wb",
+   "instrument": "woodblock-medium",
+   "name": "Woodblock",
+   "abbreviation": "W. B.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      137,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      115,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      247,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      133,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      71,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      151,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cym",
+   "instrument": "suspended-cymbal",
+   "name": "Suspended Cymbal",
+   "abbreviation": "Sus. Cym.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      97,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      251,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      269,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      72,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      305,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tt",
+   "instrument": "tam-tam",
+   "name": "Tam-tam",
+   "abbreviation": "T.-t.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      67,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      47,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      209,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      227,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      245,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      281,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      299,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "td",
+   "instrument": "tenor-drum",
+   "name": "Tenor Drum",
+   "abbreviation": "T. D.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      197,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      233,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      271,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      145,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      77,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bd",
+   "instrument": "bass-drum",
+   "name": "Bass Drum",
+   "abbreviation": "B. D.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      127,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      91,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      203,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      221,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      257,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    },
+    {
+     "at": [
+      275,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vn2",
+   "instrument": "violins-2",
+   "name": "Violins II",
+   "abbreviation": "Vn. II",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      125,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "col-legno"
+    },
+    {
+     "at": [
+      179,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "col-legno"
+    },
+    {
+     "at": [
+      199,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "col-legno"
+    },
+    {
+     "at": [
+      109,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "col-legno"
+    },
+    {
+     "at": [
+      59,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "col-legno"
+    },
+    {
+     "at": [
+      127,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "col-legno"
+    },
+    {
+     "at": [
+      293,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "col-legno"
+    }
+   ]
+  },
+  {
+   "id": "va",
+   "instrument": "violas",
+   "name": "Viola (solo)",
+   "abbreviation": "Va.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      53,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 62.5
+     }
+    },
+    {
+     "at": [
+      113,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      85,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "at": [
+      247,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      139,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    }
+   ],
+   "players": 1
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "name": "Cello (solo)",
+   "abbreviation": "Vc.",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      1,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "at": [
+      35,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 63
+     }
+    },
+    {
+     "at": [
+      49,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "at": [
+      149,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      97,
+      2
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      227,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "at": [
+      293,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    }
+   ],
+   "players": 1
+  }
+ ]
+}

@@ -1,0 +1,2221 @@
+{
+ "title": "antara · palette B · the orchestra narrows to the axis",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 24,
+ "parts": [
+  {
+   "id": "fl",
+   "instrument": "flute",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      46,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      101,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      109,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      227,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      161,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      331,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      220,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      223,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      46,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      46,
+      3
+     ],
+     "dur": [
+      21,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      109,
+      3
+     ],
+     "dur": [
+      52,
+      3
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      161,
+      3
+     ],
+     "dur": [
+      62,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    }
+   ],
+   "name": "Flute",
+   "abbreviation": "Fl."
+  },
+  {
+   "id": "ob",
+   "instrument": "oboe",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      119,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      115,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      239,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      169,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      347,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      229,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      232,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      55,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      115,
+      3
+     ],
+     "dur": [
+      18,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      169,
+      3
+     ],
+     "dur": [
+      21,
+      1
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    }
+   ],
+   "name": "Oboe",
+   "abbreviation": "Ob."
+  },
+  {
+   "id": "bsn1",
+   "instrument": "bassoon",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      14,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      37,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      53,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      130,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      269,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      238,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      241,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      14,
+      3
+     ],
+     "pitch": {
+      "midi": 45.5
+     }
+    },
+    {
+     "at": [
+      14,
+      3
+     ],
+     "dur": [
+      61,
+      3
+     ],
+     "pitch": {
+      "midi": 41
+     }
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      55,
+      3
+     ],
+     "pitch": {
+      "midi": 36
+     }
+    },
+    {
+     "at": [
+      130,
+      3
+     ],
+     "dur": [
+      37,
+      1
+     ],
+     "pitch": {
+      "midi": 58.5
+     }
+    }
+   ],
+   "name": "Bassoon 1",
+   "abbreviation": "Bsn. 1"
+  },
+  {
+   "id": "bsn2-3",
+   "instrument": "bassoon",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      40,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      89,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      100,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      209,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      152,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      313,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      211,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      214,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      40,
+      3
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    },
+    {
+     "at": [
+      40,
+      3
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 53
+     }
+    },
+    {
+     "at": [
+      100,
+      3
+     ],
+     "dur": [
+      52,
+      3
+     ],
+     "pitch": {
+      "midi": 49.5
+     }
+    },
+    {
+     "at": [
+      152,
+      3
+     ],
+     "dur": [
+      62,
+      3
+     ],
+     "pitch": {
+      "midi": 45.5
+     }
+    }
+   ],
+   "name": "Bassoons 2–3",
+   "abbreviation": "Bsn. 2–3",
+   "players": 2
+  },
+  {
+   "id": "hn1",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      61,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      131,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      257,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      184,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      377,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      247,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      250,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      61,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      61,
+      3
+     ],
+     "dur": [
+      21,
+      1
+     ],
+     "pitch": {
+      "midi": 63
+     }
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      184,
+      3
+     ],
+     "dur": [
+      22,
+      1
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    }
+   ],
+   "name": "Horn 1",
+   "abbreviation": "Hn. 1"
+  },
+  {
+   "id": "hn2-4",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      31,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      71,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      193,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      99,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      202,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      205,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      31,
+      3
+     ],
+     "pitch": {
+      "midi": 53
+     }
+    },
+    {
+     "at": [
+      31,
+      3
+     ],
+     "dur": [
+      61,
+      3
+     ],
+     "pitch": {
+      "midi": 49.5
+     }
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      52,
+      3
+     ],
+     "pitch": {
+      "midi": 45.5
+     }
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      61,
+      3
+     ],
+     "pitch": {
+      "midi": 41
+     }
+    }
+   ],
+   "name": "Horns 2–4",
+   "abbreviation": "Hn. 2–4",
+   "players": 3
+  },
+  {
+   "id": "btbn",
+   "instrument": "bass-trombone",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      119,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      115,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      239,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      169,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      347,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      229,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      232,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      55,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 58.5
+     }
+    },
+    {
+     "at": [
+      115,
+      3
+     ],
+     "dur": [
+      18,
+      1
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    },
+    {
+     "at": [
+      169,
+      3
+     ],
+     "dur": [
+      21,
+      1
+     ],
+     "pitch": {
+      "midi": 53
+     }
+    }
+   ],
+   "name": "Bass Trombone",
+   "abbreviation": "B. Tbn."
+  },
+  {
+   "id": "tba",
+   "instrument": "tuba",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      46,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      101,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      109,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      227,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      161,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      331,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      220,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      223,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      46,
+      3
+     ],
+     "pitch": {
+      "midi": 58.5
+     }
+    },
+    {
+     "at": [
+      46,
+      3
+     ],
+     "dur": [
+      21,
+      1
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    },
+    {
+     "at": [
+      109,
+      3
+     ],
+     "dur": [
+      52,
+      3
+     ],
+     "pitch": {
+      "midi": 53
+     }
+    },
+    {
+     "at": [
+      161,
+      3
+     ],
+     "dur": [
+      62,
+      3
+     ],
+     "pitch": {
+      "midi": 49.5
+     }
+    }
+   ],
+   "name": "Tuba",
+   "abbreviation": "Tba."
+  },
+  {
+   "id": "vn1-solo",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      7,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      49,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      178,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      365,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      92,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 85.5
+     }
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      21,
+      1
+     ],
+     "pitch": {
+      "midi": 90.5
+     }
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      109,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      178,
+      3
+     ],
+     "dur": [
+      110,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    }
+   ],
+   "name": "Violin I solo",
+   "abbreviation": "Vn. I solo",
+   "players": 1
+  },
+  {
+   "id": "vn1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      23,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      55,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      83,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      175,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      95,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      193,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      196,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      23,
+      3
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 81
+     }
+    },
+    {
+     "at": [
+      83,
+      3
+     ],
+     "dur": [
+      55,
+      3
+     ],
+     "pitch": {
+      "midi": 85.5
+     }
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      58,
+      3
+     ],
+     "pitch": {
+      "midi": 90.5
+     }
+    }
+   ],
+   "name": "Violins I",
+   "abbreviation": "Vn. I",
+   "players": 15
+  },
+  {
+   "id": "vn2-solo",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      61,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      131,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      257,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      184,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      377,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      247,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      250,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      61,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      61,
+      3
+     ],
+     "dur": [
+      21,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    },
+    {
+     "at": [
+      184,
+      3
+     ],
+     "dur": [
+      22,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    }
+   ],
+   "name": "Violin II solo",
+   "abbreviation": "Vn. II solo",
+   "players": 1
+  },
+  {
+   "id": "vn2",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      31,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      71,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      193,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      99,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      202,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      205,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      31,
+      3
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      31,
+      3
+     ],
+     "dur": [
+      61,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      52,
+      3
+     ],
+     "pitch": {
+      "midi": 81
+     }
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      61,
+      3
+     ],
+     "pitch": {
+      "midi": 85.5
+     }
+    }
+   ],
+   "name": "Violins II",
+   "abbreviation": "Vn. II",
+   "players": 13
+  },
+  {
+   "id": "va-solo",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      14,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      37,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      53,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      130,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      269,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      238,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      241,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      14,
+      3
+     ],
+     "pitch": {
+      "midi": 81
+     }
+    },
+    {
+     "at": [
+      14,
+      3
+     ],
+     "dur": [
+      61,
+      3
+     ],
+     "pitch": {
+      "midi": 85.5
+     }
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      55,
+      3
+     ],
+     "pitch": {
+      "midi": 90.5
+     }
+    },
+    {
+     "at": [
+      130,
+      3
+     ],
+     "dur": [
+      37,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    }
+   ],
+   "name": "Viola solo",
+   "abbreviation": "Va. solo",
+   "players": 1
+  },
+  {
+   "id": "va",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      40,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      89,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      100,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      209,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      152,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      313,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      211,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      214,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      40,
+      3
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      40,
+      3
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      100,
+      3
+     ],
+     "dur": [
+      52,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      152,
+      3
+     ],
+     "dur": [
+      62,
+      3
+     ],
+     "pitch": {
+      "midi": 81
+     }
+    }
+   ],
+   "name": "Violas",
+   "abbreviation": "Va.",
+   "players": 11
+  },
+  {
+   "id": "vc-solo",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      7,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      49,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      178,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      365,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      92,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 41
+     }
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      21,
+      1
+     ],
+     "pitch": {
+      "midi": 36
+     }
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      109,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     }
+    },
+    {
+     "at": [
+      178,
+      3
+     ],
+     "dur": [
+      110,
+      3
+     ],
+     "pitch": {
+      "midi": 63
+     }
+    }
+   ],
+   "name": "Violoncello solo",
+   "abbreviation": "Vc. solo",
+   "players": 1
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      23,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      55,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      83,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      175,
+      6
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      95,
+      2
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      193,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      196,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 49.5
+     }
+    },
+    {
+     "at": [
+      23,
+      3
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 45.5
+     }
+    },
+    {
+     "at": [
+      83,
+      3
+     ],
+     "dur": [
+      55,
+      3
+     ],
+     "pitch": {
+      "midi": 41
+     }
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      58,
+      3
+     ],
+     "pitch": {
+      "midi": 36
+     }
+    }
+   ],
+   "name": "Violoncellos",
+   "abbreviation": "Vc.",
+   "players": 9
+  }
+ ]
+}

@@ -1,0 +1,3069 @@
+{
+ "title": "antara · palette B · the cuts fall from pitch to time",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 72
+  }
+ ],
+ "measures": 25,
+ "parts": [
+  {
+   "id": "fl",
+   "instrument": "flute",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 88
+     }
+    },
+    {
+     "at": [
+      59,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 83.5
+     }
+    },
+    {
+     "at": [
+      117,
+      5
+     ],
+     "dur": [
+      33,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     }
+    },
+    {
+     "at": [
+      174,
+      5
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 76
+     }
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      57,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      339,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      392,
+      5
+     ],
+     "dur": [
+      8,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      444,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      99,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Flute",
+   "abbreviation": "Fl."
+  },
+  {
+   "id": "ob",
+   "instrument": "oboe",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 85.5
+     }
+    },
+    {
+     "at": [
+      58,
+      5
+     ],
+     "dur": [
+      42,
+      5
+     ],
+     "pitch": {
+      "midi": 81.5
+     }
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     }
+    },
+    {
+     "at": [
+      171,
+      5
+     ],
+     "dur": [
+      29,
+      5
+     ],
+     "pitch": {
+      "midi": 75
+     }
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      24,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     }
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      334,
+      5
+     ],
+     "dur": [
+      16,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      387,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      439,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      98,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Oboe",
+   "abbreviation": "Ob."
+  },
+  {
+   "id": "ci",
+   "instrument": "cor-anglais",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     }
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 76.5
+     }
+    },
+    {
+     "at": [
+      109,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      162,
+      5
+     ],
+     "dur": [
+      38,
+      5
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      268,
+      5
+     ],
+     "dur": [
+      32,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      321,
+      5
+     ],
+     "dur": [
+      29,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      374,
+      5
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      426,
+      5
+     ],
+     "dur": [
+      24,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      477,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Cor anglais",
+   "abbreviation": "C. ingl."
+  },
+  {
+   "id": "cl",
+   "instrument": "clarinet",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 83.5
+     }
+    },
+    {
+     "at": [
+      57,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      113,
+      5
+     ],
+     "dur": [
+      37,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "dur": [
+      32,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      222,
+      5
+     ],
+     "dur": [
+      28,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     }
+    },
+    {
+     "at": [
+      276,
+      5
+     ],
+     "dur": [
+      24,
+      5
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      383,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      87,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      486,
+      5
+     ],
+     "dur": [
+      14,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Clarinet",
+   "abbreviation": "Cl."
+  },
+  {
+   "id": "bcl",
+   "instrument": "bass-clarinet",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      53,
+      5
+     ],
+     "dur": [
+      47,
+      5
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      157,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 71
+     }
+    },
+    {
+     "at": [
+      209,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      261,
+      5
+     ],
+     "dur": [
+      39,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      313,
+      5
+     ],
+     "dur": [
+      37,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      73,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      417,
+      5
+     ],
+     "dur": [
+      33,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      468,
+      5
+     ],
+     "dur": [
+      32,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Bass Clarinet",
+   "abbreviation": "B. Cl."
+  },
+  {
+   "id": "bsn",
+   "instrument": "bassoon",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      70,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      80,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      90,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Bassoon",
+   "abbreviation": "Bsn."
+  },
+  {
+   "id": "hn1",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     }
+    },
+    {
+     "at": [
+      54,
+      5
+     ],
+     "dur": [
+      46,
+      5
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      107,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      159,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 71
+     }
+    },
+    {
+     "at": [
+      211,
+      5
+     ],
+     "dur": [
+      39,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      263,
+      5
+     ],
+     "dur": [
+      37,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      367,
+      5
+     ],
+     "dur": [
+      33,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      419,
+      5
+     ],
+     "dur": [
+      31,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      94,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Horn 1",
+   "abbreviation": "Hn. 1"
+  },
+  {
+   "id": "hn2",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     }
+    },
+    {
+     "at": [
+      52,
+      5
+     ],
+     "dur": [
+      48,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      103,
+      5
+     ],
+     "dur": [
+      47,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      154,
+      5
+     ],
+     "dur": [
+      46,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      256,
+      5
+     ],
+     "dur": [
+      44,
+      5
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      307,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      358,
+      5
+     ],
+     "dur": [
+      42,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      409,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      92,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Horn 2",
+   "abbreviation": "Hn. 2"
+  },
+  {
+   "id": "tpt",
+   "instrument": "trumpet",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
+     }
+    },
+    {
+     "at": [
+      56,
+      5
+     ],
+     "dur": [
+      44,
+      5
+     ],
+     "pitch": {
+      "midi": 77.5
+     }
+    },
+    {
+     "at": [
+      111,
+      5
+     ],
+     "dur": [
+      39,
+      5
+     ],
+     "pitch": {
+      "midi": 75
+     }
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      218,
+      5
+     ],
+     "dur": [
+      32,
+      5
+     ],
+     "pitch": {
+      "midi": 71.5
+     }
+    },
+    {
+     "at": [
+      271,
+      5
+     ],
+     "dur": [
+      29,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      324,
+      5
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      377,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      429,
+      5
+     ],
+     "dur": [
+      21,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Trumpet",
+   "abbreviation": "Tpt."
+  },
+  {
+   "id": "tbn",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    },
+    {
+     "at": [
+      51,
+      5
+     ],
+     "dur": [
+      49,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      102,
+      5
+     ],
+     "dur": [
+      48,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      153,
+      5
+     ],
+     "dur": [
+      47,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    },
+    {
+     "at": [
+      204,
+      5
+     ],
+     "dur": [
+      46,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      51,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "at": [
+      306,
+      5
+     ],
+     "dur": [
+      44,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     }
+    },
+    {
+     "at": [
+      357,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      408,
+      5
+     ],
+     "dur": [
+      42,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    },
+    {
+     "at": [
+      459,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Trombone",
+   "abbreviation": "Tbn."
+  },
+  {
+   "id": "vni-1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      59,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 83.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      117,
+      5
+     ],
+     "dur": [
+      33,
+      5
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      174,
+      5
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      57,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      339,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      392,
+      5
+     ],
+     "dur": [
+      8,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      444,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      99,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violins I 1",
+   "abbreviation": "Vn. I 1",
+   "players": 8
+  },
+  {
+   "id": "vni-2",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 85.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      58,
+      5
+     ],
+     "dur": [
+      42,
+      5
+     ],
+     "pitch": {
+      "midi": 81.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      171,
+      5
+     ],
+     "dur": [
+      29,
+      5
+     ],
+     "pitch": {
+      "midi": 75
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      24,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      334,
+      5
+     ],
+     "dur": [
+      16,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      387,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      439,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      98,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violins I 2",
+   "abbreviation": "Vn. I 2",
+   "players": 8
+  },
+  {
+   "id": "vnii-1",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 83.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      57,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      113,
+      5
+     ],
+     "dur": [
+      37,
+      5
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "dur": [
+      32,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      222,
+      5
+     ],
+     "dur": [
+      28,
+      5
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      276,
+      5
+     ],
+     "dur": [
+      24,
+      5
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      383,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      87,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      486,
+      5
+     ],
+     "dur": [
+      14,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violins II 1",
+   "abbreviation": "Vn. II 1",
+   "players": 5
+  },
+  {
+   "id": "vnii-2",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      56,
+      5
+     ],
+     "dur": [
+      44,
+      5
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      111,
+      5
+     ],
+     "dur": [
+      39,
+      5
+     ],
+     "pitch": {
+      "midi": 75
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      218,
+      5
+     ],
+     "dur": [
+      32,
+      5
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      271,
+      5
+     ],
+     "dur": [
+      29,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      324,
+      5
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      377,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      429,
+      5
+     ],
+     "dur": [
+      21,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violins II 2",
+   "abbreviation": "Vn. II 2",
+   "players": 5
+  },
+  {
+   "id": "vnii-3",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 76.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      109,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      162,
+      5
+     ],
+     "dur": [
+      38,
+      5
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      268,
+      5
+     ],
+     "dur": [
+      32,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      321,
+      5
+     ],
+     "dur": [
+      29,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      374,
+      5
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      426,
+      5
+     ],
+     "dur": [
+      24,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      477,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violins II 3",
+   "abbreviation": "Vn. II 3",
+   "players": 4
+  },
+  {
+   "id": "va-1",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      54,
+      5
+     ],
+     "dur": [
+      46,
+      5
+     ],
+     "pitch": {
+      "midi": 73.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      107,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      159,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      211,
+      5
+     ],
+     "dur": [
+      39,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      263,
+      5
+     ],
+     "dur": [
+      37,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      367,
+      5
+     ],
+     "dur": [
+      33,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      419,
+      5
+     ],
+     "dur": [
+      31,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      94,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violas 1",
+   "abbreviation": "Va. 1",
+   "players": 6
+  },
+  {
+   "id": "va-2",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      53,
+      5
+     ],
+     "dur": [
+      47,
+      5
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      157,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      209,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      261,
+      5
+     ],
+     "dur": [
+      39,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      313,
+      5
+     ],
+     "dur": [
+      37,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      73,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      417,
+      5
+     ],
+     "dur": [
+      33,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      468,
+      5
+     ],
+     "dur": [
+      32,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violas 2",
+   "abbreviation": "Va. 2",
+   "players": 6
+  },
+  {
+   "id": "vc-1",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      52,
+      5
+     ],
+     "dur": [
+      48,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      103,
+      5
+     ],
+     "dur": [
+      47,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      154,
+      5
+     ],
+     "dur": [
+      46,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      256,
+      5
+     ],
+     "dur": [
+      44,
+      5
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      307,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      358,
+      5
+     ],
+     "dur": [
+      42,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      409,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      92,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violoncellos 1",
+   "abbreviation": "Vc. 1",
+   "players": 4
+  },
+  {
+   "id": "vc-2",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      51,
+      5
+     ],
+     "dur": [
+      49,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      102,
+      5
+     ],
+     "dur": [
+      48,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      153,
+      5
+     ],
+     "dur": [
+      47,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      204,
+      5
+     ],
+     "dur": [
+      46,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      51,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      306,
+      5
+     ],
+     "dur": [
+      44,
+      5
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      357,
+      5
+     ],
+     "dur": [
+      43,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      408,
+      5
+     ],
+     "dur": [
+      42,
+      5
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      459,
+      5
+     ],
+     "dur": [
+      41,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violoncellos 2",
+   "abbreviation": "Vc. 2",
+   "players": 3
+  },
+  {
+   "id": "vc-3",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      70,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      80,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    },
+    {
+     "at": [
+      90,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "con-sord"
+    }
+   ],
+   "name": "Violoncellos 3",
+   "abbreviation": "Vc. 3",
+   "players": 3
+  }
+ ]
+}
