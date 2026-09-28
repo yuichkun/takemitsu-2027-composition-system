@@ -1,0 +1,3835 @@
+{
+ "title": "the set moves over a pulse",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 72
+  }
+ ],
+ "measures": 16,
+ "parts": [
+  {
+   "id": "vn1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      1,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      1,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      3,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      5,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      3,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      7,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      9,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      5,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      11,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      3,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      13,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      7,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      15,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      17,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      9,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      19,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      21,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      11,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      23,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      25,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      13,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      27,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      29,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      15,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      31,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      33,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      17,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      35,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      37,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      19,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      39,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      41,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      21,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      43,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      45,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      23,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      47,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      49,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      25,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      51,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      53,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      27,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      55,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      57,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      29,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      59,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      61,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      31,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      63,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      65,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      33,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      67,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      69,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      35,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      71,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      73,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      37,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      75,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      77,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      39,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      79,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      81,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      41,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      85,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      43,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      87,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      89,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      45,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      91,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      93,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      47,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      95,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      97,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      49,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      99,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      51,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      103,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      105,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      53,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      107,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      109,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      55,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      111,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      113,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      57,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      115,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      117,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      59,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      119,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      121,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      61,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      123,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      125,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      63,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      127,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      129,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      65,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      131,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      133,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      67,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      135,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      137,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      69,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      139,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      141,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      71,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      143,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      145,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      73,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      147,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      149,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      75,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      151,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      153,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      77,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      155,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      39,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      157,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      79,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      159,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      161,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      81,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      163,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      165,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      83,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      167,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      169,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      85,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      171,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      173,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      87,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      175,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      177,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      89,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      179,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      181,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      91,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      183,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      185,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      93,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      187,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      47,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      189,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      95,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      191,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      193,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      97,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      195,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      49,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      197,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      99,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      199,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      201,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      101,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      203,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      51,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      205,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      103,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      207,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      209,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      105,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      211,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      213,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      107,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      215,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      217,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      109,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      219,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      221,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 81
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      111,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      223,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      225,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      113,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      227,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      57,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      229,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      115,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      231,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      58,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      233,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      117,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      235,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      59,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      237,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      119,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      239,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      241,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      121,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      243,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      61,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      245,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      123,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      247,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      249,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      125,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      251,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 81
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      253,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      127,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "spiccato"
+    },
+    {
+     "at": [
+      255,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "spiccato"
+    }
+   ]
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": 0,
+     "dur": [
+      64,
+      1
+     ],
+     "pitch": {
+      "midi": 45
+     }
+    }
+   ]
+  }
+ ]
+}

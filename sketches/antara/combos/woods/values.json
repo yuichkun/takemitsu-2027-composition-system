@@ -1,0 +1,16 @@
+{
+  "values": {},
+  "presets": {
+    "One row, three woods": {},
+    "3 3 2 through the families": {
+      "rhythm": "3 3 2",
+      "timeRule": "in order"
+    },
+    "Combinations": {
+      "rhythm": "1 2 2 3 3",
+      "timeRule": "combinations",
+      "timeGroup": 3
+    }
+  },
+  "touched": []
+}

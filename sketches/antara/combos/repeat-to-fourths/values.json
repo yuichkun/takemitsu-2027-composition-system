@@ -1,0 +1,16 @@
+{
+  "values": {},
+  "presets": {
+    "Into fourths and fifths": {},
+    "Quarter tones creep in": {
+      "pitches": "0 | 0 0 0 0.5 | 0 0.5 -0.5 | -1.5 0.5 1.5 3.5"
+    },
+    "Walk on": {
+      "stand": "walk on"
+    },
+    "Without the cellos": {
+      "drone": false
+    }
+  },
+  "touched": []
+}

@@ -1,0 +1,30 @@
+{
+  "values": {},
+  "presets": {
+    "Three pulses": {},
+    "Meeting every 6 beats": {
+      "pzRhythm": "3",
+      "hpRhythm": "2",
+      "marOn": false,
+      "bars": 6
+    },
+    "Nobody on the beat": {
+      "pzRhythm": "2",
+      "pzOffset": 1,
+      "hpRhythm": "1 2",
+      "hpOffset": 1,
+      "marOn": false
+    },
+    "Same row, two families": {
+      "pzRhythm": "2 1 1",
+      "hpRhythm": "2 1 1",
+      "marOn": false
+    },
+    "Three rows": {
+      "pzRhythm": "3 3 2",
+      "hpRhythm": "2 1",
+      "marRhythm": "3 2"
+    }
+  },
+  "touched": []
+}
