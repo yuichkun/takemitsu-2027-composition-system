@@ -519,6 +519,97 @@
       "uses": "palette/a/pitch-same-sum-meets（順番が違っても同じ所に着く）",
       "length": "1:04",
       "round": 8
+    },
+    {
+      "path": "a/time-wait-to-change",
+      "kind": "A",
+      "axis": "time",
+      "title": "仲間を替える待ち",
+      "issue": "休みを「仲間を替えるための待ち」として持つ。一本の線が組ごとに仲間を替え、替えてよい次の拍までの待ち（組の和と仲間だけで決まり、誰も選ばない）が休みになる",
+      "mechanism": "One line. Families rotate per group: 2 -> 3 -> 5 -> 2 ... Set S = {1 2 3 4 5} atoms. Rule: combinations k = 2, dictionary order: (1,2)(1,3)(1,4)(1,5)(2,3)(2,4)(2,5)(3,4)(3,5)(4,5), sums 3 4 5 6 5 6 7 7 8 9. 30 groups, so each of the 10 groups is played once in each family (10 and 3 are coprime). Group g = (b1, b2) in family f with atom a_f (2: 15, 3: 20, 5: 12 ticks), head h (always a beat, tick m",
+      "listen": "同じ組 (1 4) が、0:03（5 の仲間）では待たず、0:22（2 の仲間）では 0.75 秒、0:41（3 の仲間）では 0.33 秒待ってから、木の色が替わること。30 の頭が全部拍に立つので、仲間の替わり目が拍としてどれだけ目立つか",
+      "instruments": "ウッドブロック 3（高 = 5 の仲間、中 = 2、低 = 3）",
+      "uses": "",
+      "length": "1:00",
+      "round": 7
+    },
+    {
+      "path": "b/handed-by-size",
+      "kind": "B",
+      "axis": "time",
+      "title": "大きさごとに渡る線",
+      "issue": "「鳴らない間」を使い、一本の線を木管と弦で分け合う。各項は、その項の時間の間の大きさを持つ色だけが鳴らし、巡ごとに大きい方の大きさから一つずつ木管から弦へ渡る。全部木管の線が、大きさの単位で全部弦の線になる",
+      "mechanism": "ONE LINE of terms. TIME: family 3 (triplet-eighth atoms). Set T = {1, 4, 5, 8}. Rule 'combinations' of 2 in dictionary order, each pair ascending: 1 4 1 5 1 8 4 5 4 8 5 8 = one round (12 terms, 54 atoms = 18 beats). 5 rounds, 60 terms, 90 beats. Every term stands at the running sum of the time betweens from 0. The term's own between is the distance to the next term. PITCH: every term has a pitch. ",
+      "listen": "2 巡目（0:18）に弦が 8 atom の長い音だけで入り、巡ごとに弦の線が密になり木管の線がまばらになる。受け渡しが一本の線の色の移りに聴こえるか、二本の線に聴こえるか",
+      "instruments": "フルート 2＋クラリネット 2 のユニゾン、ヴァイオリン I（16）＋ヴィオラ（12）のユニゾン、arco",
+      "uses": "palette/a/time-unsounded-betweens（鳴らない間）",
+      "length": "1:17",
+      "round": 7
+    },
+    {
+      "path": "b/wind-is-the-cut",
+      "kind": "B",
+      "axis": "mixed",
+      "title": "切れ目になる風",
+      "issue": "風（チェロのグリッサンド）が通った瞬間に古い和音の音が止み、新しい和音の音が入る。風の高さが、金管の和音と木管の和音を分ける切れ目になる",
+      "mechanism": "CHORDS: 9 tones each, standpoint 45 (fixed). Set S = {2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5} written in the order [2, 5, 2.5, 4, 3, 4.5, 3.5, 5.5]. Chord k = 45 plus the partial sums of S read starting at position k (rule 'shift each time'). Every chord spans 45 to 75. C0 = 45 47 52 54.5 58.5 61.5 66 69.5 75; C1 = 45 50 52.5 56.5 59.5 64 67.5 73 75; C2 = 45 47.5 51.5 54.5 59 62.5 68 70 75; C3 = 45 49 52 ",
+      "listen": "滑りが通った側は新しい和音で別の色、まだ通っていない側は古い和音。入れ替えの待ちは、二つの和音を合わせた並びの間そのもの（2 回目は古い音と新しい音が一つずつ交互、5 回目は二つずつ組）。枠の 45 と 75 は、高さを変えずに色だけが渡る",
+      "instruments": "チェロ 10（sul tasto のグリッサンド）、金管 9 と木管 9 が和音を交互に受け持つ",
+      "uses": "palette/a/texture-wind-across（風が和音を渡る）",
+      "length": "1:42",
+      "round": 7
+    },
+    {
+      "path": "a/texture-thickness-is-the-step",
+      "kind": "A",
+      "axis": "texture",
+      "title": "厚みは間の大きさ",
+      "issue": "一歩の大きさ（四分音の個数）が、その音を弾く人数になる。厚みを誰も決めず、間から結果として付く",
+      "mechanism": "One homogeneous string section, split into N=sectionSize ranked one-player desks (e.g. Violins I's 16 players -> 16 separate solo parts, ranked 1..16). All desks identical (arco, ordinario, same dynamic level whenever sounding) so the only audible variable is how many desks sound at once. Melodic line: a single 'walk on' standpoint line (as in pitchLine), cumulative addition, octave-folded into th",
+      "listen": "四分音一つの一歩は 1 人、8 半音は 16 人。16 人の音はいちばん高い音ではなく、12 人の高い音から 8 下がって帯の中ほどに着く",
+      "instruments": "ヴァイオリン I 16 人（1｜2〜4｜5〜8｜9〜12｜13〜16 の分奏 5 段）",
+      "uses": "",
+      "length": "0:44",
+      "round": 7
+    },
+    {
+      "path": "b/peel-off-three-families",
+      "kind": "B",
+      "axis": "time",
+      "title": "仲間ごとに抜けていく",
+      "issue": "「一人ずつ離れる」の規則を金管・木管・弦ピッツィカートで仲間 5・2・3 に分けて走らせる。前の合奏が半分抜けた小節から次が入り、密から疎への渡りがオーケストラを移っていく",
+      "mechanism": "Reuse a-peel-off's exact rule unmodified, three times, once per choir. Choir A (brass, 10 players: Hn.4/Tpt.3/Tbn.3), family=2. Choir B (woodwinds, 10 players), family=3. Choir C (string pizzicato, 10 divisi voices), family=5. Each choir: a static 10-pitch chord repeats; each repeat, one player leaves (order: choir A 'from the edges', choir B 'from the top', choir C 'from the bottom' -- the three ",
+      "listen": "同じ規則・同じ 10 音なのに、atom の違い（1/5・1/4・1/3 拍）だけで繰り返しの速さと列の伸び方が変わるか。8〜14 小節で三つの格子が同時に走る所と、最後に弦のピッツィカートだけが一人ずつの列で残ること",
+      "instruments": "金管 10（Hn 4・Tpt 3・Tbn 3）、木管 10（Fl 2・Ob 2・C.A.・Cl 2・B.Cl・Bsn 2）、弦ピッツィカート 10 声の分奏",
+      "uses": "ideas/lines の a-peel-off（一人ずつ離れる）",
+      "length": "1:53",
+      "round": 7
+    },
+    {
+      "path": "b/thread-that-returns",
+      "kind": "B",
+      "axis": "pitch",
+      "title": "伸びて戻る、くもの糸",
+      "issue": "A「戻る人と歩く人」を三つの対（フルート・クラリネット・独奏チェロ）で重ねる。組の大きさを一巡ごとに育てて、歩く人がより遠くまで出てから戻る様子を重ね、弦は入った対の起点だけを保つ",
+      "mechanism": "Uses palette a/pitch-two-standpoints exactly: a between-set summing to 0, a group-size k (combinations of size k in dictionary order), two solo voices from one standpoint — 'home' (jumps back to the anchor at every group head) and 'walker' (never returns, drifts by each group's sum) — playing identical onsets, one round of the combinations then the same groups reversed, then a closing head.\n3 pair",
+      "listen": "頭ごとに戻る人だけが起点へ跳び、歩く人は留まる。大きさ 2 の一巡で、歩く人がより深く出てから戻る。前の対が戻る瞬間に次の対が入り、弦の音が一つ増える",
+      "instruments": "フルート 2、クラリネット 2、独奏チェロ 2、弦の保続音（Vn I・Va・Vc）",
+      "uses": "palette/a/pitch-two-standpoints（戻る人と歩く人）",
+      "length": "1:20",
+      "round": 7
+    },
+    {
+      "path": "b/standpoint-calls-both-sides",
+      "kind": "B",
+      "axis": "texture",
+      "title": "立ち位置が開く二つの合いの手",
+      "issue": "動かない弦 16 声の和音の下で、コントラバスの一歩に .5 が付けば弦が一斉に弓の位置を裏返し、ミュートのトランペット 5 が向こう側の音で答える。付かなければ弦は何もせず、ホルン 5 がこちら側の音で答える",
+      "mechanism": "Strings: reuse texture-side-of-the-standpoint's exact rule, scaled to a 16-voice divisi chord, unchanged: a static chord (never moving) split unevenly between the two quarter-tone grids (~11:5); a double bass standpoint walks its own pitch-between sequence; whenever a step carries .5, all 16 string voices flip bow position (sul tasto<->sul pont) simultaneously, re-attacking the held pitch; wheneve",
+      "listen": "0:11・0:37・1:09 に、同じ 5 音（四分音の格子の 5 音）がホルンからトランペットへ渡る。立ち位置が .5 動いただけで、答える楽器と弦の色が同時に替わる",
+      "instruments": "弦 16 声の分奏、コントラバス、トランペット 5（ミュート）、ホルン 5",
+      "uses": "palette/a/texture-side-of-the-standpoint（立ち位置が裏返す色）",
+      "length": "1:23",
+      "round": 7
     }
   ],
   "rejected": [
@@ -633,6 +724,21 @@
       ],
       "rejected": 0,
       "commit": "83569f7"
+    },
+    {
+      "round": 7,
+      "ended": "2026-09-29 05:19",
+      "added": [
+        "仲間を替える待ち",
+        "大きさごとに渡る線",
+        "切れ目になる風",
+        "厚みは間の大きさ",
+        "仲間ごとに抜けていく",
+        "伸びて戻る、くもの糸",
+        "立ち位置が開く二つの合いの手"
+      ],
+      "rejected": 0,
+      "commit": "434c580"
     }
   ]
 }
