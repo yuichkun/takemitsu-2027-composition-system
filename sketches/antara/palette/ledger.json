@@ -1321,6 +1321,14 @@
       "title": "和音が色を編み直す",
       "gist": "texture-braid with three colours and nine voices",
       "reason": "A「交差して入れ替わる色」を 3 色に広げただけに近い。同じ A を使う「床を渡る光」の方が、形として新しい"
+    },
+    {
+      "round": 11,
+      "kind": "B",
+      "axis": "mixed",
+      "title": "蓄えが決める終わりの和音",
+      "gist": "pitch-reserve-runs-out in three groups at once; the final chord is where the reserves end",
+      "reason": "使う A「蓄えが尽きる所で終わる」は、二回目の見直しで「蓄えが尽きることそのものは聴こえない」と根に疑いが出ている。その上に B を建てても同じ疑いを受け継ぐ"
     }
   ],
   "rounds": [
