@@ -1,0 +1,1433 @@
+{
+ "title": "antara · palette A · what rings on is seen from now",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 16,
+ "parts": [
+  {
+   "id": "hp1",
+   "instrument": "harp",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      178,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      190,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 52
+     },
+     "staff": 2,
+     "voice": 1
+    },
+    {
+     "at": [
+      10,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 51
+     },
+     "staff": 2,
+     "voice": 2
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 55
+     },
+     "staff": 2,
+     "voice": 1
+    },
+    {
+     "at": [
+      14,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 54
+     },
+     "staff": 2,
+     "voice": 2
+    },
+    {
+     "at": [
+      22,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "staff": 2,
+     "voice": 1
+    },
+    {
+     "at": [
+      34,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 57
+     },
+     "staff": 2,
+     "voice": 2
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      38,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      46,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      58,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      82,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      88,
+      3
+     ],
+     "dur": [
+      10,
+      3
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      98,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      100,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      110,
+      3
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      118,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      130,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      136,
+      3
+     ],
+     "dur": [
+      10,
+      3
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      140,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 75
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      146,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 81
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      148,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      152,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      158,
+      3
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      166,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 77
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      58,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 83
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      178,
+      3
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "staff": 1,
+     "voice": 1
+    }
+   ],
+   "name": "Harp I",
+   "abbreviation": "Hp. I"
+  },
+  {
+   "id": "hp2",
+   "instrument": "harp",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      178,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      190,
+      3
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      2,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 56.5
+     },
+     "staff": 2,
+     "voice": 1
+    },
+    {
+     "at": [
+      4,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 55.5
+     },
+     "staff": 2,
+     "voice": 2
+    },
+    {
+     "at": [
+      8,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 54.5
+     },
+     "staff": 2,
+     "voice": 1
+    },
+    {
+     "at": [
+      16,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 56.5
+     },
+     "staff": 2,
+     "voice": 1
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 55.5
+     },
+     "staff": 2,
+     "voice": 2
+    },
+    {
+     "at": [
+      20,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 59.5
+     },
+     "staff": 2,
+     "voice": 1
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      28,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      32,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      40,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      44,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      50,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      52,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      56,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      64,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      68,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      74,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      76,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 73.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      80,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 76.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      112,
+      3
+     ],
+     "dur": [
+      10,
+      3
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      116,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      122,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 73.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      128,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      134,
+      3
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 78.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      142,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 78.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      154,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      160,
+      3
+     ],
+     "dur": [
+      10,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      164,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 73.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      170,
+      3
+     ],
+     "dur": [
+      20,
+      3
+     ],
+     "pitch": {
+      "midi": 79.5
+     },
+     "staff": 1,
+     "voice": 1
+    },
+    {
+     "at": [
+      172,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 78.5
+     },
+     "staff": 1,
+     "voice": 2
+    },
+    {
+     "at": [
+      176,
+      3
+     ],
+     "dur": [
+      14,
+      3
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "staff": 1,
+     "voice": 2
+    }
+   ],
+   "name": "Harp II (tuned ¼ tone low)",
+   "abbreviation": "Hp. II"
+  }
+ ]
+}
