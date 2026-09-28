@@ -23,6 +23,9 @@
 // - Only 0: all seven on one pitch, held, to niente.
 // The dynamics only fall (p, then pp through the gather, niente at the end); no arrival is
 // accented, so the gathering is not a build-up. Colours go by lag, strings and winds in turn.
+// The seven voices are one line and differ only in their zeros, so they weigh the same: each is
+// two players (the strings a desk each, not the whole section), all on one dynamic curve, and the
+// line sits in the middle of the range all seven sound in, so no voice plays at its range's edge.
 // Card: README.md.
 
 import type { Part, TextEvent } from "../../../../../src/score/types.ts";
@@ -49,7 +52,7 @@ export const knobs = {
     group: "Line",
     label: "Standpoint",
     help: "The first note of the line, where all seven voices start",
-    value: "G#4",
+    value: "C+5",
     min: "B3",
     max: "C6",
     step: 0.5,
@@ -58,7 +61,7 @@ export const knobs = {
     group: "Line",
     label: "Band",
     help: "Where the line may go; every voice plays in it. A step that would leave it is taken the other way (the between's sign turned)",
-    value: ["C4", "F5"],
+    value: ["E+4", "A#5"],
     min: "B3",
     max: "C6",
     step: 0.5,
@@ -108,24 +111,32 @@ const ZEROS = 6;
 const UNISON_TURNS = 2;
 /** Notes of the pulse the last stage (only 0) lasts, counting the last arrival. */
 const LAST = 4;
+/**
+ * Players of every voice. The voices differ only in their zeros, so they weigh the same: a wind
+ * voice plays without a rest and needs two to share the breath, and each string voice is two as
+ * well (one desk of its section; the rest of the section is silent).
+ */
+const PLAYERS = 2;
 
-const voice = (
-  id: string,
-  instrument: string,
-  name: string,
-  abbreviation: string,
-  players: number,
-): Player => ({ id, instrument, name, abbreviation, players, range: [59, 84], grids: [0, 1] });
+const voice = (id: string, instrument: string, name: string, abbreviation: string): Player => ({
+  id,
+  instrument,
+  name,
+  abbreviation,
+  players: PLAYERS,
+  range: [59, 84],
+  grids: [0, 1],
+});
 
 /** By lag: voice 0 never stays, voice 6 takes the most zeros. Strings and winds in turn. */
 const VOICES: Player[] = [
-  voice("vn1", "violins-1", "Violins I", "Vn. I", 16),
-  voice("fl", "flute", "Flutes 1·2", "Fl. 1·2", 2),
-  voice("vn2", "violins-2", "Violins II", "Vn. II", 14),
-  voice("ob", "oboe", "Oboes 1·2", "Ob. 1·2", 2),
-  voice("va", "violas", "Violas", "Va.", 12),
-  voice("cl", "clarinet", "Clarinets 1·2", "Cl. 1·2", 2),
-  voice("vc", "cellos", "Violoncellos", "Vc.", 10),
+  voice("vn1", "violins-1", `Violins I (${PLAYERS})`, `Vn. I (${PLAYERS})`),
+  voice("fl", "flute", "Flutes 1·2", "Fl. 1·2"),
+  voice("vn2", "violins-2", `Violins II (${PLAYERS})`, `Vn. II (${PLAYERS})`),
+  voice("ob", "oboe", "Oboes 1·2", "Ob. 1·2"),
+  voice("va", "violas", `Violas (${PLAYERS})`, `Va. (${PLAYERS})`),
+  voice("cl", "clarinet", "Clarinets 1·2", "Cl. 1·2"),
+  voice("vc", "cellos", `Violoncellos (${PLAYERS})`, `Vc. (${PLAYERS})`),
 ];
 /** Score order: winds, then strings. */
 const SCORE_ORDER = ["fl", "ob", "cl", "vn1", "vn2", "va", "vc"];

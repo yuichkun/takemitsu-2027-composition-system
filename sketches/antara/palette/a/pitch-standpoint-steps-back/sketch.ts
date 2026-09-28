@@ -13,12 +13,17 @@
 // note to the next lies between two strands: the difference of two walks, a size the set does not
 // hold and nobody chose.
 //
-// A section of depth d starts where the line stands: its first note is the last note of the
-// section before (the Standpoint, for the first section), and its first d notes are standpoints a
-// fixed gap apart, bottom up. From then on every note is the note d back plus the next between.
-// Each strand gets the same number of notes in every section. The stream (the set in the order
-// written, starting one later each time round) runs through the whole sketch and is never reset.
-// Nothing folds by octaves and nothing reflects at the edges: a note outside the clarinet throws.
+// A section of depth d starts where the line stands. Its first d notes are standpoints a fixed gap
+// apart, sounded bottom up and spread evenly around a centre: the middle between the lowest and
+// the highest of the notes the section before ended on, one per strand (its last note, after a
+// section of depth 1; the Standpoint, for the first section). So from section to section the depth
+// changes and the height does not. (Centring on the last note alone would lift every section after
+// one of depth 2 or more, since that note always belongs to the top strand.) When the centre
+// leaves the standpoints off the quarter-tone grid, they go down to it. From then on every note is
+// the note d back plus the next between. Each strand gets the same number of notes in every
+// section. The stream (the set in the order written, starting one later each time round) runs
+// through the whole sketch and is never reset. Nothing folds by octaves and nothing reflects at the
+// edges: a note outside the clarinet throws.
 //
 // Time is a pulse (a time set holding one between), every note lasting to the next; the last note
 // is held for two beats and fades. One level throughout, no accents, no slurs, and nothing marks
@@ -54,7 +59,7 @@ export const knobs = {
   gap: number({
     group: "Pitch",
     label: "Strand gap",
-    help: "How far apart the standpoints of a section's strands start, bottom up (semitones). With .5 neighbouring strands start on the two grids",
+    help: "How far apart the standpoints of a section's strands start (semitones), spread evenly around where the section before ended. With .5 neighbouring strands start on the two grids",
     value: 8.5,
     min: 0,
     max: 24,
@@ -64,8 +69,8 @@ export const knobs = {
   anchor: pitch({
     group: "Pitch",
     label: "Standpoint",
-    help: "The first note. Each later section starts from the last note of the one before",
-    value: "D4",
+    help: "The first note. Each later section spreads its strands around the middle of where the strands of the one before ended",
+    value: 73,
     min: "D3",
     max: "C6",
     step: 0.5,
@@ -136,16 +141,19 @@ function depthsOf(value: string): number[] {
 export function score(v: Values<typeof knobs>) {
   const next = stream(setOf(v.set), "shift each time", 1);
 
-  // The pitches, section by section: d standpoints, then each note the note d back plus the next
-  // between of the one stream.
+  // The pitches, section by section: d standpoints a gap apart around the centre (down to the
+  // quarter-tone grid when they fall off it), then each note the note d back plus the next between
+  // of the one stream. The next centre is the middle of the last d notes, where the strands ended.
   const pitches: number[] = [];
-  let stand = v.anchor;
+  let centre = v.anchor;
   for (const d of depthsOf(v.depths)) {
     const section: number[] = [];
-    for (let k = 0; k < d; k++) section.push(stand + k * v.gap);
+    const lowest = Math.floor((centre - ((d - 1) / 2) * v.gap) * 2) / 2;
+    for (let k = 0; k < d; k++) section.push(lowest + k * v.gap);
     for (let n = d; n < d * v.per; n++) section.push(section[n - d]! + next());
     pitches.push(...section);
-    stand = section.at(-1)!;
+    const ends = section.slice(-d);
+    centre = (Math.min(...ends) + Math.max(...ends)) / 2;
   }
   const [lo, hi] = CLARINET.range;
   pitches.forEach((m, i) => {

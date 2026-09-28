@@ -13,7 +13,7 @@
    "bpm": 76
   }
  ],
- "measures": 35,
+ "measures": 25,
  "parts": [
   {
    "id": "tpt1",
@@ -33,7 +33,7 @@
       1
      ],
      "dur": [
-      36,
+      26,
       1
      ],
      "pitch": {
@@ -43,43 +43,71 @@
     },
     {
      "at": [
-      48,
+      29,
       1
      ],
      "dur": [
-      12,
+      9,
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 80
      },
      "technique": "muted"
     },
     {
      "at": [
-      84,
+      41,
       1
      ],
      "dur": [
-      12,
+      6,
       1
      ],
      "pitch": {
-      "midi": 79
+      "midi": 76
      },
      "technique": "muted"
     },
     {
      "at": [
-      108,
+      50,
       1
      ],
      "dur": [
-      12,
+      4,
       1
      ],
      "pitch": {
-      "midi": 72.5
+      "midi": 81.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      67,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
      },
      "technique": "muted"
     }
@@ -99,11 +127,67 @@
    "events": [
     {
      "at": [
-      36,
+      26,
       1
      ],
      "dur": [
-      12,
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      47,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      4,
       1
      ],
      "pitch": {
@@ -113,29 +197,15 @@
     },
     {
      "at": [
-      60,
+      76,
       1
      ],
      "dur": [
-      24,
+      3,
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "muted"
-    },
-    {
-     "at": [
-      96,
-      1
-     ],
-     "dur": [
-      12,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
+      "midi": 72.5
      },
      "technique": "muted"
     }
@@ -156,29 +226,29 @@
     {
      "type": "text",
      "at": [
-      125,
-      2
+      33,
+      1
      ],
      "text": "l.v. sempre"
     },
     {
      "at": [
-      125,
-      2
+      33,
+      1
      ],
      "dur": [
       1,
-      2
+      1
      ],
      "pitch": [
       {
-       "midi": 94
+       "midi": 92
       }
      ]
     },
     {
      "at": [
-      63,
+      34,
       1
      ],
      "dur": [
@@ -187,7 +257,97 @@
      ],
      "pitch": [
       {
-       "midi": 94
+       "midi": 92
+      }
+     ]
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": [
+      {
+       "midi": 88
+      }
+     ]
+    },
+    {
+     "at": [
+      165,
+      4
+     ],
+     "dur": [
+      7,
+      20
+     ],
+     "pitch": [
+      {
+       "midi": 88
+      }
+     ]
+    },
+    {
+     "at": [
+      208,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 88
+      }
+     ]
+    },
+    {
+     "at": [
+      109,
+      2
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 91
+      }
+     ]
+    },
+    {
+     "at": [
+      263,
+      4
+     ],
+     "dur": [
+      7,
+      12
+     ],
+     "pitch": [
+      {
+       "midi": 89
+      }
+     ]
+    },
+    {
+     "at": [
+      199,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 89
       }
      ]
     }
@@ -208,15 +368,30 @@
     {
      "type": "text",
      "at": [
-      309,
+      159,
       5
      ],
      "text": "l.v. sempre"
     },
     {
      "at": [
-      309,
+      159,
       5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": [
+      {
+       "midi": 80
+      }
+     ]
+    },
+    {
+     "at": [
+      33,
+      1
      ],
      "dur": [
       1,
@@ -224,29 +399,14 @@
      ],
      "pitch": [
       {
-       "midi": 82
+       "midi": 80
       }
      ]
     },
     {
      "at": [
-      314,
-      5
-     ],
-     "dur": [
-      8,
-      15
-     ],
-     "pitch": [
-      {
-       "midi": 82
-      }
-     ]
-    },
-    {
-     "at": [
-      190,
-      3
+      34,
+      1
      ],
      "dur": [
       2,
@@ -254,7 +414,97 @@
      ],
      "pitch": [
       {
-       "midi": 82
+       "midi": 80
+      }
+     ]
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": [
+      {
+       "midi": 76
+      }
+     ]
+    },
+    {
+     "at": [
+      165,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": [
+      {
+       "midi": 76
+      }
+     ]
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 76
+      }
+     ]
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 79
+      }
+     ]
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": [
+      {
+       "midi": 77
+      }
+     ]
+    },
+    {
+     "at": [
+      333,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 77
       }
      ]
     }
@@ -339,6 +589,96 @@
        "midi": 79.5
       }
      ]
+    },
+    {
+     "at": [
+      107,
+      2
+     ],
+     "dur": [
+      3,
+      10
+     ],
+     "pitch": [
+      {
+       "midi": 81.5
+      }
+     ]
+    },
+    {
+     "at": [
+      269,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 81.5
+      }
+     ]
+    },
+    {
+     "at": [
+      271,
+      4
+     ],
+     "dur": [
+      13,
+      20
+     ],
+     "pitch": [
+      {
+       "midi": 80.5
+      }
+     ]
+    },
+    {
+     "at": [
+      342,
+      5
+     ],
+     "dur": [
+      8,
+      5
+     ],
+     "pitch": [
+      {
+       "midi": 80.5
+      }
+     ]
+    },
+    {
+     "at": [
+      70,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": [
+      {
+       "midi": 80.5
+      }
+     ]
+    },
+    {
+     "at": [
+      212,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 80.5
+      }
+     ]
     }
    ]
   },
@@ -357,44 +697,44 @@
     {
      "type": "text",
      "at": [
-      249,
-      4
+      65,
+      2
      ],
      "text": "l.v. sempre"
     },
     {
      "at": [
-      249,
-      4
+      65,
+      2
      ],
      "dur": [
-      3,
-      4
+      1,
+      2
      ],
      "pitch": [
       {
-       "midi": 82
+       "midi": 92
       }
      ]
     },
     {
      "at": [
-      63,
+      33,
       1
      ],
      "dur": [
-      4,
-      3
+      2,
+      1
      ],
      "pitch": [
       {
-       "midi": 82
+       "midi": 92
       }
      ]
     },
     {
      "at": [
-      193,
+      107,
       3
      ],
      "dur": [
@@ -403,7 +743,82 @@
      ],
      "pitch": [
       {
-       "midi": 82
+       "midi": 92
+      }
+     ]
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": [
+      {
+       "midi": 88
+      }
+     ]
+    },
+    {
+     "at": [
+      83,
+      2
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 88
+      }
+     ]
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 91
+      }
+     ]
+    },
+    {
+     "at": [
+      170,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 91
+      }
+     ]
+    },
+    {
+     "at": [
+      265,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 89
       }
      ]
     }
@@ -488,6 +903,81 @@
        "midi": 91.5
       }
      ]
+    },
+    {
+     "at": [
+      268,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 81.5
+      }
+     ]
+    },
+    {
+     "at": [
+      338,
+      5
+     ],
+     "dur": [
+      13,
+      20
+     ],
+     "pitch": [
+      {
+       "midi": 80.5
+      }
+     ]
+    },
+    {
+     "at": [
+      273,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": [
+      {
+       "midi": 80.5
+      }
+     ]
+    },
+    {
+     "at": [
+      275,
+      4
+     ],
+     "dur": [
+      19,
+      12
+     ],
+     "pitch": [
+      {
+       "midi": 80.5
+      }
+     ]
+    },
+    {
+     "at": [
+      211,
+      3
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 80.5
+      }
+     ]
     }
    ]
   },
@@ -519,29 +1009,58 @@
     },
     {
      "at": [
-      60,
-      1
+      119,
+      4
      ],
      "level": 3,
      "to": "linear"
     },
     {
      "at": [
-      125,
+      33,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      137,
+      4
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      83,
       2
      ],
      "level": 4
     },
     {
      "at": [
-      63,
+      42,
       1
      ],
      "level": 3
     },
     {
      "at": [
-      120,
+      203,
+      4
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      63,
       1
      ],
      "level": 3,
@@ -549,7 +1068,51 @@
     },
     {
      "at": [
-      140,
+      263,
+      4
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      133,
+      2
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      135,
+      2
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      273,
+      4
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      139,
+      2
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      79,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      100,
       1
      ],
      "level": 0
@@ -756,7 +1319,7 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -770,7 +1333,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -784,7 +1347,7 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -798,9 +1361,8 @@
       2
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 73.5
+     }
     },
     {
      "at": [
@@ -812,9 +1374,8 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 74.5
+     }
     },
     {
      "at": [
@@ -826,9 +1387,8 @@
       2
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -840,9 +1400,8 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 78.5
+     }
     },
     {
      "at": [
@@ -855,8 +1414,7 @@
      ],
      "pitch": {
       "midi": 79.5
-     },
-     "technique": "pizz"
+     }
     },
     {
      "at": [
@@ -868,9 +1426,8 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -882,7 +1439,7 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -896,7 +1453,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -910,7 +1467,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -924,7 +1481,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -938,7 +1495,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -952,7 +1509,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -966,7 +1523,7 @@
       2
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -980,7 +1537,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -994,9 +1551,8 @@
       2
      ],
      "pitch": {
-      "midi": 77
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -1008,7 +1564,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -1022,7 +1578,7 @@
       2
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -1036,7 +1592,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -1050,7 +1606,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -1064,7 +1620,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -1078,7 +1634,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -1092,7 +1648,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -1106,7 +1662,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -1120,7 +1676,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -1134,9 +1690,8 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 73
+     }
     },
     {
      "at": [
@@ -1148,9 +1703,8 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 74.5
+     }
     },
     {
      "at": [
@@ -1162,9 +1716,8 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 77
+     }
     },
     {
      "at": [
@@ -1176,9 +1729,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -1190,9 +1742,8 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 81
+     }
     },
     {
      "at": [
@@ -1204,7 +1755,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -1218,7 +1769,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -1232,7 +1783,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -1246,7 +1797,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -1260,7 +1811,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -1274,7 +1825,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -1288,8 +1839,9 @@
       4
      ],
      "pitch": {
-      "midi": 78.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -1301,8 +1853,9 @@
       2
      ],
      "pitch": {
-      "midi": 79.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -1314,8 +1867,9 @@
       4
      ],
      "pitch": {
-      "midi": 81
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -1327,8 +1881,9 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -1340,9 +1895,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 72
+     }
     },
     {
      "at": [
@@ -1354,9 +1908,8 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 75
+     }
     },
     {
      "at": [
@@ -1368,9 +1921,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -1382,9 +1934,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77
+     }
     },
     {
      "at": [
@@ -1396,7 +1947,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 77
      },
      "technique": "pizz"
     },
@@ -1410,9 +1961,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -1424,9 +1974,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -1438,7 +1987,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -1452,7 +2001,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -1466,7 +2015,7 @@
       2
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -1480,7 +2029,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -1494,7 +2043,7 @@
       2
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -1508,7 +2057,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -1522,7 +2071,7 @@
       2
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -1536,7 +2085,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -1550,7 +2099,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -1564,7 +2113,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -1578,7 +2127,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -1592,7 +2141,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -1606,9 +2155,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -1620,9 +2168,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -1634,9 +2181,8 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77.5
+     }
     },
     {
      "at": [
@@ -1648,9 +2194,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -1662,9 +2207,8 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 81.5
+     }
     },
     {
      "at": [
@@ -1676,9 +2220,8 @@
       1
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 84.5
+     }
     },
     {
      "at": [
@@ -1690,9 +2233,8 @@
       2
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 86
+     }
     },
     {
      "at": [
@@ -1704,9 +2246,8 @@
       4
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 88.5
+     }
     },
     {
      "at": [
@@ -1718,9 +2259,8 @@
       4
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 91.5
+     }
     },
     {
      "at": [
@@ -1732,9 +2272,8 @@
       1
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 92.5
+     }
     },
     {
      "at": [
@@ -1742,658 +2281,11 @@
       2
      ],
      "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      357,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      181,
+      23,
       2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      183,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      371,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      373,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      94,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      189,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      191,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      96,
-      1
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      389,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      98,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      99,
-      1
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      399,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      101,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      102,
-      1
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      413,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      415,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      209,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      105,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      106,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      213,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      431,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      217,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      219,
-      2
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      441,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      223,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      225,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      455,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      457,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      115,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      231,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      233,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      117,
-      1
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      473,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      119,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      120,
-      1
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 73.5
-     }
-    },
-    {
-     "at": [
-      483,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 75
-     }
-    },
-    {
-     "at": [
-      122,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 77.5
-     }
-    },
-    {
-     "at": [
-      123,
-      1
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 80.5
-     }
-    },
-    {
-     "at": [
-      497,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 82
-     }
-    },
-    {
-     "at": [
-      499,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 84.5
-     }
-    },
-    {
-     "at": [
-      251,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 87.5
-     }
-    },
-    {
-     "at": [
-      126,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 88.5
-     }
-    },
-    {
-     "at": [
-      127,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 91
-     }
-    },
-    {
-     "at": [
-      255,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 94
-     }
-    },
-    {
-     "at": [
-      515,
-      4
-     ],
-     "dur": [
-      3,
-      4
      ],
      "pitch": {
       "midi": 95
-     }
-    },
-    {
-     "at": [
-      259,
-      2
-     ],
-     "dur": [
-      21,
-      2
-     ],
-     "pitch": {
-      "midi": 96.5
      }
     }
    ],
@@ -2429,7 +2321,7 @@
     },
     {
      "at": [
-      181,
+      88,
       3
      ],
      "level": 3,
@@ -2437,21 +2329,86 @@
     },
     {
      "at": [
-      193,
+      107,
       3
      ],
      "level": 4
     },
     {
      "at": [
-      197,
+      109,
       3
      ],
      "level": 3
     },
     {
      "at": [
-      120,
+      41,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      127,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      151,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      169,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      191,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      199,
+      3
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      211,
+      3
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      214,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      79,
       1
      ],
      "level": 3,
@@ -2459,7 +2416,7 @@
     },
     {
      "at": [
-      140,
+      100,
       1
      ],
      "level": 0
@@ -2636,7 +2593,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -2650,7 +2607,7 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -2664,7 +2621,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -2678,9 +2635,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 71.5
+     }
     },
     {
      "at": [
@@ -2692,9 +2648,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 73
+     }
     },
     {
      "at": [
@@ -2706,9 +2661,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 75.5
+     }
     },
     {
      "at": [
@@ -2720,9 +2674,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -2734,9 +2687,8 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 78
+     }
     },
     {
      "at": [
@@ -2748,9 +2700,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -2762,7 +2713,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -2776,7 +2727,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -2790,7 +2741,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -2804,7 +2755,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -2818,9 +2769,8 @@
       3
      ],
      "pitch": {
-      "midi": 77
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -2832,7 +2782,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -2846,7 +2796,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -2860,7 +2810,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -2874,7 +2824,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -2888,7 +2838,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -2902,7 +2852,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -2916,7 +2866,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -2930,9 +2880,8 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 71.5
+     }
     },
     {
      "at": [
@@ -2944,9 +2893,8 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -2958,9 +2906,8 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 77
+     }
     },
     {
      "at": [
@@ -2972,9 +2919,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 78
+     }
     },
     {
      "at": [
@@ -2986,9 +2932,8 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -3000,7 +2945,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -3014,7 +2959,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -3028,7 +2973,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -3042,8 +2987,9 @@
       3
      ],
      "pitch": {
-      "midi": 76.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -3055,8 +3001,9 @@
       3
      ],
      "pitch": {
-      "midi": 78
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -3068,8 +3015,9 @@
       1
      ],
      "pitch": {
-      "midi": 80.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -3081,7 +3029,7 @@
       3
      ],
      "pitch": {
-      "midi": 81.5
+      "midi": 72.5
      }
     },
     {
@@ -3094,7 +3042,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 73.5
      }
     },
     {
@@ -3107,9 +3055,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 75
+     }
     },
     {
      "at": [
@@ -3121,9 +3068,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77
+     }
     },
     {
      "at": [
@@ -3135,9 +3081,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 78
+     }
     },
     {
      "at": [
@@ -3149,9 +3094,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79.5
+     }
     },
     {
      "at": [
@@ -3163,9 +3107,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -3177,7 +3120,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -3191,7 +3134,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -3205,7 +3148,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -3219,7 +3162,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -3233,7 +3176,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -3247,7 +3190,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -3261,7 +3204,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -3275,9 +3218,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 73.5
+     }
     },
     {
      "at": [
@@ -3289,9 +3231,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 75
+     }
     },
     {
      "at": [
@@ -3303,9 +3244,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77.5
+     }
     },
     {
      "at": [
@@ -3317,9 +3257,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -3331,9 +3270,8 @@
       1
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 82
+     }
     },
     {
      "at": [
@@ -3345,9 +3283,8 @@
       3
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 84.5
+     }
     },
     {
      "at": [
@@ -3359,483 +3296,12 @@
       3
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 87.5
+     }
     },
     {
      "at": [
       265,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      90,
-      1
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      272,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      275,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      277,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      281,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      283,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      96,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      97,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      295,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      298,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      101,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      307,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      104,
-      1
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      314,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      317,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      319,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      323,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      325,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      110,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      111,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      337,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      340,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      115,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      349,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      118,
-      1
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      356,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      359,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      361,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 75
-     }
-    },
-    {
-     "at": [
-      365,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 78
-     }
-    },
-    {
-     "at": [
-      367,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 79.5
-     }
-    },
-    {
-     "at": [
-      124,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 82
-     }
-    },
-    {
-     "at": [
-      125,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 85
-     }
-    },
-    {
-     "at": [
-      379,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 86
-     }
-    },
-    {
-     "at": [
-      382,
       3
      ],
      "dur": [
@@ -3848,33 +3314,7 @@
     },
     {
      "at": [
-      129,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 91.5
-     }
-    },
-    {
-     "at": [
-      391,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 92.5
-     }
-    },
-    {
-     "at": [
-      132,
+      90,
       1
      ],
      "dur": [
@@ -3882,20 +3322,46 @@
       3
      ],
      "pitch": {
+      "midi": 91
+     }
+    },
+    {
+     "at": [
+      272,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
       "midi": 94
      }
     },
     {
      "at": [
-      398,
+      275,
       3
      ],
      "dur": [
-      22,
+      2,
       3
      ],
      "pitch": {
-      "midi": 97
+      "midi": 95
+     }
+    },
+    {
+     "at": [
+      277,
+      3
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 96.5
      }
     }
    ],
@@ -3931,29 +3397,94 @@
     },
     {
      "at": [
-      60,
-      1
+      146,
+      5
      ],
      "level": 3,
      "to": "linear"
     },
     {
      "at": [
-      314,
-      5
+      33,
+      1
      ],
      "level": 4
     },
     {
      "at": [
-      317,
+      168,
       5
      ],
      "level": 3
     },
     {
      "at": [
-      120,
+      41,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      207,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      252,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      268,
+      5
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      272,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      317,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      333,
+      5
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      338,
+      5
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      342,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      79,
       1
      ],
      "level": 3,
@@ -3961,7 +3492,7 @@
     },
     {
      "at": [
-      140,
+      100,
       1
      ],
      "level": 0
@@ -4291,7 +3822,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -4305,7 +3836,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -4319,7 +3850,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -4333,7 +3864,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -4347,9 +3878,8 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 71.5
+     }
     },
     {
      "at": [
@@ -4361,9 +3891,8 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 73
+     }
     },
     {
      "at": [
@@ -4375,9 +3904,8 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 75.5
+     }
     },
     {
      "at": [
@@ -4389,9 +3917,8 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -4403,9 +3930,8 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 78
+     }
     },
     {
      "at": [
@@ -4417,9 +3943,8 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -4431,7 +3956,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -4445,7 +3970,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -4459,7 +3984,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -4473,7 +3998,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -4487,7 +4012,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -4501,7 +4026,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -4515,7 +4040,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -4529,7 +4054,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -4543,7 +4068,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -4557,7 +4082,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -4571,9 +4096,8 @@
       5
      ],
      "pitch": {
-      "midi": 77
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -4585,7 +4109,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -4599,7 +4123,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -4613,7 +4137,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -4627,7 +4151,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -4641,7 +4165,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -4655,7 +4179,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -4669,7 +4193,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -4683,7 +4207,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -4697,7 +4221,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -4711,7 +4235,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -4725,7 +4249,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -4739,7 +4263,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -4753,7 +4277,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -4767,9 +4291,8 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 71.5
+     }
     },
     {
      "at": [
@@ -4781,9 +4304,8 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -4795,9 +4317,8 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 77
+     }
     },
     {
      "at": [
@@ -4809,9 +4330,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 78
+     }
     },
     {
      "at": [
@@ -4823,9 +4343,8 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -4837,9 +4356,8 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 81.5
+     }
     },
     {
      "at": [
@@ -4851,7 +4369,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -4865,7 +4383,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -4879,7 +4397,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -4893,7 +4411,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -4907,7 +4425,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -4921,7 +4439,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -4935,7 +4453,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -4949,7 +4467,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -4963,8 +4481,9 @@
       5
      ],
      "pitch": {
-      "midi": 76.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -4976,8 +4495,9 @@
       1
      ],
      "pitch": {
-      "midi": 78
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -4989,8 +4509,9 @@
       5
      ],
      "pitch": {
-      "midi": 80.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -5002,8 +4523,9 @@
       5
      ],
      "pitch": {
-      "midi": 81.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -5015,8 +4537,9 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -5028,9 +4551,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 70.5
+     }
     },
     {
      "at": [
@@ -5042,9 +4564,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 72
+     }
     },
     {
      "at": [
@@ -5056,9 +4577,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 75
+     }
     },
     {
      "at": [
@@ -5070,9 +4590,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -5084,9 +4603,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77
+     }
     },
     {
      "at": [
@@ -5098,9 +4616,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79.5
+     }
     },
     {
      "at": [
@@ -5112,9 +4629,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -5126,7 +4642,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5140,7 +4656,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5154,7 +4670,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5168,7 +4684,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5182,7 +4698,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5196,7 +4712,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5210,7 +4726,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5224,7 +4740,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5238,7 +4754,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5252,7 +4768,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5266,7 +4782,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -5280,7 +4796,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -5294,7 +4810,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -5308,7 +4824,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -5322,7 +4838,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -5336,7 +4852,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -5350,9 +4866,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -5364,9 +4879,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -5378,9 +4892,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79.5
+     }
     },
     {
      "at": [
@@ -5392,9 +4905,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 81
+     }
     },
     {
      "at": [
@@ -5406,9 +4918,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 83.5
+     }
     },
     {
      "at": [
@@ -5420,9 +4931,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 86.5
+     }
     },
     {
      "at": [
@@ -5434,9 +4944,8 @@
       5
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 87.5
+     }
     },
     {
      "at": [
@@ -5448,9 +4957,8 @@
       5
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 90
+     }
     },
     {
      "at": [
@@ -5462,9 +4970,8 @@
       5
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 93
+     }
     },
     {
      "at": [
@@ -5476,9 +4983,8 @@
       1
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 94
+     }
     },
     {
      "at": [
@@ -5486,813 +4992,11 @@
       5
      ],
      "dur": [
-      3,
+      67,
       5
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      436,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      88,
-      1
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      443,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      448,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      452,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      457,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      459,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      462,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      464,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      468,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      94,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      95,
-      1
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      478,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      482,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      97,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      98,
-      1
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      494,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      499,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      501,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      504,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      506,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      102,
-      1
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      512,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      517,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      104,
-      1
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      524,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      527,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      532,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      536,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      541,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      543,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      546,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      548,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      552,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      554,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      559,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      562,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      566,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      569,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      574,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      578,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      583,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      117,
-      1
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      588,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      118,
-      1
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      594,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      596,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      601,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 75
-     }
-    },
-    {
-     "at": [
-      604,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 78
-     }
-    },
-    {
-     "at": [
-      608,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 79.5
-     }
-    },
-    {
-     "at": [
-      611,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 82
-     }
-    },
-    {
-     "at": [
-      616,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 85
-     }
-    },
-    {
-     "at": [
-      124,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 86
-     }
-    },
-    {
-     "at": [
-      125,
-      1
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 88.5
-     }
-    },
-    {
-     "at": [
-      627,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 91.5
-     }
-    },
-    {
-     "at": [
-      126,
-      1
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 92.5
-     }
-    },
-    {
-     "at": [
-      632,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 94
-     }
-    },
-    {
-     "at": [
-      636,
-      5
-     ],
-     "dur": [
-      64,
-      5
-     ],
-     "pitch": {
-      "midi": 97
+      "midi": 95.5
      }
     }
    ],
@@ -6328,29 +5032,43 @@
     },
     {
      "at": [
-      121,
-      2
+      29,
+      1
      ],
      "level": 3,
      "to": "linear"
     },
     {
      "at": [
-      63,
-      1
+      65,
+      2
      ],
      "level": 4
     },
     {
      "at": [
-      64,
+      133,
+      4
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      165,
+      4
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      42,
       1
      ],
      "level": 3
     },
     {
      "at": [
-      120,
+      50,
       1
      ],
      "level": 3,
@@ -6358,7 +5076,51 @@
     },
     {
      "at": [
-      140,
+      107,
+      2
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      217,
+      4
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      275,
+      4
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      139,
+      2
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      79,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      100,
       1
      ],
      "level": 0
@@ -6643,7 +5405,7 @@
       2
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -6657,7 +5419,7 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -6671,7 +5433,7 @@
       2
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -6685,7 +5447,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -6699,9 +5461,8 @@
       2
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 73
+     }
     },
     {
      "at": [
@@ -6713,9 +5474,8 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -6727,9 +5487,8 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 75.5
+     }
     },
     {
      "at": [
@@ -6741,9 +5500,8 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 78
+     }
     },
     {
      "at": [
@@ -6755,9 +5513,8 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -6769,7 +5526,7 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -6783,7 +5540,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -6797,7 +5554,7 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -6811,7 +5568,7 @@
       2
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -6825,7 +5582,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -6839,7 +5596,7 @@
       2
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -6853,7 +5610,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -6867,7 +5624,7 @@
       2
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -6881,7 +5638,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -6895,9 +5652,8 @@
       4
      ],
      "pitch": {
-      "midi": 77
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -6909,7 +5665,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -6923,7 +5679,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -6937,7 +5693,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -6951,7 +5707,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -6965,7 +5721,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -6979,7 +5735,7 @@
       2
      ],
      "pitch": {
-      "midi": 77
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -6993,7 +5749,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -7007,7 +5763,7 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -7021,7 +5777,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -7035,9 +5791,8 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 72.5
+     }
     },
     {
      "at": [
@@ -7050,8 +5805,7 @@
      ],
      "pitch": {
       "midi": 75.5
-     },
-     "technique": "pizz"
+     }
     },
     {
      "at": [
@@ -7063,9 +5817,8 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -7077,9 +5830,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -7091,9 +5843,8 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 81.5
+     }
     },
     {
      "at": [
@@ -7105,7 +5856,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -7119,7 +5870,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -7133,7 +5884,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -7147,7 +5898,7 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -7161,7 +5912,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -7175,7 +5926,7 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -7189,7 +5940,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -7203,8 +5954,9 @@
       2
      ],
      "pitch": {
-      "midi": 78
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -7216,8 +5968,9 @@
       4
      ],
      "pitch": {
-      "midi": 79
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -7229,8 +5982,9 @@
       4
      ],
      "pitch": {
-      "midi": 80.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -7242,7 +5996,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 70.5
      }
     },
     {
@@ -7255,9 +6009,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 72
+     }
     },
     {
      "at": [
@@ -7269,9 +6022,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 75
+     }
     },
     {
      "at": [
@@ -7283,9 +6035,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -7297,9 +6048,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77.5
+     }
     },
     {
      "at": [
@@ -7311,9 +6061,8 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -7325,9 +6074,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -7339,7 +6087,7 @@
       2
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -7353,7 +6101,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -7367,7 +6115,7 @@
       2
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -7381,7 +6129,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -7395,7 +6143,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -7409,7 +6157,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -7423,7 +6171,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -7437,7 +6185,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -7451,7 +6199,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -7465,7 +6213,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -7479,7 +6227,7 @@
       2
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -7493,9 +6241,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -7507,9 +6254,8 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -7521,9 +6267,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79.5
+     }
     },
     {
      "at": [
@@ -7535,9 +6280,8 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 81
+     }
     },
     {
      "at": [
@@ -7549,9 +6293,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 83.5
+     }
     },
     {
      "at": [
@@ -7563,9 +6306,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 86.5
+     }
     },
     {
      "at": [
@@ -7577,9 +6319,8 @@
       1
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 87.5
+     }
     },
     {
      "at": [
@@ -7591,9 +6332,8 @@
       4
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 90
+     }
     },
     {
      "at": [
@@ -7605,9 +6345,8 @@
       4
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 93
+     }
     },
     {
      "at": [
@@ -7619,9 +6358,8 @@
       1
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 94
+     }
     },
     {
      "at": [
@@ -7629,672 +6367,11 @@
       1
      ],
      "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      357,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      359,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      181,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      91,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      92,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      185,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      375,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      189,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      191,
-      2
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      385,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      195,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      197,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      399,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      401,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      101,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      203,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      205,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      103,
-      1
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      417,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      105,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      106,
-      1
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      427,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      108,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      109,
-      1
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      441,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      443,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      223,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      112,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      113,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      227,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      459,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      231,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      233,
-      2
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      469,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      237,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      239,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      483,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 75.5
-     }
-    },
-    {
-     "at": [
-      485,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 77
-     }
-    },
-    {
-     "at": [
-      122,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79.5
-     }
-    },
-    {
-     "at": [
-      245,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 82.5
-     }
-    },
-    {
-     "at": [
-      247,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 83.5
-     }
-    },
-    {
-     "at": [
-      124,
-      1
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 86
-     }
-    },
-    {
-     "at": [
-      501,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 89
-     }
-    },
-    {
-     "at": [
-      126,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 90
-     }
-    },
-    {
-     "at": [
-      127,
-      1
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 91.5
-     }
-    },
-    {
-     "at": [
-      511,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 94.5
-     }
-    },
-    {
-     "at": [
-      129,
-      1
-     ],
-     "dur": [
-      1,
+      12,
       1
      ],
      "pitch": {
       "midi": 95.5
-     }
-    },
-    {
-     "at": [
-      130,
-      1
-     ],
-     "dur": [
-      10,
-      1
-     ],
-     "pitch": {
-      "midi": 97
      }
     }
    ],
@@ -8330,29 +6407,87 @@
     },
     {
      "at": [
-      181,
-      3
+      30,
+      1
      ],
      "level": 3,
      "to": "linear"
     },
     {
      "at": [
-      190,
-      3
+      34,
+      1
      ],
      "level": 4
     },
     {
      "at": [
-      64,
+      106,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      128,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      55,
       1
      ],
      "level": 3
     },
     {
      "at": [
-      120,
+      190,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      212,
+      3
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      72,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      79,
       1
      ],
      "level": 3,
@@ -8360,7 +6495,7 @@
     },
     {
      "at": [
-      140,
+      100,
       1
      ],
      "level": 0
@@ -8601,7 +6736,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -8615,7 +6750,7 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -8629,7 +6764,7 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -8643,9 +6778,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 71.5
+     }
     },
     {
      "at": [
@@ -8657,9 +6791,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 73
+     }
     },
     {
      "at": [
@@ -8671,9 +6804,8 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 75.5
+     }
     },
     {
      "at": [
@@ -8685,9 +6817,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 78.5
+     }
     },
     {
      "at": [
@@ -8699,9 +6830,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -8713,7 +6843,7 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -8727,7 +6857,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -8741,7 +6871,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -8755,7 +6885,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -8769,7 +6899,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -8783,9 +6913,8 @@
       3
      ],
      "pitch": {
-      "midi": 77
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -8797,7 +6926,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -8811,7 +6940,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -8825,7 +6954,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -8839,7 +6968,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -8853,7 +6982,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -8867,7 +6996,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -8881,7 +7010,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -8895,9 +7024,8 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 73
+     }
     },
     {
      "at": [
@@ -8909,9 +7037,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -8923,9 +7050,8 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -8937,9 +7063,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -8951,7 +7076,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -8965,7 +7090,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -8979,7 +7104,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -8993,7 +7118,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -9007,8 +7132,9 @@
       1
      ],
      "pitch": {
-      "midi": 76.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -9020,8 +7146,9 @@
       3
      ],
      "pitch": {
-      "midi": 78
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -9033,8 +7160,9 @@
       3
      ],
      "pitch": {
-      "midi": 80.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -9046,7 +7174,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 70.5
      }
     },
     {
@@ -9059,9 +7187,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 72
+     }
     },
     {
      "at": [
@@ -9073,9 +7200,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 75
+     }
     },
     {
      "at": [
@@ -9087,9 +7213,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -9101,9 +7226,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77.5
+     }
     },
     {
      "at": [
@@ -9115,9 +7239,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -9129,9 +7252,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -9143,7 +7265,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -9157,7 +7279,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -9171,7 +7293,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -9185,7 +7307,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -9199,7 +7321,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -9213,7 +7335,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -9227,7 +7349,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -9241,9 +7363,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -9255,9 +7376,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -9269,9 +7389,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79.5
+     }
     },
     {
      "at": [
@@ -9283,9 +7402,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 81
+     }
     },
     {
      "at": [
@@ -9297,9 +7415,8 @@
       3
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 83.5
+     }
     },
     {
      "at": [
@@ -9311,9 +7428,8 @@
       3
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 86.5
+     }
     },
     {
      "at": [
@@ -9325,9 +7441,8 @@
       3
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
+      "midi": 87.5
+     }
     },
     {
      "at": [
@@ -9335,494 +7450,11 @@
       3
      ],
      "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      268,
-      3
-     ],
-     "dur": [
-      2,
+      35,
       3
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      90,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      274,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      92,
-      1
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      281,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      284,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      96,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      97,
-      1
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      296,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      100,
-      1
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      305,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      307,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      310,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      104,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      316,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      106,
-      1
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      323,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      326,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      110,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      111,
-      1
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      338,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      114,
-      1
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      347,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      349,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      352,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      118,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      358,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      120,
-      1
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 74
-     }
-    },
-    {
-     "at": [
-      365,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 76.5
-     }
-    },
-    {
-     "at": [
-      368,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 79.5
-     }
-    },
-    {
-     "at": [
-      124,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 80.5
-     }
-    },
-    {
-     "at": [
-      125,
-      1
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 83
-     }
-    },
-    {
-     "at": [
-      380,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 86
-     }
-    },
-    {
-     "at": [
-      128,
-      1
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 87
-     }
-    },
-    {
-     "at": [
-      389,
-      3
-     ],
-     "dur": [
-      31,
-      3
-     ],
-     "pitch": {
-      "midi": 88.5
+      "midi": 90
      }
     }
    ],
@@ -9858,29 +7490,43 @@
     },
     {
      "at": [
-      60,
-      1
+      146,
+      5
      ],
      "level": 3,
      "to": "linear"
     },
     {
      "at": [
-      309,
+      159,
       5
      ],
      "level": 4
     },
     {
      "at": [
-      311,
+      162,
       5
      ],
      "level": 3
     },
     {
      "at": [
-      120,
+      208,
+      5
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      211,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      50,
       1
      ],
      "level": 3,
@@ -9888,7 +7534,73 @@
     },
     {
      "at": [
-      140,
+      269,
+      5
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      272,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      316,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      334,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      337,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      342,
+      5
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      346,
+      5
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      79,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      100,
       1
      ],
      "level": 0
@@ -10337,7 +8049,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -10351,7 +8063,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -10365,7 +8077,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -10379,7 +8091,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -10393,9 +8105,8 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 72
+     }
     },
     {
      "at": [
@@ -10407,9 +8118,8 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 74.5
+     }
     },
     {
      "at": [
@@ -10421,9 +8131,8 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 77.5
+     }
     },
     {
      "at": [
@@ -10435,9 +8144,8 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -10449,9 +8157,8 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -10463,7 +8170,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -10477,7 +8184,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -10491,7 +8198,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -10505,7 +8212,7 @@
       5
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -10519,7 +8226,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -10533,7 +8240,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -10547,7 +8254,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -10561,7 +8268,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -10575,7 +8282,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -10589,7 +8296,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -10603,7 +8310,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -10617,7 +8324,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -10631,7 +8338,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -10645,9 +8352,8 @@
       5
      ],
      "pitch": {
-      "midi": 77
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -10659,7 +8365,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -10673,7 +8379,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -10687,7 +8393,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -10701,7 +8407,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -10715,7 +8421,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -10729,7 +8435,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -10743,7 +8449,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -10757,7 +8463,7 @@
       5
      ],
      "pitch": {
-      "midi": 77
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -10771,7 +8477,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -10785,7 +8491,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -10799,7 +8505,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -10813,9 +8519,8 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 71
+     }
     },
     {
      "at": [
@@ -10827,9 +8532,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 73.5
+     }
     },
     {
      "at": [
@@ -10841,9 +8545,8 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -10855,9 +8558,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 77.5
+     }
     },
     {
      "at": [
@@ -10869,9 +8571,8 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -10883,9 +8584,8 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 81.5
+     }
     },
     {
      "at": [
@@ -10897,7 +8597,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -10911,7 +8611,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -10925,7 +8625,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -10939,7 +8639,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -10953,7 +8653,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -10967,7 +8667,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -10981,7 +8681,7 @@
       5
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -10995,7 +8695,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -11009,8 +8709,9 @@
       5
      ],
      "pitch": {
-      "midi": 77
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -11022,8 +8723,9 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -11035,8 +8737,9 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -11048,7 +8751,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 69.5
      },
      "technique": "pizz"
     },
@@ -11062,7 +8765,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 69.5
      },
      "technique": "pizz"
     },
@@ -11076,9 +8779,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 70.5
+     }
     },
     {
      "at": [
@@ -11090,9 +8792,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 72
+     }
     },
     {
      "at": [
@@ -11104,9 +8805,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 74.5
+     }
     },
     {
      "at": [
@@ -11118,9 +8818,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 75.5
+     }
     },
     {
      "at": [
@@ -11132,9 +8831,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77
+     }
     },
     {
      "at": [
@@ -11146,7 +8844,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 77
      },
      "technique": "pizz"
     },
@@ -11160,9 +8858,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79.5
+     }
     },
     {
      "at": [
@@ -11174,9 +8871,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -11188,7 +8884,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11202,7 +8898,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11216,7 +8912,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11230,7 +8926,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11244,7 +8940,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11258,7 +8954,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11272,7 +8968,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11286,7 +8982,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11300,7 +8996,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11314,7 +9010,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11328,7 +9024,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -11342,7 +9038,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -11356,7 +9052,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -11370,7 +9066,7 @@
       5
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -11384,9 +9080,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -11398,9 +9093,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -11412,9 +9106,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79.5
+     }
     },
     {
      "at": [
@@ -11426,9 +9119,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -11440,9 +9132,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 83
+     }
     },
     {
      "at": [
@@ -11454,9 +9145,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 86
+     }
     },
     {
      "at": [
@@ -11468,9 +9158,8 @@
       5
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 87
+     }
     },
     {
      "at": [
@@ -11478,826 +9167,7 @@
       5
      ],
      "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      421,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      426,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      86,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      87,
-      1
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      437,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      88,
-      1
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      442,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      446,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      448,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      453,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      456,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      92,
-      1
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      463,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      468,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      472,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      477,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      479,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      482,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      484,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      488,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      98,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      99,
-      1
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      498,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      502,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      101,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      102,
-      1
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      514,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      519,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      521,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      524,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      526,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      106,
-      1
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      532,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      537,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      108,
-      1
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      544,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      547,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      552,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      556,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      561,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      563,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      566,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      568,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      572,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      574,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      579,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      582,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      586,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      589,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      594,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      598,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      603,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 74
-     }
-    },
-    {
-     "at": [
-      121,
-      1
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 76.5
-     }
-    },
-    {
-     "at": [
-      608,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 79.5
-     }
-    },
-    {
-     "at": [
-      122,
-      1
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": {
-      "midi": 80.5
-     }
-    },
-    {
-     "at": [
-      614,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 83
-     }
-    },
-    {
-     "at": [
-      616,
-      5
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 86
-     }
-    },
-    {
-     "at": [
-      621,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 87
-     }
-    },
-    {
-     "at": [
-      624,
-      5
-     ],
-     "dur": [
-      76,
+      82,
       5
      ],
      "pitch": {
@@ -12337,7 +9207,65 @@
     },
     {
      "at": [
-      241,
+      59,
+      2
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      67,
+      2
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      165,
+      4
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      169,
+      4
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      101,
+      2
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      109,
+      2
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      221,
+      4
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      253,
       4
      ],
      "level": 3,
@@ -12345,21 +9273,28 @@
     },
     {
      "at": [
-      249,
+      265,
       4
      ],
      "level": 4
     },
     {
      "at": [
-      253,
+      271,
       4
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      69,
+      1
      ],
      "level": 3
     },
     {
      "at": [
-      120,
+      79,
       1
      ],
      "level": 3,
@@ -12367,7 +9302,7 @@
     },
     {
      "at": [
-      140,
+      100,
       1
      ],
      "level": 0
@@ -12771,7 +9706,7 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -12785,7 +9720,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -12799,7 +9734,7 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -12813,9 +9748,8 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 73.5
+     }
     },
     {
      "at": [
@@ -12827,9 +9761,8 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 75
+     }
     },
     {
      "at": [
@@ -12841,9 +9774,8 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 77.5
+     }
     },
     {
      "at": [
@@ -12855,9 +9787,8 @@
       2
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -12869,7 +9800,7 @@
       4
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -12883,7 +9814,7 @@
       2
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -12897,7 +9828,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -12911,7 +9842,7 @@
       2
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -12925,7 +9856,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -12939,7 +9870,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -12953,7 +9884,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -12967,7 +9898,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -12981,7 +9912,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -12995,9 +9926,8 @@
       1
      ],
      "pitch": {
-      "midi": 77
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -13009,7 +9939,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -13023,7 +9953,7 @@
       2
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -13037,7 +9967,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -13051,7 +9981,7 @@
       2
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -13065,7 +9995,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -13079,7 +10009,7 @@
       2
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -13093,7 +10023,7 @@
       4
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -13107,7 +10037,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -13121,7 +10051,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -13135,7 +10065,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -13149,9 +10079,8 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 72.5
+     }
     },
     {
      "at": [
@@ -13164,8 +10093,7 @@
      ],
      "pitch": {
       "midi": 75.5
-     },
-     "technique": "pizz"
+     }
     },
     {
      "at": [
@@ -13177,9 +10105,8 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -13191,9 +10118,8 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 78
+     }
     },
     {
      "at": [
@@ -13205,9 +10131,8 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -13219,7 +10144,7 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -13233,7 +10158,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -13247,7 +10172,7 @@
       2
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -13261,7 +10186,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -13275,7 +10200,7 @@
       4
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -13289,7 +10214,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -13303,8 +10228,9 @@
       4
      ],
      "pitch": {
-      "midi": 78.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -13316,8 +10242,9 @@
       4
      ],
      "pitch": {
-      "midi": 80
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -13329,8 +10256,9 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -13342,9 +10270,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 70.5
+     }
     },
     {
      "at": [
@@ -13356,9 +10283,8 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 72
+     }
     },
     {
      "at": [
@@ -13370,9 +10296,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 74.5
+     }
     },
     {
      "at": [
@@ -13384,9 +10309,8 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 75.5
+     }
     },
     {
      "at": [
@@ -13398,9 +10322,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77
+     }
     },
     {
      "at": [
@@ -13412,9 +10335,8 @@
       2
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79.5
+     }
     },
     {
      "at": [
@@ -13426,9 +10348,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -13440,7 +10361,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -13454,7 +10375,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -13468,7 +10389,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -13482,7 +10403,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -13496,7 +10417,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -13510,7 +10431,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -13524,7 +10445,7 @@
       2
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -13538,7 +10459,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -13552,7 +10473,7 @@
       2
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -13566,7 +10487,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -13580,7 +10501,7 @@
       2
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -13594,7 +10515,7 @@
       4
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -13608,9 +10529,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 74
+     }
     },
     {
      "at": [
@@ -13622,9 +10542,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -13636,9 +10555,8 @@
       4
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79.5
+     }
     },
     {
      "at": [
@@ -13646,666 +10564,11 @@
       1
      ],
      "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      333,
-      4
-     ],
-     "dur": [
-      1,
+      18,
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      337,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      171,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      86,
-      1
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      347,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      349,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      353,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      355,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      90,
-      1
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      363,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      367,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      185,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      375,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      379,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      96,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      193,
-      2
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      389,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      391,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      395,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      397,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      201,
-      2
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      405,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      409,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      103,
-      1
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      417,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      421,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      213,
-      2
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      107,
-      1
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      431,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      433,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      437,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      439,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      111,
-      1
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      447,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      451,
-      4
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      227,
-      2
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      459,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      463,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      117,
-      1
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      235,
-      2
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      473,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      475,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      479,
-      4
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      481,
-      4
-     ],
-     "dur": [
-      5,
-      4
-     ],
-     "pitch": {
-      "midi": 75.5
-     }
-    },
-    {
-     "at": [
-      243,
-      2
-     ],
-     "dur": [
-      3,
-      4
-     ],
-     "pitch": {
-      "midi": 76.5
-     }
-    },
-    {
-     "at": [
-      489,
-      4
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     }
-    },
-    {
-     "at": [
-      493,
-      4
-     ],
-     "dur": [
-      67,
-      4
-     ],
-     "pitch": {
-      "midi": 82
+      "midi": 80.5
      }
     }
    ],
@@ -14341,7 +10604,7 @@
     },
     {
      "at": [
-      181,
+      89,
       3
      ],
      "level": 3,
@@ -14349,21 +10612,57 @@
     },
     {
      "at": [
-      63,
+      34,
       1
      ],
      "level": 4
     },
     {
      "at": [
-      193,
+      35,
+      1
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      128,
       3
      ],
      "level": 3
     },
     {
      "at": [
-      120,
+      151,
+      3
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      170,
+      3
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      173,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      63,
       1
      ],
      "level": 3,
@@ -14371,7 +10670,29 @@
     },
     {
      "at": [
-      140,
+      70,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      212,
+      3
+     ],
+     "level": 3
+    },
+    {
+     "at": [
+      79,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      100,
       1
      ],
      "level": 0
@@ -14689,7 +11010,7 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -14703,7 +11024,7 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -14717,7 +11038,7 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 70.5
      },
      "technique": "pizz"
     },
@@ -14731,9 +11052,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 72
+     }
     },
     {
      "at": [
@@ -14745,9 +11065,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 74.5
+     }
     },
     {
      "at": [
@@ -14759,9 +11078,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 77.5
+     }
     },
     {
      "at": [
@@ -14773,9 +11091,8 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 78.5
+     }
     },
     {
      "at": [
@@ -14787,9 +11104,8 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     },
-     "technique": "pizz"
+      "midi": 80
+     }
     },
     {
      "at": [
@@ -14801,7 +11117,7 @@
       3
      ],
      "pitch": {
-      "midi": 79.5
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -14815,7 +11131,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -14829,7 +11145,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 80
      },
      "technique": "pizz"
     },
@@ -14843,7 +11159,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -14857,7 +11173,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 75.5
      },
      "technique": "pizz"
     },
@@ -14871,9 +11187,8 @@
       3
      ],
      "pitch": {
-      "midi": 77
-     },
-     "technique": "pizz"
+      "midi": 76
+     }
     },
     {
      "at": [
@@ -14885,7 +11200,7 @@
       1
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -14899,7 +11214,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -14913,7 +11228,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -14927,7 +11242,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -14941,7 +11256,7 @@
       3
      ],
      "pitch": {
-      "midi": 77
+      "midi": 76
      },
      "technique": "pizz"
     },
@@ -14955,7 +11270,7 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -14969,7 +11284,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 70
      },
      "technique": "pizz"
     },
@@ -14983,9 +11298,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 71
+     }
     },
     {
      "at": [
@@ -14997,9 +11311,8 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 72.5
+     }
     },
     {
      "at": [
@@ -15012,8 +11325,7 @@
      ],
      "pitch": {
       "midi": 75.5
-     },
-     "technique": "pizz"
+     }
     },
     {
      "at": [
@@ -15025,9 +11337,8 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -15039,9 +11350,8 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 78
+     }
     },
     {
      "at": [
@@ -15053,9 +11363,8 @@
       1
      ],
      "pitch": {
-      "midi": 75.5
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -15067,7 +11376,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -15081,7 +11390,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -15095,7 +11404,7 @@
       3
      ],
      "pitch": {
-      "midi": 75.5
+      "midi": 79
      },
      "technique": "pizz"
     },
@@ -15109,8 +11418,9 @@
       3
      ],
      "pitch": {
-      "midi": 77
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -15122,8 +11432,9 @@
       1
      ],
      "pitch": {
-      "midi": 79.5
-     }
+      "midi": 69.5
+     },
+     "technique": "pizz"
     },
     {
      "at": [
@@ -15135,7 +11446,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 70.5
      }
     },
     {
@@ -15148,9 +11459,8 @@
       1
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 72
+     }
     },
     {
      "at": [
@@ -15162,9 +11472,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 74.5
+     }
     },
     {
      "at": [
@@ -15176,9 +11485,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 77.5
+     }
     },
     {
      "at": [
@@ -15190,9 +11498,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -15204,9 +11511,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 80.5
+     }
     },
     {
      "at": [
@@ -15218,7 +11524,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -15232,7 +11538,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -15246,7 +11552,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -15260,7 +11566,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -15274,7 +11580,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 80.5
      },
      "technique": "pizz"
     },
@@ -15288,7 +11594,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -15302,7 +11608,7 @@
       3
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -15316,7 +11622,7 @@
       1
      ],
      "pitch": {
-      "midi": 82
+      "midi": 72.5
      },
      "technique": "pizz"
     },
@@ -15330,9 +11636,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 75.5
+     }
     },
     {
      "at": [
@@ -15344,9 +11649,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 76.5
+     }
     },
     {
      "at": [
@@ -15358,9 +11662,8 @@
       3
      ],
      "pitch": {
-      "midi": 82
-     },
-     "technique": "pizz"
+      "midi": 79
+     }
     },
     {
      "at": [
@@ -15368,511 +11671,11 @@
       1
      ],
      "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      254,
-      3
-     ],
-     "dur": [
-      1,
+      16,
       1
      ],
      "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      257,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      259,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      263,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      265,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      90,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      91,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      277,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      280,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      95,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      289,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      98,
-      1
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      296,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      299,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      301,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      305,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      307,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      104,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      105,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      319,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      322,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 74.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      109,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      331,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      112,
-      1
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      338,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      341,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      343,
-      3
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      347,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      349,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      118,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      119,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     },
-     "technique": "pizz"
-    },
-    {
-     "at": [
-      361,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 73.5
-     }
-    },
-    {
-     "at": [
-      364,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 76
-     }
-    },
-    {
-     "at": [
-      123,
-      1
-     ],
-     "dur": [
-      4,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     }
-    },
-    {
-     "at": [
-      373,
-      3
-     ],
-     "dur": [
-      5,
-      3
-     ],
-     "pitch": {
-      "midi": 80
-     }
-    },
-    {
-     "at": [
-      126,
-      1
-     ],
-     "dur": [
-      14,
-      1
-     ],
-     "pitch": {
-      "midi": 81.5
+      "midi": 82
      }
     }
    ],
@@ -15883,32 +11686,44 @@
  ],
  "rehearsal": [
   {
+   "measure": 7,
+   "label": "roof −9 (beat 3)"
+  },
+  {
+   "measure": 8,
+   "label": "roof +9.5 (beat 2)"
+  },
+  {
    "measure": 10,
-   "label": "roof −2.5"
+   "label": "roof −4.5 (beat 3)"
+  },
+  {
+   "measure": 11,
+   "label": "roof +0.5 (beat 2)"
+  },
+  {
+   "measure": 12,
+   "label": "roof −6 (beat 4)"
   },
   {
    "measure": 13,
-   "label": "roof −1.5"
+   "label": "roof +11.5 (beat 3)"
+  },
+  {
+   "measure": 14,
+   "label": "roof −2.5 (beat 3)"
   },
   {
    "measure": 16,
-   "label": "roof +6.5"
+   "label": "roof −9.5, +7.5 (beat 4)"
   },
   {
-   "measure": 22,
-   "label": "roof −3"
+   "measure": 17,
+   "label": "roof +3.5 (beat 4)"
   },
   {
-   "measure": 25,
-   "label": "roof −4.5"
-  },
-  {
-   "measure": 28,
-   "label": "roof −2"
-  },
-  {
-   "measure": 31,
-   "label": "roof off"
+   "measure": 20,
+   "label": "roof −8, off (beat 4)"
   }
  ]
 }

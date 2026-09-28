@@ -9,12 +9,15 @@
 // sounds a pitch of that grid once.
 //
 // Added here: the ceiling moves. It is a roof put there from outside the voices' lines (no voice's
-// set or rule decides it), walking slowly by betweens of its own at bar lines, held by two muted
-// trumpets in turn. Eight divided string parts
-// climb to it. When it steps down, every voice at or above it takes the new roof at its next onset;
-// when it steps up, the voices at the roof are released and climb again from the old roof until the
-// new one cuts them; when it is removed, the voices climb on until a step would pass their
-// section's top (the highest note the playback has samples for), and hold their last note to
+// set or rule decides it), a line of its own: pitch betweens, and time betweens in beats (every
+// family's grid meets on each beat), held by two muted trumpets in turn. Eight divided string parts
+// climb to it. When it steps down, every voice at or above it takes the new roof at its next onset,
+// and the voices still below it climb on until the lowered roof cuts them; when it steps up, the
+// voices at the roof are released and climb again from the old roof until the new one cuts them,
+// and the voices still climbing climb on. The roof steps down and up in turn, so the climb and the
+// cut come back again and again, each rise shaped by its size against the rising set, and some
+// moves meet voices still climbing. When it is removed, the voices climb on until a step would pass
+// their section's top (the highest note the playback has samples for), and hold their last note to
 // nothing. The sketch ends one bar after the bar in which the last voice stops.
 //
 // Each note's colour is the name its between gives it: a note reached by a between that is not 0
@@ -43,14 +46,14 @@ export const knobs = {
   roofSteps: text({
     group: "Roof",
     label: "Roof betweens",
-    help: "The roof's own line: the betweens it moves by, in order (semitones, .5 for a quarter tone; minus is down). A between with .5 moves the roof, the rain and the mirrors that can answer to the other grid",
-    value: "-2.5 -1.5 6.5 -3 -4.5 -2",
+    help: "The roof's own line: the betweens it moves by, in order (semitones, .5 for a quarter tone; minus is down). Each rise releases the rain into climbing lines again; its size against the rising set decides how they climb. A between with .5 moves the roof, the rain and the mirrors that can answer to the other grid",
+    value: "-9 9.5 -4.5 0.5 -6 11.5 -2.5 -9.5 7.5 3.5 -8",
   }),
-  roofBars: text({
+  roofHolds: text({
     group: "Roof",
-    label: "Roof moves at bars",
-    help: "The bar each roof between is taken at, in order, and one more: the bar the roof is removed at",
-    value: "10 13 16 22 25 28 31",
+    label: "Roof holds",
+    help: "The roof's time betweens, in beats (every family's grid meets on each beat): how long the first roof holds, then each roof after a between, in order. One more than the roof betweens; after the last, the roof is removed",
+    value: "26 3 9 3 6 3 4 6 3 4 9 3",
   }),
   set: betweenSet({
     group: "Climb",
@@ -194,29 +197,31 @@ function roofLine(v: V): Segment[] {
     .split(/[\s,]+/)
     .filter(Boolean)
     .map(Number);
-  const bars = v.roofBars
+  const holds = v.roofHolds
     .split(/[\s,]+/)
     .filter(Boolean)
     .map(Number);
   if (steps.some((s) => !Number.isFinite(s) || !Number.isInteger(s * 2)))
-    throw new Error("Roof betweens: semitones on the quarter-tone grid, e.g. -2.5 -1.5 6.5");
-  if (bars.length !== steps.length + 1)
+    throw new Error("Roof betweens: semitones on the quarter-tone grid, e.g. -9 9.5 -4.5");
+  if (holds.length !== steps.length + 1)
     throw new Error(
-      `Roof moves at bars: one bar for each of the ${steps.length} roof betweens, and one more for the removal (${steps.length + 1} bars)`,
+      `Roof holds: one for the first roof and one for each of the ${steps.length} roof betweens (${steps.length + 1} holds)`,
     );
-  if (bars.some((b, i) => !Number.isInteger(b) || b < 2 || (i > 0 && b <= bars[i - 1]!)))
-    throw new Error("Roof moves at bars: whole bar numbers from 2 up, each later than the last");
+  if (holds.some((h) => !Number.isInteger(h) || h < 1))
+    throw new Error("Roof holds: whole numbers of beats, 1 or more");
   const out: Segment[] = [{ from: 0, roof: v.roof }];
   let roof = v.roof;
+  let at = holds[0]! * TICKS;
   steps.forEach((s, i) => {
     roof += s;
     if (roof > VOICES[0]!.top)
       throw new Error(
         `Roof betweens: the roof reaches ${roof}, above the cellos' highest note (${VOICES[0]!.top})`,
       );
-    out.push({ from: (bars[i]! - 1) * BAR, roof });
+    out.push({ from: at, roof });
+    at += holds[i + 1]! * TICKS;
   });
-  out.push({ from: (bars.at(-1)! - 1) * BAR, roof: null });
+  out.push({ from: at, roof: null });
   return out;
 }
 
@@ -366,12 +371,19 @@ export function score(v: V) {
     ...mirrors,
     ...strings.reverse(),
   ]);
-  out.rehearsal = segments.slice(1).map((s, i) => {
+  // One mark per bar that the roof moves in (a bar may hold two moves), with the beat when it is
+  // not the first.
+  const marks = new Map<number, string[]>();
+  segments.slice(1).forEach((s, i) => {
     const b = s.roof === null ? null : s.roof - segments[i]!.roof!;
-    return {
-      measure: s.from / BAR + 1,
-      label: b === null ? "roof off" : `roof ${b > 0 ? "+" : "−"}${Math.abs(b)}`,
-    };
+    const bar = Math.floor(s.from / BAR) + 1;
+    const beat = (s.from % BAR) / TICKS + 1;
+    const move = b === null ? "off" : `${b > 0 ? "+" : "−"}${Math.abs(b)}`;
+    marks.set(bar, [...(marks.get(bar) ?? []), beat === 1 ? move : `${move} (beat ${beat})`]);
   });
+  out.rehearsal = [...marks].map(([measure, moves]) => ({
+    measure,
+    label: `roof ${moves.join(", ")}`,
+  }));
   return out;
 }

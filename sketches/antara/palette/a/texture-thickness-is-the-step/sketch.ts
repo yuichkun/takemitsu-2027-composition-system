@@ -12,9 +12,14 @@
 // player 1 alone.
 //
 // Players the rule never separates share a staff: the counts the set gives (and 1, for the
-// standpoint) cut the ranks into groups (by default 1 | 2-4 | 5-8 | 9-12 | 13-16), and each group
+// standpoint) cut the ranks into groups (by default 1 | 2-4 | 5-7 | 8-11 | 12-16), and each group
 // is one divided part holding that many players. The score is the same as sixteen solo staves; the
 // playback then hears a group of several players as the section, not as one soloist stacked.
+//
+// The default counts are 1 4 7 11 16 (steps 0.5 2 3.5 5.5 8): odd counts as well as even ones, so
+// steps with a quarter tone (which move the line to the other grid) come in among the others. The
+// groups after player 1 hold 3, 3, 4 and 5 players: three of the four are odd, the most a split of
+// fifteen into four can have, so the parity of the count changes at three of the four cuts.
 //
 // The line keeps inside a band that starts at the standpoint and is twice as wide as the largest
 // step: the narrowest band in which, from any point, every step can be taken one way or the other.
@@ -41,7 +46,7 @@ export const knobs = {
     group: "Line",
     label: "Steps",
     help: "The betweens the line walks by (semitones, .5 for a quarter tone), read smallest first, again and again. A step of b semitones is 2b quarter tones and is played by that many players: 0.5 by one, 8 by all sixteen, 0 by nobody",
-    value: "0.5 2 4 6 8",
+    value: "0.5 2 3.5 5.5 8",
     min: 0,
     max: DESKS / 2,
     step: 0.5,

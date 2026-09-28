@@ -8,11 +8,18 @@
 // and the next difference ends it. A pulse exactly a beat long may appear or not; the beat is not
 // written either.
 //
-// The rule: every distinct group of differences (a few at a time), in dictionary order, each group
-// in order of size (smallest first, or largest first), once through, then the sketch stops. A
-// between must stay within bounds: a difference that would take it out is subtracted instead
-// (reflected), the same kind of rule as moving a pitch line back into its range by octaves, added
-// from outside the mechanism.
+// The rule: every distinct group of differences (a few at a time), each group in order of size
+// (smallest first, or largest first), once through, then the sketch stops. The groups are read
+// from their dictionary order folded in half: the first with the last, the second with the one
+// before the last, and so on. With the set here (groups of three from six), the two in a fold are
+// a group and the rest of the set, so every fold holds the whole set once and its differences add
+// up to 0: the line comes back to the standpoint at the end of every fold. The folds are read in
+// turn, and which end of the dictionary order a fold starts from changes from one fold to the
+// next, so the line does not always turn the same way first. (Read straight through, dictionary
+// order puts every group with the most negative difference first, and the line slows toward its
+// end.) A between must stay within bounds: a difference that would take it out is subtracted
+// instead (reflected), the same kind of rule as moving a pitch line back into its range by
+// octaves, added from outside the mechanism.
 //
 // One harp, one pitch, plucked; each note rings for its between, until the same string is struck
 // again. p throughout, nothing marked, so only the betweens are heard. One family throughout.
@@ -68,7 +75,7 @@ export const knobs = {
   size: number({
     group: "Rule",
     label: "Group size",
-    help: "How many differences each group takes. Every distinct group is taken once, in dictionary order, then the sketch stops",
+    help: "How many differences each group takes. Every distinct group is taken once, read from the dictionary order folded in half (the first with the last, and so on), then the sketch stops",
     value: 3,
     min: 1,
     max: 6,
@@ -77,7 +84,7 @@ export const knobs = {
   order: choice({
     group: "Rule",
     label: "Order in a group",
-    help: "The order of the differences inside each group: ascending (smallest first) or descending. The groups keep their dictionary order",
+    help: "The order of the differences inside each group: ascending (smallest first) or descending. The order of the groups does not change",
     value: ORDERS[0],
     options: [...ORDERS],
   }),
@@ -133,6 +140,21 @@ function groupsOf(set: number[], size: number, order: string): number[][] {
 }
 
 /**
+ * A list folded in half and read fold by fold: the first with the last, then the one before the
+ * last with the second, then the third with the one before that, and so on; the end a fold starts
+ * from changes from one fold to the next. An odd list leaves its middle for the last fold alone.
+ */
+function folded<T>(list: T[]): T[] {
+  const out: T[] = [];
+  for (let i = 0, j = list.length - 1; i <= j; i++, j--) {
+    if (i === j) out.push(list[i]!);
+    else if (i % 2 === 0) out.push(list[i]!, list[j]!);
+    else out.push(list[j]!, list[i]!);
+  }
+  return out;
+}
+
+/**
  * The betweens: the start, then each one the one before plus the next difference; a difference
  * that would leave the bounds is subtracted instead (and if that leaves them too, the between
  * stops at the bound).
@@ -142,7 +164,7 @@ function betweensOf(v: Values<typeof knobs>): number[] {
   const hi = Math.max(...v.bounds);
   const inside = (b: number) => b >= lo && b <= hi;
   const out = [Math.min(hi, Math.max(lo, v.start))];
-  for (const d of groupsOf(v.differences, v.size, v.order).flat()) {
+  for (const d of folded(groupsOf(v.differences, v.size, v.order)).flat()) {
     const b = out.at(-1)!;
     const next = inside(b + d) ? b + d : inside(b - d) ? b - d : Math.min(hi, Math.max(lo, b + d));
     out.push(next);

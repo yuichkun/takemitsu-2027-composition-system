@@ -2,14 +2,18 @@
 //
 // A chord is its betweens stacked on a standpoint, bottom up, in the order written; each tone is
 // held by one brass player. One glissando in the cellos (the wind) sweeps at one constant rate, one
-// quarter tone per atom, from just below the chord to just above it, turns at once and sweeps back.
+// quarter tone per atom, from just above the chord to just below it, turns at once and sweeps back.
 //
-// The only rule: a brass tone begins at the moment the sweep reaches its pitch going up, and ends at
-// the moment the sweep reaches it again going down. Nothing else sets time; there is no set of time
+// The only rule: a brass tone begins at the moment the sweep reaches its pitch going down, and ends
+// at the moment the sweep reaches it again going up. Nothing else sets time; there is no set of time
 // betweens. The wait between two entries is the pitch between of the two tones, counted in quarter
 // tones, read as that many atoms: the same set heard on both axes. A pitch between with .5 becomes
-// an odd number of atoms, one without an even number. On the way down the chord comes apart from
-// the top, the same waits in the reverse order.
+// an odd number of atoms, one without an even number. On the way up the chord comes apart from the
+// bottom, the same waits in the reverse order.
+//
+// The wind goes down first so that height and thickness never move the same way: the chord grows
+// while the wind falls and thins while it rises. The brass hold one level throughout, so the only
+// thing that changes in the chord is which tones sound.
 //
 // Each pass counts in one family and starts on a bar line (the Passes knob, "5 | 3"). Only the atom
 // differs from pass to pass, so a later pass is the same waits stretched (or squeezed) by the ratio
@@ -77,7 +81,7 @@ export const knobs = {
   passes: text({
     group: "Sweep",
     label: "Passes",
-    help: "One sweep up and back per family written, each from a bar line (2: 16ths, 3: triplet 8ths, 5: quintuplet 16ths). The sweep moves one quarter tone per atom of its pass's family",
+    help: "One sweep down and back per family written, each from a bar line (2: 16ths, 3: triplet 8ths, 5: quintuplet 16ths). The sweep moves one quarter tone per atom of its pass's family",
     value: "5 | 3",
   }),
   overshoot: number({
@@ -117,11 +121,12 @@ export function score(v: Values<typeof knobs>) {
   const top = tones.at(-1)! + reach;
   if (bottom < CELLOS.range[0] || top > CELLOS.range[1])
     throw new Error(`Standpoint: the sweep (${bottom} to ${top}) leaves the cellos' range`);
-  // One quarter tone per atom: a way up (or down) is this many atoms.
+  // One quarter tone per atom: a way down (or up) is this many atoms, and the wind reaches a pitch
+  // on its way down this many atoms after the pass begins.
   const span = Math.round((top - bottom) * 2);
-  const at = (x: number) => Math.round((x - bottom) * 2);
+  const at = (x: number) => Math.round((top - x) * 2);
 
-  // Passes, each from a bar line: the way up, the way back, one atom on the lowest pitch.
+  // Passes, each from a bar line: the way down, the way back, one atom on the highest pitch.
   const bar = 4 * TICKS;
   let from = 0;
   const passes = families.map((family) => {
@@ -133,14 +138,14 @@ export function score(v: Values<typeof knobs>) {
 
   // The wind.
   const sweep = passes.flatMap(({ start, atom }) => [
-    note(start, span * atom, bottom, { gliss: true, technique: "sul-tasto" }),
-    note(start + span * atom, span * atom, top, { gliss: true, technique: "sul-tasto" }),
-    note(start + 2 * span * atom, atom, bottom, { technique: "sul-tasto" }),
+    note(start, span * atom, top, { gliss: true, technique: "sul-tasto" }),
+    note(start + span * atom, span * atom, bottom, { gliss: true, technique: "sul-tasto" }),
+    note(start + 2 * span * atom, atom, top, { technique: "sul-tasto" }),
   ]);
   const wind = part(CELLOS, sweep, curve([{ at: 0, level: 3 }]));
 
-  // The chord: each tone from where the sweep reaches it going up to where it reaches it coming down;
-  // pp, swelling to p at the turn and back to pp at the release.
+  // The chord: each tone from where the sweep reaches it going down to where it reaches it coming
+  // back up; pp throughout, marked at each entry.
   const players = numberFromTop(
     inOrder(
       tones.map((t): [number, number] => [t, t]),
@@ -156,11 +161,7 @@ export function score(v: Values<typeof knobs>) {
       const off = start + (2 * span - at(x)) * atom;
       return note(on, off - on, x);
     });
-    const points = passes.flatMap(({ start, atom }) => [
-      { at: start + at(x) * atom, level: 2, ramp: true },
-      { at: start + span * atom, level: 3, ramp: true },
-      { at: start + (2 * span - at(x)) * atom, level: 2 },
-    ]);
+    const points = passes.map(({ start, atom }) => ({ at: start + at(x) * atom, level: 2 }));
     return part(players[k]!, events, curve(points));
   });
   brassParts.sort(

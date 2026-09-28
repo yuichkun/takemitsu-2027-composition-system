@@ -15,6 +15,15 @@
 // from the time set. The set may be written in stretches split at bar lines ("|"), each drawn by a
 // fresh rule; by default one of its betweens widens by a quarter tone from bar 8.
 //
+// The combinations rule takes every pair of the set in dictionary order, and each time round the
+// order starts from the between the last round ended on (one earlier). Read the same way every
+// round, a walk whose set does not sum to 0 only moves one shape by the same amount each round (a
+// plain series); starting one later instead keeps the rest in the same order, so steps from the
+// middle of a round would come back as the first steps of the next. Every round still holds each
+// between three times, so the walk climbs by three times the set's sum per round until the top of
+// the range holds it: the line starts at the top, so its height does not climb while the sound
+// thickens.
+//
 // Harp I holds the usual grid; Harp II, tuned a quarter tone low, holds the other. Each tone goes to
 // the harp of its grid. Card: README.md.
 
@@ -53,15 +62,15 @@ export const knobs = {
   rule: choice({
     group: "Pitch",
     label: "Rule",
-    help: "How the line draws from the set. combinations: every pair of the set, in dictionary order · shift each time: the set in order, starting one later each time round · in order: the set as written",
+    help: "How the line draws from the set. combinations: every pair of the set in dictionary order, each time round starting from the between the last round ended on · shift each time: the set in order, starting one later each time round · in order: the set as written",
     value: "combinations",
     options: [...RULES],
   }),
   anchor: pitch({
     group: "Pitch",
     label: "Standpoint",
-    help: "The first tone of the line",
-    value: "C4",
+    help: "The first tone of the line. The default set sums above 0, so the line climbs to the top of the range wherever it starts",
+    value: "C6",
     min: "C2",
     max: "C7",
     step: 0.5,
@@ -130,6 +139,39 @@ const HARPS: Player[] = [
   },
 ];
 
+/**
+ * The combinations rule, turning: every distinct group of `k` betweens in the dictionary order of
+ * the set, each group in that order; when a round is used up, the between the round ended on (the
+ * last of the order) moves to the head, and the next round is read in that order.
+ */
+function turning(set: number[], k: number): () => number {
+  const order = [...set].sort((a, b) => a - b);
+  const size = Math.max(1, Math.min(k, order.length));
+  let queue: number[] = [];
+  const round = () => {
+    const seen = new Set<string>();
+    const out: number[] = [];
+    const pick = (from: number, acc: number[]) => {
+      if (acc.length === size) {
+        const key = acc.join(",");
+        if (!seen.has(key)) {
+          seen.add(key);
+          out.push(...acc);
+        }
+        return;
+      }
+      for (let i = from; i < order.length; i++) pick(i + 1, [...acc, order[i]!]);
+    };
+    pick(0, []);
+    order.unshift(order.pop()!);
+    return out;
+  };
+  return () => {
+    if (queue.length === 0) queue = round();
+    return queue.shift()!;
+  };
+}
+
 /** The line and the ring rule: each tone with the onset where it is stopped (or the end). */
 function ring(v: Values<typeof knobs>): { tones: Tone[]; last: number; end: number } {
   const beats = BARS * 4;
@@ -153,7 +195,7 @@ function ring(v: Values<typeof knobs>): { tones: Tone[]; last: number; end: numb
     if (s !== section) {
       section = s;
       const set = sets[s % sets.length]!;
-      draw = stream(set, v.rule, GROUP);
+      draw = v.rule === "combinations" ? turning(set, GROUP) : stream(set, v.rule, GROUP);
       sizes = new Set(set.map(Math.abs));
     }
     if (i > 0) {

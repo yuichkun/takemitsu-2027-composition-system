@@ -15,10 +15,15 @@
 // relations inside the set (a size that is the sum of two others lets three tones ring together).
 //
 // The set moves in stages of equal numbers of steps, each stage moving one size of the set by a
-// quarter tone, and the rule starts again from its first group at each new stage. The size check
-// always uses the stage of the new onset. Time: the onsets are added from the time set, drawn in
-// order and starting one later each time round, in one family. After the last onset the clarinet's
-// last tone and whatever the strings still hold ring on for RING beats and fade to nothing.
+// quarter tone; the size check always uses the stage of the new onset. The default rule, "turning
+// combinations", draws every pair of positions of the set in dictionary order, reading the set (as
+// written) as a circle: round r reads it from position floor(r/2), forwards when r is even and
+// backwards when r is odd, so no round repeats the order of the one before and the line never moves
+// one shape along by the set's sum. It draws positions, not values, and keeps counting rounds across
+// stages: each stage fills the positions with its own betweens. (The other rules start again at each
+// stage.) Time: the onsets are added from the time set, drawn in order and starting one later each
+// time round, in one family. After the last onset the clarinet's last tone and whatever the strings
+// still hold ring on for RING beats and fade to nothing.
 //
 // A new held tone goes to the free string part that has been free longest, among those whose range
 // holds it (ties: in score order).
@@ -38,18 +43,20 @@ import { curve, note, part, scoreOf, stream, TICKS, type Player } from "../../co
 
 /** After the last onset, the last tones ring on for RING beats, fading to nothing. */
 const RING = 4;
-/** Betweens drawn at a time by the combinations rule. */
+/** Betweens drawn at a time by the combinations rules. */
 const GROUP = 2;
 /** Levels: the clarinet p, the strings pp. */
 const MELODY_LEVEL = 3;
 const HELD_LEVEL = 2;
+
+const TURNING = "turning combinations";
 
 export const knobs = {
   set: text({
     group: "Pitch",
     label: "Set",
     help: "Signed betweens in semitones (.5 for a quarter tone). The clarinet walks by them; their sizes (without sign) decide which earlier tones the strings keep. Stages split by | take turns, each for the same number of steps",
-    value: "-7.5 -5 1.5 4 | -7.5 -5.5 1.5 4 | -7 -5.5 1.5 4 | -7 -5 1.5 4",
+    value: "-8 -6.5 2.5 3.5 | -8 -6 2.5 3.5 | -8.5 -6 2.5 3.5 | -8.5 -5.5 2.5 3.5",
   }),
   perStage: number({
     group: "Pitch",
@@ -64,15 +71,15 @@ export const knobs = {
   rule: choice({
     group: "Pitch",
     label: "Rule",
-    help: "How the line draws from the set, starting again at each stage. combinations: every pair of the set, in dictionary order · shift each time: the set in order, starting one later each time round · in order: the set as written",
-    value: "combinations",
-    options: [...RULES],
+    help: "How the line draws from the set. turning combinations: every pair of positions of the set in dictionary order, reading the set as a circle, each round from the position one later every two rounds, forwards and backwards in turn (rounds are counted across stages) · combinations: every pair of the set, in dictionary order · shift each time: the set in order, starting one later each time round · in order: the set as written. The last three start again at each stage",
+    value: TURNING,
+    options: [TURNING, ...RULES],
   }),
   anchor: pitch({
     group: "Pitch",
     label: "Standpoint",
     help: "The first tone of the line",
-    value: 64,
+    value: 70,
     min: "D3",
     max: "C7",
     step: 0.5,
@@ -144,6 +151,27 @@ const STRINGS: Player[] = [
   divided("va-2", "violas", "Violas 2", "Va. 2", 6, [48, 91]),
 ];
 
+/**
+ * The turning combinations, as positions of a set of `n` betweens, one position per call. Round r
+ * reads the positions as a circle from floor(r/2), forwards when r is even and backwards when odd,
+ * and gives every pair of that reading in dictionary order, each pair in reading order.
+ */
+function turning(n: number): () => number {
+  let round = 0;
+  let queue: number[] = [];
+  return () => {
+    if (queue.length === 0) {
+      const from = Math.floor(round / 2) % n;
+      const reading = Array.from({ length: n }, (_, i) => (from + i) % n);
+      if (round % 2 === 1) reading.reverse();
+      for (let i = 0; i < n; i++)
+        for (let j = i + 1; j < n; j++) queue.push(reading[i]!, reading[j]!);
+      round++;
+    }
+    return queue.shift()!;
+  };
+}
+
 interface Tone {
   at: number;
   midi: number;
@@ -157,9 +185,12 @@ function walk(v: Values<typeof knobs>) {
   const sets = pitchSetsOf("Set", v.set);
   const [lo, hi] = v.band;
   if (v.anchor < lo || v.anchor > hi) throw new Error("Standpoint: put it inside the band");
+  if (v.rule === TURNING && sets.some((s) => s.length !== sets[0]!.length))
+    throw new Error("Set: turning combinations needs the same number of betweens in every stage");
   const steps = v.perStage * sets.length;
   const atom = atomOf(familyOf(v.family));
   const nextTime = stream(v.time, "shift each time", 1);
+  const nextPosition = turning(sets[0]!.length);
 
   const onsets: number[] = [0];
   for (let i = 1; i <= steps; i++) onsets.push(onsets[i - 1]! + nextTime() * atom);
@@ -170,6 +201,7 @@ function walk(v: Values<typeof knobs>) {
   const freeSince = STRINGS.map(() => -Infinity);
   const busy = STRINGS.map(() => false);
   let stage = -1;
+  let set: number[] = [];
   let draw = () => 0;
   let sizes = new Set<number>();
   let current = v.anchor;
@@ -177,8 +209,8 @@ function walk(v: Values<typeof knobs>) {
     const s = i === 0 ? 0 : Math.floor((i - 1) / v.perStage);
     if (s !== stage) {
       stage = s;
-      const set = sets[s]!;
-      draw = stream(set, v.rule, GROUP);
+      set = sets[s]!;
+      draw = v.rule === TURNING ? () => set[nextPosition()]! : stream(set, v.rule, GROUP);
       sizes = new Set(set.map(Math.abs));
     }
     if (i > 0) {

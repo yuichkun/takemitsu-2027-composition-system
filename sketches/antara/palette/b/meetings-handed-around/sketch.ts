@@ -9,10 +9,11 @@
 // imported.
 //
 // Here there are three such groups of four: four horns, three clarinets and the bass clarinet, and
-// the first violins divided in four. Their standpoints are 12.5 semitones apart (with .5: the same
-// meeting stands on the other grid in the middle group), and each group enters a third of a pass
-// after the one below, so the meetings come round from group to group, evenly spaced, never two at
-// once. At each meeting a holding part takes the pitch the four
+// the first violins divided in four. Their standpoints are 17.5 semitones apart: the four voices of
+// a group, over the whole sketch, cover a band 17 wide (8 below the standpoint to 9 above), and 17.5
+// is the smallest between on the quarter-tone grid that keeps the three bands from sharing a pitch.
+// Each group enters a third of a pass after the one below, so the meetings come round from group
+// to group, evenly spaced, never two at once. At each meeting a holding part takes the pitch the four
 // have just met on and holds it until the group's next meeting: the cellos for the horns, the
 // violas for the clarinets, two flutes in unison for the violins. The three held lines are the walk
 // of the meetings.
@@ -94,7 +95,7 @@ export const knobs = {
     group: "Standpoints",
     label: "Horns",
     help: "The standpoint of the lowest group (the horns): where its four voices start, together. The clarinets and the violins start one and two Apart above. Nothing is folded into range: a voice that leaves its instrument stops the sketch with an error",
-    value: "E3",
+    value: 46.5,
     min: "C2",
     max: "C5",
     step: 0.5,
@@ -102,8 +103,8 @@ export const knobs = {
   apart: number({
     group: "Standpoints",
     label: "Apart",
-    help: "The between of one group's standpoint and the next one's. With .5, the same meeting stands on the other grid in the middle group",
-    value: 12.5,
+    help: "The between of one group's standpoint and the next one's. More than the width of the band a group's four voices cover (17 with the sets as written), and the three bands share no pitch",
+    value: 17.5,
     min: 0,
     max: 24,
     step: 0.5,
@@ -174,8 +175,7 @@ const VIOLINS = [1, 2, 3, 4].map((j) =>
   one(`vn1-${j}`, "violins-1", `Violins I ${j}`, `Vn. I ${j}`, [55, 103], 4),
 );
 // The holding parts, low to high: one for each group. The flutes' lowest note in playback is C4.
-// The cellos, not the basses, hold the horns' meetings: the basses' samples stop at 54, and the
-// meetings of the horns reach 55.
+// The horns' meetings (46.5 to 49.5 as set) are within the basses' reach too; the cellos hold them.
 const HOLDERS: Player[] = [
   one("vc", "cellos", "Violoncellos", "Vc.", [36, 84], 10),
   one("va", "violas", "Violas", "Va.", [48, 91], 12),

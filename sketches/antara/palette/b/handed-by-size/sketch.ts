@@ -7,13 +7,18 @@
 //
 // Here the unsounded betweens are the way one line changes colour. The line is one addition on two
 // axes: its terms stand at the sum of the time betweens from the start, and each term's pitch is
-// the one before plus the next pitch between. Two colours share it, the winds (two flutes and two
-// clarinets in unison) and the strings (Violins I and Violas in unison). Each size of time between
-// has an owner, and a term is sounded only by the colour that owns the size of its own between. So
-// each colour's part is the method of the A with the other colour's sizes unsounded, and the two
-// parts together are the whole line again, with no gap and no overlap. Where a colour skips the
-// other's terms, their time betweens and their pitch betweens are added all the same, unsounded:
-// heard alone, each colour walks by betweens neither set holds.
+// the one before plus the next pitch between. The pitch betweens are drawn by shift each time;
+// each time the shift comes back to the first between (every n × n terms for n betweens), the
+// betweens are turned over (every sign flipped) for the next such stretch, then turned back. The
+// line goes up by one stretch's sum and down again, so it does not climb as it is handed on.
+// Two colours share it, the winds (two flutes and two clarinets in unison) and the strings (two
+// first violins and two violas in unison): four players each, so a hand-over moves the colour and
+// not the weight. Each size of time between has an owner, and a term is sounded only by the
+// colour that owns the size of its own between. So each colour's part is the method of the A with
+// the other colour's sizes unsounded, and the two parts together are the whole line again, with
+// no gap and no overlap. Where a colour skips the other's terms, their time betweens and their
+// pitch betweens are added all the same, unsounded: heard alone, each colour walks by betweens
+// neither set holds.
 //
 // Ownership changes only where the rule starts its round again. In the first round the winds own
 // every size; then, round by round, one more size is handed to the strings (by default the largest
@@ -61,7 +66,7 @@ export const knobs = {
   steps: text({
     group: "Pitch",
     label: "Pitch betweens",
-    help: "The pitch betweens of the line, in the order written (semitones, .5 for a quarter tone, minus for down), drawn by shift each time. One is added at every term, sounded or not",
+    help: "The pitch betweens of the line, in the order written (semitones, .5 for a quarter tone, minus for down), drawn by shift each time. One is added at every term, sounded or not. Each time the shift comes back to the first between (every n × n terms for n betweens), they are turned over (every sign flipped) until it comes back again",
     value: "3.5 -2.5 1 -1.5",
   }),
   start: pitch({
@@ -103,14 +108,14 @@ const player = (
   players: number,
 ): Player => ({ id, instrument, name, abbreviation, players, range: SHARED, grids: [0, 1] });
 
-/** The two colours, each two instruments in unison. */
+/** The two colours, each two instruments in unison, two players each: four players a colour. */
 const WINDS: Player[] = [
   player("fl", "flute", "Flutes 1·2", "Fl. 1·2", 2),
   player("cl", "clarinet", "Clarinets 1·2", "Cl. 1·2", 2),
 ];
 const STRINGS: Player[] = [
-  player("vn1", "violins-1", "Violins I", "Vn. I", 16),
-  player("va", "violas", "Violas", "Va.", 12),
+  player("vn1", "violins-1", "Violins I (2 players)", "Vn. I (2)", 2),
+  player("va", "violas", "Violas (2 players)", "Va. (2)", 2),
 ];
 
 export function score(v: Values<typeof knobs>) {
@@ -126,6 +131,9 @@ export function score(v: Values<typeof knobs>) {
   const atom = atomOf(3);
   const round = roundOf(set);
   const nextStep = stream(steps, "shift each time", 1);
+  // The shift's own cycle: every between has been read first once. The betweens are turned over
+  // (signs flipped) in every other cycle.
+  const cycle = steps.length * steps.length;
 
   // The one line: every term, its place, its own between, its pitch and who owns it. Round r hands
   // the first r sizes to the strings.
@@ -133,6 +141,7 @@ export function score(v: Values<typeof knobs>) {
   const strings: NoteEvent[] = [];
   let at = 0;
   let midi = v.start;
+  let term = 0;
   for (let r = 0; r <= sizes.length; r++) {
     const handed = new Set(sizes.slice(0, r));
     for (const between of round) {
@@ -142,7 +151,9 @@ export function score(v: Values<typeof knobs>) {
         );
       (handed.has(between) ? strings : winds).push(note(at * atom, between * atom, midi));
       at += between;
-      midi += nextStep();
+      const turned = Math.floor(term / cycle) % 2 === 1;
+      midi += (turned ? -1 : 1) * nextStep();
+      term++;
     }
   }
 

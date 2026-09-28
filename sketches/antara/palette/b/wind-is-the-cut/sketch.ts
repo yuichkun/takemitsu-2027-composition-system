@@ -2,40 +2,35 @@
 //
 // Uses the A sketch "the wind across the chord" (../../a/texture-wind-across): one glissando in the
 // cellos (the wind) slides at one constant rate, one quarter tone per atom, and a held tone begins
-// or ends at the very moment the wind reaches its pitch. Nothing else sets time: the wait between
-// two events is the pitch between of their two tones, counted in quarter tones, read as that many
-// atoms.
+// or ends at the very moment the wind reaches its pitch. Nothing else sets the moments of the
+// tones: the wait between two events is the pitch between of their two tones, counted in quarter
+// tones, read as that many atoms.
 //
-// Here the wind is the way from one chord to the next. Every chord is the same set of betweens
-// stacked on the same standpoint, read in the order written but starting one place later for each
-// chord (the rule "shift each time"), so every chord has the same lowest and highest tone (the
-// frame). In one pass the wind crosses the chord once: a tone of the old chord stops at the moment
-// the wind reaches it, and a tone of the new chord begins at the moment the wind reaches it; a
-// pitch in both (the frame) is handed from the old player to the new at that one instant. While the
-// wind is passing, the side it has crossed holds only the new chord and the side it has not reached
-// holds only the old one: the height of the wind is the cut between the two chords. The waits are
-// the betweens of the two chords merged into one row of pitches.
+// Here each pass of the wind lays a new chord over what is sounding. A sounding tone stops at the
+// moment the wind reaches it, and a tone of the new chord begins at the moment the wind reaches it;
+// a pitch in both is handed from the old player to the new at that one instant (within one choir it
+// simply goes on). The height of the wind is the cut: the side it has crossed holds the new chord,
+// the side it has not reached holds what was there.
 //
-// Brass and woodwinds take the chords in turn, one tone per player, so the cut is also a cut of
-// colour. The passes go up and down in turn: the first builds the first chord from nothing, the
-// last takes the last chord into nothing, and each one between changes chord. Each pass counts in
-// one family (the Passes knob) and starts on the first bar line after the previous one ends; until
-// then the complete chord holds alone and the cellos are silent. The wind stays sul tasto, p, with
-// no swell; the chords stay pp. Card: README.md.
+// Every pass lasts the same time: the fewest whole beats in which a wind in the finest family of the
+// Passes crosses its whole path (whole beats, because the next pass may change family only where
+// the families' grids meet). A coarser family has fewer atoms in that time, so its wind stops inside
+// the chord, and what lies beyond stays: the cut stands there, with two chords on its two sides,
+// until a later pass crosses it. The family decides how far the cut goes, not only how fast.
+//
+// The chords: the set's betweens in the order written, all but one stacked on the standpoint, read
+// one place later for each chord (shift each time); so each chord leaves out a different between
+// and its top moves. The wind's path is the room of the whole set: from a quarter tone below the
+// standpoint to a quarter tone above the standpoint plus the sum of all the betweens.
+//
+// Brass and woodwinds take the chords in turn, one tone per player. The passes go down and up in
+// turn, starting down: the first builds from nothing while the wind falls, the last goes up and
+// takes everything into nothing. The wind stays sul tasto, p; the chords stay pp. Card: README.md.
 
 import { instrument } from "../../../../../src/instruments/catalog.ts";
 import { number, numbersOf, pitch, text, type Values } from "../../../../../src/sketch/knobs.ts";
-import { atomOf, drawer, familiesOf } from "../../../between.ts";
-import {
-  curve,
-  inOrder,
-  note,
-  numberFromTop,
-  part,
-  scoreOf,
-  TICKS,
-  type Player,
-} from "../../common.ts";
+import { atomOf, drawer, familiesOf, type Family } from "../../../between.ts";
+import { curve, note, part, scoreOf, TICKS, type Player } from "../../common.ts";
 import { tones } from "../../trade.ts";
 
 const player = (id: string, kind: string, name: string, abbreviation: string): Player => ({
@@ -47,7 +42,8 @@ const player = (id: string, kind: string, name: string, abbreviation: string): P
   grids: [0, 1],
 });
 
-// Each choir low to high: a chord's tones take its players in this order, one tone each.
+// Each choir low to high. A tone takes a free player of its choir, keeping the choir's sounding
+// tones in the players' order, as near as it can to the player its place in the chord points to.
 const BRASS: Player[] = [
   player("tbn3", "trombone", "Trombone 3", "Tbn. 3"),
   player("tbn2", "trombone", "Trombone 2", "Tbn. 2"),
@@ -72,6 +68,7 @@ const WOODWINDS: Player[] = [
 ];
 /** Chord k is played by CHOIRS[k % 2]. */
 const CHOIRS = [BRASS, WOODWINDS];
+const CHOIR_NAMES = ["brass", "woodwind"];
 const SCORE_ORDER = ["flute", "oboe", "clarinet", "bassoon", "horn", "trumpet", "trombone"];
 const CELLOS: Player = {
   id: "vc",
@@ -87,23 +84,23 @@ export const knobs = {
   set: text({
     group: "Chords",
     label: "Set",
-    help: "The betweens of every chord, in the order written (semitones, .5 for a quarter tone). Each chord reads them one place later than the one before (shift each time), so every chord has the same lowest and highest tone",
-    value: "2 5 2.5 4 3 4.5 3.5 5.5",
+    help: "The betweens, in the order written (semitones, .5 for a quarter tone). Each chord stacks all but one of them on the standpoint, reading one place later than the chord before (shift each time), so each chord leaves out a different one and its top moves",
+    value: "2 4.5 3 5 2.5 4 3.5 5.5",
   }),
   anchor: pitch({
     group: "Chords",
     label: "Standpoint",
-    help: "The lowest tone of every chord. The waits do not depend on it. The range is the standpoints that keep every tone of the default set in its player's range and the wind in the cellos' range",
+    help: "The lowest tone of every chord. The waits do not depend on it. The range is the standpoints that keep every tone of the default set in its choir's players' ranges and the wind in the cellos' range",
     value: 45,
-    min: 40,
+    min: 38.5,
     max: 53.5,
     step: 0.5,
   }),
   passes: text({
     group: "Wind",
     label: "Passes",
-    help: "One pass of the wind per family written (2: 16ths, 3: triplet 8ths, 5: quintuplet 16ths), up and down in turn, starting up. The first builds a chord from nothing, the last takes one into nothing, each pass between changes chord. The wind moves one quarter tone per atom of its pass's family",
-    value: "5 | 3 | 2 | 5 | 3 | 2",
+    help: "One pass of the wind per family written (2: 16ths, 3: triplet 8ths, 5: quintuplet 16ths), down and up in turn, starting down. Every pass lasts the time the finest family written needs to cross the whole path; a coarser family stops inside the chord. The first builds a chord from nothing, the last takes everything into nothing, each pass between lays a new chord",
+    value: "2 | 3 | 5 | 2 | 3 | 5",
   }),
   tempo: number({
     group: "Form",
@@ -117,78 +114,120 @@ export const knobs = {
   }),
 };
 
-interface Pass {
-  start: number;
-  atom: number;
-  up: boolean;
-  family: number;
+interface Held {
+  pitch: number;
+  choir: number;
+  /** Its place in the chord that laid it, from the bottom. */
+  rank: number;
+  on: number;
+}
+interface Sounded extends Held {
+  off: number;
 }
 
 export function score(v: Values<typeof knobs>) {
   const set = numbersOf("Set", v.set.replaceAll("−", "-"));
   if (set.some((b) => !Number.isInteger(b * 2) || b < 0.5))
     throw new Error("Set: betweens are 0.5 or more, on the quarter-tone grid (2, 5, 2.5)");
-  if (set.length + 1 > BRASS.length)
-    throw new Error(
-      `Set: at most ${BRASS.length - 1} betweens (one player per tone in each choir)`,
-    );
+  if (set.length < 2) throw new Error("Set: at least two betweens (a chord stacks all but one)");
+  if (set.length > BRASS.length)
+    throw new Error(`Set: at most ${BRASS.length} betweens (one player per tone in each choir)`);
   const families = familiesOf("Passes", v.passes);
   if (families.length < 2)
     throw new Error("Passes: at least two (one builds a chord, one takes it into nothing)");
 
-  // The chords, one fewer than the passes: the set read one place later each time, stacked.
+  // The chords, one fewer than the passes: the set read one place later each time, all but its
+  // last between stacked.
   const draw = drawer(set, "shift each time", 1, "ascending");
-  const chords = families.slice(1).map(() => tones(v.anchor, draw()));
+  const chords = families.slice(1).map(() => tones(v.anchor, draw().slice(0, -1)));
 
-  // The wind goes one quarter tone past the frame at each end.
+  // The wind's path: the room of the whole set, a quarter tone past it at each end.
   const bottom = v.anchor - 0.5;
-  const top = chords[0]!.at(-1)! + 0.5;
+  const top = v.anchor + set.reduce((a, b) => a + b, 0) + 0.5;
   if (bottom < CELLOS.range[0] || top > CELLOS.range[1])
     throw new Error(`Standpoint: the wind (${bottom} to ${top}) leaves the cellos' range`);
-  // One quarter tone per atom: a pass is this many atoms.
-  const span = Math.round((top - bottom) * 2);
+  // One quarter tone per atom: the whole path is this many atoms.
+  const path = Math.round((top - bottom) * 2);
+  // Every pass lasts the fewest whole beats in which the finest family crosses the path and holds
+  // its last pitch one atom.
+  const perBeat = (family: Family) => TICKS / atomOf(family);
+  const length = Math.ceil((path + 1) / Math.max(...families.map(perBeat))) * TICKS;
 
-  // Each pass from the first bar line after the one before ends (its sweep and one atom at the far
-  // end).
-  const bar = 4 * TICKS;
-  let from = 0;
-  const passes: Pass[] = families.map((family, j) => {
-    const pass = { start: from, atom: atomOf(family), up: j % 2 === 0, family };
-    from = Math.ceil((from + (span + 1) * pass.atom) / bar) * bar;
-    return pass;
+  // Each pass lays its chord (the last lays nothing) wherever its wind gets to.
+  const sounding = new Map<number, Held>();
+  const sounded: Sounded[] = [];
+  const passes = families.map((family, j) => {
+    const atom = atomOf(family);
+    const up = j % 2 === 1;
+    const start = j * length;
+    const from = up ? bottom : top;
+    // It moves until it has crossed the path, or until one atom before the pass ends.
+    const move = Math.min(path, length / atom - 1);
+    const chord = chords[j] ?? [];
+    const choir = j % 2;
+    const reach = (x: number) => Math.round(Math.abs(x - from) * 2);
+    const crossed = [...new Set([...sounding.keys(), ...chord])]
+      .filter((x) => reach(x) <= move)
+      .sort((a, b) => reach(a) - reach(b));
+    for (const x of crossed) {
+      const at = start + reach(x) * atom;
+      const old = sounding.get(x);
+      const rank = chord.indexOf(x);
+      // The same pitch in the same choir: it goes on.
+      if (old && rank >= 0 && old.choir === choir) continue;
+      if (old) {
+        sounded.push({ ...old, off: at });
+        sounding.delete(x);
+      }
+      if (rank >= 0) sounding.set(x, { pitch: x, choir, rank, on: at });
+    }
+    return { start, atom, up, family, from, move };
   });
-  const end = from;
-  /** The moment the wind of a pass reaches a pitch, in ticks. */
-  const reaches = (p: Pass, x: number) =>
-    p.start + Math.round(Math.abs(x - (p.up ? bottom : top)) * 2) * p.atom;
+  const end = families.length * length;
+  for (const held of sounding.values()) sounded.push({ ...held, off: end });
 
   // The wind.
-  const sweep = passes.flatMap((p) => [
-    note(p.start, span * p.atom, p.up ? bottom : top, { gliss: true, technique: "sul-tasto" }),
-    note(p.start + span * p.atom, p.atom, p.up ? top : bottom, { technique: "sul-tasto" }),
-  ]);
+  const sweep = passes.flatMap((p) => {
+    const to = p.from + ((p.up ? 1 : -1) * p.move) / 2;
+    return [
+      note(p.start, p.move * p.atom, p.from, { gliss: true, technique: "sul-tasto" }),
+      note(p.start + p.move * p.atom, p.atom, to, { technique: "sul-tasto" }),
+    ];
+  });
   const wind = part(CELLOS, sweep, curve([{ at: 0, level: 3 }]));
 
-  // The choirs: chord k begins, tone by tone, where pass k reaches each tone, and ends where pass
-  // k + 1 reaches it. Brass and woodwinds take the chords in turn.
+  // The choirs.
   const choirParts = CHOIRS.flatMap((pool, c) => {
-    const mine = chords.map((chord, k) => ({ chord, k })).filter(({ k }) => k % 2 === c);
-    if (mine.length === 0) return [];
-    const ranges = mine[0]!.chord.map((_, i): [number, number] => [
-      Math.min(...mine.map(({ chord }) => chord[i]!)),
-      Math.max(...mine.map(({ chord }) => chord[i]!)),
-    ]);
-    const players = numberFromTop(inOrder(ranges, pool));
-    return players.map((pl, i) => {
-      const own = instrument(pl.instrument).range!;
-      const events = mine.map(({ chord, k }) => {
-        const x = chord[i]!;
-        if (x < own[0] || x > own[1])
-          throw new Error(`Standpoint: ${x} is outside the ${pl.name}'s range`);
-        const on = reaches(passes[k]!, x);
-        return note(on, reaches(passes[k + 1]!, x) - on, x);
-      });
-      return part(pl, events, curve([{ at: 0, level: 2 }]));
+    const mine = sounded
+      .filter((s) => s.choir === c)
+      .sort((a, b) => a.on - b.on || a.pitch - b.pitch);
+    const placed: { i: number; s: Sounded }[] = [];
+    for (const s of mine) {
+      const busy = new Set(placed.filter((q) => q.s.off > s.on).map((q) => q.i));
+      const around = placed.filter((q) => q.s.off > s.on);
+      const below = Math.max(-1, ...around.filter((q) => q.s.pitch < s.pitch).map((q) => q.i));
+      const above = Math.min(
+        pool.length,
+        ...around.filter((q) => q.s.pitch > s.pitch).map((q) => q.i),
+      );
+      const free = pool
+        .map((_, i) => i)
+        .filter((i) => {
+          const [lo, hi] = pool[i]!.range;
+          return !busy.has(i) && s.pitch >= lo && s.pitch <= hi;
+        });
+      const kept = free.filter((i) => i > below && i < above);
+      const choose = kept.length > 0 ? kept : free;
+      if (choose.length === 0)
+        throw new Error(`Standpoint: no free ${CHOIR_NAMES[c]} player can take ${s.pitch}`);
+      const i = choose.reduce((a, b) => (Math.abs(b - s.rank) < Math.abs(a - s.rank) ? b : a));
+      placed.push({ i, s });
+    }
+    return pool.flatMap((pl, i) => {
+      const events = placed
+        .filter((q) => q.i === i)
+        .map((q) => note(q.s.on, q.s.off - q.s.on, q.s.pitch));
+      return events.length > 0 ? [part(pl, events, curve([{ at: 0, level: 2 }]))] : [];
     });
   });
   choirParts.sort(
@@ -197,13 +236,17 @@ export function score(v: Values<typeof knobs>) {
       a.id.localeCompare(b.id),
   );
 
-  const out = scoreOf("antara · palette B · the wind is the cut", end / bar, v.tempo, [
+  const bar = 4 * TICKS;
+  const out = scoreOf("antara · palette B · the wind is the cut", Math.ceil(end / bar), v.tempo, [
     ...choirParts,
     wind,
   ]);
-  out.rehearsal = passes.map((p) => ({
-    measure: p.start / bar + 1,
-    label: `${p.up ? "up" : "down"} ${p.family}`,
-  }));
+  out.rehearsal = passes.map((p) => {
+    const beat = (p.start % bar) / TICKS + 1;
+    return {
+      measure: Math.floor(p.start / bar) + 1,
+      label: `${p.up ? "up" : "down"} ${p.family}${beat > 1 ? ` · beat ${beat}` : ""}`,
+    };
+  });
   return out;
 }

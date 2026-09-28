@@ -21,46 +21,14 @@
    "dynamics": [
     {
      "at": [
-      33,
-      5
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      46,
-      5
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      59,
+      13,
       5
      ],
      "level": 2
     },
     {
      "at": [
-      31,
-      1
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      106,
-      3
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      119,
+      73,
       3
      ],
      "level": 2
@@ -69,11 +37,11 @@
    "events": [
     {
      "at": [
-      33,
+      13,
       5
      ],
      "dur": [
-      26,
+      66,
       5
      ],
      "pitch": {
@@ -82,12 +50,12 @@
     },
     {
      "at": [
-      31,
-      1
+      73,
+      3
      ],
      "dur": [
-      26,
-      3
+      22,
+      1
      ],
      "pitch": {
       "midi": 66.5
@@ -103,128 +71,14 @@
    "dynamics": [
     {
      "at": [
-      24,
-      5
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      46,
-      5
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      68,
-      5
-     ],
-     "level": 2
-    },
-    {
-     "at": [
-      28,
-      1
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      106,
-      3
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      128,
-      3
-     ],
-     "level": 2
-    }
-   ],
-   "events": [
-    {
-     "at": [
-      24,
-      5
-     ],
-     "dur": [
-      44,
-      5
-     ],
-     "pitch": {
-      "midi": 62
-     }
-    },
-    {
-     "at": [
-      28,
-      1
-     ],
-     "dur": [
-      44,
-      3
-     ],
-     "pitch": {
-      "midi": 62
-     }
-    }
-   ],
-   "name": "Horn 2",
-   "abbreviation": "Hn. 2"
-  },
-  {
-   "id": "hn3",
-   "instrument": "horn",
-   "dynamics": [
-    {
-     "at": [
       22,
       5
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      46,
-      5
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      14,
-      1
      ],
      "level": 2
     },
     {
      "at": [
       82,
-      3
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      106,
-      3
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      130,
       3
      ],
      "level": 2
@@ -241,7 +95,7 @@
       5
      ],
      "pitch": {
-      "midi": 61
+      "midi": 62
      }
     },
     {
@@ -252,6 +106,56 @@
      "dur": [
       16,
       1
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    }
+   ],
+   "name": "Horn 2",
+   "abbreviation": "Hn. 2"
+  },
+  {
+   "id": "hn3",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": [
+      24,
+      5
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      24,
+      5
+     ],
+     "dur": [
+      44,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      44,
+      3
      ],
      "pitch": {
       "midi": 61
@@ -267,47 +171,15 @@
    "dynamics": [
     {
      "at": [
-      11,
-      5
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      46,
-      5
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      81,
-      5
+      7,
+      1
      ],
      "level": 2
     },
     {
      "at": [
-      71,
+      95,
       3
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      106,
-      3
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      47,
-      1
      ],
      "level": 2
     }
@@ -315,12 +187,12 @@
    "events": [
     {
      "at": [
-      11,
-      5
+      7,
+      1
      ],
      "dur": [
-      14,
-      1
+      22,
+      5
      ],
      "pitch": {
       "midi": 55.5
@@ -328,11 +200,11 @@
     },
     {
      "at": [
-      71,
+      95,
       3
      ],
      "dur": [
-      70,
+      22,
       3
      ],
      "pitch": {
@@ -349,269 +221,7 @@
    "dynamics": [
     {
      "at": [
-      9,
-      1
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      46,
-      5
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      47,
-      5
-     ],
-     "level": 2
-    },
-    {
-     "at": [
-      35,
-      1
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      106,
-      3
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      107,
-      3
-     ],
-     "level": 2
-    }
-   ],
-   "events": [
-    {
-     "at": [
-      9,
-      1
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 72.5
-     }
-    },
-    {
-     "at": [
-      35,
-      1
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 72.5
-     }
-    }
-   ],
-   "name": "Trumpet 1",
-   "abbreviation": "Tpt. 1"
-  },
-  {
-   "id": "tpt2",
-   "instrument": "trumpet",
-   "dynamics": [
-    {
-     "at": [
-      38,
-      5
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      46,
-      5
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      54,
-      5
-     ],
-     "level": 2
-    },
-    {
-     "at": [
-      98,
-      3
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      106,
-      3
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      38,
-      1
-     ],
-     "level": 2
-    }
-   ],
-   "events": [
-    {
-     "at": [
-      38,
-      5
-     ],
-     "dur": [
-      16,
-      5
-     ],
-     "pitch": {
-      "midi": 69
-     }
-    },
-    {
-     "at": [
-      98,
-      3
-     ],
-     "dur": [
-      16,
-      3
-     ],
-     "pitch": {
-      "midi": 69
-     }
-    }
-   ],
-   "name": "Trumpet 2",
-   "abbreviation": "Tpt. 2"
-  },
-  {
-   "id": "tbn1",
-   "instrument": "trombone",
-   "dynamics": [
-    {
-     "at": [
-      7,
-      5
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      46,
-      5
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      17,
-      1
-     ],
-     "level": 2
-    },
-    {
-     "at": [
-      67,
-      3
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      106,
-      3
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      145,
-      3
-     ],
-     "level": 2
-    }
-   ],
-   "events": [
-    {
-     "at": [
-      7,
-      5
-     ],
-     "dur": [
-      78,
-      5
-     ],
-     "pitch": {
-      "midi": 53.5
-     }
-    },
-    {
-     "at": [
-      67,
-      3
-     ],
-     "dur": [
-      26,
-      1
-     ],
-     "pitch": {
-      "midi": 53.5
-     }
-    }
-   ],
-   "name": "Trombone 1",
-   "abbreviation": "Tbn. 1"
-  },
-  {
-   "id": "tbn2",
-   "instrument": "trombone",
-   "dynamics": [
-    {
-     "at": [
       1,
-      5
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      46,
-      5
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      91,
       5
      ],
      "level": 2
@@ -619,22 +229,6 @@
     {
      "at": [
       61,
-      3
-     ],
-     "level": 2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      106,
-      3
-     ],
-     "level": 3,
-     "to": "linear"
-    },
-    {
-     "at": [
-      151,
       3
      ],
      "level": 2
@@ -651,7 +245,7 @@
       1
      ],
      "pitch": {
-      "midi": 50.5
+      "midi": 72.5
      }
     },
     {
@@ -662,6 +256,156 @@
      "dur": [
       30,
       1
+     ],
+     "pitch": {
+      "midi": 72.5
+     }
+    }
+   ],
+   "name": "Trumpet 1",
+   "abbreviation": "Tpt. 1"
+  },
+  {
+   "id": "tpt2",
+   "instrument": "trumpet",
+   "dynamics": [
+    {
+     "at": [
+      8,
+      5
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      68,
+      3
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      76,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      68,
+      3
+     ],
+     "dur": [
+      76,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    }
+   ],
+   "name": "Trumpet 2",
+   "abbreviation": "Tpt. 2"
+  },
+  {
+   "id": "tbn1",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": [
+      39,
+      5
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      39,
+      5
+     ],
+     "dur": [
+      14,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      14,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    }
+   ],
+   "name": "Trombone 1",
+   "abbreviation": "Tbn. 1"
+  },
+  {
+   "id": "tbn2",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": [
+      9,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      2,
+      3
      ],
      "pitch": {
       "midi": 50.5
@@ -694,7 +438,7 @@
       5
      ],
      "pitch": {
-      "midi": 50
+      "midi": 73
      },
      "gliss": true,
      "technique": "sul-tasto"
@@ -709,7 +453,7 @@
       5
      ],
      "pitch": {
-      "midi": 73
+      "midi": 50
      },
      "gliss": true,
      "technique": "sul-tasto"
@@ -724,7 +468,7 @@
       5
      ],
      "pitch": {
-      "midi": 50
+      "midi": 73
      },
      "technique": "sul-tasto"
     },
@@ -738,7 +482,7 @@
       3
      ],
      "pitch": {
-      "midi": 50
+      "midi": 73
      },
      "gliss": true,
      "technique": "sul-tasto"
@@ -753,7 +497,7 @@
       3
      ],
      "pitch": {
-      "midi": 73
+      "midi": 50
      },
      "gliss": true,
      "technique": "sul-tasto"
@@ -768,7 +512,7 @@
       3
      ],
      "pitch": {
-      "midi": 50
+      "midi": 73
      },
      "technique": "sul-tasto"
     }

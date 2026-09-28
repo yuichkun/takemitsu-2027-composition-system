@@ -25,9 +25,13 @@
 // in its set stays in it when the stage changes: a voice can only have to move because the voice
 // above it has just moved.
 //
-// With the defaults the melody's steps come round after 36 (six rounds) and the rhythm's after 9,
-// so from step 37 the melody repeats its first 24 steps exactly, pitch and time, over larger sets.
-// A round of the rhythm is one bar, so every third onset falls on a bar line.
+// With the defaults a round of the melody's steps sums to 0, so every sixth onset the melody is
+// back at its start. The rhythm (3 4 4 6 atoms) is chosen against the bar (12 atoms): no part of
+// it adds up to 12, so no run of onsets spans exactly a bar, and a round of it (17 atoms) shares no
+// factor with 12, so a round starts on a bar line only every 12 rounds. It has four members, so
+// six onsets are a round and a half of it: the time from one return of the melody to the next
+// keeps changing. The melody's steps come round after 36 onsets and the rhythm's after 16, so from
+// step 37 the melody's pitches repeat its first 24 steps, but not their times.
 //
 // Strings hold the three voices without a break, pp (Violins I the melody, violas the middle,
 // cellos the bass): a voice that moves re-bows at its new pitch, a voice that holds is tied over. The winds sound only the voices that have just moved: oboe for the melody,
@@ -116,7 +120,7 @@ export const knobs = {
     group: "Time",
     label: "Rhythm",
     help: "The time from one onset of the melody to the next, in atoms of the family, each round starting one place later",
-    value: "3 4 5",
+    value: "3 4 4 6",
     min: 1,
     max: 24,
     step: 1,
