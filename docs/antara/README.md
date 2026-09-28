@@ -8,7 +8,7 @@
 | --- | --- |
 | [`premise.md`](./premise.md) | **前提。** コンセプトと、antara で挑むことと、その二つが同じ一つの考えであること。創作の底 |
 | [`concept.md`](./concept.md) | コンセプトの原文。antara という語、デデキント切断、マラッカ海峡から「あいだ」を考えたもの。余湖さんの Notion から写した |
-| [`sound.md`](./sound.md) | 音の原則。音程のセリー、四分音 |
+| [`sound.md`](./sound.md) | 音の原則。間・セット・規則、音程のセリー、四分音 |
 | [`quantization.md`](./quantization.md) | 参考: 過去作 Quantization で実際にやっていたこと。ロジックは移植しない |
 
 システムの仕様は `docs/` の上の階、曲のコードは（できたら）`pieces/antara/` に置く。
