@@ -467,6 +467,58 @@
       "uses": "palette/a/time-unsounded-origin（鳴らない起点）",
       "length": "1:16",
       "round": 6
+    },
+    {
+      "path": "a/pitch-standpoint-steps-back",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "立ち位置が後ろへ下がる",
+      "issue": "一本の線で間を足す元の音を d 個前（1→2→3）にすると、同じセット・規則・流れのまま、線が d 本の糸に分かれ、隣り合う音のあいだに誰も選んでいない間が立つ",
+      "mechanism": "One solo line (clarinet). Pitch set S = {−4.5, +1, +3, +2.5, −2} in this written order (semitones, .5 = quarter tone; sum 0). Rule: shift each time (read S in order, start one later each pass) — ONE stream of betweens b_1, b_2, … runs through the whole sketch, never reset. Depth d changes by section: d = 1 for 20 onsets, d = 2 for 40 onsets, d = 3 for 60 onsets (120 onsets). In a section of depth ",
+      "listen": "0:09 と 0:27 で線が高低二本・三本の糸に割れて聴こえるか、大きく跳ぶ一本に聴こえるか。各糸はセットの間だけで歩き、隣り合う音の跳びは 8.5 や 14.5 などセットにない大きさになる",
+      "instruments": "独奏クラリネット 1 本",
+      "uses": "",
+      "length": "0:58",
+      "round": 8
+    },
+    {
+      "path": "a/pitch-cut-from-both-ends",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "両端から切る",
+      "issue": "二声の枠（幅 22.5）を、セット {1.5, 2.5, 3, 4} の間で下の端・上の端から交互に切って 12 声の和音にする。満ちたあと入った順に声が抜け、閉じ方は開き方の逆回しにならない",
+      "mechanism": "Frame: two held voices at 50 (D3) and 72.5 (span S = 22.5). Cut set C = {1.5, 2.5, 3, 4} (semitones), rule: in order, again and again. Step k (k = 1, 2, …): take the next c; find the widest between of the current chord (ties: the lowest); if c ≥ that between, stop (the chord is full). Otherwise a new voice enters inside that between: measured from its lower end if k is odd (new pitch = lower + c),",
+      "listen": "2 秒ごとに下・上・下・上と声が入り、真ん中の残りが 21→…→4.5→0.5 と狭まって、0:16 に両端が四分音一つ（59 と 59.5）を残して出会う所。そのあと入った順に抜け、低い端のすぐ上が 4.5→17.5 と開いていく所",
+      "instruments": "弦 12 声の分奏（Vc・Va・Vn II・Vn I 各 3 部、全員ふつうの弓）",
+      "uses": "",
+      "length": "0:52",
+      "round": 8
+    },
+    {
+      "path": "a/pitch-one-count-three-units",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "一つの数え、三つの単位",
+      "issue": "同じ数えの列（四分音の個数）を、三本が単位 1・2・3（四分音・半音・四分音三つ）で同時に読む。三本は同じ形を 1 : 2 : 3 の大きさで描き、数えの和が 0 に戻るたびに同じ音へ戻る",
+      "mechanism": "Three solo cellos, one line each, same standpoint 60 (C4). Count set K = {−9, −4, −2, +3, +5, +7} (whole numbers = quarter tones; sum 0; all sizes different). Rule: shift each time (read K in the written order, start one later each pass); 6 passes = 36 counts c_1..c_36, the same stream for all three lines. Units u = 1, 2, 3 quarter tones (0.5, 1, 1.5 semitones). Line j: p_0 = 60, p_n = p_{n−1} + c",
+      "listen": "三本が同じ向きに 1 : 2 : 3 の幅で動き、8 秒ごとに 60 へ戻ること。真ん中の線はいつも外の二本のちょうど真ん中にいて、半音の格子を一度も出ない",
+      "instruments": "独奏チェロ 3 本",
+      "uses": "",
+      "length": "0:52",
+      "round": 8
+    },
+    {
+      "path": "b/meetings-handed-around",
+      "kind": "B",
+      "axis": "pitch",
+      "title": "出会いが渡っていく",
+      "issue": "「順番が違っても同じ所に着く」の 4 声を三つの群（起点が 12.5 ずつ、入りが 1.5 拍ずつずれる）で走らせ、出会いを群から群へ渡す。受け手が出会いの音を保って、上る・下る・止まる歩みにする",
+      "mechanism": "Three groups of four voices, each group exactly the A's mechanism: one pitch set read in four orders (written, reversed, narrow-first, wide-first), each voice shifting its start one later per pass; a pass = 6 steps; time between = 3 atoms of family 2 (a dotted eighth), all four voices of a group move together, each note to the next onset. Group anchors: horns 52 (E3), clarinets 64.5, violins I 77 ",
+      "listen": "1.5 秒おきにホルン → クラリネット → ヴァイオリンの 4 声が一つの音に溶け、チェロ・ヴィオラ・フルートがその音を取って伸ばすこと。受け手の線が 0:27 まで四分音ずつ上り、0:36 まで下り、そこで止まること",
+      "instruments": "ホルン 4、クラリネット 3 + バスクラリネット、Vn I 4 部分奏。受け手はチェロ全員、ヴィオラ全員、フルート 2 本のユニゾン",
+      "uses": "palette/a/pitch-same-sum-meets（順番が違っても同じ所に着く）",
+      "length": "1:04",
+      "round": 8
     }
   ],
   "rejected": [
@@ -569,6 +621,18 @@
       ],
       "rejected": 0,
       "commit": "fd80a02"
+    },
+    {
+      "round": 8,
+      "ended": "2026-09-29 05:16",
+      "added": [
+        "立ち位置が後ろへ下がる",
+        "両端から切る",
+        "一つの数え、三つの単位",
+        "出会いが渡っていく"
+      ],
+      "rejected": 0,
+      "commit": "83569f7"
     }
   ]
 }
