@@ -285,6 +285,84 @@
       "uses": "ideas/lines の b-zeros-spread（0 が増える）",
       "length": "1:20",
       "round": 4
+    },
+    {
+      "path": "a/time-handed-at-meetings",
+      "kind": "A",
+      "axis": "time",
+      "title": "出会いで間が渡る",
+      "issue": "二本の線が拍の上で出会うたびに、一つの時間の間が片方のセットからもう片方へ移る。atom の数はそのままで、仲間が替わるので長さが 4/3 倍になる",
+      "mechanism": "two lines (families 2 and 3, one pitch each); only where their onsets meet (on beats) does one between pass from the giving line's set to the taking line's; the giving line simplifies toward a pulse, the taking line grows from a pulse to six betweens",
+      "listen": "出会いのたびにマリンバから間が一つ消え、同じ大きさの間がチェロに長くなってすぐ現れるか",
+      "instruments": "マリンバ、チェロのピッツィカート（四分音ずれた格子）",
+      "uses": "",
+      "length": "0:58",
+      "round": 5
+    },
+    {
+      "path": "a/texture-braid",
+      "kind": "A",
+      "axis": "texture",
+      "title": "交差して入れ替わる色",
+      "issue": "和音の間は一度も変えず、隣どうしの二人が互いの音へ滑って交差し、音を交換する。全部の組が一度ずつ出会い、トロンボーンとチェロの上下が逆になるが、和音は同じまま",
+      "mechanism": "a fixed chord; neighbouring players exchange pitches by simultaneous crossing glides in odd-even rounds; after six rounds every pair has met once and the order of colours is reversed while the chord never changed",
+      "listen": "和音の高さは最後まで変わらず、金管と弦の色だけが交差のたびに入れ替わって、終わりに上下逆になるか",
+      "instruments": "テナー・トロンボーン 3、チェロの分奏 3 部",
+      "uses": "",
+      "length": "0:55",
+      "round": 5
+    },
+    {
+      "path": "a/time-change-where-it-lands",
+      "kind": "A",
+      "axis": "time",
+      "title": "着いた拍で仲間が替わる",
+      "issue": "一本の線が、足し算が拍に着いたときだけ仲間を替える。替わる時は予定されず、どの仲間にどれだけ留まるかは、間の並びと仲間の一拍の atom 数から結果として決まる（原則で未決の問い「仲間を替える所が拍として目立ちすぎないか」を試す）",
+      "mechanism": "one line with a row of time betweens drawn in order across family changes; the family changes (3 -> 2 -> 5 -> ...) only when an onset lands on a beat",
+      "listen": "鳴る拍はすべて粒の替わり目になる。それが拍として立ちすぎるか、粒が替わったことだけが聴こえるか",
+      "instruments": "ウッドブロック 1",
+      "uses": "",
+      "length": "0:53",
+      "round": 5
+    },
+    {
+      "path": "b/trades-in-time",
+      "kind": "B",
+      "axis": "time",
+      "title": "時間の間が入れ替わる",
+      "issue": "「間が入れ替わる」を時間の軸に写す。周期は動かさず、鳴り始めを一つずつ後ろへ運んでから数個ずつ戻し、後半は和音の音程の間も同じ方法で入れ替える",
+      "mechanism": "palette/a/pitch-trade-places on the time axis: a cycle of six time betweens after a head; neighbouring betweens trade places so one onset moves at a time and the head and period never move; later the chord's pitch betweens trade too",
+      "listen": "頭のすぐ後ろの速い連なりが一音ずつ次の頭の直前へ運ばれるとき、同じ頭が「始まり」から「着く所」へ聴こえ方を変えるか",
+      "instruments": "木管 5 とホルン、ハープとコントラバスのピッツィカート、弦 6 声の分奏（con sord.）",
+      "uses": "palette/a/pitch-trade-places（間が入れ替わる）",
+      "length": "1:43",
+      "round": 5
+    },
+    {
+      "path": "b/two-chords-trade-sets",
+      "kind": "B",
+      "axis": "pitch",
+      "title": "二つの和音が広さを取り替える",
+      "issue": "「間が四分音ずつ縮む」を二つの和音で反対向きに使う。弦の和音は全部の間を狭め、木管の和音は全部の間を広げる。交互に一段ずつ動き、真ん中で一度だけ上下逆さの同じセットになり、最後にセットを取り替え終える",
+      "mechanism": "ideas/lines b-narrowing in two chords: a string chord stacked up from the bass narrows every between one quarter tone per stage, a wind chord stacked down from the top widens; they alternate and trade sets",
+      "listen": "一段ごとに弦と木管のどちらか 5 声だけが動く。真ん中で上の和音が下の和音の上下逆さになり、最後は最初の形を反対の群へ逆さにして渡したもの",
+      "instruments": "木管 6、弦（ヴィオラ・チェロの分奏、コントラバス）",
+      "uses": "ideas/lines の b-narrowing（間が四分音ずつ縮む）",
+      "length": "1:20",
+      "round": 5
+    },
+    {
+      "path": "b/line-in-the-trades",
+      "kind": "B",
+      "axis": "pitch",
+      "title": "入れ替えの中の旋律",
+      "issue": "間が入れ替わる和音で、動いた声を独奏の管が同時に吹いて旋律にする。旋律の一歩が和音の縦の間そのものになり、前半は波ごとに頭の一歩を失い、後半は一歩ずつ伸びて和音が元に戻る",
+      "mechanism": "palette/a/pitch-trade-places: each trade's moved pitch is also played by a solo wind, one wind per wave, so a melody made of the chord's own betweens emerges; the second half undoes the trades and the melodies grow",
+      "listen": "弦の和音で一声動くたびに管が同じ音を吹き、旋律になる。前半は毎回頭の一歩を落として短く高くなり、後半は上行して伸びる",
+      "instruments": "弦 9 声の分奏、独奏の木管 5",
+      "uses": "palette/a/pitch-trade-places（間が入れ替わる）",
+      "length": "1:45",
+      "round": 5
     }
   ],
   "rejected": [
@@ -349,6 +427,20 @@
       ],
       "rejected": 0,
       "commit": "565c4ed"
+    },
+    {
+      "round": 5,
+      "ended": "2026-09-29 04:39",
+      "added": [
+        "出会いで間が渡る",
+        "交差して入れ替わる色",
+        "着いた拍で仲間が替わる",
+        "時間の間が入れ替わる",
+        "二つの和音が広さを取り替える",
+        "入れ替えの中の旋律"
+      ],
+      "rejected": 0,
+      "commit": "761f8b8"
     }
   ]
 }
