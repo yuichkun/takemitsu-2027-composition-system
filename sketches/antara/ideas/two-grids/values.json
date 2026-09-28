@@ -1,0 +1,70 @@
+{
+  "values": {},
+  "presets": {
+    "The glass": {},
+    "Turns that stay": {
+      "turns": [
+        -2,
+        -1,
+        1,
+        2
+      ]
+    },
+    "Only the atom": {
+      "turns": [
+        -0.5,
+        0.5
+      ]
+    },
+    "Wide turns": {
+      "turns": [
+        -3.5,
+        -2.5,
+        2.5,
+        3.5
+      ]
+    },
+    "Close crystal": {
+      "chord": [
+        0.5,
+        1.5,
+        2
+      ]
+    },
+    "Open crystal": {
+      "chord": [
+        5.5,
+        6.5,
+        7
+      ]
+    },
+    "One chord": {
+      "chords": 1
+    },
+    "Many chords": {
+      "chords": 7
+    },
+    "Light only when leaving": {
+      "reflect": "turning away"
+    },
+    "Light only when returning": {
+      "reflect": "coming home"
+    },
+    "One family": {
+      "families": "3"
+    },
+    "Slow facets": {
+      "holds": [
+        17,
+        21,
+        25,
+        29
+      ],
+      "slides": [
+        9,
+        13
+      ]
+    }
+  },
+  "touched": []
+}
