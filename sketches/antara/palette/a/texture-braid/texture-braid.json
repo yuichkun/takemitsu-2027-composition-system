@@ -1,0 +1,883 @@
+{
+ "title": "antara · palette A · colours trade places by crossing",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 52
+  }
+ ],
+ "measures": 12,
+ "parts": [
+  {
+   "id": "tbn1",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      6,
+      1
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      14,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      13,
+      1
+     ]
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     }
+    }
+   ],
+   "name": "Trombone 1",
+   "abbreviation": "Tbn. 1",
+   "players": 1
+  },
+  {
+   "id": "tbn2",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 51.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      1
+     ]
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      14,
+      1
+     ],
+     "pitch": {
+      "midi": 46
+     },
+     "gliss": true,
+     "glissAfter": [
+      13,
+      1
+     ]
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 51.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    }
+   ],
+   "name": "Trombone 2",
+   "abbreviation": "Tbn. 2",
+   "players": 1
+  },
+  {
+   "id": "tbn3",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 46
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      1
+     ]
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 51.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "dur": [
+      11,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ],
+   "name": "Trombone 3",
+   "abbreviation": "Tbn. 3",
+   "players": 1
+  },
+  {
+   "id": "vc-1",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      8,
+      1
+     ]
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 51.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      15,
+      1
+     ],
+     "pitch": {
+      "midi": 46
+     }
+    }
+   ],
+   "name": "Violoncellos 1",
+   "abbreviation": "Vc. 1",
+   "players": 3
+  },
+  {
+   "id": "vc-2",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      8,
+      1
+     ]
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      14,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      13,
+      1
+     ]
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 51.5
+     }
+    }
+   ],
+   "name": "Violoncellos 2",
+   "abbreviation": "Vc. 2",
+   "players": 3
+  },
+  {
+   "id": "vc-3",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "gliss": true,
+     "glissAfter": [
+      6,
+      1
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 51.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      5,
+      1
+     ]
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      14,
+      1
+     ],
+     "pitch": {
+      "midi": 46
+     },
+     "gliss": true,
+     "glissAfter": [
+      13,
+      1
+     ]
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 51.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    }
+   ],
+   "name": "Violoncellos 3",
+   "abbreviation": "Vc. 3",
+   "players": 3
+  }
+ ]
+}
