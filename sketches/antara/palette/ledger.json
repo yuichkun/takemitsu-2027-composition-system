@@ -363,6 +363,110 @@
       "uses": "palette/a/pitch-trade-places（間が入れ替わる）",
       "length": "1:45",
       "round": 5
+    },
+    {
+      "path": "a/time-from-the-head",
+      "kind": "A",
+      "axis": "time",
+      "title": "頭から測る人と、前から測る人",
+      "issue": "時間の立ち位置: 同じ組の間を、高い木は前の音に足し（歩幅）、低い木は組の頭に足す（位置）。二人は頭と最初の一歩で必ずそろい、三つ目が前二つの和に等しい組でだけもう一度そろう",
+      "mechanism": "Two players, one family (2: 16ths, atom = 15 ticks). Set S = {1 2 3 4 5} atoms. Rule: combinations k = 3, dictionary order, ascending inside a group: (1,2,3)(1,2,4)(1,2,5)(1,3,4)(1,3,5)(1,4,5)(2,3,4)(2,3,5)(2,4,5)(3,4,5), sums 6 7 8 8 9 10 9 10 11 12 (90 atoms = 22.5 beats per cycle). Cycles: 2. Group (b1,b2,b3) at head h (ticks): the walker strikes at h, h+b1*a, h+(b1+b2)*a, h+(b1+b2+b3)*a; the s",
+      "listen": "低い木だけが先に置き終わって黙り、その休みが組の小さい二つの間の和（3〜7 atom）になる。三つ目がそろう組（0:00）とそろわない組（0:01.5）を聴き比べる",
+      "instruments": "ウッドブロック 2（高・低、ともに p）",
+      "uses": "",
+      "length": "0:48",
+      "round": 6
+    },
+    {
+      "path": "a/dynamics-a-between",
+      "kind": "A",
+      "axis": "dynamics",
+      "title": "強弱という間",
+      "issue": "強弱を「間・セット・規則」で足し、0〜8 の外に出たら幅 8 で折り返す。小さな間が端を越えると、反対向きの大きな段差（+4、−6）として鳴る",
+      "mechanism": "Fix pitch (one instrument, one sustained pitch throughout) and fix rhythm (one attack/bow-stroke per bar, the sound.md 'one between' pulse case) so the ONLY variable is loudness. Loudness grid: level 0 (niente) to 8 (fff), 9 points (src/score/types.ts's documented DynamicPoint scale). Atom of this axis = 1 mark (fractional levels round to the nearest mark in notation, so 1 mark is the smallest dis",
+      "listen": "音高もリズムも動かないまま、小節線ごとに強さが一段替わる。折り返しの 4 か所（0:09 p→ff、0:13 ff→ppp、0:27 ff→ppp、0:31 ppp→mf）が、効果ではなく仕組みの結果として聴こえるか。後半が前半の上下裏返しの逆読みとして、同じ mp へ戻るか",
+      "instruments": "独奏チェロ 1（一つの音）",
+      "uses": "",
+      "length": "0:44",
+      "round": 6
+    },
+    {
+      "path": "a/time-steps-back",
+      "kind": "A",
+      "axis": "time",
+      "title": "時間を戻る一歩",
+      "issue": "時間の間に向き（負の間）を持たせ、音程の線と同じ足し算で一本の線を歩く。足した順と聴こえる順が別になり、同じ点に二度立つ所が生じる（原則の「前へ足す」を広げる読み。余湖さんに確かめる点）",
+      "mechanism": "One line, one family (3: triplet 8ths, atom = 20 ticks). Set S = {-3, -1, 2, 4, 5} atoms (signed). Rule: combinations, k = 2, dictionary order, ascending inside each group: (-3,-1) (-3,2) (-3,4) (-3,5) (-1,2) (-1,4) (-1,5) (2,4) (2,5) (4,5); group sums -4 -1 1 2 1 3 4 6 7 9, cycle drift +28 atoms. Cycles: 6 (120 terms after the origin). Walk: pos[0] = 0 (origin); pos[i] = pos[i-1] + b[i]; store fo",
+      "listen": "戻った一歩（低い木）が、下がる前に立っていた項（高い木）より 1〜3 atom 先に鳴る「先取り」と、同じ点に二度立った所で鳴る高と低の同時打ち（全部で 12）。28 atom の型が 6 回来て、小節の中の場所だけがずれる",
+      "instruments": "ウッドブロック 3（高・中・低）",
+      "uses": "",
+      "length": "1:00",
+      "round": 6
+    },
+    {
+      "path": "b/steps-reach-down",
+      "kind": "B",
+      "axis": "pitch",
+      "title": "一歩が下へ届く深さ",
+      "issue": "縦の間と横の間（pitch-two-sets）で旋律の下に二声を書き、縦のセットの個数だけを増やして、旋律の一歩が下へ届く深さ（動く声の数）を、三声の塊から一声ずつほどく",
+      "mechanism": "Three voices: top (melody), middle, bass. Pitches are MIDI, .5 = quarter tone. One step set shared by all voices, sorted ascending for the pointer: H = [-6, -3.5, -2.5, +2.5, +3.5, +6]. Two vertical sets: V_upper (top minus middle) and V_lower (middle minus bass). Full sets: V_upper = {1.5, 5, 7.5, 11, 13.5}, V_lower = {2.5, 5, 8.5, 11, 14.5}. Five stages. The sets start at their middle member and",
+      "listen": "鳴っている管の数が、一歩が下へ届いた深さ。1 段は三声の塊で管 3 本。5 段では低音がほぼ止まり、真ん中だけが答える。4 段目からの旋律は 1 段目とまったく同じなので、同じ旋律で深さだけが違うのを聴き比べる",
+      "instruments": "Vn I・Va・Vc が各 1 声を pp で保ち、Ob 2・Cl 2・Fg 2 が動いた声だけを p で鳴らす（Cb は再生の音域の都合で外した）",
+      "uses": "palette/a/pitch-two-sets（縦の間と横の間）",
+      "length": "1:16",
+      "round": 6
+    },
+    {
+      "path": "b/accompaniment-from-now",
+      "kind": "B",
+      "axis": "texture",
+      "title": "旋律が残す伴奏",
+      "issue": "「今から見て残る響き」の A を伴奏に使う B。独奏クラリネットの各音を弦が受け継ぎ、いまの旋律の音との間がセットの大きさに当たる過去の音だけが残って伴奏になる。段ごとにセットの大きさを一つだけ四分音一つ動かし、伴奏の厚さが 2 音 → 3 音 → 4 音 → 2 音と変わる",
+      "mechanism": "MELODY: solo clarinet, start 64. Four stages of 24 steps each. Each stage has its own directed pitch set: stage 1 [-7.5, -5, +1.5, +4]; stage 2 [-7.5, -5.5, +1.5, +4]; stage 3 [-7, -5.5, +1.5, +4]; stage 4 [-7, -5, +1.5, +4]. The sizes of the current stage are the absolute values. Rule 'combinations' as in texture-ring-from-now: all pairs of the set, sorted ascending, in dictionary order, each pai",
+      "listen": "新しい音が鳴った瞬間に、関係のない前の音だけが弦から消えること。大きさ一つが四分音動くだけで、伴奏が影一つ（2 音）から 3 音、4 音（0:52〜1:06）になり、1:10 から影一つに戻ること",
+      "instruments": "独奏クラリネット、弱音器の弦 6 部の分奏（Vn I 2・Vn II 2・Va 2）",
+      "uses": "palette/a/texture-ring-from-now（今から見て残る響き）",
+      "length": "1:38",
+      "round": 6
+    },
+    {
+      "path": "a/pitch-frost-freeze",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "霜が育つ和音",
+      "issue": "一つの種から、鳴った音すべてを立ち位置に、まだ鳴っていない切れ目のうち種に近い（殻の小さい）所から一つずつ埋まって凍り、和音が育つ",
+      "mechanism": "Standpoint p0 = single seed pitch. Growth set S = signed betweens in semitones incl. quarter tones, e.g. S = {+1, -1.5, +2.5, -4}. FROZEN = [p0], shell distance d(p0)=0.\nRepeat: CANDIDATES = {(f+s, d(f)+1) : f in FROZEN, s in S, f+s within the register bound [lo,hi], f+s not in FROZEN} (if a pitch is reachable from several frozen parents in the same pass, keep its minimum d). If CANDIDATES is empt",
+      "listen": "1 小節ごとに一音ずつ増える和音で、次に入る音が殻の近さと低い方からの順で決まり、殻 1 の 4 音の上がる列のあと大きく下がって殻 2 へ移り、殻 2 の 4 音で止まること",
+      "instruments": "弦 9 声の分奏（Vc 3・Va 2・Vn II 2・Vn I 2）、arco pp non vib.",
+      "uses": "",
+      "length": "0:49",
+      "round": 6
+    },
+    {
+      "path": "a/texture-leaf-gates",
+      "kind": "A",
+      "axis": "texture",
+      "title": "葉が開け閉めする和音",
+      "issue": "音高の動かない 8 声の和音で、各声が自分の仲間の atom で数えた同じ「鳴る／休む」の周期を繰り返すだけ。何声鳴るか（厚さ）は誰も指図せず、仲間どうしの出会いの結果として変わり続ける",
+      "mechanism": "Chord: N=8 voices stacked from a fixed standpoint anchor by a fixed between-set C (7 betweens incl. quarter tones), e.g. C = {1, 1.5, 2, 3.5, 1, 2.5, 4}. Each voice's pitch never changes for the whole piece.\nFamily assignment: voice k (0-indexed low to high) gets family F(k) = [2,3,5][k mod 3] (deterministic round-robin).\nGate set: every voice uses the same 2-element time-between sequence in atoms",
+      "listen": "音高は一切動かず、鳴っている声の数だけが平均 1.9 秒ごとに変わる。0:12.2 で 8 声から真ん中の 3 声だけが残る落差と、違う仲間がそろって動くのは 11 拍ごとの拍の上だけであること",
+      "instruments": "弦 8 声の分奏（Vc・Va・Vn II・Vn I を各 2 部、52 人、arco pp senza vib.）",
+      "uses": "",
+      "length": "1:11",
+      "round": 6
+    },
+    {
+      "path": "b/chord-nobody-plays",
+      "kind": "B",
+      "axis": "mixed",
+      "title": "誰も弾かない和音",
+      "issue": "鳴らない起点を 12 声の和音に使う。三つの仲間が 4 声ずつ受け持つので、和音は一度もそろって鳴らない。和音の替わり目も、色の替わり目（手前は木管、向こうは金管）も、誰も弾かない拍に立つ",
+      "mechanism": "Uses palette a/time-unsounded-origin (copy its mechanism into this folder's sketch.ts). Pitch: chord of 12 tones = stack(anchor, C, 12) with C = {2.5 3 4.5 6} (bottom up, repeated), anchor 36. Chords k = 0..3: C shifted by k (start one between later each time: [2.5 3 4.5 6], [3 4.5 6 2.5], [4.5 6 2.5 3], [6 2.5 3 4.5]); voice v (1 = lowest) plays tone v of the chord in force. Families by voice fro",
+      "listen": "三つの 4 声が寄り合う中で、抜けた拍が和音の中心に聴こえるか。同じ音が点の手前では木管、向こうでは金管になるか。詰まる節で、和音が誰も弾かない拍の上で替わるか",
+      "instruments": "弦 12 部（ピッツィカート）、木管 12、金管 12",
+      "uses": "palette/a/time-unsounded-origin（鳴らない起点）",
+      "length": "1:16",
+      "round": 6
     }
   ],
   "rejected": [
@@ -449,6 +553,22 @@
       ],
       "rejected": 0,
       "commit": "761f8b8"
+    },
+    {
+      "round": 6,
+      "ended": "2026-09-29 05:08",
+      "added": [
+        "頭から測る人と、前から測る人",
+        "強弱という間",
+        "時間を戻る一歩",
+        "一歩が下へ届く深さ",
+        "旋律が残す伴奏",
+        "霜が育つ和音",
+        "葉が開け閉めする和音",
+        "誰も弾かない和音"
+      ],
+      "rejected": 0,
+      "commit": "fd80a02"
     }
   ]
 }
