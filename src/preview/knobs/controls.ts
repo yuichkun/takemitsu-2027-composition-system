@@ -1594,7 +1594,9 @@ const betweenSetControl: Control<BetweenSetKnob> = {
       tried.set(k.label, [set, ...list].slice(0, 8));
       ctx.commit(s);
     };
+    // Intervals (they may fall as well as rise) or sizes (lengths, or intervals that only rise).
     const pitchLike = k.min < 0;
+    const intervals = pitchLike || k.unit === "st";
     const unit = k.unit ? ` ${k.unit}` : "";
     const box = h("div", "betweens");
 
@@ -1633,9 +1635,10 @@ const betweenSetControl: Control<BetweenSetKnob> = {
     const up = set.filter((b) => b > 0).length;
     // Betweens of an odd number of quarter tones: each takes a line into the other twelve.
     const odd = set.filter((b) => Math.round(b * 2) % 2 !== 0).length;
+    const odds = intervals && k.step < 1 ? ` · ${odd} odd` : "";
     const summary = pitchLike
-      ? `${set.length} · ${down} down, ${up} up${set.some((b) => b === 0) ? ", same note" : ""}${k.step < 1 ? ` · ${odd} odd` : ""}`
-      : `${set.length} · ${set.reduce((a, b) => a + b, 0)}${unit} in all`;
+      ? `${set.length} · ${down} down, ${up} up${set.some((b) => b === 0) ? ", same note" : ""}${odds}`
+      : `${set.length} · ${set.reduce((a, b) => a + b, 0)}${unit} in all${odds}`;
     const tools = h("span", "tools");
     const tool = (label: string, title: string, action: () => void) => {
       const b = h("button", "icon", label);
@@ -1656,8 +1659,8 @@ const betweenSetControl: Control<BetweenSetKnob> = {
       const sign = b < 0 ? -1 : 1;
       return size < floor || sign * size < k.min || sign * size > k.max ? b : sign * size;
     };
-    const step = k.step === 0.5 ? "a quarter tone" : pitchLike ? "a semitone" : "one";
-    const [wider, narrower] = pitchLike
+    const step = k.step === 0.5 ? "a quarter tone" : intervals ? "a semitone" : "one";
+    const [wider, narrower] = intervals
       ? [`Every between ${step} wider`, `Every between ${step} narrower`]
       : [`Every length ${step} longer`, `Every length ${step} shorter`];
     const swap = k.step === 0.5 ? ": the odd and the even change places" : "";
@@ -1669,7 +1672,7 @@ const betweenSetControl: Control<BetweenSetKnob> = {
       commit(freshSet(set, k)),
     );
     const about = h("span", "muted", summary);
-    if (pitchLike && k.step < 1)
+    if (intervals && k.step < 1)
       about.title =
         "odd: betweens of an odd number of quarter tones. The grid holds two twelves a quarter tone apart; an odd between takes a line from one to the other, an even one keeps it where it is";
     head.append(shown, about, tools);
