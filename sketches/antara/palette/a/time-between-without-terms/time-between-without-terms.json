@@ -1,0 +1,780 @@
+{
+ "title": "antara · palette A · the betweens without their terms",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 16,
+ "parts": [
+  {
+   "id": "timp",
+   "instrument": "timpani",
+   "name": "Timpani",
+   "abbreviation": "Timp.",
+   "dynamics": [
+    {
+     "at": [
+      15,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      50,
+      3
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      39,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      145,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      161,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      88,
+      3
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      187,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      97,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      101,
+      3
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      215,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      110,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      77,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      121,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      125,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      130,
+      3
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      139,
+      3
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      143,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      97,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      148,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      307,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      161,
+      3
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      163,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      173,
+      3
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      353,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      10,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      97,
+      3
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      110,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      121,
+      3
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      125,
+      3
+     ],
+     "dur": [
+      10,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      143,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      148,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      4,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      163,
+      3
+     ],
+     "dur": [
+      10,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    },
+    {
+     "at": [
+      173,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "roll"
+    }
+   ]
+  },
+  {
+   "id": "bd",
+   "instrument": "bass-drum",
+   "name": "Bass Drum",
+   "abbreviation": "B. D.",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 3
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      4,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      14,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      29,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      34,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      97,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      110,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      121,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      125,
+      3
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      1,
+      3
+     ]
+    }
+   ]
+  }
+ ]
+}

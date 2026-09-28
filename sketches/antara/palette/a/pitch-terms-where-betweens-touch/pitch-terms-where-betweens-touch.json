@@ -1,0 +1,995 @@
+{
+ "title": "antara · palette A · the terms stand where the betweens touch",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 50
+  }
+ ],
+ "measures": 9,
+ "parts": [
+  {
+   "id": "vni-1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      20,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      20,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 89.5
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      12,
+      1
+     ],
+     "pitch": {
+      "midi": 83.5
+     }
+    }
+   ],
+   "name": "Violins I 1 (pair 6 above, upper tone)",
+   "abbreviation": "Vn. I 1",
+   "players": 4
+  },
+  {
+   "id": "vni-2",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      20,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      20,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 83.5
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      12,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     }
+    }
+   ],
+   "name": "Violins I 2 (pair 6 above, lower tone)",
+   "abbreviation": "Vn. I 2",
+   "players": 4
+  },
+  {
+   "id": "vni-3",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      12,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     }
+    }
+   ],
+   "name": "Violins I 3 (pair 4.5 above, upper tone)",
+   "abbreviation": "Vn. I 3",
+   "players": 4
+  },
+  {
+   "id": "vni-4",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      12,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      20,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    }
+   ],
+   "name": "Violins I 4 (pair 4.5 above, lower tone)",
+   "abbreviation": "Vn. I 4",
+   "players": 4
+  },
+  {
+   "id": "vnii-1",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      4,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      28,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    }
+   ],
+   "name": "Violins II 1 (pair 3 above, upper tone)",
+   "abbreviation": "Vn. II 1",
+   "players": 4
+  },
+  {
+   "id": "vnii-2",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      4,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      28,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    }
+   ],
+   "name": "Violins II 2 (pair 3 above, lower tone)",
+   "abbreviation": "Vn. II 2",
+   "players": 4
+  },
+  {
+   "id": "vnii-3",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      32,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    }
+   ],
+   "name": "Violins II 3 (pair 1.5 above, upper tone)",
+   "abbreviation": "Vn. II 3",
+   "players": 3
+  },
+  {
+   "id": "vnii-4",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      32,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    }
+   ],
+   "name": "Violins II 4 (pair 1.5 above, lower tone)",
+   "abbreviation": "Vn. II 4",
+   "players": 3
+  },
+  {
+   "id": "va-1",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      32,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     }
+    }
+   ],
+   "name": "Violas 1 (pair 1 below, upper tone)",
+   "abbreviation": "Va. 1",
+   "players": 3
+  },
+  {
+   "id": "va-2",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      32,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    }
+   ],
+   "name": "Violas 2 (pair 1 below, lower tone)",
+   "abbreviation": "Va. 2",
+   "players": 3
+  },
+  {
+   "id": "va-3",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      8,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      8,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      24,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    }
+   ],
+   "name": "Violas 3 (pair 2.5 below, upper tone)",
+   "abbreviation": "Va. 3",
+   "players": 3
+  },
+  {
+   "id": "va-4",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      8,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      8,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      24,
+      1
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    }
+   ],
+   "name": "Violas 4 (pair 2.5 below, lower tone)",
+   "abbreviation": "Va. 4",
+   "players": 3
+  },
+  {
+   "id": "vc-1",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      16,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      16,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      16,
+      1
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    }
+   ],
+   "name": "Violoncellos 1 (pair 4 below, upper tone)",
+   "abbreviation": "Vc. 1",
+   "players": 3
+  },
+  {
+   "id": "vc-2",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      16,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      16,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 57
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      16,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    }
+   ],
+   "name": "Violoncellos 2 (pair 4 below, lower tone)",
+   "abbreviation": "Vc. 2",
+   "players": 3
+  },
+  {
+   "id": "vc-3",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      24,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      24,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 55.5
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    }
+   ],
+   "name": "Violoncellos 3 (pair 5.5 below, upper tone)",
+   "abbreviation": "Vc. 3",
+   "players": 2
+  },
+  {
+   "id": "vc-4",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      24,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      24,
+      1
+     ],
+     "text": "non vib."
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "gliss": true
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 55.5
+     }
+    }
+   ],
+   "name": "Violoncellos 4 (pair 5.5 below, lower tone)",
+   "abbreviation": "Vc. 4",
+   "players": 2
+  }
+ ]
+}
