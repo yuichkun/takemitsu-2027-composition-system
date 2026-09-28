@@ -939,6 +939,110 @@
         "problems": "This is essentially the A with more instruments and no development. (1) One bit (does the double-bass step contain .5 or not) drives both the string flip and which wind group enters, so the winds carry no information the strings do not: trumpets always mean a flip, horns always mean no flip. (2) The semitone-grid chord tones cover 11 of the 12 pitch classes, and the standpoint may not be an octave of a chord tone, so it can stand on only 6 pitches, and on the semitone grid only on 32. As a result the horns always hold the same 5 notes, the trumpets alternate between two fixed 5-note sets, and ",
         "near": "a/texture-side-of-the-standpoint (its A; the B adds only a second two-state colour switched by the same signal)"
       }
+    },
+    {
+      "path": "b/seed-from-the-unfilled-cut",
+      "kind": "B",
+      "axis": "mixed",
+      "title": "埋まらなかった切れ目から次が始まる",
+      "issue": "霜が育つ和音の規則で弦・木管・金管が順に和音を育て、前の和音が埋めずに残した切れ目の一つを次の和音の種にする（一度凍った高さは曲全体で二度と使わない）",
+      "mechanism": "Growth set G = {+1.5, -2.5, +4, -3} (semitones). Three groups of 8 players, cycling strings -> woodwinds -> brass -> strings ...:\n- Strings: Vc 1-2 (36-84), Va 1-2 (48-91), Vn II 1-2 (55-100), Vn I 1-2 (55-103) (sections divided in two).\n- Woodwinds: Bn 1-2 (34-75), Cl 1-2 (50-94), Ob 1-2 (58-93), Fl 1-2 (59-98).\n- Brass: Hn 1-4 (34-77), Tbn 1-2 (40-72), Tpt 1-2 (54-84).\nDefined set D: global, sta",
+      "listen": "境目で、前の和音が次に埋めたはずの切れ目に別の色の一音が入る。前の和音はそのあと育った順に一音ずつ抜ける。これが和音の交代ではなく続きとして聴こえるか",
+      "instruments": "弦 8 部の分奏・木管 8・金管 8（段ごとに群が交代）",
+      "uses": "palette/a/pitch-frost-freeze（霜が育つ和音）",
+      "length": "1:40（30",
+      "round": 10
+    },
+    {
+      "path": "b/cuts-fall-from-pitch-to-time",
+      "kind": "B",
+      "axis": "mixed",
+      "title": "切れ目が縦から横へ倒れる",
+      "issue": "b-narrowing と a-zero-opens を一つの一歩にする。各組は打つたびに四分音一つを atom 一つへ移し、10 声の和音は、狭い切れ目から順に一つの高さの受け渡しへ倒れる",
+      "mechanism": "10 voices bottom to top, one player each: Bn, Tbn, Hn 1, B.Cl, Hn 2, C.ingl., Tpt, Cl, Ob, Fl. Each voice is doubled by one divided string part (divisi() over that voice's pitch range), con sord., holding exactly with it.\n9 neighbour pairs, sizes bottom to top (semitones): 4.5, 0.5, 4, 1, 3.5, 1.5, 3, 2, 2.5 (quarter-tone counts q = 9, 1, 8, 2, 7, 3, 6, 4, 5).\nStages j = 0..9, one strike per stage",
+      "listen": "和音が一組ずつ同じ高さへ倒れ、音程の幅が縮むぶん入りが開く（足して毎回 45）。最初の和音の一つおきの二本の等しい幅（四分音 10 と 9）が、最後の線で二本の等しい間隔（atom 10 と 9）として戻るか",
+      "instruments": "木管・金管 10（一人一声、p）＋弦 10 部の分奏（con sord.、pp、52 人）",
+      "uses": "ideas/lines の b-narrowing と a-zero-opens",
+      "length": "1:23",
+      "round": 10
+    },
+    {
+      "path": "b/grid-decides-who-plays",
+      "kind": "B",
+      "axis": "mixed",
+      "title": "格子が決める、誰が弾けるか",
+      "issue": "A「.5 の有無で分かれる一本の線」を、格子で配器を決めて使う。セットの .5 の間を段ごとに 0 から 6 個へ増やし、チェロのユニゾンからヴィオラの平行へ移って、打つ楽器の調律がその音の格子の名前になる",
+      "mechanism": "METHOD (as in palette/a/pitch-split-by-grid): one stream of betweens; voice F takes every between; voice E only those without .5; voice O only those with .5; the voice that does not take a between holds (no new onset). All three start on the standpoint 63 (Eb4). Band 55-72: if F or the voice moving with it would leave the band, both take -b (the .5 status is unchanged, so who moves is unchanged).\n",
+      "listen": "線と一緒に動くのがチェロかヴィオラかは .5 の有無だけで決まり、打つ楽器もそのたびにハープ I・ヴィブラフォンと四分音低いハープ II・ピアノのあいだで替わる（0:17 に初めて替わり、1:13 からは一歩ごとに交互）。1 段・4 段・7 段の頭では同じ形の線を別の声が鳴らす",
+      "instruments": "バス・フルート、コーラングレ、クラリネット 2、Vn I 16 のユニゾンの線、Va 12、Vc 10、ハープ I とヴィブラフォン、四分音低く調律したハープ II とピアノ（46 人）",
+      "uses": "palette/a/pitch-split-by-grid（.5 の有無で分かれる一本の線）",
+      "length": "1:35",
+      "round": 10
+    },
+    {
+      "path": "b/rings-from-a-drop",
+      "kind": "B",
+      "axis": "pitch",
+      "title": "一滴の輪",
+      "issue": "A「中心は誰も弾けない」（格子の外の中心をはさむ対称な二声）を使い、輪が中心で生まれて外へ一段ずつ広がり、端で消える。滴の間は 12→6→3 拍と半分ずつ縮み、仲間ごとに速さの違う輪が追いついて待ち、最後は滴そのものが待つ",
+      "mechanism": "Centre C = 66.25 (as in the A). Rungs r = 0..7 with half-distances h = 0.25, 1.25, 2.75, 4.75, 7.25, 10.25, 13.75, 17.75 (consecutive differences 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5: the A's ladder extended by two rungs); a ring at rung r sounds C − h_r and C + h_r (spans 0.5, 2.5, 5.5, 9.5, 14.5, 20.5, 27.5, 35.5; lowest tone 48.5, highest 84). Drops: gaps in beats 12, 12, 12 | 6, 6, 6, 6 | 3, 3, 3, 3",
+      "listen": "対称の二声が反対向きに開いて弱まる。速い輪が遅い輪に追いつくと足踏みし（0:37 から）、1:03 からは生まれる所が塞がってハープの滴の間が 3.8→4.45→5.75 秒と開き直す。中心 66.25 は一度も鳴らない",
+      "instruments": "弦 12 声部の分奏（Vn I 4・Vn II 2 が上の声、Va 4・Vc 2 が下の声、non vib.）＋ハープ 2 台（通常の調弦と四分音低い調弦）",
+      "uses": "palette/a/pitch-unplayed-centre（中心は誰も弾けない）",
+      "length": "1:48",
+      "round": 10
+    },
+    {
+      "path": "b/light-across-the-floor",
+      "kind": "B",
+      "axis": "texture",
+      "title": "床を渡る光",
+      "issue": "A「交差して入れ替わる色」の交差を使い、動かない十二音の和音（床の弦 10 声）の上を、クラリネットが下から、弱音器のトランペットが上から、隣と交差し続けて渡る。弦は一段ずれて、また元に戻る",
+      "mechanism": "Chord: 12 tones stacked bottom-up from anchor 55 by set {1.5, 2, 3, 3.5} in order, repeated over 11 betweens: 55, 56.5, 58.5, 61.5, 65, 66.5, 68.5, 71.5, 75, 76.5, 78.5, 81.5 (positions 0..11). Never changes. Players: floor = 10 string parts from divisi() on positions 1..10 (about Vc 2, Va 3, Vn II 3, Vn I 2); light A = clarinet at position 0; light B = trumpet con sord. at position 11 (both can s",
+      "listen": "和音の高さは一度も変わらず、クラリネット（上へ）とトランペット（16 秒から下へ、少し速く）の色だけが弦と滑り合って一段ずつ渡る。34.5 秒に二つの光が交差し、最後に弦は最初と同じ配置に戻る",
+      "instruments": "クラリネット、弱音器のトランペット、弦 10 声の分奏（コントラバスなし）",
+      "uses": "palette/a/texture-braid（交差して入れ替わる色）",
+      "length": "1:12",
+      "round": 10
+    },
+    {
+      "path": "b/percussion-takes-the-zero",
+      "kind": "B",
+      "axis": "mixed",
+      "title": "0 で打楽器が線を継ぐ",
+      "issue": "「同じ音を受け渡す」の線の間が全部 0 に閉じた所だけ無音程打楽器が受け渡しの輪に入り、0 から開き直すと、音程の線と 0 の色の線の二本に分かれる",
+      "mechanism": "PITCH: standpoint s = 60, rising set R = {1.5, 2, 3.5, 4}; stage k (k = 0..8) uses betweens max(0, b − 0.5 k) for each b; each stage: the standpoint, then the four betweens added in order (5 notes per stage, back to the standpoint at every stage), so stage 0 climbs 60 → 71 and stage 8 stays on 60. COLOURS: 12 pitched, in a written order: bass clarinet, solo cello, horn, tubular bells*, oboe, tromb",
+      "listen": "0:28〜0:33 の 7 打が、管の 61 と同じ一本の線の続きに聴こえるか。0:46 のオーボエ 61.5 から、線が二本に分かれて聴こえるか",
+      "instruments": "有音程 12（木管 5・金管 3・ベル・ヴィブラフォン・独奏 Va/Vc）と、無音程打楽器 6 と Vn II の col legno",
+      "uses": "ideas/lines の b-hand-off（同じ音を受け渡す）",
+      "length": "1:16",
+      "round": 10
+    },
+    {
+      "path": "b/orchestra-narrows-to-the-axis",
+      "kind": "B",
+      "axis": "pitch",
+      "title": "軸へ向かってオーケストラが消えていく",
+      "issue": "A「中心は誰も弾けない」を 8 組 63 人のオーケストラに広げ、3 巡動いたあと外側の大きな組から退場させ、鳴らない軸を四分音一つで挟む首席二人だけで終わる",
+      "mechanism": "Width set W (10 values, extending the A's own generating rule of ever-growing gaps by one more semitone each step): 0.5, 2.5, 5.5, 9.5, 14.5, 20.5, 27.5, 35.5, 44.5, 54.5 (gaps 2,3,4,5,6,7,8,9,10). All widths are .5-valued by construction (forced by the off-grid centre, as in the A). Fixed centre (e.g. MIDI 66.25, same as the A). 8 pairs (16 voices), each pair symmetric about the centre at some wi",
+      "listen": "鳴らない軸 63.25 をはさんで二声が反対向きに動くこと。64〜83 秒に、音域が外から内へ狭まるのと一緒に 63 人が 2 人まで減り、最後に 63 と 63.5 の二声だけが残ること",
+      "instruments": "フルート、オーボエ、ファゴット 3、ホルン 4、バス・トロンボーン、テューバ、弦（Vn I・Vn II・Va・Vc の首席と全員。コントラバスなし）の 16 パート、63 人",
+      "uses": "palette/a/pitch-unplayed-centre（中心は誰も弾けない）",
+      "length": "1:36",
+      "round": 10
+    },
+    {
+      "path": "b/every-order-at-once",
+      "kind": "B",
+      "axis": "mixed",
+      "title": "全部の順番を一度に",
+      "issue": "4 つの枠の全部の順番（24 通り）を 24 パートが同時に読み、巡の終わりに必ず同じ音で出会う。段ごとに一つの枠が値を取って分かれ、聴き分けられる線が 1→4→6→12→24 と現れる",
+      "mechanism": "SLOTS s1..s4, values per stage (semitones, 0 allowed) and passes per stage: stage 1 [0, 0, 0, 0] x1 pass; stage 2 [0, 0, 0, +2.5] x2; stage 3 [0, 0, +2.5, +2.5] x2; stage 4 [0, 0, -3.5, +2.5] x3; stage 5 [0, +5, -3.5, +2.5] x3; stage 6 [-4.5, +5, -3.5, +2.5] x4. Each stage changes exactly one slot. 15 passes, 60 steps.\nPLAYERS: the 24 permutations of the 4 slots. Colour group c (c = 1..4) holds th",
+      "listen": "67 のユニゾンから、チェロが先に動き、他の色が波で続いて全員が次の音に揃う。段が進むと一巡の中で和音が開いて閉じ（二歩目が最多、最後の段で 6 音、各音を鳴らす色はその音を作った枠の色）、四歩目に全員が一つの音で出会う。最後の段は出会いが四分音ずつ下がる",
+      "instruments": "ホルン 6、クラリネット 3・バスクラリネット 3、ヴィオラ 6 部、チェロ 6 部（34 人）",
+      "uses": "palette/a/pitch-same-sum-meets（順番が違っても同じ所に着く）",
+      "length": "1:39",
+      "round": 10
     }
   ],
   "rejected": [
@@ -1092,6 +1196,22 @@
       ],
       "rejected": 0,
       "commit": "434c580"
+    },
+    {
+      "round": 10,
+      "ended": "2026-09-29 06:03",
+      "added": [
+        "埋まらなかった切れ目から次が始まる",
+        "切れ目が縦から横へ倒れる",
+        "格子が決める、誰が弾けるか",
+        "一滴の輪",
+        "床を渡る光",
+        "0 で打楽器が線を継ぐ",
+        "軸へ向かってオーケストラが消えていく",
+        "全部の順番を一度に"
+      ],
+      "rejected": 0,
+      "commit": "f36de5c"
     }
   ]
 }
