@@ -25,8 +25,82 @@
       "uses": "a/pitch-trade-places",
       "length": "1:28",
       "round": 0
+    },
+    {
+      "path": "a/pitch-unplayed-centre",
+      "kind": "A",
+      "axis": "pitch",
+      "title": "中心は誰も弾けない",
+      "issue": "二つの格子のちょうど真ん中（誰にも鳴らせない一点）を軸に、二声の組が上下対称に空いた幅へ動き続ける。軸は一度も鳴らず、関係だけで決まる",
+      "mechanism": "pairs symmetric about a centre an eighth tone off the quarter-tone grid (nobody can play it); every span has .5 so each pair has one voice on each grid; each round every pair moves to the nearest free span; ends on the quarter-tone pair straddling the centre",
+      "listen": "一組の二声が反対向きに同じ量だけ動くとき、その折り返しの軸が鳴らないまま同じ所に聴こえるか。最後の四分音一つの二声（66 / 66.5）をどう聴くか",
+      "instruments": "Vn I 4 部と Vn II 4 部の分奏",
+      "uses": "",
+      "length": "1:05",
+      "round": 1
+    },
+    {
+      "path": "a/texture-side-of-the-standpoint",
+      "kind": "A",
+      "axis": "texture",
+      "title": "立ち位置が裏返す色",
+      "issue": "和音は動かさず、立ち位置（コントラバス）から見た間の .5 の有無で各音の弓の位置を決める。.5 の付く一歩で 10 音の色が一斉に裏返り、付かない一歩では何も起きない",
+      "mechanism": "a still chord; each tone is sul tasto when its between to the moving bass standpoint is whole, sul pont. when it has .5; a .5 step of the bass flips all ten, a whole step changes nothing",
+      "listen": "コントラバスの一歩ごとに、10 音全部の色が入れ替わるか何も起きないかの二択になること。始めと四分音一つしか違わない所で終わるのに、色は始めと逆になること",
+      "instruments": "弦 10 部の分奏（sul tasto / sul pont.）、コントラバス",
+      "uses": "",
+      "length": "0:47",
+      "round": 1
+    },
+    {
+      "path": "a/time-unsounded-origin",
+      "kind": "A",
+      "axis": "time",
+      "title": "鳴らない起点",
+      "issue": "三つの仲間の線が、鳴らない起点から同じ間の組を前後の両向きに足す。寄り合うはずの一点だけが空いたまま、そこが中心として聴こえるかを試す",
+      "mechanism": "three families (woodblocks) add one time set forward and backward from an unsounded origin on a beat; onsets close in on the point in proportion 12:15:20 and nobody strikes it; the set rotates so the gap changes",
+      "listen": "各小節の 3 拍目へ、低・中・高の木が寄り合っては抜けを残して離れる。抜けの幅が 0.4・0.8・1.2 拍と回るとき、鳴っていない一点が中心に聴こえるか",
+      "instruments": "ウッドブロック 3（高・中・低）",
+      "uses": "",
+      "length": "0:48",
+      "round": 1
+    },
+    {
+      "path": "b/families-return-displaced",
+      "kind": "B",
+      "axis": "time",
+      "title": "ほどけた仲間が、ずれたまま戻る",
+      "issue": "仲間ごとにほどけた 12 声の縦の線が、一人ずつ間を一拍に戻る。拍からのずれは戻らず、和音は時間の間を持ったまま戻る。音色は共通の拍との関係で決まる（拍の上はピッツィカート、自分の間は木管、ずれた一拍は弱音器の金管）",
+      "mechanism": "ideas/lines a-families-part in full orchestra, then each voice returns to a one-beat between without returning to the beat; colour named by the time relation (on the beat: string pizz; own between: woodwinds; displaced one-beat: muted brass)",
+      "listen": "拍ごとのピッツィカートの和音が一人ずつ木管にほどけ、戻りでは 4 声だけが拍に帰り、残りは弱音器の金管としてずれたまま伸びる。最後の一拍の形",
+      "instruments": "弦 12 声の分奏（pizz.）、木管 12、弱音器の金管",
+      "uses": "ideas/lines の a-families-part（仲間がほどける）",
+      "length": "1:32",
+      "round": 1
     }
   ],
-  "rejected": [],
-  "rounds": []
+  "rejected": [
+    {
+      "round": 1,
+      "kind": "B",
+      "axis": "texture",
+      "title": "上りの面と下りの面",
+      "gist": "running (strings in canon) coloured by the direction of the incoming between (up -> strings, down -> woodwinds)",
+      "reason": "「弦が走る」の仕組みを使う案。余湖さんが「この例はもういい、全然違う方向を試そう」と言った方向なので、今夜は使わない"
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "ended": "2026-09-29 03:48",
+      "added": [
+        "中心は誰も弾けない",
+        "立ち位置が裏返す色",
+        "鳴らない起点",
+        "ほどけた仲間が、ずれたまま戻る"
+      ],
+      "rejected": 1,
+      "commit": "ad07b59"
+    }
+  ]
 }
