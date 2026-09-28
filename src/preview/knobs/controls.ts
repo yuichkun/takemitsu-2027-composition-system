@@ -1572,31 +1572,19 @@ function neighbours(set: number[], k: BetweenSetKnob, seed: number): Neighbour[]
 }
 
 /** A new set of the same size, with as many quarter tones (and, for intervals, as many falling). */
+/**
+ * A new set of the same size, each between drawn from anywhere on the ruler's grid. Nothing of the
+ * old set is kept: a throw is for widening, so it may land anywhere (quarter tones as often as the
+ * grid holds them, wide betweens, the same note).
+ */
 function freshSet(set: number[], k: BetweenSetKnob): number[] {
-  const quarters = set.filter((b) => !Number.isInteger(b)).length;
-  const falling = set.filter((b) => b < 0).length;
-  // About as wide as the set was: a little wider, so the ruler can still be crossed in a few throws.
-  const widest = Math.max(...set.map(Math.abs), k.min < 0 ? 3 : k.min + 2) + 2;
-  const [top, bottom] = [Math.min(k.max, widest), Math.max(k.min, -widest)];
-  const out: number[] = [];
-  for (let i = 0; i < set.length; i++) {
-    const quarter = i < quarters;
-    const low = k.min < 0 ? (i < falling ? bottom : k.step) : k.min;
-    const high = k.min < 0 ? (i < falling ? -k.step : top) : top;
-    let v: number;
-    do {
-      const whole =
-        Math.floor(low) + Math.floor(Math.random() * (Math.floor(high) - Math.floor(low) + 1));
-      v = quarter ? whole + (Math.random() < 0.5 ? -0.5 : 0.5) : whole;
-    } while (v === 0 || v < low || v > high || !onGrid(v, k.min, k.max, k.step));
-    out.push(v);
-  }
-  return sorted(out);
+  const slots = Math.round((k.max - k.min) / k.step);
+  return sorted(set.map(() => k.min + Math.floor(Math.random() * (slots + 1)) * k.step));
 }
 
 const betweenSetControl: Control<BetweenSetKnob> = {
   wide: true,
-  how: "Click the ruler to add a between, drag a dot to move it (or ← → on a dot), click a dot for its menu. Next: sets one small change away, click one to hear it, ↻ for others. Tried: the sets before, to go back. ⚄ a new set of the same size and about as wide, ⇄ every between the other way. Click the set to type it.",
+  how: "Click the ruler to add a between, drag a dot to move it (or ← → on a dot), click a dot for its menu. Next: sets one small change away, click one to hear it, ↻ for others. Tried: the sets before, to go back. ⚄ a new set of the same size from anywhere on the ruler, ⇄ every between the other way, + and − every between one step wider or narrower. Click the set to type it.",
   mount(host, k, value, ctx) {
     const set = sorted(value);
     const commit = (next: number[]) => {
@@ -1643,8 +1631,10 @@ const betweenSetControl: Control<BetweenSetKnob> = {
     });
     const down = set.filter((b) => b < 0).length;
     const up = set.filter((b) => b > 0).length;
+    // Betweens of an odd number of quarter tones: each takes a line into the other twelve.
+    const odd = set.filter((b) => Math.round(b * 2) % 2 !== 0).length;
     const summary = pitchLike
-      ? `${set.length} · ${down} down, ${up} up${set.some((b) => b === 0) ? ", same note" : ""}`
+      ? `${set.length} · ${down} down, ${up} up${set.some((b) => b === 0) ? ", same note" : ""}${k.step < 1 ? ` · ${odd} odd` : ""}`
       : `${set.length} · ${set.reduce((a, b) => a + b, 0)}${unit} in all`;
     const tools = h("span", "tools");
     const tool = (label: string, title: string, action: () => void) => {
@@ -1658,10 +1648,31 @@ const betweenSetControl: Control<BetweenSetKnob> = {
       tool("⇄", "Every between the other way (rising ↔ falling)", () =>
         commit(set.map((b) => (b === 0 ? 0 : -b))),
       );
-    tool("⚄", "A new set of the same size (as many quarter tones, as many falling)", () =>
+    // Every between one step wider or narrower: on the quarter-tone grid the odd ones and the even
+    // ones change places, and the shape of the lines stays.
+    const floor = pitchLike ? 0 : k.min;
+    const by = (d: number) => (b: number) => {
+      const size = Math.abs(b) + d * k.step;
+      const sign = b < 0 ? -1 : 1;
+      return size < floor || sign * size < k.min || sign * size > k.max ? b : sign * size;
+    };
+    const step = k.step === 0.5 ? "a quarter tone" : pitchLike ? "a semitone" : "one";
+    const [wider, narrower] = pitchLike
+      ? [`Every between ${step} wider`, `Every between ${step} narrower`]
+      : [`Every length ${step} longer`, `Every length ${step} shorter`];
+    const swap = k.step === 0.5 ? ": the odd and the even change places" : "";
+    tool("+", `${wider}${swap}`, () =>
+      commit(set.map((b) => (b === 0 && pitchLike ? 0 : by(1)(b)))),
+    );
+    tool("−", `${narrower}${swap}`, () => commit(set.map(by(-1))));
+    tool("⚄", "A new set of the same size, each between from anywhere on the ruler", () =>
       commit(freshSet(set, k)),
     );
-    head.append(shown, h("span", "muted", summary), tools);
+    const about = h("span", "muted", summary);
+    if (pitchLike && k.step < 1)
+      about.title =
+        "odd: betweens of an odd number of quarter tones. The grid holds two twelves a quarter tone apart; an odd between takes a line from one to the other, an even one keeps it where it is";
+    head.append(shown, about, tools);
 
     // The ruler: a dot for each between, stacked where one is there more than once.
     const ruler = h("div", "ruler");
@@ -1815,19 +1826,26 @@ const betweenSetControl: Control<BetweenSetKnob> = {
   },
 };
 
-/** A clock of the 24 quarter-tone pitch classes: the anchor, one between away (●), two (○). */
+/**
+ * A clock of the 24 quarter-tone places above the anchor (the anchor at the top): where the set
+ * reaches in one between (●) and in two (○), each marked with the between that gets there. The
+ * places a quarter tone off the anchor's twelve are the small slots. Pitch names only on hover.
+ */
 function field(anchor: number, set: number[]): HTMLElement {
-  const pcOf = (m: number) => (((Math.round(m * 2) / 2) % 12) + 12) % 12;
+  const place = (b: number) => (((Math.round(b * 2) / 2) % 12) + 12) % 12;
+  const show = (b: number) => (b > 0 ? `+${setText([b])}` : setText([b]));
   const name = (m: number) => nameOf(m).replace(/-?\d+$/, "");
   const one = new Map<number, number>();
   const two = new Map<number, number>();
-  for (const b of set) one.set(pcOf(anchor + b), anchor + b);
+  for (const b of set) if (!one.has(place(b))) one.set(place(b), b);
   for (let i = 0; i < set.length; i++)
-    for (let j = i + 1; j < set.length; j++)
-      two.set(pcOf(anchor + set[i]! + set[j]!), anchor + set[i]! + set[j]!);
-  const size = 150;
+    for (let j = i + 1; j < set.length; j++) {
+      const b = set[i]! + set[j]!;
+      if (!two.has(place(b))) two.set(place(b), b);
+    }
+  const size = 176;
   const c = size / 2;
-  const r = c - 24;
+  const r = c - 30;
   const ns = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(ns, "svg");
   svg.setAttribute("viewBox", `0 0 ${size} ${size}`);
@@ -1839,45 +1857,47 @@ function field(anchor: number, set: number[]): HTMLElement {
     svg.append(e);
     return e;
   };
-  el("circle", { cx: c, cy: c, r, class: "ring" });
-  const a0 = pcOf(anchor);
-  const at = (pc: number, radius: number): [number, number] => {
-    // The anchor at the top, semitones clockwise.
-    const angle = (((pc - a0 + 12) % 12) / 12) * Math.PI * 2 - Math.PI / 2;
+  const at = (p: number, radius: number): [number, number] => {
+    const angle = (p / 12) * Math.PI * 2 - Math.PI / 2;
     return [c + radius * Math.cos(angle), c + radius * Math.sin(angle)];
   };
+  el("circle", { cx: c, cy: c, r, class: "ring" });
   for (let i = 0; i < 24; i++) {
     const [px, py] = at(i / 2, r);
     el("circle", { cx: px, cy: py, r: i % 2 ? 1.2 : 1.8, class: "slot" });
   }
-  const labelled = new Map<number, number>([[a0, anchor]]);
-  for (const [pc, m] of two) {
-    const [px, py] = at(pc, r);
+  const label = (p: number, b: number, cls: string) => {
+    const [lx, ly] = at(p, r + 17);
+    const t = el("text", { x: lx, y: ly + 3, class: cls });
+    t.textContent = b === 0 ? "0" : show(b);
+    const tip = document.createElementNS(ns, "title");
+    tip.textContent = name(anchor + b);
+    t.append(tip);
+  };
+  for (const [p] of two) {
+    const [px, py] = at(p, r);
     el("circle", { cx: px, cy: py, r: 4.5, class: "two" });
-    labelled.set(pc, m);
   }
-  for (const [pc, m] of one) {
-    const [px, py] = at(pc, r);
+  for (const [p] of one) {
+    const [px, py] = at(p, r);
     el("circle", { cx: px, cy: py, r: 4.5, class: "one" });
-    labelled.set(pc, m);
   }
-  const [ax, ay] = at(a0, r);
+  const [ax, ay] = at(0, r);
   el("circle", { cx: ax, cy: ay, r: 7, class: "anchor" });
-  for (const [pc, m] of labelled) {
-    const [lx, ly] = at(pc, r + 13);
-    const t = el("text", { x: lx, y: ly + 3, class: pc === a0 ? "pc-label anchor" : "pc-label" });
-    t.textContent = name(m);
-  }
+  label(0, 0, "pc-label anchor");
+  for (const [p, b] of two) if (p !== 0 && !one.has(p)) label(p, b, "pc-label two-label");
+  for (const [p, b] of one) if (p !== 0) label(p, b, "pc-label");
   const wrap = h("div", "clock field");
   const info = h("div", "clock-info");
+  const list = (m: Map<number, number>) =>
+    [...new Set(m.values())]
+      .sort((a, b) => a - b)
+      .map(show)
+      .join(" ");
   info.append(
-    h("div", "", `Around ${name(anchor)}`),
-    h("div", "muted", `● one between: ${[...one.values()].map(name).join(" ")}`),
-    h(
-      "div",
-      "muted",
-      `○ two: ${[...two.keys()].filter((pc) => !one.has(pc) && pc !== a0).length} more`,
-    ),
+    h("div", "", "From the anchor"),
+    h("div", "muted", `● one between: ${list(one)}`),
+    h("div", "muted", `○ two: ${list(two)}`),
   );
   wrap.append(svg, info);
   return wrap;

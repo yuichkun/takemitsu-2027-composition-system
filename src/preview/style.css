@@ -1716,6 +1716,15 @@ button.icon:hover {
   font-weight: 600;
 }
 
+.clock.field .pc-label.two-label {
+  fill: var(--faint);
+}
+
+.clock.field .pc-label {
+  pointer-events: auto;
+  cursor: default;
+}
+
 /* Lattice */
 .lattice {
   display: block;
