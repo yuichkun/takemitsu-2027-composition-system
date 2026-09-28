@@ -1544,6 +1544,178 @@ button.icon:hover {
   color: var(--paper);
 }
 
+/* A set of betweens: dots on a ruler, sets to try next */
+.betweens {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.betweens-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.betweens-head .set {
+  border: 0;
+  background: none;
+  padding: 0 4px;
+  height: 24px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.betweens-head .set:hover {
+  background: var(--hover);
+}
+
+.betweens-head .text {
+  flex: 1;
+}
+
+.betweens-head .muted {
+  flex: 1;
+  color: var(--faint);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.betweens-head .tools {
+  display: flex;
+  flex: none;
+}
+
+.ruler {
+  position: relative;
+  border-radius: 4px;
+  background: var(--bg);
+  user-select: none;
+}
+
+.ruler-track {
+  position: absolute;
+  inset: 0 10px;
+  cursor: copy;
+  touch-action: none;
+}
+
+.rtick {
+  position: absolute;
+  bottom: 12px;
+  width: 1px;
+  height: 3px;
+  background: var(--rule);
+  pointer-events: none;
+}
+
+.rtick.whole {
+  height: 5px;
+  background: var(--faint);
+}
+
+.rtick.zero {
+  height: 9px;
+  width: 2px;
+  margin-left: -0.5px;
+  background: var(--ink);
+}
+
+.rlabel {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 9px;
+  line-height: 11px;
+  color: var(--faint);
+  pointer-events: none;
+}
+
+.bdot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: var(--ink);
+  cursor: ew-resize;
+}
+
+.bdot.quarter {
+  background: var(--paper);
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+
+.bdot:hover,
+.bdot:focus-visible {
+  outline: 2px solid var(--faint);
+  outline-offset: 1px;
+}
+
+.bdot.new,
+.bdot.dragging {
+  opacity: 0.6;
+}
+
+.betweens-row {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: start;
+  gap: 6px;
+}
+
+.betweens-row .row-label {
+  font-size: 11px;
+  line-height: 22px;
+  color: var(--faint);
+}
+
+.betweens-row .chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px;
+}
+
+.clock.field svg .slot {
+  fill: var(--rule);
+}
+
+.clock.field svg .one {
+  fill: var(--ink);
+}
+
+.clock.field svg .two {
+  fill: var(--paper);
+  stroke: var(--muted);
+  stroke-width: 1.2;
+}
+
+.clock.field svg .anchor {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.clock.field .pc-label {
+  font-size: 9px;
+  fill: var(--muted);
+}
+
+.clock.field .pc-label.anchor {
+  fill: var(--ink);
+  font-weight: 600;
+}
+
 /* Lattice */
 .lattice {
   display: block;

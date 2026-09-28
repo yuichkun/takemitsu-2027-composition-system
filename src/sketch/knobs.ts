@@ -199,6 +199,25 @@ export interface VectorSetKnob extends KnobBase {
   value: number[];
 }
 
+/**
+ * A set of betweens (intervals, or lengths in time): which betweens, and how many of each
+ * (docs/antara/sound.md). Drawn as dots on a ruler; the panel offers sets one small change away,
+ * so sets can be explored by ear.
+ */
+export interface BetweenSetKnob extends KnobBase {
+  kind: "between-set";
+  /** The betweens, smallest first. One written twice is there twice. */
+  value: number[];
+  /** The ruler's ends. */
+  min: number;
+  max: number;
+  /** 1, or 0.5 for quarter tones. */
+  step: number;
+  unit?: string;
+  /** A pitch knob of the same sketch: the panel shows the pitches the set reaches from it. */
+  anchor?: string;
+}
+
 /** Nodes of a two-dimensional pitch lattice: [x, y] steps from the centre, x steps of axes[0]
  * semitones and y steps of axes[1] (e.g. fifths across, major thirds up). */
 export interface LatticeKnob extends KnobBase {
@@ -264,6 +283,7 @@ export type Knob =
   | SeedKnob
   | MarkersKnob
   | VectorSetKnob
+  | BetweenSetKnob
   | LatticeKnob
   | HeatmapKnob
   | LanesKnob;
@@ -351,6 +371,17 @@ export const xy = (k: Spec<XYKnob>): XYKnob => ({ kind: "xy", ...k });
 export const seed = (k: Spec<SeedKnob>): SeedKnob => ({ kind: "seed", ...k });
 export const markers = (k: Spec<MarkersKnob>): MarkersKnob => ({ kind: "markers", ...k });
 export const vectorSet = (k: Spec<VectorSetKnob>): VectorSetKnob => ({ kind: "vector-set", ...k });
+/** `value` may be written as text, "-4 -1 3 5" (a minus sign, "−", is read too). */
+export const betweenSet = (
+  k: Omit<Spec<BetweenSetKnob>, "value"> & { value: string | number[] },
+): BetweenSetKnob => {
+  const value =
+    typeof k.value === "string" ? numbersOf(k.label, k.value.replaceAll("−", "-")) : k.value;
+  return { ...k, kind: "between-set", value: [...value].sort((a, b) => a - b) };
+};
+/** Whether a number sits on a knob's grid: within its ends, on a multiple of its step. */
+export const onGrid = (x: number, min: number, max: number, step: number): boolean =>
+  x >= min && x <= max && Math.abs(x / step - Math.round(x / step)) < 1e-9;
 export const lattice = (k: Spec<LatticeKnob>): LatticeKnob => ({ kind: "lattice", ...k });
 /** `value` may be a function of (row from the top 0–1, time 0–1). */
 export const heatmap = (
@@ -471,6 +502,8 @@ export function fits(k: Knob, v: unknown): boolean {
       return numbers(v) && v.every((p) => p > 0 && p < k.length);
     case "vector-set":
       return numbers(v) && v.every((p) => Number.isInteger(p) && p >= 0 && p < 12);
+    case "between-set":
+      return numbers(v) && v.length >= 1 && v.every((b) => onGrid(b, k.min, k.max, k.step));
     case "lattice":
       return Array.isArray(v) && v.every((p) => numbers(p, 2));
     case "heatmap":

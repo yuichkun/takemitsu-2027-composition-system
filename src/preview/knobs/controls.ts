@@ -5,8 +5,11 @@
 import { spell } from "../../score/pitch.ts";
 import {
   intervalVector,
+  onGrid,
   primeForm,
+  random,
   type Auto,
+  type BetweenSetKnob,
   type ChoiceKnob,
   type FollowKnob,
   type MotifKnob,
@@ -1494,6 +1497,392 @@ const vectorSetControl: Control<VectorSetKnob> = {
   },
 };
 
+//==============================================================================
+// A set of betweens: dots on a ruler, and the sets one small change away
+
+/** Numbers as a set is written: "−4 −1 3 5" (a true minus sign, quarter tones as .5). */
+const setText = (set: number[]) => set.map((b) => String(b).replace("-", "−")).join(" ");
+const sameSet = (a: number[], b: number[]) =>
+  a.length === b.length && a.every((x, i) => x === b[i]);
+const sorted = (set: number[]) => [...set].sort((a, b) => a - b);
+/** Sets committed from each between-set knob in this page, most recent first (to go back). */
+const tried = new Map<string, number[][]>();
+/** How many times each knob's neighbours were drawn again (↻). */
+const rolls = new Map<string, number>();
+
+interface Neighbour {
+  set: number[];
+  /** What changed, e.g. "5 → 5.5", "+ 3", "− 2". */
+  what: string;
+}
+
+/**
+ * Sets one small change away: a between moved by the grid step (and by a semitone on a
+ * quarter-tone grid), one added, one taken away, or one turned the other way. A few of each kind,
+ * picked with `seed`.
+ */
+function neighbours(set: number[], k: BetweenSetKnob, seed: number): Neighbour[] {
+  const on = (x: number) => onGrid(x, k.min, k.max, k.step);
+  const kinds: Neighbour[][] = [[], [], [], []];
+  const seen = new Set([set.join(",")]);
+  const add = (kind: number, next: number[], what: string) => {
+    const s = sorted(next);
+    const key = s.join(",");
+    if (seen.has(key)) return;
+    seen.add(key);
+    kinds[kind]!.push({ set: s, what });
+  };
+  const distinct = [...new Set(set)];
+  const moves = k.step < 1 ? [-1, -k.step, k.step, 1] : [-1, 1];
+  for (const x of distinct)
+    for (const d of moves)
+      if (on(x + d)) {
+        const i = set.indexOf(x);
+        add(0, set.with(i, x + d), `${setText([x])} → ${setText([x + d])}`);
+      }
+  if (set.length < 12)
+    for (let y = k.min; y <= k.max + 1e-9; y += k.step) {
+      const v = Math.round(y / k.step) * k.step;
+      if (v !== 0 || k.min >= 0) add(1, [...set, v], `+ ${setText([v])}`);
+    }
+  if (set.length > 1)
+    for (const x of distinct)
+      add(
+        2,
+        set.filter((_, i) => i !== set.indexOf(x)),
+        `− ${setText([x])}`,
+      );
+  if (k.min < 0)
+    for (const x of distinct)
+      if (x !== 0 && on(-x))
+        add(3, set.with(set.indexOf(x), -x), `${setText([x])} → ${setText([-x])}`);
+  const r = random(seed * 7919 + set.length);
+  for (const list of kinds)
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(r() * (i + 1));
+      [list[i], list[j]] = [list[j]!, list[i]!];
+    }
+  // Two moves, two additions, one taking away, one turned: then whatever is left.
+  const out: Neighbour[] = [];
+  for (const kind of [0, 1, 0, 2, 1, 3, 0, 2]) {
+    const next = kinds[kind]!.shift();
+    if (next) out.push(next);
+  }
+  return out.slice(0, 7);
+}
+
+/** A new set of the same size, with as many quarter tones (and, for intervals, as many falling). */
+function freshSet(set: number[], k: BetweenSetKnob): number[] {
+  const quarters = set.filter((b) => !Number.isInteger(b)).length;
+  const falling = set.filter((b) => b < 0).length;
+  // About as wide as the set was: a little wider, so the ruler can still be crossed in a few throws.
+  const widest = Math.max(...set.map(Math.abs), k.min < 0 ? 3 : k.min + 2) + 2;
+  const [top, bottom] = [Math.min(k.max, widest), Math.max(k.min, -widest)];
+  const out: number[] = [];
+  for (let i = 0; i < set.length; i++) {
+    const quarter = i < quarters;
+    const low = k.min < 0 ? (i < falling ? bottom : k.step) : k.min;
+    const high = k.min < 0 ? (i < falling ? -k.step : top) : top;
+    let v: number;
+    do {
+      const whole =
+        Math.floor(low) + Math.floor(Math.random() * (Math.floor(high) - Math.floor(low) + 1));
+      v = quarter ? whole + (Math.random() < 0.5 ? -0.5 : 0.5) : whole;
+    } while (v === 0 || v < low || v > high || !onGrid(v, k.min, k.max, k.step));
+    out.push(v);
+  }
+  return sorted(out);
+}
+
+const betweenSetControl: Control<BetweenSetKnob> = {
+  wide: true,
+  how: "Click the ruler to add a between, drag a dot to move it (or ← → on a dot), click a dot for its menu. Next: sets one small change away, click one to hear it, ↻ for others. Tried: the sets before, to go back. ⚄ a new set of the same size and about as wide, ⇄ every between the other way. Click the set to type it.",
+  mount(host, k, value, ctx) {
+    const set = sorted(value);
+    const commit = (next: number[]) => {
+      const s = sorted(next);
+      if (sameSet(s, set)) return;
+      const list = (tried.get(k.label) ?? []).filter((t) => !sameSet(t, set) && !sameSet(t, s));
+      tried.set(k.label, [set, ...list].slice(0, 8));
+      ctx.commit(s);
+    };
+    const pitchLike = k.min < 0;
+    const unit = k.unit ? ` ${k.unit}` : "";
+    const box = h("div", "betweens");
+
+    // The set, as text (click to type), and what it holds.
+    const head = h("div", "betweens-head");
+    const shown = h("button", "set", `{${setText(set)}}`);
+    shown.type = "button";
+    shown.title = "Click to type the set";
+    shown.addEventListener("click", () => {
+      const input = h("input", "text");
+      input.value = setText(set);
+      input.spellcheck = false;
+      input.addEventListener("keydown", (e) => {
+        e.stopPropagation();
+        if (e.key === "Enter") input.blur();
+        if (e.key === "Escape") {
+          input.value = setText(set);
+          input.blur();
+        }
+      });
+      input.addEventListener("blur", () => {
+        const words = input.value
+          .replaceAll("−", "-")
+          .split(/[\s,、{}]+/)
+          .filter(Boolean);
+        const next = sorted(words.map(Number));
+        const ok = next.length > 0 && next.every((b) => onGrid(b, k.min, k.max, k.step));
+        if (ok && !sameSet(next, set)) commit(next);
+        else input.replaceWith(shown);
+      });
+      shown.replaceWith(input);
+      input.focus();
+      input.select();
+    });
+    const down = set.filter((b) => b < 0).length;
+    const up = set.filter((b) => b > 0).length;
+    const summary = pitchLike
+      ? `${set.length} · ${down} down, ${up} up${set.some((b) => b === 0) ? ", same note" : ""}`
+      : `${set.length} · ${set.reduce((a, b) => a + b, 0)}${unit} in all`;
+    const tools = h("span", "tools");
+    const tool = (label: string, title: string, action: () => void) => {
+      const b = h("button", "icon", label);
+      b.type = "button";
+      b.title = title;
+      b.addEventListener("click", action);
+      tools.append(b);
+    };
+    if (pitchLike)
+      tool("⇄", "Every between the other way (rising ↔ falling)", () =>
+        commit(set.map((b) => (b === 0 ? 0 : -b))),
+      );
+    tool("⚄", "A new set of the same size (as many quarter tones, as many falling)", () =>
+      commit(freshSet(set, k)),
+    );
+    head.append(shown, h("span", "muted", summary), tools);
+
+    // The ruler: a dot for each between, stacked where one is there more than once.
+    const ruler = h("div", "ruler");
+    const track = h("div", "ruler-track");
+    ruler.append(track);
+    const span = k.max - k.min;
+    const x = (b: number) => `${((b - k.min) / span) * 100}%`;
+    const labelEvery = span > 16 ? 2 : 1;
+    for (let i = 0; i * k.step <= span + 1e-9; i++) {
+      const b = k.min + i * k.step;
+      const whole = Number.isInteger(b);
+      const t = h("span", whole ? (b === 0 ? "rtick zero" : "rtick whole") : "rtick");
+      t.style.left = x(b);
+      track.append(t);
+      if (whole && (b % labelEvery === 0 || b === k.min || b === k.max)) {
+        const l = h("span", "rlabel", setText([b]));
+        l.style.left = x(b);
+        track.append(l);
+      }
+    }
+    const counts = new Map<number, number>();
+    for (const b of set) counts.set(b, (counts.get(b) ?? 0) + 1);
+    const dots: HTMLElement[] = [];
+    for (const [b, n] of counts)
+      for (let j = 0; j < n; j++) {
+        const d = h("span", Number.isInteger(b) ? "bdot" : "bdot quarter");
+        d.style.left = x(b);
+        d.style.bottom = `${16 + j * 11}px`;
+        d.dataset.b = String(b);
+        d.tabIndex = 0;
+        d.title = `${setText([b])}${unit}${n > 1 ? ` (×${n})` : ""}`;
+        track.append(d);
+        dots.push(d);
+      }
+    ruler.style.height = `${Math.max(54, 26 + Math.max(...counts.values()) * 11)}px`;
+    const valueAt = (e: PointerEvent | MouseEvent) => {
+      const r = track.getBoundingClientRect();
+      const raw = k.min + ((e.clientX - r.left) / r.width) * span;
+      return snap(raw, k.min, k.max, k.step);
+    };
+    const without = (b: number) => set.filter((_, i) => i !== set.indexOf(b));
+    const dotMenu = (b: number, e: MouseEvent) => {
+      const n = counts.get(b) ?? 0;
+      menu(e.clientX, e.clientY, [
+        { heading: `${setText([b])}${unit}${n > 1 ? ` ×${n}` : ""}` },
+        { label: "Take one away", disabled: set.length < 2, action: () => commit(without(b)) },
+        { label: "One more of it", action: () => commit([...set, b]) },
+        ...(pitchLike && b !== 0 && onGrid(-b, k.min, k.max, k.step)
+          ? [
+              {
+                label: `The other way (${setText([-b])})`,
+                action: () => commit([...without(b), -b]),
+              },
+            ]
+          : []),
+      ]);
+    };
+    track.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0) return;
+      const onDot = (e.target as HTMLElement).closest<HTMLElement>(".bdot");
+      let dot: HTMLElement;
+      let from: number | undefined;
+      if (onDot) {
+        dot = onDot;
+        from = Number(onDot.dataset.b);
+      } else {
+        dot = h("span", "bdot new");
+        dot.style.bottom = "16px";
+        dot.style.left = x(valueAt(e));
+        track.append(dot);
+      }
+      let to = from ?? valueAt(e);
+      dot.classList.add("dragging");
+      drag(
+        track,
+        e,
+        (m) => {
+          to = valueAt(m);
+          dot.style.left = x(to);
+          dot.classList.toggle("quarter", !Number.isInteger(to));
+        },
+        (moved) => {
+          dot.classList.remove("dragging");
+          if (from === undefined) commit([...set, to]);
+          else if (!moved) dotMenu(from, e);
+          else commit([...without(from), to]);
+        },
+      );
+    });
+    track.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      const onDot = (e.target as HTMLElement).closest<HTMLElement>(".bdot");
+      if (onDot) dotMenu(Number(onDot.dataset.b), e);
+    });
+    track.addEventListener("keydown", (e) => {
+      const d = (e.target as HTMLElement).closest<HTMLElement>(".bdot");
+      if (!d) return;
+      const b = Number(d.dataset.b);
+      const by = e.shiftKey ? 1 : k.step;
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.preventDefault();
+        const next = snap(b + (e.key === "ArrowLeft" ? -by : by), k.min, k.max, k.step);
+        if (next !== b) commit([...without(b), next]);
+      } else if ((e.key === "Delete" || e.key === "Backspace") && set.length > 1) {
+        e.preventDefault();
+        commit(without(b));
+      }
+    });
+    box.append(head, ruler);
+
+    // Sets to try next, and the ones tried before.
+    const chips = (label: string, list: Neighbour[], extra?: HTMLElement) => {
+      const row = h("div", "betweens-row");
+      row.append(h("span", "row-label", label));
+      const wrap = h("div", "chips");
+      for (const n of list) {
+        const b = h("button", "chip-set", `{${setText(n.set)}}`);
+        b.type = "button";
+        b.title = n.what;
+        b.addEventListener("click", () => commit(n.set));
+        wrap.append(b);
+      }
+      if (extra) wrap.append(extra);
+      row.append(wrap);
+      box.append(row);
+    };
+    const roll = h("button", "icon", "↻");
+    roll.type = "button";
+    roll.title = "Other neighbours";
+    roll.addEventListener("click", () => {
+      rolls.set(k.label, (rolls.get(k.label) ?? 0) + 1);
+      box.replaceWith(mountAgain());
+    });
+    const mountAgain = () => {
+      const fresh = h("div");
+      betweenSetControl.mount(fresh, k, value, ctx);
+      return fresh.firstElementChild as HTMLElement;
+    };
+    chips("Next", neighbours(set, k, rolls.get(k.label) ?? 0), roll);
+    const before = (tried.get(k.label) ?? []).filter((t) => !sameSet(t, set));
+    if (before.length)
+      chips(
+        "Tried",
+        before.map((s) => ({ set: s, what: "Tried before" })),
+      );
+
+    // For intervals from an anchor: the pitches the set reaches in one between and in two.
+    const anchor = k.anchor ? ctx.values[k.anchor] : undefined;
+    if (pitchLike && typeof anchor === "number") box.append(field(anchor, set));
+    host.append(box);
+  },
+};
+
+/** A clock of the 24 quarter-tone pitch classes: the anchor, one between away (●), two (○). */
+function field(anchor: number, set: number[]): HTMLElement {
+  const pcOf = (m: number) => (((Math.round(m * 2) / 2) % 12) + 12) % 12;
+  const name = (m: number) => nameOf(m).replace(/-?\d+$/, "");
+  const one = new Map<number, number>();
+  const two = new Map<number, number>();
+  for (const b of set) one.set(pcOf(anchor + b), anchor + b);
+  for (let i = 0; i < set.length; i++)
+    for (let j = i + 1; j < set.length; j++)
+      two.set(pcOf(anchor + set[i]! + set[j]!), anchor + set[i]! + set[j]!);
+  const size = 150;
+  const c = size / 2;
+  const r = c - 24;
+  const ns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("viewBox", `0 0 ${size} ${size}`);
+  svg.setAttribute("width", String(size));
+  svg.setAttribute("height", String(size));
+  const el = (tag: string, attrs: Record<string, string | number>) => {
+    const e = document.createElementNS(ns, tag);
+    for (const [a, v] of Object.entries(attrs)) e.setAttribute(a, String(v));
+    svg.append(e);
+    return e;
+  };
+  el("circle", { cx: c, cy: c, r, class: "ring" });
+  const a0 = pcOf(anchor);
+  const at = (pc: number, radius: number): [number, number] => {
+    // The anchor at the top, semitones clockwise.
+    const angle = (((pc - a0 + 12) % 12) / 12) * Math.PI * 2 - Math.PI / 2;
+    return [c + radius * Math.cos(angle), c + radius * Math.sin(angle)];
+  };
+  for (let i = 0; i < 24; i++) {
+    const [px, py] = at(i / 2, r);
+    el("circle", { cx: px, cy: py, r: i % 2 ? 1.2 : 1.8, class: "slot" });
+  }
+  const labelled = new Map<number, number>([[a0, anchor]]);
+  for (const [pc, m] of two) {
+    const [px, py] = at(pc, r);
+    el("circle", { cx: px, cy: py, r: 4.5, class: "two" });
+    labelled.set(pc, m);
+  }
+  for (const [pc, m] of one) {
+    const [px, py] = at(pc, r);
+    el("circle", { cx: px, cy: py, r: 4.5, class: "one" });
+    labelled.set(pc, m);
+  }
+  const [ax, ay] = at(a0, r);
+  el("circle", { cx: ax, cy: ay, r: 7, class: "anchor" });
+  for (const [pc, m] of labelled) {
+    const [lx, ly] = at(pc, r + 13);
+    const t = el("text", { x: lx, y: ly + 3, class: pc === a0 ? "pc-label anchor" : "pc-label" });
+    t.textContent = name(m);
+  }
+  const wrap = h("div", "clock field");
+  const info = h("div", "clock-info");
+  info.append(
+    h("div", "", `Around ${name(anchor)}`),
+    h("div", "muted", `● one between: ${[...one.values()].map(name).join(" ")}`),
+    h(
+      "div",
+      "muted",
+      `○ two: ${[...two.keys()].filter((pc) => !one.has(pc) && pc !== a0).length} more`,
+    ),
+  );
+  wrap.append(svg, info);
+  return wrap;
+}
+
 const latticeControl: Control<LatticeKnob> = {
   wide: true,
   how: "Click nodes to add or remove them. Across is one interval, up another; the centre is ringed.",
@@ -1650,6 +2039,7 @@ export const controls: { [K in Knob["kind"]]: Control<Extract<Knob, { kind: K }>
   markers: markersControl,
   lanes: lanesControl,
   "vector-set": vectorSetControl,
+  "between-set": betweenSetControl,
   lattice: latticeControl,
   heatmap: heatmapControl,
   motif: motifControl,
