@@ -1,0 +1,5363 @@
+{
+ "title": "antara · palette B · they leave, family by family",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 66
+  }
+ ],
+ "measures": 31,
+ "parts": [
+  {
+   "id": "fl1",
+   "instrument": "flute",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      29,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      35,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      85,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      103,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      91,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      215,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      125,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      145,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    }
+   ],
+   "name": "Flute 1",
+   "abbreviation": "Fl. 1"
+  },
+  {
+   "id": "fl2",
+   "instrument": "flute",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      73,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      53,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      127,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      155,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      185,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      109,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      253,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      293,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    }
+   ],
+   "name": "Flute 2",
+   "abbreviation": "Fl. 2"
+  },
+  {
+   "id": "ob1",
+   "instrument": "oboe",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      93,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      111,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      95,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      223,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      129,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      149,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    }
+   ],
+   "name": "Oboe 1",
+   "abbreviation": "Ob. 1"
+  },
+  {
+   "id": "ob2",
+   "instrument": "oboe",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      57,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      135,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      163,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      193,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      113,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      261,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      301,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    }
+   ],
+   "name": "Oboe 2",
+   "abbreviation": "Ob. 2"
+  },
+  {
+   "id": "ca",
+   "instrument": "cor-anglais",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      61,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      75,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      205,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "at": [
+      119,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "at": [
+      273,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "at": [
+      313,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    }
+   ],
+   "name": "Cor anglais",
+   "abbreviation": "C. ingl."
+  },
+  {
+   "id": "cl1",
+   "instrument": "clarinet",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      99,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      231,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      133,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      153,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    }
+   ],
+   "name": "Clarinet 1",
+   "abbreviation": "Cl. 1"
+  },
+  {
+   "id": "cl2",
+   "instrument": "clarinet",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      61,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      85,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      233,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      67,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "at": [
+      77,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    }
+   ],
+   "name": "Clarinet 2",
+   "abbreviation": "Cl. 2"
+  },
+  {
+   "id": "bcl",
+   "instrument": "bass-clarinet",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      61,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      75,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    },
+    {
+     "at": [
+      275,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    },
+    {
+     "at": [
+      315,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    }
+   ],
+   "name": "Bass Clarinet",
+   "abbreviation": "B. Cl."
+  },
+  {
+   "id": "bsn1",
+   "instrument": "bassoon",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      61,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      75,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      213,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      139,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    },
+    {
+     "at": [
+      159,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    }
+   ],
+   "name": "Bassoon 1",
+   "abbreviation": "Bsn. 1"
+  },
+  {
+   "id": "bsn2",
+   "instrument": "bassoon",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      83,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      101,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      61,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      75,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      213,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      72,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    }
+   ],
+   "name": "Bassoon 2",
+   "abbreviation": "Bsn. 2"
+  },
+  {
+   "id": "hn1",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      53,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      74,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      102,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      157,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 69.5
+     }
+    }
+   ],
+   "name": "Horn 1",
+   "abbreviation": "Hn. 1"
+  },
+  {
+   "id": "hn2",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      53,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      74,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      102,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      132,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    }
+   ],
+   "name": "Horn 2",
+   "abbreviation": "Hn. 2"
+  },
+  {
+   "id": "hn3",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      53,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      74,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      102,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      132,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ]
+    }
+   ],
+   "name": "Horn 3",
+   "abbreviation": "Hn. 3"
+  },
+  {
+   "id": "hn4",
+   "instrument": "horn",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      53,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      74,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      102,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      132,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      192,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "at": [
+      227,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "at": [
+      267,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    }
+   ],
+   "name": "Horn 4",
+   "abbreviation": "Hn. 4"
+  },
+  {
+   "id": "tpt1",
+   "instrument": "trumpet",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      22,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      37,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      76,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      104,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      134,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      167,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      202,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    },
+    {
+     "at": [
+      242,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 82.5
+     }
+    }
+   ],
+   "name": "Trumpet 1",
+   "abbreviation": "Tpt. 1"
+  },
+  {
+   "id": "tpt2",
+   "instrument": "trumpet",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      63,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      84,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      112,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      142,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    }
+   ],
+   "name": "Trumpet 2",
+   "abbreviation": "Tpt. 2"
+  },
+  {
+   "id": "tpt3",
+   "instrument": "trumpet",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      53,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      92,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      183,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      218,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      258,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    }
+   ],
+   "name": "Trumpet 3",
+   "abbreviation": "Tpt. 3"
+  },
+  {
+   "id": "tbn1",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      53,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      74,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      122,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    },
+    {
+     "at": [
+      152,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 53.5
+     }
+    }
+   ],
+   "name": "Trombone 1",
+   "abbreviation": "Tbn. 1"
+  },
+  {
+   "id": "tbn2",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      66,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    },
+    {
+     "at": [
+      87,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    },
+    {
+     "at": [
+      178,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    },
+    {
+     "at": [
+      213,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    },
+    {
+     "at": [
+      253,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 50.5
+     }
+    }
+   ],
+   "name": "Trombone 2",
+   "abbreviation": "Tbn. 2"
+  },
+  {
+   "id": "tbn3",
+   "instrument": "trombone",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    },
+    {
+     "at": [
+      58,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    },
+    {
+     "at": [
+      79,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    },
+    {
+     "at": [
+      107,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    },
+    {
+     "at": [
+      137,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    },
+    {
+     "at": [
+      49,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     }
+    }
+   ],
+   "name": "Trombone 3",
+   "abbreviation": "Tbn. 3"
+  },
+  {
+   "id": "vni-1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      158,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      72,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      83,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      284,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      108,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violins I 1",
+   "abbreviation": "Vn. I 1",
+   "players": 8
+  },
+  {
+   "id": "vni-2",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      158,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      72,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      83,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      314,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      118,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violins I 2",
+   "abbreviation": "Vn. I 2",
+   "players": 8
+  },
+  {
+   "id": "vnii-1",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      158,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      72,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      311,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      117,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 74
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violins II 1",
+   "abbreviation": "Vn. II 1",
+   "players": 5
+  },
+  {
+   "id": "vnii-2",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      158,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      241,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      274,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      103,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      349,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violins II 2",
+   "abbreviation": "Vn. II 2",
+   "players": 5
+  },
+  {
+   "id": "vnii-3",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      158,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      206,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      236,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      269,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      304,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      344,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violins II 3",
+   "abbreviation": "Vn. II 3",
+   "players": 4
+  },
+  {
+   "id": "va-1",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      137,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      176,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      68,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      78,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      89,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      302,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      114,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violas 1",
+   "abbreviation": "Va. 1",
+   "players": 6
+  },
+  {
+   "id": "va-2",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      119,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      57,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      199,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      229,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      262,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      99,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      337,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violas 2",
+   "abbreviation": "Va. 2",
+   "players": 6
+  },
+  {
+   "id": "vc-1",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      49,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      196,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      226,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      259,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      98,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      334,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 53.5
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violoncellos 1",
+   "abbreviation": "Vc. 1",
+   "players": 4
+  },
+  {
+   "id": "vc-2",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      92,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      109,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      142,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      163,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      191,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      221,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      254,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      289,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      329,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 50.5
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violoncellos 2",
+   "abbreviation": "Vc. 2",
+   "players": 3
+  },
+  {
+   "id": "vc-3",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "articulations": [
+      "accent"
+     ],
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      106,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      121,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      139,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      160,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      188,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      218,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      251,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      286,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      326,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Violoncellos 3",
+   "abbreviation": "Vc. 3",
+   "players": 3
+  }
+ ],
+ "rehearsal": [
+  {
+   "measure": 4,
+   "label": "woodwinds"
+  },
+  {
+   "measure": 8,
+   "label": "strings"
+  }
+ ]
+}
