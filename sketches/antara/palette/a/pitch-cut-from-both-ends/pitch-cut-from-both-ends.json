@@ -1,0 +1,667 @@
+{
+ "title": "antara · palette A · a chord cut from both ends",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 13,
+ "parts": [
+  {
+   "id": "vni-1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      52,
+      1
+     ],
+     "pitch": {
+      "midi": 72.5
+     }
+    }
+   ],
+   "name": "Violins I 1 (frame)",
+   "abbreviation": "Vn. I 1",
+   "players": 6
+  },
+  {
+   "id": "vni-2",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    }
+   ],
+   "name": "Violins I 2 (cut 2)",
+   "abbreviation": "Vn. I 2",
+   "players": 5
+  },
+  {
+   "id": "vni-3",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      20,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    }
+   ],
+   "name": "Violins I 3 (cut 10)",
+   "abbreviation": "Vn. I 3",
+   "players": 5
+  },
+  {
+   "id": "vnii-1",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      8,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 66
+     }
+    }
+   ],
+   "name": "Violins II 1 (cut 4)",
+   "abbreviation": "Vn. II 1",
+   "players": 5
+  },
+  {
+   "id": "vnii-2",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     }
+    }
+   ],
+   "name": "Violins II 2 (cut 6)",
+   "abbreviation": "Vn. II 2",
+   "players": 5
+  },
+  {
+   "id": "vnii-3",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      18,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     }
+    }
+   ],
+   "name": "Violins II 3 (cut 9)",
+   "abbreviation": "Vn. II 3",
+   "players": 4
+  },
+  {
+   "id": "va-1",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      16,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      39,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 59.5
+     }
+    }
+   ],
+   "name": "Violas 1 (cut 8)",
+   "abbreviation": "Va. 1",
+   "players": 4
+  },
+  {
+   "id": "va-2",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      14,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    }
+   ],
+   "name": "Violas 2 (cut 7)",
+   "abbreviation": "Va. 2",
+   "players": 4
+  },
+  {
+   "id": "va-3",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": [
+      10,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    }
+   ],
+   "name": "Violas 3 (cut 5)",
+   "abbreviation": "Va. 3",
+   "players": 4
+  },
+  {
+   "id": "vc-1",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      6,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 54.5
+     }
+    }
+   ],
+   "name": "Violoncellos 1 (cut 3)",
+   "abbreviation": "Vc. 1",
+   "players": 4
+  },
+  {
+   "id": "vc-2",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      3,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      23,
+      1
+     ],
+     "pitch": {
+      "midi": 51.5
+     }
+    }
+   ],
+   "name": "Violoncellos 2 (cut 1)",
+   "abbreviation": "Vc. 2",
+   "players": 3
+  },
+  {
+   "id": "vc-3",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      52,
+      1
+     ],
+     "pitch": {
+      "midi": 50
+     }
+    }
+   ],
+   "name": "Violoncellos 3 (frame)",
+   "abbreviation": "Vc. 3",
+   "players": 3
+  }
+ ]
+}
