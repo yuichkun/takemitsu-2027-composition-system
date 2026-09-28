@@ -18,12 +18,14 @@
 // tones that do not move: the voice that leaves takes its connections with it, and the tones it
 // was connected to lose them; where it arrives it may make others.
 //
-// The lens changes at a bar line. The first lens is the Chord's own set: in the resting chord every
-// tone is connected to its neighbours, so the chord at rest is heavy and a voice that turns away
-// goes thin. The second lens holds sizes that no two tones of the resting chord stand apart, but
-// that appear when a between next to a turning voice grows or shrinks by the turn: the chord at rest
-// is strings alone, and the weight gathers only where voices have turned away and around them. The
-// same motion, named through two lenses, puts the weight in opposite places.
+// The lens changes at a bar line. The first lens (rest) is the betweens of neighbours in the resting
+// chord, the Chord's own set: every resting tone is connected to its neighbours, so the chord at
+// rest is heavy and a voice that turns away goes thin. The second lens (turned) is every between
+// that one turn makes between the turning voice and a resting neighbour, less the sizes that any two
+// tones of the resting chord stand apart: resting tones are never connected, and the weight gathers
+// where voices have turned away and around them. Both lenses are read off the chord and the turns
+// (neighbours at rest, neighbours after one turn), so the second is as whole a standpoint as the
+// first. The same motion, named through two lenses, puts the weight in opposite places.
 //
 // A doubler comes in from nothing and goes back to nothing over a few atoms of its voice's family,
 // on its voice's own time grid (the first atom of the voice at or after the change), so each wind
@@ -147,8 +149,8 @@ export const knobs = {
   lens: text({
     group: "Lens",
     label: "Lens",
-    help: "The between sizes that count as a connection (semitones, .5 for a quarter tone; the size exactly, no octave reduction). Sets split by | take turns: the length is split at bar lines into that many stretches",
-    value: "1.5 3 4.5 5 | 2 3.5 5.5",
+    help: "The between sizes that count as a connection (semitones, .5 for a quarter tone; the size exactly, no octave reduction), or a word. rest: the betweens of neighbouring voices in the resting chords · turned: every between that one turn makes between the turning voice and a resting neighbour, and that no two tones of a resting chord stand apart. Sets split by | take turns: the length is split at bar lines into that many stretches",
+    value: "rest | turned",
   }),
   doublers: number({
     group: "Winds",
@@ -311,6 +313,43 @@ function voice(v: V, i: number, family: Family, chords: number[][], end: number)
 }
 
 // ---- Terms, relations and the lens ----
+
+/**
+ * The lenses, each written as between sizes or as a word:
+ * - rest: the betweens of neighbouring voices in the resting chords (with the Chord unfolded, the
+ *   Chord's own set)
+ * - turned: every between that one turn makes between the turning voice and a resting neighbour
+ *   (a neighbour's between grown or shrunk by a between of Turns), leaving out every size that two
+ *   tones of a resting chord stand apart. Resting tones are never connected through it.
+ */
+function lensesOf(value: string, chords: number[][], turns: number[]): number[][] {
+  const rest = new Set<number>();
+  const apart = new Set<number>();
+  const made = new Set<number>();
+  for (const c of chords) {
+    for (let a = 0; a < c.length; a++)
+      for (let b = a + 1; b < c.length; b++) apart.add(Math.abs(c[b]! - c[a]!));
+    for (let k = 0; k + 1 < c.length; k++) {
+      const between = c[k + 1]! - c[k]!;
+      rest.add(Math.abs(between));
+      for (const t of turns) made.add(Math.abs(between + t)).add(Math.abs(between - t));
+    }
+  }
+  const words: Record<string, number[]> = {
+    rest: [...rest],
+    turned: [...made].filter((x) => !apart.has(x)),
+  };
+  const sections = value
+    .split("|")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (sections.length === 0) throw new Error("Lens: write at least one set (e.g. rest | turned)");
+  return sections.map((s) => {
+    const set = words[s.toLowerCase()] ?? pitchSetsOf("Lens", s)[0]!;
+    if (set.length === 0) throw new Error(`Lens: "${s}" has no sizes with these values`);
+    return [...set].sort((a, b) => a - b);
+  });
+}
 
 /** A voice standing as a term: holding one tone, from `from` until `to` (its next slide, or the end). */
 interface Held {
@@ -485,9 +524,9 @@ export function score(v: V) {
   const bar = 4 * TICKS;
   const end = v.bars * bar;
   const families = familiesOf("Families", v.families);
-  const lenses = pitchSetsOf("Lens", v.lens);
-  const bounds = stretches(v.bars * 4, lenses.length).map(([from]) => from * TICKS);
   const chords = chordsOf(v);
+  const lenses = lensesOf(v.lens, chords, v.turns);
+  const bounds = stretches(v.bars * 4, lenses.length).map(([from]) => from * TICKS);
   const familyOf = (i: number) => families[i % families.length]!;
   const tones = VOICES.map((_, i) => voice(v, i, familyOf(i), chords, end));
   const held = tones.map(heldOf);

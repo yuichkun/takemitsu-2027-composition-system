@@ -13,7 +13,7 @@
    "bpm": 54
   }
  ],
- "measures": 11,
+ "measures": 13,
  "parts": [
   {
    "id": "vni-1",
@@ -21,14 +21,7 @@
    "dynamics": [
     {
      "at": [
-      16,
-      1
-     ],
-     "level": 2
-    },
-    {
-     "at": [
-      40,
+      13,
       1
      ],
      "level": 2,
@@ -36,7 +29,69 @@
     },
     {
      "at": [
-      44,
+      91,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      52,
+      3
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      65,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      143,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      169,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      91,
+      3
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      52,
       1
      ],
      "level": 0
@@ -46,26 +101,26 @@
     {
      "type": "text",
      "at": [
-      16,
+      13,
       1
      ],
      "text": "non vib."
     },
     {
      "at": [
-      16,
+      13,
       1
      ],
      "dur": [
-      28,
+      39,
       1
      ],
      "pitch": {
-      "midi": 72
+      "midi": 71
      }
     }
    ],
-   "name": "Violins I 1 (entry 5)",
+   "name": "Violins I 1 (entry 4)",
    "abbreviation": "Vn. I 1",
    "players": 8
   },
@@ -75,14 +130,7 @@
    "dynamics": [
     {
      "at": [
-      12,
-      1
-     ],
-     "level": 2
-    },
-    {
-     "at": [
-      40,
+      26,
       1
      ],
      "level": 2,
@@ -90,7 +138,46 @@
     },
     {
      "at": [
-      44,
+      169,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      91,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      65,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      52,
       1
      ],
      "level": 0
@@ -100,26 +187,26 @@
     {
      "type": "text",
      "at": [
-      12,
+      26,
       1
      ],
      "text": "non vib."
     },
     {
      "at": [
-      12,
+      26,
       1
      ],
      "dur": [
-      32,
+      26,
       1
      ],
      "pitch": {
-      "midi": 71
+      "midi": 70
      }
     }
    ],
-   "name": "Violins I 2 (entry 4)",
+   "name": "Violins I 2 (entry 7)",
    "abbreviation": "Vn. I 2",
    "players": 8
   },
@@ -136,7 +223,39 @@
     },
     {
      "at": [
-      40,
+      13,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      13,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      65,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      13,
       1
      ],
      "level": 2,
@@ -144,7 +263,30 @@
     },
     {
      "at": [
-      44,
+      91,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      52,
+      3
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      52,
       1
      ],
      "level": 0
@@ -165,7 +307,7 @@
       1
      ],
      "dur": [
-      44,
+      52,
       1
      ],
      "pitch": {
@@ -183,14 +325,23 @@
    "dynamics": [
     {
      "at": [
-      8,
-      1
+      26,
+      3
      ],
-     "level": 2
+     "level": 2,
+     "to": "linear"
     },
     {
      "at": [
-      40,
+      65,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      13,
       1
      ],
      "level": 2,
@@ -198,7 +349,92 @@
     },
     {
      "at": [
-      44,
+      91,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      52,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      39,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      65,
+      3
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      169,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      91,
+      3
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      221,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      39,
+      1
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      52,
       1
      ],
      "level": 0
@@ -208,19 +444,19 @@
     {
      "type": "text",
      "at": [
-      8,
-      1
+      26,
+      3
      ],
      "text": "non vib."
     },
     {
      "at": [
-      8,
-      1
+      26,
+      3
      ],
      "dur": [
-      36,
-      1
+      130,
+      3
      ],
      "pitch": {
       "midi": 68.5
@@ -237,14 +473,30 @@
    "dynamics": [
     {
      "at": [
-      32,
+      104,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      221,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      39,
       1
      ],
      "level": 2
     },
     {
      "at": [
-      40,
+      48,
       1
      ],
      "level": 2,
@@ -252,7 +504,7 @@
     },
     {
      "at": [
-      44,
+      52,
       1
      ],
      "level": 0
@@ -262,19 +514,19 @@
     {
      "type": "text",
      "at": [
-      32,
-      1
+      104,
+      3
      ],
      "text": "non vib."
     },
     {
      "at": [
-      32,
-      1
+      104,
+      3
      ],
      "dur": [
-      12,
-      1
+      52,
+      3
      ],
      "pitch": {
       "midi": 67.5
@@ -291,14 +543,53 @@
    "dynamics": [
     {
      "at": [
-      28,
+      65,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      143,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
       1
      ],
      "level": 2
     },
     {
      "at": [
-      40,
+      91,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      65,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
       1
      ],
      "level": 2,
@@ -306,7 +597,7 @@
     },
     {
      "at": [
-      44,
+      52,
       1
      ],
      "level": 0
@@ -316,26 +607,26 @@
     {
      "type": "text",
      "at": [
-      28,
-      1
+      65,
+      3
      ],
      "text": "non vib."
     },
     {
      "at": [
-      28,
-      1
+      65,
+      3
      ],
      "dur": [
-      16,
-      1
+      91,
+      3
      ],
      "pitch": {
       "midi": 67
      }
     }
    ],
-   "name": "Violas 2 (entry 8)",
+   "name": "Violas 2 (entry 6)",
    "abbreviation": "Va. 2",
    "players": 6
   },
@@ -345,14 +636,46 @@
    "dynamics": [
     {
      "at": [
-      4,
+      91,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      65,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      221,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      39,
       1
      ],
      "level": 2
     },
     {
      "at": [
-      40,
+      48,
       1
      ],
      "level": 2,
@@ -360,7 +683,7 @@
     },
     {
      "at": [
-      44,
+      52,
       1
      ],
      "level": 0
@@ -370,26 +693,26 @@
     {
      "type": "text",
      "at": [
-      4,
-      1
+      91,
+      3
      ],
      "text": "non vib."
     },
     {
      "at": [
-      4,
-      1
+      91,
+      3
      ],
      "dur": [
-      40,
-      1
+      65,
+      3
      ],
      "pitch": {
-      "midi": 65.5
+      "midi": 66
      }
     }
    ],
-   "name": "Violoncellos 1 (entry 2)",
+   "name": "Violoncellos 1 (entry 8)",
    "abbreviation": "Vc. 1",
    "players": 4
   },
@@ -399,14 +722,69 @@
    "dynamics": [
     {
      "at": [
-      24,
+      13,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      13,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
+      3
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      52,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      39,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      65,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      143,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
       1
      ],
      "level": 2
     },
     {
      "at": [
-      40,
+      48,
       1
      ],
      "level": 2,
@@ -414,7 +792,7 @@
     },
     {
      "at": [
-      44,
+      52,
       1
      ],
      "level": 0
@@ -424,26 +802,26 @@
     {
      "type": "text",
      "at": [
-      24,
-      1
+      13,
+      3
      ],
      "text": "non vib."
     },
     {
      "at": [
-      24,
-      1
+      13,
+      3
      ],
      "dur": [
-      20,
-      1
+      143,
+      3
      ],
      "pitch": {
-      "midi": 64.5
+      "midi": 65.5
      }
     }
    ],
-   "name": "Violoncellos 2 (entry 7)",
+   "name": "Violoncellos 2 (entry 2)",
    "abbreviation": "Vc. 2",
    "players": 3
   },
@@ -453,14 +831,69 @@
    "dynamics": [
     {
      "at": [
-      20,
+      52,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      39,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      65,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      143,
+      6
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
       1
      ],
      "level": 2
     },
     {
      "at": [
-      40,
+      91,
+      3
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      65,
+      2
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "level": 2
+    },
+    {
+     "at": [
+      48,
       1
      ],
      "level": 2,
@@ -468,7 +901,7 @@
     },
     {
      "at": [
-      44,
+      52,
       1
      ],
      "level": 0
@@ -478,26 +911,26 @@
     {
      "type": "text",
      "at": [
-      20,
-      1
+      52,
+      3
      ],
      "text": "non vib."
     },
     {
      "at": [
-      20,
-      1
+      52,
+      3
      ],
      "dur": [
-      24,
-      1
+      104,
+      3
      ],
      "pitch": {
-      "midi": 61.5
+      "midi": 64.5
      }
     }
    ],
-   "name": "Violoncellos 3 (entry 6)",
+   "name": "Violoncellos 3 (entry 5)",
    "abbreviation": "Vc. 3",
    "players": 3
   }

@@ -8,16 +8,20 @@
 // The loudness scale is the score's: 0 (niente) to 8 (fff), nine points. Its atom is one mark:
 // notation rounds a level to the nearest mark, so no smaller step can be written. A between of
 // loudness is a number of marks, up (+) or down (−). The line starts on a standpoint and walks on,
-// adding the betweens a rule draws from a set, one per bar. A level that leaves the scale is moved
-// back into it by the scale's whole width (8), the way a pitch is folded by an octave; so a small
-// between that crosses an end is heard as a large jump the other way. Each bar holds its level and
-// the next bar starts on the new one (a step at the bar line, never a hairpin), so every between is
-// heard as one jump.
+// adding the betweens a rule draws from a set, one per bar. Each bar holds its level and the next
+// bar starts on the new one (a step at the bar line, never a hairpin), so every between is heard
+// as one step, and every step heard is a between of the set.
+//
+// The scale's ends are ends: niente is no sound, fff is the top, and nothing on the loudness side
+// answers to the octave, so a level is never folded back into the scale. A walk that would leave
+// it is refused. A set whose sum is 0 brings the walk back to the standpoint after each pass; that
+// is what lets it keep walking between two real ends.
 //
 // Two passes: the first reads the set in the order written, the second in the reverse order,
-// walking on from where the first ended. With the default set (sum 0) and standpoint (the middle
-// of the scale), each pass comes back to the standpoint, and the second pass is the first turned
-// upside down about the standpoint and played backwards.
+// walking on from where the first ended. With a set whose sum is 0, the second pass is the first
+// turned upside down about the standpoint and played backwards. The default order (+2 −1 −4 +3)
+// from the middle of the scale (4) stays on the sounding marks 1–7 in both passes, and takes each
+// between from two different levels, so each between lands on two different marks.
 //
 // Framing: the first stroke comes out of niente in one beat; one more bar at the last level fades
 // to niente.
@@ -28,7 +32,7 @@ import { number, numbersOf, text, type Values } from "../../../../../src/sketch/
 import { atomOf } from "../../../between.ts";
 import { curve, note, part, scoreOf, stream, TICKS, type Player } from "../../common.ts";
 
-/** The loudness scale: 0 = niente … 8 = fff. */
+/** The loudness scale: 0 = niente … 8 = fff. Its ends are ends: nothing is folded back. */
 const LO = 0;
 const HI = 8;
 
@@ -36,8 +40,8 @@ export const knobs = {
   set: text({
     group: "Loudness",
     label: "Set",
-    help: "The betweens of loudness, in marks (1 mark: one step of the scale, e.g. p to mp), − for down, in the order written. The first pass reads them as written, the second reversed. A set whose sum is 0 brings each pass back to where it started. Written as text to keep the order",
-    value: "-1 -4 2 3",
+    help: "The betweens of loudness, in marks (1 mark: one step of the scale, e.g. p to mp), − for down, in the order written. The first pass reads them as written, the second reversed. A set whose sum is 0 brings each pass back to where it started. The ends (0 niente, 8 fff) are not folded: a walk that would leave the scale is refused. Written as text to keep the order",
+    value: "2 -1 -4 3",
   }),
   anchor: number({
     group: "Loudness",
@@ -74,31 +78,27 @@ const CELLO: Player = {
 /** The one pitch: the middle of the cello's range (36–84), a stopped note. */
 const PITCH = (CELLO.range[0] + CELLO.range[1]) / 2;
 
-/**
- * Moves a level back into the scale by the scale's whole width, as a pitch is folded by octaves;
- * the ends themselves (0 and 8) stay where they are.
- */
-function wrap(level: number): number {
-  const span = HI - LO;
-  let q = level;
-  while (q > HI) q -= span;
-  while (q < LO) q += span;
-  return q;
-}
-
 export function score(v: Values<typeof knobs>) {
   const set = numbersOf("Set", v.set.replaceAll("−", "-"));
-  if (set.length === 0) throw new Error("Set: write at least one between (e.g. -1 -4 2 3)");
+  if (set.length === 0) throw new Error("Set: write at least one between (e.g. 2 -1 -4 3)");
   if (set.some((b) => !Number.isInteger(b) || Math.abs(b) > HI - LO))
     throw new Error("Set: betweens are whole marks, from -8 to 8 (the atom is one mark)");
 
   // The walk: the standpoint, then one level per between, the set as written and then reversed.
+  // A between that would carry the level past an end is not folded back: the walk is refused.
   const levels = [v.anchor];
   let level = v.anchor;
   for (const reading of [set, [...set].reverse()]) {
     const next = stream(reading, "in order", 1);
     for (let i = 0; i < reading.length; i++) {
-      level = wrap(level + next());
+      const between = next();
+      const to = level + between;
+      if (to < LO || to > HI)
+        throw new Error(
+          `Set: bar ${levels.length + 1} would be ${to} (${level} ${between > 0 ? "+" : ""}${between}), ` +
+            "outside the scale 0–8. The ends are not folded: move the standpoint or reorder the set",
+        );
+      level = to;
       levels.push(level);
     }
   }

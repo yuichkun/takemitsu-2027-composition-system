@@ -9,20 +9,25 @@
 // in dictionary order of the sorted set, each group ascending. When the set sums to 0, one round of
 // them brings the walker back to the anchor, whatever k is.
 //
-// Here three pairs do this at once, each with its own set, anchor, rhythm and family: two flutes
-// (family 5), two clarinets (family 3), two solo cellos (family 2). Each pair begins with groups of
-// one between (k = 1); after each full round it takes groups one larger, so each round goes further
-// out before it comes home. The group size stops growing at half the set's size: the groups of
-// (size − k) are the complements of the groups of k, and in dictionary order they pass through the
-// same verticals as the round of k, backwards, so a larger round would go no further out.
-// The A's second round (the same groups in reverse order) is left out: the next size follows
-// instead. In dictionary order the groups holding the downward betweens come first, so the walker
-// goes out below the home voice and comes back from below.
+// Here three pairs do this, each with its own set, anchor, rhythm and family: two flutes (family 5),
+// two clarinets (family 3), two solo cellos (family 2). Each pair begins with groups of one between
+// (k = 1) and, after each full round, takes groups one larger, up to the whole set (k = n). The sizes
+// come in pairs k and n − k whose groups are each other's rest: the smaller one is played in
+// dictionary order, where the groups holding the downward betweens come first, so the walker goes out
+// below the home voice (the A's first round); the larger one is played in reverse order (the A's
+// second round), which takes, in the same order, the rest of each group of the smaller size, so the
+// walker goes out above by the same verticals. A size that is its own pair (k = n / 2) is played both
+// ways, as in the A. The last size is one group, the whole set: its sum is 0, so the two players
+// sound the same line, from the anchor back to it. So each group is one onset longer than in the
+// round before, and the walker goes below, then above, then with the home voice.
+// The sets have 5, 4 and 3 betweens, so the three pairs have different numbers of rounds and
+// lengths; the cellos, entering last, go through all their sizes while the others are in the middle
+// of theirs.
 //
 // The clarinets enter at the flutes' first return (the end of their k = 1 round), the cellos at the
 // clarinets' first return: on the beat, where the families meet (with the values given, the return
-// is on the beat). Each pair ends with a closing head, both players on its anchor, fades there and
-// rests; the pair that ends last (the cellos) holds it to the end.
+// is on the beat). A pair's last note is the end of its whole-set group, both players on the anchor;
+// it fades there and the pair rests; the pair that ends last holds it to the end.
 //
 // The strings hold each pair's anchor, from the moment that pair enters to the end, and nothing
 // else: the pitch the home voice goes back to at every head, the point the thread is tied to.
@@ -38,7 +43,7 @@ const setKnob = (group: string, value: string, anchor: string) =>
   betweenSet({
     group,
     label: "Set",
-    help: "The betweens both players add (semitones, .5 for a quarter tone, − for down). With a sum of 0 the walker comes back at the end of every round; otherwise it does not, and nothing corrects it",
+    help: "The betweens both players add (semitones, .5 for a quarter tone, − for down). The groups grow from one between to the whole set, one size per round. With a sum of 0 the walker comes back at the end of every round; otherwise it does not, and nothing corrects it",
     value,
     min: -12,
     max: 12,
@@ -61,7 +66,7 @@ const anchorKnob = (group: string, value: number, min: string, max: string) =>
   pitch({
     group,
     label: "Anchor",
-    help: "The standpoint: where both players start, where the home player goes back at every head, where the pair ends, and the pitch the strings hold for this pair",
+    help: "The standpoint: where both players start, where the home player goes back at every head, where the pair ends (with a set summing to 0), and the pitch the strings hold for this pair",
     value,
     min,
     max,
@@ -69,20 +74,20 @@ const anchorKnob = (group: string, value: number, min: string, max: string) =>
   });
 
 export const knobs = {
-  fluteSet: setKnob("Flutes (enter first)", "-6.5 -3 1 3.5 5", "fluteAnchor"),
-  fluteAnchor: anchorKnob("Flutes (enter first)", 84.5, "C5", "C7"),
-  fluteRhythm: rhythmKnob("Flutes (enter first)", "3 4 4 4 5", "5 (quintuplet 16ths)"),
+  fluteSet: setKnob("Flutes (enter first)", "-4 -3 0.5 1 5.5", "fluteAnchor"),
+  fluteAnchor: anchorKnob("Flutes (enter first)", 79.5, "C5", "C7"),
+  fluteRhythm: rhythmKnob("Flutes (enter first)", "3 4 4 4 4 5 5", "5 (quintuplet 16ths)"),
   clarinetSet: setKnob("Clarinets (enter second)", "-5.5 -1 2.5 4", "clarinetAnchor"),
   clarinetAnchor: anchorKnob("Clarinets (enter second)", 65, "E3", "C6"),
   clarinetRhythm: rhythmKnob("Clarinets (enter second)", "3 3 4 5 5", "3 (triplet 8ths)"),
-  celloSet: setKnob("Cellos (enter last)", "-3.5 -2 -1.5 -0.5 7.5", "celloAnchor"),
-  celloAnchor: anchorKnob("Cellos (enter last)", 54.5, "C2", "C5"),
-  celloRhythm: rhythmKnob("Cellos (enter last)", "2 3 4 5 6", "2 (16ths)"),
+  celloSet: setKnob("Cellos (enter last)", "-4.5 -3.5 8", "celloAnchor"),
+  celloAnchor: anchorKnob("Cellos (enter last)", 44, "C2", "C5"),
+  celloRhythm: rhythmKnob("Cellos (enter last)", "2 3 4 5 7", "2 (16ths)"),
   tempo: number({
     group: "Form",
     label: "Tempo",
     help: "Quarter notes per minute",
-    value: 48,
+    value: 60,
     min: 30,
     max: 120,
     step: 2,
@@ -160,15 +165,37 @@ interface Onset {
 interface Walk {
   start: number;
   onsets: Onset[];
-  /** When each round ends: the head where the walker is back (with a set summing to 0). */
+  /** When each round ends: where the next head falls, the walker back (with a set summing to 0). */
   returns: number[];
-  /** The closing head. */
+  /** The last onset: the end of the whole-set group, both players on the anchor. */
   close: number;
-  /** The gap after the closing head, from the pair's own rhythm: how long it fades. */
+  /** The gap after it, from the pair's own rhythm: how long it fades. */
   after: number;
 }
 
-/** One pair: rounds of combinations of size 1, 2, … up to half the set, then a closing head. */
+/**
+ * The rounds of one pair, sizes 1 to the whole set. The groups of size k and of size n − k are each
+ * other's rest: the smaller size is played in dictionary order (the walker goes out below), the
+ * larger in reverse order (the same verticals, above), a size equal to its rest both ways (as in
+ * the A).
+ */
+function rounds(set: number[]): number[][][] {
+  const n = set.length;
+  const key = (g: number[]) => g.join(",");
+  const out: number[][][] = [];
+  for (let size = 1; size <= n; size++) {
+    const draw = drawer(set, "combinations", size, "ascending");
+    const round: number[][] = [];
+    for (let g = draw(); round.length === 0 || key(g) !== key(round[0]!); g = draw()) round.push(g);
+    const back = [...round].reverse();
+    if (2 * size < n) out.push(round);
+    else if (2 * size === n) out.push(round, back);
+    else out.push(back);
+  }
+  return out;
+}
+
+/** One pair: its rounds, each group a head and one onset per between. */
 function walk(
   set: number[],
   anchor: number,
@@ -178,15 +205,11 @@ function walk(
 ): Walk {
   const atom = atomOf(family);
   const gap = stream(rhythm, "in order", 1);
-  const key = (g: number[]) => g.join(",");
   const onsets: Onset[] = [];
   const returns: number[] = [];
   let t = start;
   let walker = anchor;
-  for (let size = 1; size <= Math.floor(set.length / 2); size++) {
-    const draw = drawer(set, "combinations", size, "ascending");
-    const round: number[][] = [];
-    for (let g = draw(); round.length === 0 || key(g) !== key(round[0]!); g = draw()) round.push(g);
+  for (const round of rounds(set)) {
     for (const group of round) {
       // The head: the home voice back at the anchor, the walker where it is.
       let home = anchor;
@@ -201,8 +224,8 @@ function walk(
     }
     returns.push(t);
   }
-  onsets.push({ at: t, home: anchor, walker });
-  return { start, onsets, returns, close: t, after: gap() * atom };
+  const close = onsets.at(-1)!.at;
+  return { start, onsets, returns, close, after: t - close };
 }
 
 export function score(v: Values<typeof knobs>) {
@@ -219,7 +242,9 @@ export function score(v: Values<typeof knobs>) {
   PAIRS.forEach((p, i) => {
     const g = given[i]!;
     if (g.set.length < 2)
-      throw new Error(`${p.name}: the Set needs at least two betweens (groups of one, then more)`);
+      throw new Error(
+        `${p.name}: the Set needs at least two betweens (groups of one, then larger)`,
+      );
     const w = walk(g.set, g.anchor, g.rhythm, p.family, start);
     for (const o of w.onsets)
       for (const m of [o.home, o.walker])
@@ -231,7 +256,7 @@ export function score(v: Values<typeof knobs>) {
     start = Math.ceil(w.returns[0]! / TICKS) * TICKS;
   });
 
-  // The pair that closes last holds its closing head to the end, with the strings.
+  // The pair that closes last holds its last note to the end, with the strings.
   const last = Math.max(...walks.map((w) => w.close));
   const end = Math.ceil((last + bar) / bar) * bar;
 
@@ -240,7 +265,7 @@ export function score(v: Values<typeof knobs>) {
   PAIRS.forEach((p, i) => {
     const w = walks[i]!;
     const stop = w.close === last ? end : w.close + w.after;
-    // mp throughout; the closing head fades.
+    // mp throughout; the last note fades.
     const dynamics = curve([
       { at: w.start, level: 4 },
       { at: w.close, level: 4, ramp: true },
