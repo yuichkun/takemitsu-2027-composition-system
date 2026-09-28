@@ -1,5 +1,8 @@
 {
-  "values": {},
+  "values": {
+    "family": "5 (quintuplet 16ths)",
+    "pulse": 1
+  },
   "presets": {
     "Same note": {
       "between": 0
@@ -30,5 +33,10 @@
       "pulse": 1
     }
   },
-  "touched": []
+  "touched": [
+    "between",
+    "stand",
+    "pulse",
+    "family"
+  ]
 }

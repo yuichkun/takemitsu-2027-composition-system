@@ -1,5 +1,9 @@
 {
-  "values": {},
+  "values": {
+    "pitchRule": "shift each time",
+    "pitches": "2 5 7 -5 -2",
+    "tempo": 132
+  },
   "presets": {
     "Quantization": {
       "pitches": "-5 -2 2 2 5 5 7 7",
@@ -24,5 +28,11 @@
       "pitchGroup": 4
     }
   },
-  "touched": []
+  "touched": [
+    "pitchGroup",
+    "pitchOrder",
+    "tempo",
+    "pitches",
+    "pitchRule"
+  ]
 }

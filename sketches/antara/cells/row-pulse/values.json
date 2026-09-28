@@ -1,5 +1,8 @@
 {
-  "values": {},
+  "values": {
+    "row": "3.5 3.5 -2",
+    "stand": "walk on"
+  },
   "presets": {
     "Ostinato": {
       "row": "2 5 7",
@@ -22,5 +25,8 @@
       "pulse": 1
     }
   },
-  "touched": []
+  "touched": [
+    "stand",
+    "row"
+  ]
 }

@@ -1,5 +1,10 @@
 {
-  "values": {},
+  "values": {
+    "pitchRule": "shift each time",
+    "pitches": "2 5 7 -5 -2",
+    "timeRule": "shift each time",
+    "rhythm": "3 1 2 2"
+  },
   "presets": {
     "Both by combinations": {},
     "Quarter tones": {
@@ -20,5 +25,13 @@
       "rhythm": "3 1 2 2"
     }
   },
-  "touched": []
+  "touched": [
+    "pitches",
+    "pitchGroup",
+    "stand",
+    "family",
+    "pitchRule",
+    "rhythm",
+    "timeRule"
+  ]
 }

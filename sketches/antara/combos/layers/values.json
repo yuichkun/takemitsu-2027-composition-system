@@ -1,5 +1,9 @@
 {
-  "values": {},
+  "values": {
+    "pzRhythm": "3 3 2",
+    "hpRhythm": "2 1",
+    "marRhythm": "3 2"
+  },
   "presets": {
     "Three pulses": {},
     "Meeting every 6 beats": {
@@ -26,5 +30,13 @@
       "marRhythm": "3 2"
     }
   },
-  "touched": []
+  "touched": [
+    "pzRhythm",
+    "hpRhythm",
+    "marOn",
+    "bars",
+    "pzOffset",
+    "hpOffset",
+    "marRhythm"
+  ]
 }

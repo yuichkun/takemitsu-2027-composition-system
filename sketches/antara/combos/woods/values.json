@@ -1,5 +1,8 @@
 {
-  "values": {},
+  "values": {
+    "rhythm": "3 3 2",
+    "timeRule": "in order"
+  },
   "presets": {
     "One row, three woods": {},
     "3 3 2 through the families": {
@@ -12,5 +15,8 @@
       "timeGroup": 3
     }
   },
-  "touched": []
+  "touched": [
+    "rhythm",
+    "timeRule"
+  ]
 }

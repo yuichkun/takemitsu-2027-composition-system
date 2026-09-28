@@ -1,5 +1,8 @@
 {
-  "values": {},
+  "values": {
+    "timeRule": "shift each time",
+    "rhythm": "3 3 2"
+  },
   "presets": {
     "Combinations": {},
     "Shift each time": {
@@ -16,5 +19,8 @@
       "family": "3 (triplet 8ths)"
     }
   },
-  "touched": []
+  "touched": [
+    "rhythm",
+    "timeRule"
+  ]
 }
