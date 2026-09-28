@@ -4,7 +4,7 @@
 
 汎用の作曲環境ではない。この1曲のために作り、この1曲の要求に最適化する。
 
-曲名は **antara**。構想は [`docs/antara/`](./docs/antara/README.md)。
+曲名は **antara**。創作の前提は [`docs/antara/premise.md`](./docs/antara/premise.md)、構想の全体は [`docs/antara/`](./docs/antara/README.md)。
 
 ---
 
