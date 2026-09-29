@@ -277,9 +277,10 @@ export function score(v: Values<typeof knobs>) {
       }
     }
   }
+  // The score ends at the first bar line on or after the last ring leaves: no bar of silence added.
   const bar = 4 * TICKS;
   const last = Math.max(...rings.map((r) => r.left!));
-  const end = Math.ceil((last + bar) / bar) * bar;
+  const end = Math.ceil(last / bar) * bar;
 
   // Players: each ring keeps the lowest-numbered parts free at its birth.
   for (const r of rings) {

@@ -8,37 +8,49 @@
 // a time, never doubled, flat mp, one way of playing for each (the trumpet muted, the cello
 // pizzicato, the rest ordinary).
 //
-// The line: the five sizes, smallest first, take their signs by place (1st, 3rd, 5th up; 2nd and
-// 4th down). The rule draws them "shift each time" (each round starts one place later); the 1st and
-// 3rd rounds read the drawn group as it is, the 2nd and 4th read it backwards with every sign turned,
-// so every two rounds add up to 0 and the line does not drift. Four rounds, twenty steps, each size
-// four times. The standpoint has no between before it, so it has no name and is not sounded: the
-// first note heard is the first step's.
+// The line: the five sizes, in the order written, take their signs by place (1st, 3rd, 5th up; 2nd
+// and 4th down). The rule draws them "shift each time" (each round starts one place later); the 1st
+// and 3rd rounds read the drawn group as it is, the 2nd and 4th read it backwards with every sign
+// turned, so every two rounds add up to 0 and the line does not drift. Four rounds, twenty steps,
+// each size four times. The standpoint has no between before it, so it has no name and is not
+// sounded: the first note heard is the first step's.
+//
+// The written order is not the order of size. The rule reads the written order as a ring (every
+// step's size is next to the one before it, around the ring), so the sizes are written so that no
+// two sizes next to each other in size are next to each other on the ring: read smallest first, the
+// widths of the jumps would widen and narrow by the smallest difference and the instruments would
+// walk round in the order of their sizes, one smooth gesture instead of names. All five sizes carry
+// .5, so every even step lands on the standpoint's grid; with the rule's four rounds, only the 4th
+// written place is always read on an even step (steps 4, 8, 12, 20), so the marimba's size, the one
+// instrument with one grid, is written 4th.
 // Card: README.md.
 
 import type { NoteEvent } from "../../../../../src/score/types.ts";
-import { betweenSet, choice, number, pitch, type Values } from "../../../../../src/sketch/knobs.ts";
+import {
+  choice,
+  number,
+  numbersOf,
+  pitch,
+  text,
+  type Values,
+} from "../../../../../src/sketch/knobs.ts";
 import { atomOf, familyOf, FAMILY_OPTIONS } from "../../../between.ts";
 import { fold, gridOf, note, part, scoreOf, TICKS, type Player } from "../../common.ts";
 
 export const knobs = {
-  betweens: betweenSet({
+  betweens: text({
     group: "Line",
     label: "Betweens",
-    help: "Five sizes (semitones, .5 for a quarter tone), one for each instrument, smallest first: muted trumpet, cello pizzicato, flute, marimba, viola. The 1st, 3rd and 5th go up, the 2nd and 4th down (the 2nd and 4th rounds turn every sign)",
-    value: "2.5 3.5 4.5 5.5 6.5",
-    min: 0.5,
-    max: 12,
-    step: 0.5,
-    unit: "st",
+    help: "Five different sizes (semitones, .5 for a quarter tone), read in the order written, as a ring. By size they name, smallest first: muted trumpet, cello pizzicato, flute, marimba, viola. The 1st, 3rd and 5th written go up, the 2nd and 4th down (the 2nd and 4th rounds turn every sign). With five .5 sizes, only the 4th written place always lands on the standpoint's grid, so write the marimba's size 4th",
+    value: "4.5 6.5 3.5 5.5 2.5",
   }),
   standpoint: pitch({
     group: "Line",
     label: "Standpoint",
     help: "Where the line starts. It has no between before it, so no instrument names it and it is not sounded; the line folds by octaves into an octave either side of it",
-    value: "Bb4",
+    value: "C#5",
     min: "C4",
-    max: "C5",
+    max: "C6",
     step: 0.5,
   }),
   time: number({
@@ -122,8 +134,8 @@ const NAMES: Player[] = [
 const SCORE_ORDER = ["fl", "tpt", "mar", "va", "vc"];
 
 /** The steps of the line: the signed set drawn round by round, every other round backwards and turned. */
-function stepsOf(sizes: number[]): number[] {
-  const signed = sizes.map((b, i) => (i % 2 === 0 ? b : -b));
+function stepsOf(written: number[]): number[] {
+  const signed = written.map((b, i) => (i % 2 === 0 ? b : -b));
   const out: number[] = [];
   for (let r = 0; r < ROUNDS; r++) {
     const s = r % signed.length;
@@ -134,10 +146,14 @@ function stepsOf(sizes: number[]): number[] {
 }
 
 export function score(v: Values<typeof knobs>) {
-  const sizes = [...v.betweens].sort((a, b) => a - b);
-  if (sizes.length !== NAMES.length || new Set(sizes).size !== sizes.length)
+  const written = numbersOf("Betweens", v.betweens);
+  if (written.some((b) => b <= 0 || !Number.isInteger(b * 2)))
+    throw new Error("Betweens: sizes are semitones above 0 on the quarter-tone grid (2.5, 4)");
+  if (written.length !== NAMES.length || new Set(written).size !== written.length)
     throw new Error(`Betweens: give ${NAMES.length} different sizes, one for each instrument`);
-  const steps = stepsOf(sizes);
+  // The names go by size, smallest first; the line reads the order written.
+  const sizes = [...written].sort((a, b) => a - b);
+  const steps = stepsOf(written);
   const range: [number, number] = [v.standpoint - 12, v.standpoint + 12];
   const pulse = v.time * atomOf(familyOf(v.family));
 
@@ -150,7 +166,7 @@ export function score(v: Values<typeof knobs>) {
     if (!p.grids.includes(gridOf(midi)))
       throw new Error(
         `${p.name} names the between ${Math.abs(b)}, but step ${k + 1} lands on ${midi}, ` +
-          `a quarter tone off the only grid it holds. Change the standpoint or the betweens`,
+          `a quarter tone off the only grid it holds. Write its size 4th, or change the standpoint`,
       );
     events[who]!.push(note(k * pulse, pulse, midi, p.technique ? { technique: p.technique } : {}));
   });
