@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="4.0">
+<work><work-title>02b instrument identity, names only</work-title></work>
+
+<part-list>
+<score-part id="P1"><part-name>Piccolo</part-name><part-abbreviation>Picc.</part-abbreviation></score-part>
+<score-part id="P2"><part-name>Flute 1</part-name><part-abbreviation>Fl. 1</part-abbreviation></score-part>
+<score-part id="P3"><part-name>Alto Flute</part-name><part-abbreviation>A. Fl.</part-abbreviation></score-part>
+<score-part id="P4"><part-name>Oboe 1</part-name><part-abbreviation>Ob. 1</part-abbreviation></score-part>
+<score-part id="P5"><part-name>Cor anglais</part-name><part-abbreviation>C. a.</part-abbreviation></score-part>
+<score-part id="P6"><part-name>Clarinet 1 in B♭</part-name><part-abbreviation>Cl. 1</part-abbreviation></score-part>
+<score-part id="P7"><part-name>Clarinet in E♭</part-name><part-abbreviation>E♭ Cl.</part-abbreviation></score-part>
+<score-part id="P8"><part-name>Bass Clarinet in B♭</part-name><part-abbreviation>B. Cl.</part-abbreviation></score-part>
+<score-part id="P9"><part-name>Bassoon 1</part-name><part-abbreviation>Bsn. 1</part-abbreviation></score-part>
+<score-part id="P10"><part-name>Contrabassoon</part-name><part-abbreviation>Cbsn.</part-abbreviation></score-part>
+<score-part id="P11"><part-name>Horn 1 in F</part-name><part-abbreviation>Hn. 1</part-abbreviation></score-part>
+<score-part id="P12"><part-name>Trumpet 1 in C</part-name><part-abbreviation>Tpt. 1</part-abbreviation></score-part>
+<score-part id="P13"><part-name>Trombone 1</part-name><part-abbreviation>Tbn. 1</part-abbreviation></score-part>
+<score-part id="P14"><part-name>Bass Trombone</part-name><part-abbreviation>B. Tbn.</part-abbreviation></score-part>
+<score-part id="P15"><part-name>Tuba</part-name><part-abbreviation>Tba.</part-abbreviation></score-part>
+<score-part id="P16"><part-name>Timpani</part-name><part-abbreviation>Timp.</part-abbreviation></score-part>
+<score-part id="P17"><part-name>Glockenspiel</part-name><part-abbreviation>Glock.</part-abbreviation></score-part>
+<score-part id="P18"><part-name>Xylophone</part-name><part-abbreviation>Xyl.</part-abbreviation></score-part>
+<score-part id="P19"><part-name>Vibraphone</part-name><part-abbreviation>Vib.</part-abbreviation></score-part>
+<score-part id="P20"><part-name>Crotales</part-name><part-abbreviation>Crot.</part-abbreviation></score-part>
+<score-part id="P21"><part-name>Tubular Bells</part-name><part-abbreviation>Tub. B.</part-abbreviation></score-part>
+<score-part id="P22"><part-name>Snare Drum</part-name><part-abbreviation>S. D.</part-abbreviation></score-part>
+<score-part id="P23"><part-name>Bass Drum</part-name><part-abbreviation>B. D.</part-abbreviation></score-part>
+<score-part id="P24"><part-name>Suspended Cymbal</part-name><part-abbreviation>Sus. Cym.</part-abbreviation></score-part>
+<score-part id="P25"><part-name>Tam-tam</part-name><part-abbreviation>T.-t.</part-abbreviation></score-part>
+<score-part id="P26"><part-name>Triangle</part-name><part-abbreviation>Tri.</part-abbreviation></score-part>
+<score-part id="P27"><part-name>Wood Block</part-name><part-abbreviation>W. B.</part-abbreviation></score-part>
+<score-part id="P28"><part-name>Marimba</part-name><part-abbreviation>Mar.</part-abbreviation></score-part>
+<score-part id="P29"><part-name>Harp 1</part-name><part-abbreviation>Hp. 1</part-abbreviation></score-part>
+<score-part id="P30"><part-name>Celesta</part-name><part-abbreviation>Cel.</part-abbreviation></score-part>
+<score-part id="P31"><part-name>Piano</part-name><part-abbreviation>Pno.</part-abbreviation></score-part>
+<score-part id="P32"><part-name>Violin I</part-name><part-abbreviation>Vln. I</part-abbreviation></score-part>
+<score-part id="P33"><part-name>Violin II</part-name><part-abbreviation>Vln. II</part-abbreviation></score-part>
+<score-part id="P34"><part-name>Viola</part-name><part-abbreviation>Vla.</part-abbreviation></score-part>
+<score-part id="P35"><part-name>Violoncello</part-name><part-abbreviation>Vc.</part-abbreviation></score-part>
+<score-part id="P36"><part-name>Double Bass</part-name><part-abbreviation>Db.</part-abbreviation></score-part>
+</part-list>
+<part id="P1">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef><transpose><diatonic>0</diatonic><chromatic>0</chromatic><octave-change>1</octave-change></transpose></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P2">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P3">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P4">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P5">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P6">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P7">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P8">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P9">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P10">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef><transpose><diatonic>0</diatonic><chromatic>0</chromatic><octave-change>-1</octave-change></transpose></attributes><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P11">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P12">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P13">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P14">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P15">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P16">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P17">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef><transpose><diatonic>0</diatonic><chromatic>0</chromatic><octave-change>2</octave-change></transpose></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P18">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef><transpose><diatonic>0</diatonic><chromatic>0</chromatic><octave-change>1</octave-change></transpose></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P19">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P20">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef><transpose><diatonic>0</diatonic><chromatic>0</chromatic><octave-change>2</octave-change></transpose></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P21">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P22">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>percussion</sign></clef><staff-details><staff-lines>1</staff-lines></staff-details></attributes><note><unpitched><display-step>B</display-step><display-octave>4</display-octave></unpitched><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P23">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>percussion</sign></clef><staff-details><staff-lines>1</staff-lines></staff-details></attributes><note><unpitched><display-step>B</display-step><display-octave>4</display-octave></unpitched><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P24">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>percussion</sign></clef><staff-details><staff-lines>1</staff-lines></staff-details></attributes><note><unpitched><display-step>B</display-step><display-octave>4</display-octave></unpitched><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P25">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>percussion</sign></clef><staff-details><staff-lines>1</staff-lines></staff-details></attributes><note><unpitched><display-step>B</display-step><display-octave>4</display-octave></unpitched><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P26">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>percussion</sign></clef><staff-details><staff-lines>1</staff-lines></staff-details></attributes><note><unpitched><display-step>B</display-step><display-octave>4</display-octave></unpitched><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P27">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>percussion</sign></clef><staff-details><staff-lines>1</staff-lines></staff-details></attributes><note><unpitched><display-step>B</display-step><display-octave>4</display-octave></unpitched><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P28">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><staves>2</staves><clef number="1"><sign>G</sign><line>2</line></clef><clef number="2"><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type><staff>1</staff></note><backup><duration>240</duration></backup><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>5</voice><type>whole</type><staff>2</staff></note></measure>
+</part>
+<part id="P29">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><staves>2</staves><clef number="1"><sign>G</sign><line>2</line></clef><clef number="2"><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type><staff>1</staff></note><backup><duration>240</duration></backup><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>5</voice><type>whole</type><staff>2</staff></note></measure>
+</part>
+<part id="P30">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><staves>2</staves><clef number="1"><sign>G</sign><line>2</line></clef><clef number="2"><sign>F</sign><line>4</line></clef><transpose><diatonic>0</diatonic><chromatic>0</chromatic><octave-change>1</octave-change></transpose></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type><staff>1</staff></note><backup><duration>240</duration></backup><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>5</voice><type>whole</type><staff>2</staff></note></measure>
+</part>
+<part id="P31">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><staves>2</staves><clef number="1"><sign>G</sign><line>2</line></clef><clef number="2"><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type><staff>1</staff></note><backup><duration>240</duration></backup><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>5</voice><type>whole</type><staff>2</staff></note></measure>
+</part>
+<part id="P32">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P33">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P34">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>C</sign><line>3</line></clef></attributes><note><pitch><step>C</step><octave>4</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P35">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef></attributes><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+<part id="P36">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef><transpose><diatonic>0</diatonic><chromatic>0</chromatic><octave-change>-1</octave-change></transpose></attributes><note><pitch><step>C</step><octave>3</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+</part>
+</score-partwise>

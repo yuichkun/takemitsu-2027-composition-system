@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="4.0">
+<work><work-title>04 names</work-title></work>
+
+<part-list>
+<score-part id="P1"><part-name>Flutes 1.2</part-name><part-abbreviation>Fl. 1.2</part-abbreviation></score-part>
+<score-part id="P2"><part-name>Clarinets 1.2 in Bb</part-name><part-name-display><display-text>Clarinets 1.2 in B</display-text><accidental-text>flat</accidental-text></part-name-display><part-abbreviation>Cl. 1.2 (Bb)</part-abbreviation><part-abbreviation-display><display-text>Cl. 1.2 (B</display-text><accidental-text>flat</accidental-text><display-text>)</display-text></part-abbreviation-display></score-part>
+<score-part id="P3"><part-name>Clarinet in E♭</part-name><part-abbreviation>E♭ Cl.</part-abbreviation></score-part>
+<score-part id="P4"><part-name>Horns 1.2</part-name><part-abbreviation>Hn. 1.2</part-abbreviation></score-part>
+<score-part id="P5"><part-name>Trumpet 1 in C</part-name><part-abbreviation>Tpt. 1 (C)</part-abbreviation></score-part>
+<score-part id="P6"><part-name>Violin I</part-name><part-abbreviation>Vln. I</part-abbreviation></score-part>
+</part-list>
+<part id="P1">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="2"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="3"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="4"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="5"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="6"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="7"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="8"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="9"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="10"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="11"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="12"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+</part>
+<part id="P2">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="2"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="3"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="4"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="5"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="6"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="7"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="8"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="9"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="10"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="11"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="12"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+</part>
+<part id="P3">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="2"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="3"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="4"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="5"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="6"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="7"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="8"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="9"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="10"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="11"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="12"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+</part>
+<part id="P4">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>4</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="2"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="3"><note><pitch><step>C</step><octave>4</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="4"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="5"><print new-system="yes"/><note><pitch><step>C</step><octave>4</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="6"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="7"><note><pitch><step>C</step><octave>4</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="8"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="9"><print new-system="yes"/><note><pitch><step>C</step><octave>4</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="10"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="11"><note><pitch><step>C</step><octave>4</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="12"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+</part>
+<part id="P5">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="2"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="3"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="4"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="5"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="6"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="7"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="8"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="9"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="10"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="11"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="12"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+</part>
+<part id="P6">
+<measure number="1"><attributes><divisions>60</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="2"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="3"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="4"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="5"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="6"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="7"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="8"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="9"><print new-system="yes"/><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="10"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+<measure number="11"><note><pitch><step>C</step><octave>5</octave></pitch><duration>240</duration><voice>1</voice><type>whole</type></note></measure>
+<measure number="12"><note><rest measure="yes"/><duration>240</duration><voice>1</voice></note></measure>
+</part>
+</score-partwise>

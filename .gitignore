@@ -21,3 +21,5 @@ native/build/
 samples/*
 !samples/README.md
 .vscode
+# Sibelius の取り込みテストの結果（画像・再書き出し。報告は docs/research に移す）
+verification/sibelius-layout/results/
