@@ -65,6 +65,8 @@ export interface NormalScore {
   rehearsal: { measure: number; label: string }[];
   /** How far an accidental reaches (Score.accidentals). */
   accidentals: "note" | "bar";
+  /** Whether a pair of winds or brass may share a staff (Score.pairs). */
+  pairs: boolean;
   end: Rational;
   warnings: string[];
 }
@@ -302,6 +304,7 @@ export function normalize(score: Score): NormalScore {
       }),
     rehearsal: score.rehearsal ?? [],
     accidentals: score.accidentals ?? "bar",
+    pairs: score.pairs ?? true,
     end,
     warnings,
   };

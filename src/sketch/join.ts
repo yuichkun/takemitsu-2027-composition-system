@@ -213,7 +213,7 @@ const SECTIONS: Record<string, string> = {
  * player (flute 3 and piccolo), or the part alone.
  */
 export function groupOf(part: string, ensemble: readonly Player[]): string {
-  const m = /^(vn1|vn2|va|vc|cb)(s|r|a|b|q[1-4]|t)$/.exec(part);
+  const m = /^(vn1|vn2|va|vc|cb)(s|r|a|b|q[1-4]|t|-\d+-\d+)$/.exec(part);
   if (m) return m[1]!;
   return ensemble.find((p) => p.id === part)?.player ?? part;
 }
@@ -244,12 +244,17 @@ function defaultParts(
   for (const [inst, vs] of byInstrument) {
     const key = SECTIONS[inst];
     if (key) {
+      // The section divided into as many parts as the section has voices (vn1-3-2), when the piece
+      // has them; else halves and quarters (a b, q1–q4).
+      const inN = vs.map((_, k) => `-${vs.length}-${k + 1}`);
       const divisions =
         vs.length === 1
           ? [vs[0]!.players === 1 ? "s" : "t"]
-          : vs.length === 2
-            ? ["a", "b"]
-            : ["q1", "q2", "q3", "q4"];
+          : inN.every((d) => ensemble.some((p) => p.id === `${key}${d}`))
+            ? inN
+            : vs.length === 2
+              ? ["a", "b"]
+              : ["q1", "q2", "q3", "q4"];
       vs.forEach((v, i) => {
         const id = i < divisions.length ? `${key}${divisions[i]}` : undefined;
         out.set(v.id, id && ensemble.some((p) => p.id === id) ? id : null);

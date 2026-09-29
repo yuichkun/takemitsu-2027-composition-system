@@ -3,7 +3,8 @@
 // score's parts are what plays; the staves are what the conductor reads.
 //
 // - Winds and brass: a pair (Flutes 1.2, Oboes 1.2, …, Horns 1.2 and 3.4) shares one staff for the
-//   whole piece when it writes cleanly on one (see shareable), else each player has a staff. On a
+//   whole piece when it writes cleanly on one (see shareable), else each player has a staff (always,
+//   when the score says pairs: false). On a
 //   shared staff the texture is decided stretch by stretch: the same notes → one line, "a 2"; the
 //   same rhythm → chords; else two voices, the first player stems up ("1."), the second down ("2.").
 //   A player alone is labelled "1." or "2." and the other's rests are hidden.
@@ -528,7 +529,12 @@ const pairsOf = (id: string): [number, number][] =>
       ? [[0, 1]]
       : [];
 
-function winds(parts: NormalPart[], measures: Measure[], beats: [Rational, Rational][]): Staff[] {
+function winds(
+  parts: NormalPart[],
+  measures: Measure[],
+  beats: [Rational, Rational][],
+  share = true,
+): Staff[] {
   const out: Staff[] = [];
   const ids = [...new Set(parts.map((p) => p.instrument.id))].sort(
     (x, y) => rank(catalog.get(x)!) - rank(catalog.get(y)!),
@@ -543,7 +549,7 @@ function winds(parts: NormalPart[], measures: Measure[], beats: [Rational, Ratio
       return { part: p, numbers };
     });
     const multiple = n > 1;
-    const pairs = pairsOf(id);
+    const pairs = share ? pairsOf(id) : [];
     for (let i = 0; i < numbered.length; i++) {
       const { part, numbers } = numbered[i]!;
       const next = numbered[i + 1];
@@ -766,8 +772,8 @@ export function layoutOf(score: NormalScore): Layout {
   const beats = beatsOf(score.measures);
   const parts = score.parts.map(hands);
   const of = (family: Instrument["family"]) => parts.filter((p) => p.instrument.family === family);
-  const woodwind = winds(of("woodwind"), score.measures, beats);
-  const brass = winds(of("brass"), score.measures, beats);
+  const woodwind = winds(of("woodwind"), score.measures, beats, score.pairs);
+  const brass = winds(of("brass"), score.measures, beats, score.pairs);
   const perc = percussion(of("percussion"), score.measures);
   const harps = numberedSingles(of("harp"), score.measures);
   const keyboards = [

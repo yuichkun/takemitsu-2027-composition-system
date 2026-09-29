@@ -50,6 +50,12 @@ export interface Score {
    * included, except a note repeating the one before it and tied notes (Sibelius does not keep it).
    */
   accidentals?: "note" | "bar";
+  /**
+   * Whether winds and brass of a pair (flutes 1.2, horns 1.2 and 3.4, …) share a staff where they
+   * write cleanly on one (docs/decisions/0021; the default). false: every player has a staff of
+   * their own (antara, docs/decisions/0025).
+   */
+  pairs?: boolean;
   /** For a piece made of sketches: where each of them is (the preview draws it as a map). */
   outline?: Outline;
 }
