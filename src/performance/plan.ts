@@ -15,6 +15,7 @@ import { join } from "node:path";
 
 import { bbcsoMap, chooseArticulation, type PitchedMap } from "../libraries/bbcso/map.ts";
 import type { Dynamic, NormalPart, NormalScore, Note } from "../score/normalize.ts";
+import { Rational } from "../score/rational.ts";
 import { quartersAt, secondsAt } from "../score/timeline.ts";
 
 const inventory = JSON.parse(
@@ -140,6 +141,44 @@ interface Draft {
   lane: Omit<BbcsoLane, "articulations">;
 }
 
+/** Discrete glissandi keep their written endpoints; only playback expands the intervening strings. */
+function sweptNotes(notes: Note[]): Note[] {
+  return notes
+    .flatMap((n, i) => {
+      if (!n.glissPitches) return [n];
+      const next = notes.slice(i + 1).find((x) => x.staff === n.staff && x.voice === n.voice);
+      if (
+        !next ||
+        !next.at.eq(n.end) ||
+        next.pitches.length !== 1 ||
+        next.pitches[0]!.midi !== n.glissPitches.at(-1)!.midi
+      )
+        throw new Error(
+          "A discrete glissando must end at the next note of the same staff and voice",
+        );
+      const span = n.dur.sub(n.glissAfter);
+      if (span.value <= 0) throw new Error("A discrete glissando needs time after its hold");
+      const steps = n.glissPitches.length - 1;
+      return n.glissPitches.slice(0, -1).map((pitch, k): Note => {
+        const at = k === 0 ? n.at : n.at.add(n.glissAfter).add(span.mul(new Rational(k, steps)));
+        return {
+          ...n,
+          at,
+          dur: n.end.sub(at),
+          end: n.end,
+          pitches: [pitch],
+          gliss: false,
+          glissAfter: Rational.zero,
+          glissPitches: undefined,
+          technique: n.technique.filter((t) => t !== "gliss"),
+          articulations: k === 0 ? n.articulations : [],
+          slur: false,
+        };
+      });
+    })
+    .sort((a, b) => a.at.cmp(b.at));
+}
+
 export function plan(score: NormalScore): Plan {
   const warnings: string[] = [];
   const lanes: Lane[] = [];
@@ -166,7 +205,7 @@ export function plan(score: NormalScore): Plan {
     // Notes play at their own times (a feathered group is written evenly: normalize.ts).
     const part = {
       ...written,
-      notes: written.notes.map((n) => (n.play ? { ...n, ...n.play } : n)),
+      notes: sweptNotes(written.notes.map((n) => (n.play ? { ...n, ...n.play } : n))),
     };
     const map = bbcsoMap[part.instrument.id];
     const level = levelOf(part.dynamics);

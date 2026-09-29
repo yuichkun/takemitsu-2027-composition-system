@@ -5,7 +5,8 @@
 // The bell is a chord of the winds (palette a/pitch-half-moves): the standpoint, the note the low
 // strings hold in octaves, plus the sum of every choice from a set of whole betweens (16 notes, the
 // first bell), and the same again a .5 between higher, on the other grid (16 more, the second
-// bell). The piano, the celesta and harp 1 strike with the first bell, harp 2 with the second. Each
+// bell). The piano and the celesta strike with the first bell. The harps sweep fixed pedal
+// settings drawn from the pitch classes common to every state of their respective bells. Each
 // toll changes the size of one of the smaller betweens, in turn: half of the bell moves, half stays.
 //
 // First the whole bell (both halves) tolls, slowly. Then it splits: the two bells toll in turn, the
@@ -15,7 +16,7 @@
 // and everything stops. Under the tolls the upper strings run through the first bell's notes (each
 // section on its own family, stepping to the next note of the bell up or down) and the low strings
 // hold the standpoint in tremolo; the suspended cymbal and the timpani roll up into the strokes.
-// After the cut the tam-tam rings on, and falling figures in the winds, harps, celesta,
+// After the cut the harps damp, the tam-tam rings on, and falling figures in the winds, celesta,
 // glockenspiel and vibraphone drift down through the bell's notes.
 
 import { ensemble } from "../../../../pieces/antara/ensemble.ts";
@@ -334,46 +335,96 @@ function voicesFor(v: V, bell: 0 | 1, states: number[]): Map<string, number> {
   return out;
 }
 
-/** Strings (C D … B) that can sound each pitch class on a pedal harp. */
-const STRINGS = [
-  [0, 6],
-  [0, 1],
-  [1],
-  [1, 2],
-  [2, 3],
-  [3, 2],
-  [3, 4],
-  [4],
-  [4, 5],
-  [5],
-  [5, 6],
-  [6, 0],
-];
-function pedalsFit(pcs: number[]): boolean {
-  const distinct = [...new Set(pcs)];
-  const taken = new Set<number>();
-  const go = (i: number): boolean => {
-    if (i === distinct.length) return true;
-    for (const s of STRINGS[distinct[i]!]!) {
-      if (taken.has(s)) continue;
-      taken.add(s);
-      if (go(i + 1)) return true;
-      taken.delete(s);
+/** Fixed pedals drawn only from pitch classes present in every state of this bell. */
+function harpSwirls(v: V, states: number[], bell: 0 | 1, cut: number): Part {
+  const tuning = bell ? -0.5 : 0;
+  const pc = (m: number) => ((Math.round(m - tuning) % 12) + 12) % 12;
+  const fields = states.map((state) => new Set(bellAt(v, state, bell).map(pc)));
+  const common = [...fields[0]!].filter((n) => fields.every((field) => field.has(n)));
+  const steps = ["C", "D", "E", "F", "G", "A", "B"] as const;
+  const natural = [0, 2, 4, 5, 7, 9, 11];
+  let pedals: number[] | undefined;
+  let best = -Infinity;
+  const search = (chosen: number[]) => {
+    if (chosen.length === 7) {
+      const distinct = new Set(chosen.map((a, i) => (natural[i]! + a + 12) % 12)).size;
+      const merit = distinct * 10 - chosen.reduce((n, a) => n + Math.abs(a), 0);
+      if (merit > best) {
+        best = merit;
+        pedals = [...chosen];
+      }
+      return;
     }
-    return false;
+    const i = chosen.length;
+    for (const alter of [0, -1, 1])
+      if (common.includes((natural[i]! + alter + 12) % 12)) search([...chosen, alter]);
   };
-  return go(0);
-}
-
-/** A harp's chord from these notes: from the middle outwards, as many as one pedal setting holds (8 at most). */
-function harpChord(notes: number[], tuning: number): number[] {
-  const out: number[] = [];
-  for (const n of [...notes].sort((a, b) => Math.abs(a - 60) - Math.abs(b - 60))) {
-    if (out.length === 8) break;
-    const pcs = [...out, n].map((x) => ((Math.round(x - tuning) % 12) + 12) % 12);
-    if (pedalsFit(pcs)) out.push(n);
+  search([]);
+  if (!pedals)
+    throw new Error(`Harp ${bell + 1}: these bell states have no common fixed pedal setting`);
+  const setting = pedals;
+  const offset = bell ? v.second + 0.5 : 0;
+  const strings = Array.from({ length: 6 }, (_, o) => o + 2)
+    .flatMap((octave) =>
+      steps.map((step, i) => ({
+        pitch: { step, alter: setting[i]! + tuning, octave },
+        midi: 12 * (octave + 1) + natural[i]! + setting[i]! + tuning,
+      })),
+    )
+    .filter((n) => n.midi >= 48 + offset && n.midi <= 84 + offset)
+    .sort((a, b) => a.midi - b.midi);
+  if (strings.length < 2) throw new Error("The harp glissando needs at least two strings");
+  const pedalName = (i: number) => steps[i]! + ({ [-1]: "b", 0: "", 1: "#" }[setting[i]!] ?? "");
+  const label = [1, 0, 6].map(pedalName).join(" ") + " | " + [2, 3, 4, 5].map(pedalName).join(" ");
+  const events: Event[] = [
+    {
+      type: "text",
+      at: 0,
+      text: `Pedals: ${label}; unchanged${bell ? " (all strings tuned 1/4 tone low)" : ""}`,
+      placement: "above",
+    },
+  ];
+  // Eight beats of preparation after the section starts; the second harp enters one beat later
+  // in the opposite direction. Each sweep takes two beats, except the last if the cut interrupts it.
+  let at = 8 * TICKS + bell * TICKS;
+  let up = bell === 0;
+  let last: Pitch | undefined;
+  while (at < cut) {
+    const route = up ? strings : [...strings].reverse();
+    const dur = Math.min(2 * TICKS, cut - at);
+    events.push({
+      at: time(at),
+      dur: time(dur),
+      pitch: route[0]!.pitch,
+      staff: 1,
+      gliss: true,
+      glissPitches: route.map((n) => n.pitch),
+    });
+    last = route.at(-1)!.pitch;
+    at += dur;
+    up = !up;
   }
-  return out.sort((a, b) => a - b);
+  if (last) {
+    events.push({
+      at: time(cut),
+      dur: time(TICKS / 2),
+      pitch: last,
+      staff: 1,
+      articulations: ["accent"],
+    });
+    events.push({
+      type: "text",
+      at: time(cut + TICKS / 2),
+      text: "damp all strings",
+      placement: "above",
+    });
+  }
+  return partOf(`hp${bell + 1}`, events, [
+    { at: 0, level: 7 },
+    { at: time(cut - 2 * BAR), level: 7, to: "linear" },
+    { at: time(cut), level: 8 },
+    { at: time(cut + TICKS / 2), level: 0 },
+  ]);
 }
 
 //==============================================================================
@@ -427,8 +478,7 @@ export function score(v: V): Score {
     }
   });
 
-  // The fixed pitches strike with their bell: the piano, the celesta and harp 1 with the first
-  // (semitones), harp 2 with the second (a quarter tone off).
+  // Piano and celesta strike the first bell; the harps sweep its two grids on fixed pedals.
   const struck = (
     id: string,
     bell: 0 | 1,
@@ -473,30 +523,7 @@ export function score(v: V): Score {
     parts.push(partOf("pno", p.events, p.dynamics));
     const c = struck("cel", 0, (n) => within(60, 98, 4, true)(n), "l.v.", false);
     parts.push(partOf("cel", c.events, c.dynamics));
-    const h1 = struck(
-      "hp1",
-      0,
-      (n) =>
-        harpChord(
-          n.filter((x) => x >= 36 && x <= 84),
-          0,
-        ),
-      "l.v.",
-      false,
-    );
-    parts.push(partOf("hp1", h1.events, h1.dynamics));
-    const h2 = struck(
-      "hp2",
-      1,
-      (n) =>
-        harpChord(
-          n.filter((x) => x >= 36 && x <= 84),
-          -0.5,
-        ),
-      "l.v.",
-      false,
-    );
-    parts.push(partOf("hp2", h2.events, h2.dynamics));
+    parts.push(harpSwirls(v, states, 0, final.at), harpSwirls(v, states, 1, final.at));
   }
 
   // The low strings: the standpoint in octaves, tremolo, all through; a last stroke with the cut.
@@ -643,7 +670,7 @@ export function score(v: V): Score {
   }
 
   // The afterglow: after a beat of the cut, the winds' figures fall through their bell's notes
-  // (each from its own last note, on its own family, slowing down), and the harps, the celesta,
+  // (each from its own last note, on its own family, slowing down), and the celesta,
   // the glockenspiel and the vibraphone let a few notes of the bell fall, softly.
   {
     const glowStart = final.at + TICKS;
@@ -703,8 +730,6 @@ export function score(v: V): Score {
         part.dynamics!.push(...x.dynamics);
       } else parts.push(partOf(id, x.events, x.dynamics));
     };
-    add("hp1", sprinkle("hp1", 0, 60, 92, [2, 3 + 1 / 3, 5]));
-    add("hp2", sprinkle("hp2", 1, 60, 92, [2.4, 4, 5.6]));
     add("cel", sprinkle("cel", 0, 72, 98, [1.5, 4.5]));
     add("glk", sprinkle("glk", 0, 79, 100, [2.5, 4, 6.5], "l.v."));
     add("vib", sprinkle("vib", 0, 53, 89, [3, 5, 7.5], "motor off, l.v."));

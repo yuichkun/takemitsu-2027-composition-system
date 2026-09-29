@@ -1013,6 +1013,10 @@ export class Joiner {
         }
         if (event.glissAfter !== undefined)
           event.glissAfter = toTime(p.toPiece(n.at + toTicks(event.glissAfter)) - at);
+        if (event.glissPitches)
+          event.glissPitches = event.glissPitches.map((pitch) => ({
+            midi: fold(midiOf(pitch) + p.transpose, range),
+          }));
         if (target.technique === null) delete event.technique;
         else if (target.technique !== undefined) event.technique = target.technique;
         into.events.push(event);
@@ -1072,6 +1076,7 @@ function cut(notes: readonly Note[], s: number, e: number, hold?: number): Note[
     if (stop < end) {
       delete event.gliss;
       delete event.glissAfter;
+      delete event.glissPitches;
     }
     out.push({ at, dur: stop - at, event });
   }
@@ -1081,6 +1086,7 @@ function cut(notes: readonly Note[], s: number, e: number, hold?: number): Note[
       last.dur = hold - last.at;
       delete last.event.gliss;
       delete last.event.glissAfter;
+      delete last.event.glissPitches;
     }
   }
   // A slide needs the note it slides to, right after it in the same voice.
@@ -1093,6 +1099,7 @@ function cut(notes: readonly Note[], s: number, e: number, hold?: number): Note[
       if (!to) {
         delete n.event.gliss;
         delete n.event.glissAfter;
+        delete n.event.glissPitches;
       }
     }
   return out;

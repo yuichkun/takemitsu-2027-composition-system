@@ -31,6 +31,7 @@ export interface Note {
   gliss: boolean;
   /** Quarters to hold before the slide starts. */
   glissAfter: Rational;
+  glissPitches?: Spelled[];
   trill?: 1 | 2;
   /**
    * Notation only: an artificial harmonic written out (src/notation/musicxml.ts): `pitches` are
@@ -112,6 +113,24 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
     if (dur.lte(Rational.zero)) throw new Error(`${where(index)}: duration must be positive`);
     const raw = e.pitch === undefined ? [] : Array.isArray(e.pitch) ? e.pitch : [e.pitch];
     const pitches = raw.map((p) => parsePitch(p)).sort((a, b) => a.midi - b.midi);
+    const glissPitches = e.glissPitches?.map(parsePitch);
+    if (glissPitches) {
+      if (!e.gliss || pitches.length !== 1 || glissPitches.length < 2)
+        throw new Error(
+          `${where(index)}: glissPitches needs a single-note gliss and two endpoints`,
+        );
+      if (glissPitches[0]!.midi !== pitches[0]!.midi)
+        throw new Error(`${where(index)}: glissPitches must start on the written pitch`);
+      if (
+        glissPitches.some((p) => inst.range && (p.midi < inst.range[0] || p.midi > inst.range[1]))
+      )
+        throw new Error(`${where(index)}: a swept pitch is outside the instrument's range`);
+      if (
+        inst.fixedPitch &&
+        glissPitches.some((p) => !Number.isInteger(p.midi - (part.tuning ?? 0)))
+      )
+        throw new Error(`${where(index)}: a swept pitch is outside the instrument's tuning`);
+    }
     if (inst.unpitched && pitches.length)
       warnings.push(`${where(index)}: ${inst.name} is unpitched; pitch ignored`);
     if (!inst.unpitched && pitches.length === 0)
@@ -149,6 +168,7 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
       slur: e.slur ?? false,
       gliss: e.gliss ?? false,
       glissAfter: min(Rational.of(e.glissAfter ?? 0), dur),
+      ...(glissPitches ? { glissPitches } : {}),
       trill: e.trill,
       index,
     });

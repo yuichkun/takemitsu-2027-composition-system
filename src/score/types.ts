@@ -178,6 +178,10 @@ export interface NoteEvent {
   gliss?: boolean;
   /** With gliss: hold the pitch this long (quarters) before sliding. Default 0. */
   glissAfter?: Time;
+  /** With gliss: the actual strings swept, in order, including both endpoints. Notation still
+   * uses a glissando line; playback plucks these pitches instead of continuously retuning a note.
+   * The last pitch is played by the next note. All pitches are sounding pitches. */
+  glissPitches?: Pitch[];
   /** Trill to the upper neighbour at this interval in semitones (1 or 2). */
   trill?: 1 | 2;
   /** Dynamic level at the onset. Adds a point to the part's curve. */

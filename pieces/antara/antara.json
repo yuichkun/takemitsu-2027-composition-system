@@ -79404,86 +79404,37 @@
      "dynamic": 8
     },
     {
-     "at": 520,
-     "dur": 1,
-     "pitch": [
-      {
-       "midi": 47
-      },
-      {
-       "midi": 50
-      },
-      {
-       "midi": 56
-      },
-      {
-       "midi": 60
-      },
-      {
-       "midi": 66
-      },
-      {
-       "midi": 69
-      },
-      {
-       "midi": 75
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
      "type": "text",
      "at": 520,
-     "text": "l.v.",
+     "text": "Pedals: Db C B | E F G A#; unchanged",
      "placement": "above"
     },
     {
-     "at": 533,
-     "dur": 1,
-     "pitch": [
+     "at": 528,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
       {
        "midi": 48
       },
       {
-       "midi": 50
-      },
-      {
-       "midi": 57
-      },
-      {
-       "midi": 60
-      },
-      {
-       "midi": 67
-      },
-      {
-       "midi": 69
-      },
-      {
-       "midi": 73
-      },
-      {
-       "midi": 76
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": 546,
-     "dur": 1,
-     "pitch": [
-      {
-       "midi": 46
-      },
-      {
-       "midi": 48
+       "midi": 49
       },
       {
        "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
       },
       {
        "midi": 59
@@ -79492,67 +79443,1556 @@
        "midi": 60
       },
       {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
        "midi": 67
+      },
+      {
+       "midi": 70
       },
       {
        "midi": 71
       },
       {
+       "midi": 72
+      },
+      {
        "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
       }
-     ],
-     "articulations": [
-      "accent"
      ]
     },
     {
-     "at": 559,
-     "dur": 1,
-     "pitch": [
+     "at": 530,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
       {
-       "midi": 47
+       "midi": 84
       },
       {
-       "midi": 52
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
       },
       {
        "midi": 58
       },
       {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 532,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
        "midi": 60
       },
       {
-       "midi": 66
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
       },
       {
        "midi": 71
+      },
+      {
+       "midi": 72
       },
       {
        "midi": 73
       },
       {
+       "midi": 76
+      },
+      {
        "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
       }
-     ],
-     "articulations": [
-      "accent"
+     ]
+    },
+    {
+     "at": 534,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 536,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 538,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 540,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 542,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 544,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 546,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 548,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 550,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 552,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 554,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 556,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 558,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 560,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 562,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 564,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 566,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
      ]
     },
     {
      "at": 568,
-     "dur": 1,
-     "pitch": [
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
       {
        "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
       },
       {
        "midi": 55
       },
       {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
        "midi": 60
       },
       {
-       "midi": 66
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
       },
       {
        "midi": 70
@@ -79561,250 +81001,306 @@
        "midi": 71
       },
       {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
        "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
       }
-     ],
-     "articulations": [
-      "accent"
+     ]
+    },
+    {
+     "at": 570,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 572,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 574,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
      ]
     },
     {
      "at": 576,
-     "dur": 1,
-     "pitch": [
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
       {
-       "midi": 46
+       "midi": 48
       },
       {
        "midi": 49
       },
       {
-       "midi": 56
-      },
-      {
-       "midi": 60
-      },
-      {
-       "midi": 67
-      },
-      {
-       "midi": 70
-      },
-      {
-       "midi": 77
-      },
-      {
-       "midi": 78
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": 583,
-     "dur": 1,
-     "pitch": [
-      {
-       "midi": 45
-      },
-      {
-       "midi": 54
-      },
-      {
-       "midi": 60
-      },
-      {
-       "midi": 67
-      },
-      {
-       "midi": 69
-      },
-      {
-       "midi": 70
-      },
-      {
-       "midi": 76
-      },
-      {
-       "midi": 79
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1765,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": [
-      {
-       "midi": 44
+       "midi": 52
       },
       {
        "midi": 53
-      },
-      {
-       "midi": 60
-      },
-      {
-       "midi": 66
-      },
-      {
-       "midi": 69
-      },
-      {
-       "midi": 70
-      },
-      {
-       "midi": 75
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1780,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": [
-      {
-       "midi": 44
-      },
-      {
-       "midi": 53
-      },
-      {
-       "midi": 60
-      },
-      {
-       "midi": 66
-      },
-      {
-       "midi": 69
-      },
-      {
-       "midi": 70
-      },
-      {
-       "midi": 75
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1798,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": [
-      {
-       "midi": 45
-      },
-      {
-       "midi": 54
-      },
-      {
-       "midi": 60
-      },
-      {
-       "midi": 67
-      },
-      {
-       "midi": 69
-      },
-      {
-       "midi": 70
-      },
-      {
-       "midi": 76
-      },
-      {
-       "midi": 79
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1810,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": [
-      {
-       "midi": 46
-      },
-      {
-       "midi": 49
-      },
-      {
-       "midi": 56
-      },
-      {
-       "midi": 60
-      },
-      {
-       "midi": 67
-      },
-      {
-       "midi": 70
-      },
-      {
-       "midi": 77
-      },
-      {
-       "midi": 78
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1823,
-      3
-     ],
-     "dur": [
-      1,
-      3
-     ],
-     "pitch": [
-      {
-       "midi": 49
       },
       {
        "midi": 55
       },
       {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
        "midi": 60
       },
       {
-       "midi": 66
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
       },
       {
        "midi": 70
@@ -79813,11 +81309,1338 @@
        "midi": 71
       },
       {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
        "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
       }
-     ],
-     "articulations": [
-      "accent"
+     ]
+    },
+    {
+     "at": 578,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 580,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 582,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 584,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 586,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 588,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 590,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 592,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 594,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 596,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 598,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 600,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 602,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 604,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 606,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
+     ]
+    },
+    {
+     "at": 608,
+     "dur": 2,
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 48
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": 610,
+     "dur": 2,
+     "pitch": {
+      "midi": 84
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 84
+      },
+      {
+       "midi": 83
+      },
+      {
+       "midi": 82
+      },
+      {
+       "midi": 79
+      },
+      {
+       "midi": 77
+      },
+      {
+       "midi": 76
+      },
+      {
+       "midi": 73
+      },
+      {
+       "midi": 72
+      },
+      {
+       "midi": 71
+      },
+      {
+       "midi": 70
+      },
+      {
+       "midi": 67
+      },
+      {
+       "midi": 65
+      },
+      {
+       "midi": 64
+      },
+      {
+       "midi": 61
+      },
+      {
+       "midi": 60
+      },
+      {
+       "midi": 59
+      },
+      {
+       "midi": 58
+      },
+      {
+       "midi": 55
+      },
+      {
+       "midi": 53
+      },
+      {
+       "midi": 52
+      },
+      {
+       "midi": 49
+      },
+      {
+       "midi": 48
+      }
      ]
     },
     {
@@ -79826,62 +82649,22 @@
       1,
       2
      ],
-     "pitch": [
-      {
-       "midi": 47
-      },
-      {
-       "midi": 52
-      },
-      {
-       "midi": 58
-      },
-      {
-       "midi": 60
-      },
-      {
-       "midi": 66
-      },
-      {
-       "midi": 71
-      },
-      {
-       "midi": 73
-      },
-      {
-       "midi": 77
-      }
-     ],
+     "pitch": {
+      "midi": 48
+     },
+     "staff": 1,
      "articulations": [
       "accent"
      ]
     },
     {
-     "at": 614,
-     "dur": 1,
-     "pitch": {
-      "midi": 90
-     }
-    },
-    {
+     "type": "text",
      "at": [
-      1846,
-      3
+      1225,
+      2
      ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 79
-     }
-    },
-    {
-     "at": 617,
-     "dur": 1,
-     "pitch": {
-      "midi": 73
-     }
+     "text": "damp all strings",
+     "placement": "above"
     },
     {
      "at": 631,
@@ -80870,85 +83653,23 @@
     },
     {
      "at": 520,
-     "level": 8
+     "level": 7
     },
     {
-     "at": 533,
-     "level": 8
-    },
-    {
-     "at": 546,
-     "level": 8
-    },
-    {
-     "at": 559,
-     "level": 8
-    },
-    {
-     "at": 568,
-     "level": 8
-    },
-    {
-     "at": 576,
-     "level": 8
-    },
-    {
-     "at": 583,
-     "level": 8
-    },
-    {
-     "at": [
-      1765,
-      3
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      1780,
-      3
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      1798,
-      3
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      1810,
-      3
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      1823,
-      3
-     ],
-     "level": 8
+     "at": 604,
+     "level": 7,
+     "to": "linear"
     },
     {
      "at": 612,
      "level": 8
     },
     {
-     "at": 614,
-     "level": 3
-    },
-    {
      "at": [
-      1846,
-      3
+      1225,
+      2
      ],
-     "level": 2.5
-    },
-    {
-     "at": 617,
-     "level": 2
+     "level": 0
     },
     {
      "at": 624,
@@ -84433,86 +87154,114 @@
      "dynamic": 8
     },
     {
-     "at": 520,
-     "dur": 1,
-     "pitch": [
-      {
-       "midi": 43.5
-      },
-      {
-       "midi": 49.5
-      },
-      {
-       "midi": 52.5
-      },
-      {
-       "midi": 58.5
-      },
-      {
-       "midi": 62.5
-      },
-      {
-       "midi": 68.5
-      },
-      {
-       "midi": 71.5
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
      "type": "text",
      "at": 520,
-     "text": "l.v.",
+     "text": "Pedals: D C# Bb | Eb Fb G Ab; unchanged (all strings tuned 1/4 tone low)",
      "placement": "above"
     },
     {
-     "at": 533,
-     "dur": 1,
-     "pitch": [
+     "at": 529,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
       {
-       "midi": 46.5
+       "midi": 86.5
       },
       {
-       "midi": 50.5
+       "midi": 85.5
       },
       {
-       "midi": 52.5
+       "midi": 84.5
       },
       {
-       "midi": 59.5
+       "midi": 81.5
       },
       {
-       "midi": 62.5
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
       },
       {
        "midi": 69.5
       },
       {
-       "midi": 71.5
+       "midi": 67.5
       },
       {
-       "midi": 75.5
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
       }
-     ],
-     "articulations": [
-      "accent"
      ]
     },
     {
-     "at": 546,
-     "dur": 1,
-     "pitch": [
-      {
-       "midi": 48.5
-      },
+     "at": 531,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
       {
        "midi": 50.5
       },
       {
+       "midi": 51.5
+      },
+      {
        "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
       },
       {
        "midi": 61.5
@@ -84521,356 +87270,3127 @@
        "midi": 62.5
       },
       {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
        "midi": 69.5
+      },
+      {
+       "midi": 72.5
       },
       {
        "midi": 73.5
       },
       {
+       "midi": 74.5
+      },
+      {
        "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
       }
-     ],
-     "articulations": [
-      "accent"
      ]
     },
     {
-     "at": 559,
-     "dur": 1,
-     "pitch": [
+     "at": 533,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
       {
-       "midi": 47.5
+       "midi": 86.5
       },
       {
-       "midi": 49.5
+       "midi": 85.5
       },
       {
-       "midi": 54.5
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
       },
       {
        "midi": 60.5
       },
       {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 535,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
        "midi": 62.5
       },
       {
-       "midi": 68.5
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
       },
       {
        "midi": 73.5
       },
       {
+       "midi": 74.5
+      },
+      {
        "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
       }
-     ],
-     "articulations": [
-      "accent"
      ]
     },
     {
-     "at": 572,
+     "at": 537,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 539,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 541,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 543,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 545,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 547,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 549,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 551,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 553,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 555,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 557,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 559,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 561,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 563,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 565,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 567,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 569,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 571,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 573,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 575,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 577,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 579,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 581,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 583,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 585,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 587,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 589,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 591,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 593,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 595,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 597,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 599,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 601,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 603,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 605,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 607,
+     "dur": 2,
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 50.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
+      }
+     ]
+    },
+    {
+     "at": 609,
+     "dur": 2,
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
+      {
+       "midi": 86.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 72.5
+      },
+      {
+       "midi": 69.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 63.5
+      },
+      {
+       "midi": 62.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
+       "midi": 60.5
+      },
+      {
+       "midi": 57.5
+      },
+      {
+       "midi": 55.5
+      },
+      {
+       "midi": 54.5
+      },
+      {
+       "midi": 51.5
+      },
+      {
+       "midi": 50.5
+      }
+     ]
+    },
+    {
+     "at": 611,
      "dur": 1,
-     "pitch": [
+     "pitch": {
+      "midi": 50.5
+     },
+     "staff": 1,
+     "gliss": true,
+     "glissPitches": [
       {
-       "midi": 36.5
-      },
-      {
-       "midi": 41.5
-      },
-      {
-       "midi": 47.5
-      },
-      {
-       "midi": 51.5
-      },
-      {
-       "midi": 57.5
-      },
-      {
-       "midi": 62.5
-      },
-      {
-       "midi": 68.5
-      },
-      {
-       "midi": 72.5
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      2898,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": [
-      {
-       "midi": 41.5
-      },
-      {
-       "midi": 47.5
-      },
-      {
-       "midi": 48.5
+       "midi": 50.5
       },
       {
        "midi": 51.5
       },
       {
-       "midi": 58.5
-      },
-      {
-       "midi": 62.5
-      },
-      {
-       "midi": 69.5
-      },
-      {
-       "midi": 72.5
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      2922,
-      5
-     ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": [
-      {
-       "midi": 40.5
-      },
-      {
-       "midi": 47.5
-      },
-      {
-       "midi": 49.5
-      },
-      {
-       "midi": 56.5
-      },
-      {
-       "midi": 62.5
-      },
-      {
-       "midi": 69.5
-      },
-      {
-       "midi": 71.5
-      },
-      {
-       "midi": 78.5
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      2948,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": [
-      {
-       "midi": 36.5
-      },
-      {
-       "midi": 49.5
+       "midi": 54.5
       },
       {
        "midi": 55.5
       },
       {
-       "midi": 62.5
-      },
-      {
-       "midi": 68.5
-      },
-      {
-       "midi": 71.5
-      },
-      {
-       "midi": 72.5
-      },
-      {
-       "midi": 77.5
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      2974,
-      5
-     ],
-     "dur": [
-      1,
-      5
-     ],
-     "pitch": [
-      {
-       "midi": 36.5
-      },
-      {
-       "midi": 49.5
-      },
-      {
-       "midi": 55.5
-      },
-      {
-       "midi": 62.5
-      },
-      {
-       "midi": 68.5
-      },
-      {
-       "midi": 71.5
-      },
-      {
-       "midi": 72.5
-      },
-      {
-       "midi": 77.5
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      2999,
-      5
-     ],
-     "dur": [
-      1,
-      5
-     ],
-     "pitch": [
-      {
-       "midi": 40.5
-      },
-      {
-       "midi": 47.5
-      },
-      {
-       "midi": 49.5
-      },
-      {
-       "midi": 56.5
-      },
-      {
-       "midi": 62.5
-      },
-      {
-       "midi": 69.5
-      },
-      {
-       "midi": 71.5
-      },
-      {
-       "midi": 78.5
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      3019,
-      5
-     ],
-     "dur": [
-      1,
-      5
-     ],
-     "pitch": [
-      {
-       "midi": 41.5
-      },
-      {
-       "midi": 47.5
-      },
-      {
-       "midi": 48.5
-      },
-      {
-       "midi": 51.5
-      },
-      {
-       "midi": 58.5
-      },
-      {
-       "midi": 62.5
-      },
-      {
-       "midi": 69.5
-      },
-      {
-       "midi": 72.5
-      }
-     ],
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      3041,
-      5
-     ],
-     "dur": [
-      4,
-      5
-     ],
-     "pitch": [
-      {
-       "midi": 36.5
-      },
-      {
-       "midi": 41.5
-      },
-      {
-       "midi": 47.5
-      },
-      {
-       "midi": 51.5
-      },
-      {
        "midi": 57.5
       },
       {
+       "midi": 60.5
+      },
+      {
+       "midi": 61.5
+      },
+      {
        "midi": 62.5
       },
       {
-       "midi": 68.5
+       "midi": 63.5
+      },
+      {
+       "midi": 66.5
+      },
+      {
+       "midi": 67.5
+      },
+      {
+       "midi": 69.5
       },
       {
        "midi": 72.5
+      },
+      {
+       "midi": 73.5
+      },
+      {
+       "midi": 74.5
+      },
+      {
+       "midi": 75.5
+      },
+      {
+       "midi": 78.5
+      },
+      {
+       "midi": 79.5
+      },
+      {
+       "midi": 81.5
+      },
+      {
+       "midi": 84.5
+      },
+      {
+       "midi": 85.5
+      },
+      {
+       "midi": 86.5
       }
-     ],
-     "articulations": [
-      "accent"
      ]
     },
     {
@@ -84879,68 +90399,22 @@
       1,
       2
      ],
-     "pitch": [
-      {
-       "midi": 47.5
-      },
-      {
-       "midi": 49.5
-      },
-      {
-       "midi": 54.5
-      },
-      {
-       "midi": 60.5
-      },
-      {
-       "midi": 62.5
-      },
-      {
-       "midi": 68.5
-      },
-      {
-       "midi": 73.5
-      },
-      {
-       "midi": 75.5
-      }
-     ],
+     "pitch": {
+      "midi": 86.5
+     },
+     "staff": 1,
      "articulations": [
       "accent"
      ]
     },
     {
+     "type": "text",
      "at": [
-      3072,
-      5
+      1225,
+      2
      ],
-     "dur": [
-      3,
-      5
-     ],
-     "pitch": {
-      "midi": 86.5
-     }
-    },
-    {
-     "at": 616,
-     "dur": 1,
-     "pitch": {
-      "midi": 79.5
-     }
-    },
-    {
-     "at": [
-      3088,
-      5
-     ],
-     "dur": [
-      2,
-      5
-     ],
-     "pitch": {
-      "midi": 73.5
-     }
+     "text": "damp all strings",
+     "placement": "above"
     },
     {
      "at": [
@@ -85952,72 +91426,12 @@
     },
     {
      "at": 520,
-     "level": 8
+     "level": 7
     },
     {
-     "at": 533,
-     "level": 8
-    },
-    {
-     "at": 546,
-     "level": 8
-    },
-    {
-     "at": 559,
-     "level": 8
-    },
-    {
-     "at": 572,
-     "level": 8
-    },
-    {
-     "at": [
-      2898,
-      5
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      2922,
-      5
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      2948,
-      5
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      2974,
-      5
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      2999,
-      5
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      3019,
-      5
-     ],
-     "level": 8
-    },
-    {
-     "at": [
-      3041,
-      5
-     ],
-     "level": 8
+     "at": 604,
+     "level": 7,
+     "to": "linear"
     },
     {
      "at": 612,
@@ -86025,21 +91439,10 @@
     },
     {
      "at": [
-      3072,
-      5
+      1225,
+      2
      ],
-     "level": 3
-    },
-    {
-     "at": 616,
-     "level": 2.5
-    },
-    {
-     "at": [
-      3088,
-      5
-     ],
-     "level": 2
+     "level": 0
     },
     {
      "at": 624,
