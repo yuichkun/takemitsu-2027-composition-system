@@ -13,18 +13,18 @@
    "bpm": 52
   }
  ],
- "measures": 22,
+ "measures": 19,
  "rehearsal": [
   {
    "measure": 1,
    "label": "A"
   },
   {
-   "measure": 13,
+   "measure": 9,
    "label": "B"
   },
   {
-   "measure": 17,
+   "measure": 15,
    "label": "C"
   }
  ],
@@ -67,7 +67,7 @@
     },
     {
      "at": [
-      25,
+      21,
       1
      ],
      "level": 1.5,
@@ -75,14 +75,14 @@
     },
     {
      "at": [
-      27,
+      23,
       1
      ],
      "level": 0
     },
     {
      "at": [
-      212,
+      168,
       5
      ],
      "level": 1.5,
@@ -90,7 +90,7 @@
     },
     {
      "at": [
-      222,
+      178,
       5
      ],
      "level": 0
@@ -125,7 +125,7 @@
     },
     {
      "at": [
-      25,
+      21,
       1
      ],
      "dur": [
@@ -133,12 +133,12 @@
       1
      ],
      "pitch": {
-      "midi": 81
+      "midi": 84
      }
     },
     {
      "at": [
-      212,
+      168,
       5
      ],
      "dur": [
@@ -146,7 +146,7 @@
       1
      ],
      "pitch": {
-      "midi": 88.5
+      "midi": 90.5
      }
     }
    ]
@@ -188,22 +188,7 @@
     },
     {
      "at": [
-      68,
-      5
-     ],
-     "level": 1.5,
-     "to": "linear"
-    },
-    {
-     "at": [
-      78,
-      5
-     ],
-     "level": 0
-    },
-    {
-     "at": [
-      21,
+      17,
       1
      ],
      "level": 1.5,
@@ -211,7 +196,7 @@
     },
     {
      "at": [
-      23,
+      19,
       1
      ],
      "level": 0
@@ -246,20 +231,7 @@
     },
     {
      "at": [
-      68,
-      5
-     ],
-     "dur": [
-      2,
-      1
-     ],
-     "pitch": {
-      "midi": 75
-     }
-    },
-    {
-     "at": [
-      21,
+      17,
       1
      ],
      "dur": [
@@ -267,7 +239,7 @@
       1
      ],
      "pitch": {
-      "midi": 82.5
+      "midi": 80
      }
     }
    ]
@@ -339,7 +311,7 @@
     },
     {
      "at": [
-      43,
+      53,
       3
      ],
      "level": 1.5,
@@ -347,7 +319,7 @@
     },
     {
      "at": [
-      49,
+      59,
       3
      ],
      "level": 0
@@ -369,16 +341,16 @@
     },
     {
      "at": [
-      26,
-      1
+      104,
+      3
      ],
      "level": 1.5,
      "to": "linear"
     },
     {
      "at": [
-      28,
-      1
+      110,
+      3
      ],
      "level": 0
     }
@@ -438,7 +410,7 @@
     },
     {
      "at": [
-      43,
+      53,
       3
      ],
      "dur": [
@@ -446,7 +418,7 @@
       1
      ],
      "pitch": {
-      "midi": 57
+      "midi": 52
      }
     },
     {
@@ -459,20 +431,20 @@
       1
      ],
      "pitch": {
-      "midi": 49.5
+      "midi": 48
      }
     },
     {
      "at": [
-      26,
-      1
+      104,
+      3
      ],
      "dur": [
       2,
       1
      ],
      "pitch": {
-      "midi": 51
+      "midi": 40.5
      }
     }
    ]
@@ -484,17 +456,24 @@
    "dynamics": [
     {
      "at": [
-      25,
+      17,
       1
      ],
-     "level": 1.713302752293578
+     "level": 1.768392370572207
+    },
+    {
+     "at": [
+      258,
+      5
+     ],
+     "level": 1.2970027247956404
     }
    ],
    "events": [
     {
      "type": "text",
      "at": [
-      25,
+      17,
       1
      ],
      "text": "l.v.",
@@ -502,7 +481,7 @@
     },
     {
      "at": [
-      25,
+      17,
       1
      ],
      "dur": [
@@ -510,7 +489,20 @@
       1
      ],
      "pitch": {
-      "midi": 93
+      "midi": 92
+     }
+    },
+    {
+     "at": [
+      258,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 100
      }
     }
    ],
@@ -523,7 +515,7 @@
    "dynamics": [
     {
      "at": [
-      46,
+      32,
       1
      ],
      "level": 0,
@@ -531,14 +523,14 @@
     },
     {
      "at": [
-      50,
+      36,
       1
      ],
      "level": 1.2
     },
     {
      "at": [
-      194,
+      166,
       3
      ],
      "level": 1.2,
@@ -546,7 +538,7 @@
     },
     {
      "at": [
-      69,
+      60,
       1
      ],
      "level": 0
@@ -555,11 +547,11 @@
    "events": [
     {
      "at": [
-      46,
+      32,
       1
      ],
      "dur": [
-      23,
+      28,
       1
      ],
      "technique": "roll+soft"
@@ -577,21 +569,28 @@
       22,
       5
      ],
-     "level": 1.9495412844036697
+     "level": 1.9400544959128065
     },
     {
      "at": [
-      43,
+      53,
       3
      ],
-     "level": 1.8356269113149848
+     "level": 1.759309718437784
     },
     {
      "at": [
-      47,
+      21,
       1
      ],
-     "level": 1.4610091743119265
+     "level": 1.7138964577656677
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "level": 1.4005449591280654
     }
    ],
    "events": [
@@ -619,20 +618,20 @@
     },
     {
      "at": [
-      43,
+      53,
       3
      ],
      "dur": [
-      2,
+      1,
       3
      ],
      "pitch": {
-      "midi": 57
+      "midi": 52
      }
     },
     {
      "at": [
-      47,
+      21,
       1
      ],
      "dur": [
@@ -640,7 +639,20 @@
       1
      ],
      "pitch": {
-      "midi": 92
+      "midi": 96
+     }
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 37
      }
     }
    ]
@@ -655,77 +667,56 @@
       2,
       1
      ],
-     "level": 1.9770642201834863
+     "level": 1.9727520435967303
     },
     {
      "at": [
       2,
       1
      ],
-     "level": 1.9770642201834863
+     "level": 1.9727520435967303
     },
     {
      "at": [
       33,
       5
      ],
-     "level": 1.9243119266055047
+     "level": 1.9100817438692097
     },
     {
      "at": [
       7,
       1
      ],
-     "level": 1.9197247706422018
+     "level": 1.904632152588556
     },
     {
      "at": [
       51,
       5
      ],
-     "level": 1.8830275229357798
+     "level": 1.8610354223433243
     },
     {
      "at": [
       32,
       3
      ],
-     "level": 1.8776758409785932
+     "level": 1.854677565849228
     },
     {
      "at": [
-      21,
-      1
-     ],
-     "level": 1.7591743119266054
-    },
-    {
-     "at": [
-      22,
-      1
-     ],
-     "level": 1.7477064220183487
-    },
-    {
-     "at": [
-      212,
+      168,
       5
      ],
-     "level": 1.5137614678899083
+     "level": 1.542234332425068
     },
     {
      "at": [
-      44,
-      1
+      104,
+      3
      ],
-     "level": 1.4954128440366974
-    },
-    {
-     "at": [
-      58,
-      1
-     ],
-     "level": 1.334862385321101
+     "level": 1.527702089009991
     }
    ],
    "events": [
@@ -818,67 +809,28 @@
     },
     {
      "at": [
-      21,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 94.5
-     }
-    },
-    {
-     "at": [
-      22,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 49.5
-     }
-    },
-    {
-     "at": [
-      212,
+      168,
       5
      ],
      "dur": [
-      3,
+      2,
       5
      ],
      "pitch": {
-      "midi": 100.5
+      "midi": 102.5
      }
     },
     {
      "at": [
-      44,
-      1
+      104,
+      3
      ],
      "dur": [
       1,
-      1
+      3
      ],
      "pitch": {
-      "midi": 43.5
-     }
-    },
-    {
-     "at": [
-      58,
-      1
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 36.5
+      "midi": 40.5
      }
     }
    ],
@@ -894,14 +846,14 @@
       14,
       3
      ],
-     "level": 1.9464831804281346
+     "level": 1.9364214350590372
     },
     {
      "at": [
-      26,
+      22,
       1
      ],
-     "level": 1.7018348623853212
+     "level": 1.7002724795640327
     }
    ],
    "events": [
@@ -929,7 +881,7 @@
     },
     {
      "at": [
-      26,
+      22,
       1
      ],
      "dur": [
@@ -937,7 +889,7 @@
       1
      ],
      "pitch": {
-      "midi": 51
+      "midi": 48
      }
     }
    ]
@@ -948,35 +900,1146 @@
    "name": "Celesta",
    "dynamics": [
     {
-     "at": [
-      68,
-      5
-     ],
-     "level": 1.8440366972477065
+     "at": 0,
+     "level": 2
     }
    ],
    "events": [
     {
-     "type": "text",
      "at": [
-      68,
-      5
+      0,
+      1
      ],
-     "text": "l.v.",
-     "placement": "above"
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      3,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      18,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      24,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      39,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      47,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      49,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      51,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      54,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      57,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      58,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      59,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      60,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      61,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      62,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      63,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      64,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      65,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      66,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      67,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
     },
     {
      "at": [
       68,
-      5
+      1
      ],
      "dur": [
-      2,
-      5
+      1,
+      1
      ],
      "pitch": {
-      "midi": 87
-     }
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      69,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      70,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
     }
    ]
   },
@@ -1002,144 +2065,102 @@
       2,
       1
      ],
-     "level": 2.4285714285714284
+     "level": 2.4
     },
     {
      "at": [
       22,
       5
      ],
-     "level": 2.357142857142857
+     "level": 2.3
     },
     {
      "at": [
       33,
       5
      ],
-     "level": 2.2857142857142856
+     "level": 2.2
     },
     {
      "at": [
       51,
       5
      ],
-     "level": 2.2142857142857144
-    },
-    {
-     "at": [
-      68,
-      5
-     ],
-     "level": 2.142857142857143
+     "level": 2.1
     },
     {
      "at": [
       17,
       1
      ],
-     "level": 2.0714285714285716
+     "level": 2
     },
     {
      "at": [
       21,
       1
      ],
-     "level": 2
-    },
-    {
-     "at": [
-      25,
-      1
-     ],
-     "level": 1.9285714285714286
+     "level": 1.9
     },
     {
      "at": [
       146,
       5
      ],
-     "level": 1.8571428571428572
+     "level": 1.8
     },
     {
      "at": [
       168,
       5
      ],
-     "level": 1.7857142857142858
-    },
-    {
-     "at": [
-      38,
-      1
-     ],
-     "level": 1.7142857142857142
+     "level": 1.7
     },
     {
      "at": [
       212,
       5
      ],
-     "level": 1.6428571428571428
+     "level": 1.6
     },
     {
      "at": [
       47,
       1
      ],
-     "level": 1.5714285714285714
+     "level": 1.5
     },
     {
      "at": [
       258,
       5
      ],
-     "level": 1.5
+     "level": 1.4000000000000001
     },
     {
      "at": [
       281,
       5
      ],
-     "level": 1.4285714285714286
+     "level": 1.2999999999999998
     },
     {
      "at": [
       304,
       5
      ],
-     "level": 1.3571428571428572
+     "level": 1.2
     },
     {
      "at": [
       327,
       5
      ],
-     "level": 1.2857142857142856
+     "level": 1.1
     },
     {
      "at": [
-      70,
-      1
-     ],
-     "level": 1.2142857142857144
-    },
-    {
-     "at": [
-      373,
-      5
-     ],
-     "level": 1.1428571428571428
-    },
-    {
-     "at": [
-      396,
-      5
-     ],
-     "level": 1.0714285714285716
-    },
-    {
-     "at": [
-      421,
+      352,
       5
      ],
      "level": 1,
@@ -1147,14 +2168,14 @@
     },
     {
      "at": [
-      431,
+      362,
       5
      ],
      "level": 1
     },
     {
      "at": [
-      436,
+      367,
       5
      ],
      "level": 0
@@ -1243,7 +2264,7 @@
       5
      ],
      "dur": [
-      17,
+      34,
       5
      ],
      "pitch": {
@@ -1252,26 +2273,7 @@
      "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
-      14,
-      5
-     ]
-    },
-    {
-     "at": [
-      68,
-      5
-     ],
-     "dur": [
-      17,
-      5
-     ],
-     "pitch": {
-      "midi": 75
-     },
-     "technique": "sul-tasto",
-     "gliss": true,
-     "glissAfter": [
-      14,
+      31,
       5
      ]
     },
@@ -1285,7 +2287,7 @@
       1
      ],
      "pitch": {
-      "midi": 78.5
+      "midi": 80
      },
      "technique": "sul-tasto",
      "gliss": true,
@@ -1300,35 +2302,16 @@
       1
      ],
      "dur": [
-      4,
-      1
+      41,
+      5
      ],
      "pitch": {
-      "midi": 82.5
+      "midi": 84
      },
      "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
-      17,
-      5
-     ]
-    },
-    {
-     "at": [
-      25,
-      1
-     ],
-     "dur": [
-      21,
-      5
-     ],
-     "pitch": {
-      "midi": 81
-     },
-     "technique": "sul-tasto",
-     "gliss": true,
-     "glissAfter": [
-      18,
+      38,
       5
      ]
     },
@@ -1342,7 +2325,7 @@
       5
      ],
      "pitch": {
-      "midi": 83.5
+      "midi": 86.5
      },
      "technique": "sul-tasto",
      "gliss": true,
@@ -1357,83 +2340,17 @@
       5
      ],
      "dur": [
-      22,
-      5
-     ],
-     "pitch": {
-      "midi": 87.5
-     },
-     "technique": "sul-tasto",
-     "gliss": true,
-     "glissAfter": [
-      19,
-      5
-     ]
-    },
-    {
-     "at": [
-      38,
-      1
-     ],
-     "dur": [
-      22,
-      5
-     ],
-     "pitch": {
-      "midi": 86
-     },
-     "technique": "sul-tasto",
-     "gliss": true,
-     "glissAfter": [
-      19,
-      5
-     ]
-    },
-    {
-     "at": [
-      212,
-      5
-     ],
-     "dur": [
-      23,
-      5
-     ],
-     "pitch": {
-      "midi": 88.5
-     },
-     "technique": "sul-tasto"
-    },
-    {
-     "at": [
-      47,
-      1
-     ],
-     "dur": [
-      23,
-      5
-     ],
-     "pitch": {
-      "midi": 92
-     },
-     "technique": "artificial-harmonic"
-    },
-    {
-     "at": [
-      258,
-      5
-     ],
-     "dur": [
-      23,
+      44,
       5
      ],
      "pitch": {
       "midi": 90.5
      },
-     "technique": "artificial-harmonic"
+     "technique": "sul-tasto"
     },
     {
      "at": [
-      281,
+      212,
       5
      ],
      "dur": [
@@ -1447,8 +2364,8 @@
     },
     {
      "at": [
-      304,
-      5
+      47,
+      1
      ],
      "dur": [
       23,
@@ -1461,7 +2378,7 @@
     },
     {
      "at": [
-      327,
+      258,
       5
      ],
      "dur": [
@@ -1475,8 +2392,8 @@
     },
     {
      "at": [
-      70,
-      1
+      281,
+      5
      ],
      "dur": [
       23,
@@ -1489,7 +2406,7 @@
     },
     {
      "at": [
-      373,
+      304,
       5
      ],
      "dur": [
@@ -1503,7 +2420,7 @@
     },
     {
      "at": [
-      396,
+      327,
       5
      ],
      "dur": [
@@ -1522,7 +2439,7 @@
     },
     {
      "at": [
-      431,
+      362,
       5
      ],
      "dur": [
@@ -1536,114 +2453,6 @@
     }
    ],
    "players": 1
-  },
-  {
-   "id": "vn2-7-3",
-   "instrument": "violins-2",
-   "name": "Violin II 3/7",
-   "dynamics": [
-    {
-     "at": [
-      4,
-      1
-     ],
-     "level": 0,
-     "to": "linear"
-    },
-    {
-     "at": [
-      8,
-      1
-     ],
-     "level": 1.2
-    },
-    {
-     "at": [
-      168,
-      5
-     ],
-     "level": 1.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      178,
-      5
-     ],
-     "level": 0
-    }
-   ],
-   "events": [
-    {
-     "at": [
-      4,
-      1
-     ],
-     "dur": [
-      158,
-      5
-     ],
-     "pitch": {
-      "midi": 87.5
-     },
-     "technique": "sul-tasto"
-    }
-   ],
-   "players": 2
-  },
-  {
-   "id": "vn2-7-4",
-   "instrument": "violins-2",
-   "name": "Violin II 4/7",
-   "dynamics": [
-    {
-     "at": [
-      3,
-      1
-     ],
-     "level": 0,
-     "to": "linear"
-    },
-    {
-     "at": [
-      7,
-      1
-     ],
-     "level": 1.2
-    },
-    {
-     "at": [
-      25,
-      1
-     ],
-     "level": 1.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      27,
-      1
-     ],
-     "level": 0
-    }
-   ],
-   "events": [
-    {
-     "at": [
-      3,
-      1
-     ],
-     "dur": [
-      24,
-      1
-     ],
-     "pitch": {
-      "midi": 81
-     },
-     "technique": "sul-tasto"
-    }
-   ],
-   "players": 2
   },
   {
    "id": "vn2-7-5",
@@ -1667,7 +2476,7 @@
     },
     {
      "at": [
-      17,
+      21,
       1
      ],
      "level": 1.2,
@@ -1675,7 +2484,7 @@
     },
     {
      "at": [
-      19,
+      23,
       1
      ],
      "level": 0
@@ -1688,11 +2497,11 @@
       1
      ],
      "dur": [
-      17,
+      21,
       1
      ],
      "pitch": {
-      "midi": 78.5
+      "midi": 84
      },
      "technique": "sul-tasto"
     }
@@ -1937,16 +2746,16 @@
     },
     {
      "at": [
-      53,
-      3
+      22,
+      1
      ],
      "level": 1.2,
      "to": "linear"
     },
     {
      "at": [
-      59,
-      3
+      24,
+      1
      ],
      "level": 0
     }
@@ -1958,65 +2767,11 @@
       1
      ],
      "dur": [
-      53,
-      3
-     ],
-     "pitch": {
-      "midi": 53.5
-     },
-     "technique": "sul-tasto"
-    }
-   ],
-   "players": 2
-  },
-  {
-   "id": "va-6-4",
-   "instrument": "violas",
-   "name": "Viola 4/6",
-   "dynamics": [
-    {
-     "at": [
-      3,
-      1
-     ],
-     "level": 0,
-     "to": "linear"
-    },
-    {
-     "at": [
-      7,
-      1
-     ],
-     "level": 1.2
-    },
-    {
-     "at": [
-      26,
-      1
-     ],
-     "level": 1.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      28,
-      1
-     ],
-     "level": 0
-    }
-   ],
-   "events": [
-    {
-     "at": [
-      3,
-      1
-     ],
-     "dur": [
-      25,
+      22,
       1
      ],
      "pitch": {
-      "midi": 51
+      "midi": 48
      },
      "technique": "sul-tasto"
     }
@@ -2045,53 +2800,39 @@
       2,
       1
      ],
-     "level": 2.4375
+     "level": 2.4166666666666665
     },
     {
      "at": [
       14,
       3
      ],
-     "level": 2.375
+     "level": 2.3333333333333335
     },
     {
      "at": [
       7,
       1
      ],
-     "level": 2.3125
+     "level": 2.25
     },
     {
      "at": [
       32,
       3
      ],
-     "level": 2.25
-    },
-    {
-     "at": [
-      43,
-      3
-     ],
-     "level": 2.1875
+     "level": 2.1666666666666665
     },
     {
      "at": [
       53,
       3
      ],
-     "level": 2.125
+     "level": 2.0833333333333335
     },
     {
      "at": [
       22,
-      1
-     ],
-     "level": 2.0625
-    },
-    {
-     "at": [
-      26,
       1
      ],
      "level": 2
@@ -2101,53 +2842,39 @@
       91,
       3
      ],
-     "level": 1.9375
+     "level": 1.9166666666666665
     },
     {
      "at": [
       104,
       3
      ],
-     "level": 1.875
+     "level": 1.8333333333333335
     },
     {
      "at": [
       118,
       3
      ],
-     "level": 1.8125
+     "level": 1.75
     },
     {
      "at": [
       44,
       1
      ],
-     "level": 1.75
+     "level": 1.6666666666666665
     },
     {
      "at": [
       146,
       3
      ],
-     "level": 1.6875
+     "level": 1.5833333333333335
     },
     {
      "at": [
       160,
-      3
-     ],
-     "level": 1.625
-    },
-    {
-     "at": [
-      58,
-      1
-     ],
-     "level": 1.5625
-    },
-    {
-     "at": [
-      188,
       3
      ],
      "level": 1.5,
@@ -2155,7 +2882,7 @@
     },
     {
      "at": [
-      200,
+      172,
       3
      ],
      "level": 0
@@ -2244,8 +2971,8 @@
       3
      ],
      "dur": [
-      11,
-      3
+      7,
+      1
      ],
      "pitch": {
       "midi": 55.5
@@ -2253,26 +2980,7 @@
      "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
-      3,
-      1
-     ]
-    },
-    {
-     "at": [
-      43,
-      3
-     ],
-     "dur": [
-      10,
-      3
-     ],
-     "pitch": {
-      "midi": 57
-     },
-     "technique": "sul-tasto",
-     "gliss": true,
-     "glissAfter": [
-      8,
+      19,
       3
      ]
     },
@@ -2286,7 +2994,7 @@
       3
      ],
      "pitch": {
-      "midi": 53.5
+      "midi": 52
      },
      "technique": "sul-tasto",
      "gliss": true,
@@ -2301,35 +3009,16 @@
       1
      ],
      "dur": [
-      4,
-      1
+      25,
+      3
      ],
      "pitch": {
-      "midi": 49.5
+      "midi": 48
      },
      "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
-      10,
-      3
-     ]
-    },
-    {
-     "at": [
-      26,
-      1
-     ],
-     "dur": [
-      13,
-      3
-     ],
-     "pitch": {
-      "midi": 51
-     },
-     "technique": "sul-tasto",
-     "gliss": true,
-     "glissAfter": [
-      11,
+      23,
       3
      ]
     },
@@ -2343,7 +3032,7 @@
       3
      ],
      "pitch": {
-      "midi": 48.5
+      "midi": 45.5
      },
      "technique": "sul-tasto",
      "gliss": true,
@@ -2362,7 +3051,7 @@
       3
      ],
      "pitch": {
-      "midi": 44.5
+      "midi": 40.5
      },
      "technique": "sul-tasto",
      "gliss": true,
@@ -2381,7 +3070,7 @@
       3
      ],
      "pitch": {
-      "midi": 46
+      "midi": 38
      },
      "technique": "sul-tasto",
      "gliss": true,
@@ -2400,7 +3089,7 @@
       3
      ],
      "pitch": {
-      "midi": 43.5
+      "midi": 37
      },
      "technique": "sul-tasto",
      "gliss": true,
@@ -2419,44 +3108,6 @@
       3
      ],
      "pitch": {
-      "midi": 39.5
-     },
-     "technique": "sul-tasto",
-     "gliss": true,
-     "glissAfter": [
-      4,
-      1
-     ]
-    },
-    {
-     "at": [
-      160,
-      3
-     ],
-     "dur": [
-      14,
-      3
-     ],
-     "pitch": {
-      "midi": 37.5
-     },
-     "technique": "sul-tasto",
-     "gliss": true,
-     "glissAfter": [
-      4,
-      1
-     ]
-    },
-    {
-     "at": [
-      58,
-      1
-     ],
-     "dur": [
-      14,
-      3
-     ],
-     "pitch": {
       "midi": 36.5
      },
      "technique": "sul-tasto",
@@ -2468,7 +3119,7 @@
     },
     {
      "at": [
-      188,
+      160,
       3
      ],
      "dur": [
@@ -2489,7 +3140,7 @@
    "dynamics": [
     {
      "at": [
-      46,
+      32,
       1
      ],
      "level": 0,
@@ -2497,14 +3148,14 @@
     },
     {
      "at": [
-      50,
+      36,
       1
      ],
      "level": 1.2
     },
     {
      "at": [
-      194,
+      166,
       3
      ],
      "level": 1.2,
@@ -2512,7 +3163,7 @@
     },
     {
      "at": [
-      69,
+      60,
       1
      ],
      "level": 0
@@ -2521,11 +3172,11 @@
    "events": [
     {
      "at": [
-      46,
+      32,
       1
      ],
      "dur": [
-      23,
+      28,
       1
      ],
      "pitch": {

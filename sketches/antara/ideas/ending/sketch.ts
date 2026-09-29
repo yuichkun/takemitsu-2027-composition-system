@@ -5,7 +5,9 @@
 // Both begin on one note, the opening's note two octaves down (F♯4), and part by a quarter tone:
 // the piece's first relations (the same note, then the smallest between). Then they read one set of
 // betweens mirrored, the violin adding, the cello taking away, each step held and then slid into
-// (as the voices of two-grids turned away from their tones, only these do not come back). The
+// (as the voices of two-grids turned away from their tones, only these do not come back). They
+// never turn back: a between of 0 is a stay, the note held on through that step, and every other
+// step goes outward. The
 // violin counts on quintuplet 16ths, the cello on triplet 8ths, their holds growing towards four
 // beats by the section's law (half way each time round). Some way before the edge of its range
 // each goes on by halves instead: half the way that is left, at least a quarter tone, so the steps
@@ -14,16 +16,20 @@
 // the ground of the opening comes back (the basses' E1, the bass drum's roll) and goes with it.
 // The violin, alone, turns to harmonics, arrives, holds, and slides a quarter tone up into nothing.
 //
+// All the while the celesta strikes the opening's F♯ on every beat, as two-grids ends with it: a
+// fixed point, the same note as soft the whole time, against which everything else is heard moving.
+// It stops once the violin has come to its F♯ two octaves up, the last beat before it slides away.
+//
 // Around them: violins II and violas hold, very softly, the notes the soloists are going to reach,
 // and let each go as a soloist arrives, so the space between the two empties; now and then an
-// arrival is lit once by the instrument of its grid (harp 1, celesta, crotales and piano on the
-// semitones, harp 2 a quarter tone off), and at first a flute, a clarinet or the bass clarinet
-// rings it into nothing. The light comes more and more seldom.
+// arrival is lit once by the instrument of its grid (harp 1, crotales and piano on the semitones,
+// the celesta too when it is not the fixed point; harp 2 a quarter tone off), and at first a flute,
+// a clarinet or the bass clarinet rings it into nothing. The light comes more and more seldom.
 
 import { ensemble } from "../../../../pieces/antara/ensemble.ts";
 import type { DynamicPoint, Event, NoteEvent, Part, Score } from "../../../../src/score/types.ts";
 import type { Seam } from "../../../../src/sketch/nest.ts";
-import { betweenSet, number, pitch, type Values } from "../../../../src/sketch/knobs.ts";
+import { betweenSet, number, pitch, toggle, type Values } from "../../../../src/sketch/knobs.ts";
 import { atomOf, TICKS, time } from "../../between.ts";
 
 const BAR = 4 * TICKS;
@@ -61,9 +67,9 @@ export const knobs = {
   steps: betweenSet({
     group: "Lines",
     label: "Steps",
-    help: "The betweens both read, the violin up, the cello down (a negative one turns back a little). Taken in turn, one later each time round",
-    value: "-1.5 2.5 3.5 4",
-    min: -8,
+    help: "The betweens both read, the violin up, the cello down. 0 is a stay: the note holds on through that step. The lines never turn back (a negative one is a stay too). Taken in turn, one later each time round",
+    value: "0 2.5 3.5 4",
+    min: 0,
     max: 8,
     step: 0.5,
     unit: "st",
@@ -87,6 +93,12 @@ export const knobs = {
     max: 8,
     step: 0.5,
     unit: "beats",
+  }),
+  fixed: toggle({
+    group: "Sound",
+    label: "Fixed point",
+    help: "The celesta strikes the opening's F♯ (F♯5) on every beat, going on from two-grids, as soft the whole time, until the violin has come to its F♯ two octaves up: the last stroke is the last beat before the violin slides away",
+    value: true,
   }),
   tempo: number({
     group: "Sound",
@@ -148,7 +160,8 @@ interface Note {
  * by halves to the edge. Returns the pitches and where going by halves began.
  */
 function pitchesOf(v: V, dir: 1 | -1, edge: number): { pitches: number[]; halves: number } {
-  const set = [...v.steps].sort((a, b) => a - b);
+  // Never back: a between below 0 is a stay, like 0 (the same pitch again, merged later).
+  const set = [...v.steps].map((m) => Math.max(0, m)).sort((a, b) => a - b);
   const up = Math.max(
     0,
     set.findIndex((x) => x > 0),
@@ -157,7 +170,7 @@ function pitchesOf(v: V, dir: 1 | -1, edge: number): { pitches: number[]; halves
   const out = [v.start, v.start + dir * 0.5];
   let p = out.at(-1)!;
   const inside = (x: number) => (dir > 0 ? x <= edge - v.reserve : x >= edge + v.reserve);
-  reading: for (let round = 0; round < 64; round++) {
+  reading: for (let round = 0; round < 64 && set.some((m) => m > 0); round++) {
     const s = round % order.length;
     for (const m of [...order.slice(s), ...order.slice(0, s)]) {
       if (!inside(p + dir * m)) break reading;
@@ -201,6 +214,25 @@ function timed(
   return out;
 }
 
+/**
+ * A stay (the same pitch again) is no new note: the note before holds on through it. Returns the
+ * notes and, for each note given, the note it is now part of.
+ */
+function merged(notes: Note[]): [Note[], number[]] {
+  const out: Note[] = [];
+  const index: number[] = [];
+  for (const n of notes) {
+    const last = out.at(-1);
+    if (last && last.midi === n.midi) {
+      if (n.slideAfter === undefined) delete last.slideAfter;
+      else last.slideAfter = last.dur + n.slideAfter;
+      last.dur += n.dur;
+    } else out.push({ ...n });
+    index.push(out.length - 1);
+  }
+  return [out, index];
+}
+
 const onSemitones = (midi: number) => Number.isInteger(midi);
 
 //==============================================================================
@@ -211,8 +243,10 @@ export function score(v: V): Score {
   const goal3 = Math.round(v.holds * 3);
   const vp = pitchesOf(v, 1, v.top);
   const cp = pitchesOf(v, -1, v.bottom);
-  const violin = timed(vp.pitches, A5, [7, 9, 8], goal5, 3);
-  const cello = timed(cp.pitches, A3, [4, 6, 5], goal3, 2);
+  const [violin] = merged(timed(vp.pitches, A5, [7, 9, 8], goal5, 3));
+  const [cello, cIndex] = merged(timed(cp.pitches, A3, [4, 6, 5], goal3, 2));
+  // Where the cello began to go by halves.
+  const cHalves = cIndex[cp.halves]!;
   // The cello's last note: held and let die; the violin's: held, then a quarter tone up into nothing.
   const cLast = cello.at(-1)!;
   cLast.dur = ceilTo(4 * TICKS, A3);
@@ -386,7 +420,7 @@ export function score(v: V): Score {
     const ks = line.map((_, k) => k).filter((k) => k > 0 && k < line.length - stopBefore);
     const semis = thinned(ks.filter((k) => onSemitones(line[k]!.midi)));
     const others = thinned(ks.filter((k) => !onSemitones(line[k]!.midi)));
-    const semiIds = upper ? ["hp1", "cel", "crot"] : ["pno", "hp1"];
+    const semiIds = upper ? (v.fixed ? ["hp1", "crot"] : ["hp1", "cel", "crot"]) : ["pno", "hp1"];
     const chosen: [number, string][] = [
       ...semis.map((k, i): [number, string] => [k, semiIds[i % semiIds.length]!]),
       ...others.map((k): [number, string] => [k, "hp2"]),
@@ -419,9 +453,24 @@ export function score(v: V): Score {
   }
   for (const [id, x] of rings) parts.push(partOf(id, byTime(x.events), byTime(x.levels)));
 
+  // The fixed point: the opening's F♯ on every beat, written as the opening wrote it (a quarter,
+  // tenuto), as soft all the way, until the last beat before the violin slides away from its F♯.
+  if (v.fixed) {
+    const leave = vLast.at + vLast.slideAfter!;
+    const strokes: NoteEvent[] = [];
+    for (let at = 0; at < leave; at += TICKS)
+      strokes.push({
+        at: time(at),
+        dur: time(TICKS),
+        pitch: { midi: 78 },
+        articulations: ["tenuto"],
+      });
+    parts.push(partOf("cel", strokes, [{ at: 0, level: 2 }]));
+  }
+
   // The ground comes back under the cello's last notes and goes with it.
   {
-    const from = floorTo(cello[cp.halves]!.at - 2 * TICKS, TICKS);
+    const from = floorTo(cello[cHalves]!.at - 2 * TICKS, TICKS);
     const to = ceilTo(cEnd + 2 * TICKS, TICKS);
     const swell: DynamicPoint[] = [
       { at: time(from), level: 0, to: "linear" },
@@ -442,7 +491,7 @@ export function score(v: V): Score {
   const rank = (id: string) => ensemble.findIndex((pl) => pl.id === id);
   parts.sort((a, b) => rank(a.id) - rank(b.id));
   const bar = (t: number) => Math.floor(t / BAR) + 1;
-  const letters = [0, cello[cp.halves]!.at, cEnd];
+  const letters = [0, cello[cHalves]!.at, cEnd];
   return {
     title: "antara · the ending",
     meter: [{ measure: 1, beats: 4, beatType: 4 }],
