@@ -4,6 +4,8 @@
 - 元: [`../two-grids/`](../two-grids/README.md)「ガラスの和音」。元のフォルダには触っていない。編成は [`../../../../pieces/antara/ensemble.ts`](../../../../pieces/antara/ensemble.ts)
 - 作るもの: [`sketch.ts`](./sketch.ts)。値はプレビュー右のつまみで動かせる（`values.json` に残る）
 - 原則: [`../../../../docs/antara/sound.md`](../../../../docs/antara/sound.md)（間・セット・規則、時間の足し算、四分音）
+- 曲の中: [`../../../../pieces/antara/two-grids/`](../../../../pieces/antara/two-grids/sketch.ts) がこのスケッチそのもの（コードも値も同じ。決定 0026）。
+  ここでつまみを動かすと、曲も書き直される。区切りの候補（`seams`）: どのパートも音を保っているあいだならどこでも（弦は滑っているあいだは不可）
 
 ## 余湖さんの注文（2026-09-29）
 

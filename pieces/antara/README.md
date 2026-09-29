@@ -1,9 +1,17 @@
 # antara
 
-- 状態: 書き始め（2026-09-29）。まだセクションはなく、編成だけの空の楽譜
+- 状態: 書き始め（2026-09-29）。セクションは一つ（two-grids）。まだつなぐものはない
 - 前提: [`../../docs/antara/premise.md`](../../docs/antara/premise.md)。音の原則: [`../../docs/antara/sound.md`](../../docs/antara/sound.md)
 - 組み方: セクションはそれぞれ別のコード（パレットのスケッチと同じ書き方）で自由に作り、一番上（[`sketch.ts`](./sketch.ts)）の操作でつなぐ
   （[`../../src/sketch/join.ts`](../../src/sketch/join.ts)、決定 [`0023`](../../docs/decisions/0023-join-sections-from-outside.md)）。試しは [`../four-ideas/`](../four-ideas/README.md)
+- セクションはスケッチそのもの（決定 [`0026`](../../docs/decisions/0026-sections-are-sketches.md)）。ここのフォルダの `sketch.ts` はどのスケッチかを言うだけで、コードも値もスケッチのもの。
+  スケッチで詰めると、曲のそのセクションも変わる。つなぎ方はここの一番上で決める
+
+## セクション
+
+| フォルダ | スケッチ | 置き方 |
+| --- | --- | --- |
+| [`two-grids`](./two-grids/sketch.ts) | [`sketches/antara/ideas/two-grids-orchestra`](../../sketches/antara/ideas/two-grids-orchestra/README.md)（ガラスの和音、弦はプルトまで分ける） | 0 拍目から、そのまま |
 
 ## 編成
 
@@ -49,5 +57,6 @@
 
 ## 見方
 
-- プレビュー: PIECES → antara（右のつまみは、セクションができるまでの空の楽譜の小節数とテンポだけ）
+- プレビュー: PIECES → antara。一番上にはまだつまみがない（つなぐものができたら、つなぎ方のつまみを置く）。
+  PIECES → antara → two-grids で、そのセクション（＝スケッチ）のつまみが出る
 - 紙面: `vp node tools/pages.ts pieces/antara --fit`（全段が一枚に入るように、紙の縦を伸ばして描く）

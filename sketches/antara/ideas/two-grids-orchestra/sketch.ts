@@ -29,6 +29,7 @@
 
 import { ensemble } from "../../../../pieces/antara/ensemble.ts";
 import type { DynamicPoint, NoteEvent, Part, Pitch, Score } from "../../../../src/score/types.ts";
+import type { Seam } from "../../../../src/sketch/nest.ts";
 import {
   betweenSet,
   choice,
@@ -727,4 +728,22 @@ export function score(v: V): Score {
     pairs: false,
     parts,
   };
+}
+
+/**
+ * Where a section made of this sketch may stop or start (src/sketch/join.ts): every part anywhere
+ * while it holds a tone (a desk not while it slides), or at a note it only touches.
+ */
+export function seams(score: Score): Record<string, Seam[]> {
+  const q = (t: NoteEvent["at"]) => (typeof t === "number" ? t : t[0] / t[1]);
+  const out: Record<string, Seam[]> = {};
+  for (const p of score.parts) {
+    const notes = p.events.filter((e): e is NoteEvent => e.type !== "text");
+    out[p.id] = notes.map((n): Seam => {
+      const at = q(n.at);
+      const held = n.gliss ? q(n.glissAfter ?? 0) : q(n.dur);
+      return held > 0 ? [at, at + held] : at;
+    });
+  }
+  return out;
 }
