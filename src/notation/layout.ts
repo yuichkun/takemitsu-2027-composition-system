@@ -596,10 +596,13 @@ function percussion(parts: NormalPart[], measures: Measure[]): Staff[] {
     const key = p.player ?? "";
     players.set(key, [...(players.get(key) ?? []), p]);
   }
+  // A player named with a number ("p2") is that percussionist, whether or not the others play
+  // here, so the score agrees with the front pages; others count in the order of their instruments.
+  const numberOf = (key: string) => Number(/^p(\d+)$/.exec(key)?.[1] ?? NaN);
   const named = [...players.entries()]
     .filter(([key]) => key !== "")
     .map(([key, own]) => ({ key, own: own.sort(byRank) }))
-    .sort((x, y) => byRank(x.own[0]!, y.own[0]!));
+    .sort((x, y) => numberOf(x.key) - numberOf(y.key) || byRank(x.own[0]!, y.own[0]!));
   const out: Staff[] = timpani.map((p, i) =>
     staffOf(
       p,
@@ -607,15 +610,13 @@ function percussion(parts: NormalPart[], measures: Measure[]): Staff[] {
       measures,
     ),
   );
-  named.forEach(({ own }, k) => {
+  named.forEach(({ key, own }, k) => {
+    const n = Number.isNaN(numberOf(key)) ? k + 1 : numberOf(key);
     for (const p of own)
       out.push(
         staffOf(
           p,
-          [
-            `Percussion ${k + 1}: ${p.instrument.name}`,
-            `Perc. ${k + 1}: ${p.instrument.abbreviation}`,
-          ],
+          [`Percussion ${n}: ${p.instrument.name}`, `Perc. ${n}: ${p.instrument.abbreviation}`],
           measures,
         ),
       );
