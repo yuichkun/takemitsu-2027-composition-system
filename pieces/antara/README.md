@@ -1,6 +1,6 @@
 # antara
 
-- 状態: 書き始め（2026-09-29）。セクションは opening、running、climax、two-grids。スケッチをラフに決めて、どんどん曲に入れていく段（細かいことはあとで）
+- 状態: 書き始め（2026-09-29）。セクションは opening、running、climax、two-grids、ending。スケッチをラフに決めて、どんどん曲に入れていく段（細かいことはあとで）
 - 前提: [`../../docs/antara/premise.md`](../../docs/antara/premise.md)。音の原則: [`../../docs/antara/sound.md`](../../docs/antara/sound.md)
 - 組み方: セクションはそれぞれ別のコード（パレットのスケッチと同じ書き方）で自由に作り、一番上（[`sketch.ts`](./sketch.ts)）の操作でつなぐ
   （[`../../src/sketch/join.ts`](../../src/sketch/join.ts)、決定 [`0023`](../../docs/decisions/0023-join-sections-from-outside.md)）。試しは [`../four-ideas/`](../four-ideas/README.md)
@@ -22,8 +22,9 @@
 | 2 | [`running`](./running/sketch.ts) | [`running-orchestra`](../../sketches/antara/ideas/running-orchestra/README.md): 弦 4 部のカノンが 3 連系 → 16 分系 → 5 連系と速くなる。管が組の頭を、金管が頭の重なりを、固定の音の楽器が出せる刻みを重ね、最後の頭を全員で | ♩ = 120、25 小節 | Join 1: end to end（39 小節目から） |
 | 3 | [`climax`](./climax/sketch.ts) | [`climax`](../../sketches/antara/ideas/climax/README.md): クライマックス。巨大な鐘（管の 32 音の和音。ピアノ・チェレスタ・ハープ 2 台・打楽器が一緒に打つ）が 6.5 秒おきに鳴り、低い弦が起点をトレモロで保ち、上の弦が鐘の音の中を走り続ける。鐘は二つ（半音の音と四分音ずれた音）に割れて交互に打ち、打つ位置が近づいてそろった一打でビブラスラップ、断絶。タムタムと下りてくる木管の余韻が残る | ♩ = 120、26 小節 | Join 2: end to end（64 小節目から） |
 | 4 | [`two-grids`](./two-grids/sketch.ts) | [`two-grids-orchestra`](../../sketches/antara/ideas/two-grids-orchestra/README.md): ガラスの和音。弦 30 のプルトが一つの和音を保ち、半音の音と四分音ずれた音のあいだをグリッサンドで行き来する。反射はハープ・チェレスタ・ピアノ・クロタル | ♩ = 52、14 小節 | Join 3: end to end（90 小節目から）。クライマックスの余韻のあと |
+| 5 | [`ending`](./ending/sketch.ts) | [`ending`](../../sketches/antara/ideas/ending/README.md): 終わり。独奏ヴァイオリンと独奏チェロが F♯4（冒頭の音）から四分音ずつ分かれ、同じ間の組を上下逆に読んで離れていく（別々の系で、そろわずに）。後ろのヴァイオリン II とヴィオラは独奏がこれから着く音を弱く保ち、着いたら手放す。チェロは開放の C へ半分ずつ近づいて先に消え、そこで冒頭の地鳴り（E1）がかすかに戻る。ヴァイオリンはひとりハーモニクスで F♯7 に着き、四分音上へ滑って消える | ♩ = 52、22 小節 | Join 4: end to end（104 小節目から） |
 
-曲全体: 5:19、103 小節、82 段（弾いているパートだけ。弦は、分けたパートと全員のパートが両方出る）。
+曲全体: 7:00、125 小節、84 段（弾いているパートだけ。弦は、分けたパートと全員のパートが両方出る）。
 
 ## 編成
 
