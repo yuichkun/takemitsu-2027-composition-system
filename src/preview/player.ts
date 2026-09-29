@@ -1,6 +1,6 @@
 // Playback of rendered chunks through a mixer: one channel per part (compression, fader, mute,
-// solo, meter) and a master with a limiter. Every channel goes through a compressor, even at 0,
-// so the compressor's look-ahead delays all channels alike.
+// solo, meter) and a master (the same compression and fader, then a limiter). Every channel goes
+// through a compressor, even at 0, so the compressor's look-ahead delays all channels alike.
 //
 // The player holds the score's list of chunk places (the manifest, one per version) and their
 // status (which are rendered), each replaced whole whenever the server has a newer one
@@ -141,10 +141,14 @@ function carry(
 
 export class Player {
   readonly ctx = new AudioContext({ sampleRate });
+  /** The master: the channels' sum → compressor → fader → limiter. */
+  readonly masterCompressor = this.ctx.createDynamicsCompressor();
   readonly masterGain = this.ctx.createGain();
   readonly limiter = this.ctx.createDynamicsCompressor();
   readonly masterAnalyser = this.ctx.createAnalyser();
   masterDb = 0;
+  /** The master's compression amount, 0–1 (as a channel's). */
+  masterComp = 0;
   duration = 0;
   onChange?: () => void;
   /** Fetches mixed segments. */
@@ -175,6 +179,7 @@ export class Player {
 
   constructor() {
     setCompressor(this.limiter, limiterParams, this.ctx);
+    this.masterCompressor.connect(this.masterGain);
     this.masterGain.connect(this.limiter);
     this.limiter.connect(this.masterAnalyser);
     this.masterAnalyser.connect(this.ctx.destination);
@@ -193,7 +198,7 @@ export class Player {
       analyser.fftSize = 1024;
       compressor.connect(gain);
       gain.connect(analyser);
-      analyser.connect(this.masterGain);
+      analyser.connect(this.masterCompressor);
       next.set(id, {
         id,
         db: saved?.db ?? 0,
@@ -207,6 +212,7 @@ export class Player {
     }
     this.channels = next;
     this.masterDb = settings.master ?? this.masterDb;
+    this.masterComp = settings.masterComp ?? this.masterComp;
     // Sounding segments were connected to the old channels.
     if (this.running) this.hold(this.position);
     this.apply();
@@ -216,7 +222,7 @@ export class Player {
     const parts: Record<string, ChannelState> = {};
     for (const ch of this.channels.values())
       parts[ch.id] = { db: ch.db, mute: ch.mute, solo: ch.solo, comp: ch.comp };
-    return { master: this.masterDb, parts };
+    return { master: this.masterDb, masterComp: this.masterComp, parts };
   }
 
   channel(id: string): ChannelState | undefined {
@@ -349,6 +355,7 @@ export class Player {
       ch.gain.gain.setTargetAtTime(gains[ch.id]!, this.ctx.currentTime, 0.01);
       setCompressor(ch.compressor, compressorParams(ch.comp), this.ctx);
     }
+    setCompressor(this.masterCompressor, compressorParams(this.masterComp), this.ctx);
     this.masterGain.gain.setTargetAtTime(dbToGain(this.masterDb), this.ctx.currentTime, 0.01);
     this.onChange?.();
   }
@@ -362,6 +369,11 @@ export class Player {
 
   setMaster(db: number): void {
     this.masterDb = db;
+    this.apply();
+  }
+
+  setMasterComp(amount: number): void {
+    this.masterComp = amount;
     this.apply();
   }
 
@@ -530,9 +542,11 @@ export class Player {
     for (const [slot, s] of this.scheduled) if (s.index < index - 1) this.scheduled.delete(slot);
   }
 
-  /** Current gain reduction in dB (≤ 0) of a channel's compressor, or of the master limiter. */
+  /** Current gain reduction in dB (≤ 0) of a channel's compressor, or the master's (its compressor and limiter). */
   reduction(id?: string): number {
-    return id ? (this.channels.get(id)?.compressor.reduction ?? 0) : this.limiter.reduction;
+    return id
+      ? (this.channels.get(id)?.compressor.reduction ?? 0)
+      : this.masterCompressor.reduction + this.limiter.reduction;
   }
 
   /** Peak level (linear) of a channel after its fader, or of the master. */

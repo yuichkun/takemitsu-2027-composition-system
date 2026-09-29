@@ -12,6 +12,8 @@ export interface ChannelState {
 
 export interface MixerSettings {
   master?: number;
+  /** The master's compression amount, 0–1: the same compressor as a part's, before the master fader. */
+  masterComp?: number;
   parts?: Record<string, ChannelState>;
 }
 

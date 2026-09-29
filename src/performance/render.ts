@@ -5,7 +5,7 @@
 // - mixdown: every part at its chunks' own gain, at a fixed level (so mixdowns compare), with
 //   stems if asked (tools/render.ts)
 // - mixAsHeard: through the preview's mixer, as the page plays it: each part's compression and
-//   fader, mute and solo, the master fader and its limiter (the preview's Export)
+//   fader, mute and solo, the master's compression, fader and limiter (the preview's Export)
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -73,7 +73,7 @@ export interface HeardMix {
 
 /**
  * The mix of an open, fully rendered score as the preview's mixer plays it: per part the
- * compressor (its amount) and the fader, mute and solo; then the master fader and the limiter
+ * compressor (its amount) and the fader, mute and solo; then the master's compressor, fader and limiter
  * (src/audio/dynamics.ts has the same curves the page's compressors use).
  */
 export async function mixAsHeard(
@@ -103,6 +103,7 @@ export async function mixAsHeard(
       mix[1][i]! += stem[1][i]! * gain;
     }
   }
+  compressInPlace([...mix], sampleRate, compressorParams(settings.masterComp ?? 0));
   const master = dbToGain(settings.master ?? 0);
   if (master !== 1) for (const ch of mix) for (let i = 0; i < frames; i++) ch[i]! *= master;
   compressInPlace([...mix], sampleRate, limiterParams);

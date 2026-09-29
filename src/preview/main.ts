@@ -768,7 +768,7 @@ const compTitle = (amount: number) => {
 function strip(id: string | undefined, name: string): HTMLElement {
   const el = document.createElement("div");
   el.className = id ? "strip" : "strip master";
-  const state = id ? player.channel(id)! : { db: player.masterDb, comp: 0 };
+  const state = id ? player.channel(id)! : { db: player.masterDb, comp: player.masterComp };
   const faderId = `fader-${id ?? "master"}`;
   const compId = `comp-${id ?? "master"}`;
   el.innerHTML = `
@@ -777,11 +777,7 @@ function strip(id: string | undefined, name: string): HTMLElement {
         ? '<button type="button" class="mute" title="Mute">M</button><button type="button" class="solo" title="Solo (Alt+click: only this)">S</button>'
         : '<span class="limit-label" title="Limiter always on at the end of the master (−1 dBFS)">LIMIT</span>'
     }</div>
-    <div class="comp">${
-      id
-        ? `<label for="${compId}">Comp</label><input id="${compId}" type="range" min="0" max="100" step="1" value="${Math.round(state.comp * 100)}" title="${compTitle(state.comp)}" />`
-        : ""
-    }<span class="gr" title="Gain reduction now"></span></div>
+    <div class="comp"><label for="${compId}">Comp</label><input id="${compId}" type="range" min="0" max="100" step="1" value="${Math.round(state.comp * 100)}" title="${compTitle(state.comp)}" /><span class="gr" title="${id ? "Gain reduction now" : "Gain reduction now (compressor and limiter)"}"></span></div>
     <div class="strip-body">
       <div class="meter"><div class="meter-fill"></div></div>
       <input id="${faderId}" class="fader" type="range" min="-60" max="12" step="0.5" value="${state.db}" aria-label="${escapeHtml(name)} level" title="Double-click: 0 dB" />
@@ -801,18 +797,19 @@ function strip(id: string | undefined, name: string): HTMLElement {
     fader.value = "0";
     fader.dispatchEvent(new Event("input"));
   });
+  const comp = el.querySelector<HTMLInputElement>(`#${CSS.escape(compId)}`)!;
+  comp.addEventListener("input", () => {
+    const amount = Number(comp.value) / 100;
+    comp.title = compTitle(amount);
+    if (id) player.set(id, { comp: amount });
+    else player.setMasterComp(amount);
+    saveMixer();
+  });
+  comp.addEventListener("dblclick", () => {
+    comp.value = "0";
+    comp.dispatchEvent(new Event("input"));
+  });
   if (id) {
-    const comp = el.querySelector<HTMLInputElement>(`#${CSS.escape(compId)}`)!;
-    comp.addEventListener("input", () => {
-      const amount = Number(comp.value) / 100;
-      comp.title = compTitle(amount);
-      player.set(id, { comp: amount });
-      saveMixer();
-    });
-    comp.addEventListener("dblclick", () => {
-      comp.value = "0";
-      comp.dispatchEvent(new Event("input"));
-    });
     const mute = el.querySelector<HTMLButtonElement>(".mute")!;
     const solo = el.querySelector<HTMLButtonElement>(".solo")!;
     const sync = () => {
@@ -860,6 +857,7 @@ $("mixer-reset").addEventListener("click", () => {
   for (const p of current?.data?.parts ?? [])
     player.set(p.id, { db: 0, mute: false, solo: false, comp: 0 });
   player.setMaster(0);
+  player.setMasterComp(0);
   buildStrips();
   saveMixer();
 });
