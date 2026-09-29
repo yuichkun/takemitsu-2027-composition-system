@@ -20,6 +20,20 @@
         "--strictPort"
       ],
       "port": 5175
+    },
+    {
+      "name": "preview-trial",
+      "runtimeExecutable": "/usr/bin/env",
+      "runtimeArgs": [
+        "TAKEMITSU_CHUNKS_DIR=.local/probe/trial-chunks",
+        "TAKEMITSU_ENGRAVINGS_DIR=.local/probe/trial-engravings",
+        "/Users/yuichkun/.vite-plus/bin/vp",
+        "dev",
+        "--port",
+        "5176",
+        "--strictPort"
+      ],
+      "port": 5176
     }
   ]
 }

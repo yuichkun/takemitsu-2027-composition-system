@@ -118,12 +118,26 @@ vp node tools/stress-score.ts     # .local/stress/stress-20min.json を作る
 - その楽器でまだ使っていない奏法が増える編集をすると、その楽器の音色を読み直すので、数秒は全体のレンダが止まる。その楽器のチャンクは全部作り直しになる
 - `--file <score.json>` で、ダミー曲以外の楽譜にも使える
 
+### 3.4 実寸の曲（仮の一曲）を、何もない状態から開く
+
+[`../pieces/trial/`](../pieces/trial/README.md)（12 分、65 パート、195 小節）を、ふだんの保存場所を消さずに、空の保存場所で開く（ポート 5176）:
+
+```sh
+rm -rf .local/probe/trial-chunks .local/probe/trial-engravings
+TAKEMITSU_CHUNKS_DIR=.local/probe/trial-chunks TAKEMITSU_ENGRAVINGS_DIR=.local/probe/trial-engravings vp dev --port 5176
+```
+
+2026-09-29 に測った値（開いてから）: 譜面は 6 秒で半分、16 秒以内に全 195 小節（段もそろう）。音は 16 秒で 661、26 秒で 2,482、
+40 秒ほどで 3,755 チャンク全部（失敗 0）。保存場所は 2.75 GB。乱数のダミー曲（上）より、同じ長さあたりずっと軽い
+（鳴っている音と段の数が少ないため）。
+
 ## 4. 書き出す
 
 ```sh
 vp node tools/export.ts pieces/pilot                      # .local/exports/pilot.musicxml（Sibelius で開く）
 vp node tools/export.ts sketches/percussion/haze out.musicxml
 vp node tools/pages.ts pieces/pilot                       # .local/pages/pilot/page-1.png …（Verovio で A3 の紙面に描く。体裁を見るため）
+vp node tools/pages.ts pieces/trial --bar 67 --pages 3    # 67 小節のあるページから 3 ページ（--from 20 ならページ番号で）
 vp node tools/render.ts examples/showcase.json            # .local/renders/showcase/mix.wav
 vp node tools/render.ts examples/showcase.json --stems    # パートごとの WAV も
 vp node tools/render.ts pieces/pilot                      # スケッチや曲はフォルダでもよい
