@@ -33,6 +33,8 @@ export interface Player {
   abbreviation?: string;
   /** 1 for a solo string player (docs/decisions/0015). */
   players?: number;
+  /** Who plays it, when one player plays several parts (a flute and a piccolo): see Part.player. */
+  player?: string;
 }
 
 /** What the piece gives every node to make its music from. The piece may add more. */
@@ -355,6 +357,7 @@ export class Context {
       name: p.name,
       ...(p.abbreviation ? { abbreviation: p.abbreviation } : {}),
       ...(p.players ? { players: p.players } : {}),
+      ...(p.player ? { player: p.player } : {}),
       events: byTime(fragment.parts[p.id]?.events ?? []),
       dynamics: byTime(fragment.parts[p.id]?.dynamics ?? []),
     }));
