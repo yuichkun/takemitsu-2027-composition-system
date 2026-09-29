@@ -1,0 +1,13 @@
+{
+  "values": {},
+  "presets": {
+    "Orchestra": {},
+    "Strings only": {
+      "winds": false,
+      "brass": false,
+      "keys": false,
+      "tutti": false
+    }
+  },
+  "touched": []
+}
