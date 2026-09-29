@@ -126,7 +126,6 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
   const walkers: Walker[] = [];
   lines.forEach((s) => {
     const rand = random(trial.seed * 53 + s.player.charCodeAt(0) * 29 + s.player.length);
-    let lastSilent = false;
     const range = PLAYABLE[ctx.player(s.player).instrument]!;
     walkers.push(
       new Walker({
@@ -164,7 +163,6 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
           const silent =
             !fitted ||
             (!moving && (soundingAt(walkers, at + 1, self) >= v.company || rand() < 0.35));
-          lastSilent = silent;
           const spec: Cycle = { pitch, time: t, family, silent };
           return s.kind === "arco" ? { ...spec, technique: "ord" } : spec;
         },
