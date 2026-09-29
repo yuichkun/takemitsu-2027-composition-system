@@ -1,0 +1,1935 @@
+{
+ "title": "antara · palette A · the holes become the chord",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 12,
+ "parts": [
+  {
+   "id": "vn1-1",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 1",
+   "abbreviation": "Vn. I 1",
+   "players": 1
+  },
+  {
+   "id": "vn1-2",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 2",
+   "abbreviation": "Vn. I 2",
+   "players": 1
+  },
+  {
+   "id": "vn1-3",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 3",
+   "abbreviation": "Vn. I 3",
+   "players": 1
+  },
+  {
+   "id": "vn1-4",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      43,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 67
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 4",
+   "abbreviation": "Vn. I 4",
+   "players": 1
+  },
+  {
+   "id": "vn1-5",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      32,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 5",
+   "abbreviation": "Vn. I 5",
+   "players": 1
+  },
+  {
+   "id": "vn1-6",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      32,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 6",
+   "abbreviation": "Vn. I 6",
+   "players": 1
+  },
+  {
+   "id": "vn1-7",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 7",
+   "abbreviation": "Vn. I 7",
+   "players": 1
+  },
+  {
+   "id": "vn1-8",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 63
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 8",
+   "abbreviation": "Vn. I 8",
+   "players": 1
+  },
+  {
+   "id": "vn1-9",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      43,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 9",
+   "abbreviation": "Vn. I 9",
+   "players": 1
+  },
+  {
+   "id": "vn1-10",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 10",
+   "abbreviation": "Vn. I 10",
+   "players": 1
+  },
+  {
+   "id": "vn1-11",
+   "instrument": "violins-1",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins I 11",
+   "abbreviation": "Vn. I 11",
+   "players": 1
+  },
+  {
+   "id": "vn2-1",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 1",
+   "abbreviation": "Vn. II 1",
+   "players": 1
+  },
+  {
+   "id": "vn2-2",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 69.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 2",
+   "abbreviation": "Vn. II 2",
+   "players": 1
+  },
+  {
+   "id": "vn2-3",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 3",
+   "abbreviation": "Vn. II 3",
+   "players": 1
+  },
+  {
+   "id": "vn2-4",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      43,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 4",
+   "abbreviation": "Vn. II 4",
+   "players": 1
+  },
+  {
+   "id": "vn2-5",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 5",
+   "abbreviation": "Vn. II 5",
+   "players": 1
+  },
+  {
+   "id": "vn2-6",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      32,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 6",
+   "abbreviation": "Vn. II 6",
+   "players": 1
+  },
+  {
+   "id": "vn2-7",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      32,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      124,
+      3
+     ],
+     "dur": [
+      16,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 7",
+   "abbreviation": "Vn. II 7",
+   "players": 1
+  },
+  {
+   "id": "vn2-8",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      94,
+      3
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 8",
+   "abbreviation": "Vn. II 8",
+   "players": 1
+  },
+  {
+   "id": "vn2-9",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      62,
+      3
+     ],
+     "dur": [
+      32,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 9",
+   "abbreviation": "Vn. II 9",
+   "players": 1
+  },
+  {
+   "id": "vn2-10",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      8,
+      3
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      19,
+      3
+     ],
+     "dur": [
+      43,
+      3
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 61.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 10",
+   "abbreviation": "Vn. II 10",
+   "players": 1
+  },
+  {
+   "id": "vn2-11",
+   "instrument": "violins-2",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "senza vib."
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      9,
+      1
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto"
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "name": "Violins II 11",
+   "abbreviation": "Vn. II 11",
+   "players": 1
+  }
+ ]
+}

@@ -1,0 +1,2732 @@
+{
+ "title": "antara · palette A · the reach of a standpoint places the cuts",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "measures": 14,
+ "parts": [
+  {
+   "id": "tbn1",
+   "instrument": "trombone",
+   "name": "Trombone 1",
+   "abbreviation": "Tbn. 1",
+   "players": 1,
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      269,
+      5
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      279,
+      5
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "legato, tongue only at > · partial 7"
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      11,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      11,
+      5
+     ],
+     "dur": [
+      7,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      18,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      24,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      5,
+      1
+     ],
+     "text": "partial 4"
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 55.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 53
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      36,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 54
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      47,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      47,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      48,
+      5
+     ],
+     "dur": [
+      9,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      57,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      58,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      58,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      63,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      64,
+      5
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      64,
+      5
+     ],
+     "dur": [
+      12,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ],
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      76,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      77,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      77,
+      5
+     ],
+     "dur": [
+      7,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      84,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      96,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      96,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      99,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      104,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      21,
+      1
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      109,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      22,
+      1
+     ],
+     "text": "partial 8"
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      112,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      118,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      129,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      136,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      136,
+      5
+     ],
+     "dur": [
+      9,
+      5
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      146,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      146,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      148,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      154,
+      5
+     ],
+     "dur": [
+      9,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      163,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      164,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      164,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      169,
+      5
+     ],
+     "dur": [
+      12,
+      5
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      181,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      194,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      39,
+      1
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      39,
+      1
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ],
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      206,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      206,
+      5
+     ],
+     "dur": [
+      7,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      213,
+      5
+     ],
+     "dur": [
+      12,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      226,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ],
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      237,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      238,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      239,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      249,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      50,
+      1
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      254,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      258,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      259,
+      5
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      259,
+      5
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "articulations": [
+      "accent"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tbn2",
+   "instrument": "trombone",
+   "name": "Trombone 2",
+   "abbreviation": "Tbn. 2",
+   "players": 1,
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 4
+    },
+    {
+     "at": [
+      269,
+      5
+     ],
+     "level": 4,
+     "to": "linear"
+    },
+    {
+     "at": [
+      279,
+      5
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      0,
+      1
+     ],
+     "text": "legato, tongue only at > · partial 8"
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      6,
+      5
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      6,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      11,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      11,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      3,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      16,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      16,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      18,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      24,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 56
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      5,
+      1
+     ],
+     "text": "partial 4"
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 55.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 53
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      36,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 54
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      46,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 58
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      47,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      47,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      48,
+      5
+     ],
+     "dur": [
+      9,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      57,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      58,
+      5
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      58,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      64,
+      5
+     ],
+     "dur": [
+      12,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      76,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      77,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      77,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      81,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      82,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      82,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      84,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      96,
+      5
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      96,
+      5
+     ],
+     "dur": [
+      3,
+      5
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      99,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      109,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 67.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      22,
+      1
+     ],
+     "text": "partial 8"
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      112,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      118,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      129,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      136,
+      5
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      136,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      141,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      141,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      146,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      146,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      148,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      154,
+      5
+     ],
+     "dur": [
+      9,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      163,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      164,
+      5
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      164,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      169,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      179,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      36,
+      1
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      181,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      194,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 65
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      39,
+      1
+     ],
+     "text": "partial 8"
+    },
+    {
+     "at": [
+      39,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ],
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      201,
+      5
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      201,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      41,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      206,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      206,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      211,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      211,
+      5
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      213,
+      5
+     ],
+     "dur": [
+      12,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      226,
+      5
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ],
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      232,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 61.5
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      233,
+      5
+     ],
+     "text": "partial 6"
+    },
+    {
+     "at": [
+      233,
+      5
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 61
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      237,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      238,
+      5
+     ],
+     "text": "partial 5"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      239,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      249,
+      5
+     ],
+     "dur": [
+      1,
+      5
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "type": "text",
+     "at": [
+      50,
+      1
+     ],
+     "text": "partial 7"
+    },
+    {
+     "at": [
+      50,
+      1
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      254,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      259,
+      5
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "name": "Violoncello solo",
+   "abbreviation": "Vc.",
+   "players": 1,
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 5
+    },
+    {
+     "at": [
+      269,
+      5
+     ],
+     "level": 5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      279,
+      5
+     ],
+     "level": 0
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": 0,
+     "text": "sul D, legato"
+    },
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      18,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      18,
+      5
+     ],
+     "dur": [
+      12,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 53
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      36,
+      5
+     ],
+     "dur": [
+      12,
+      5
+     ],
+     "pitch": {
+      "midi": 54
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      48,
+      5
+     ],
+     "dur": [
+      16,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      64,
+      5
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      84,
+      5
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      99,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 64
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      112,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      118,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      129,
+      5
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      148,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      154,
+      5
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 58.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      169,
+      5
+     ],
+     "dur": [
+      12,
+      5
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      181,
+      5
+     ],
+     "dur": [
+      14,
+      5
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      39,
+      1
+     ],
+     "dur": [
+      18,
+      5
+     ],
+     "pitch": {
+      "midi": 65.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      213,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      4,
+      5
+     ]
+    },
+    {
+     "at": [
+      239,
+      5
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 58
+     },
+     "gliss": true,
+     "glissAfter": [
+      2,
+      5
+     ]
+    },
+    {
+     "at": [
+      254,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 64.5
+     },
+     "gliss": true,
+     "glissAfter": [
+      3,
+      5
+     ]
+    },
+    {
+     "at": [
+      259,
+      5
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    }
+   ]
+  }
+ ]
+}
