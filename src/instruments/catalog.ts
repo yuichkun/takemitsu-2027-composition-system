@@ -23,6 +23,11 @@ export interface Register {
   ottava?: "up" | "down" | "both";
   /** Ledger lines a note may need before it takes an octave line (default 3). */
   far?: number;
+  /**
+   * What a measure in one of `clefs` costs, against ledger lines (default 0.5). Higher for a clef
+   * the players rarely see, so the staff takes it only for a long, deep passage.
+   */
+  away?: number;
 }
 
 export interface Instrument {
@@ -153,10 +158,12 @@ const list: Instrument[] = [
   woodwind("bass-flute", "Bass Flute", "B. Fl.", [48, 84], { writtenOctave: 1 }),
   woodwind("oboe", "Oboe", "Ob.", [58, 93], { plural: "Oboes" }),
   woodwind("cor-anglais", "English Horn", "E. H.", [52, 81]),
+  // Clarinettists read treble: in the score in C, bass clef only for a long passage deep in the
+  // chalumeau, not for one that hovers a few ledger lines below the staff.
   woodwind("clarinet", "Clarinet", "Cl.", [50, 94], {
     plural: "Clarinets",
     key: "B♭",
-    registers: [{ clefs: [bass] }],
+    registers: [{ clefs: [bass], away: 6 }],
   }),
   woodwind("eb-clarinet", "Clarinet in E♭", "E♭ Cl.", [55, 98]),
   // In a score in C, at sounding pitch in bass clef (treble up high), not an octave up in treble.

@@ -41,7 +41,7 @@ const defaultFar = 3;
  * three or more ledger lines (docs/research/score-layout/instruments.md).
  */
 const changeCost = 12;
-/** Cost of a measure with notes in a clef other than the staff's own. */
+/** Cost of a measure with notes in a clef other than the staff's own (Register.away overrides it). */
 const awayCost = 0.5;
 
 const stepIndex: Record<Spelled["step"], number> = { C: 0, D: 1, E: 2, F: 3, G: 4, A: 5, B: 6 };
@@ -80,7 +80,14 @@ export function registersOf(
     const positions = new Map(
       notes.map((n) => [n, n.pitches.map((p) => diatonic(written(p, inst)))]),
     );
-    const clefs = chooseClefs(home, register.clefs ?? [], notes, positions, measures);
+    const clefs = chooseClefs(
+      home,
+      register.clefs ?? [],
+      notes,
+      positions,
+      measures,
+      register.away,
+    );
     return { clefs, ottavas: octaveLines(register, notes, positions, clefs, measures) };
   });
 }
@@ -91,6 +98,7 @@ function chooseClefs(
   notes: Note[],
   positions: Map<Note, number[]>,
   measures: Measure[],
+  away = awayCost,
 ): Clef[] {
   const choices = [home, ...others];
   if (choices.length === 1) return measures.map(() => home);
@@ -108,7 +116,7 @@ function chooseClefs(
   }
   const cost = byMeasure.map((ns) =>
     choices.map((c, ci) => {
-      let sum = ci === 0 ? 0 : awayCost;
+      let sum = ci === 0 ? 0 : away;
       for (const n of ns) for (const d of positions.get(n)!) sum += penalty(ledgerLines(d, c));
       return sum;
     }),

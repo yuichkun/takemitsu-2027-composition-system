@@ -250,6 +250,8 @@ interface Members {
   lower: NormalPart;
   /** Wind players ("1.", "2.", "a 2") or a string section's halves ("div.", "unis."). */
   kind: "players" | "divisi";
+  /** The two players' numbers in their section, for their labels (horns 3.4 are "3." and "4."). */
+  numbers?: [number, number];
 }
 
 /**
@@ -434,8 +436,14 @@ function combine(m: Members, measures: Measure[], name: [string, string]): Staff
     const unisonAgain = m.kind === "divisi" && texture === "unison" && previous === "tutti";
     if (changed && !unisonAgain) {
       const at = [...t, ...a, ...b].reduce((x, n) => (n.at.lt(x) ? n.at : x), s.end);
+      const named = (text: string) =>
+        m.numbers && text === "1."
+          ? `${m.numbers[0]}.`
+          : m.numbers && text === "2."
+            ? `${m.numbers[1]}.`
+            : text;
       for (const [text, placement] of labels[m.kind][texture] ?? [])
-        texts.push({ at, text, placement });
+        texts.push({ at, text: named(text), placement });
     }
     previous = texture === "unison" && m.kind === "divisi" ? "tutti" : texture;
 
@@ -546,7 +554,12 @@ function winds(parts: NormalPart[], measures: Measure[], beats: [Rational, Ratio
         pairs.some(([x, y]) => numbers[0] === x + 1 && next.numbers[0] === y + 1);
       if (pair && shareable(part, next.part, beats)) {
         const staff = combine(
-          { upper: part, lower: next.part, kind: "players" },
+          {
+            upper: part,
+            lower: next.part,
+            kind: "players",
+            numbers: [numbers[0]!, next.numbers[0]!],
+          },
           measures,
           playerNames(inst, [...numbers, ...next.numbers], true),
         );
@@ -695,16 +708,25 @@ function strings(
     // "div." (into two) or "div. a N" where the section divides; "unis." where it comes together.
     const runs = divisionRuns(divided, measures);
     for (const run of runs) {
-      const playing = staves.filter((st) =>
-        st.notes.some((n) => n.at.gte(run.start) && n.at.lt(run.end)),
+      const within = (st: Staff) => st.notes.filter((n) => n.at.gte(run.start) && n.at.lt(run.end));
+      const playing = staves.filter((st) => within(st).length);
+      // How many divisions sound at once at most: a run may hand one division over to another.
+      const together = Math.max(
+        0,
+        ...playing.flatMap((st) =>
+          within(st).map(
+            (n) =>
+              playing.filter((o) => o.notes.some((m) => m.at.lte(n.at) && n.at.lt(m.end))).length,
+          ),
+        ),
       );
       const top = playing[0];
       // One divided staff alone says who plays in its name; "div." needs two or more.
-      if (!top || playing.length < 2) continue;
+      if (!top || together < 2) continue;
       const at = top.notes.find((n) => n.at.gte(run.start))!.at;
       top.texts.push({
         at,
-        text: playing.length === 2 ? "div." : `div. a ${playing.length}`,
+        text: together === 2 ? "div." : `div. a ${together}`,
         placement: "above",
       });
       for (const t of section) {
