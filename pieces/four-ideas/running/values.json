@@ -1,0 +1,157 @@
+{
+  "values": {
+    "setA": [
+      -1.5,
+      2,
+      5
+    ],
+    "setB": [
+      -6.5,
+      -5.5,
+      -4.5,
+      8.5
+    ],
+    "pitchRule": "shift each time",
+    "anchor": 50,
+    "lengths": [
+      2,
+      4,
+      4,
+      4
+    ],
+    "timeRule": "combinations",
+    "timeGroup": 2,
+    "sets": [
+      [
+        0,
+        "A"
+      ]
+    ],
+    "stand": [
+      [
+        0,
+        "one"
+      ],
+      [
+        6,
+        "split"
+      ],
+      [
+        12,
+        "walk on"
+      ]
+    ],
+    "end": "the split",
+    "gears": [
+      [
+        0,
+        "3 · triplet 8ths"
+      ],
+      [
+        8,
+        "2 · 16ths"
+      ],
+      [
+        16,
+        "5 · quintuplets"
+      ]
+    ],
+    "entries": 6,
+    "ripple": 3,
+    "basses": true,
+    "meet": 2,
+    "stroke": "spiccato",
+    "from": "p",
+    "to": "ff",
+    "tempo": 120
+  },
+  "presets": {
+    "My Fav": {
+      "setA": [
+        -1.5,
+        2,
+        5
+      ],
+      "setB": [
+        -6.5,
+        -5.5,
+        -4.5,
+        8.5
+      ],
+      "pitchRule": "shift each time",
+      "anchor": 50,
+      "lengths": [
+        2,
+        4,
+        4,
+        4
+      ],
+      "timeRule": "combinations",
+      "timeGroup": 2,
+      "sets": [
+        [
+          0,
+          "A"
+        ]
+      ],
+      "stand": [
+        [
+          0,
+          "one"
+        ],
+        [
+          6,
+          "split"
+        ],
+        [
+          12,
+          "walk on"
+        ]
+      ],
+      "end": "the split",
+      "gears": [
+        [
+          0,
+          "3 · triplet 8ths"
+        ],
+        [
+          8,
+          "2 · 16ths"
+        ],
+        [
+          16,
+          "5 · quintuplets"
+        ]
+      ],
+      "entries": 6,
+      "ripple": 3,
+      "basses": true,
+      "meet": 2,
+      "stroke": "spiccato",
+      "from": "p",
+      "to": "ff",
+      "tempo": 120
+    }
+  },
+  "touched": [
+    "anchor",
+    "basses",
+    "end",
+    "entries",
+    "from",
+    "gears",
+    "lengths",
+    "meet",
+    "pitchRule",
+    "ripple",
+    "setA",
+    "setB",
+    "sets",
+    "stand",
+    "stroke",
+    "tempo",
+    "timeGroup",
+    "timeRule",
+    "to"
+  ]
+}

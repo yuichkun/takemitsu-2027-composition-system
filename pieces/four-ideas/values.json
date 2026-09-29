@@ -1,0 +1,37 @@
+{
+  "values": {},
+  "presets": {
+    "Joined": {},
+    "As is": {
+      "how1": "end to end",
+      "carry1": false,
+      "how2": "end to end",
+      "carry2": false,
+      "how3": "end to end",
+      "carry3": false
+    },
+    "All at once": {
+      "how1": "at once",
+      "carry1": true,
+      "lead1": 0,
+      "how2": "at once",
+      "carry2": true,
+      "lead2": 0,
+      "how3": "at once",
+      "carry3": true,
+      "lead3": 0
+    },
+    "With rests": {
+      "how1": "rest",
+      "carry1": false,
+      "rest1": 4,
+      "how2": "rest",
+      "carry2": false,
+      "rest2": 4,
+      "how3": "rest",
+      "carry3": false,
+      "rest3": 4
+    }
+  },
+  "touched": []
+}
