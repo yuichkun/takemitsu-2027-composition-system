@@ -6,7 +6,7 @@
 
 import { parentPort } from "node:worker_threads";
 
-import { stripMeasures, type NoteFlag } from "../notation/musicxml.ts";
+import { staffCount, stripMeasures, type NoteFlag } from "../notation/musicxml.ts";
 import { sampledRange } from "../performance/plan.ts";
 import { normalize } from "../score/normalize.ts";
 import { secondsAt, type TempoSegment } from "../score/timeline.ts";
@@ -94,7 +94,7 @@ function notation(text: string): { view: NotationView; strip: StripDocs } {
     warnings,
     parts: score.parts.map((p) => ({ id: p.id, name: p.name })),
   };
-  const staves = score.parts.reduce((n, p) => n + p.instrument.clefs.length, 0);
+  const staves = staffCount(score);
   return { view, strip: { measures, margins, staves } };
 }
 

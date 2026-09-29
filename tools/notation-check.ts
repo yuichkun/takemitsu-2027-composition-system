@@ -15,7 +15,7 @@ import { readFileSync } from "node:fs";
 import createVerovioModule from "verovio/wasm";
 import { enableLog, LOG_OFF, VerovioToolkit } from "verovio/esm";
 
-import { stripMeasures, written } from "../src/notation/musicxml.ts";
+import { staffCount, stripMeasures, written } from "../src/notation/musicxml.ts";
 import { diatonic, ledgerLines, registersOf } from "../src/notation/registers.ts";
 import { engrave, engraveOptions } from "../src/preview/engrave.ts";
 import { normalize } from "../src/score/normalize.ts";
@@ -77,7 +77,7 @@ for (const [k, r] of rows)
 // 3. Drawing: measures spread over the score, with the least spacing and then the shared one.
 console.log(`3. Drawing ${sample} measures`);
 const { measures } = stripMeasures(score);
-const staves = score.parts.reduce((n, p) => n + p.instrument.clefs.length, 0);
+const staves = staffCount(score);
 const module = await createVerovioModule();
 enableLog(LOG_OFF, module);
 const tk = new VerovioToolkit(module);

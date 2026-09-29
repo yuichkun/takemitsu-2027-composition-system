@@ -9,8 +9,24 @@ import { accidentalName, type Spelled } from "../score/pitch.ts";
 import { lcm, Rational } from "../score/rational.ts";
 import type { Measure } from "../score/timeline.ts";
 import type { Score } from "../score/types.ts";
+import { layoutOf, type Layout, type Staff } from "./layout.ts";
 import { registersOf, type Ottava, type StaffRegisters } from "./registers.ts";
 import { layoutMeasure, type Piece } from "./rhythm.ts";
+
+const layoutCache = new WeakMap<NormalScore, Layout>();
+/** The score's staves (src/notation/layout.ts), worked out once per score. */
+export function layoutFor(score: NormalScore): Layout {
+  let l = layoutCache.get(score);
+  if (!l) {
+    l = layoutOf(score);
+    layoutCache.set(score, l);
+  }
+  return l;
+}
+
+/** Staves of the full score, grand staves counting two. */
+export const staffCount = (score: NormalScore) =>
+  layoutFor(score).staves.reduce((n, s) => n + s.instrument.clefs.length, 0);
 
 export interface NotationResult {
   musicxml: string;
@@ -119,16 +135,26 @@ export function written(p: Spelled, inst: Instrument): Spelled {
 
 class AccidentalState {
   private seen = new Map<string, number>();
+  /** "note": every note shows its accidental, naturals too; "bar": the usual rule (Score.accidentals). */
+  private readonly rule: "note" | "bar";
+  constructor(rule: "note" | "bar" = "bar") {
+    this.rule = rule;
+  }
   reset(): void {
     this.seen.clear();
   }
-  /** Returns the accidental to print, or undefined if the current state already implies it. */
-  next(p: Spelled, tied: boolean): string | undefined {
+  /**
+   * Returns the accidental to print, or undefined if none is needed: a tied note, a note repeating
+   * the one before it in its voice ("note"), or one the measure's state already implies ("bar").
+   */
+  next(p: Spelled, tied: boolean, repeated = false): string | undefined {
     // No key signature: a step starts the measure natural.
     const key = `${p.step}${p.octave}`;
     const previous = this.seen.get(key) ?? 0;
     this.seen.set(key, p.alter);
-    if (tied || previous === p.alter) return undefined;
+    if (tied) return undefined;
+    if (this.rule === "note") return repeated ? undefined : accidentalName(p.alter);
+    if (previous === p.alter) return undefined;
     return accidentalName(p.alter);
   }
 }
@@ -154,6 +180,12 @@ interface NoteMarks {
    * the MusicXML convention (and Sibelius) puts it at B4, the middle line.
    */
   lineIsE4?: boolean;
+  /** Two players on one staff, both playing in the measure: the first stems up, the second down. */
+  stem?: "up" | "down";
+  /** A rest not printed (the silent player's, on a staff where only the other plays). */
+  hidden?: boolean;
+  /** The note repeats the one before it in its voice (no accidental under the "note" rule). */
+  repeated?: boolean;
 }
 
 /**
@@ -177,7 +209,7 @@ function noteXml(
   const n = piece.note;
   const tieStop = piece.tieFromPrevious && !marks.cutTieIn;
   const tieStart = piece.tieToNext && !marks.cutTieOut;
-  const attrs = `${marks.id ? ` id="${marks.id}"` : ""}${marks.color ? ` color="${marks.color}"` : ""}`;
+  const attrs = `${marks.id ? ` id="${marks.id}"` : ""}${marks.color ? ` color="${marks.color}"` : ""}${marks.hidden && !n ? ' print-object="no"' : ""}`;
   const out: string[] = [`<note${attrs}>`];
   if (chord) out.push("<chord/>");
   if (!n) {
@@ -201,7 +233,11 @@ function noteXml(
   for (let i = 0; i < piece.dots; i++) out.push("<dot/>");
   if (n && pitch && !inst.unpitched) {
     const w = written(pitch, inst);
-    const acc = accidentals.next({ ...w, octave: w.octave - marks.lowered }, piece.tieFromPrevious);
+    const acc = accidentals.next(
+      { ...w, octave: w.octave - marks.lowered },
+      piece.tieFromPrevious,
+      marks.repeated,
+    );
     if (acc) out.push(`<accidental>${acc}</accidental>`);
   }
   if (piece.tuplet) {
@@ -209,6 +245,7 @@ function noteXml(
       `<time-modification><actual-notes>${piece.tuplet.actual}</actual-notes><normal-notes>${piece.tuplet.normal}</normal-notes></time-modification>`,
     );
   }
+  if (n && marks.stem) out.push(`<stem>${marks.stem}</stem>`);
   if (staves > 1) out.push(`<staff>${staff}</staff>`);
   // A feathered group's first beam carries the fan (accel: the beams spread out to the right).
   const fan = n?.feather?.first && !piece.tieFromPrevious ? ` fan="${n.feather.kind}"` : "";
@@ -324,6 +361,8 @@ function registersFor(part: NormalPart, score: NormalScore): StaffRegisters[] {
 interface PartFacts {
   marks: Mark[];
   wedges: Wedge[];
+  /** Dynamics written above the staff (Staff.dynamicsAbove). */
+  above: { marks: Mark[]; wedges: Wedge[] };
   changes: { at: Rational; text: string }[];
   voicesByStaff: Map<number, Set<number>>;
   /** Longest note, to find notes sounding into a span without scanning them all. */
@@ -359,8 +398,10 @@ function factsOf(part: NormalPart): PartFacts {
         next.set(notes[i]!, notes[i + 1]!);
         previous.set(notes[i + 1]!, notes[i]!);
       }
+    const above = (part as Partial<Staff>).dynamicsAbove;
     f = {
       ...dynamicMarks(part),
+      above: above?.length ? dynamicMarks({ ...part, dynamics: above }) : { marks: [], wedges: [] },
       changes: techniqueChanges(part),
       voicesByStaff,
       longest: Math.max(0, ...part.notes.map((n) => n.dur.value)),
@@ -442,7 +483,7 @@ const emptySeam = (barline: number): Seam => ({
 });
 
 function partXml(
-  part: NormalPart,
+  part: Staff,
   index: number,
   score: NormalScore,
   warnings: string[],
@@ -517,55 +558,65 @@ function partXml(
   // document repeats nothing: it is read after the one before it.
   const restate = !whole && !strip;
   const directions: Direction[] = [];
-  const marks = [...known.marks];
-  const wedges = known.wedges;
   const firstNote = notesInSpan.find((n) => n.at.gte(spanStart));
-  const inWedge = (at: Rational) => wedges.some((w) => w.start.lt(at) && w.end.gt(at));
-  if (restate && firstNote && !marks.some((m) => m.at.eq(spanStart)) && !inWedge(spanStart)) {
-    const before = marks.filter((m) => m.at.lt(spanStart)).at(-1);
-    if (before) marks.push({ at: firstNote.at, mark: before.mark });
-  }
-  for (const m of marks) {
-    if (!inSpan(m.at)) continue;
-    const inner = m.mark === "n" ? "<other-dynamics>n</other-dynamics>" : `<${m.mark}/>`;
-    directions.push({
-      at: m.at,
-      staff: 1,
-      placement: "below",
-      xml: `<dynamics>${inner}</dynamics>`,
-    });
-  }
-  wedges.forEach((w, k) => {
-    if (w.end.lte(spanStart) || w.start.gte(spanEnd)) return;
-    const start = w.start.lt(spanStart) ? spanStart : w.start;
-    // A hairpin running past the end stops at the last barline (see isLast below).
-    const end = w.end.gt(spanEnd) ? spanEnd : w.end;
-    const cut = start !== w.start || end !== w.end;
-    const id = strip && cut ? ` id="h${index + 1}-${k}"` : "";
-    if (strip && cut) {
-      const share = (t: Rational) => t.sub(w.start).value / w.end.sub(w.start).value;
-      const open = (f: number) => (w.type === "crescendo" ? f : 1 - f);
-      seam!.hairpins.push({
-        id: `h${index + 1}-${k}`,
-        start: open(share(start)),
-        end: open(share(end)),
-        in: start !== w.start,
-        out: end !== w.end,
+  // Dynamics below the staff, and a second row above it (Staff.dynamicsAbove: the first of two
+  // players on one staff, where their dynamics differ). Each row's hairpins get their own number.
+  const rows = [
+    { ...known, placement: "below" as const, prefix: "h", number: 1 },
+    { ...known.above, placement: "above" as const, prefix: "ha", number: 2 },
+  ];
+  for (const row of rows) {
+    const marks = [...row.marks];
+    const wedges = row.wedges;
+    const inWedge = (at: Rational) => wedges.some((w) => w.start.lt(at) && w.end.gt(at));
+    if (restate && firstNote && !marks.some((m) => m.at.eq(spanStart)) && !inWedge(spanStart)) {
+      const before = marks.filter((m) => m.at.lt(spanStart)).at(-1);
+      if (before) marks.push({ at: firstNote.at, mark: before.mark });
+    }
+    for (const m of marks) {
+      if (!inSpan(m.at)) continue;
+      const inner = m.mark === "n" ? "<other-dynamics>n</other-dynamics>" : `<${m.mark}/>`;
+      directions.push({
+        at: m.at,
+        staff: 1,
+        placement: row.placement,
+        xml: `<dynamics>${inner}</dynamics>`,
       });
     }
-    directions.push({
-      at: start,
-      staff: 1,
-      placement: "below",
-      xml: `<wedge type="${w.type}"${id}${w.nienteStart && start === w.start ? ' niente="yes"' : ""}/>`,
+    wedges.forEach((w, k) => {
+      if (w.end.lte(spanStart) || w.start.gte(spanEnd)) return;
+      const start = w.start.lt(spanStart) ? spanStart : w.start;
+      // A hairpin running past the end stops at the last barline (see isLast below).
+      const end = w.end.gt(spanEnd) ? spanEnd : w.end;
+      const cut = start !== w.start || end !== w.end;
+      const name = `${row.prefix}${index + 1}-${k}`;
+      const id = strip && cut ? ` id="${name}"` : "";
+      if (strip && cut) {
+        const share = (t: Rational) => t.sub(w.start).value / w.end.sub(w.start).value;
+        const open = (f: number) => (w.type === "crescendo" ? f : 1 - f);
+        seam!.hairpins.push({
+          id: name,
+          start: open(share(start)),
+          end: open(share(end)),
+          in: start !== w.start,
+          out: end !== w.end,
+        });
+      }
+      const number = row.number > 1 ? ` number="${row.number}"` : "";
+      directions.push({
+        at: start,
+        staff: 1,
+        placement: row.placement,
+        xml: `<wedge type="${w.type}"${number}${id}${w.nienteStart && start === w.start ? ' niente="yes"' : ""}/>`,
+      });
+      directions.push({
+        at: end,
+        staff: 1,
+        placement: row.placement,
+        xml: `<wedge type="stop"${number}${w.nienteEnd && end === w.end ? ' niente="yes"' : ""}/>`,
+      });
     });
-    directions.push({
-      at: end,
-      staff: 1,
-      placement: "below",
-      xml: `<wedge type="stop"${w.nienteEnd && end === w.end ? ' niente="yes"' : ""}/>`,
-    });
-  });
+  }
   const changes = [...known.changes];
   if (restate && firstNote && !changes.some((c) => c.at.eq(firstNote.at))) {
     const before = changes.filter((c) => c.at.lt(spanStart)).at(-1);
@@ -680,12 +731,18 @@ function partXml(
       .sort((a, b) => a.at.cmp(b.at));
     const groups = layouts[mi]!;
     const accidentals = new Map<number, AccidentalState>();
+    // Two players on one staff (Staff.stems): where both play in the measure, stems show who is
+    // who; where only the second plays, the first's measure rest is not printed.
+    const plays = (voice: number) =>
+      groups.some((x) => x.staff === 1 && x.voice === voice && x.pieces.some((p) => p.note));
+    const both = part.stems && plays(1) && plays(2);
+    const secondAlone = part.stems && !plays(1) && plays(2);
     groups.forEach((g, gi) => {
       if (gi > 0)
         out.push(
           `<backup><duration>${m.length.mul(new Rational(divisions)).value}</duration></backup>`,
         );
-      const acc = accidentals.get(g.staff) ?? new AccidentalState();
+      const acc = accidentals.get(g.staff) ?? new AccidentalState(score.accidentals);
       accidentals.set(g.staff, acc);
       const carriesDirections = gi === groups.findIndex((x) => x.staff === 1);
       const staffNumber = staffOffset + g.staff;
@@ -747,12 +804,29 @@ function partXml(
         }
         const pitches: (Spelled | undefined)[] =
           note && !inst.unpitched ? note.pitches : [undefined];
+        // A note repeating the one just before it in its voice needs no accidental ("note" rule).
+        const before = g.pieces[k - 1]?.note;
+        const repeated =
+          note !== undefined &&
+          before !== undefined &&
+          before !== note &&
+          before.pitches.length === note.pitches.length &&
+          before.pitches.every(
+            (q, i) =>
+              q.step === note.pitches[i]!.step &&
+              q.alter === note.pitches[i]!.alter &&
+              q.octave === note.pitches[i]!.octave,
+          );
         pitches.forEach((p, pi) => {
           if (note && cutTieIn) seam!.tiesIn.push({ note: id(pi)!, staff: staffNumber });
           if (note && cutTieOut) seam!.tiesOut.push({ note: id(pi)!, staff: staffNumber });
           out.push(
             noteXml(piece, p, pi > 0, g.voice, g.staff, staves, divisions, inst, acc, {
               id: note ? id(pi) : undefined,
+              stem:
+                both && g.staff === 1 && g.voice <= 2 ? (g.voice === 1 ? "up" : "down") : undefined,
+              hidden: secondAlone && g.voice === 1 && piece.measureRest,
+              repeated,
               slurStart: pi === 0 && slurStart,
               slurStop: pi === 0 && slurStop,
               glissStart: pi === 0 && glissStart,
@@ -804,19 +878,18 @@ function nameXml(tag: "part-name" | "part-abbreviation", name: string, hide: str
   return `${out}<${tag}-display>${display}</${tag}-display>`;
 }
 
-function partList(score: NormalScore, strip: boolean): string {
+function partList(layout: Layout, strip: boolean): string {
   const out: string[] = ["<part-list>"];
   // The strip's names are drawn once, in its left margin.
   const hide = strip ? ' print-object="no"' : "";
-  let group = 0;
-  score.parts.forEach((p, i) => {
-    const prev = score.parts[i - 1];
-    const next = score.parts[i + 1];
-    const family = p.instrument.family;
-    if (prev?.instrument.family !== family && next?.instrument.family === family) {
-      group++;
+  // Families take group numbers 1, 2 …; their sub-brackets nest inside with the next number.
+  const numbers = new Map<(typeof layout.groups)[number], number>();
+  layout.staves.forEach((p, i) => {
+    for (const g of layout.groups.filter((x) => x.first === i)) {
+      const number = 1 + layout.groups.filter((x) => numbers.has(x) && x.last >= i).length;
+      numbers.set(g, number);
       out.push(
-        `<part-group type="start" number="${group}"><group-symbol>bracket</group-symbol><group-barline>yes</group-barline></part-group>`,
+        `<part-group type="start" number="${number}"><group-symbol>${g.symbol}</group-symbol><group-barline>${g.barline ? "yes" : "no"}</group-barline></part-group>`,
       );
     }
     const identity = p.instrument.sibelius;
@@ -826,16 +899,33 @@ function partList(score: NormalScore, strip: boolean): string {
     out.push(
       `<score-part id="P${i + 1}">${nameXml("part-name", p.name, hide)}${nameXml("part-abbreviation", p.abbreviation, hide)}${instrument}</score-part>`,
     );
-    if (prev?.instrument.family === family && next?.instrument.family !== family) {
-      out.push(`<part-group type="stop" number="${group}"/>`);
+    const closing = layout.groups.filter((x) => x.last === i).sort((a, b) => b.first - a.first);
+    for (const g of closing) {
+      out.push(`<part-group type="stop" number="${numbers.get(g)}"/>`);
+      numbers.delete(g);
     }
   });
   out.push("</part-list>");
   return out.join("\n");
 }
 
+/**
+ * The page for Sibelius (docs/decisions/0021): A2 portrait, 6 mm staves, 30 mm margins. Printed on
+ * A3 it shrinks to 71% (4.2 mm staves, 21 mm margins) with the same systems and pages.
+ */
+const staffMm = 6;
+const tenths = (mm: number) => Math.round((mm * 40) / staffMm);
+const page =
+  `<defaults><scaling><millimeters>${staffMm}</millimeters><tenths>40</tenths></scaling>` +
+  `<page-layout><page-height>${tenths(594)}</page-height><page-width>${tenths(420)}</page-width>` +
+  `<page-margins type="both"><left-margin>${tenths(30)}</left-margin><right-margin>${tenths(30)}</right-margin>` +
+  `<top-margin>${tenths(30)}</top-margin><bottom-margin>${tenths(30)}</bottom-margin></page-margins></page-layout></defaults>` +
+  `<credit page="1"><credit-words default-x="${tenths(30)}" default-y="${tenths(594 - 22)}" font-size="10" valign="top">Score in C</credit-words></credit>`;
+
+/** The whole score as MusicXML for Sibelius: its staves, and the page (see `page`). */
 export function toMusicXml(input: Score): NotationResult {
-  return musicXmlOf(normalize(input));
+  const result = musicXmlOf(normalize(input));
+  return { ...result, musicxml: result.musicxml.replace("<part-list>", `${page}\n<part-list>`) };
 }
 
 export function musicXmlOf(
@@ -847,8 +937,9 @@ export function musicXmlOf(
   flag?: NoteFlag,
 ): NotationResult {
   const warnings = [...score.warnings];
+  const layout = layoutFor(score);
   let offset = 0;
-  const parts = score.parts.map((p, i) => {
+  const parts = layout.staves.map((p, i) => {
     const xml = partXml(p, i, score, warnings, span, seam, offset, seam ? flag : undefined);
     offset += p.instrument.clefs.length;
     return xml;
@@ -861,7 +952,7 @@ export function musicXmlOf(
     ...(span.first === 0 && !seam
       ? [`<work><work-title>${esc(score.title)}</work-title></work>`]
       : []),
-    partList(score, seam !== undefined),
+    partList(layout, seam !== undefined),
     ...parts,
     "</score-partwise>",
   ].join("\n");
@@ -916,7 +1007,7 @@ export function stripMeasures(
 
 /** The clefs in force at a measure, over all staves of the score (from the top). */
 export function clefsAt(score: NormalScore, index: number): Instrument["clefs"] {
-  return score.parts.flatMap((p) => registersFor(p, score).map((r) => r.clefs[index]!));
+  return layoutFor(score).staves.flatMap((p) => registersFor(p, score).map((r) => r.clefs[index]!));
 }
 
 /**
@@ -926,7 +1017,8 @@ export function clefsAt(score: NormalScore, index: number): Instrument["clefs"] 
 export function stripMargin(score: NormalScore, index: number): string {
   const m = score.measures[index]!;
   const duration = m.length.mul(new Rational(4)).value; // in 16ths: divisions 4
-  const parts = score.parts.map((p, i) => {
+  const layout = layoutFor(score);
+  const parts = layout.staves.map((p, i) => {
     const regs = registersFor(p, score);
     const staves = p.instrument.clefs.length;
     const attrs = [
@@ -943,7 +1035,7 @@ export function stripMargin(score: NormalScore, index: number): string {
     return `<part id="P${i + 1}"><measure number="1"><attributes>${attrs.join("")}</attributes>${rests.join("")}</measure></part>`;
   });
   // The margin shows the short names.
-  const named = { ...score, parts: score.parts.map((p) => ({ ...p, name: p.abbreviation })) };
+  const named = { ...layout, staves: layout.staves.map((p) => ({ ...p, name: p.abbreviation })) };
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<score-partwise version="4.0">',
