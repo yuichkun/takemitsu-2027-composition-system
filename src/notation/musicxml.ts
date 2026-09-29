@@ -304,7 +304,7 @@ function noteXml(
     );
   }
   if (n && marks.stem) out.push(`<stem>${marks.stem}</stem>`);
-  if (n && marks.harmonic === "touch") out.push("<notehead>diamond</notehead>");
+  if (n && marks.harmonic === "touch") out.push('<notehead filled="no">diamond</notehead>');
   if (staves > 1) out.push(`<staff>${staff}</staff>`);
   // A feathered group's first beam carries the fan (accel: the beams spread out to the right).
   const fan = n?.feather?.first && !piece.tieFromPrevious ? ` fan="${n.feather.kind}"` : "";
