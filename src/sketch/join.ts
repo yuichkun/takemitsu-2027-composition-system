@@ -15,6 +15,8 @@
 //   seam after the time asked for, and the next section takes the same players from there
 // - join: the usual ways, end to end, a rest, all at once, or player by player over a stretch
 // - hold: a voice's last tone held on
+// - chain: sections one after another, each join as its spec says; joinKnobs() gives a piece the
+//   same knobs for every join (joinOf() reads them back)
 //
 // Nothing here goes into a section's code: it only cuts, moves and reassigns what a section wrote.
 // Times are counted in ticks, 240 to the quarter (exact for 16ths, triplets, quintuplets, 32nds).
@@ -31,6 +33,7 @@ import type {
   TextEvent,
   Time,
 } from "../score/types.ts";
+import { choice, number, type Knob } from "./knobs.ts";
 import type { Context, Fragment, Material, Placed, Player, Rendering, Seam } from "./nest.ts";
 
 const T = 240;
@@ -294,6 +297,11 @@ export interface Placing {
 interface Stretch {
   from: number;
   scale: number;
+  /**
+   * The piece's tempo over it, where the section is not played at its own speed there (a retime to
+   * the nearest ratio that keeps its notes on their grid). Default: the section's tempo × scale.
+   */
+  bpm?: number;
 }
 
 export class Placement {
@@ -374,7 +382,7 @@ export class Placement {
   bpmAt(u: number): number | undefined {
     if (this.section.bpm === undefined) return undefined;
     const s = [...this.stretches].reverse().find((x) => x.from <= u) ?? this.stretches[0]!;
-    return this.section.bpm * s.scale;
+    return s.bpm ?? this.section.bpm * s.scale;
   }
 
   /** Its scale from its start. */
@@ -448,8 +456,100 @@ export interface JoinSpec {
   adopt?: boolean;
 }
 
+/** What a join does unless its knobs are moved. */
+const JOIN_DEFAULTS: JoinSpec = {
+  how: "end to end",
+  lead: 4,
+  spread: 8,
+  order: "low first",
+  rest: 4,
+  others: "play on",
+};
+
+/**
+ * Knobs for the joins of a piece whose sections come one after another, the same for every join and
+ * every piece: join n is between the n-th section and the next. `d`: what they do unless moved
+ * (default: end to end).
+ */
+export function joinKnobs(count: number, d: Partial<JoinSpec> = {}): Record<string, Knob> {
+  const x = { ...JOIN_DEFAULTS, ...d };
+  const out: Record<string, Knob> = {};
+  for (let n = 1; n <= count; n++) {
+    const group = `Join ${n}`;
+    out[`how${n}`] = choice({
+      group,
+      label: "How",
+      help: "end to end: the next starts where this one ends · rest: a silence between · at once: everything changes at one moment · by players: the players change over one group at a time",
+      value: x.how,
+      options: [...HOWS],
+    });
+    out[`lead${n}`] = number({
+      group,
+      label: "Lead",
+      help: "at once, by players: how many quarters before its end the section before gives way (counted in its own quarters)",
+      value: x.lead,
+      min: 0,
+      max: 48,
+      step: 1,
+      unit: "beats",
+    });
+    out[`spread${n}`] = number({
+      group,
+      label: "Spread",
+      help: "by players: quarters (of the next section) from the first group's change to the last",
+      value: x.spread,
+      min: 0,
+      max: 48,
+      step: 1,
+      unit: "beats",
+    });
+    out[`order${n}`] = choice({
+      group,
+      label: "Order",
+      help: "by players: which register changes first",
+      value: x.order,
+      options: ["low first", "high first"],
+    });
+    out[`others${n}`] = choice({
+      group,
+      label: "The others",
+      help: "by players: the players of the section before that the next one does not take: play on to its end, or stop with the last change",
+      value: x.others,
+      options: ["play on", "stop"],
+    });
+    out[`rest${n}`] = number({
+      group,
+      label: "Rest",
+      help: "rest: quarters of silence between",
+      value: x.rest,
+      min: 0,
+      max: 32,
+      step: 1,
+      unit: "beats",
+    });
+  }
+  return out;
+}
+
+/** Join n's spec from a piece's values (joinKnobs); a join without knobs is end to end. */
+export function joinOf(values: Record<string, unknown>, n: number): JoinSpec {
+  const get = <K extends keyof JoinSpec>(k: K) =>
+    (values[`${k}${n}`] ?? JOIN_DEFAULTS[k]) as JoinSpec[K];
+  return {
+    how: get("how"),
+    lead: get("lead"),
+    spread: get("spread"),
+    order: get("order"),
+    rest: get("rest"),
+    others: get("others"),
+  };
+}
+
 /** Tempo ratios under which a slice may be written again at another tempo and stay on its grid. */
 const SCALES = [0.5, 2 / 3, 1, 1.5, 2];
+/** The ratio of SCALES nearest to `x` (by how many times, not by how much). */
+const nearestScale = (x: number) =>
+  SCALES.reduce((best, s) => (Math.abs(Math.log(s / x)) < Math.abs(Math.log(best / x)) ? s : best));
 
 export class Joiner {
   private readonly ctx: Context;
@@ -517,13 +617,14 @@ export class Joiner {
   /**
    * A placement from a moment of the piece on written at another time scale: the piece's tempo
    * changes there, and the section keeps its own speed (a tone held across it stays one tone).
+   * With `bpm`, the piece's tempo there is that, and the section goes on at bpm / scale.
    */
-  retime(a: Placement, at: number, scale: number): Placement {
+  retime(a: Placement, at: number, scale: number, bpm?: number): Placement {
     if (!SCALES.some((s) => Math.abs(s - scale) < 1e-9))
       this.ctx.warn(`${a.label}: time scale ${scale} may leave its notes off their grid`);
     const u = Math.round(a.toOwn(Math.round(at * T)));
     const keep = a.stretches.filter((s) => s.from < u);
-    a.stretches.splice(0, a.stretches.length, ...keep, { from: u, scale });
+    a.stretches.splice(0, a.stretches.length, ...keep, { from: u, scale, ...(bpm ? { bpm } : {}) });
     return a;
   }
 
@@ -613,6 +714,29 @@ export class Joiner {
     a.holds.set(voice, Math.round(a.toOwn(Math.round(until * T))));
   }
 
+  /**
+   * Sections one after another: the first at `at` (quarters), each next one joined to the one
+   * before by its spec (specs[0] joins the first and the second; end to end where there is none).
+   * A rest join puts `rest` between. The placements, in order.
+   */
+  chain(
+    items: { section: Section; label: string; parts?: Placing["parts"] }[],
+    specs: JoinSpec[],
+    rest?: Section,
+    at = 0,
+  ): Placement[] {
+    const out: Placement[] = [];
+    items.forEach((item, n) => {
+      const p = { label: item.label, ...(item.parts ? { parts: item.parts } : {}) };
+      out.push(
+        n === 0
+          ? this.place(item.section, { ...p, at })
+          : this.next(out[n - 1]!, item.section, specs[n - 1] ?? JOIN_DEFAULTS, p, rest),
+      );
+    });
+    return out;
+  }
+
   /** Where the next section comes in after `a` (quarters of the piece), before it is placed. */
   startOf(a: Placement, spec: JoinSpec): number {
     if (spec.how === "end to end") return a.end / T;
@@ -652,8 +776,18 @@ export class Joiner {
     const b = this.place(section, { ...p, at: first });
     let before = a;
     const tempoThen = a.bpmAt(Math.round(a.toOwn(Math.round(first * T))));
-    if (tempoThen !== undefined && b.bpm !== undefined && Math.abs(tempoThen - b.bpm) > 1e-9)
-      before = this.retime(a, first, b.bpm / a.section.bpm!);
+    if (tempoThen !== undefined && b.bpm !== undefined && Math.abs(tempoThen - b.bpm) > 1e-9) {
+      // The rest of the one before is written again at the next one's tempo, at the nearest ratio
+      // that keeps its notes on their grid: when the two tempos are not in one of those ratios, it
+      // moves a little over the overlap (at 52 against 120 it goes on at 60).
+      const exact = b.bpm / a.section.bpm!;
+      const scale = nearestScale(exact);
+      if (Math.abs(scale - exact) > 1e-9)
+        this.ctx.warn(
+          `${a.label}: from ${+first.toFixed(2)} q it goes on at ♩ = ${+(b.bpm / scale).toFixed(1)} (its own ♩ = ${a.section.bpm}), so that it stays on its grid under ♩ = ${b.bpm}`,
+        );
+      before = this.retime(a, first, scale, b.bpm);
+    }
     const shared = [...new Set(before.section.voices.map((v) => this.groupOfVoice(before, v.id)))]
       .filter((g): g is string => g !== undefined)
       .filter((g) => b.section.voices.some((v) => this.groupOfVoice(b, v.id) === g));
