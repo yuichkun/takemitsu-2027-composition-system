@@ -1,0 +1,1198 @@
+{
+ "title": "antara · prologue",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 52
+  }
+ ],
+ "measures": 3,
+ "fermatas": [
+  {
+   "at": [
+    8,
+    1
+   ]
+  }
+ ],
+ "pairs": false,
+ "parts": [
+  {
+   "id": "vn1-8-1",
+   "instrument": "violins-1",
+   "name": "Violin I 1/8",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      34,
+      5
+     ],
+     "pitch": {
+      "midi": 94.5
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-2",
+   "instrument": "violins-1",
+   "name": "Violin I 2/8",
+   "dynamics": [
+    {
+     "at": [
+      1,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      6,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      1,
+      5
+     ],
+     "dur": [
+      33,
+      5
+     ],
+     "pitch": {
+      "midi": 93
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-3",
+   "instrument": "violins-1",
+   "name": "Violin I 3/8",
+   "dynamics": [
+    {
+     "at": [
+      2,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      7,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      2,
+      5
+     ],
+     "dur": [
+      32,
+      5
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-4",
+   "instrument": "violins-1",
+   "name": "Violin I 4/8",
+   "dynamics": [
+    {
+     "at": [
+      3,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      8,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      3,
+      5
+     ],
+     "dur": [
+      31,
+      5
+     ],
+     "pitch": {
+      "midi": 95.5
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-5",
+   "instrument": "violins-1",
+   "name": "Violin I 5/8",
+   "dynamics": [
+    {
+     "at": [
+      4,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      9,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      4,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 92.5
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-6",
+   "instrument": "violins-1",
+   "name": "Violin I 6/8",
+   "dynamics": [
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      1,
+      1
+     ],
+     "dur": [
+      29,
+      5
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-7",
+   "instrument": "violins-1",
+   "name": "Violin I 7/8",
+   "dynamics": [
+    {
+     "at": [
+      6,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      11,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      6,
+      5
+     ],
+     "dur": [
+      28,
+      5
+     ],
+     "pitch": {
+      "midi": 98
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-8",
+   "instrument": "violins-1",
+   "name": "Violin I 8/8",
+   "dynamics": [
+    {
+     "at": [
+      7,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      12,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      7,
+      5
+     ],
+     "dur": [
+      27,
+      5
+     ],
+     "pitch": {
+      "midi": 93.5
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-1",
+   "instrument": "violins-2",
+   "name": "Violin II 1/7",
+   "dynamics": [
+    {
+     "at": [
+      8,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      13,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      8,
+      5
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 90.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-2",
+   "instrument": "violins-2",
+   "name": "Violin II 2/7",
+   "dynamics": [
+    {
+     "at": [
+      9,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      14,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      9,
+      5
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-3",
+   "instrument": "violins-2",
+   "name": "Violin II 3/7",
+   "dynamics": [
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      3,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      24,
+      5
+     ],
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-4",
+   "instrument": "violins-2",
+   "name": "Violin II 4/7",
+   "dynamics": [
+    {
+     "at": [
+      11,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      16,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      11,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 91.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-5",
+   "instrument": "violins-2",
+   "name": "Violin II 5/7",
+   "dynamics": [
+    {
+     "at": [
+      12,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      17,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      5
+     ],
+     "dur": [
+      22,
+      5
+     ],
+     "pitch": {
+      "midi": 88.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-6",
+   "instrument": "violins-2",
+   "name": "Violin II 6/7",
+   "dynamics": [
+    {
+     "at": [
+      13,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      18,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      13,
+      5
+     ],
+     "dur": [
+      21,
+      5
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-7",
+   "instrument": "violins-2",
+   "name": "Violin II 7/7",
+   "dynamics": [
+    {
+     "at": [
+      14,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      19,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      14,
+      5
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-1",
+   "instrument": "violas",
+   "name": "Viola 1/6",
+   "dynamics": [
+    {
+     "at": [
+      3,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      3,
+      1
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-2",
+   "instrument": "violas",
+   "name": "Viola 2/6",
+   "dynamics": [
+    {
+     "at": [
+      16,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      21,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      16,
+      5
+     ],
+     "dur": [
+      18,
+      5
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-3",
+   "instrument": "violas",
+   "name": "Viola 3/6",
+   "dynamics": [
+    {
+     "at": [
+      17,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      22,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      17,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-4",
+   "instrument": "violas",
+   "name": "Viola 4/6",
+   "dynamics": [
+    {
+     "at": [
+      18,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      23,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      18,
+      5
+     ],
+     "dur": [
+      16,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-5",
+   "instrument": "violas",
+   "name": "Viola 5/6",
+   "dynamics": [
+    {
+     "at": [
+      19,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      24,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      19,
+      5
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-6",
+   "instrument": "violas",
+   "name": "Viola 6/6",
+   "dynamics": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      14,
+      5
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-1",
+   "instrument": "cellos",
+   "name": "Violoncello 1/5",
+   "dynamics": [
+    {
+     "at": [
+      21,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      26,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      21,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-2",
+   "instrument": "cellos",
+   "name": "Violoncello 2/5",
+   "dynamics": [
+    {
+     "at": [
+      22,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      27,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      22,
+      5
+     ],
+     "dur": [
+      12,
+      5
+     ],
+     "pitch": {
+      "midi": 54
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-3",
+   "instrument": "cellos",
+   "name": "Violoncello 3/5",
+   "dynamics": [
+    {
+     "at": [
+      23,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      28,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      23,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 49.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-4",
+   "instrument": "cellos",
+   "name": "Violoncello 4/5",
+   "dynamics": [
+    {
+     "at": [
+      24,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      29,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      24,
+      5
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 46.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-5",
+   "instrument": "cellos",
+   "name": "Violoncello 5/5",
+   "dynamics": [
+    {
+     "at": [
+      5,
+      1
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      9,
+      5
+     ],
+     "pitch": {
+      "midi": 45
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "cb-4-1",
+   "instrument": "basses",
+   "name": "Double Bass 1/4",
+   "dynamics": [
+    {
+     "at": [
+      26,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      31,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      26,
+      5
+     ],
+     "dur": [
+      8,
+      5
+     ],
+     "pitch": {
+      "midi": 40
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "cb-4-2",
+   "instrument": "basses",
+   "name": "Double Bass 2/4",
+   "dynamics": [
+    {
+     "at": [
+      27,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      32,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      27,
+      5
+     ],
+     "dur": [
+      7,
+      5
+     ],
+     "pitch": {
+      "midi": 35.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "cb-4-3",
+   "instrument": "basses",
+   "name": "Double Bass 3/4",
+   "dynamics": [
+    {
+     "at": [
+      28,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      33,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      28,
+      5
+     ],
+     "dur": [
+      6,
+      5
+     ],
+     "pitch": {
+      "midi": 32.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "cb-4-4",
+   "instrument": "basses",
+   "name": "Double Bass 4/4",
+   "dynamics": [
+    {
+     "at": [
+      29,
+      5
+     ],
+     "level": 0,
+     "to": "linear"
+    },
+    {
+     "at": [
+      34,
+      5
+     ],
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      29,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 31
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  }
+ ]
+}
