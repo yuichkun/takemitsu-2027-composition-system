@@ -30,7 +30,7 @@ import { betweenSet, choice, number, pitch, type Values } from "../../../../src/
 import { atomOf, drawer, TICKS, time } from "../../between.ts";
 
 const BAR = 4 * TICKS;
-const A = atomOf(2); // a 16th
+const FAMILIES = ["2 · 16ths", "3 · triplet 8ths", "5 · quintuplet 16ths"];
 
 /**
  * Where each layer comes in, in strokes of the pulse (0: the first stroke at the period). One new
@@ -72,25 +72,32 @@ export const knobs = {
     step: 1,
     unit: "bar",
   }),
+  family: choice({
+    group: "Celesta",
+    label: "Family",
+    help: "The atom the celesta's betweens are counted in (Set, Period): a 16th, a triplet 8th or a quintuplet 16th. Everything on the pulse (harps, rings, rises) follows it. Changing it changes how long Set and Period are: at 52, a period near 1.73 s is 6 16ths, 4 or 5 triplet 8ths (1.54 or 1.92 s), 7 or 8 quintuplet 16ths (1.62 or 1.85 s)",
+    value: FAMILIES[0]!,
+    options: FAMILIES,
+  }),
   set: betweenSet({
     group: "Celesta",
     label: "Set",
-    help: "The betweens (16ths) of the celesta's first time round. After each time round every between moves half way (at least one 16th) towards the period, until all are the period",
+    help: "The betweens (atoms of the Family) of the celesta's first time round. After each time round every between moves half way (at least one atom) towards the period, until all are the period",
     value: "22 29 18",
     min: 1,
     max: 64,
     step: 1,
-    unit: "16ths",
+    unit: "atoms",
   }),
   period: number({
     group: "Celesta",
     label: "Period",
-    help: "The between the celesta settles on: the pulse. 6 16ths is 1.73 s at 52, just inside the longest between still heard as one (about 1.8 s)",
+    help: "The between (atoms of the Family) the celesta settles on: the pulse. 6 16ths is 1.73 s at 52, just inside the longest between still heard as one (about 1.8 s)",
     value: 6,
     min: 2,
     max: 16,
     step: 1,
-    unit: "16ths",
+    unit: "atoms",
   }),
   pulse: number({
     group: "Celesta",
@@ -402,6 +409,8 @@ class Parts {
 // The score
 
 export function score(v: V): Score {
+  // The atom of the Family: the unit of the celesta's betweens and of everything on the pulse.
+  const A = atomOf(Number(v.family.split(" ")[0]) as 2 | 3 | 5);
   const start = v.alone * BAR;
   const { gaps, settled } = celesta(v);
   const times = [start];
@@ -482,7 +491,7 @@ export function score(v: V): Score {
   // The tam-tam's player: swells before the pulse, rises until `tamUntil`, then the vibraphone.
   for (const at of tamSwells(pulse))
     players.add(
-      { id: "tam", technique: "crescendo", rest: 0 },
+      { id: "tam", technique: "crescendo", text: "soft mallets", rest: 0 },
       { at: time(at), dur: time(6 * TICKS) },
       [
         { at: time(at), level: 0, to: "linear" },
@@ -527,7 +536,7 @@ export function score(v: V): Score {
       );
     }
   };
-  const soft = { technique: "roll", text: "soft sticks", rest: TICKS / 2 };
+  const soft = { technique: "roll", text: "soft mallets", rest: TICKS / 2 };
   rise({ id: "scym", ...soft }, one, p(ENTER.rises));
   rise({ id: "tam", ...soft }, one, p(ENTER.rises), p(ENTER.tamUntil));
   // Violins II: harp 2's note into harp 2's strokes, the stroke's note into harp 1's others.
@@ -587,7 +596,7 @@ export function score(v: V): Score {
     // Near the end, the voices keep free for the last stroke.
     if (k !== final && at + 6 * TICKS > times[final]! - TICKS) continue;
     if (!isOne.has(k)) {
-      // A little longer than the period, growing; whole 16ths.
+      // A little longer than the period, growing; whole atoms.
       ring(take(open, at, 1), at, Math.round(((1.75 + grow(at)) * TICKS) / A) * A, x, level);
       continue;
     }

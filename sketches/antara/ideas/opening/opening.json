@@ -2620,7 +2620,7 @@
       351,
       4
      ],
-     "text": "soft sticks",
+     "text": "soft mallets",
      "placement": "above"
     },
     {
@@ -3064,6 +3064,15 @@
    ],
    "events": [
     {
+     "type": "text",
+     "at": [
+      9,
+      1
+     ],
+     "text": "soft mallets",
+     "placement": "above"
+    },
+    {
      "at": [
       9,
       1
@@ -3106,15 +3115,6 @@
       1
      ],
      "technique": "crescendo"
-    },
-    {
-     "type": "text",
-     "at": [
-      351,
-      4
-     ],
-     "text": "soft sticks",
-     "placement": "above"
     },
     {
      "at": [

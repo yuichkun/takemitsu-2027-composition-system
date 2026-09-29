@@ -13713,7 +13713,7 @@
       351,
       4
      ],
-     "text": "soft sticks",
+     "text": "soft mallets",
      "placement": "above"
     },
     {
@@ -14217,6 +14217,12 @@
      "technique": "crescendo"
     },
     {
+     "type": "text",
+     "at": 9,
+     "text": "soft mallets",
+     "placement": "above"
+    },
+    {
      "at": 26,
      "dur": 6,
      "technique": "crescendo"
@@ -14238,15 +14244,6 @@
      ],
      "dur": 3,
      "technique": "roll"
-    },
-    {
-     "type": "text",
-     "at": [
-      351,
-      4
-     ],
-     "text": "soft sticks",
-     "placement": "above"
     },
     {
      "at": [
