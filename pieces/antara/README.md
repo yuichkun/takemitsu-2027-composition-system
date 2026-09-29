@@ -1,6 +1,6 @@
 # antara
 
-- 状態: 書き始め（2026-09-29）。セクションは一つ（two-grids）。まだつなぐものはない
+- 状態: 書き始め（2026-09-29）。セクションは two-grids と running。スケッチをラフに決めて、どんどん曲に入れていく段（細かいことはあとで）
 - 前提: [`../../docs/antara/premise.md`](../../docs/antara/premise.md)。音の原則: [`../../docs/antara/sound.md`](../../docs/antara/sound.md)
 - 組み方: セクションはそれぞれ別のコード（パレットのスケッチと同じ書き方）で自由に作り、一番上（[`sketch.ts`](./sketch.ts)）の操作でつなぐ
   （[`../../src/sketch/join.ts`](../../src/sketch/join.ts)、決定 [`0023`](../../docs/decisions/0023-join-sections-from-outside.md)）。試しは [`../four-ideas/`](../four-ideas/README.md)
@@ -9,9 +9,19 @@
 
 ## セクション
 
-| フォルダ | スケッチ | 置き方 |
-| --- | --- | --- |
-| [`two-grids`](./two-grids/sketch.ts) | [`sketches/antara/ideas/two-grids-orchestra`](../../sketches/antara/ideas/two-grids-orchestra/README.md)（ガラスの和音、弦はプルトまで分ける） | 0 拍目から、そのまま |
+順番とつなぎ方は一番上（[`sketch.ts`](./sketch.ts)）のつまみで変えられる。
+
+- **Order**（Sections）: セクションのフォルダの名前を、来る順に空白で区切って並べる。書かなかったセクションは鳴らない
+- **Join 1, 2, …**: つなぎ目ごとに同じつまみ（How: end to end ／ rest ／ at once ／ by players、Lead、Spread、Order、The others、Rest）。
+  Join 1 はいつも 1 番目と 2 番目のあいだ（順番を変えても、つなぎ目の値は位置についたまま）。つまみの中身は [`../../docs/architecture.md`](../../docs/architecture.md) の「セクションをつなぐ」
+- [`rest`](./rest/sketch.ts) は全休止のためのセクション（How = rest のときに置く）。Order には書かない
+
+| 順 | フォルダ | スケッチ（仕組みと構成はそのカード） | 長さ | つなぎ方 |
+| --- | --- | --- | --- | --- |
+| 1 | [`two-grids`](./two-grids/sketch.ts) | [`two-grids-orchestra`](../../sketches/antara/ideas/two-grids-orchestra/README.md): ガラスの和音。弦 30 のプルトが一つの和音を保ち、半音の音と四分音ずれた音のあいだをグリッサンドで行き来する。反射はハープ・チェレスタ・ピアノ・クロタル | ♩ = 52、14 小節 | 0 拍目から |
+| 2 | [`running`](./running/sketch.ts) | [`running-orchestra`](../../sketches/antara/ideas/running-orchestra/README.md): 弦 4 部のカノンが 3 連系 → 16 分系 → 5 連系と速くなる。管が組の頭を、金管が頭の重なりを、固定の音の楽器が出せる刻みを重ね、最後の頭を全員で | ♩ = 120、25 小節 | Join 1: end to end（15 小節目から） |
+
+曲全体: 1:55、39 小節、77 段（弾いているパートだけ。弦は、分けたパートと全員のパートが両方出る）。
 
 ## 編成
 
@@ -57,6 +67,5 @@
 
 ## 見方
 
-- プレビュー: PIECES → antara。一番上にはまだつまみがない（つなぐものができたら、つなぎ方のつまみを置く）。
-  PIECES → antara → two-grids で、そのセクション（＝スケッチ）のつまみが出る
+- プレビュー: PIECES → antara（一番上のつまみ: 順番とつなぎ目）。PIECES → antara → two-grids などで、そのセクション（＝スケッチ）のつまみが出る
 - 紙面: `vp node tools/pages.ts pieces/antara --fit`（全段が一枚に入るように、紙の縦を伸ばして描く）
