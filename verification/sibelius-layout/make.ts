@@ -873,6 +873,27 @@ const files: Record<string, string> = {
   ),
   "11-accidentals": score("11 explicit accidentals", accidentalParts()),
   "12-moving-players": score("12 players moving between staves", movingParts(), { breaks: [5, 9] }),
+  // 14: which height sits on a one-line percussion staff (Sibelius drew B4 above the line in 08).
+  "14-percussion-line": score("14 one-line staff", [
+    {
+      part: {
+        name: "Snare Drum",
+        abbreviation: "S. D.",
+        instrument: ["Snare Drum", "drum.snare-drum"],
+        clefs: ["percussion"],
+        staffLines: 1,
+        measures: [
+          (["E", "G", "B", "D"] as const)
+            .map(
+              (step, i) =>
+                words(`${step}${i === 3 ? 5 : 4}`) +
+                `<note><unpitched><display-step>${step}</display-step><display-octave>${i === 3 ? 5 : 4}</display-octave></unpitched><duration>${Q}</duration><voice>1</voice><type>quarter</type></note>`,
+            )
+            .join(""),
+        ],
+      },
+    },
+  ]),
   // 13: the exporter's own output for a palette sketch (winds in pairs, divided strings, brackets).
   "13-real-export": toMusicXml(
     JSON.parse(
