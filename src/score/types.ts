@@ -43,6 +43,12 @@ export interface Score {
   measures?: number;
   /** Rehearsal marks. */
   rehearsal?: { measure: number; label: string }[];
+  /**
+   * Fermatas (pauses): each is written over every staff's note or rest that starts at `at`, so on
+   * an empty measure it is a general pause. Playback keeps the written time: the rest or note it
+   * sits on is as long as the pause is to last.
+   */
+  fermatas?: { at: Time }[];
   parts: Part[];
   /**
    * How far an accidental reaches in the score (docs/decisions/0022): "bar" (default) is the usual

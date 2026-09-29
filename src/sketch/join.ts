@@ -92,6 +92,8 @@ export interface Section {
   /** Ticks. */
   length: number;
   voices: Voice[];
+  /** Where its fermatas are (ticks, in its own time; Score.fermatas). */
+  fermatas?: number[];
 }
 
 const levelsOf = (points: readonly DynamicPoint[] = []): Level[] =>
@@ -158,6 +160,7 @@ export function sectionOf(
       ...(bpm !== undefined ? { bpm } : {}),
       length: Math.max(Math.round(quarters * T), endOf(voices)),
       voices,
+      ...(score.fermatas?.length ? { fermatas: score.fermatas.map((f) => toTicks(f.at)) } : {}),
     };
   }
   if (r.parts && r.end) {
@@ -949,12 +952,19 @@ export class Joiner {
     const rehearsal = letters
       .filter((m) => m > 1)
       .map((measure, i) => ({ measure, label: String.fromCharCode(65 + i) }));
+    // The sections' fermatas, where their placements play them.
+    const fermatas = order.flatMap((p) =>
+      (p.section.fermatas ?? [])
+        .filter((f) => f >= p.from && f < p.to)
+        .map((f) => ({ at: toTime(Math.round(p.toPiece(f))) })),
+    );
     return this.ctx.score(merged, {
       title: head.title,
       length,
       meter: [{ measure: 1, beats: 4, beatType: 4 }],
       tempo,
       rehearsal,
+      ...(fermatas.length ? { fermatas } : {}),
       measures,
     });
   }

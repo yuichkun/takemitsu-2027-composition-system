@@ -68,6 +68,8 @@ export interface NormalScore {
   /** `change`: a gradual change starts here (accel. or rit., to the next mark). */
   tempoMarks: { at: Rational; bpm: number; beat: Rational; text?: string; change?: string }[];
   rehearsal: { measure: number; label: string }[];
+  /** Where fermatas are written (Score.fermatas). */
+  fermatas: Rational[];
   /** How far an accidental reaches (Score.accidentals). */
   accidentals: "note" | "bar";
   /** Whether a pair of winds or brass may share a staff (Score.pairs). */
@@ -308,6 +310,7 @@ export function normalize(score: Score): NormalScore {
         return { at: t.at, bpm: t.bpm, beat: t.beat, text: t.text, change };
       }),
     rehearsal: score.rehearsal ?? [],
+    fermatas: (score.fermatas ?? []).map((f) => Rational.of(f.at)),
     accidentals: score.accidentals ?? "bar",
     pairs: score.pairs ?? true,
     end,

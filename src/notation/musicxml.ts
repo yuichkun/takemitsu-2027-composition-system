@@ -240,6 +240,8 @@ interface NoteMarks {
   repeated?: boolean;
   /** An artificial harmonic's stopped note (base) or touched note (touch: a diamond head; no circle). */
   harmonic?: "base" | "touch";
+  /** A fermata over the note or rest (Score.fermatas). */
+  fermata?: boolean;
 }
 
 /**
@@ -317,6 +319,7 @@ function noteXml(
   if (tieStart) notations.push('<tied type="start"/>');
   if (!chord && piece.tuplet?.first) notations.push('<tuplet type="start" bracket="yes"/>');
   if (!chord && piece.tuplet?.last) notations.push('<tuplet type="stop"/>');
+  if (!chord && marks.fermata && !marks.hidden) notations.push('<fermata type="upright"/>');
   if (n && !chord) {
     const firstPiece = !piece.tieFromPrevious;
     if (marks.slurStop) notations.push('<slur type="stop" number="1"/>');
@@ -553,6 +556,7 @@ function partXml(
 ): string {
   const strip = seam !== undefined;
   const inst = part.instrument;
+  const fermataAt = (t: Rational) => score.fermatas.some((f) => f.eq(t));
   const measures = score.measures.slice(span.first, span.last + 1);
   const spanStart = measures[0]!.start;
   const spanEnd = measures.at(-1)!.start.add(measures.at(-1)!.length);
@@ -913,6 +917,7 @@ function partXml(
               lowered: down,
               color: p && flag ? flag(part, p.midi) : undefined,
               harmonic: note?.touching ? (pi === 0 ? "base" : "touch") : undefined,
+              fermata: pi === 0 && !piece.tieFromPrevious && fermataAt(piece.start),
             }),
           );
         });
