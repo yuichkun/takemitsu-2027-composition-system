@@ -655,6 +655,12 @@ function partXml(
     });
     if (mi === 0 && inst.unpitched)
       attrs.push("<staff-details><staff-lines>1</staff-lines></staff-details>");
+    // A score in C still writes some instruments an octave or two off (docs/decisions/0017):
+    // MusicXML says so, or Sibelius takes the written pitch for the sounding one.
+    if (mi === 0 && inst.writtenOctave)
+      attrs.push(
+        `<transpose><diatonic>0</diatonic><chromatic>0</chromatic><octave-change>${-inst.writtenOctave}</octave-change></transpose>`,
+      );
     previousMeter = meter;
     if (attrs.length) out.push(`<attributes>${attrs.join("")}</attributes>`);
 
@@ -777,6 +783,27 @@ function partXml(
   return out.join("\n");
 }
 
+/**
+ * A staff name as MusicXML carries it: plain ASCII in the name ("Clarinet in Bb"), and, when it has
+ * a ♭ or ♯, a display form that draws the sign in the music font (the form Sibelius imports).
+ */
+function nameXml(tag: "part-name" | "part-abbreviation", name: string, hide: string): string {
+  const signs: Record<string, [string, string]> = { "♭": ["b", "flat"], "♯": ["#", "sharp"] };
+  const plain = name.replace(/[♭♯]/g, (s) => signs[s]![0]);
+  const out = `<${tag}${hide}>${esc(plain)}</${tag}>`;
+  if (plain === name) return out;
+  const display = name
+    .split(/([♭♯])/)
+    .filter(Boolean)
+    .map((piece) =>
+      signs[piece]
+        ? `<accidental-text>${signs[piece]![1]}</accidental-text>`
+        : `<display-text>${esc(piece)}</display-text>`,
+    )
+    .join("");
+  return `${out}<${tag}-display>${display}</${tag}-display>`;
+}
+
 function partList(score: NormalScore, strip: boolean): string {
   const out: string[] = ["<part-list>"];
   // The strip's names are drawn once, in its left margin.
@@ -792,8 +819,12 @@ function partList(score: NormalScore, strip: boolean): string {
         `<part-group type="start" number="${group}"><group-symbol>bracket</group-symbol><group-barline>yes</group-barline></part-group>`,
       );
     }
+    const identity = p.instrument.sibelius;
+    const instrument = identity
+      ? `<score-instrument id="P${i + 1}-I1"><instrument-name>${esc(identity.name)}</instrument-name><instrument-sound>${identity.sound}</instrument-sound></score-instrument>`
+      : "";
     out.push(
-      `<score-part id="P${i + 1}"><part-name${hide}>${esc(p.name)}</part-name><part-abbreviation${hide}>${esc(p.abbreviation)}</part-abbreviation></score-part>`,
+      `<score-part id="P${i + 1}">${nameXml("part-name", p.name, hide)}${nameXml("part-abbreviation", p.abbreviation, hide)}${instrument}</score-part>`,
     );
     if (prev?.instrument.family === family && next?.instrument.family !== family) {
       out.push(`<part-group type="stop" number="${group}"/>`);

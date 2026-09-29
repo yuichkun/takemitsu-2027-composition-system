@@ -43,6 +43,12 @@ export interface Instrument {
   unpitched?: boolean;
   /** Sounding range in MIDI numbers, for warnings. */
   range?: [number, number];
+  /**
+   * What tells Sibelius which of its instruments this is, written into the MusicXML's
+   * score-instrument: the name of its own instrument type, and the MusicXML standard sound
+   * (the table in `sibelius` below).
+   */
+  sibelius?: { name: string; sound: string };
 }
 
 const treble: Clef = { sign: "G", line: 2 };
@@ -237,7 +243,77 @@ const list: Instrument[] = [
   }),
 ];
 
-export const catalog: ReadonlyMap<string, Instrument> = new Map(list.map((i) => [i.id, i]));
+/**
+ * Each instrument as Sibelius names its own type (the ManuScript guide's "Instrument Types"), and
+ * its MusicXML standard sound (sounds.xml, bundled with Sibelius). How the importer matches them
+ * is not documented; giving both, with the octave in <transpose>, is the best signal a file has.
+ */
+const sibelius: Record<string, [string, string]> = {
+  piccolo: ["Piccolo", "wind.flutes.flute.piccolo"],
+  flute: ["Flute", "wind.flutes.flute"],
+  "alto-flute": ["Alto Flute", "wind.flutes.flute.alto"],
+  "bass-flute": ["Bass Flute", "wind.flutes.flute.bass"],
+  oboe: ["Oboe", "wind.reed.oboe"],
+  "cor-anglais": ["Cor Anglais", "wind.reed.english-horn"],
+  clarinet: ["Clarinet in Bb", "wind.reed.clarinet.bflat"],
+  "eb-clarinet": ["Clarinet in Eb", "wind.reed.clarinet.eflat"],
+  "bass-clarinet": ["Bass Clarinet in Bb [score sounds 8vb]", "wind.reed.clarinet.bass"],
+  "contrabass-clarinet": [
+    "Contrabass Clarinet in Bb [score sounds 15mb]",
+    "wind.reed.clarinet.contrabass",
+  ],
+  bassoon: ["Bassoon", "wind.reed.bassoon"],
+  contrabassoon: ["Contrabassoon", "wind.reed.contrabassoon"],
+  horn: ["Horn in F", "brass.french-horn"],
+  trumpet: ["Trumpet in C", "brass.trumpet.c"],
+  trombone: ["Trombone", "brass.trombone"],
+  "bass-trombone": ["Bass Trombone", "brass.trombone.bass"],
+  "contrabass-trombone": ["Contrabass Trombone", "brass.trombone.contrabass"],
+  cimbasso: ["Cimbasso in F", "brass.cimbasso"],
+  tuba: ["Tuba", "brass.tuba"],
+  "contrabass-tuba": ["Tuba", "brass.tuba"],
+  timpani: ["Timpani [no key]", "drum.timpani"],
+  glockenspiel: ["Glockenspiel", "pitched-percussion.glockenspiel"],
+  xylophone: ["Xylophone", "pitched-percussion.xylophone"],
+  marimba: ["Marimba [grand staff]", "pitched-percussion.marimba"],
+  vibraphone: ["Vibraphone", "pitched-percussion.vibraphone"],
+  crotales: ["Crotales", "metal.crotales"],
+  "tubular-bells": ["Tubular Bells", "pitched-percussion.tubular-bells"],
+  celesta: ["Celesta", "keyboard.celesta"],
+  piano: ["Piano", "keyboard.piano"],
+  harp: ["Harp", "pluck.harp"],
+  "snare-drum": ["Snare Drum", "drum.snare-drum"],
+  "military-drum": ["Side Drum", "drum.snare-drum"],
+  "tenor-drum": ["Tenor Drum", "drum.tenor-drum"],
+  "bass-drum": ["Bass Drum", "drum.bass-drum"],
+  "suspended-cymbal": ["Cymbals", "metal.cymbal.suspended"],
+  "clash-cymbals": ["Cymbals", "metal.cymbal.clash"],
+  "tam-tam": ["Tam-tam", "metal.tamtam"],
+  triangle: ["Triangle", "metal.triangle"],
+  tambourine: ["Tambourine", "drum.tambourine"],
+  anvil: ["Anvil", "metal.anvil"],
+  castanets: ["Castanets", "wood.castanets"],
+  "woodblock-high": ["Wood Block [1 line]", "wood.wood-block"],
+  "woodblock-medium": ["Wood Block [1 line]", "wood.wood-block"],
+  "woodblock-low": ["Wood Block [1 line]", "wood.wood-block"],
+  vibraslap: ["Percussion [1 line]", "rattle.vibraslap"],
+  cowbell: ["Percussion [1 line]", "metal.bells.cowbell"],
+  "sleigh-bells": ["Sleigh Bells", "metal.bells.sleigh-bells"],
+  guiro: ["Guiro (Medium) [1 line]", "wood.guiro"],
+  ratchet: ["Percussion [1 line]", "rattle.ratchet"],
+  "violins-1": ["Violin I", "strings.violin"],
+  "violins-2": ["Violin II", "strings.violin"],
+  violas: ["Viola", "strings.viola"],
+  cellos: ["Violoncello", "strings.cello"],
+  basses: ["Contrabass", "strings.contrabass"],
+};
+
+export const catalog: ReadonlyMap<string, Instrument> = new Map(
+  list.map((i) => {
+    const s = sibelius[i.id];
+    return [i.id, s ? { ...i, sibelius: { name: s[0], sound: s[1] } } : i];
+  }),
+);
 
 export function instrument(id: string): Instrument {
   const found = catalog.get(id);
