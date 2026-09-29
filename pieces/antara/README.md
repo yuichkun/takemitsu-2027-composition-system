@@ -1,6 +1,6 @@
 # antara
 
-- 状態: 書き始め（2026-09-29）。セクションは two-grids と running。スケッチをラフに決めて、どんどん曲に入れていく段（細かいことはあとで）
+- 状態: 書き始め（2026-09-29）。セクションは opening、two-grids、running。スケッチをラフに決めて、どんどん曲に入れていく段（細かいことはあとで）
 - 前提: [`../../docs/antara/premise.md`](../../docs/antara/premise.md)。音の原則: [`../../docs/antara/sound.md`](../../docs/antara/sound.md)
 - 組み方: セクションはそれぞれ別のコード（パレットのスケッチと同じ書き方）で自由に作り、一番上（[`sketch.ts`](./sketch.ts)）の操作でつなぐ
   （[`../../src/sketch/join.ts`](../../src/sketch/join.ts)、決定 [`0023`](../../docs/decisions/0023-join-sections-from-outside.md)）。試しは [`../four-ideas/`](../four-ideas/README.md)
@@ -18,10 +18,11 @@
 
 | 順 | フォルダ | スケッチ（仕組みと構成はそのカード） | 長さ | つなぎ方 |
 | --- | --- | --- | --- | --- |
-| 1 | [`two-grids`](./two-grids/sketch.ts) | [`two-grids-orchestra`](../../sketches/antara/ideas/two-grids-orchestra/README.md): ガラスの和音。弦 30 のプルトが一つの和音を保ち、半音の音と四分音ずれた音のあいだをグリッサンドで行き来する。反射はハープ・チェレスタ・ピアノ・クロタル | ♩ = 52、14 小節 | 0 拍目から |
-| 2 | [`running`](./running/sketch.ts) | [`running-orchestra`](../../sketches/antara/ideas/running-orchestra/README.md): 弦 4 部のカノンが 3 連系 → 16 分系 → 5 連系と速くなる。管が組の頭を、金管が頭の重なりを、固定の音の楽器が出せる刻みを重ね、最後の頭を全員で | ♩ = 120、25 小節 | Join 1: end to end（15 小節目から） |
+| 1 | [`opening`](./opening/sketch.ts) | [`opening`](../../sketches/antara/ideas/opening/README.md): 冒頭。長い地鳴り（押し引きする低い弦、ロール、タムタム）にチェレスタの一つの音。間が一つの周期にそろってこの曲で最初のパルスが定義され、ハープ 1 がたまに重なり、やがてハープ 2 が同じ弦で四分音ずれて鳴る。14 小節目から低い管（コントラファゴット、テューバ）が地鳴りに加わる | ♩ = 52、26 小節 | 0 拍目から |
+| 2 | [`two-grids`](./two-grids/sketch.ts) | [`two-grids-orchestra`](../../sketches/antara/ideas/two-grids-orchestra/README.md): ガラスの和音。弦 30 のプルトが一つの和音を保ち、半音の音と四分音ずれた音のあいだをグリッサンドで行き来する。反射はハープ・チェレスタ・ピアノ・クロタル | ♩ = 52、14 小節 | Join 1: end to end（27 小節目から） |
+| 3 | [`running`](./running/sketch.ts) | [`running-orchestra`](../../sketches/antara/ideas/running-orchestra/README.md): 弦 4 部のカノンが 3 連系 → 16 分系 → 5 連系と速くなる。管が組の頭を、金管が頭の重なりを、固定の音の楽器が出せる刻みを重ね、最後の頭を全員で | ♩ = 120、25 小節 | Join 2: end to end（41 小節目から） |
 
-曲全体: 1:55、39 小節、77 段（弾いているパートだけ。弦は、分けたパートと全員のパートが両方出る）。
+曲全体: 3:55、65 小節、77 段（弾いているパートだけ。弦は、分けたパートと全員のパートが両方出る）。
 
 ## 編成
 

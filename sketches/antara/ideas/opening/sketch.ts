@@ -1,8 +1,9 @@
 // antara, the opening: where the first relations are made. Card: README.md.
 //
 // A long, low rumble moves by itself: basses in four desks a quarter tone apart, swelling each on
-// its own time; the contrabassoon and the tuba in breaths that hand over to each other; the bass
-// drum's roll in stretches; the tam-tam now and then swelling out of nothing. Only when the ear has
+// its own time; the bass drum's roll in stretches; the tam-tam now and then swelling out of
+// nothing. Once the ear has settled into the celesta, a new layer: the contrabassoon and the tuba,
+// in breaths that hand over to each other. Only when the ear has
 // settled into it, the celesta: one note, struck, far apart. Its betweens are drawn from a set that
 // moves, time round after time round, towards one between (the period): until every between is
 // the period, and the same note comes back at the same period. That is where the piece first has
@@ -20,6 +21,16 @@ const BAR = 4 * TICKS;
 const A = atomOf(2); // a 16th
 
 export const knobs = {
+  winds: number({
+    group: "Ground",
+    label: "Low winds from",
+    help: "The bar the contrabassoon and the tuba join the rumble: a new layer once the ear has settled into the celesta",
+    value: 14,
+    min: 1,
+    max: 30,
+    step: 1,
+    unit: "bar",
+  }),
   alone: number({
     group: "Ground",
     label: "Alone",
@@ -180,7 +191,7 @@ function swells(
   return out;
 }
 
-function ground(end: number): Part[] {
+function ground(end: number, winds: number): Part[] {
   const parts: Part[] = [];
   // Basses: four desks a quarter tone apart from the lowest string, each swelling on its own time.
   ["cb-4-4", "cb-4-3", "cb-4-2", "cb-4-1"].forEach((id, k) => {
@@ -213,7 +224,7 @@ function ground(end: number): Part[] {
     const nextRest = cycle(rest);
     const events: NoteEvent[] = [];
     const dynamics: DynamicPoint[] = [];
-    let at = (4 + k * 5) * TICKS;
+    let at = winds + k * 5 * TICKS;
     while (at + 4 * TICKS < end) {
       const len = Math.min(nextPlay() * TICKS, end - at);
       events.push({ at: time(at), dur: time(len), pitch: { midi } });
@@ -301,7 +312,7 @@ export function score(v: V): Score {
     partOf("cel", struck(all, v.pitch, "espr., l.v."), [{ at: time(start), level: 4 }]),
     partOf("hp1", struck(one, v.pitch, "l.v."), [{ at: 0, level: 3.5 }]),
     partOf("hp2", struck(two, h2, "l.v."), [{ at: 0, level: 3.5 }]),
-    ...ground(end),
+    ...ground(end, (v.winds - 1) * BAR),
   ];
   const rank = (id: string) => ensemble.findIndex((p) => p.id === id);
   parts.sort((a, b) => rank(a.id) - rank(b.id));
