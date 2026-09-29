@@ -11,7 +11,7 @@
 | [`sound.md`](./sound.md) | 音の原則。間・セット・規則、音程のセリー、四分音 |
 | [`quantization.md`](./quantization.md) | 参考: 過去作 Quantization で実際にやっていたこと。ロジックは移植しない |
 
-システムの仕様は `docs/` の上の階、曲のコードは（できたら）`pieces/antara/` に置く。
+システムの仕様は `docs/` の上の階、曲のコードは [`../../pieces/antara/`](../../pieces/antara/README.md)（編成は決定 [`0024`](../decisions/0024-antara-orchestra.md)）。
 
 ## コンセプトの核
 

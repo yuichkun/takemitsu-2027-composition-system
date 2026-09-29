@@ -282,6 +282,8 @@ flowchart LR
 - 2 曲目: [`../pieces/trial/`](../pieces/trial/README.md)（仮の一曲。12 分、応募要項の上限の編成）。素材は動機ではなく間のセットと中心音の和音で、
   `ctx.material.trial` に入れて渡す。一番上が先にセクションの境目（奏者ごとに次へ移るタイミング）を決め、各セクションは渡されたタイミングのあいだを書き、
   自分が実際に移ったタイミングを印（`out:<奏者>`）で返す。線を書く部品は曲のフォルダの [`engine.ts`](../pieces/trial/engine.ts)
+- 本番: [`../pieces/antara/`](../pieces/antara/README.md)。編成（[`ensemble.ts`](../pieces/antara/ensemble.ts)）の上に、下の「セクションをつなぐ」でセクションを置いていく。
+  パートの `tuning`（半音いくつずらして調弦したか）は確かめのためだけにあり、楽譜には出ない（ハープ 2 の全弦四分音低い調弦は、楽譜の冒頭のページに書く）
 
 ## セクションをつなぐ
 

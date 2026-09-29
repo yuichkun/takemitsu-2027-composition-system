@@ -1,0 +1,411 @@
+{
+ "title": "antara",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 60
+  }
+ ],
+ "rehearsal": [],
+ "measures": 8,
+ "parts": [
+  {
+   "id": "fl1",
+   "instrument": "flute",
+   "name": "Flute 1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "fl2",
+   "instrument": "flute",
+   "name": "Flute 2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "fl3",
+   "instrument": "flute",
+   "name": "Flute 3",
+   "player": "fl3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "picc",
+   "instrument": "piccolo",
+   "name": "Piccolo",
+   "player": "fl3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "ob1",
+   "instrument": "oboe",
+   "name": "Oboe 1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "ob2",
+   "instrument": "oboe",
+   "name": "Oboe 2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "ob3",
+   "instrument": "oboe",
+   "name": "Oboe 3",
+   "player": "ob3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "eh",
+   "instrument": "cor-anglais",
+   "name": "English Horn",
+   "player": "ob3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "cl1",
+   "instrument": "clarinet",
+   "name": "Clarinet 1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "cl2",
+   "instrument": "clarinet",
+   "name": "Clarinet 2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "bcl",
+   "instrument": "bass-clarinet",
+   "name": "Bass Clarinet",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "bn1",
+   "instrument": "bassoon",
+   "name": "Bassoon 1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "bn2",
+   "instrument": "bassoon",
+   "name": "Bassoon 2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "bn3",
+   "instrument": "bassoon",
+   "name": "Bassoon 3",
+   "player": "bn3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "cbn",
+   "instrument": "contrabassoon",
+   "name": "Contrabassoon",
+   "player": "bn3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "hn1",
+   "instrument": "horn",
+   "name": "Horn 1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "hn2",
+   "instrument": "horn",
+   "name": "Horn 2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "hn3",
+   "instrument": "horn",
+   "name": "Horn 3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "hn4",
+   "instrument": "horn",
+   "name": "Horn 4",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "tp1",
+   "instrument": "trumpet",
+   "name": "Trumpet 1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "tp2",
+   "instrument": "trumpet",
+   "name": "Trumpet 2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "tp3",
+   "instrument": "trumpet",
+   "name": "Trumpet 3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "tb1",
+   "instrument": "trombone",
+   "name": "Trombone 1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "tb2",
+   "instrument": "trombone",
+   "name": "Trombone 2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "btb",
+   "instrument": "bass-trombone",
+   "name": "Bass Trombone",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "tba",
+   "instrument": "tuba",
+   "name": "Tuba",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "timp",
+   "instrument": "timpani",
+   "name": "Timpani",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "crot",
+   "instrument": "crotales",
+   "name": "Crotales",
+   "player": "p1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "glk",
+   "instrument": "glockenspiel",
+   "name": "Glockenspiel",
+   "player": "p1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "scym",
+   "instrument": "suspended-cymbal",
+   "name": "Suspended Cymbal",
+   "player": "p1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "shak",
+   "instrument": "shaker",
+   "name": "Shaker",
+   "player": "p1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "vib",
+   "instrument": "vibraphone",
+   "name": "Vibraphone",
+   "player": "p2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "tam",
+   "instrument": "tam-tam",
+   "name": "Tam-tam",
+   "player": "p2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "thsh",
+   "instrument": "thunder-sheet",
+   "name": "Thunder Sheet",
+   "player": "p2",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "mar",
+   "instrument": "marimba",
+   "name": "Marimba",
+   "player": "p3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "tub",
+   "instrument": "tubular-bells",
+   "name": "Tubular Bells",
+   "player": "p3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "bd",
+   "instrument": "bass-drum",
+   "name": "Bass Drum",
+   "player": "p3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "wbh",
+   "instrument": "woodblock-high",
+   "name": "Woodblock (high)",
+   "player": "p3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "wbm",
+   "instrument": "woodblock-medium",
+   "name": "Woodblock (medium)",
+   "player": "p3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "wbl",
+   "instrument": "woodblock-low",
+   "name": "Woodblock (low)",
+   "player": "p3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "ratch",
+   "instrument": "ratchet",
+   "name": "Ratchet",
+   "player": "p3",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "hp1",
+   "instrument": "harp",
+   "name": "Harp 1",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "hp2",
+   "instrument": "harp",
+   "name": "Harp 2",
+   "tuning": -0.5,
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "pno",
+   "instrument": "piano",
+   "name": "Piano",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "cel",
+   "instrument": "celesta",
+   "name": "Celesta",
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "vn1t",
+   "instrument": "violins-1",
+   "name": "Violin I",
+   "players": 16,
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "vn2t",
+   "instrument": "violins-2",
+   "name": "Violin II",
+   "players": 14,
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "vat",
+   "instrument": "violas",
+   "name": "Viola",
+   "players": 12,
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "vct",
+   "instrument": "cellos",
+   "name": "Violoncello",
+   "players": 10,
+   "events": [],
+   "dynamics": []
+  },
+  {
+   "id": "cbt",
+   "instrument": "basses",
+   "name": "Double Bass",
+   "players": 8,
+   "events": [],
+   "dynamics": []
+  }
+ ],
+ "outline": {
+  "length": 32,
+  "nodes": [
+   {
+    "node": "",
+    "at": 0,
+    "length": 32,
+    "depth": 0,
+    "uses": [],
+    "players": []
+   }
+  ],
+  "flows": {},
+  "warnings": []
+ }
+}
