@@ -32,6 +32,8 @@
 | [`running`](./ideas/running/README.md) | 両方とも流動的な規則を弦 4 部のカノンで走らせる。セット・立ち位置・ギア（仲間）の三つの帯が物語になり、コントラバスは頭が重なった所だけを弾く | 弦 5 部 |
 | [`two-grids`](./ideas/two-grids/README.md) | 12 声の和音の各声が、二つの格子のあいだをばらばらに滑っては戻る。滑りの着いた所で、その格子の楽器が光る（反射） | 弦 12 声（分奏）、ハープ 2（1 台は四分音低く）、チェレスタ、ピアノ（四分音低く）、クロタル |
 | [`lines`](./ideas/lines/README.md) | 縦の線が横の線になる、を 8 本で。A は時間の間を 0 から開く（4 本）、B は音程の間を 0 へ閉じる（4 本）。どれも仕組みが違う | スケッチごとに違う |
+| [`two-grids-orchestra`](./ideas/two-grids-orchestra/README.md) | two-grids を antara の編成で。弦 30 のプルトが一つの和音を保ち、半音の音と四分音ずれた音のあいだをグリッサンドで行き来する。管・金管・打楽器の役はつまみで足す。曲のセクション two-grids はこのスケッチそのもの | antara の編成（決定 0024） |
+| [`running-orchestra`](./ideas/running-orchestra/README.md) | running を antara の編成で（余湖さんの値 My Fav）。管が組の頭を、金管が頭の重なりを、固定の音の楽器が出せる刻みを重ねる。曲のセクション running はこのスケッチそのもの | antara の編成（決定 0024） |
 
 ## パレット（`palette/`）
 
