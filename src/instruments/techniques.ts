@@ -28,6 +28,10 @@ export const techniques: Record<string, Technique> = {
   flautando: { text: "flautando" },
   spiccato: { text: "spicc.", cancel: "ord." },
   harmonic: { text: "", cancel: "", mark: "harmonic" },
+  // An artificial harmonic: the note is the pitch that sounds; the score writes the stopped note
+  // two octaves below it and, a fourth above that, the touched note as a diamond
+  // (src/notation/musicxml.ts, writtenHarmonics).
+  "artificial-harmonic": { text: "", cancel: "" },
   tremolo: { text: "", cancel: "", mark: "tremolo" },
   "con-sord": { text: "con sord.", cancel: "senza sord." },
   // Winds and brass

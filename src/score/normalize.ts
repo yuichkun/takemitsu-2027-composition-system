@@ -32,6 +32,11 @@ export interface Note {
   /** Quarters to hold before the slide starts. */
   glissAfter: Rational;
   trill?: 1 | 2;
+  /**
+   * Notation only: an artificial harmonic written out (src/notation/musicxml.ts): `pitches` are
+   * then the stopped note and, above it, the touched one.
+   */
+  touching?: boolean;
   /** Index in the part's events, for messages. */
   index: number;
 }

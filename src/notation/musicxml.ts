@@ -5,13 +5,46 @@
 import type { Instrument } from "../instruments/catalog.ts";
 import { techniqueOf } from "../instruments/techniques.ts";
 import { normalize, type Note, type NormalPart, type NormalScore } from "../score/normalize.ts";
-import { accidentalName, type Spelled } from "../score/pitch.ts";
+import { accidentalName, spell, type Spelled } from "../score/pitch.ts";
 import { lcm, Rational } from "../score/rational.ts";
 import type { Measure } from "../score/timeline.ts";
 import type { Score } from "../score/types.ts";
 import { layoutOf, type Layout, type Staff } from "./layout.ts";
 import { registersOf, type Ottava, type StaffRegisters } from "./registers.ts";
 import { layoutMeasure, type Piece } from "./rhythm.ts";
+
+const writtenCache = new WeakMap<NormalScore, NormalScore>();
+/**
+ * The score as it is written: an artificial harmonic (technique "artificial-harmonic", its pitch
+ * the one that sounds) becomes the stopped note two octaves below and the touched note a perfect
+ * fourth above that, whose node sounds the fourth partial. Worked out once per score.
+ */
+function writtenHarmonics(score: NormalScore): NormalScore {
+  let w = writtenCache.get(score);
+  if (!w) {
+    let changed = false;
+    const parts = score.parts.map((p) => {
+      if (!p.notes.some((n) => n.technique.includes("artificial-harmonic"))) return p;
+      changed = true;
+      return {
+        ...p,
+        notes: p.notes.map((n) =>
+          n.technique.includes("artificial-harmonic") && n.pitches.length === 1
+            ? {
+                ...n,
+                pitches: [spell(n.pitches[0]!.midi - 24), spell(n.pitches[0]!.midi - 19)],
+                touching: true,
+              }
+            : n,
+        ),
+      };
+    });
+    w = changed ? { ...score, parts } : score;
+    writtenCache.set(score, w);
+    writtenCache.set(w, w);
+  }
+  return w;
+}
 
 const layoutCache = new WeakMap<NormalScore, Layout>();
 /** The score's staves (src/notation/layout.ts), worked out once per score. */
@@ -181,6 +214,8 @@ interface NoteMarks {
   hidden?: boolean;
   /** The note repeats the one before it in its voice (no accidental under the "note" rule). */
   repeated?: boolean;
+  /** An artificial harmonic's stopped note (base) or touched note (touch: a diamond head; no circle). */
+  harmonic?: "base" | "touch";
 }
 
 /**
@@ -243,6 +278,7 @@ function noteXml(
     );
   }
   if (n && marks.stem) out.push(`<stem>${marks.stem}</stem>`);
+  if (n && marks.harmonic === "touch") out.push("<notehead>diamond</notehead>");
   if (staves > 1) out.push(`<staff>${staff}</staff>`);
   // A feathered group's first beam carries the fan (accel: the beams spread out to the right).
   const fan = n?.feather?.first && !piece.tieFromPrevious ? ` fan="${n.feather.kind}"` : "";
@@ -852,6 +888,7 @@ function partXml(
               cutTieOut,
               lowered: down,
               color: p && flag ? flag(part, p.midi) : undefined,
+              harmonic: note?.touching ? (pi === 0 ? "base" : "touch") : undefined,
             }),
           );
         });
@@ -952,6 +989,7 @@ export function musicXmlOf(
   /** Colours for notes to point out (strip documents only). */
   flag?: NoteFlag,
 ): NotationResult {
+  score = writtenHarmonics(score);
   const warnings = [...score.warnings];
   const layout = layoutFor(score);
   let offset = 0;
@@ -1023,6 +1061,7 @@ export function stripMeasures(
 
 /** The clefs in force at a measure, over all staves of the score (from the top). */
 export function clefsAt(score: NormalScore, index: number): Instrument["clefs"] {
+  score = writtenHarmonics(score);
   return layoutFor(score).staves.flatMap((p) => registersFor(p, score).map((r) => r.clefs[index]!));
 }
 
@@ -1031,6 +1070,7 @@ export function clefsAt(score: NormalScore, index: number): Instrument["clefs"] 
  * empty measure, drawn with the same staff spacing as the measures so its staves meet theirs.
  */
 export function stripMargin(score: NormalScore, index: number): string {
+  score = writtenHarmonics(score);
   const m = score.measures[index]!;
   const duration = m.length.mul(new Rational(4)).value; // in 16ths: divisions 4
   const layout = layoutFor(score);

@@ -214,7 +214,7 @@ export function chooseArticulation(
       if (has(t, "pizz")) wants.push("Short Pizzicato");
       else if (has(t, "bartok-pizz")) wants.push("Short Pizzicato Bartok", "Short Pizzicato");
       else if (has(t, "col-legno")) wants.push("Short Col Legno");
-      else if (has(t, "harmonic"))
+      else if (has(t, "harmonic") || has(t, "artificial-harmonic"))
         wants.push(seconds < 0.5 ? "Short Harmonics" : "Long Harmonics", "Long Harmonics");
       else if (has(t, "tremolo") && has(t, "sul-pont")) wants.push("Tremolo Sul Pont", "Tremolo");
       else if (has(t, "tremolo") && has(t, "con-sord")) wants.push("Tremolo CS", "Tremolo");
