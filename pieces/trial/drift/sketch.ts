@@ -78,8 +78,8 @@ export const knobs = {
   company: number({
     group: "Lines",
     label: "Company",
-    help: "A line rests a cycle when this many others are playing",
-    value: 8,
+    help: "Between the moves, a line rests a cycle when this many others are playing",
+    value: 3,
     min: 2,
     max: 20,
     step: 1,
@@ -158,14 +158,12 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
           const fitted = orders.fit(s.player, set, from, range);
           const pitch = inOrder(set, fitted ?? orders.next(s.player));
           const t = inOrder(time, times.next(s.player));
-          // Every line takes the moves it can; between them a line may rest.
+          // Every line takes the moves it can. Between the moves only a few go on: the brass hold
+          // the home, and the orchestra breathes until the next move.
           const moving = (plan[cycle] ?? 0) !== 0;
           const silent =
             !fitted ||
-            (!moving &&
-              c >= 1 &&
-              !lastSilent &&
-              (soundingAt(walkers, at + 1, self) >= v.company || rand() < 0.15));
+            (!moving && (soundingAt(walkers, at + 1, self) >= v.company || rand() < 0.35));
           lastSilent = silent;
           const spec: Cycle = { pitch, time: t, family, silent };
           return s.kind === "arco" ? { ...spec, technique: "ord" } : spec;

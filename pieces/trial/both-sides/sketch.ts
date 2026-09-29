@@ -106,7 +106,7 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
     widths.forEach((h, i) => {
       const dt = r.time[i % r.time.length]! * atom;
       const final = i === widths.length - 1;
-      const hold = final ? dt * 2 : dt;
+      const hold = final ? Math.round((dt * 1.25) / atom) * atom : dt;
       const slideAfter = Math.round((hold * (1 - v.slide)) / atom) * atom;
       const next = widths[i + 1];
       // The lower member: its first player, then (below the handover) the second; both at the step
@@ -139,9 +139,10 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
             technique: "sul-tasto",
           });
         else out.note(player, t, hold, pitch, { technique: "sul-tasto" });
-        const lvl = Math.max(0.8, v.level - (i / widths.length) * 1.5);
-        out.dyn(player, t, lvl * (i === 0 ? 0.6 : 1), true);
-        out.dyn(player, t + hold - 1, final ? 0 : lvl * 0.8);
+        // pp to p, a little softer as the dyad widens; the last one fades to nothing.
+        const lvl = Math.max(2, v.level - i / widths.length);
+        out.dyn(player, t, lvl, true);
+        out.dyn(player, t + hold - 1, final ? 0 : lvl - 0.4);
       }
       // One member on the fixed-pitch grid: the bells sound it. The other: a wind breathes it.
       const members = [axis + h, axis - h];

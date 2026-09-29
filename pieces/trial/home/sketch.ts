@@ -53,6 +53,14 @@ export interface Stage {
   articulation?: Articulation;
 }
 
+export interface Phrase {
+  /** Bar from the meeting (0) where the phrase starts. */
+  from: number;
+  groups: Group[];
+  /** A factor on the levels. */
+  level: number;
+}
+
 export const knobs = {
   company: number({
     group: "Lines",
@@ -133,6 +141,16 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
     for (const x of stages) if (b >= x.bars[g]) s = x;
     return s;
   };
+  // Which groups dance in each phrase (bars from the meeting), and how loud: the orchestra
+  // breathes by whole groups, so the register and the weight change phrase by phrase.
+  const phrases = (ctx.params.phrases ?? [
+    { from: 0, groups: ["L", "ML", "MH", "H"], level: 1 },
+  ]) as Phrase[];
+  const phraseAt = (b: number) => {
+    let p = phrases[0]!;
+    for (const x of phrases) if (b >= x.from) p = x;
+    return p;
+  };
 
   const walkers: Walker[] = [];
   const specs: DanceLine[] = [];
@@ -153,9 +171,11 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
           const time = inOrder(stage.time, times.next(s.player));
           const fitted = orders.fit(s.player, trial.set, from, range);
           const pitch = inOrder(trial.set, fitted ?? orders.next(s.player));
+          const dancing = phraseAt(b).groups.includes(s.group);
           const crowded = soundingAt(walkers, at + 1, self) >= v.company;
-          const silent = !fitted || (c >= 1 && !lastSilent && (crowded || rand() < 0.1));
-          lastSilent = silent;
+          const silent =
+            !fitted || !dancing || (c >= 1 && !lastSilent && (crowded || rand() < 0.1));
+          lastSilent = silent && dancing;
           const cycle: Cycle = { pitch, time, family: stage.family, silent };
           if (s.kind === "pizz") return { ...cycle, technique: "pizz", length: 0.35 };
           return {
@@ -183,7 +203,8 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
     writeNotes(out, s.player, notes);
     const lift = s.kind === "pizz" ? 0.5 : s.kind === "brass" ? -1 : 0;
     // The bar of the meeting is the arrival the whole first part led to: louder, then the dance.
-    const scale = (t: number) => (t < meet + bar ? v.arrival : 1);
+    const scale = (t: number) =>
+      t < meet + bar ? v.arrival : phraseAt(Math.floor((t - meet) / bar)).level;
     distanceDynamics(out, s.player, notes, () => anchor, {
       home: v.level + lift,
       slope: 0.2,

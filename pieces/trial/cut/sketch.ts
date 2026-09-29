@@ -19,7 +19,7 @@
 
 import { number, type Values } from "../../../src/sketch/knobs.ts";
 import type { Context } from "../../../src/sketch/nest.ts";
-import { ATOM, Out, PLAYABLE, type Family } from "../engine.ts";
+import { ATOM, Orders, Out, PLAYABLE, type Family } from "../engine.ts";
 import type { Group, Trial } from "../material.ts";
 
 export interface Pair {
@@ -54,7 +54,7 @@ export const knobs = {
     group: "Levels",
     label: "Burst",
     help: "Level on the far side of the silence",
-    value: 7.5,
+    value: 7,
     min: 5,
     max: 8,
     step: 0.5,
@@ -76,8 +76,16 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
   const quickening = [10, 7, 5, 3, 2];
   const after = hole + holeLength;
 
+  const rotate = <T>(xs: T[], k: number) => xs.map((_, i) => xs[(i + k) % xs.length]!);
+  // Pairs of one group take the set's sizes and the time betweens in their own orders (all reach
+  // the same widths at the ends), so they move against one another instead of doubling.
+  const walks = new Orders(trial.set.length, trial.seed * 509 + 11);
+  const nth = new Map<Pair, number>();
+  for (const p of pairs) nth.set(p, pairs.filter((q) => q.group === p.group).indexOf(p));
+
   for (const p of pairs) {
     const axis = trial.home[p.group] + trial.axis;
+    const j = nth.get(p)!;
     const atom = ATOM[p.family];
     const up = PLAYABLE[ctx.player(p.upper).instrument]!;
     const down = PLAYABLE[ctx.player(p.lower).instrument]!;
@@ -92,12 +100,18 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
       d += s;
     }
     const widest = d;
-    const distances = [
-      0.25,
-      ...steps.map((_, i) => 0.25 + steps.slice(0, i + 1).reduce((a, b) => a + b, 0)),
-    ];
-    const times = slowing.slice(0, steps.length).map((a) => a * atom);
-    const quick = quickening.slice(quickening.length - steps.length).map((a) => a * atom);
+    const partial = (xs: number[]) =>
+      xs.map((_, i) => 0.25 + xs.slice(0, i + 1).reduce((a, b) => a + b, 0));
+    // Out: smallest first for the first pair of a group, turned for the others.
+    const outward = rotate(steps, j);
+    const distances = [0.25, ...partial(outward)];
+    // In: the same sizes from the far end, largest first, turned the other way.
+    const inward = rotate([...steps].reverse(), (steps.length - (j % steps.length)) % steps.length);
+    const closingWidths = [widest, ...partial(inward).map((x) => widest + 0.25 - x)];
+    const times = rotate(slowing.slice(0, steps.length), j).map((a) => a * atom);
+    const quick = rotate(quickening.slice(quickening.length - steps.length), j).map(
+      (a) => a * atom,
+    );
     const closeLength = quick.reduce((a, b) => a + b, 0);
     // Opening: from the pair's start, slowing down; closing: speeding up, to arrive a beat
     // before the silence and hold the quarter tone there.
@@ -112,20 +126,41 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
     });
     if (t > closeAt)
       throw new Error(`cut: the pair ${p.upper}/${p.lower} has no time to open before it closes`);
+    const widestAt = t;
+    // Wide, the pair walks the set in mirror: the upper player takes the set's betweens from its
+    // widest pitch, the lower the same betweens upside down, so they stay mirrored around the axis
+    // (never crossing it) while they move. Cycle by cycle until the closing, then they hold.
+    const walking: { at: number; d: number }[] = [];
+    const lo = Math.max(up[0], 2 * axis - down[1], axis + 0.75);
+    const hi = Math.min(up[1], 2 * axis - down[0]);
+    const pace = rotate([3, 5, 2, 4, 6], j).map((a) => a * atom);
+    const cycleLength = pace.reduce((a, b) => a + b, 0);
+    while (t + cycleLength <= closeAt) {
+      const order = walks.fit(`${p.upper}/${p.lower}`, trial.set, axis + widest, [lo, hi]);
+      if (!order) break;
+      let pitch = axis + widest;
+      order.forEach((i, k) => {
+        t += pace[k]!;
+        pitch += trial.set[i]!;
+        walking.push({ at: t, d: pitch - axis });
+      });
+    }
     const closing: { at: number; d: number }[] = [];
     let c = closeAt;
     quick.forEach((dt, i) => {
-      closing.push({ at: c, d: distances[distances.length - 1 - i]! });
+      closing.push({ at: c, d: closingWidths[i]! });
       c += dt;
     });
     closing.push({ at: lastAt, d: 0.25 });
-    const before = [...open, ...closing];
+    // The walk's last arrival (on the widest pitch) holds into the closing.
+    const before = [...open, ...walking.slice(0, -1), ...closing];
     // After the silence: each where the other was, opening again, slowing.
+    const again = [0.25, ...partial(rotate(steps, j + 1))];
     const opening: { at: number; d: number }[] = [{ at: after, d: 0.25 }];
     t = after;
-    times.forEach((dt, i) => {
+    rotate(times, 1).forEach((dt, i) => {
       t += dt;
-      opening.push({ at: t, d: distances[i + 1]! });
+      opening.push({ at: t, d: again[i + 1]! });
     });
     const end = t + 8 * atom;
 
@@ -134,25 +169,25 @@ export function score(v: Values<typeof knobs>, ctx: Context) {
       sign: number,
       points: { at: number; d: number }[],
       until: number,
+      struck = false,
     ) => {
       points.forEach((pt, i) => {
         const next = points[i + 1]?.at ?? until;
-        out.note(
-          player,
-          pt.at,
-          next - pt.at,
-          axis + sign * pt.d,
-          i < points.length - 1 ? { slur: true } : {},
-        );
+        out.note(player, pt.at, next - pt.at, axis + sign * pt.d, {
+          ...(i < points.length - 1 ? { slur: true } : {}),
+          ...(struck && i === 0 ? { articulations: ["accent" as const] } : {}),
+        });
       });
     };
     write(p.upper, 1, before, hole);
     write(p.lower, -1, before, hole);
-    write(p.upper, -1, opening, end);
-    write(p.lower, 1, opening, end);
+    write(p.upper, -1, opening, end, true);
+    write(p.lower, 1, opening, end, true);
     for (const player of [p.upper, p.lower]) {
+      // Growing as it opens and walks wide, to the loudest just before it closes; then softer
+      // and softer to the quarter tone around the axis.
       out.dyn(player, openAt, v.close + 1, true);
-      out.dyn(player, open.at(-1)!.at, v.wide, false);
+      out.dyn(player, widestAt, v.wide - 1.5, true);
       out.dyn(player, closeAt, v.wide, true);
       out.dyn(player, lastAt, v.close);
       out.dyn(player, after, v.burst);

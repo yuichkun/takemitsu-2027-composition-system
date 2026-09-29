@@ -22,7 +22,7 @@ import { ensemble, optional } from "./ensemble.ts";
 import { driftPositions, homeOf, type Group, type Trial } from "./material.ts";
 import type { Standpoint } from "./standpoints/sketch.ts";
 import type { Holder, TowardLine } from "./toward/sketch.ts";
-import type { DanceLine, Stage } from "./home/sketch.ts";
+import type { DanceLine, Phrase, Stage } from "./home/sketch.ts";
 import type { Chorale, DriftLine } from "./drift/sketch.ts";
 import type { Pair } from "./cut/sketch.ts";
 import type { Ring } from "./both-sides/sketch.ts";
@@ -389,10 +389,29 @@ export function score(v: Values<typeof knobs>, ctx: Context): Score {
     },
     { family: 5, time: [4, 6, 5, 3, 7], bars: { H: 32, MH: 33, ML: 34, L: 35 }, length: 0.7 },
   ];
+  // The dance breathes by whole groups, four bars or so at a time: the high alone, the middle,
+  // the low, the two ends with the middle empty, everyone; lighter and heavier in turn.
+  const all: Group[] = ["L", "ML", "MH", "H"];
+  const phrases: Phrase[] = [
+    { from: 0, groups: all, level: 1 },
+    { from: 1, groups: ["H"], level: 0.8 },
+    { from: 4, groups: ["H", "MH"], level: 0.85 },
+    { from: 8, groups: ["MH", "ML"], level: 0.9 },
+    { from: 12, groups: ["ML", "L"], level: 0.9 },
+    { from: 16, groups: ["L", "H"], level: 0.95 },
+    { from: 20, groups: all, level: 1.05 },
+    { from: 24, groups: ["MH"], level: 0.8 },
+    { from: 26, groups: ["MH", "H"], level: 0.9 },
+    { from: 30, groups: ["L", "ML"], level: 0.95 },
+    { from: 34, groups: all, level: 1.05 },
+    { from: 38, groups: ["H", "L"], level: 1 },
+    { from: 41, groups: ["ML", "MH"], level: 1 },
+    { from: 44, groups: all, level: 1.15 },
+  ];
   const home = piece.child("home", {
     at: meetBeats,
     length: danceBars * 5 + 5,
-    params: { lines: danceLines, stages, bar, leave: leaveDance },
+    params: { lines: danceLines, stages, bar, leave: leaveDance, phrases },
   });
   placed.push(home);
 
@@ -443,7 +462,7 @@ export function score(v: Values<typeof knobs>, ctx: Context): Score {
   const pairs: Pair[] = [
     // The highest group opens first, the lowest last (the cut travels down again).
     { upper: "vn1a", lower: "fl1", group: "H", family: 3, delay: b(0) },
-    { upper: "vn1b", lower: "fl2", group: "H", family: 3, delay: b(1) },
+    { upper: "picc", lower: "fl2", group: "H", family: 3, delay: b(1) },
     { upper: "vn2a", lower: "ob1", group: "MH", family: 5, delay: b(2) },
     { upper: "vn2b", lower: "ob2", group: "MH", family: 5, delay: b(3) },
     { upper: "tp1", lower: "tp2", group: "MH", family: 5, delay: b(4) },
@@ -452,9 +471,8 @@ export function score(v: Values<typeof knobs>, ctx: Context): Score {
     { upper: "hn1", lower: "tb1", group: "ML", family: 2, delay: b(7) },
     { upper: "hn3", lower: "tb2", group: "ML", family: 2, delay: b(8) },
     { upper: "vca", lower: "bn1", group: "L", family: 3, delay: b(9) },
-    { upper: "vcb", lower: "bn2", group: "L", family: 3, delay: b(10) },
+    { upper: "bcl", lower: "bn2", group: "L", family: 3, delay: b(10) },
     { upper: "btb", lower: "tba", group: "L", family: 3, delay: b(11) },
-    { upper: "bcl", lower: "cbt", group: "L", family: 3, delay: b(12) },
   ];
   const cutting = piece.child("cut", {
     at: driftEnd / TICKS,
@@ -462,10 +480,12 @@ export function score(v: Values<typeof knobs>, ctx: Context): Score {
     params: { pairs, start: driftEnd, hole, holeLength: bar },
   });
   placed.push(cutting);
-  const cutEnd = Math.max(...Object.values(outs(cutting)));
 
-  // Both sides: from the first bar line after the cut has faded, slower, in 4/4.
-  const sides = barAfter(cutEnd);
+  // Both sides: the first ring comes out of the burst, on the middle group's axis, while the burst
+  // is still fading (players the cut left free); the tempo slows and the bar turns to 4/4 at the
+  // next bar line.
+  const burst = hole + bar;
+  const sides = burst + bar;
   const rings: Ring[] = [
     {
       upper: "vn1s",
@@ -473,8 +493,8 @@ export function score(v: Values<typeof knobs>, ctx: Context): Score {
       group: "ML",
       family: 3,
       time: [18, 24, 21, 27, 30],
-      enter: sides,
-      breath: "cl1",
+      enter: burst + b(3),
+      breath: "eh",
       handover: { player: "cbs", below: 40 },
     },
     {
@@ -483,7 +503,7 @@ export function score(v: Values<typeof knobs>, ctx: Context): Score {
       group: "L",
       family: 5,
       time: [25, 30, 35, 40, 45],
-      enter: sides + b(10),
+      enter: sides + b(12),
       breath: "bn1",
     },
     {
@@ -492,7 +512,7 @@ export function score(v: Values<typeof knobs>, ctx: Context): Score {
       group: "MH",
       family: 2,
       time: [20, 24, 28, 32, 36],
-      enter: sides + b(20),
+      enter: sides + b(22),
       breath: "ob1",
     },
     {
@@ -501,12 +521,12 @@ export function score(v: Values<typeof knobs>, ctx: Context): Score {
       group: "H",
       family: 3,
       time: [15, 18, 21, 24],
-      enter: sides + b(30),
+      enter: sides + b(32),
       breath: "fl1",
     },
   ];
   const both = piece.child("both-sides", {
-    at: sides / TICKS,
+    at: burst / TICKS,
     length: 400,
     params: { rings },
   });
