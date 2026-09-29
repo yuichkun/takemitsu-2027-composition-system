@@ -175,11 +175,6 @@ interface NoteMarks {
   lowered: number;
   /** A colour for the whole note (preview only: see NoteFlag). */
   color?: string;
-  /**
-   * Unpitched notes for Verovio (the preview): it reads a one-line staff's line as E4, where
-   * the MusicXML convention (and Sibelius) puts it at B4, the middle line.
-   */
-  lineIsE4?: boolean;
   /** Two players on one staff, both playing in the measure: the first stems up, the second down. */
   stem?: "up" | "down";
   /** A rest not printed (the silent player's, on a staff where only the other plays). */
@@ -215,7 +210,9 @@ function noteXml(
   if (!n) {
     out.push(piece.measureRest ? '<rest measure="yes"/>' : "<rest/>");
   } else if (inst.unpitched) {
-    const [step, octave] = marks.lineIsE4 ? ["E", 4] : ["B", 4];
+    // A one-line staff's line is E4 for both Verovio and Sibelius (Sibelius drew B4 two spaces
+    // above it: docs/research/score-layout/import-test.md).
+    const [step, octave] = ["E", 4];
     out.push(
       `<unpitched><display-step>${step}</display-step><display-octave>${octave}</display-octave></unpitched>`,
     );
@@ -624,22 +621,26 @@ function partXml(
     if (before && !cancel(before.text) && firstNote.technique.length)
       changes.push({ at: firstNote.at, text: before.text });
   }
-  for (const t of changes)
-    if (inSpan(t.at))
-      directions.push({
-        at: t.at,
-        staff: 1,
-        placement: "above",
-        xml: `<words>${esc(t.text)}</words>`,
-      });
-  for (const t of part.texts)
-    if (inSpan(t.at))
-      directions.push({
-        at: t.at,
-        staff: 1,
-        placement: t.placement,
-        xml: `<words>${esc(t.text)}</words>`,
-      });
+  // Texts above the staff at one moment go into one: a player label and a technique
+  // ("1. senza vib.") would otherwise print on top of each other.
+  const words = new Map<string, { at: Rational; placement: "above" | "below"; texts: string[] }>();
+  const say = (at: Rational, placement: "above" | "below", text: string) => {
+    const key = `${at.toString()} ${placement}`;
+    const w = words.get(key) ?? { at, placement, texts: [] };
+    // A player or divisi label leads ("1. senza vib.", "div. pizz.").
+    const label = /^(a \d|\d\.|div\.( a \d+)?|unis\.)$/.test(text);
+    if (!w.texts.includes(text)) w.texts[label ? "unshift" : "push"](text);
+    words.set(key, w);
+  };
+  for (const t of part.texts) if (inSpan(t.at)) say(t.at, t.placement, t.text);
+  for (const t of changes) if (inSpan(t.at)) say(t.at, "above", t.text);
+  for (const w of words.values())
+    directions.push({
+      at: w.at,
+      staff: 1,
+      placement: w.placement,
+      xml: `<words>${esc(w.texts.join(" "))}</words>`,
+    });
   if (index === 0) {
     const tempos = score.tempoMarks.filter((t) => inSpan(t.at));
     // Verovio times the notes from the tempo in the document, so it must know it at the start.
@@ -685,7 +686,8 @@ function partXml(
     out.push(`<measure number="${strip ? mi + 1 : m.number}">`);
     const meter = `${m.beats}/${m.beatType}`;
     const attrs: string[] = [];
-    if (mi === 0) attrs.push(`<divisions>${divisions}</divisions><key><fifths>0</fifths></key>`);
+    // An empty key is the only one Sibelius reads as open (no key signature even when transposed).
+    if (mi === 0) attrs.push(`<divisions>${divisions}</divisions><key/>`);
     if (meter !== previousMeter) {
       // A strip shows a time signature only where the meter changes.
       const before = score.measures[at - 1];
@@ -737,6 +739,19 @@ function partXml(
       groups.some((x) => x.staff === 1 && x.voice === voice && x.pieces.some((p) => p.note));
     const both = part.stems && plays(1) && plays(2);
     const secondAlone = part.stems && !plays(1) && plays(2);
+    // Where both players rest at once, one rest says so: the second's is not printed.
+    const firstRests = both
+      ? groups
+          .find((x) => x.staff === 1 && x.voice === 1)!
+          .pieces.filter((p) => !p.note)
+          .map((p) => [p.start, p.start.add(p.dur)] as const)
+      : [];
+    const bothRest = (piece: Piece) => {
+      let t = piece.start;
+      const end = piece.start.add(piece.dur);
+      for (const [a, b] of firstRests) if (a.lte(t) && b.gt(t)) t = b;
+      return t.gte(end);
+    };
     groups.forEach((g, gi) => {
       if (gi > 0)
         out.push(
@@ -825,7 +840,9 @@ function partXml(
               id: note ? id(pi) : undefined,
               stem:
                 both && g.staff === 1 && g.voice <= 2 ? (g.voice === 1 ? "up" : "down") : undefined,
-              hidden: secondAlone && g.voice === 1 && piece.measureRest,
+              hidden:
+                (secondAlone && g.voice === 1 && piece.measureRest) ||
+                (both && g.staff === 1 && g.voice === 2 && !note && bothRest(piece)),
               repeated,
               slurStart: pi === 0 && slurStart,
               slurStop: pi === 0 && slurStop,
@@ -835,7 +852,6 @@ function partXml(
               cutTieOut,
               lowered: down,
               color: p && flag ? flag(part, p.midi) : undefined,
-              lineIsE4: strip,
             }),
           );
         });
@@ -1022,7 +1038,7 @@ export function stripMargin(score: NormalScore, index: number): string {
     const regs = registersFor(p, score);
     const staves = p.instrument.clefs.length;
     const attrs = [
-      "<divisions>4</divisions><key><fifths>0</fifths></key>",
+      "<divisions>4</divisions><key/>",
       `<time print-object="no"><beats>${m.beats}</beats><beat-type>${m.beatType}</beat-type></time>`,
       staves > 1 ? `<staves>${staves}</staves>` : "",
       ...regs.map((r, s) => clefXml(r.clefs[index]!, s + 1, staves)),
