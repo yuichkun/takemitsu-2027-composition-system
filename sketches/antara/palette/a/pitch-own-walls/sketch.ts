@@ -1,9 +1,10 @@
 // antara palette, A (pitch): each voice turns the line round at its own walls.
 //
-// One line of pitch betweens is read by eight divided violins at once, all from one standpoint. The
-// line is a set drawn by "shift each time" (the set as written, starting one place later each time
-// round), computed once and the same for every voice. What differs between the voices is only
-// their band: a floor and a ceiling of their own, each a between from the standpoint.
+// One line of pitch betweens is read by eight divided violins at once. The line is a set drawn by
+// "shift each time" (the set as written, starting one place later each time round), computed once
+// and the same for every voice. What differs between the voices is where each one stands: its own
+// standpoint (the pitch it starts on) and its own band, a floor and a ceiling measured from that
+// standpoint.
 //
 // The rule, the only mechanism: each voice reads the line with a sign, + at the start (every
 // between as written). When the next between would carry a voice past one of its walls, that voice
@@ -18,9 +19,19 @@
 // a second rigid chord. Inside a chord, a vertical between changes only on a step where one of the
 // two voices turns, and by twice that between; between the two chords it opens or closes by twice
 // the between at every step (the contrary motion). Nobody writes a chord: the chords are the
-// result of the line and where the walls stand. Every voice starts from the same pitch and moves
-// by the same sizes, so any two voices are always a whole number of semitones apart (twice a .5
-// is whole): on a .5 step the whole field crosses to the other grid together.
+// result of the line and where the voices and their walls stand.
+//
+// Two voices whose standpoints are a .5 between apart keep a .5 in their vertical between for good
+// (every vertical between changes by twice a between, which is whole), so they are always on
+// different grids: the standpoints put quarter tones into the vertical betweens, not only into the
+// steps. Stacking the line's sizes happens to put the four standpoints on one grid 7 apart
+// (4.5 + 2.5 and 3.5 + 3 + 0.5 are both 7); the card counts what that does.
+//
+// The provisional values (the card gives the reasons): the standpoints are the line's own sizes
+// stacked up in the written order; from the bottom, the voices stand alternately near their floor
+// and near their ceiling, each at a different distance from that nearer wall, all closer than the
+// first between, so the four near their ceilings turn on the first step and the field splits four
+// against four at once; the bands have eight different widths.
 //
 // Time is a set holding one between (a pulse): every between of the line is one onset for all the
 // voices, and each note lasts to the next onset. Violins II divided in eight, one player each (one
@@ -28,13 +39,9 @@
 // sound), arco, p throughout, no accents. The last chord is held at least a bar, to a bar line, and
 // fades to nothing.
 //
-// The line is written as text, not on a between-set ruler: the ruler keeps its betweens sorted by
-// size, and here the order written is the rule's.
-//
-// The shift rule reads the four betweens after the first twice in a row at every pass boundary
-// (a b c d e | b c d e a). With the set's sum +3 and +3 in the set, once every five passes those
-// four sum to 0 (+4.5 −2 +1 −3.5): nobody drifts to a wall, and the field plays the same four
-// chords twice. That is where the long rigid chords come from; the card lists it as a fact.
+// The line, the ceilings and the floors are written as text, not on a between-set ruler: the ruler
+// keeps its betweens sorted by size, and here the order written is the rule's (for the line) or the
+// voices' (for the walls, lowest voice first).
 // Card: README.md.
 
 import {
@@ -57,16 +64,7 @@ export const knobs = {
     group: "Line",
     label: "Line",
     help: "The set of betweens of the one line every voice reads, in the order written (semitones, − for down, .5 for a quarter tone). Drawn by shift each time: the set as written, starting one place later each time round",
-    value: "4.5 -2 1 -3.5 3",
-  }),
-  standpoint: pitch({
-    group: "Line",
-    label: "Standpoint",
-    help: "Where every voice starts, together; the walls are measured from it",
-    value: "G4",
-    min: "C4",
-    max: "C6",
-    step: 0.5,
+    value: "4.5 -2.5 3.5 -3 0.5",
   }),
   rounds: number({
     group: "Line",
@@ -77,27 +75,37 @@ export const knobs = {
     max: 40,
     step: 1,
   }),
-  ceilings: betweenSet({
-    group: "Walls",
-    label: "Ceilings",
-    help: "Each voice's ceiling, a between above the standpoint. The lowest ceiling goes with the lowest floor (the lowest voice), the next with the next. As many ceilings as floors: that is the number of voices (up to 14, one player each)",
-    value: "5 6.5 8 9.5 11 12.5 14 15.5",
-    min: 0.5,
+  standpoint: pitch({
+    group: "Voices",
+    label: "Lowest standpoint",
+    help: "Where the lowest voice starts; the other standpoints are measured from it",
+    value: "B3",
+    min: "G3",
+    max: "C6",
+    step: 0.5,
+  }),
+  standpoints: betweenSet({
+    group: "Voices",
+    label: "Standpoints",
+    help: "Each voice's standpoint (the pitch it starts on), a between above the lowest one (0 is the lowest voice). As many standpoints as voices (up to 14, one player each)",
+    value: "0 4.5 7 10.5 13.5 14 18.5 21",
+    min: 0,
     max: 36,
     step: 0.5,
     unit: "st",
     anchor: "standpoint",
   }),
-  floors: betweenSet({
-    group: "Walls",
+  ceilings: text({
+    group: "Voices",
+    label: "Ceilings",
+    help: "Each voice's ceiling, a between above its own standpoint, lowest voice first. One for every standpoint",
+    value: "6 3.5 9 2.5 12 1.5 15 0.5",
+  }),
+  floors: text({
+    group: "Voices",
     label: "Floors",
-    help: "Each voice's floor, a between below the standpoint, lowest first (the lowest voice). Every band must be at least twice the widest between of the line, so a turned step always lands inside",
-    value: "-12 -11 -10 -9 -8 -7 -6 -5",
-    min: -24,
-    max: -0.5,
-    step: 0.5,
-    unit: "st",
-    anchor: "standpoint",
+    help: "Each voice's floor, a between below its own standpoint (− for down), lowest voice first. Every band (floor to ceiling) must be at least twice the widest between of the line, so a turned step always lands inside",
+    value: "-4 -7.5 -3 -10.5 -2 -13.5 -1 -16.5",
   }),
   between: number({
     group: "Time",
@@ -129,13 +137,13 @@ export const knobs = {
 };
 
 /**
- * Every voice reads the same line from the standpoint, each inside its own walls: a between that
+ * Every voice reads the same line from its own standpoint, inside its own walls: a between that
  * would carry a voice past a wall turns that voice's sign, and it reads the line the other way
  * round from that between on, until it meets a wall again.
  */
-function walk(line: number[], standpoint: number, walls: [number, number][]): number[][] {
-  return walls.map(([floor, ceiling]) => {
-    let pos = standpoint;
+function walk(line: number[], standpoints: number[], walls: [number, number][]): number[][] {
+  return walls.map(([floor, ceiling], k) => {
+    let pos = standpoints[k]!;
     let sign = 1;
     const pitches = [pos];
     for (const b of line) {
@@ -155,36 +163,45 @@ function walk(line: number[], standpoint: number, walls: [number, number][]): nu
   });
 }
 
+const betweensOf = (label: string, value: string): number[] => {
+  const out = numbersOf(label, value.replaceAll("−", "-"));
+  if (out.some((b) => !Number.isInteger(b * 2)))
+    throw new Error(`${label}: betweens are semitones on the quarter-tone grid (4.5, -2, 1)`);
+  return out;
+};
+
 export function score(v: Values<typeof knobs>) {
-  const set = numbersOf("Line", v.line.replaceAll("−", "-"));
-  if (set.some((b) => !Number.isInteger(b * 2)))
-    throw new Error("Line: betweens are semitones on the quarter-tone grid (4.5, -2, 1)");
-  if (v.ceilings.length !== v.floors.length)
+  const set = betweensOf("Line", v.line);
+  const ceilings = betweensOf("Ceilings", v.ceilings);
+  const floors = betweensOf("Floors", v.floors);
+  const n = v.standpoints.length;
+  if (ceilings.length !== n || floors.length !== n)
     throw new Error(
-      `Walls: ${v.ceilings.length} ceilings and ${v.floors.length} floors; give every voice one of each`,
+      `Voices: ${n} standpoints, ${ceilings.length} ceilings and ${floors.length} floors; give every voice one of each`,
     );
-  if (v.ceilings.length > SECTION.size)
-    throw new Error(`Walls: at most ${SECTION.size} voices, one player each`);
+  if (n > SECTION.size) throw new Error(`Voices: at most ${SECTION.size} voices, one player each`);
   const widest = Math.max(...set.map(Math.abs));
-  const walls = v.floors.map((f, k): [number, number] => [
-    v.standpoint + f,
-    v.standpoint + v.ceilings[k]!,
-  ]);
+  const starts = v.standpoints.map((s) => v.standpoint + s);
+  const walls = starts.map((s, k): [number, number] => [s + floors[k]!, s + ceilings[k]!]);
   walls.forEach(([lo, hi], k) => {
+    if (ceilings[k]! < 0 || floors[k]! > 0)
+      throw new Error(
+        `Voices: voice ${k + 1} from the bottom stands outside its own band (ceiling ${ceilings[k]}, floor ${floors[k]}); a ceiling is 0 or more, a floor 0 or less`,
+      );
     if (hi - lo < 2 * widest)
       throw new Error(
-        `Walls: voice ${k + 1} from the bottom has a band of ${hi - lo}, less than twice the widest between (${widest})`,
+        `Voices: voice ${k + 1} from the bottom has a band of ${hi - lo}, less than twice the widest between (${widest})`,
       );
     if (lo < SECTION.range[0] || hi > SECTION.range[1])
       throw new Error(
-        `Walls: voice ${k + 1} from the bottom has walls ${lo}–${hi}, outside the violins' ${SECTION.range[0]}–${SECTION.range[1]}; move the Standpoint or the walls`,
+        `Voices: voice ${k + 1} from the bottom has walls ${lo}–${hi}, outside the violins' ${SECTION.range[0]}–${SECTION.range[1]}; move the Lowest standpoint or the walls`,
       );
   });
 
   // The one line, computed once.
   const next = stream(set, "shift each time", 1);
   const line = Array.from({ length: v.rounds * set.length }, () => next());
-  const voices = walk(line, v.standpoint, walls);
+  const voices = walk(line, starts, walls);
 
   const step = v.between * atomOf(familyOf(v.family));
   const bar = 4 * TICKS;
@@ -198,7 +215,6 @@ export function score(v: Values<typeof knobs>) {
   ]);
 
   // Voice k (from the bottom) is Violins II (n − k): numbered from the top.
-  const n = voices.length;
   const parts = voices.map((pitches, k) => {
     const j = n - k;
     const player: Player = {

@@ -18,15 +18,18 @@
 // the first violins in unison) needs both grids and gets no strikes. Which instruments strike is
 // the name of the grid the new pitch stands on.
 //
-// The story is the set. It starts with no between with .5 (the odd voice stays on the standpoint,
-// so the even voice doubles the full voice), and stage by stage one more between gets .5: the
-// narrowest one still without it is widened by a quarter tone, away from 0 (its direction and its
-// place in the order stay). Each stage lets the rule go round the set a fixed number of times, so
-// the even and the odd voice move exactly as often as the set has betweens without and with .5.
-// At the last stage every between has .5: the even voice has stopped, and the odd voice moves in
-// parallel with the full voice, as far from it as the even voice stopped from the standpoint.
-// Neither the unison at the start nor the parallel at the end is placed; both follow from the
-// partial sums. The rule, "shift each time", runs on across the stages.
+// The story is the set. Stage by stage, one between moves by a quarter tone, and so changes
+// whether it has .5: the betweens are taken by size (narrowest first), going round the sizes
+// twice; one with .5 moves toward 0 (it loses the .5), one without moves away from 0 (it gets
+// one). Direction and place in the order stay. Each between therefore changes twice, and the last
+// stage has the first set again. Each stage lets the rule go round the set a fixed number of
+// times, so the even and the odd voice move exactly as often as the set has betweens without and
+// with .5. With the default first set (every between has .5) the count of .5 goes 6, 5 … 0 … 5, 6:
+// at the ends the even voice holds and the odd voice moves in parallel with the full voice (as far
+// from it as the even voice is from the standpoint; at the start that is 0, a unison); in the
+// middle the odd voice holds and the even voice moves in parallel with the full voice (as far from
+// it as the odd voice is from the standpoint). None of this is placed; it follows from the partial
+// sums. The rule, "shift each time", runs on across the stages.
 //
 // One addition outside the mechanism, only to keep the voices in the band (as in the A): when a
 // between would put the full voice or the voice moving with it outside the band, both take it the
@@ -66,14 +69,14 @@ export const knobs = {
   set: text({
     group: "Pitch",
     label: "First set",
-    help: "The betweens of the first stage, in the order written (semitones, − for down, .5 for a quarter tone). The rule takes them in this order, starting one later each time round. Each next stage widens by a quarter tone, away from 0, the narrowest between still without .5, until all have it: one stage per between without .5, plus the first",
-    value: "1 -2 3 -4 5 -6",
+    help: "The betweens of the first stage, in the order written (semitones, − for down, .5 for a quarter tone). The rule takes them in this order, starting one later each time round. Each next stage moves one between by a quarter tone, taking them by size (narrowest first) and going round the sizes twice: one with .5 moves toward 0, one without away from 0. Twice as many stages as betweens, plus the first; the last has the first set again",
+    value: "1.5 -4.5 5.5 -2.5 3.5 -6.5",
   }),
   passes: number({
     group: "Pitch",
     label: "Rounds per stage",
     help: "How many times the rule goes round the set in each stage. Every between is taken this many times per stage, so the cellos and the violas move exactly as often as the set has betweens without and with .5",
-    value: 2,
+    value: 1,
     min: 1,
     max: 6,
     step: 1,
@@ -131,21 +134,23 @@ type V = Values<typeof knobs>;
 const crosses = (b: number) => Math.round(b * 2) % 2 !== 0;
 
 /**
- * The set of each stage: the first as written, then, one stage at a time, the narrowest between
- * without .5 widened by a quarter tone away from 0 (the first written of equal ones; 0 goes up),
- * until every between has .5.
+ * The set of each stage: the first as written, then, one stage at a time, one between moved by a
+ * quarter tone. The betweens are taken by their size in the first set (narrowest first; the first
+ * written of equal ones), going round the sizes twice. One with .5 moves toward 0 and loses it;
+ * one without moves away from 0 and gets it (its direction is the one in the first set; 0 goes
+ * up). So every between changes twice, and the last stage has the first set again.
  */
 function stagesOf(first: number[]): number[][] {
+  const bySize = first.map((_, i) => i).sort((a, b) => Math.abs(first[a]!) - Math.abs(first[b]!));
   const out = [first];
-  for (;;) {
-    const last = out.at(-1)!;
-    const plain = last.map((b, i) => ({ b, i })).filter(({ b }) => !crosses(b));
-    if (plain.length === 0) return out;
-    const { i } = plain.reduce((a, x) => (Math.abs(x.b) < Math.abs(a.b) ? x : a));
-    const next = [...last];
-    next[i] = last[i]! + (last[i]! < 0 ? -0.5 : 0.5);
+  for (const i of [...bySize, ...bySize]) {
+    const next = [...out.at(-1)!];
+    const b = next[i]!;
+    const away = first[i]! < 0 ? -0.5 : 0.5;
+    next[i] = crosses(b) ? b - away : b + away;
     out.push(next);
   }
+  return out;
 }
 
 /** One voice: its pitch after each step (index 0 is the start), and the steps it moves at. */

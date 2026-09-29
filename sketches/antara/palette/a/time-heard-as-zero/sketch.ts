@@ -22,11 +22,19 @@
 // plays two marks louder (mf) so that each group weighs about the same and the weight of an onset
 // stays the number of groups that attack it.
 //
-// The time set is read from its smallest size, starting one later each time round; the pitch set
-// in the order written, starting one later each time round. A pitch between that would leave the
-// band is taken the other way (an addition outside the mechanism, only to keep every group in one
-// register). The family is 3 (triplet eighths) throughout: one family, so that only the reading of
-// 0 is heard.
+// Both sets are drawn by one rule, in rounds: a round is one ordering of the set (each between
+// once), never one used before. The rule's only aim is that the line does not repeat itself.
+// Starting each round one later than the last (the reading tried first) closes after as many
+// rounds as the set has betweens (a 16-between rhythm heard four times, a 25-between melody
+// coming back 2.5 higher), and each round's end is heard again at once as the next round's start.
+// So, of the orderings not yet used, the next round is the one with, in turn: the fewest runs
+// heard again right after themselves where it meets the line (the same between twice, a run of
+// two twice, …); the fewest runs already heard anywhere in the line, counted from the longest (a
+// round's length) down to two; a first between that has begun the fewest rounds (so that no
+// between leads the rounds more often, as a list read in order would make it); the first in
+// dictionary order. A pitch between that would leave the band is taken the other way (an addition
+// outside the mechanism, only to keep every group in one register). The family is 3 (triplet
+// eighths) throughout: one family, so that only the reading of 0 is heard.
 //
 // A time between of 0 is left open in docs/antara/sound.md; that it is a chord is the reading
 // tried here, and that its length passes on to the next between heard is this sketch's reading.
@@ -43,13 +51,13 @@ import {
   type Values,
 } from "../../../../../src/sketch/knobs.ts";
 import { atomOf } from "../../../between.ts";
-import { curve, note, part, scoreOf, stream, TICKS, type Player } from "../../common.ts";
+import { curve, note, part, scoreOf, TICKS, type Player } from "../../common.ts";
 
 export const knobs = {
   time: betweenSet({
     group: "Line",
     label: "Time set",
-    help: "The time betweens of the line, in triplet eighths (atoms of the family of 3). The rule reads them from the smallest, starting one later each time round",
+    help: "The time betweens of the line, in triplet eighths (atoms of the family of 3). Each round is one ordering of the set not used before, chosen so that the line repeats itself as little as it can (see the card). At most six betweens",
     value: "1 2 3 4",
     min: 1,
     max: 12,
@@ -59,15 +67,15 @@ export const knobs = {
   pitches: text({
     group: "Line",
     label: "Pitch set",
-    help: "The pitch betweens of the line (semitones, .5 for a quarter tone, − for down), in the order the rule reads them: as written, starting one later each time round",
-    value: "2.5 -1.5 3 -4.5 1",
-    hint: "2.5 -1.5 3 -4.5 1",
+    help: "The pitch betweens of the line (semitones, .5 for a quarter tone, − for down). The order written does not matter: each round is one ordering of the set, by the same rule as the time set. At most six betweens",
+    value: "-4.5 -1.5 1 2.5 3",
+    hint: "-4.5 -1.5 1 2.5 3",
   }),
   anchor: pitch({
     group: "Line",
     label: "Standpoint",
     help: "The line's first note",
-    value: "F#4",
+    value: "E4",
     min: "C3",
     max: "C6",
     step: 0.5,
@@ -125,6 +133,91 @@ interface Chord {
   midis: number[];
 }
 
+/** Every ordering of the items (sorted), in dictionary order; equal betweens give one ordering. */
+function orderingsOf(items: number[]): number[][] {
+  if (items.length <= 1) return [items];
+  const out: number[][] = [];
+  items.forEach((x, i) => {
+    if (i > 0 && items[i - 1] === x) return;
+    for (const rest of orderingsOf([...items.slice(0, i), ...items.slice(i + 1)]))
+      out.push([x, ...rest]);
+  });
+  return out;
+}
+
+/**
+ * The rule, for both lines, one between per call. The line goes in rounds, each one ordering of
+ * the set not used before (when every ordering has been used, all may come again). Of the
+ * orderings left, the next round is the one with, in turn:
+ * 1. the fewest back-to-back repeats where it meets the line: a run heard again right after
+ *    itself (the same between twice, a run of two twice, … up to a round);
+ * 2. the fewest runs already heard in the line, counted from the longest (a round's length)
+ *    down to two;
+ * 3. a first between that has begun the fewest rounds so far;
+ * 4. the first in dictionary order (smallest first).
+ */
+function leastRepeating(label: string, set: number[]): () => number {
+  if (set.length === 0) throw new Error(`${label}: write at least one between`);
+  if (set.length > 6)
+    throw new Error(`${label}: at most 6 betweens (the rule weighs every ordering of the set)`);
+  const all = orderingsOf([...set].sort((a, b) => a - b));
+  const n = set.length;
+  const line: number[] = [];
+  const heard = new Map<string, number>();
+  const heads = new Map<number, number>();
+  const run = (seq: number[], end: number, len: number) =>
+    seq.slice(end - len + 1, end + 1).join(",");
+  const costOf = (candidate: number[]): number[] => {
+    // Only the end of the line can meet the candidate (runs and repeats are at most a round long).
+    const tail = line.slice(-2 * n);
+    const seq = [...tail, ...candidate];
+    let backToBack = 0;
+    for (let end = tail.length; end < seq.length; end++)
+      for (let k = 1; k <= n && end - 2 * k + 1 >= 0; k++)
+        if (run(seq, end - k, k) === run(seq, end, k)) backToBack++;
+    const repeats: number[] = [];
+    for (let len = Math.max(n, 2); len >= 2; len--) {
+      let count = 0;
+      for (let end = tail.length; end < seq.length; end++)
+        if (end - len + 1 >= 0) count += heard.get(run(seq, end, len)) ?? 0;
+      repeats.push(count);
+    }
+    return [backToBack, ...repeats, heads.get(candidate[0]!) ?? 0];
+  };
+  const fewer = (a: number[], b: number[]) => {
+    const i = a.findIndex((x, j) => x !== b[j]);
+    return i >= 0 && a[i]! < b[i]!;
+  };
+  let left = all.map((_, i) => i);
+  let queue: number[] = [];
+  return () => {
+    if (queue.length === 0) {
+      if (left.length === 0) left = all.map((_, i) => i);
+      let best = left[0]!;
+      let cost = costOf(all[best]!);
+      for (const i of left.slice(1)) {
+        const c = costOf(all[i]!);
+        if (fewer(c, cost)) {
+          best = i;
+          cost = c;
+        }
+      }
+      left = left.filter((i) => i !== best);
+      queue = [...all[best]!];
+      heads.set(queue[0]!, (heads.get(queue[0]!) ?? 0) + 1);
+      const from = line.length;
+      line.push(...queue);
+      for (let len = 2; len <= Math.max(n, 2); len++)
+        for (let end = from; end < line.length; end++)
+          if (end - len + 1 >= 0) {
+            const key = run(line, end, len);
+            heard.set(key, (heard.get(key) ?? 0) + 1);
+          }
+    }
+    return queue.shift()!;
+  };
+}
+
 export function score(v: Values<typeof knobs>) {
   const atom = atomOf(3);
   const bar = 4 * TICKS;
@@ -141,8 +234,8 @@ export function score(v: Values<typeof knobs>) {
     throw new Error(`Standpoint: ${v.anchor} is outside the Band (${lo}–${hi}); move one of them`);
 
   // The line: onsets (ticks), pitches, and the time between after each note (atoms).
-  const nextTime = stream([...v.time], "shift each time", 1);
-  const nextPitch = stream(set, "shift each time", 1);
+  const nextTime = leastRepeating("Time set", [...v.time]);
+  const nextPitch = leastRepeating("Pitch set", set);
   const onsets = [0];
   const midis = [v.anchor];
   const gaps: number[] = [];
