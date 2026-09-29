@@ -729,9 +729,9 @@ function strings(
       const top = playing[0];
       // One divided staff alone says who plays in its name; "div." needs two or more.
       if (!top || together < 2) continue;
-      const at = top.notes.find((n) => n.at.gte(run.start))!.at;
+      // Where the section divides, above its top staff, even if that staff comes in later.
       top.texts.push({
-        at,
+        at: run.start,
         text: together === 2 ? "div." : `div. a ${together}`,
         placement: "above",
       });
