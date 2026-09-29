@@ -99,22 +99,46 @@ export function dynamicMarks(part: NormalPart): { marks: Mark[]; wedges: Wedge[]
     marks.push({ at, mark });
     last = mark;
   };
+  // A hairpin that repeats the last one of its kind (the same marks at both ends, niente
+  // included) within half a bar of it is written without its marks: a pattern once written is
+  // played on, as engravers leave it (a mark comes back when it changes, or after a rest). Not
+  // when the level it starts from was left elsewhere (a subito change keeps its mark).
+  const lastOfKind: Partial<Record<Wedge["type"], { from: string; to: string; end: Rational }>> =
+    {};
+  const named = (level: number) => (level < 0.5 ? "n" : markFor(level));
   for (let i = 0; i < points.length; i++) {
     const p = points[i]!;
     const next = points[i + 1];
     const cameByWedge =
       i > 0 && points[i - 1]!.to === "linear" && Math.abs(p.level - points[i - 1]!.level) >= 0.5;
-    if (!cameByWedge && !(p.to === "linear" && next && p.level < 0.5)) show(p.at, p.level);
-    if (p.to === "linear" && next && Math.abs(next.level - p.level) >= 0.5) {
+    const wedge = p.to === "linear" && next && Math.abs(next.level - p.level) >= 0.5 ? next : null;
+    const type = wedge && wedge.level > p.level ? "crescendo" : "diminuendo";
+    const from = named(p.level);
+    const to = wedge ? named(wedge.level) : "";
+    const before = lastOfKind[type];
+    const again =
+      wedge !== null &&
+      before !== undefined &&
+      before.from === from &&
+      before.to === to &&
+      p.at.sub(before.end).value <= 2 &&
+      (from === "n" || last === "n" || last === from || cameByWedge);
+    if (!cameByWedge && !(p.to === "linear" && next && p.level < 0.5)) {
+      if (again) last = from;
+      else show(p.at, p.level);
+    }
+    if (wedge) {
       wedges.push({
         start: p.at,
-        end: next.at,
-        type: next.level > p.level ? "crescendo" : "diminuendo",
+        end: wedge.at,
+        type,
         nienteStart: p.level < 0.5,
-        nienteEnd: next.level < 0.5,
+        nienteEnd: wedge.level < 0.5,
       });
-      if (next.level >= 0.5) show(next.at, next.level, true);
-      else last = "n";
+      if (wedge.level < 0.5) last = "n";
+      else if (again) last = to;
+      else show(wedge.at, wedge.level, true);
+      lastOfKind[type] = { from, to, end: wedge.at };
     }
   }
   // A part without dynamics shows nothing (the default level is only for playback).
