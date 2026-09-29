@@ -280,12 +280,21 @@ function ground(end: number, winds: number, glides: [number, number]): Part[] {
 // The ring
 
 /**
- * Strings, flautando and very soft, as the ring of the struck notes: each starts exactly with a
- * stroke and fades into nothing. It spreads as the harps come. From harp 1's first time on, every
- * stroke leaves a ring in one desk; each time harp 1 plays, one more section may take them (first
- * violins, then second violins, then violas), and the harp's own stroke rings in more desks at
- * once, and longer, each time. Where harp 2 plays, desks of the next section ring its note too.
+ * The ring of the struck notes, played by instruments whose sound suits a ring: very soft, each
+ * starting exactly with a stroke and fading into nothing. From harp 1's first time on, every stroke
+ * leaves a ring in one of them; each time harp 1 plays, one more of them may take rings (flute,
+ * clarinet, cello harmonic, second flute, second clarinet), and the harp's own stroke rings in more
+ * of them at once, and longer, each time. Where harp 2 plays, its note rings too. A player rests a
+ * beat after each ring (a breath).
  */
+const RINGERS: { id: string; technique?: string }[] = [
+  { id: "fl1" },
+  { id: "cl1" },
+  { id: "vcs", technique: "harmonic" },
+  { id: "fl2" },
+  { id: "cl2" },
+];
+
 function ring(
   times: number[],
   one: number[],
@@ -293,33 +302,27 @@ function ring(
   notes: [number, number],
   end: number,
 ): Part[] {
-  const sections = [
-    ["vn1-4-1", "vn1-4-2", "vn1-4-3", "vn1-4-4"],
-    ["vn2-4-1", "vn2-4-2", "vn2-4-3", "vn2-4-4"],
-    ["va-3-1", "va-3-2", "va-3-3"],
-  ];
   const busy = new Map<string, number>();
   const played = new Map<string, NoteEvent[]>();
   const levels = new Map<string, DynamicPoint[]>();
   let turn = 0;
-  const take = (pool: string[], at: number, count: number): string[] => {
-    const free = pool.filter((d) => (busy.get(d) ?? 0) <= at);
-    const out: string[] = [];
+  const take = (open: typeof RINGERS, at: number, count: number) => {
+    const free = open.filter((r) => (busy.get(r.id) ?? 0) <= at);
+    const out = free.slice(0, 0);
     for (let n = 0; n < free.length && out.length < count; n++)
       out.push(free[(turn + n) % free.length]!);
     turn++;
     return out;
   };
-  const sound = (desks: string[], at: number, len: number, midi: number) => {
+  const sound = (who: typeof RINGERS, at: number, len: number, midi: number) => {
     const stop = Math.min(end, at + len);
-    for (const d of desks) {
-      busy.set(d, stop);
-      played.set(d, [
-        ...(played.get(d) ?? []),
-        { at: time(at), dur: time(stop - at), pitch: { midi }, technique: "flautando" },
-      ]);
-      levels.set(d, [
-        ...(levels.get(d) ?? []),
+    for (const r of who) {
+      busy.set(r.id, stop + TICKS);
+      const e: NoteEvent = { at: time(at), dur: time(stop - at), pitch: { midi } };
+      if (r.technique) e.technique = r.technique;
+      played.set(r.id, [...(played.get(r.id) ?? []), e]);
+      levels.set(r.id, [
+        ...(levels.get(r.id) ?? []),
         { at: time(at), level: 1.2, to: "linear" },
         { at: time(stop), level: 0.5 },
       ]);
@@ -329,25 +332,19 @@ function ring(
   for (let k = one[0] ?? times.length; k < times.length; k++) {
     const at = times[k]!;
     const heard = one.filter((h) => h <= k).length;
-    const open = sections.slice(0, Math.min(sections.length, heard));
+    const open = RINGERS.slice(0, Math.min(RINGERS.length, heard));
     const n = harps.get(k);
     if (n === undefined) {
-      // A plain stroke: one desk, a little longer than the stroke's period.
-      sound(take(open.flat(), at, 1), at, Math.round(1.75 * TICKS), notes[0]);
+      // A plain stroke: one of them, a little longer than the stroke's period.
+      sound(take(open, at, 1), at, Math.round(1.75 * TICKS), notes[0]);
       continue;
     }
-    // A harp's stroke: more desks, longer, each time. Harp 2's note first, in the section after
-    // those open (or the last), so it always has desks.
+    // A harp's stroke: more of them, longer, each time; harp 2's note first.
     const len = Math.min(6, 2 + n) * TICKS;
-    if (two.includes(k)) {
-      const next = sections[Math.min(sections.length - 1, open.length)]!;
-      const want = 1 + two.indexOf(k);
-      const got = take(next, at, want);
-      sound(got.length ? got : take(sections.flat(), at, want), at, len, notes[1]);
-    }
-    sound(take(open.flat(), at, 1 + n), at, len, notes[0]);
+    if (two.includes(k)) sound(take(open, at, 1 + two.indexOf(k)), at, len, notes[1]);
+    sound(take(open, at, 1 + n), at, len, notes[0]);
   }
-  return [...played].map(([d, events]) => partOf(d, events, levels.get(d)!));
+  return [...played].map(([id, events]) => partOf(id, events, levels.get(id)!));
 }
 
 //==============================================================================
