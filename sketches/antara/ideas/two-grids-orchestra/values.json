@@ -1,0 +1,40 @@
+{
+  "values": {},
+  "presets": {
+    "Strings and light": {},
+    "Fifteen tones": {
+      "tones": 15
+    },
+    "Twelve tones up high": {
+      "tones": 12,
+      "anchor": 55
+    },
+    "Breath light": {
+      "breath": true
+    },
+    "Homes held": {
+      "homes": true
+    },
+    "Slides doubled": {
+      "doubled": true
+    },
+    "Horns on the other grid": {
+      "horns": true
+    },
+    "Restack noise": {
+      "restacks": true
+    },
+    "Where families meet": {
+      "meetings": true
+    },
+    "Everything": {
+      "breath": true,
+      "homes": true,
+      "doubled": true,
+      "horns": true,
+      "restacks": true,
+      "meetings": true
+    }
+  },
+  "touched": []
+}

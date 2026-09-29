@@ -1,0 +1,9016 @@
+{
+ "title": "antara · the chord of glass, the strings in desks",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 52
+  }
+ ],
+ "measures": 14,
+ "pairs": false,
+ "parts": [
+  {
+   "id": "crot",
+   "instrument": "crotales",
+   "name": "Crotales",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 1.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      33,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 103
+     }
+    },
+    {
+     "at": [
+      43,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 100
+     }
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 103
+     }
+    },
+    {
+     "at": [
+      57,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 103
+      },
+      {
+       "midi": 84
+      }
+     ]
+    },
+    {
+     "at": [
+      67,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 94
+     }
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 87
+     }
+    },
+    {
+     "at": [
+      81,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 85
+     }
+    },
+    {
+     "at": [
+      41,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 98
+     }
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 108
+     }
+    },
+    {
+     "at": [
+      87,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      97,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 103
+     }
+    },
+    {
+     "at": [
+      105,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": [
+      {
+       "midi": 103
+      },
+      {
+       "midi": 91
+      }
+     ]
+    },
+    {
+     "at": [
+      53,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 91
+     }
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 104
+     }
+    },
+    {
+     "at": [
+      121,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 85
+     }
+    },
+    {
+     "at": [
+      123,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 105
+     }
+    },
+    {
+     "at": [
+      129,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 96
+     }
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      145,
+      4
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": [
+      {
+       "midi": 104
+      },
+      {
+       "midi": 91
+      }
+     ]
+    },
+    {
+     "at": [
+      147,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 104
+     }
+    },
+    {
+     "at": [
+      75,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 103
+     }
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 96
+     }
+    },
+    {
+     "at": [
+      153,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      161,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 105
+     }
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 96
+     }
+    },
+    {
+     "at": [
+      87,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 85
+     }
+    },
+    {
+     "at": [
+      175,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 102
+     }
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      185,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 86
+     }
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      193,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 103
+     }
+    },
+    {
+     "at": [
+      99,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 91
+     }
+    },
+    {
+     "at": [
+      199,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 96
+     }
+    },
+    {
+     "at": [
+      101,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 107
+     }
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 97
+     }
+    },
+    {
+     "at": [
+      217,
+      4
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 85
+     }
+    },
+    {
+     "at": [
+      223,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    }
+   ],
+   "player": "p1"
+  },
+  {
+   "id": "hp1",
+   "instrument": "harp",
+   "name": "Harp 1",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 2.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      67,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 81
+      },
+      {
+       "midi": 80
+      }
+     ],
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 85
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      103,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 87
+      },
+      {
+       "midi": 77
+      }
+     ],
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      56,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      139,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      149,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 81
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      161,
+      6
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 85
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      91,
+      3
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      185,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      197,
+      6
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      109,
+      3
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      221,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      118,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      81,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 81
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      89,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      139,
+      3
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 86
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      93,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      101,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 81
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      157,
+      3
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      105,
+      2
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      161,
+      3
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      323,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 81
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      331,
+      6
+     ],
+     "dur": [
+      5,
+      6
+     ],
+     "pitch": {
+      "midi": 85
+     },
+     "technique": "harmonic"
+    }
+   ]
+  },
+  {
+   "id": "hp2",
+   "instrument": "harp",
+   "name": "Harp 2",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 2.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      41,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      38,
+      3
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      77,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 85.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      101,
+      6
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 81.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      113,
+      6
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      5,
+      6
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      119,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 81.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      68,
+      3
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": [
+      {
+       "midi": 82.5
+      },
+      {
+       "midi": 87.5
+      }
+     ],
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      137,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 78.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      155,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 86.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": [
+      {
+       "midi": 87.5
+      },
+      {
+       "midi": 69.5
+      }
+     ],
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      191,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 67.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      100,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      69,
+      2
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 84.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      1,
+      6
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      209,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 83.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      113,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      81,
+      2
+     ],
+     "dur": [
+      1,
+      3
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      245,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      127,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      131,
+      3
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      5,
+      6
+     ],
+     "pitch": {
+      "midi": 83.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      281,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      289,
+      6
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      293,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 86.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      154,
+      3
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 84.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 89.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      325,
+      6
+     ],
+     "dur": [
+      2,
+      3
+     ],
+     "pitch": {
+      "midi": 85.5
+     },
+     "technique": "harmonic"
+    },
+    {
+     "at": [
+      329,
+      6
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "tuning": -0.5
+  },
+  {
+   "id": "pno",
+   "instrument": "piano",
+   "name": "Piano",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      67,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 97
+     }
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 94
+     }
+    },
+    {
+     "at": [
+      127,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      7,
+      10
+     ],
+     "pitch": {
+      "midi": 99
+     }
+    },
+    {
+     "at": [
+      157,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 95
+     }
+    },
+    {
+     "at": [
+      86,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 95
+     }
+    },
+    {
+     "at": [
+      101,
+      5
+     ],
+     "dur": [
+      9,
+      10
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      211,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 83
+     }
+    },
+    {
+     "at": [
+      116,
+      5
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 96
+     }
+    },
+    {
+     "at": [
+      237,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      131,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      146,
+      5
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      297,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 83
+     }
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 83
+     }
+    },
+    {
+     "at": [
+      331,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 100
+     }
+    },
+    {
+     "at": [
+      176,
+      5
+     ],
+     "dur": [
+      9,
+      10
+     ],
+     "pitch": {
+      "midi": 72
+     }
+    },
+    {
+     "at": [
+      361,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 83
+     }
+    },
+    {
+     "at": [
+      187,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 100
+     }
+    },
+    {
+     "at": [
+      193,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      203,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      437,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 99
+     }
+    },
+    {
+     "at": [
+      451,
+      10
+     ],
+     "dur": [
+      1,
+      10
+     ],
+     "pitch": {
+      "midi": 76
+     }
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 100
+     }
+    },
+    {
+     "at": [
+      477,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      501,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      256,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      269,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 99
+     }
+    },
+    {
+     "at": [
+      557,
+      10
+     ],
+     "dur": [
+      3,
+      10
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    }
+   ]
+  },
+  {
+   "id": "cel",
+   "instrument": "celesta",
+   "name": "Celesta",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 2
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      13,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 93
+     }
+    },
+    {
+     "at": [
+      43,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 98
+     }
+    },
+    {
+     "at": [
+      73,
+      5
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 83
+     }
+    },
+    {
+     "at": [
+      151,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 80
+     }
+    },
+    {
+     "at": [
+      187,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 74
+     }
+    },
+    {
+     "at": [
+      102,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 85
+     }
+    },
+    {
+     "at": [
+      217,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 91
+     }
+    },
+    {
+     "at": [
+      237,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 99
+     }
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      277,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 76
+     }
+    },
+    {
+     "at": [
+      297,
+      10
+     ],
+     "dur": [
+      2,
+      5
+     ],
+     "pitch": {
+      "midi": 92
+     }
+    },
+    {
+     "at": [
+      301,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      156,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 96
+     }
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 91
+     }
+    },
+    {
+     "at": [
+      357,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     }
+    },
+    {
+     "at": [
+      186,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     }
+    },
+    {
+     "at": [
+      383,
+      10
+     ],
+     "dur": [
+      4,
+      5
+     ],
+     "pitch": {
+      "midi": 89
+     }
+    },
+    {
+     "at": [
+      391,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 95
+     }
+    },
+    {
+     "at": [
+      217,
+      5
+     ],
+     "dur": [
+      9,
+      10
+     ],
+     "pitch": {
+      "midi": 82
+     }
+    },
+    {
+     "at": [
+      443,
+      10
+     ],
+     "dur": [
+      9,
+      10
+     ],
+     "pitch": {
+      "midi": 83
+     }
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 98
+     }
+    },
+    {
+     "at": [
+      233,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 75
+     }
+    },
+    {
+     "at": [
+      497,
+      10
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 96
+     }
+    },
+    {
+     "at": [
+      256,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 91
+     }
+    },
+    {
+     "at": [
+      537,
+      10
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 83
+     }
+    },
+    {
+     "at": [
+      271,
+      5
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "midi": 100
+     }
+    },
+    {
+     "at": [
+      557,
+      10
+     ],
+     "dur": [
+      3,
+      10
+     ],
+     "pitch": {
+      "midi": 77
+     }
+    }
+   ]
+  },
+  {
+   "id": "vn1-8-1",
+   "instrument": "violins-1",
+   "name": "Violin I 1/8",
+   "dynamics": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 94.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      13,
+      5
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 93
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      32,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 94.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 94
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      71,
+      5
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 94.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      86,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 95
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      116,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 96
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      133,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 97.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      156,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 96
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      173,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 95.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      203,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 97.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 98
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      256,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 97.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      269,
+      5
+     ],
+     "dur": [
+      11,
+      5
+     ],
+     "pitch": {
+      "midi": 99
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-2",
+   "instrument": "violins-1",
+   "name": "Violin I 2/8",
+   "dynamics": [
+    {
+     "at": [
+      1,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      5,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      1,
+      2
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 93
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      41,
+      6
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 92.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      67,
+      6
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 93
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      119,
+      6
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 93.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      149,
+      6
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 93
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      209,
+      6
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 94.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      81,
+      2
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 93
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      289,
+      6
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 92.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      323,
+      6
+     ],
+     "dur": [
+      13,
+      6
+     ],
+     "pitch": {
+      "midi": 93
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-3",
+   "instrument": "violins-1",
+   "name": "Violin I 3/8",
+   "dynamics": [
+    {
+     "at": [
+      1,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      3,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      1,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      17,
+      4
+     ],
+     "dur": [
+      13,
+      2
+     ],
+     "pitch": {
+      "midi": 88.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      43,
+      4
+     ],
+     "dur": [
+      15,
+      4
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      29,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 89.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 91.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      105,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 91.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      145,
+      4
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 92
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      175,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 90
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      99,
+      2
+     ],
+     "dur": [
+      13,
+      2
+     ],
+     "pitch": {
+      "midi": 91.5
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-4",
+   "instrument": "violins-1",
+   "name": "Violin I 4/8",
+   "dynamics": [
+    {
+     "at": [
+      3,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      7,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      3,
+      2
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 95.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      67,
+      10
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 97
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      97,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 95.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      157,
+      10
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 95
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      191,
+      10
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 98.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      237,
+      10
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 99
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      271,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 98.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      331,
+      10
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 100
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      377,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 88.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      437,
+      10
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      463,
+      10
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 88.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      501,
+      10
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      527,
+      10
+     ],
+     "dur": [
+      33,
+      10
+     ],
+     "pitch": {
+      "midi": 88.5
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-5",
+   "instrument": "violins-1",
+   "name": "Violin I 5/8",
+   "dynamics": [
+    {
+     "at": [
+      2,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      2,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 92.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 92
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 92.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      68,
+      3
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 94.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      91,
+      3
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 94
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      36,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 95.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 95.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      161,
+      3
+     ],
+     "dur": [
+      7,
+      3
+     ],
+     "pitch": {
+      "midi": 94
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-6",
+   "instrument": "violins-1",
+   "name": "Violin I 6/8",
+   "dynamics": [
+    {
+     "at": [
+      5,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      9,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      5,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 91.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      57,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 92.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      97,
+      4
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      127,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 89.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      75,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      45,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 91.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      193,
+      4
+     ],
+     "dur": [
+      19,
+      4
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      53,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 92.5
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-7",
+   "instrument": "violins-1",
+   "name": "Violin I 7/8",
+   "dynamics": [
+    {
+     "at": [
+      3,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      5,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      3,
+      1
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 98
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      32,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 99.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 98
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      72,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 96.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      102,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 89.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 89.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      187,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      40,
+      1
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 86.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      226,
+      5
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      241,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      271,
+      5
+     ],
+     "dur": [
+      9,
+      5
+     ],
+     "pitch": {
+      "midi": 88
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn1-8-8",
+   "instrument": "violins-1",
+   "name": "Violin I 8/8",
+   "dynamics": [
+    {
+     "at": [
+      7,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      11,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      7,
+      2
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 93.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      67,
+      6
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 92
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      101,
+      6
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 93.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      161,
+      6
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 97
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      69,
+      2
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 96.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      89,
+      2
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 100
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      293,
+      6
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 98.5
+     },
+     "technique": "harmonic",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      331,
+      6
+     ],
+     "dur": [
+      5,
+      6
+     ],
+     "pitch": {
+      "midi": 97
+     },
+     "technique": "harmonic"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-1",
+   "instrument": "violins-2",
+   "name": "Violin II 1/7",
+   "dynamics": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      6,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      4,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 90.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      33,
+      4
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      63,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 90.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      43,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 93.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 92
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      129,
+      4
+     ],
+     "dur": [
+      19,
+      4
+     ],
+     "pitch": {
+      "midi": 90.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 92
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      161,
+      4
+     ],
+     "dur": [
+      13,
+      2
+     ],
+     "pitch": {
+      "midi": 93
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      187,
+      4
+     ],
+     "dur": [
+      15,
+      4
+     ],
+     "pitch": {
+      "midi": 93.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      101,
+      2
+     ],
+     "dur": [
+      11,
+      2
+     ],
+     "pitch": {
+      "midi": 95
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-2",
+   "instrument": "violins-2",
+   "name": "Violin II 2/7",
+   "dynamics": [
+    {
+     "at": [
+      9,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      13,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      9,
+      2
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      21,
+      2
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 90.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      151,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      211,
+      10
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      237,
+      10
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      55,
+      2
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 88.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      301,
+      10
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      353,
+      10
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 90.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      383,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      443,
+      10
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      477,
+      10
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      523,
+      10
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 88.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      557,
+      10
+     ],
+     "dur": [
+      3,
+      10
+     ],
+     "pitch": {
+      "midi": 89
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-3",
+   "instrument": "violins-2",
+   "name": "Violin II 3/7",
+   "dynamics": [
+    {
+     "at": [
+      5,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      7,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      38,
+      3
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      68,
+      3
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      100,
+      3
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      113,
+      3
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      139,
+      3
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 86
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      154,
+      3
+     ],
+     "dur": [
+      14,
+      3
+     ],
+     "pitch": {
+      "midi": 84.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-4",
+   "instrument": "violins-2",
+   "name": "Violin II 4/7",
+   "dynamics": [
+    {
+     "at": [
+      11,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      15,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      11,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 91.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      65,
+      4
+     ],
+     "dur": [
+      19,
+      4
+     ],
+     "pitch": {
+      "midi": 91.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 96
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      97,
+      4
+     ],
+     "dur": [
+      13,
+      2
+     ],
+     "pitch": {
+      "midi": 94.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      123,
+      4
+     ],
+     "dur": [
+      15,
+      4
+     ],
+     "pitch": {
+      "midi": 93
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      69,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 94.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      185,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 84.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 85
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-5",
+   "instrument": "violins-2",
+   "name": "Violin II 5/7",
+   "dynamics": [
+    {
+     "at": [
+      6,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      8,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      6,
+      1
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 88.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      43,
+      5
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 90
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      62,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 88.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      101,
+      5
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      116,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 89.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      146,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 90
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      163,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 90.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      186,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 90
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      203,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 90
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      233,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 91.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      256,
+      5
+     ],
+     "dur": [
+      24,
+      5
+     ],
+     "pitch": {
+      "midi": 91
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-6",
+   "instrument": "violins-2",
+   "name": "Violin II 6/7",
+   "dynamics": [
+    {
+     "at": [
+      13,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      17,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      13,
+      2
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      77,
+      6
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 85.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      103,
+      6
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      155,
+      6
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 86.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      185,
+      6
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      245,
+      6
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 87.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      93,
+      2
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 87
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      325,
+      6
+     ],
+     "dur": [
+      11,
+      6
+     ],
+     "pitch": {
+      "midi": 85.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vn2-7-7",
+   "instrument": "violins-2",
+   "name": "Violin II 7/7",
+   "dynamics": [
+    {
+     "at": [
+      7,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      9,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      7,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      41,
+      4
+     ],
+     "dur": [
+      13,
+      2
+     ],
+     "pitch": {
+      "midi": 81.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      67,
+      4
+     ],
+     "dur": [
+      15,
+      4
+     ],
+     "pitch": {
+      "midi": 82
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      41,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 86
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      28,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 85.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      129,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      169,
+      4
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 83.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      199,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      111,
+      2
+     ],
+     "dur": [
+      1,
+      2
+     ],
+     "pitch": {
+      "midi": 84.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-1",
+   "instrument": "violas",
+   "name": "Viola 1/6",
+   "dynamics": [
+    {
+     "at": [
+      15,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      19,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      15,
+      2
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      127,
+      10
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      157,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      217,
+      10
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 79
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      251,
+      10
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      297,
+      10
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 80
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      331,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 80.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      391,
+      10
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 83
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      437,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      497,
+      10
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 84
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      523,
+      10
+     ],
+     "dur": [
+      37,
+      10
+     ],
+     "pitch": {
+      "midi": 82.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-2",
+   "instrument": "violas",
+   "name": "Viola 2/6",
+   "dynamics": [
+    {
+     "at": [
+      8,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      8,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      23,
+      1
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      109,
+      3
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 76
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      42,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      52,
+      1
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-3",
+   "instrument": "violas",
+   "name": "Viola 3/6",
+   "dynamics": [
+    {
+     "at": [
+      17,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      21,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      17,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      81,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      26,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 73.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      121,
+      4
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      151,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      87,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      51,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      217,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-4",
+   "instrument": "violas",
+   "name": "Viola 4/6",
+   "dynamics": [
+    {
+     "at": [
+      9,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      11,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      9,
+      1
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      62,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      17,
+      1
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 68
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      102,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 73
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      132,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      31,
+      1
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      37,
+      1
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      198,
+      5
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 70.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      217,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      46,
+      1
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 71.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      256,
+      5
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      271,
+      5
+     ],
+     "dur": [
+      9,
+      5
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-5",
+   "instrument": "violas",
+   "name": "Viola 5/6",
+   "dynamics": [
+    {
+     "at": [
+      19,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      23,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      19,
+      2
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      103,
+      6
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      137,
+      6
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 66.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      197,
+      6
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 66
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      81,
+      2
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      101,
+      2
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      329,
+      6
+     ],
+     "dur": [
+      7,
+      6
+     ],
+     "pitch": {
+      "midi": 68.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "va-6-6",
+   "instrument": "violas",
+   "name": "Viola 6/6",
+   "dynamics": [
+    {
+     "at": [
+      10,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      12,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      57,
+      4
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 60
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      87,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      55,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 62.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      35,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      153,
+      4
+     ],
+     "dur": [
+      19,
+      4
+     ],
+     "pitch": {
+      "midi": 65
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      43,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      185,
+      4
+     ],
+     "dur": [
+      13,
+      2
+     ],
+     "pitch": {
+      "midi": 62
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      211,
+      4
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 63.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-1",
+   "instrument": "cellos",
+   "name": "Violoncello 1/5",
+   "dynamics": [
+    {
+     "at": [
+      21,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      25,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      21,
+      2
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      33,
+      2
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 59.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      211,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      271,
+      10
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      297,
+      10
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      67,
+      2
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      361,
+      10
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      413,
+      10
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 59.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      443,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      503,
+      10
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 60.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      537,
+      10
+     ],
+     "dur": [
+      23,
+      10
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-2",
+   "instrument": "cellos",
+   "name": "Violoncello 2/5",
+   "dynamics": [
+    {
+     "at": [
+      11,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      13,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      11,
+      1
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 54
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      56,
+      3
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 59
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      86,
+      3
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 57.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      33,
+      1
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 56
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      118,
+      3
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 56
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      131,
+      3
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 56.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      157,
+      3
+     ],
+     "dur": [
+      11,
+      3
+     ],
+     "pitch": {
+      "midi": 56
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-3",
+   "instrument": "cellos",
+   "name": "Violoncello 3/5",
+   "dynamics": [
+    {
+     "at": [
+      23,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      27,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      23,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 49.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 51
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      89,
+      4
+     ],
+     "dur": [
+      19,
+      4
+     ],
+     "pitch": {
+      "midi": 52.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      27,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      121,
+      4
+     ],
+     "dur": [
+      13,
+      2
+     ],
+     "pitch": {
+      "midi": 52.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      147,
+      4
+     ],
+     "dur": [
+      15,
+      4
+     ],
+     "pitch": {
+      "midi": 54
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      81,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 54.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 53
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      209,
+      4
+     ],
+     "dur": [
+      15,
+      4
+     ],
+     "pitch": {
+      "midi": 54.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-4",
+   "instrument": "cellos",
+   "name": "Violoncello 4/5",
+   "dynamics": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      14,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      12,
+      1
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 46.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      73,
+      5
+     ],
+     "dur": [
+      19,
+      5
+     ],
+     "pitch": {
+      "midi": 47
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      92,
+      5
+     ],
+     "dur": [
+      13,
+      5
+     ],
+     "pitch": {
+      "midi": 46.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      21,
+      1
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 49.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      131,
+      5
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      146,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 46.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      176,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 48
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      193,
+      5
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 49
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      216,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 49.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      233,
+      5
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 51
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      263,
+      5
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 49.5
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "vc-5-5",
+   "instrument": "cellos",
+   "name": "Violoncello 5/5",
+   "dynamics": [
+    {
+     "at": [
+      25,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      29,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      25,
+      2
+     ],
+     "dur": [
+      19,
+      3
+     ],
+     "pitch": {
+      "midi": 45
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      113,
+      6
+     ],
+     "dur": [
+      13,
+      3
+     ],
+     "pitch": {
+      "midi": 46.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      139,
+      6
+     ],
+     "dur": [
+      26,
+      3
+     ],
+     "pitch": {
+      "midi": 45
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      191,
+      6
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 43.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      221,
+      6
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 45
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      281,
+      6
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 44.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      105,
+      2
+     ],
+     "dur": [
+      7,
+      2
+     ],
+     "pitch": {
+      "midi": 45
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "cb-4-1",
+   "instrument": "basses",
+   "name": "Double Bass 1/4",
+   "dynamics": [
+    {
+     "at": [
+      13,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      13,
+      1
+     ],
+     "dur": [
+      13,
+      4
+     ],
+     "pitch": {
+      "midi": 40
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      65,
+      4
+     ],
+     "dur": [
+      13,
+      2
+     ],
+     "pitch": {
+      "midi": 38.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      91,
+      4
+     ],
+     "dur": [
+      15,
+      4
+     ],
+     "pitch": {
+      "midi": 43.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      4
+     ]
+    },
+    {
+     "at": [
+      53,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 43
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      34,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 43.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      153,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 43.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 42
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      193,
+      4
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 40.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      223,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 42
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "cb-4-2",
+   "instrument": "basses",
+   "name": "Double Bass 2/4",
+   "dynamics": [
+    {
+     "at": [
+      27,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      31,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      27,
+      2
+     ],
+     "dur": [
+      26,
+      5
+     ],
+     "pitch": {
+      "midi": 35.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      187,
+      10
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 38
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      9,
+      5
+     ]
+    },
+    {
+     "at": [
+      217,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 38.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      277,
+      10
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 40
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      311,
+      10
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 38.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      357,
+      10
+     ],
+     "dur": [
+      17,
+      5
+     ],
+     "pitch": {
+      "midi": 37
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      5
+     ]
+    },
+    {
+     "at": [
+      391,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 40.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      451,
+      10
+     ],
+     "dur": [
+      23,
+      5
+     ],
+     "pitch": {
+      "midi": 40
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      5
+     ]
+    },
+    {
+     "at": [
+      497,
+      10
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 40.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      5
+     ]
+    },
+    {
+     "at": [
+      557,
+      10
+     ],
+     "dur": [
+      3,
+      10
+     ],
+     "pitch": {
+      "midi": 41
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "cb-4-3",
+   "instrument": "basses",
+   "name": "Double Bass 3/4",
+   "dynamics": [
+    {
+     "at": [
+      14,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      16,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      14,
+      1
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 32.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      3,
+      1
+     ]
+    },
+    {
+     "at": [
+      19,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 35.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      7,
+      1
+     ]
+    },
+    {
+     "at": [
+      29,
+      1
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 34
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      104,
+      3
+     ],
+     "dur": [
+      23,
+      3
+     ],
+     "pitch": {
+      "midi": 32.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      3
+     ]
+    },
+    {
+     "at": [
+      127,
+      3
+     ],
+     "dur": [
+      17,
+      3
+     ],
+     "pitch": {
+      "midi": 35.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      3
+     ]
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 35
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  },
+  {
+   "id": "cb-4-4",
+   "instrument": "basses",
+   "name": "Double Bass 4/4",
+   "dynamics": [
+    {
+     "at": [
+      29,
+      2
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      33,
+      2
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      168,
+      5
+     ],
+     "level": 3,
+     "to": "linear"
+    },
+    {
+     "at": [
+      238,
+      5
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      56,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      29,
+      2
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 31
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      22,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      105,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 31
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      32,
+      1
+     ],
+     "dur": [
+      17,
+      4
+     ],
+     "pitch": {
+      "midi": 30.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      13,
+      4
+     ]
+    },
+    {
+     "at": [
+      145,
+      4
+     ],
+     "dur": [
+      15,
+      2
+     ],
+     "pitch": {
+      "midi": 31
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      21,
+      4
+     ]
+    },
+    {
+     "at": [
+      175,
+      4
+     ],
+     "dur": [
+      23,
+      4
+     ],
+     "pitch": {
+      "midi": 31.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      17,
+      4
+     ]
+    },
+    {
+     "at": [
+      99,
+      2
+     ],
+     "dur": [
+      13,
+      2
+     ],
+     "pitch": {
+      "midi": 31
+     },
+     "technique": "sul-tasto"
+    }
+   ],
+   "players": 2
+  }
+ ]
+}
