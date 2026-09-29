@@ -5,9 +5,12 @@
 //
 //   vp node verification/sibelius-layout/make.ts
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+
+import { toMusicXml } from "../../src/notation/musicxml.ts";
+import type { Score } from "../../src/score/types.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const out = join(here, "fixtures");
@@ -284,7 +287,7 @@ const ensemble: [string, string, [string, string], string, number?][] = [
   ["Bassoon 1", "Bsn. 1", ["Bassoon", "wind.reed.bassoon"], "F4"],
   ["Contrabassoon", "Cbsn.", ["Contrabassoon", "wind.reed.contrabassoon"], "F4", -1],
   ["Horn 1 in F", "Hn. 1", ["Horn in F", "brass.french-horn"], "G2"],
-  ["Trumpet 1 in C", "Tpt. 1", ["Trumpet in C", "brass.trumpet.c"], "G2"],
+  ["Trumpet 1 in B♭", "Tpt. 1 (B♭)", ["Trumpet in Bb", "brass.trumpet.bflat"], "G2"],
   ["Trombone 1", "Tbn. 1", ["Trombone", "brass.trombone"], "F4"],
   ["Bass Trombone", "B. Tbn.", ["Bass Trombone", "brass.trombone.bass"], "F4"],
   ["Tuba", "Tba.", ["Tuba", "brass.tuba"], "F4"],
@@ -433,8 +436,10 @@ function nameParts(): ListItem[] {
     { part: { name: "Horns 1.2", abbreviation: "Hn. 1.2", clefs: ["G2"], measures: twelve("C4") } },
     {
       part: {
-        name: "Trumpet 1 in C",
-        abbreviation: "Tpt. 1 (C)",
+        name: "Trumpet 1 in Bb",
+        nameDisplay: flatDisplay("Trumpet 1 in B"),
+        abbreviation: "Tpt. 1 (Bb)",
+        abbreviationDisplay: flatDisplay("Tpt. 1 (B", ")"),
         clefs: ["G2"],
         measures: twelve("C5"),
       },
@@ -746,12 +751,13 @@ function grandParts(): ListItem[] {
 }
 
 //==============================================================================
-// 10: page and staff size from <defaults>
+// 10: page and staff size from <defaults>: A2 portrait, 6 mm staves, 30 mm margins (decision 0021;
+// at 6 mm a tenth is 0.15 mm)
 
-const a3Defaults =
-  "<defaults><scaling><millimeters>4</millimeters><tenths>40</tenths></scaling>" +
-  "<page-layout><page-height>4200</page-height><page-width>2970</page-width>" +
-  '<page-margins type="both"><left-margin>150</left-margin><right-margin>150</right-margin><top-margin>150</top-margin><bottom-margin>150</bottom-margin></page-margins>' +
+const a2Defaults =
+  "<defaults><scaling><millimeters>6</millimeters><tenths>40</tenths></scaling>" +
+  "<page-layout><page-height>3960</page-height><page-width>2800</page-width>" +
+  '<page-margins type="both"><left-margin>200</left-margin><right-margin>200</right-margin><top-margin>200</top-margin><bottom-margin>200</bottom-margin></page-margins>' +
   "</page-layout></defaults>";
 
 //==============================================================================
@@ -863,10 +869,22 @@ const files: Record<string, string> = {
   "10-page-setup": score(
     "10 page and staff size",
     [{ part: { name: "Flute", abbreviation: "Fl.", clefs: ["G2"], measures: restBars(4) } }],
-    { defaults: a3Defaults },
+    { defaults: a2Defaults },
   ),
   "11-accidentals": score("11 explicit accidentals", accidentalParts()),
   "12-moving-players": score("12 players moving between staves", movingParts(), { breaks: [5, 9] }),
+  // 13: the exporter's own output for a palette sketch (winds in pairs, divided strings, brackets).
+  "13-real-export": toMusicXml(
+    JSON.parse(
+      readFileSync(
+        join(
+          here,
+          "../../sketches/antara/palette/b/leaf-gates-trade-families/leaf-gates-trade-families.json",
+        ),
+        "utf8",
+      ),
+    ) as Score,
+  ).musicxml,
 };
 
 mkdirSync(out, { recursive: true });

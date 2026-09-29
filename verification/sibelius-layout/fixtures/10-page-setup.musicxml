@@ -2,7 +2,7 @@
 <!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise version="4.0">
 <work><work-title>10 page and staff size</work-title></work>
-<defaults><scaling><millimeters>4</millimeters><tenths>40</tenths></scaling><page-layout><page-height>4200</page-height><page-width>2970</page-width><page-margins type="both"><left-margin>150</left-margin><right-margin>150</right-margin><top-margin>150</top-margin><bottom-margin>150</bottom-margin></page-margins></page-layout></defaults>
+<defaults><scaling><millimeters>6</millimeters><tenths>40</tenths></scaling><page-layout><page-height>3960</page-height><page-width>2800</page-width><page-margins type="both"><left-margin>200</left-margin><right-margin>200</right-margin><top-margin>200</top-margin><bottom-margin>200</bottom-margin></page-margins></page-layout></defaults>
 <part-list>
 <score-part id="P1"><part-name>Flute</part-name><part-abbreviation>Fl.</part-abbreviation></score-part>
 </part-list>
