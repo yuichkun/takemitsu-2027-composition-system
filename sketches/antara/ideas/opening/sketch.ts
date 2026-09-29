@@ -1,62 +1,136 @@
-// antara, the opening: where the first relations are made, and from where the piece builds.
+// antara, the opening: where the first relations are made, and where the piece's pulse is born.
 // Card: README.md.
 //
 // A long, low rumble: basses in four desks entering one by one on the lowest string's E, the bass
 // drum's roll in stretches, the tam-tam now and then swelling out of nothing. Only when the ear has
 // settled into it, the celesta: one note, struck, far apart. Its betweens move, time round after
-// time round, towards one between (the period), until the same note comes back at the same period:
-// the piece's first pulse. Meanwhile the basses begin to heave in glissando waves, and the
-// contrabassoon and the tuba join in breaths.
+// time round, half way towards one between (a beat), while the basses begin to heave in glissando
+// waves and the low winds join in breaths.
 //
-// From the pulse on, the section only grows (like Boléro). Layers enter one after another, each a
-// new way of relating to the same stroke: harp 1 on it now and then (colour); rings that start
-// exactly with a stroke and fade into nothing (flutes, clarinets, oboe, piccolo, the cellos'
-// artificial harmonics); rises that swell out of nothing into a stroke (a stroke on the pulse can
-// be foreseen, so something can arrive with it: cymbal and tam-tam rolls, then the second
-// violins, the timpani, the first violins' tremolo, muted trumpets); harp 2 with harp 1 on the same
-// string, a quarter tone off (the first interval); the piano, the vibraphone, the violas'
-// pizzicato on harp 2's note. Each string section keeps one role (none is divided between
-// layers), so every layer has its own colour. "Out of nothing" and "into nothing" are niente
-// (written as the circle on the hairpin). Every layer that plays now and then follows the
-// section's own law one level up: the strokes between its entries, drawn from a set, move half way
-// towards one after each time round, as the celesta's betweens moved towards the period. So each
-// layer closes in on every stroke, and at the end the whole orchestra is on the pulse, louder and
-// thicker from the first stroke of the pulse to the last.
+// As the betweens close in, the orchestra is drawn into them. A stroke leaves rings (winds and the
+// cellos' artificial harmonics, starting exactly with it and fading into nothing) over the first
+// half of the between after it; rises swell out of nothing over the last three fifths of the
+// between before a stroke (cymbal and tam-tam rolls, the violins, the timpani, muted trumpets, then
+// horns, bassoons, trombones and the bass clarinet in the ground's register). Harp 1, harp 2 with
+// it a quarter tone off (the first interval), the piano, the vibraphone and the violas' pizzicato
+// join the strokes now and then, closing in on every stroke by the same law as the celesta's
+// betweens. Voices come in one or two a stroke, so the strokes gather colour as they come closer,
+// and the silence between them fills: when the betweens are one (the pulse, the first in the
+// piece), the rings of a stroke hand over to the rises into the next, and each between is a wave.
+//
+// Then the ground is drawn in: the basses, desk by desk, stop heaving and swell into every stroke;
+// the piano strikes the ground's E with the stroke; the low winds' breaths and the bass drum's roll
+// swell with the strokes. At the end the whole orchestra makes one wave a beat, louder to the last
+// stroke, and the next section may start on the stroke after it. Each string section keeps one
+// role (none is divided between layers), so every layer has its own colour. "Out of nothing" and
+// "into nothing" are niente (written as the circle on the hairpin).
 
 import { ensemble } from "../../../../pieces/antara/ensemble.ts";
-import type { DynamicPoint, Event, NoteEvent, Part, Score } from "../../../../src/score/types.ts";
+import type {
+  DynamicPoint,
+  Event,
+  NoteEvent,
+  Part,
+  Pitch,
+  Score,
+} from "../../../../src/score/types.ts";
 import type { Seam } from "../../../../src/sketch/nest.ts";
 import { betweenSet, choice, number, pitch, type Values } from "../../../../src/sketch/knobs.ts";
 import { atomOf, drawer, TICKS, time } from "../../between.ts";
 
 const BAR = 4 * TICKS;
 const FAMILIES = ["2 · 16ths", "3 · triplet 8ths", "5 · quintuplet 16ths"];
+/** How much of a between a ring takes (after its stroke) and a rise (before its stroke). */
+const RING = 0.5;
+const RISE = 0.6;
+/** Ticks a voice needs after a note before the next: a breath, a new bow, a new stick. */
+const REST = TICKS / 3;
 
 /**
- * Where each layer comes in, in strokes of the pulse (0: the first stroke at the period). One new
- * layer every three strokes or so: harp 1, the rings, the rises, the piano, the strings' rises
- * with the timpani, the vibraphone, the violas' pizzicato, the bright rises (violins' tremolo,
- * muted trumpets), the low brass. Harp 2 comes with harp 1's `second`-th time.
+ * Where the voices come in, in strokes from the pulse (its first stroke is 0; before it,
+ * negative): one or two a stroke while the betweens close in (the rings and rises with their own
+ * `enter` below), then, on the pulse, the ground drawn into the wave. Harp 2 comes with harp 1's
+ * `second`-th time.
  */
 const ENTER = {
-  harp: 4,
-  rings: 7,
-  rises: 10,
-  piano: 16,
-  strings: 22,
-  tamUntil: 22,
-  vibes: 25,
-  pizz: 28,
-  bright: 31,
-  low: 34,
+  harp: -19,
+  piano: -12,
+  vibes: -6,
+  pizz: -4,
+  /** The tam-tam's player leaves for the vibraphone. */
+  tamUntil: -6,
+  /** The bass trombone joins the low winds' breaths. */
+  bassTrombone: -8,
+  /** The basses are drawn in from here, desk by desk, every two strokes. */
+  basses: 0,
+  /** The piano strikes the ground's E with the stroke. */
+  pianoLow: 0,
+  /** The contrabassoon is drawn in; the tuba a stroke later, the bass trombone two. */
+  winds: 8,
+  drum: 11,
 };
+
+interface Voice {
+  id: string;
+  /** In strokes from the pulse (see ENTER). */
+  enter: number;
+  technique?: string;
+  /** Text over its first note. */
+  text?: string;
+  /**
+   * Its note: the stroke's; "second", harp 2's at harp 2's strokes (the stroke's at the others);
+   * "two", harp 2's; a MIDI number, a pitch of its own. None: unpitched.
+   */
+  note?: "stroke" | "second" | "two" | number;
+  /** A rise's strokes: harp 1's, harp 2's, the piano's or every one. */
+  aim?: "one" | "two" | "piano" | "all";
+}
+
+/** Rings: start exactly with a stroke and fade into nothing. Neighbours in the order differ in colour. */
+const RINGS: Voice[] = [
+  { id: "fl1", enter: -22, note: "stroke" },
+  { id: "cl1", enter: -20, note: "stroke" },
+  { id: "vct", enter: -18, note: "second", technique: "artificial-harmonic" },
+  { id: "ob1", enter: -15, note: "stroke" },
+  { id: "picc", enter: -13, note: "stroke" },
+  { id: "fl2", enter: -11, note: "second" },
+  { id: "cl2", enter: -9, note: "second" },
+  { id: "ob2", enter: -7, note: "stroke" },
+  { id: "eh", enter: -5, note: "second" },
+];
+
+/**
+ * Rises: swell out of nothing into a stroke and end with it. High on the stroke's note (or harp
+ * 2's); low in the ground's register, its E1 to G1 an octave up (the timpani on E2, horns on the
+ * basses' quarter tones, bassoons, trombones and the bass clarinet on the low winds').
+ */
+const soft = { technique: "roll", text: "soft mallets" };
+const RISES: Voice[] = [
+  { id: "scym", enter: -17, aim: "one", ...soft },
+  { id: "tam", enter: -14, aim: "one", ...soft },
+  { id: "vn2t", enter: -12, aim: "one", note: "second" },
+  { id: "timp", enter: -10, aim: "two", note: 40, technique: "roll+soft" },
+  { id: "vn1t", enter: -8, aim: "all", note: "stroke", technique: "tremolo+sul-pont" },
+  { id: "tp1", enter: -6, aim: "one", note: "stroke", technique: "muted" },
+  { id: "tp2", enter: -5, aim: "two", note: "two", technique: "muted" },
+  { id: "hn4", enter: -4, aim: "all", note: 40 },
+  { id: "tp3", enter: -3, aim: "piano", note: "stroke", technique: "muted" },
+  { id: "hn2", enter: -2, aim: "all", note: 41 },
+  { id: "bn2", enter: -1, aim: "all", note: 42.5 },
+  { id: "hn3", enter: 0, aim: "all", note: 40.5 },
+  { id: "bn1", enter: 1, aim: "all", note: 42 },
+  { id: "hn1", enter: 2, aim: "all", note: 41.5 },
+  { id: "tb2", enter: 4, aim: "all", note: 42.5 },
+  { id: "bcl", enter: 5, aim: "all", note: 42 },
+  { id: "tb1", enter: 6, aim: "all", note: 43 },
+];
 
 export const knobs = {
   alone: number({
     group: "Ground",
     label: "Alone",
-    help: "Bars of the rumble alone before the celesta",
-    value: 7,
+    help: "Bars of the rumble alone before the celesta (its first stroke comes a little after, so that the pulse starts on a bar line)",
+    value: 8,
     min: 2,
     max: 16,
     step: 1,
@@ -66,34 +140,34 @@ export const knobs = {
     group: "Ground",
     label: "Low winds from",
     help: "The bar the contrabassoon and the tuba join the rumble: a new layer once the ear has settled into the celesta",
-    value: 14,
+    value: 16,
     min: 1,
-    max: 30,
+    max: 40,
     step: 1,
     unit: "bar",
   }),
   family: choice({
     group: "Celesta",
     label: "Family",
-    help: "The atom the celesta's betweens are counted in (Set, Period): a 16th, a triplet 8th or a quintuplet 16th. Everything on the pulse (harps, rings, rises) follows it. Changing it changes how long Set and Period are: at 52, a period near 1.73 s is 6 16ths, 4 or 5 triplet 8ths (1.54 or 1.92 s), 7 or 8 quintuplet 16ths (1.62 or 1.85 s)",
-    value: FAMILIES[0]!,
+    help: "The atom the celesta's betweens are counted in (Set, Period): a 16th, a triplet 8th or a quintuplet 16th. Everything on the strokes (rings, rises) follows it. A beat is 4, 3 or 5 of them",
+    value: FAMILIES[2]!,
     options: FAMILIES,
   }),
   set: betweenSet({
     group: "Celesta",
     label: "Set",
-    help: "The betweens (atoms of the Family) of the celesta's first time round. After each time round every between moves half way (at least one atom) towards the period, until all are the period",
-    value: "22 29 18",
+    help: "The betweens (atoms of the Family) of the celesta's first time round, widest first. After each time round every between moves half way (at least one atom) towards the period, until all are the period",
+    value: "58 50 43 36",
     min: 1,
-    max: 64,
+    max: 96,
     step: 1,
     unit: "atoms",
   }),
   period: number({
     group: "Celesta",
     label: "Period",
-    help: "The between (atoms of the Family) the celesta settles on: the pulse. 6 16ths is 1.73 s at 52, just inside the longest between still heard as one (about 1.8 s)",
-    value: 6,
+    help: "The between (atoms of the Family) the celesta settles on: the pulse. A beat (5 quintuplet 16ths) puts it on the beat, at 60 one a second",
+    value: 5,
     min: 2,
     max: 16,
     step: 1,
@@ -102,9 +176,9 @@ export const knobs = {
   pulse: number({
     group: "Celesta",
     label: "Pulse",
-    help: "Strokes at the period once it is reached: the build",
-    value: 42,
-    min: 36,
+    help: "Strokes at the period: the ground and the low brass are drawn in, then the whole orchestra makes one wave a stroke",
+    value: 32,
+    min: 16,
     max: 64,
     step: 1,
     unit: "strokes",
@@ -122,7 +196,7 @@ export const knobs = {
     group: "Harps",
     label: "Harp 1",
     help: "Strokes between harp 1's entries at first. After each time round they move half way towards 1, until harp 1 is on every stroke",
-    value: "3 4 5",
+    value: "2 3 4",
     min: 1,
     max: 12,
     step: 1,
@@ -131,8 +205,8 @@ export const knobs = {
   second: number({
     group: "Harps",
     label: "Harp 2 from",
-    help: "From harp 1's n-th time on, harp 2 plays with it",
-    value: 3,
+    help: "From harp 1's n-th time on, harp 2 plays with it (the first interval)",
+    value: 2,
     min: 1,
     max: 8,
     step: 1,
@@ -148,9 +222,9 @@ export const knobs = {
     group: "Sound",
     label: "Tempo",
     help: "Quarter notes per minute",
-    value: 52,
+    value: 60,
     min: 40,
-    max: 66,
+    max: 72,
     step: 2,
     unit: "bpm",
   }),
@@ -213,12 +287,31 @@ function converging(set: number[], from: number, until: number): number[] {
   return out;
 }
 
+/**
+ * A level that swells into each stroke (up to `peak` of it) and dips by `dip` at `trough` ticks
+ * after it: one wave a between. Points up to `end`.
+ */
+function waves(
+  strokes: number[],
+  end: number,
+  peak: (t: number) => number,
+  dip: number,
+  trough: number,
+): DynamicPoint[] {
+  const out: DynamicPoint[] = [];
+  for (const s of strokes) {
+    out.push({ at: time(s), level: peak(s), to: "linear" });
+    if (s + trough < end) out.push({ at: time(s + trough), level: peak(s) - dip, to: "linear" });
+  }
+  return out;
+}
+
 //==============================================================================
 // The celesta
 
-/** Betweens (16ths): time rounds moving towards the period, then the pulse. */
+/** Betweens (atoms): time rounds moving towards the period, then the pulse. */
 function celesta(v: V): { gaps: number[]; settled: number } {
-  // Longest first: the first silence after the first stroke is the widest.
+  // Widest first: the first silence after the first stroke is the longest.
   let cur = [...v.set].sort((a, b) => b - a);
   const gaps: number[] = [];
   for (let round = 0; cur.some((b) => b !== v.period) && round < 64; round++) {
@@ -227,7 +320,7 @@ function celesta(v: V): { gaps: number[]; settled: number } {
     cur = closer(cur, v.period);
   }
   const settled = gaps.length;
-  for (let k = 0; k < v.pulse; k++) gaps.push(v.period);
+  for (let k = 1; k < v.pulse; k++) gaps.push(v.period);
   return { gaps, settled };
 }
 
@@ -235,39 +328,39 @@ function celesta(v: V): { gaps: number[]; settled: number } {
 // The ground
 
 /**
- * The ground, 0 to `end`. `grow(t)`: how far the build has come at t (0 before the pulse, 1 at
- * the last stroke); the ground gets louder with it.
+ * The ground, 0 to `end`. `grow(t)`: how far the build has come at t (0 at the first stroke, 1 at
+ * the last).
  *
  * - Basses, four desks: one by one on the lowest string's E, at one level; from `glides` on, one
  *   desk after another heaves in glissando waves (up to a quarter tone or three and back, each
- *   desk its own lengths and heights). From the pulse on, pp to mp.
- * - Contrabassoon and tuba from `winds`, bass trombone from `low`: breaths out of nothing and
- *   back, handing over to each other; their peaks grow. The last breath of each swells into the
- *   last stroke (`final`) and holds a beat past it.
- * - Bass drum: the roll in stretches, each at its own level, the levels growing.
- * - Tam-tam: before the pulse, a swell out of nothing now and then (after, it rises into strokes,
- *   and its player goes to the vibraphone).
+ *   desk its own lengths and heights). Drawn in (desk by desk), each holds where it is, ord., and
+ *   swells into every stroke.
+ * - Contrabassoon and tuba from `winds`, bass trombone from `bassTrombone`: breaths out of nothing
+ *   and back, handing over to each other; their peaks grow. Drawn in, each breath runs from a
+ *   wave's lowest point to another and swells into every stroke in it.
+ * - Bass drum: the roll in stretches, each at its own level, the levels growing. Drawn in, out of
+ *   nothing into a stroke, then one roll to the end, a wave a stroke.
+ * - Tam-tam: see `tamSwells` (its player rises into strokes, then goes to the vibraphone).
  */
-function ground(
-  end: number,
-  winds: number,
-  low: number,
-  glides: [number, number],
-  pulse: number,
-  final: number,
-  grow: (t: number) => number,
-): Part[] {
+function ground(o: {
+  end: number;
+  winds: number;
+  bassTrombone: number;
+  glides: [number, number];
+  drawn: { basses: number[]; winds: number[]; drum: number };
+  /** The strokes of the pulse. */
+  strokes: number[];
+  grow: (t: number) => number;
+  /** Ticks after a stroke where a wave is lowest (where the rises into the next begin). */
+  trough: number;
+}): Part[] {
   const parts: Part[] = [];
-  const [g0, g1] = glides;
+  const [g0, g1] = o.glides;
   const beat = (t: number) => Math.round(t / TICKS) * TICKS;
+  const peak = (t: number) => 2 + 2.5 * o.grow(t);
   ["cb-4-4", "cb-4-3", "cb-4-2", "cb-4-1"].forEach((id, k) => {
     const enter = k * 3 * TICKS;
-    const dynamics: DynamicPoint[] = [
-      { at: time(enter), level: 0, to: "linear" },
-      { at: time(enter + 2 * TICKS), level: 2 },
-      { at: time(Math.max(pulse, enter + 3 * TICKS)), level: 2, to: "linear" },
-      { at: time(end), level: 4.5 },
-    ];
+    const drawn = o.drawn.basses[k]!;
     // Where this desk starts to move; then waves: up to a height, back down to E1, each slide's
     // length and each height drawn in turn, from the desk's own place in the sets.
     const start = beat(g0 + (g1 - g0) * [0.6, 0.1, 0.35, 0.85][k]!);
@@ -281,7 +374,7 @@ function ground(
     let up = true;
     while (true) {
       const slide = slides() * TICKS;
-      if (at + hold + slide + 2 * TICKS > end) break;
+      if (at + hold + slide + 2 * TICKS > drawn) break;
       events.push({
         at: time(at),
         dur: time(hold + slide),
@@ -295,64 +388,101 @@ function ground(
       up = !up;
       hold = holds() * TICKS;
     }
-    events.push({ at: time(at), dur: time(end - at), pitch: { midi }, technique: "sul-tasto" });
-    parts.push(partOf(id, events, dynamics));
+    // Drawn in: holds where it is, a new bow, ord.
+    if (drawn > at)
+      events.push({ at: time(at), dur: time(drawn - at), pitch: { midi }, technique: "sul-tasto" });
+    events.push({ at: time(drawn), dur: time(o.end - drawn), pitch: { midi } });
+    const into = drawn - (TICKS - o.trough);
+    parts.push(
+      partOf(id, events, [
+        { at: time(enter), level: 0, to: "linear" },
+        { at: time(enter + 2 * TICKS), level: 2 },
+        { at: time(into), level: 2, to: "linear" },
+        ...waves(
+          o.strokes.filter((s) => s >= drawn),
+          o.end,
+          peak,
+          1.5,
+          o.trough,
+        ),
+      ]),
+    );
   });
   // Low winds and brass: breaths of a few seconds (at most 8 beats), out of nothing and back,
   // handing over to each other so the low wind is seldom gone and never one breath too long.
   const breaths: [string, number, number, number[], number[]][] = [
-    ["cbn", 30, winds, [6, 8, 7], [4, 3, 5]],
-    ["tba", 30.5, winds + 5 * TICKS, [7, 6, 8], [3, 5, 4]],
-    ["btb", 31, low, [6, 7, 5], [3, 4, 2]],
+    ["cbn", 30, o.winds, [6, 8, 7], [4, 3, 5]],
+    ["tba", 30.5, o.winds + 5 * TICKS, [7, 6, 8], [3, 5, 4]],
+    ["btb", 31, o.bassTrombone, [6, 7, 5], [3, 4, 2]],
   ];
   breaths.forEach(([id, midi, from, play, rest], k) => {
+    const drawn = o.drawn.winds[k]!;
     const nextPlay = cycle(play);
     const nextRest = cycle(rest);
     const events: NoteEvent[] = [];
     const dynamics: DynamicPoint[] = [];
     let at = from;
-    const lastBreath = final - 6 * TICKS;
-    while (at + 4 * TICKS < lastBreath) {
-      const len = Math.min(nextPlay() * TICKS, lastBreath - at);
-      events.push({ at: time(at), dur: time(len), pitch: { midi } });
-      const peak = at + Math.round((len * (k % 2 ? 0.4 : 0.6)) / TICKS) * TICKS;
-      dynamics.push(
-        { at: time(at), level: 0, to: "linear" },
-        { at: time(peak), level: 2 + 2.5 * grow(peak), to: "linear" },
-        { at: time(at + len), level: 0 },
-      );
+    for (;;) {
+      // On the pulse, a breath runs from a wave's lowest point to another.
+      const waving = at >= drawn;
+      const begin = waving ? at + o.trough : at;
+      const len = Math.min(nextPlay() * TICKS, o.end - begin);
+      if (len < 3 * TICKS) break;
+      events.push({ at: time(begin), dur: time(len), pitch: { midi } });
+      dynamics.push({ at: time(begin), level: 0, to: "linear" });
+      if (waving)
+        dynamics.push(
+          ...waves(
+            o.strokes.filter((s) => s > begin && s < begin + len),
+            begin + len,
+            peak,
+            1.5,
+            o.trough,
+          ),
+        );
+      else {
+        const top = begin + Math.round((len * (k % 2 ? 0.4 : 0.6)) / TICKS) * TICKS;
+        dynamics.push({ at: time(top), level: peak(top), to: "linear" });
+      }
+      dynamics.push({ at: time(begin + len), level: 0 });
       at += len + nextRest() * TICKS;
     }
-    const begin = Math.max(at, lastBreath);
-    const stop = Math.min(end, final + TICKS);
-    events.push({ at: time(begin), dur: time(stop - begin), pitch: { midi } });
-    dynamics.push(
-      { at: time(begin), level: 0, to: "linear" },
-      { at: time(final), level: 4.5, to: "linear" },
-      { at: time(stop), level: 3 },
-    );
     parts.push(partOf(id, events, dynamics));
   });
-  // Bass drum: the roll in stretches, each at its own level (a roll holds one level), growing.
+  // Bass drum: the roll in stretches, each at its own level (a roll holds one level), growing;
+  // drawn in, out of nothing into a stroke, then one roll to the end, a wave a stroke.
   {
     const lengths = cycle([10, 14, 8, 12]);
     const gaps = cycle([3, 5, 2]);
     const levels = cycle([1, 1.6, 1.3]);
     const events: NoteEvent[] = [];
     const dynamics: DynamicPoint[] = [];
+    const into = o.drawn.drum - (TICKS - o.trough);
+    const stop = into - TICKS;
     let at = 0;
-    while (at + 2 * TICKS < end) {
-      const len = Math.min(lengths() * TICKS, end - at);
+    while (at + 2 * TICKS < stop) {
+      const len = Math.min(lengths() * TICKS, stop - at);
       events.push({ at: time(at), dur: time(len), technique: "roll+soft" });
-      dynamics.push({ at: time(at), level: levels() + 2 * grow(at) });
+      dynamics.push({ at: time(at), level: levels() + 2 * o.grow(at) });
       at += len + gaps() * TICKS;
     }
+    events.push({ at: time(into), dur: time(o.end - into), technique: "roll+soft" });
+    dynamics.push(
+      { at: time(into), level: 0, to: "linear" },
+      ...waves(
+        o.strokes.filter((s) => s >= o.drawn.drum),
+        o.end,
+        (t) => 2 + 2 * o.grow(t),
+        1.5,
+        o.trough,
+      ),
+    );
     parts.push(partOf("bd", events, dynamics));
   }
   return parts;
 }
 
-/** Tam-tam swells out of nothing, now and then, before the pulse: where each starts (ticks). */
+/** Tam-tam swells out of nothing, now and then, before it rises into strokes: where each starts (ticks). */
 function tamSwells(until: number): number[] {
   const apart = cycle([17, 23, 19]);
   const out: number[] = [];
@@ -361,20 +491,7 @@ function tamSwells(until: number): number[] {
 }
 
 //==============================================================================
-// Rises and rings
-
-interface Voice {
-  id: string;
-  technique?: string;
-  /** Text over its first note. */
-  text?: string;
-  /** A fixed pitch (the timpani); otherwise the stroke's note. */
-  midi?: number;
-  /** Plays harp 2's note (a quarter tone off) rather than the stroke's: always, or at the strokes it says. */
-  second?: boolean | ((k: number) => boolean);
-  /** Ticks it needs after a note before the next (a breath, a new bow, a new stick). */
-  rest: number;
-}
+// Rings and rises
 
 /** Collects notes and dynamics for parts, and knows when each is free. */
 class Parts {
@@ -397,7 +514,7 @@ class Parts {
     list.push(e);
     this.notes.set(v.id, list);
     this.levels.set(v.id, [...(this.levels.get(v.id) ?? []), ...curve]);
-    this.busy.set(v.id, until + v.rest);
+    this.busy.set(v.id, until + REST);
   }
 
   parts(): Part[] {
@@ -409,52 +526,64 @@ class Parts {
 // The score
 
 export function score(v: V): Score {
-  // The atom of the Family: the unit of the celesta's betweens and of everything on the pulse.
+  // The atom of the Family: the unit of the celesta's betweens and of everything on the strokes.
   const A = atomOf(Number(v.family.split(" ")[0]) as 2 | 3 | 5);
-  const start = v.alone * BAR;
   const { gaps, settled } = celesta(v);
-  const times = [start];
+  // The pulse starts on a bar line: the first stroke comes after `alone` bars, as much later as
+  // that needs (less than a bar).
+  const before = gaps.slice(0, settled).reduce((a, b) => a + b, 0) * A;
+  const times = [Math.ceil((v.alone * BAR + before) / BAR) * BAR - before];
   for (const g of gaps) times.push(times.at(-1)! + g * A);
-  const last = times.at(-1)!;
-  const end = (Math.floor(last / BAR) + 2) * BAR;
+  const final = times.length - 1;
   const period = v.period * A;
-  const pulse = times[settled]!;
-  const grow = (t: number) => Math.max(0, Math.min(1, (t - pulse) / (last - pulse)));
-  const p = (n: number) => settled + n; // the n-th stroke of the pulse
+  // One between more after the last stroke: the next section may start on the stroke after it.
+  const end = times[final]! + period;
+  const p = (n: number) => Math.max(0, Math.min(final, settled + n)); // n strokes from the pulse
+  // How far the build has come at t: 0 at the first stroke, 1 at the last, counted in strokes (so
+  // it quickens with them).
+  const grow = (t: number) => {
+    if (t <= times[0]!) return 0;
+    if (t >= times[final]!) return 1;
+    let k = 0;
+    while (times[k + 1]! <= t) k++;
+    return (k + (t - times[k]!) / (times[k + 1]! - times[k]!)) / final;
+  };
   const x = v.pitch;
   const q = v.pitch + (v.side === "the same string" ? -0.5 : 0.5);
-  // The last stroke: the whole orchestra on it, every rise arriving with it.
-  const final = times.length - 1;
+  const ringLen = (between: number) => Math.max(1, Math.round((RING * between) / A)) * A;
+  const riseLen = (between: number) => Math.max(1, Math.round((RISE * between) / A)) * A;
+  // On the pulse: where the rises into the next stroke begin, the wave's lowest point.
+  const trough = period - riseLen(period);
 
   // Who strikes where. Harp 1, the piano and the vibraphone close in on every stroke; harp 2
   // plays with harp 1 from its `second`-th time; the violas' pizzicato with harp 2 from `pizz`.
   const all = times.map((_, k) => k);
-  const withFinal = (ks: number[]) => (ks.includes(final) ? ks : [...ks, final]);
-  const one = withFinal(converging(v.harps, p(ENTER.harp), times.length));
+  const one = converging(v.harps, p(ENTER.harp), times.length);
   const two = one.slice(v.second - 1);
-  const piano = withFinal(converging([3, 4, 5], p(ENTER.piano), times.length));
-  const vibes = withFinal(converging([2, 3, 4], p(ENTER.vibes), times.length));
+  const piano = converging([2, 3], p(ENTER.piano), times.length);
+  const vibes = converging([1, 2], p(ENTER.vibes), times.length);
   const pizz = two.filter((k) => k >= p(ENTER.pizz));
-  const isOne = new Set(one);
   const isTwo = new Set(two);
+  const aims = { one, two, piano, all };
+  const noteOf = (voice: Voice, k: number): number | undefined => {
+    if (voice.note === undefined || typeof voice.note === "number") return voice.note;
+    if (voice.note === "two" || (voice.note === "second" && isTwo.has(k))) return q;
+    return x;
+  };
 
   // A struck note: written to the next beat at most (it rings on, l.v.), or longer (the piano,
-  // pedalled, to its next stroke, three beats at most). Tenuto (not for a pizzicato); an accent
-  // on the first, on the last, and where `accent` says.
+  // pedalled, to its next stroke, three beats at most). Tenuto (not for a pizzicato); an accent on
+  // the first and the last. Louder stroke by stroke, from level[0] to level[1].
   const struck = (
     id: string,
     ks: number[],
-    midi: number,
+    pitchAt: (k: number) => Pitch | Pitch[],
     text: string,
     level: [number, number],
-    opts: {
-      technique?: string;
-      long?: boolean;
-      plain?: boolean;
-      accent?: (k: number) => boolean;
-    } = {},
+    opts: { technique?: string; long?: boolean; plain?: boolean } = {},
   ): Part => {
     const events: Event[] = [];
+    const dynamics: DynamicPoint[] = [];
     ks.forEach((k, n) => {
       const at = times[k]!;
       if (n === 0) events.push({ type: "text", at: time(at), text, placement: "above" });
@@ -462,36 +591,51 @@ export function score(v: V): Score {
       const dur = opts.long
         ? Math.min(3 * TICKS, next - at)
         : Math.min(TICKS - (at % TICKS), next - at);
-      const e: NoteEvent = { at: time(at), dur: time(dur), pitch: { midi } };
+      const e: NoteEvent = { at: time(at), dur: time(dur), pitch: pitchAt(k) };
       const marks: ("accent" | "tenuto")[] = opts.plain ? [] : ["tenuto"];
-      if (n === 0 || k === final || opts.accent?.(k)) marks.unshift("accent");
+      if (n === 0 || k === final) marks.unshift("accent");
       if (marks.length) e.articulations = marks;
       if (opts.technique) e.technique = opts.technique;
       events.push(e);
+      dynamics.push({ at: time(at), level: level[0] + (level[1] - level[0]) * grow(at) });
     });
-    return partOf(id, events, [
-      { at: time(times[ks[0]!]!), level: level[0], to: "linear" },
-      { at: time(Math.max(pulse, times[ks[0]!]!) + 1), level: level[0], to: "linear" },
-      { at: time(last), level: level[1] },
-    ]);
+    return partOf(id, events, dynamics);
   };
 
   const parts: Part[] = [
-    // The celesta: every stroke, mp growing to f, leant on, let ring; the first and the last
-    // accented too.
-    struck("cel", all, x, "espr., l.v.", [4, 6]),
-    struck("hp1", one, x, "l.v.", [3.5, 6]),
-    struck("hp2", two, q, "l.v.", [3.5, 6]),
-    struck("pno", piano, x, "con Ped., l.v.", [3, 6], { long: true }),
+    // The celesta: every stroke, mp growing to f, leant on, let ring.
+    struck("cel", all, () => ({ midi: x }), "espr., l.v.", [4, 6]),
+    struck("hp1", one, () => ({ midi: x }), "l.v.", [3.5, 6]),
+    struck("hp2", two, () => ({ midi: q }), "l.v.", [3.5, 6]),
+    // The piano: from the pulse, the ground's E with the stroke.
+    struck(
+      "pno",
+      piano,
+      (k) => (k >= p(ENTER.pianoLow) ? [{ midi: 28 }, { midi: x }] : { midi: x }),
+      "con Ped., l.v.",
+      [3, 6],
+      { long: true },
+    ),
   ];
   if (pizz.length)
-    parts.push(struck("vat", pizz, q, "pizz.", [3, 5.5], { technique: "pizz", plain: true }));
+    parts.push(
+      struck("vat", pizz, () => ({ midi: q }), "pizz.", [3, 5.5], {
+        technique: "pizz",
+        plain: true,
+      }),
+    );
 
   const players = new Parts();
-  // The tam-tam's player: swells before the pulse, rises until `tamUntil`, then the vibraphone.
-  for (const at of tamSwells(pulse))
+  // The tam-tam's player: swells now and then, until its first rise.
+  const tam = RISES.find((r) => r.id === "tam")!;
+  const tamFirst = one.find((k) => k > 0 && k >= p(tam.enter));
+  const tamFrom =
+    tamFirst !== undefined
+      ? times[tamFirst]! - riseLen(times[tamFirst]! - times[tamFirst - 1]!)
+      : end;
+  for (const at of tamSwells(tamFrom - REST))
     players.add(
-      { id: "tam", technique: "crescendo", text: "soft mallets", rest: 0 },
+      { id: "tam", enter: 0, technique: "crescendo", text: "soft mallets" },
       { at: time(at), dur: time(6 * TICKS) },
       [
         { at: time(at), level: 0, to: "linear" },
@@ -499,150 +643,89 @@ export function score(v: V): Score {
       ],
       at + 6 * TICKS,
     );
-  const vibeStart = times[p(ENTER.vibes)]!;
 
-  // Rises: out of nothing into a stroke, ending exactly with it. Each voice aims at the strokes it
-  // is given (harp 1's, harp 2's, or any), the rise three periods long at first and one at the end,
-  // and takes each it is free for; its last rise, two periods long, arrives with the last stroke
-  // (the earlier ones end before that one begins).
-  const lastRise = times[final]! - 2 * period;
-  const rise = (voice: Voice, targets: number[], from: number, until = final) => {
-    const aims = targets.filter((k) => k >= from && k < until && k !== final);
-    if (until >= final) aims.push(final);
-    for (const k of aims) {
+  // Rises: out of nothing into each stroke a voice aims at, ending exactly with it, over the
+  // last three fifths of the between before it, when the voice is free for it.
+  for (const voice of RISES) {
+    const until = voice.id === "tam" ? p(ENTER.tamUntil) : final + 1;
+    const low = typeof voice.note === "number";
+    for (const k of aims[voice.aim!]) {
+      if (k === 0 || k < p(voice.enter) || k >= until) continue;
       const at = times[k]!;
-      const len = k === final ? 2 * period : Math.max(1, Math.round(3 - 2 * grow(at))) * period;
+      const len = riseLen(at - times[k - 1]!);
       const begin = at - len;
-      if (k !== final && at + voice.rest > lastRise) continue;
-      if (begin < pulse || !players.free(voice.id, begin)) continue;
+      if (!players.free(voice.id, begin)) continue;
       const e: NoteEvent = { at: time(begin), dur: time(len) };
-      if (
-        voice.midi !== undefined ||
-        !["suspended-cymbal", "tam-tam"].includes(player(voice.id).instrument)
-      )
-        e.pitch = {
-          midi:
-            voice.midi ??
-            ((typeof voice.second === "function" ? voice.second(k) : voice.second) ? q : x),
-        };
+      const midi = noteOf(voice, k);
+      if (midi !== undefined) e.pitch = { midi };
       players.add(
         voice,
         e,
         [
           { at: time(begin), level: 0, to: "linear" },
-          { at: time(at), level: 2 + 3.5 * grow(at) },
+          { at: time(at), level: low ? 1.5 + 3 * grow(at) : 2 + 3.5 * grow(at) },
         ],
         at,
       );
     }
-  };
-  const soft = { technique: "roll", text: "soft mallets", rest: TICKS / 2 };
-  rise({ id: "scym", ...soft }, one, p(ENTER.rises));
-  rise({ id: "tam", ...soft }, one, p(ENTER.rises), p(ENTER.tamUntil));
-  // Violins II: harp 2's note into harp 2's strokes, the stroke's note into harp 1's others.
-  rise({ id: "vn2t", second: (k) => isTwo.has(k), rest: TICKS / 2 }, one, p(ENTER.strings));
-  rise({ id: "timp", technique: "roll+soft", midi: 40, rest: TICKS / 2 }, two, p(ENTER.strings));
-  rise({ id: "vn1t", technique: "tremolo+sul-pont", rest: TICKS / 2 }, all, p(ENTER.bright));
-  rise({ id: "tp1", technique: "muted", rest: TICKS }, one, p(ENTER.bright));
-  rise({ id: "tp2", technique: "muted", second: true, rest: TICKS }, two, p(ENTER.bright));
+  }
+
+  // Rings: from its entry, every stroke leaves a ring in each voice free for it, over the first
+  // half of the between after it (eight beats at most), fading into nothing.
+  for (const voice of RINGS)
+    for (let k = p(voice.enter); k <= final; k++) {
+      const at = times[k]!;
+      if (!players.free(voice.id, at)) continue;
+      const len = Math.min(8 * TICKS, ringLen((k < final ? times[k + 1]! : end) - at));
+      players.add(
+        voice,
+        { at: time(at), dur: time(len), pitch: { midi: noteOf(voice, k)! } },
+        [
+          { at: time(at), level: 1.2 + 3 * grow(at), to: "linear" },
+          { at: time(at + len), level: 0 },
+        ],
+        at + len,
+      );
+    }
 
   // The vibraphone, after the tam-tam: motor off, pedalled.
-  const vib = vibes.filter(
-    (k) => times[k]! >= vibeStart && players.free("tam", times[k]! - 2 * TICKS),
-  );
-  if (vib.length) parts.push(struck("vib", vib, x, "motor off, soft mallets, l.v.", [3, 5.5]));
-
-  // Rings: start exactly with a stroke and fade into nothing. From `rings` on, every stroke leaves
-  // a ring in one voice that is free; each time harp 1 plays, one more voice may take them, and
-  // harp 1's strokes ring in more voices at once, longer each time; harp 2's note rings too,
-  // first in the cellos' artificial harmonics. The last stroke rings in every voice that is free.
-  const ringers: Voice[] = [
-    { id: "fl1", rest: TICKS },
-    { id: "cl1", rest: TICKS },
-    { id: "vct", technique: "artificial-harmonic", rest: TICKS / 2 },
-    { id: "ob1", rest: TICKS },
-    { id: "picc", rest: TICKS },
-    { id: "fl2", rest: TICKS },
-    { id: "cl2", rest: TICKS },
-  ];
-  let turn = 0;
-  const take = (open: Voice[], at: number, count: number) => {
-    const free = open.filter((r) => players.free(r.id, at));
-    const out: Voice[] = [];
-    for (let n = 0; n < free.length && out.length < count; n++)
-      out.push(free[(turn + n) % free.length]!);
-    turn++;
-    return out;
-  };
-  const ring = (who: Voice[], at: number, len: number, midi: number, level: number) => {
-    const stop = Math.min(end, at + len);
-    for (const r of who)
-      players.add(
-        r,
-        { at: time(at), dur: time(stop - at), pitch: { midi } },
-        [
-          { at: time(at), level, to: "linear" },
-          { at: time(stop), level: 0 },
-        ],
-        stop,
-      );
-  };
-  let heard = 0;
-  for (let k = p(ENTER.rings); k < times.length; k++) {
-    const at = times[k]!;
-    if (isOne.has(k)) heard++;
-    const open = ringers.slice(0, Math.min(ringers.length, 1 + heard));
-    const level = 1.2 + 2 * grow(at);
-    // Near the end, the voices keep free for the last stroke.
-    if (k !== final && at + 6 * TICKS > times[final]! - TICKS) continue;
-    if (!isOne.has(k)) {
-      // A little longer than the period, growing; whole atoms.
-      ring(take(open, at, 1), at, Math.round(((1.75 + grow(at)) * TICKS) / A) * A, x, level);
-      continue;
-    }
-    const len = k === final ? 4 * TICKS : Math.min(6, 2 + heard) * TICKS;
-    if (isTwo.has(k)) {
-      const harmonics = open.filter((r) => r.technique === "artificial-harmonic");
-      const got = take(harmonics, at, k === final ? 2 : 1);
-      ring(got.length ? got : take(open, at, 1), at, len, q, level);
-    }
-    ring(
-      take(open, at, k === final ? open.length : Math.min(open.length, heard)),
-      at,
-      len,
-      x,
-      level,
-    );
-  }
+  const vib = vibes.filter((k) => players.free("tam", times[k]! - 2 * TICKS));
+  if (vib.length)
+    parts.push(struck("vib", vib, () => ({ midi: x }), "motor off, soft mallets, l.v.", [3, 5.5]));
 
   parts.push(
     ...players.parts(),
-    ...ground(
+    ...ground({
       end,
-      (v.winds - 1) * BAR,
-      times[p(ENTER.low)]!,
-      [start, pulse],
-      pulse,
-      times[final]!,
+      winds: (v.winds - 1) * BAR,
+      bassTrombone: Math.ceil(times[p(ENTER.bassTrombone)]! / TICKS) * TICKS,
+      glides: [times[0]!, times[0]! + 13 * BAR],
+      drawn: {
+        basses: [0, 1, 2, 3].map((d) => times[p(ENTER.basses + 2 * d)]!),
+        winds: [0, 1, 2].map((d) => times[p(ENTER.winds + d)]!),
+        drum: times[p(ENTER.drum)]!,
+      },
+      strokes: times.slice(settled),
       grow,
-    ),
+      trough,
+    }),
   );
   const rank = (id: string) => ensemble.findIndex((pl) => pl.id === id);
   parts.sort((a, b) => rank(a.id) - rank(b.id));
   const bar = (t: number) => Math.floor(t / BAR) + 1;
   const letters = [
-    start,
-    pulse,
+    times[0]!,
+    times[one[0]!]!,
     times[two[0]!]!,
     times[piano[0]!]!,
-    times[p(ENTER.strings)]!,
-    times[p(ENTER.bright)]!,
+    times[p(0)]!,
+    times[p(ENTER.drum + 1)]!,
   ];
   return {
     title: "antara · the opening",
     meter: [{ measure: 1, beats: 4, beatType: 4 }],
     tempo: [{ at: 0, bpm: v.tempo }],
-    measures: end / BAR,
+    measures: Math.ceil(end / BAR),
     rehearsal: [...new Set(letters.map(bar))].map((measure, n) => ({
       measure,
       label: String.fromCharCode(65 + n),
