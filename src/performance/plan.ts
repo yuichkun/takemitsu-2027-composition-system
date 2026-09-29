@@ -344,7 +344,8 @@ function pitchedLanes(
       const on = sec(first.at.value);
       const off = sec(last.end.value);
       const choice = chooseArticulation(map, first, off - on, available);
-      if (range && (key < range[0] || key > range[1]))
+      const keys = inventory[instrument]?.[choice.articulation]?.range ?? range;
+      if (keys && (key < keys[0] || key > keys[1]))
         warnings.push(
           `${part.name}: pitch ${pitchOf(first)} is outside ${instrument}'s sampled range`,
         );
@@ -375,10 +376,12 @@ function pitchedLanes(
     const velocity = velocityFor(level(n.at.value), accented(n));
     // Legato transitions need a small overlap; other notes release just before the next onset.
     const release = n.slur ? off + 0.03 : Math.max(on + 0.03, off - 0.01);
+    // The keys the chosen articulation has samples for (harmonics reach higher than long notes).
+    const keys = inventory[instrument]?.[choice.articulation]?.range ?? range;
     for (const p of n.pitches) {
       const tune = p.midi % 1 === 0 ? 0 : 0.5;
       const key = Math.floor(p.midi) + (map.keyOffset ?? 0);
-      if (range && (key < range[0] || key > range[1]))
+      if (keys && (key < keys[0] || key > keys[1]))
         warnings.push(`${part.name}: pitch ${p.midi} is outside ${instrument}'s sampled range`);
       if (!byTune.has(tune)) byTune.set(tune, []);
       byTune.get(tune)!.push({
