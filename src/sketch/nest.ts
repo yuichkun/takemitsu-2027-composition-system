@@ -85,14 +85,31 @@ export interface Placed {
   fragment: Fragment;
 }
 
+/**
+ * Where a section's voice may stop or start without breaking its own logic, in its own quarters:
+ * a moment (a group's head, a re-entry), or a stretch where any moment will do (a held tone).
+ */
+export type Seam = number | [number, number];
+
 /** A node read from its folder, with its children (src/sketch/run.ts). */
 export interface LoadedNode {
   name: string;
   /** Its folder from the piece's folder ("" for the piece). */
   path: string;
   score: (values: Record<string, unknown>, ctx: Context) => unknown;
+  /** The node's own seams, per part of the score it writes (a section: src/sketch/join.ts). */
+  seams?: (score: Score) => Record<string, Seam[]>;
   values: Record<string, unknown>;
   children: Map<string, LoadedNode>;
+}
+
+/** What a parent gets from rendering a child in the child's own time (Context.render). */
+export interface Rendering {
+  /** The child's folder from the piece's. */
+  path: string;
+  /** What its score() returned: a whole score (a sketch) or a fragment (a node of a piece). */
+  result: unknown;
+  seams?: LoadedNode["seams"];
 }
 
 type Flow = (quarters: number) => number;
@@ -283,6 +300,46 @@ export class Context {
     entry.uses = fragment.uses;
     entry.players = Object.keys(fragment.parts).filter((id) => fragment.parts[id]!.events.length);
     return { name, at: place.at, length: place.length, fragment };
+  }
+
+  /**
+   * Runs a child in its own time (0 = its start) with some of its knobs set from here: they win
+   * over the values stored with it. Nothing goes on the map; the parent places what it gets
+   * (src/sketch/join.ts) and says where with addToMap().
+   */
+  render(
+    name: string,
+    over: {
+      values?: Record<string, unknown>;
+      params?: Record<string, unknown>;
+      material?: Material;
+      length?: number;
+    } = {},
+  ): Rendering {
+    const node = this.node.children.get(name);
+    if (!node)
+      throw new Error(
+        `${this.path || "The piece"} has no child "${name}" (a folder with sketch.ts). It has: ${this.children.join(", ") || "none"}`,
+      );
+    const ctx = new Context({
+      ...this.fields(),
+      start: 0,
+      // A node rendered on its own may write as far as it likes (its Writer cuts at `length`).
+      length: over.length ?? 1e6,
+      path: node.path,
+      depth: this.depth + 1,
+      material: over.material ?? this.material,
+      prev: undefined,
+      params: over.params ?? {},
+      node,
+    });
+    const result = node.score({ ...node.values, ...over.values }, ctx);
+    return { path: node.path, result, ...(node.seams ? { seams: node.seams } : {}) };
+  }
+
+  /** Puts a node on the piece's map (the parent placed it itself: src/sketch/join.ts). */
+  addToMap(entry: OutlineNode): void {
+    this.shared.outline.push(entry);
   }
 
   /** Something to write this node's notes with. */

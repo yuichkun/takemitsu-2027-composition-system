@@ -48,6 +48,7 @@ export function rootOf(dir: string): string {
 interface SketchModule {
   knobs?: Knobs;
   score: (values: Record<string, unknown>, ctx: Context) => unknown;
+  seams?: LoadedNode["seams"];
 }
 
 async function load(dir: string, path: string): Promise<LoadedNode> {
@@ -56,7 +57,14 @@ async function load(dir: string, path: string): Promise<LoadedNode> {
   const children = new Map<string, LoadedNode>();
   for (const name of childNodes(dir))
     children.set(name, await load(join(dir, name), path ? `${path}/${name}` : name));
-  return { name: basename(dir), path, score: sketch.score, values, children };
+  return {
+    name: basename(dir),
+    path,
+    score: sketch.score,
+    ...(sketch.seams ? { seams: sketch.seams } : {}),
+    values,
+    children,
+  };
 }
 
 async function main(): Promise<void> {
