@@ -8,6 +8,10 @@
 // (or on from the last note). Three bands change over the bars (the set, the standpoint, the gear),
 // each change reaching the sections one after another, bottom up. At the end every section meets on
 // one downbeat.
+// Each line is passed round four divisions in continuous phrases. A division rests between its
+// phrases; no strokes are removed inside one. Handover is at a group head, with the
+// outgoing division playing the first few strokes of the next phrase too. Pitch grids are not
+// assigned to divisions. The underlying lines also feed the other instruments unchanged.
 //
 // The rest of the orchestra, each by what it can play:
 // - Winds on the heads: each section's group heads (the accents, the metre that is heard), doubled by
@@ -184,6 +188,33 @@ export const knobs = {
     step: 1,
     unit: "beats",
   }),
+  sharing: choice({
+    group: "Strings",
+    label: "Sharing",
+    help: "Four groups pass continuous phrases round, resting between phrases; whole sections is the original version. Both keep every pitch, onset and accent",
+    value: "four groups, phrases",
+    options: ["four groups, phrases", "whole sections"],
+  }),
+  phrase: number({
+    group: "Strings",
+    label: "Phrase",
+    help: "Minimum beats before passing to the next division, at the next group head. Each division plays continuously, then rests while the other three take their turns",
+    value: 4,
+    min: 2,
+    max: 12,
+    step: 1,
+    unit: "beats",
+  }),
+  overlap: number({
+    group: "Strings",
+    label: "Overlap",
+    help: "Strokes of the next phrase also played by the outgoing division. The same notes at the same times; no held notes or new pitches are added",
+    value: 2,
+    min: 0,
+    max: 4,
+    step: 1,
+    unit: "strokes",
+  }),
   basses: toggle({
     group: "Layers",
     label: "Basses on the meetings",
@@ -357,6 +388,22 @@ interface Stroke {
   head: boolean;
 }
 
+/** Continuous slices of the original line, handed round at its accented group heads. */
+function sharedPhrases(strokes: Stroke[], beats: number, overlap: number): Stroke[][] {
+  const groups: Stroke[][] = Array.from({ length: 4 }, () => []);
+  let from = 0;
+  let turn = 0;
+  while (from < strokes.length) {
+    const target = strokes[from]!.at + beats * TICKS;
+    let to = from + 1;
+    while (to < strokes.length && !(strokes[to]!.at >= target && strokes[to]!.head)) to++;
+    groups[turn % groups.length]!.push(...strokes.slice(from, to + overlap));
+    from = to;
+    turn++;
+  }
+  return groups;
+}
+
 /** One section's line: its strokes, and the standpoint it meets on at the end. */
 function line(v: V, s: number): { strokes: Stroke[]; last: number } {
   const sec = SECTIONS[s]!;
@@ -471,7 +518,7 @@ export function score(v: V): Score {
 
   SECTIONS.forEach((sec, s) => {
     const { strokes, last } = lines[s]!;
-    const events: NoteEvent[] = strokes.map((k) => {
+    const eventOf = (k: Stroke): NoteEvent => {
       const articulations: Articulation[] = k.head ? ["staccato", "accent"] : ["staccato"];
       return {
         at: time(k.at),
@@ -480,7 +527,13 @@ export function score(v: V): Score {
         articulations,
         technique,
       };
-    });
+    };
+    const divided = v.sharing === "four groups, phrases";
+    if (divided)
+      sharedPhrases(strokes, v.phrase, v.overlap).forEach((phrase, i) => {
+        if (phrase.length) add(`${sec.id.slice(0, -1)}-4-${i + 1}`, phrase.map(eventOf), curve());
+      });
+    const events: NoteEvent[] = divided ? [] : strokes.map(eventOf);
     events.push({
       at: time(end),
       dur: 0.5,
@@ -637,7 +690,12 @@ export function score(v: V): Score {
  */
 export function seams(score: Score): Record<string, Seam[]> {
   const q = (t: NoteEvent["at"]) => (typeof t === "number" ? t : t[0] / t[1]);
-  const lines = new Set(SECTIONS.map((s) => s.id));
+  const lines = new Set(
+    SECTIONS.flatMap((s) => [
+      s.id,
+      ...Array.from({ length: 4 }, (_, i) => `${s.id.slice(0, -1)}-4-${i + 1}`),
+    ]),
+  );
   const out: Record<string, Seam[]> = {};
   for (const p of score.parts) {
     const notes = p.events.filter((e): e is NoteEvent => e.type !== "text");

@@ -2,6 +2,9 @@
   "values": {},
   "presets": {
     "Orchestra": {},
+    "Original whole sections": {
+      "sharing": "whole sections"
+    },
     "Strings only": {
       "winds": false,
       "brass": false,
