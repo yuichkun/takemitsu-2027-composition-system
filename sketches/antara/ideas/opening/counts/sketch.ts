@@ -9,11 +9,13 @@
 // set): where one begins, harp 2 too, on the same string (the first interval). The heads of harp 2
 // are counted once more by the same set: where such a group begins, the tam-tam is struck softly,
 // and the ground takes the slowest level. A metre comes out of counting, levels deep; no bar puts
-// it there.
+// it there. The ground gives way: each time harp 2 plays, one of its six voices leaves, from the
+// top; harp 2 plays so few times that the lowest voices, a quarter tone apart, stay to the end.
 
 import type { Score } from "../../../../../src/score/types.ts";
 import { betweenSet, choice, number, type Values } from "../../../../../src/sketch/knobs.ts";
 import {
+  BAND_SIZE,
   familyOf,
   ground,
   partOf,
@@ -78,7 +80,7 @@ export const knobs = {
     value: "tam-tam",
     options: ["tam-tam", "nothing"],
   }),
-  ...soundKnobs("stays"),
+  ...soundKnobs("gives way"),
 };
 
 type V = Values<typeof knobs>;
@@ -104,9 +106,10 @@ export function score(v: V): Score {
   const three = counted(two, v.heads, v.countRule);
   const end = times.at(-1)! + 2 * TICKS;
   const strike = v.tamtam === "tam-tam";
+  const leaves = two.slice(0, BAND_SIZE).map((k) => times[k]!);
   const parts = [
     ...strokeParts(v, times, one, two, end),
-    ...ground(v, end, [], strike ? ["bd"] : ["bd", "tam"]),
+    ...ground(v, end, leaves, strike ? ["bd"] : ["bd", "tam"]),
   ];
   if (strike && three.length)
     parts.push(

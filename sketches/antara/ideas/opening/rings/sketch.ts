@@ -13,6 +13,7 @@
 import type { DynamicPoint, NoteEvent, Score } from "../../../../../src/score/types.ts";
 import { number, toggle, type Values } from "../../../../../src/sketch/knobs.ts";
 import {
+  BAND_SIZE,
   familyOf,
   ground,
   harpPitches,
@@ -85,7 +86,9 @@ export function score(v: V): Score {
     }
 
   const end = Math.max(times.at(-1)! + 2 * TICKS, ...spans.map((s) => s[1]));
-  const parts = [...strokeParts(v, times, one, two, end), ...ground(v, end)];
+  // With the six low voices (Ground: gives way), one leaves each time harp 2 plays.
+  const leaves = two.slice(0, BAND_SIZE).map((k) => times[k]!);
+  const parts = [...strokeParts(v, times, one, two, end), ...ground(v, end, leaves)];
   if (spans.length) {
     const held = (midi: number): NoteEvent[] =>
       spans.map(([a, b]) => ({

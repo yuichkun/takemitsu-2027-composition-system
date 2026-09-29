@@ -39,7 +39,7 @@
 | Time | Set、Rule、Halving、Tail | チェレスタの最初のセット、取り出し方、縮む速さ、最後の連打の長さ |
 | Harps | Ring、Held rings | 響きの長さ（秒。16 分音符の整数個に丸める）、第 1 ヴァイオリンが保つか |
 | Pitch | Note、Harp 2 | チェレスタとハープ 1 の音。ハープ 2 は同じ弦か、一つ上の弦か |
-| Ground | Ground、Floor、Alone | 地鳴り（既定は noise only。gives way・stays にすると低い 6 声も入る）、いちばん下の音、最初の一打までの拍 |
+| Ground | Ground、Floor、Alone | 地鳴り（既定は noise only。stays にすると低い 6 声も入り、gives way ならハープ 2 のたびに一声ずつ抜ける）、いちばん下の音、最初の一打までの拍 |
 | Sound | Family、Tempo | 16 分系・3 連系・5 連系、速さ |
 
 ## 事実
