@@ -15,6 +15,9 @@
 //
 // - Light (as in two-grids): where a slide ends, an instrument of that grid sounds the pitch once,
 //   higher up. The usual grid: harp 1 (harmonics), celesta, crotales, piano. The other: harp 2.
+// - Fixed point: from a beat in the middle to the end, the celesta strikes the opening's F♯ on every
+//   beat, the same note as soft the whole time, and leaves its share of the light to the piano (the
+//   ending goes on with it until the violin has come to its F♯).
 // - Breath light: the other grid's light is shared with the flutes, the piccolo and a clarinet.
 // - Homes held: while a voice is turned away, a wind or a muted trumpet holds the tone it left until
 //   it comes back, so the turn is heard as two tones at once.
@@ -138,6 +141,16 @@ export const knobs = {
     help: "Where a slide ends, an instrument of that grid sounds the pitch once, higher up (the usual grid: harp 1, celesta, crotales, piano; the other: harp 2). every arrival · turning away: only where a voice leaves its chord tone · coming home: only where it returns · off",
     value: "every arrival",
     options: ["every arrival", "turning away", "coming home", "off"],
+  }),
+  fixed: number({
+    group: "Light",
+    label: "Fixed point",
+    help: "The beat from which the celesta strikes the opening's F♯ (F♯5) on every beat to the end, the same note, as soft, the whole time (the ending goes on with it). From there the piano alone lights the arrivals it shared with the celesta. 0: none",
+    value: 28,
+    min: 0,
+    max: 160,
+    step: 1,
+    unit: "beats",
   }),
   breath: toggle({
     group: ROLES,
@@ -430,6 +443,8 @@ export function score(v: V): Score {
   const stretch = end / chords.length;
   const voices = VOICES.map((_, i) => voice(v, i, familyOf(i), chords, end));
   const parts: Part[] = [];
+  // Where the celesta's fixed point begins (on a beat; none when 0).
+  const fixedFrom = v.fixed > 0 ? Math.round(v.fixed) * TICKS : Infinity;
 
   // Strings: every desk its own part.
   VOICES.forEach((desk, i) => {
@@ -481,7 +496,10 @@ export function score(v: V): Score {
         continue;
       // The instruments of the arrival's grid that take its family's arrivals; none, no light.
       const g = gridOf(n.midi);
-      const list = grids[g]!.filter((m) => m.family === familyOf(i));
+      const list = grids[g]!.filter(
+        (m) =>
+          m.family === familyOf(i) && !(m.id === "cel" && fixedFrom < end && n.at >= fixedFrom),
+      );
       const key = `${g} ${familyOf(i)}`;
       // The next in turn; a wind still sounding (or already given this moment) passes it on.
       for (let tries = 0; tries < list.length; tries++) {
@@ -502,13 +520,14 @@ export function score(v: V): Score {
         (a, b) => a[0] - b[0],
       );
       if (times.length === 0) continue;
+      const stop = m.id === "cel" ? Math.min(end, fixedFrom) : end;
       const events: NoteEvent[] = times.map(([at, pitches], k) => {
-        const next = times[k + 1]?.[0] ?? end;
+        const next = times[k + 1]?.[0] ?? stop;
         const pitch: Pitch | Pitch[] =
           pitches.length === 1 ? { midi: pitches[0]! } : pitches.map((midi) => ({ midi }));
         const e: NoteEvent = {
           at: time(at),
-          dur: time(Math.min(TICKS, next - at, end - at)),
+          dur: time(Math.min(TICKS, next - at, stop - at)),
           pitch,
         };
         if (m.technique) e.technique = m.technique;
@@ -516,6 +535,24 @@ export function score(v: V): Score {
       });
       parts.push(partOf(m.id, events, [{ at: 0, level: m.level }]));
     }
+  }
+
+  // The fixed point: from its beat on, the celesta strikes the opening's F♯ on every beat, written as
+  // the opening wrote it (a quarter, tenuto), as soft all the way.
+  if (fixedFrom < end) {
+    const strokes: NoteEvent[] = [];
+    for (let at = fixedFrom; at < end; at += TICKS)
+      strokes.push({
+        at: time(at),
+        dur: time(TICKS),
+        pitch: { midi: 78 },
+        articulations: ["tenuto"],
+      });
+    const lit = parts.find((p) => p.id === "cel");
+    if (lit) {
+      lit.events.push(...strokes);
+      lit.dynamics = [...(lit.dynamics ?? []), { at: time(fixedFrom), level: 2 }];
+    } else parts.push(partOf("cel", strokes, [{ at: time(fixedFrom), level: 2 }]));
   }
 
   // Excursions: a voice leaves its chord tone (the slide away starts), stays away, and comes back.
