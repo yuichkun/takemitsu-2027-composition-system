@@ -1,0 +1,359 @@
+{
+ "title": "antara · palette A · the name of a between",
+ "meter": [
+  {
+   "measure": 1,
+   "beats": 4,
+   "beatType": 4
+  }
+ ],
+ "tempo": [
+  {
+   "at": 0,
+   "bpm": 54
+  }
+ ],
+ "measures": 9,
+ "parts": [
+  {
+   "id": "fl",
+   "instrument": "flute",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      10,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 73.5
+     }
+    },
+    {
+     "at": [
+      40,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 66.5
+     }
+    },
+    {
+     "at": [
+      50,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      25,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    }
+   ],
+   "name": "Flute",
+   "abbreviation": "Fl."
+  },
+  {
+   "id": "tpt",
+   "instrument": "trumpet",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      0,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72.5
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      25,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 72
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      65,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "muted"
+    },
+    {
+     "at": [
+      85,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 71
+     },
+     "technique": "muted"
+    }
+   ],
+   "name": "Trumpet",
+   "abbreviation": "Tpt."
+  },
+  {
+   "id": "mar",
+   "instrument": "marimba",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      5,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 68
+     }
+    },
+    {
+     "at": [
+      35,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 71
+     }
+    },
+    {
+     "at": [
+      55,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     }
+    },
+    {
+     "at": [
+      95,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     }
+    }
+   ],
+   "name": "Marimba",
+   "abbreviation": "Mar."
+  },
+  {
+   "id": "va",
+   "instrument": "violas",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      20,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     }
+    },
+    {
+     "at": [
+      10,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 65.5
+     }
+    },
+    {
+     "at": [
+      20,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 75.5
+     }
+    },
+    {
+     "at": [
+      30,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 64.5
+     }
+    }
+   ],
+   "name": "Viola (solo)",
+   "abbreviation": "Va.",
+   "players": 1
+  },
+  {
+   "id": "vc",
+   "instrument": "cellos",
+   "dynamics": [
+    {
+     "at": 0,
+     "level": 4
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      5,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 69
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      15,
+      1
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 70
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      70,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 74.5
+     },
+     "technique": "pizz"
+    },
+    {
+     "at": [
+      80,
+      3
+     ],
+     "dur": [
+      5,
+      3
+     ],
+     "pitch": {
+      "midi": 73.5
+     },
+     "technique": "pizz"
+    }
+   ],
+   "name": "Cello (solo)",
+   "abbreviation": "Vc.",
+   "players": 1
+  }
+ ]
+}
