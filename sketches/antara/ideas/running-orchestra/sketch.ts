@@ -9,8 +9,8 @@
 // each change reaching the sections one after another, bottom up. At the end every section meets on
 // one downbeat.
 // Each line is passed round four divisions in continuous phrases. A division rests between its
-// phrases; no strokes are removed inside one. Handover is at a group head, with the
-// outgoing division playing the first few strokes of the next phrase too. Pitch grids are not
+// phrases; no strokes are removed inside one. Each phrase has at most ten strokes including the
+// three shared with the next division (defaults). Pitch grids are not
 // assigned to divisions. The underlying lines also feed the other instruments unchanged.
 //
 // The rest of the orchestra, each by what it can play:
@@ -195,21 +195,21 @@ export const knobs = {
     value: "four groups, phrases",
     options: ["four groups, phrases", "whole sections"],
   }),
-  phrase: number({
+  chunk: number({
     group: "Strings",
-    label: "Phrase",
-    help: "Minimum beats before passing to the next division, at the next group head. Each division plays continuously, then rests while the other three take their turns",
-    value: 4,
-    min: 2,
-    max: 12,
+    label: "Chunk",
+    help: "Maximum strokes in one continuous phrase, including its overlap with the next division. The next division enters after Chunk minus Overlap strokes; original accents stay where they are",
+    value: 10,
+    min: 8,
+    max: 24,
     step: 1,
-    unit: "beats",
+    unit: "strokes",
   }),
   overlap: number({
     group: "Strings",
     label: "Overlap",
-    help: "Strokes of the next phrase also played by the outgoing division. The same notes at the same times; no held notes or new pitches are added",
-    value: 2,
+    help: "Strokes shared by consecutive divisions, included in Chunk's limit. The same notes at the same times; no held notes or new pitches are added",
+    value: 3,
     min: 0,
     max: 4,
     step: 1,
@@ -388,17 +388,25 @@ interface Stroke {
   head: boolean;
 }
 
-/** Continuous slices of the original line, handed round at its accented group heads. */
-function sharedPhrases(strokes: Stroke[], beats: number, overlap: number): Stroke[][] {
+/** Bounded continuous slices; overlap is included in the limit, never appended beyond it. */
+function sharedPhrases(strokes: Stroke[], size: number, overlap: number): Stroke[][] {
+  if (
+    !Number.isInteger(size) ||
+    size < 1 ||
+    !Number.isInteger(overlap) ||
+    overlap < 0 ||
+    overlap >= size ||
+    overlap * 2 > size
+  )
+    throw new Error("Chunk must be a positive whole number; Overlap must be 0 to half of Chunk");
   const groups: Stroke[][] = Array.from({ length: 4 }, () => []);
   let from = 0;
   let turn = 0;
   while (from < strokes.length) {
-    const target = strokes[from]!.at + beats * TICKS;
-    let to = from + 1;
-    while (to < strokes.length && !(strokes[to]!.at >= target && strokes[to]!.head)) to++;
-    groups[turn % groups.length]!.push(...strokes.slice(from, to + overlap));
-    from = to;
+    const to = Math.min(strokes.length, from + size);
+    groups[turn % groups.length]!.push(...strokes.slice(from, to));
+    if (to === strokes.length) break;
+    from = to - overlap;
     turn++;
   }
   return groups;
@@ -530,7 +538,7 @@ export function score(v: V): Score {
     };
     const divided = v.sharing === "four groups, phrases";
     if (divided)
-      sharedPhrases(strokes, v.phrase, v.overlap).forEach((phrase, i) => {
+      sharedPhrases(strokes, v.chunk, v.overlap).forEach((phrase, i) => {
         if (phrase.length) add(`${sec.id.slice(0, -1)}-4-${i + 1}`, phrase.map(eventOf), curve());
       });
     const events: NoteEvent[] = divided ? [] : strokes.map(eventOf);
@@ -685,8 +693,8 @@ export function score(v: V): Score {
 
 /**
  * Where a section made of this sketch may stop or start (src/sketch/join.ts): the strings where a
- * group begins (an accented stroke), so a line stops or starts on its own metre; everything else at
- * any of its notes.
+ * group begins (an accented stroke), or a division enters after a rest; everything else at any
+ * of its notes.
  */
 export function seams(score: Score): Record<string, Seam[]> {
   const q = (t: NoteEvent["at"]) => (typeof t === "number" ? t : t[0] / t[1]);
@@ -700,7 +708,13 @@ export function seams(score: Score): Record<string, Seam[]> {
   for (const p of score.parts) {
     const notes = p.events.filter((e): e is NoteEvent => e.type !== "text");
     out[p.id] = notes
-      .filter((n) => !lines.has(p.id) || n.articulations?.includes("accent"))
+      .filter(
+        (n, i) =>
+          !lines.has(p.id) ||
+          n.articulations?.includes("accent") ||
+          (p.id.includes("-4-") &&
+            (i === 0 || q(notes[i - 1]!.at) + q(notes[i - 1]!.dur) < q(n.at) - 1e-9)),
+      )
       .map((n) => q(n.at));
   }
   return out;
