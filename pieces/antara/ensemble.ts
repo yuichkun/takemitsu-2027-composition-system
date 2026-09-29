@@ -57,6 +57,8 @@ const percussion: Player[] = [
   { id: "wbm", instrument: "woodblock-medium", name: "Woodblock (medium)", player: "p3" },
   { id: "wbl", instrument: "woodblock-low", name: "Woodblock (low)", player: "p3" },
   { id: "ratch", instrument: "ratchet", name: "Ratchet", player: "p3" },
+  // The climax's last stroke, where everything is cut off.
+  { id: "vslap", instrument: "vibraslap", name: "Vibraslap", player: "p3" },
 ];
 
 const harpsAndKeyboards: Player[] = [
