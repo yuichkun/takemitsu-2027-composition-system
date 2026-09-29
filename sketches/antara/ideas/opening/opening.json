@@ -2754,7 +2754,7 @@
       1
      ],
      "dur": [
-      61,
+      67,
       1
      ],
      "pitch": {
@@ -2769,15 +2769,91 @@
     },
     {
      "at": [
-      70,
+      76,
       1
      ],
      "dur": [
-      42,
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      84,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      91,
+      1
+     ],
+     "dur": [
+      11,
       1
      ],
      "pitch": {
       "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      102,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      109,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 29
      },
      "technique": "sul-tasto"
     }
@@ -2812,7 +2888,7 @@
       1
      ],
      "dur": [
-      49,
+      44,
       1
      ],
      "pitch": {
@@ -2821,17 +2897,131 @@
      "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
-      45,
+      38,
       1
      ]
     },
     {
      "at": [
-      55,
+      50,
       1
      ],
      "dur": [
-      57,
+      11,
+      1
+     ],
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      61,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      69,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      76,
+      1
+     ],
+     "dur": [
+      11,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      87,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      94,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      101,
+      1
+     ],
+     "dur": [
+      11,
       1
      ],
      "pitch": {
@@ -2870,7 +3060,7 @@
       1
      ],
      "dur": [
-      35,
+      37,
       1
      ],
      "pitch": {
@@ -2879,21 +3069,173 @@
      "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
-      32,
+      30,
       1
      ]
     },
     {
      "at": [
-      38,
+      40,
       1
      ],
      "dur": [
-      74,
+      8,
       1
      ],
      "pitch": {
       "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      48,
+      1
+     ],
+     "dur": [
+      11,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      59,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      67,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      74,
+      1
+     ],
+     "dur": [
+      11,
+      1
+     ],
+     "pitch": {
+      "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      85,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      92,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      99,
+      1
+     ],
+     "dur": [
+      10,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      109,
+      1
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 29
      },
      "technique": "sul-tasto"
     }
@@ -2928,7 +3270,121 @@
       1
      ],
      "dur": [
-      112,
+      61,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      56,
+      1
+     ]
+    },
+    {
+     "at": [
+      61,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 29
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      69,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      77,
+      1
+     ],
+     "dur": [
+      11,
+      1
+     ],
+     "pitch": {
+      "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      2,
+      1
+     ]
+    },
+    {
+     "at": [
+      88,
+      1
+     ],
+     "dur": [
+      8,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      96,
+      1
+     ],
+     "dur": [
+      7,
+      1
+     ],
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      1,
+      1
+     ]
+    },
+    {
+     "at": [
+      103,
+      1
+     ],
+     "dur": [
+      9,
       1
      ],
      "pitch": {

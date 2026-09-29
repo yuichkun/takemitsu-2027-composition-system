@@ -56982,7 +56982,7 @@
    "events": [
     {
      "at": 9,
-     "dur": 61,
+     "dur": 67,
      "pitch": {
       "midi": 28
      },
@@ -56991,10 +56991,50 @@
      "glissAfter": 58
     },
     {
-     "at": 70,
-     "dur": 42,
+     "at": 76,
+     "dur": 8,
+     "pitch": {
+      "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 84,
+     "dur": 7,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 91,
+     "dur": 11,
      "pitch": {
       "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 102,
+     "dur": 7,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 109,
+     "dur": 3,
+     "pitch": {
+      "midi": 29
      },
      "technique": "sul-tasto"
     },
@@ -57214,17 +57254,77 @@
    "events": [
     {
      "at": 6,
-     "dur": 49,
+     "dur": 44,
      "pitch": {
       "midi": 28
      },
      "technique": "sul-tasto",
      "gliss": true,
-     "glissAfter": 45
+     "glissAfter": 38
     },
     {
-     "at": 55,
-     "dur": 57,
+     "at": 50,
+     "dur": 11,
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 61,
+     "dur": 8,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 69,
+     "dur": 7,
+     "pitch": {
+      "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 76,
+     "dur": 11,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 87,
+     "dur": 7,
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 94,
+     "dur": 7,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 101,
+     "dur": 11,
      "pitch": {
       "midi": 29
      },
@@ -57468,19 +57568,99 @@
    "events": [
     {
      "at": 3,
-     "dur": 35,
+     "dur": 37,
      "pitch": {
       "midi": 28
      },
      "technique": "sul-tasto",
      "gliss": true,
-     "glissAfter": 32
+     "glissAfter": 30
     },
     {
-     "at": 38,
-     "dur": 74,
+     "at": 40,
+     "dur": 8,
      "pitch": {
       "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 48,
+     "dur": 11,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 59,
+     "dur": 8,
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 67,
+     "dur": 7,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 74,
+     "dur": 11,
+     "pitch": {
+      "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 85,
+     "dur": 7,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 92,
+     "dur": 7,
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 99,
+     "dur": 10,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 109,
+     "dur": 3,
+     "pitch": {
+      "midi": 29
      },
      "technique": "sul-tasto"
     },
@@ -57625,7 +57805,67 @@
    "events": [
     {
      "at": 0,
-     "dur": 112,
+     "dur": 61,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 56
+    },
+    {
+     "at": 61,
+     "dur": 8,
+     "pitch": {
+      "midi": 29
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 69,
+     "dur": 8,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 77,
+     "dur": 11,
+     "pitch": {
+      "midi": 28.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 2
+    },
+    {
+     "at": 88,
+     "dur": 8,
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 96,
+     "dur": 7,
+     "pitch": {
+      "midi": 29.5
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": 1
+    },
+    {
+     "at": 103,
+     "dur": 9,
      "pitch": {
       "midi": 28
      },

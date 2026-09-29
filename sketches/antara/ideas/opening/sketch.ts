@@ -173,9 +173,10 @@ function celesta(v: V): { gaps: number[]; settled: number } {
 
 /**
  * The ground. The basses come in one desk at a time, all on the lowest string's E (a canon of
- * entries on one note), at one level throughout; later, one after another, three desks glide
- * away from it by a quarter tone each (to E1 + 0.5, 1, 1.5), so the one note opens into a band.
- * `glides`: the span (ticks) the glides are spread over.
+ * entries on one note), at one level throughout. Later, one desk after another, each starts to
+ * rise and fall from it by glissando, in waves of its own lengths and heights (quarter tones), so
+ * the waves pass between the four desks and the low note heaves. `glides`: the span (ticks) over
+ * which the desks start.
  */
 function ground(end: number, winds: number, glides: [number, number]): Part[] {
   const parts: Part[] = [];
@@ -187,34 +188,34 @@ function ground(end: number, winds: number, glides: [number, number]): Part[] {
       { at: time(enter), level: 0.5, to: "linear" },
       { at: time(enter + 2 * TICKS), level: 2 },
     ];
+    // Where this desk starts to move; then waves: up to a height, back down to E1, each slide's
+    // length and each height drawn in turn, from the desk's own place in the sets.
+    const start = beat(g0 + (g1 - g0) * [0.6, 0.1, 0.35, 0.85][k]!);
+    const slides = cycle([5, 7, 6, 9], k);
+    const heights = cycle([1, 0.5, 1.5], k);
+    const holds = cycle([1, 2], k);
     const events: NoteEvent[] = [];
-    if (k === 0) {
+    let at = enter;
+    let hold = start - enter;
+    let midi = 28;
+    let up = true;
+    while (true) {
+      const slide = slides() * TICKS;
+      if (at + hold + slide + 2 * TICKS > end) break;
       events.push({
-        at: time(enter),
-        dur: time(end - enter),
-        pitch: { midi: 28 },
+        at: time(at),
+        dur: time(hold + slide),
+        pitch: { midi },
         technique: "sul-tasto",
+        gliss: true,
+        glissAfter: time(hold),
       });
-    } else {
-      const at = beat(g0 + (g1 - g0) * [0.15, 0.5, 0.85][k - 1]!);
-      const slide = [3, 4, 3][k - 1]! * TICKS;
-      events.push(
-        {
-          at: time(enter),
-          dur: time(at + slide - enter),
-          pitch: { midi: 28 },
-          technique: "sul-tasto",
-          gliss: true,
-          glissAfter: time(at - enter),
-        },
-        {
-          at: time(at + slide),
-          dur: time(end - at - slide),
-          pitch: { midi: 28 + k * 0.5 },
-          technique: "sul-tasto",
-        },
-      );
+      at += hold + slide;
+      midi = up ? 28 + heights() : 28;
+      up = !up;
+      hold = holds() * TICKS;
     }
+    events.push({ at: time(at), dur: time(end - at), pitch: { midi }, technique: "sul-tasto" });
     parts.push(partOf(id, events, dynamics));
   });
   // Contrabassoon and tuba: breaths of a few seconds, out of nothing and back, handing over to
