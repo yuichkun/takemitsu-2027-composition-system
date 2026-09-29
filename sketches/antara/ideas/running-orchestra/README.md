@@ -2,7 +2,7 @@
 
 - 状態: ラフ（2026-09-29）。曲に入れて、スケッチで詰めていく
 - 元: [`../running/`](../running/README.md)「弦が走る」と、余湖さんの値（プリセット My Fav）。元のフォルダには触っていない。編成は [`../../../../pieces/antara/ensemble.ts`](../../../../pieces/antara/ensemble.ts)
-- 曲の中: [`../../../../pieces/antara/running/`](../../../../pieces/antara/running/sketch.ts) がこのスケッチそのもの（コードも値も同じ。決定 0026）。いまは two-grids の真後ろ
+- 曲の中: [`../../../../pieces/antara/running/`](../../../../pieces/antara/running/sketch.ts) がこのスケッチそのもの（コードも値も同じ。決定 0026）。いまは冒頭の真後ろ（曲の順番は opening running climax two-grids）
 - 作るもの: [`sketch.ts`](./sketch.ts)
 
 ## 余湖さんの注文（2026-09-29）

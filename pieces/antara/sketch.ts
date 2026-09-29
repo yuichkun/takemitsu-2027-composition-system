@@ -16,7 +16,7 @@ import type { Score } from "../../src/score/types.ts";
 import { ensemble, shown } from "./ensemble.ts";
 
 /** The sections, in the order they come (their folders' names). */
-const SECTIONS = ["opening", "two-grids", "running", "climax"];
+const SECTIONS = ["opening", "running", "climax", "two-grids"];
 
 export const knobs = {
   sections: text({
