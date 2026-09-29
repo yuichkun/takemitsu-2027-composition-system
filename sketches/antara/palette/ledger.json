@@ -953,7 +953,7 @@
       "length": "1:40（30",
       "round": 10,
       "audit": {
-        "verdict": "fix",
+        "verdict": "fixed-unverified",
         "strength": 4,
         "why": "前の和音が埋めずに残した切れ目が次の和音の種になり、使った高さは二度と使わないので、区間の始まり・深まり・自然な終わり（育てられなくなる所）がすべて規則から出る。長い和声の区間を組む素材として使える。",
         "problems": "(1) 待ちは「殻の数 × 3 atom（3 の仲間）」で、これはちょうど殻の数だけの拍になる。そのため 59 の鳴り始めが全部拍の上に来る（♩ = 72 の 4 分音符の格子）。3 の仲間は名前だけになっている。どの段も入りは 1 拍ごとが 3〜4 回続いてから 2 拍、3 拍ごとへ間遠になるので、4 分のパルスと、段ごとにくり返すリタルダンドの形が 8 回そのまま聴こえる（カードは耳で判断する点として挙げているだけ）。(2) 「一度凍った高さは使わない」と「次の種は前の和音が残した切れ目から」の二つが合わさって、定義済みの領域は 4 段目から下の端が 56.5 のまま動かず、段は上へしか出口がない。段ごとの和音の平均の高さは 59.8 → 63.7 → 71.5 → 63.7 → 73.4 → 76.8 → 81.3 → 83.6 → 81 と、ほぼ一方向に上がる。最後の三段は弦が 76.5〜87 にあり（チェロが 76.5 と 78 を pp で保つ）、金管は上の端の近く。強弱と厚さは一定なので盛り上げの型ではないが、音域の一方向の移動は値ではなく仕組みから出ている。(3) 1 段目と 3 段目、2 段目と 7 段目は、種から見た形が 8 音のうち 7 音で同じ。",
@@ -973,7 +973,7 @@
       "length": "1:23",
       "round": 10,
       "audit": {
-        "verdict": "fix",
+        "verdict": "fixed-unverified",
         "strength": 4,
         "why": "「音程の幅と時間の幅の和がいつも同じ」は、一つの切れ目が軸によって音程とも時間とも呼ばれることを最も直接に聴かせる仕組みで、和音から線への（逆に回せば線から和音への）移行部に使える。ただ、いまの並べ方では最初の三打が名前の付く積み重ねに落ちている。",
         "problems": "(1) 大きさの並べ方（下の組から、四分音の数で 9 1 8 2 7 3 6 4 5）では隣どうしの和が 10 と 9 の交互になり、一つおきの声が等しい幅の積み重ねになる。1 打目は 5 半音の積み重ね（65.5 70.5 75.5 80.5 85.5、4 度堆積）、2 打目は 4 半音（65.5 69.5 73.5 77.5 81.5、増三和音の積み重ね）、3 打目は 3 半音（69 72 75 78、減七）。手引きの落とし穴「仕組みは正しいのに、結果が名前の側に落ちる」そのもので、カードも認めたうえで残している。10 打目の一本目も 2 拍ごとに拍の上に来る。(2) 2 打目から 10 打目までの 9 打は、どれも同じファゴットの 65.5（毎回頭で打ち直す）から上への分散和音。いちばん下の声は曲のあいだ動かない保続音で、高さ・鳴る高さの種類・入りの遅さがそろってその一音へ集まる、収まっていく型の形になる（これは仕組みから出る）。(3) すべての声を弱音器付きの弦の分奏が、同じ入り・同じ長さで重ねている。そのため倒れた二声（別の管の色）のどちらにも同じ弦の色が付き、聴かせたい「同じ高さを別の色が遅れて受ける」が薄まる（手引きの落とし穴「楽器の重さ」）。最後は 20 パートが 65.5 に重なり、再生では音量が増えるだけになる。",
@@ -1013,7 +1013,7 @@
       "length": "1:48",
       "round": 10,
       "audit": {
-        "verdict": "fix",
+        "verdict": "fixed-unverified",
         "strength": 3,
         "why": "中心から外へ開く楔が、仲間の違いで追いつき、足踏みする様子ははっきり聴こえ、背景の層や区間のテクスチャとして使える。ただ高さの素材が一本のはしごに固定されていて、展開が密度の一つの山に頼っている。",
         "problems": "(1) 滴の間を 12 → 6 → 3 拍と単調に縮めたので、鳴っている弦の声は 2〜6（0:00〜0:35）→ 8（0:36〜0:59）→ 10〜12（1:00〜1:19）と増えて一つの山になり、そのあと減っていく。4 拍あたりの鳴り始めも 6 から 16 へ増える。強弱は p 以下に抑えてあるが、速さと厚さが同じ向きに増えて頂点へ向かう形で、山は全体の 6〜7 割の位置にある。作曲者が退けてきた「頂点へ向かって一様に厚くなる」形。(2) 11 の輪はどれも同じ 16 音のはしごを同じ順に通る。1:48 のあいだ高さの素材は一度も変わらず、展開は密度の山だけに頼っている。(3) 輪が生まれるたびに、ハープ 2 台と弦が 66 と 66.5 を同時に鳴らす。四分音一つの二音のうなりが、「滴」の合図として 11 回くり返される。構造上は中心にいちばん近い二音だが、聴こえ方は四分音の効果の側に寄る（カードも耳で判断する点に挙げている）。",
@@ -1025,18 +1025,18 @@
       "kind": "B",
       "axis": "texture",
       "title": "床を渡る光",
-      "issue": "A「交差して入れ替わる色」の交差を使い、動かない十二音の和音（床の弦 10 声）の上を、クラリネットが下から、弱音器のトランペットが上から、隣と交差し続けて渡る。弦は一段ずれて、また元に戻る",
+      "issue": "床を渡る光: 二本の光が動かない和音を一方向の分散和音でたどるだけで、展開はすれ違いの一回（疑いを残した）",
       "mechanism": "Chord: 12 tones stacked bottom-up from anchor 55 by set {1.5, 2, 3, 3.5} in order, repeated over 11 betweens: 55, 56.5, 58.5, 61.5, 65, 66.5, 68.5, 71.5, 75, 76.5, 78.5, 81.5 (positions 0..11). Never changes. Players: floor = 10 string parts from divisi() on positions 1..10 (about Vc 2, Va 3, Vn II 3, Vn I 2); light A = clarinet at position 0; light B = trumpet con sord. at position 11 (both can s",
-      "listen": "和音の高さは一度も変わらず、クラリネット（上へ）とトランペット（16 秒から下へ、少し速く）の色だけが弦と滑り合って一段ずつ渡る。34.5 秒に二つの光が交差し、最後に弦は最初と同じ配置に戻る",
+      "listen": "クラリネットの上りとトランペットの下りが、和音の上を渡る一つの色として追えるか。ただの遅い分散和音に聴こえるか",
       "instruments": "クラリネット、弱音器のトランペット、弦 10 声の分奏（コントラバスなし）",
       "uses": "palette/a/texture-braid（交差して入れ替わる色）",
       "length": "1:12",
       "round": 10,
       "audit": {
-        "verdict": "doubt",
+        "verdict": "kept-with-doubt",
         "strength": 2,
         "why": "関係は動かさず、名前（色）だけが渡っていくという前提の一点目は明快に聴こえる。ただ、線が一方向の分散和音に閉じているので、動かない和音の上を一つの色が移る色彩の層より先には広がりにくい。",
-        "problems": "光は一段ずつ一方向にしか進まない。そのためクラリネットの線は、動かない和音の 12 音を下から順に鳴らすだけになる（55 → 83 を 56 秒で、11 歩すべて上向き）。トランペットは上から順に下りるだけ（83 → 55）。二本とも、向きの変わらないゆっくりした分散和音で、パレットで入れ替えの中の旋律（line-in-the-trades）が疑いとして残された落とし穴と同じ形になっている。和音は 72 秒のあいだ一度も変わらない。出来事は光と床の交差 20 回と光どうしの交差 1 回だけで、展開は二本の線が真ん中ですれ違う一回しかない。和音のセット・留まり・仲間の値を変えても、線が和音の音を順に一方向へたどることは変わらない。仕組みそのものから出る結果。",
+        "problems": "光は隣とだけ一方向に交差する仕組みなので、どの値でも二本の線は上り一方と下り一方の分散和音になり、72 秒のあいだ和音は変わらない。床のずれも六人は同じ楽器の中で起きていて、展開はほぼすれ違いの一回だけ。",
         "near": "breaths-walk（保たれた和音を、一点が下から上へ渡る）。texture-wind-across と wind-is-the-cut（一本の滑りが、動かない和音を一音ずつ渡る）。colour-by-between（音は動かず色だけが替わる）。line-in-the-trades（旋律が向きの変わらない分散和音になる）"
       }
     },
@@ -1045,15 +1045,15 @@
       "kind": "B",
       "axis": "mixed",
       "title": "0 で打楽器が線を継ぐ",
-      "issue": "「同じ音を受け渡す」の線の間が全部 0 に閉じた所だけ無音程打楽器が受け渡しの輪に入り、0 から開き直すと、音程の線と 0 の色の線の二本に分かれる",
+      "issue": "0 の区間では打楽器が 7 打続けて一節になり、開く区間では有音程の鳴り始めすべてに一打が重なっていた → 0 の色 7 つを 19 の輪に均等に散らし、開く区間では 0 の色が 5 連 16 分の自分の時間（5 6 6 7）で打ち、セットから 0 がなくなる段の前で止む",
       "mechanism": "PITCH: standpoint s = 60, rising set R = {1.5, 2, 3.5, 4}; stage k (k = 0..8) uses betweens max(0, b − 0.5 k) for each b; each stage: the standpoint, then the four betweens added in order (5 notes per stage, back to the standpoint at every stage), so stage 0 climbs 60 → 71 and stage 8 stays on 60. COLOURS: 12 pitched, in a written order: bass clarinet, solo cello, horn, tubular bells*, oboe, tromb",
-      "listen": "0:28〜0:33 の 7 打が、管の 61 と同じ一本の線の続きに聴こえるか。0:46 のオーボエ 61.5 から、線が二本に分かれて聴こえるか",
+      "listen": "0 の区間（8〜12 小節）で、管や弦の 61 のあいだに一つずつ入る打楽器の一打が、同じ一本の線に聴こえるか。13 小節頭から二本（16 分と 5 連 16 分）に分かれたと聴こえるか、打楽器が伴奏に落ちるか。1:06 で打楽器が止み、最後の段が一本で 72 へ登るのが聴こえるか",
       "instruments": "有音程 12（木管 5・金管 3・ベル・ヴィブラフォン・独奏 Va/Vc）と、無音程打楽器 6 と Vn II の col legno",
       "uses": "ideas/lines の b-hand-off（同じ音を受け渡す）",
       "length": "1:16",
       "round": 10,
       "audit": {
-        "verdict": "fix",
+        "verdict": "fixed",
         "strength": 3,
         "why": "「セットが {0} のあいだだけ無音程打楽器が線に入る」は、音高の線と噪音の線をつなぐ移行部の入り口としてほかにない仕組みだが、全体は p の単旋律の受け渡しで、しかも 0 の区間の並べ方がいまは問いそのものを塞いでいる。",
         "problems": "(1) 0 の区間の輪は「有音程 12 色のあとに 0 の色 7 つ」をつなげただけの一列。そのため 0 の色は 7 打続けて来る（31.25〜36.0 拍、44.75〜47.0 拍では 4 打）。聴こえるのは「管の 61 の列」と「打楽器だけの一節」の交代で、カードが耳に問う「打楽器の一打と管の 61 が一本の線に聴こえるか」の答えを、並べ方が先に決めてしまっている（カードは作曲の段の点に回している）。(2) 開く区間では、40 の鳴り始めのすべてで打楽器の一打が有音程の音と同じ瞬間に鳴る（ずれ 0）。二本に分かれたというより、有音程の線の頭に打楽器が色を足した一本に聴こえやすい。(3) 開く区間では、一つの鳴り始めの音が 1 から 2 に増え、それと同じ向きに段のいちばん上の音が 61.5 から 72 へ上がっていく。p のままだが、手引きの落とし穴「一方向の偏り」の形。段は 16 回とも 61 から上がる同じ輪郭（b-narrowing の性質）。",
@@ -1065,18 +1065,18 @@
       "kind": "B",
       "axis": "pitch",
       "title": "軸へ向かってオーケストラが消えていく",
-      "issue": "A「中心は誰も弾けない」を 8 組 63 人のオーケストラに広げ、3 巡動いたあと外側の大きな組から退場させ、鳴らない軸を四分音一つで挟む首席二人だけで終わる",
+      "issue": "形は A の入り・動き・抜けのままで B 独自の出来事がなく、退場で音域と人数がそろって一点へ縮み、最後に四分音の二声が裸で 12.7 秒残る（根は未解決。カード冒頭に疑いとして明記）",
       "mechanism": "Width set W (10 values, extending the A's own generating rule of ever-growing gaps by one more semitone each step): 0.5, 2.5, 5.5, 9.5, 14.5, 20.5, 27.5, 35.5, 44.5, 54.5 (gaps 2,3,4,5,6,7,8,9,10). All widths are .5-valued by construction (forced by the off-grid centre, as in the A). Fixed centre (e.g. MIDI 66.25, same as the A). 8 pairs (16 voices), each pair symmetric about the centre at some wi",
-      "listen": "鳴らない軸 63.25 をはさんで二声が反対向きに動くこと。64〜83 秒に、音域が外から内へ狭まるのと一緒に 63 人が 2 人まで減り、最後に 63 と 63.5 の二声だけが残ること",
+      "listen": "64〜83 秒で音域と人数がそろって縮むのが既知の消え方に聴こえるか、2〜61 秒の独奏の組の動きが pp のセクションに埋もれるか、最後の 63 と 63.5 がうなりに聴こえるか",
       "instruments": "フルート、オーボエ、ファゴット 3、ホルン 4、バス・トロンボーン、テューバ、弦（Vn I・Vn II・Va・Vc の首席と全員。コントラバスなし）の 16 パート、63 人",
       "uses": "palette/a/pitch-unplayed-centre（中心は誰も弾けない）",
       "length": "1:36",
       "round": 10,
       "audit": {
-        "verdict": "doubt",
+        "verdict": "kept-with-doubt",
         "strength": 3,
         "why": "鳴らない軸をはさむ対称な和音がオーケストラ全体の規模でも成り立つことは示せていて、曲の終わりの素材になりうる。ただ形は A のままで、終わり方は、人数と音域をそろえて縮める既知の型に寄っている。",
-        "problems": "形は、動き 3 巡のあと幅の広い組から退場し、いちばん狭い組が残るというもの。これは A「中心は誰も弾けない」の形（入り・動き・抜け）から入りを除いただけで、B 独自の出来事の種類がない（組を 4 から 8 に増やしてオーケストラに配っただけ。手引きの「B が A に楽器を足しただけ」）。B で足した唯一の決め事は「人数を退場の順で付ける」。これは構造の理由ではなく、案の聴きどころ（全奏から独奏へ）を成り立たせるための選択。その結果、退場の約 20 秒のあいだ、3 拍ごとに鳴る音域（36〜90.5 → 63〜63.5）と人数（63→39→23→10→8→6→4→2）がそろって一方向に縮む。盛り上げの型を裏返した、一点へ消えていく既知の終わり方になっている。最後の 13 秒は、ヴァイオリン I 首席とチェロ首席の四分音の二音（63 と 63.5）が裸で保たれる。四分音がうなりとして聴かれやすい、パレットでいちばん露出した所（カードも耳の問いにしている）。動きの 60 秒は、11〜15 人が pp で保つセクションのすぐそばで、独奏の組（フルートとテューバ、オーボエとバス・トロンボーン）が動く。動きの多くが埋もれ、止まった全奏の和音に聴こえるおそれがある。",
+        "problems": "A に足したのは「人数を退場の順で付ける」だけで、しかもそれは構造の理由ではなく案の聴きどころのための選択。外から退場する限り、音域と人数がそろって縮む形と裸の四分音の終わりはこの考えの定義に含まれていて、直すと別のスケッチになる。残すか別案を立てるかは聴いて決めてほしい。",
         "near": "a/pitch-unplayed-centre（A そのもの）、b/rings-from-a-drop（同じ A を使う B）"
       }
     },
@@ -1113,7 +1113,7 @@
       "length": "0:49（音は",
       "round": 9,
       "audit": {
-        "verdict": "doubt",
+        "verdict": "redesigned-unverified",
         "strength": 2,
         "why": "セットの個数から線の長さと終わりを決める道具としては紙の上で面白いが、耳に届くのは「間が一つずつ加わる」ことと値で作った締めの形だけで、尽きることそのものは聴こえない。",
         "problems": "(1) The take-the-most rule levels the counts. Every kind that has joined stays until all reach 0 together in the last round (facts: kinds in the draw go 1→2→3→4→5 and never decrease). So the reserve is never heard running out. What is heard is only 'a new interval joins every so often, round-robin', and a simpler rule (add kinds at fixed points) would sound identical. That is GUIDE 5b's 仕組みが計算の中にしかない, and the end cannot be told from an arbitrary stop (the card's first ear question admits the listener has no cue). (2) The only audible cues for the end were placed by value choice. The widest bet",
@@ -1185,15 +1185,15 @@
       "kind": "A",
       "axis": "pitch",
       "title": "くびれを通る砂",
-      "issue": "誰も鳴らさない立ち位置（くびれ）から上に積んだ声が、くびれに近い声から一声ずつ、くびれを通って同じ大きさだけ下へ滑る。間の大きさは変わらず、上か下かという名前だけが裏返る",
+      "issue": "くびれを通る砂 — 誰も鳴らさない立ち位置（くびれ）で、間の大きさを保ったまま向きだけを裏返す。7 声が書いた順に一声ずつ同じ速さでくびれを滑り抜け、和音が山からその逆さへ移る",
       "mechanism": "Neck N = 69.5 (the middle of the strings' combined range 36–103; it lands on the offset grid as a result). Heap: 7 voices at N + d, d = [0.5, 1.5, 3.5, 5, 7.5, 8, 11] (consecutive differences 1, 2, 1.5, 2.5, 0.5, 3: each of the six sizes 0.5…3 exactly once). Tones above: 70, 71, 73, 74.5, 77, 77.5, 80.5. Rule, applied once per grain period G = 18 atoms of family 3 (6 beats at quarter = 54): among ",
-      "listen": "6.7 秒ごとに一声だけが滑り、誰も鳴らさない 69.5 をいつも 3 拍後に通る。くびれのまわりに開いていく穴（隣どうしの間が 2 から 11.5 まで広がる）と、途中の和音に立つ、最初の和音にない間を聴く",
+      "listen": "誰も弾かない 69.5 を 7.3 秒おきに一声ずつ同じ速さで滑り抜けるか。滑りの長さが間の大きさに聴こえるか。止まった和音に山にない和の間が立つか。0:28〜0:56 の起点の格子の属和音の形が、調の名前として聴こえるか",
       "instruments": "ヴァイオリン II 7 部の分奏（各 2 人、arco pp non vib.）",
       "uses": "",
       "length": "1:07",
       "round": 9,
       "audit": {
-        "verdict": "fix",
+        "verdict": "fixed",
         "strength": 3,
         "why": "鳴らない立ち位置を通って和音が一声ずつ鏡像へ移る動きは、二つの和音をつなぐ移行の素材になる。ただ出来事は一種類で、いまの取る順だと、一方向に大きくなっていく形に縛られている。",
         "problems": "取る順が「くびれに近い声から」なので、粒ごとの値が全部そろって一方向に増える。滑る幅は 1→3→7→10→15→16→22 半音、速さは 0.15→3.3 半音/秒、先に着いた声を通り過ぎる数は 0→6、和音の幅は 10.5→19、いちばん下の音は 69→58.5。いちばん大きな出来事（最上声 80.5 が 22 半音を 6.7 秒で落ちる）は最後の粒に来る。人数と強弱は平らだが、同じ出来事が 7 回だんだん大きくなって、頂点で終わる形になる（カードは耳の問いにしただけ）。前半の粒は 1 半音や 3 半音を 6.7 秒かけて這い、保っている隣の声に対して四分音より細かい高さをゆっくり通る。これは「音程が下がっていく／うなる」として聴かれやすく、原則が「同じ間の揺れ」と警告した聴こえ方にいちばん近い（カードはここを名指ししていない）。既定の D は「和に 12・24 が立たない」で 122 通りから 51 通りに絞った値。カード自身が構造の理由ではないと認めたオクターブ避けが、既定値に残っている。",
@@ -1213,7 +1213,7 @@
       "length": "1:12",
       "round": 9,
       "audit": {
-        "verdict": "fix",
+        "verdict": "fixed-unverified",
         "strength": 3,
         "why": "向きの切れ目が塊を下から上へ渡る動きは、弦全体の和音に割れ目が走る地の素材になりうる。ただ和音の形がほぼ固定のまま一拍ごとの刻みで平行に移るので、和声の変化は乏しい。",
         "problems": "走りのセットを小さい順（6, 9, 12）に読むので、巡ごとに山が 3 半音ずつ上がる。端の山は 56→59→62、いちばん上の声の山は 91.5→94.5→97.5。いちばん高い所といちばん開く所（幅 46）が 0:53（18 小節のうち 14 小節目）に重なる。その下で弦 52 人が、♩=60 のちょうど 1 拍ごとに 66 回そろって弾き直す（刻み）。強弱は pp で平らでも、刻みの上で高さと開きが一つの頂点へ進む形になる。カードは耳の問いにしたが、つまみ（betweenSet）が並べ替えるので順を変えられないまま残っている。根の性質として、12 声のあいだの 11 の間のうち、変わるのはいつも一つだけ。走りの中は 0.5・1・1.5 の三歩を繰り返し、和音の形ごと 3 半音ずつ移る（平行移動の反復進行）。だから和声の色は、ほぼ一つの和音の形に固定される。",
@@ -1225,18 +1225,18 @@
       "kind": "A",
       "axis": "pitch",
       "title": "和音が自分を通り抜ける",
-      "issue": "和音の書かれない二音の間（21）を時刻として聴かせる。同じ和音の写しが一定の速さで元の和音を通り抜け、音が重なる瞬間だけピアノが打つ",
+      "issue": "和音の写しが元の和音を通り抜け、別の音どうしが重なる瞬間だけピアノが一音打つ。打ちの時刻が 21 の間の一覧になる（中心の一撃と密集をなくした）",
       "mechanism": "Chord betweens B = [1.5, 2, 2.5, 3, 3.5, 5] (bottom up, in this order) on standpoint s = 60.5: held tones T = {60.5, 62, 64, 66.5, 69.5, 73, 78}, span 17.5. Grids: 60.5, 66.5, 69.5 on the shifted grid (.5); 62, 64, 73, 78 on the usual grid. HELD CHORD: 7 woodwinds, one tone each, ord, pp: bassoon 60.5, bass clarinet 62, clarinet 2 64, clarinet 1 66.5, oboe 69.5, flute 73, piccolo 78. Enter bar 1 b",
-      "listen": "弦の同じ和音が木管の和音を 36 秒で上から下へ通り抜け、重なる瞬間だけピアノが打つ。0:24 に七音が一致し、打ちの時刻はそこを軸に鏡になる（打つ高さは上から下へ移る）",
+      "listen": "打ちがいつも一音で平らに散り、打たれない中心を軸に鏡になるか。後半の 59.5→59 の四分音の続きと最後の交互が、揺れの効果に聴こえないか",
       "instruments": "木管 7（一人一音で保つ）、弦 7 部（各 3 人、flautando のグリッサンド）、ピアノ 2（ふつう／四分音低く調弦）",
       "uses": "",
       "length": "0:54",
       "round": 9,
       "audit": {
-        "verdict": "doubt",
+        "verdict": "partly",
         "strength": 3,
         "why": "滑る写しと保つ和音の出会いをピアノが打つ仕組みは聴こえやすく移行部に使えるが、「風が和音を渡る」の重ね書きに近く、中心の全音一致へ密になって打つ弧の形が根にある。",
-        "problems": "(1) The mechanism is texture-wind-across's rule (a glide at one quarter tone per atom across a held chord, with times read from pitch betweens), run by seven voices at once. Each single pitch strikes the same 3,4,5,6,7,10 rhythm (card line 138), which is wind-across per voice. The new thing is only the superposition, the chord's full difference set. (2) Strike density has to rise toward the centre, because small differences are the most numerous: 2,2,2,4,5,4,4,5,4,3,2,2 per 2 beats. It arrives at a total unison (the strings exactly on the winds) with all 7 tones struck on both pianos at 0:24 (",
+        "problems": "中心へ密になって全員で打つ弧は消えたが、一つの高さを追えば「風が和音を渡る」と同じ読みで、31 秒の一様なグリッサンドも残る。新しい和音はいちばん下の間が 0.5 なので、後半に 59.5→59 の四分音の続きが 5 回来て交互だけで終わり、四分音の揺れの効果に聴こえうる（弦も各部 3 人から 5 人に増えた）。",
         "near": "texture-wind-across (same glide rate and crossing rule; this is seven of it at once); pitch-terms-where-betweens-touch (event at a vertical between of 0)"
       }
     },
@@ -1253,7 +1253,7 @@
       "length": "1:05",
       "round": 9,
       "audit": {
-        "verdict": "doubt",
+        "verdict": "redesigned-unverified",
         "strength": 2,
         "why": "規則の聴こえる線がオーケストラの片側から反対側へ渡るという移行部の考えは使える。ただ中身は A 二つの重ねで、音高が止まり、後半が刻みから揃いへ向かう型に落ちている。",
         "problems": "上の組は A そのものを 6 拍遅らせたもの、下の組は読む順を逆にした A（カード自身が明記している）。手引きの落とし穴「A を時間をずらして重ねただけ」にそのまま当たる。B で新しいのは、渡しが組のあいだを行き来することと、最後に四本がそろって保つことだけ。四本の線は最初から最後まで一つの高さ（79、65.5、58、44.5）で、音高の次元がない。さらに規則の結果、下の組に 1 atom が残り、木管が 0:37 から 1:02 まで 16 分の一音の刻みになる。1 小節の鳴り始めの時点はおよそ倍になり（カードの数で 12〜18 → 24〜29）、mp の出会いも後半に寄る。そのあと四本が小節の頭でそろって 1 小節保つ。「刻み → 密になる → そろう」という映画音楽の型の骨組みで、カードもおそれとして書いているが、値では避けられていない。",
@@ -1265,20 +1265,76 @@
       "kind": "A",
       "axis": "time",
       "title": "間だけを鳴らす",
-      "issue": "時間の間を、両端の鳴り始めを打たずに鳴らせるか。大太鼓が項を打ち、ティンパニのロールが項で 0・真ん中で最大の形で間を鳴らす。項だけ → 両方 → 間だけの順に同じ並びを聴く",
+      "issue": "時間の間を、両端の項を打たずにロール（両端で無音、真ん中で最大）として鳴らせるか。鳴らす音が二つの打ちに挟まれた第三の音になる疑いを抱えたまま残した",
       "mechanism": "One time line, family 3 (atom = triplet 8th = 20 ticks). Set {4 5 7 8 10 11} atoms, rule \"shift each time\" (the set in order, each round starting one later), 4 rounds -> 24 betweens b_1..b_24, 25 terms t_0..t_24 (t_0 = 0, t_k = t_{k-1} + b_k * 20 ticks). Total 4 * 45 atoms = 180 atoms = 60 beats. Tempo 60. TERMS: bass drum, technique ord, one stroke per term, level 3 (p), written 1 atom long, only",
-      "listen": "大太鼓が消えた最後の 15 秒で、ロールが 0 に触れる打たれない点がまだ鳴り始めの列として聴こえるか、それとも 2.2〜2.8 秒に寄った頂点の列に置き換わるか",
+      "listen": "0:45 以降の間だけの段で、打たれない項（ロールが無音になる一点）がまだ鳴り始めの列に聴こえるか。それとも、約 2.5 秒ごとにほぼ揃う膨らみの頂点が脈に聴こえるか",
       "instruments": "大太鼓 1、ティンパニ 1（一つの高さでロール）",
       "uses": "",
       "length": "1:04",
       "round": 9,
       "audit": {
-        "verdict": "doubt",
+        "verdict": "kept-with-doubt",
         "strength": 2,
         "why": "打たれない項を膨らみの谷として残す色は小さな打楽器の層にはなるが、間を挟まれた第三の音として鳴らす点が前提とぶつかり、素材としての幅も狭い。",
-        "problems": "(1) The roll is a sound object placed between two terms, silent at both ends and loudest in the middle. That is literally the 'third thing between two' which premise §1 and GUIDE §1 reject. The card sees the risk (line 18) but answers only with the shape rule, and in the terms-and-betweens stage the ear gets stroke, swell, stroke. (2) In the betweens-only stage, the peaks come every 2.17–2.83 s while the unstruck terms (zero points) spread over 1.33–3.67 s (card lines 144, 153). The near-regular swell peaks are likely heard as the pulse, so the test 'are unstruck terms still heard' is tilted b",
+        "problems": "ロールは項から項までを埋め、真ん中で最も強い一つの音なので、前提が退ける「二つに挟まれた第三のもの」に聴こえるおそれがある。しかも頂点の列は、どの読む順でも項の列より揃う。余湖さんに決めてほしいのは、時間の間を音として鳴らしてよいかという一点。",
         "near": "pitch-terms-where-betweens-touch (its pitch twin: the between sounds before its terms); time-unsounded-origin and time-unsounded-betweens (an unstruck term)"
       }
+    },
+    {
+      "path": "a/time-from-the-last-heard",
+      "kind": "A",
+      "axis": "time",
+      "title": "最後に鳴った音から測る",
+      "issue": "時間の間を、どこから足すか。二人の奏者がそれぞれ自分のセットと規則を持つ。前半は原則どおり、自分の前の鳴り始めから足す（二本の線）。後半は同じ間の列を、誰のものであれ最後に鳴った鳴り始めから足す。後半では、待っている二つの間のうち小さい方が先に鳴り、鳴らなかった方は大きさを保ったまま、新しい鳴り始めから測り直す。二本の線が一本の線になり、次の項にどちらの奏者が付くかは、間の大小の関係から後で決まる。これだけを試す。",
+      "mechanism": "Family 5 (quintuplet 16ths, atom = 12 ticks), tempo 54, 4/4 via scoreOf. Two players: P = woodblock-high, Q = woodblock-low; every strike 1 atom long, dynamics p constant, no accents. P set written [3, 6, 1, 9], Q set written [7, 2, 9, 4] (atoms); rule 'shift each time' for both (drawer in between.ts); each player takes K = 16 betweens (one full rotation, every start position once). P stream: 3 6 ",
+      "listen": "・前半は二本の線が重なって走り、ときどき偶然そろう（4 回）。後半は同じ間が一本の線に並び、高い木と低い木が一打ずつ受け渡す。\n・後半のいちばん長い沈黙はいつも 9 atom で、いつも二人同時の一打で閉じる（4 回）。\n・後半、片方が長く黙る所がある（高い木は最長 31 atom）。相手の間が自分の持っている間より小さいあいだは待ち、相手が 9 を持った所で一緒に入る。\n・同じ 32 の間が、前半は 88 atom、後半は 128 atom かかる。重なっていたものが並ぶ。",
+      "instruments": "ウッドブロック 2（高 = P、低 = Q）。どちらも p、アクセントなし",
+      "uses": "",
+      "length": "0:58",
+      "round": 11,
+      "unreviewed": true
+    },
+    {
+      "path": "a/time-rest-is-the-cut-below",
+      "kind": "A",
+      "axis": "time",
+      "title": "休みは下の切れ目",
+      "issue": "休み（鳴らない時間）を、セットの中で隣り合う二つの大きさのあいだ（切れ目）として持つ。各項は、自分の時間の間より一つ小さいセットの大きさの長さだけ鳴り、残り（二つの大きさの差）が休みになる。いちばん小さい大きさの下には切れ目がないので、その項は次の項まで鳴り続ける。途中でセットに大きさを一つ足すと、その上の大きさの休みだけが変わる。休みが間の大きさではなく、セットの中の切れ目で決まることを、これだけ試す。",
+      "mechanism": "Family 5 (quintuplet 16ths, atom = 12 ticks), tempo 63, 4/4. One oboe on one fixed pitch (75, middle of the range; one pitch has no between), p, tongued attacks, no accents, no articulation marks (lengths are written as durations). PART 1: set written [4, 11, 1, 9, 3] (atoms), rule 'shift each time', 5 passes = 25 betweens = 140 atoms (28 beats, exactly 7 bars). PART 2 continues the addition from ",
+      "listen": "・同じ一つの音の線で、1 atom の間はつながり、3 は短く切れ、4 はほとんどつながり、9 は短く鳴って長く黙り、11 は長く鳴る。長さの近い 9 と 11、3 と 4 が、まるで違う鳴り方をする。\n・後半に 8 が加わると、9 は長く鳴るようになり、いちばん長い休みは 8 に移る。9 の間そのものは同じ長さのまま。\n・休みの長さは前半が 1・2・5 atom、後半が 1・2・4 atom。後半に 5 の休みは一度も来ない。",
+      "instruments": "オーボエ 1（一つの音の高さ、p）",
+      "uses": "",
+      "length": "1:09",
+      "round": 11,
+      "unreviewed": true
+    },
+    {
+      "path": "a/time-next-seen-from-now",
+      "kind": "A",
+      "axis": "time",
+      "title": "いまから見た次",
+      "issue": "時間の立ち位置を、いま鳴った鳴り始めに置く。そこから直前の時間の間をもう一度前へ足した所（間がくり返すなら次が来るはずの所）を、二人目の奏者が打つ。実際の次の鳴り始めは、それより早いか、遅いか、ちょうどか。二つの打ちのずれは、隣り合う二つの間の差そのもので、差が 0 の所でだけ二つの打ちが一つになる。これだけを試す。",
+      "mechanism": "Family 3 (triplet 8ths, atom = 20 ticks), tempo 60, 4/4. LINE: set written [2, 1, 8, 4, 5, 2] (atoms; the multiset {1, 2, 2, 4, 5, 8}), rule 'shift each time', 36 betweens (6 passes, every start position once): 2 1 8 4 5 2 | 1 8 4 5 2 2 | 8 4 5 2 2 1 | 4 5 2 2 1 8 | 5 2 2 1 8 4 | 2 2 1 8 4 5. Onsets t_0 = 0, t_n = t_(n-1) + b_n: 37 onsets, the last at 132 atoms (44 beats). The line is played by a ",
+      "listen": "・マリンバが鳴るたびに、ウッドブロックが「さっきと同じ間なら、ここで次」という所を打つ。実際の次が先に来てウッドブロックがあとから鳴る所、ウッドブロックが先に鳴って実際の次があとから来る所、ぴったり重なる所の三通り。\n・2 と 2 が続く所で重なる。8 のあとでは、ウッドブロックが線を何項も追い越してから鳴る。\n・複数の「次」が同じ点を指して、ウッドブロックの一打にまとまる所がある（一つの点は三つの項から指され、しかも線の項でもある）。\n・最後は、答える項のないウッドブロックの一打で終わる。",
+      "instruments": "マリンバ（一つの音の高さ。線）、ウッドブロック中（いまから見た次）。どちらも p、アクセントなし",
+      "uses": "",
+      "length": "0:48",
+      "round": 11,
+      "unreviewed": true
+    },
+    {
+      "path": "a/texture-name-of-a-between",
+      "kind": "A",
+      "axis": "texture",
+      "title": "間の名前",
+      "issue": "一本の線のもとになる間のセットの、それぞれの大きさに、曲の最初から一つずつ楽器を固定して結びつける。どの大きさの間で次の音へ動いたかが、そのまま鳴る楽器を決める。同じ大きさの間が戻れば、同じ楽器が戻る。間の大きさも並びも一切変えず、色だけが「この関係にはこの名前」を最初から最後まで一貫して示す。",
+      "mechanism": "Standpoint p0 fixed. Five unsigned magnitudes, arithmetic step 1 semitone starting at 2.5: {2.5, 3.5, 4.5, 5.5, 6.5} (all carry .5). Sign assignment by list-position parity (structural, not by ear): 1st/3rd/5th (2.5, 4.5, 6.5) are positive steps, 2nd/4th (3.5, 5.5) are negative steps, giving the written sequence S = {+2.5, -3.5, +4.5, -5.5, +6.5} (sum = +4.5). Traversal alternates by cycle to canc",
+      "listen": "同じ一本の線の中で、間の大きさが変わるたびに楽器（名前）が変わり、同じ大きさの間が戻れば同じ楽器が戻ることを聴く。楽器の並びだけを聴いて、いまどれだけの間を渡ったかが当てられるかを試す。",
+      "instruments": "弱音器トランペット（2.5）、ピッツィカート・チェロ（3.5）、フルート（4.5）、マリンバ（5.5）、独奏ヴィオラ（6.5）。一本の線を五つの楽器が間の大きさ",
+      "uses": "",
+      "length": "0:40",
+      "round": 11,
+      "unreviewed": true
     }
   ],
   "rejected": [
@@ -1473,6 +1529,110 @@
       ],
       "rejected": 0,
       "commit": "8d30770"
+    },
+    {
+      "round": 11,
+      "ended": "2026-09-29 09:40",
+      "added": [
+        "最後に鳴った音から測る",
+        "休みは下の切れ目",
+        "いまから見た次",
+        "間の名前"
+      ],
+      "rejected": 1,
+      "commit": "ea3b64f"
+    }
+  ],
+  "unfinished": [
+    {
+      "round": 11,
+      "path": "a/pitch-holes-become-the-chord",
+      "title": "穴が和音になる",
+      "where": ".local/probe/unfinished/palette/a/pitch-holes-become-the-chord"
+    },
+    {
+      "round": 11,
+      "path": "a/time-line-of-releases",
+      "title": "鳴り終わりの線",
+      "where": ".local/probe/unfinished/palette/a/time-line-of-releases"
+    },
+    {
+      "round": 11,
+      "path": "a/texture-fixed-and-fluid-colour",
+      "title": "決まった順と、揺れ動く順",
+      "where": "(作り手が書き始める前に止まった)"
+    },
+    {
+      "round": 11,
+      "path": "a/texture-edge-takes-colour",
+      "title": "端に色がつく",
+      "where": "(作り手が書き始める前に止まった)"
+    },
+    {
+      "round": 11,
+      "path": "a/texture-reach-of-a-standpoint",
+      "title": "届く範囲が切れ目を置く",
+      "where": "(作り手が書き始める前に止まった)"
+    },
+    {
+      "round": 11,
+      "path": "a/texture-open-strings-light-the-line",
+      "title": "開放弦が灯す音",
+      "where": "(作り手が書き始める前に止まった)"
+    },
+    {
+      "round": 12,
+      "path": "b/leaf-gates-trade-families",
+      "title": "葉が仲間を渡す",
+      "where": ".local/probe/unfinished/palette/b/leaf-gates-trade-families"
+    },
+    {
+      "round": 12,
+      "path": "b/melody-is-the-loudest",
+      "title": "いちばん大きい声が旋律",
+      "where": ".local/probe/unfinished/palette/b/melody-is-the-loudest"
+    },
+    {
+      "round": 12,
+      "path": "b/melody-turns-back",
+      "title": "向きが裏返る旋律",
+      "where": ".local/probe/unfinished/palette/b/melody-turns-back"
+    },
+    {
+      "round": 12,
+      "path": "b/cut-in-then-back-out",
+      "title": "両端から切り、真ん中から切り返す",
+      "where": ".local/probe/unfinished/palette/b/cut-in-then-back-out"
+    },
+    {
+      "round": 12,
+      "path": "b/cuts-open-and-close-at-zero",
+      "title": "0 から開いて 0 へ閉じる切れ目",
+      "where": ".local/probe/unfinished/palette/b/cuts-open-and-close-at-zero"
+    },
+    {
+      "round": 12,
+      "path": "b/line-steps-back-into-voices",
+      "title": "立ち位置が下がると、線が声になる",
+      "where": ".local/probe/unfinished/palette/b/line-steps-back-into-voices"
+    },
+    {
+      "round": 12,
+      "path": "b/units-change-where-all-meet",
+      "title": "全員が起点に立つ所でだけ、単位が替わる",
+      "where": ".local/probe/unfinished/palette/b/units-change-where-all-meet"
+    },
+    {
+      "round": 12,
+      "path": "b/glide-or-two-strikes",
+      "title": "聴こえる切れ目と、項だけの切れ目",
+      "where": ".local/probe/unfinished/palette/b/glide-or-two-strikes"
+    },
+    {
+      "round": 12,
+      "path": "b/names-change-in-the-wait",
+      "title": "待ちの中で名前が替わる",
+      "where": ".local/probe/unfinished/palette/b/names-change-in-the-wait"
     }
   ]
 }
