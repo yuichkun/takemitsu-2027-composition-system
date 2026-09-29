@@ -293,7 +293,9 @@ export function chooseArticulation(
   const first = wants[0]!;
   const found = wants.find((w) => available.has(w));
   if (!found) throw new Error(`No usable articulation among ${wants.join(", ")}`);
-  const asked = [...t, ...a].join("+") || "ord";
+  // Struck and plucked instruments play accents and dots by velocity and length, not by patch.
+  const byPatch = map.family === "strings" || map.family === "woodwind" || map.family === "brass";
+  const asked = [...t, ...(byPatch ? a : [])].join("+") || "ord";
   return found === first || asked === "ord"
     ? { articulation: found }
     : { articulation: found, approximate: `${asked} → ${found}` };
