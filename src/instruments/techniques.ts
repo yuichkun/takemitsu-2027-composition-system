@@ -52,7 +52,9 @@ export const techniques: Record<string, Technique> = {
   "side-stick": { text: "side stick" },
   choke: { text: "choke", cancel: "l.v." },
   shake: { text: "shake" },
-  crescendo: { text: "", cancel: "" },
+  // A swell out of nothing (BBC SO's tam-tam crescendo): a struck instrument swells only by a roll,
+  // so it is written as one (with the hairpin from the part's dynamics).
+  crescendo: { text: "", cancel: "", mark: "tremolo" },
   bisbigliando: { text: "bisb.", mark: "tremolo" },
   gliss: { text: "gliss.", cancel: "" },
   long: { text: "long scrape" },
