@@ -15,13 +15,20 @@
 // never lost; only the axis it is measured on changes. In every strike the pitch betweens (in
 // quarter tones) and the time betweens (in atoms) add up to the same total.
 //
-// Ten winds and brass, one voice each, strike once per stage; the lowest voice is the standpoint
-// and never moves. Stage 0 is a chord struck at once. The narrowest cut turns flat first (its two
-// voices on one pitch, one after the other), then the next, until the widest has turned: the last
-// strike is one pitch handed from the bottom player to the top one, the waits between them the
-// sizes of the cuts. Where the chord starts, the order the cuts fall in, and where it ends are set
-// by the sizes alone. Each voice is doubled by a divided string part, con sord., holding with it.
-// Dynamics are constant: winds p, strings pp. Card: README.md.
+// Ten winds and brass, one voice each and each a different instrument (every pair of neighbours
+// is two colours, and no two voices share a recording), strike once per stage; the lowest voice is
+// the standpoint and never moves. Stage 0 is a chord struck at once. The narrowest cut turns flat
+// first (its two voices on one pitch, one after the other), then the next, until the widest has
+// turned: the last strike is one pitch handed from the bottom player to the top one, the waits
+// between them the sizes of the cuts. Where the chord starts, the order the cuts fall in, and where
+// it ends are set by the sizes alone.
+//
+// The default order of the sizes adds no equal spacing of its own, across and along: it is the only
+// order of 1 to 9 quarter tones in which no three sounding pitches are equally spaced in any of the
+// first four strikes (four is the most any order reaches) and no voice walks the same step of two
+// or more quarter tones three times running. The first chord's pitches and the last strike's
+// onsets are the same numbers, so no three onsets of the last strike are equally spaced either.
+// Dynamics are constant: p. Card: README.md.
 
 import { instrument } from "../../../../../src/instruments/catalog.ts";
 import {
@@ -33,7 +40,7 @@ import {
   type Values,
 } from "../../../../../src/sketch/knobs.ts";
 import { atomOf, familyOf, FAMILY_OPTIONS } from "../../../between.ts";
-import { curve, divisi, note, part, scoreOf, TICKS, type Player } from "../../common.ts";
+import { curve, note, part, scoreOf, TICKS, type Player } from "../../common.ts";
 
 const player = (id: string, kind: string, name: string, abbreviation: string): Player => ({
   id,
@@ -44,32 +51,35 @@ const player = (id: string, kind: string, name: string, abbreviation: string): P
   grids: [0, 1],
 });
 
-// One player per voice, bottom to top. Each reaches from the standpoint up to its tone of the first
-// chord; neighbours are woodwind and brass in turn as far as the ranges allow.
+// One player per voice, bottom to top: the ten winds and brass with a solo recording that reach the
+// standpoint, each once, in the order of the top of their ranges (the k-th voice needs to reach
+// its tone of the first chord, and those tones rise from the bottom voice to the top one, so this
+// order reaches whenever any order does). Two pairs have the same top (bass clarinet and horn, bass
+// flute and trumpet); each is placed so that the three hand-offs with the shortest waits (cuts of
+// 1, 2 and 3 quarter tones: the fifth, second and first pairs) are woodwind and brass.
 const VOICES: Player[] = [
-  player("bsn", "bassoon", "Bassoon", "Bsn."),
   player("tbn", "trombone", "Trombone", "Tbn."),
-  player("hn2", "horn", "Horn 2", "Hn. 2"),
+  player("bsn", "bassoon", "Bassoon", "Bsn."),
+  player("hn", "horn", "Horn", "Hn."),
   player("bcl", "bass-clarinet", "Bass Clarinet", "B. Cl."),
-  player("hn1", "horn", "Horn 1", "Hn. 1"),
   player("ci", "cor-anglais", "Cor anglais", "C. ingl."),
   player("tpt", "trumpet", "Trumpet", "Tpt."),
-  player("cl", "clarinet", "Clarinet", "Cl."),
+  player("bfl", "bass-flute", "Bass Flute", "B. Fl."),
   player("ob", "oboe", "Oboe", "Ob."),
+  player("cl", "clarinet", "Clarinet", "Cl."),
   player("fl", "flute", "Flute", "Fl."),
 ];
 // Score order, top down.
-const SCORE_ORDER = ["fl", "ob", "ci", "cl", "bcl", "bsn", "hn1", "hn2", "tpt", "tbn"];
+const SCORE_ORDER = ["fl", "bfl", "ob", "ci", "cl", "bcl", "bsn", "hn", "tpt", "tbn"];
 
 const P = 3;
-const PP = 2;
 
 export const knobs = {
   sizes: text({
     group: "Cuts",
     label: "Sizes",
     help: "The size of each cut between neighbouring voices, bottom to top, in the order written (semitones, .5 for a quarter tone; nine, for ten voices). At the first strike they are all pitch betweens; at each strike every cut not yet flat gives one quarter tone of pitch to one atom of time. A cut of q quarter tones turns flat at strike q + 1; the sketch ends with the strike in which the widest has turned. The order is what the chord holds, so this reads the numbers as written",
-    value: "4.5 0.5 4 1 3.5 1.5 3 2 2.5",
+    value: "1.5 1 3.5 2.5 0.5 4 3 4.5 2",
   }),
   start: pitch({
     group: "Cuts",
@@ -166,24 +176,12 @@ export function score(v: Values<typeof knobs>) {
       curve([{ at: 0, level: P }]),
     ),
   );
-  const ranges = lines.map((xs): [number, number] => [
-    Math.min(...xs.map((x) => x.midi)),
-    Math.max(...xs.map((x) => x.midi)),
-  ]);
-  const strings = divisi(ranges).map((p, k) =>
-    part(
-      p,
-      lines[k]!.map((x) => note(x.at, x.stop - x.at, x.midi, { technique: "con-sord" })),
-      curve([{ at: 0, level: PP }]),
-    ),
-  );
-
   const bar = 4 * TICKS;
   const byOrder = SCORE_ORDER.map((id) => winds[VOICES.findIndex((p) => p.id === id)]!);
   return scoreOf(
     "antara · palette B · the cuts fall from pitch to time",
     Math.ceil(end / bar),
     v.tempo,
-    [...byOrder, ...strings.reverse()],
+    byOrder,
   );
 }

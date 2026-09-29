@@ -10,12 +10,16 @@
 // set of pitch betweens can hold only 0. While the line's set holds any between other than 0, only
 // twelve pitched colours take turns. Where every between of the set has closed to 0, nothing tells
 // a pitched instrument from an unpitched one, so seven colours of 0 (six unpitched percussion and
-// the second violins col legno on the standpoint) join the turn: a stroke without pitch sounds in
-// the same row as a held standpoint, one line. Then the set opens again, stage by stage, in the
-// reverse order of the closing. The colours of 0 cannot follow a between other than 0, so from the
-// first stage that opens they leave the turn and keep a line of their own at 0: on every onset the
-// next pitched colour plays the opening line and the next colour of 0 plays a stroke. One line has
-// become two on one time line, a line of pitch betweens and a line of colours.
+// the second violins col legno on the standpoint) join the turn, spread among the twelve as evenly
+// as seven go into nineteen (two or three places apart within a round, no block of strokes): a
+// stroke without pitch sounds in the same row as a held standpoint, one line. Then the set opens again,
+// stage by stage, in the reverse order of the closing. The colours of 0 cannot follow a between
+// other than 0, so from the first stage that opens they leave the turn and keep a line of their own
+// at 0, in a time of its own: the rhythm's set drawn by the same rule, each pair it draws added into
+// one between, counted in quintuplet 16ths (in triplet 8ths one round of the set would be exactly
+// two bars), from the first beat on (where the two grids meet). That line holds on while the set
+// still holds a 0 and stops at the stage where none is left. One line has become two, a line of
+// pitch betweens and a line of colours, each on its own grid.
 //
 // A stage is the standpoint and then the set's betweens added in order, so the line comes back to
 // the standpoint at every stage and stays in one band that every pitched colour can sound. The hand
@@ -27,7 +31,7 @@
 
 import type { NoteEvent, Part, TextEvent } from "../../../../../src/score/types.ts";
 import { betweenSet, number, pitch, text, type Values } from "../../../../../src/sketch/knobs.ts";
-import { atomOf } from "../../../between.ts";
+import { atomOf, drawer } from "../../../between.ts";
 import { curve, gridOf, note, scoreOf, stream, TICKS, time } from "../../common.ts";
 
 interface Colour {
@@ -220,7 +224,7 @@ export const knobs = {
   rhythm: betweenSet({
     group: "Time",
     label: "Rhythm",
-    help: "The time betweens of the one time line, in 16ths, drawn by combinations two at a time",
+    help: "The time betweens of the one time line, in 16ths, drawn by combinations two at a time. Once the line opens, the line of the colours of 0 adds each pair into one between, in quintuplet 16ths",
     value: "2 3 3 4",
     min: 1,
     max: 16,
@@ -291,6 +295,23 @@ function upcoming(t: Turn, ok: (c: string) => boolean): string {
   throw new Error("No colour of the turn fits");
 }
 
+/**
+ * Two turns as one: the colours of `b` spread among those of `a` as evenly as they go (of the n
+ * places, place p goes to `b` where floor((p + 1) · b / n) passes floor(p · b / n)), each keeping
+ * its written order.
+ */
+function mixed(a: string[], b: string[]): string[] {
+  const n = a.length + b.length;
+  const out: string[] = [];
+  let i = 0;
+  let j = 0;
+  for (let p = 0; p < n; p++) {
+    const fromB = Math.floor(((p + 1) * b.length) / n) > Math.floor((p * b.length) / n);
+    out.push(fromB ? b[j++]! : a[i++]!);
+  }
+  return out;
+}
+
 const sounds = (c: Colour, midi: number) =>
   (c.grids ?? [0]).includes(gridOf(midi)) &&
   (!c.range || (midi >= c.range[0] && midi <= c.range[1]));
@@ -311,14 +332,16 @@ export function score(v: Values<typeof knobs>) {
     for (const b of set) out.push(out.at(-1)! + Math.max(0, b - 0.5 * k));
     return out;
   };
-  const line: { midi: number; phase: Phase }[] = [];
+  // Whether the set of stage k still holds a between of 0.
+  const holdsZero = (k: number) => set.some((b) => b - 0.5 * k <= 0);
+  const line: { midi: number; phase: Phase; stage: number }[] = [];
   for (let k = 0; k < stages; k++)
-    for (const midi of tonesOf(k)) line.push({ midi, phase: "closing" });
-  for (let i = 0; i < v.zero; i++) line.push({ midi: s, phase: "zero" });
+    for (const midi of tonesOf(k)) line.push({ midi, phase: "closing", stage: k });
+  for (let i = 0; i < v.zero; i++) line.push({ midi: s, phase: "zero", stage: stages });
   for (let k = stages - 1; k >= 0; k--)
-    for (const midi of tonesOf(k)) line.push({ midi, phase: "opening" });
+    for (const midi of tonesOf(k)) line.push({ midi, phase: "opening", stage: k });
 
-  // One time line for everything.
+  // One time line: the pitched line throughout, and the colours of 0 while they are in the turn.
   const atom = atomOf(2);
   const rhythm = stream(v.rhythm, "combinations", 2);
   const onsets = [0];
@@ -334,16 +357,17 @@ export function score(v: Values<typeof knobs>) {
     played.set(c, [...(played.get(c) ?? []), { at, stop, midi }]);
   const isPitched = (c: string) => c in PITCHED;
   let turn = turnFrom(pitched, pitched[0]!);
-  let zeroTurn: Turn | undefined;
+  // The turn of the colours of 0 once they leave the one line (set where the line opens).
+  const zeroLine: { turn?: Turn } = {};
   line.forEach((x, i) => {
     const prev = line[i - 1]?.phase;
     if (x.phase === "zero" && prev !== "zero")
       turn = turnFrom(
-        [...pitched, ...zeros],
+        mixed(pitched, zeros),
         upcoming(turn, () => true),
       );
     if (x.phase === "opening" && prev === "zero") {
-      zeroTurn = turnFrom(
+      zeroLine.turn = turnFrom(
         zeros,
         upcoming(turn, (c) => !isPitched(c)),
       );
@@ -362,12 +386,25 @@ export function score(v: Values<typeof knobs>) {
     if (!isPitched(c)) play(c, at, at + atom, colour.onStandpoint ? s : undefined);
     else if (colour.lv) play(c, at, Math.min(at + 2 * TICKS, end), x.midi);
     else play(c, at, next, x.midi);
-    // Opening: the colours of 0 keep their own line, a stroke on every onset.
-    if (x.phase === "opening" && zeroTurn) {
-      const z = take(zeroTurn);
-      play(z, at, at + atom, COLOURS[z]!.onStandpoint ? s : undefined);
-    }
   });
+
+  // Opening: the colours of 0 keep a line of their own at 0, in its own time. The rhythm's set by
+  // the same rule, each pair added into one between, counted in quintuplet 16ths; it starts on the
+  // first beat at or after the split (where the grids of the 16ths and the quintuplets meet) and
+  // stops at the first stage whose set holds no 0.
+  const split = line.findIndex((x) => x.phase === "opening");
+  const zeroTurn = zeroLine.turn;
+  if (zeroTurn && split >= 0) {
+    const gone = line.findIndex((x, i) => i >= split && !holdsZero(x.stage));
+    const stop = gone >= 0 ? onsets[gone]! : last;
+    const quint = atomOf(5);
+    const pairs = drawer(v.rhythm, "combinations", 2, "ascending");
+    for (let at = Math.ceil(onsets[split]! / TICKS) * TICKS; at < stop;) {
+      const z = take(zeroTurn);
+      play(z, at, at + quint, COLOURS[z]!.onStandpoint ? s : undefined);
+      at += pairs().reduce((a, b) => a + b, 0) * quint;
+    }
+  }
 
   const lastColour = [...played].find(([c, xs]) => isPitched(c) && xs.at(-1)!.at === last)?.[0];
   const parts: Part[] = SCORE_ORDER.filter((c) => pitched.includes(c) || zeros.includes(c)).map(

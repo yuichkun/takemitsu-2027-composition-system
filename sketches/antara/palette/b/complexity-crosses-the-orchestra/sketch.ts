@@ -1,84 +1,83 @@
 // antara palette, B: the complexity crosses the orchestra.
 //
 // Uses the A sketch "a between handed over where the lines meet" (../../a/time-handed-at-meetings):
-// its handing rule is copied here and run twice at once, unchanged; only the ending (below) is this
-// B's own. Each pair is two lines on one pitch each: a giving line counting in family 2 and a
-// taking line counting in family 3 (13.5 semitones lower, on the other grid). Both lines of a pair start together and add their time betweens from their own sets,
-// in order and round again. Where the two lines of a pair have an onset on the same tick (a
-// meeting, always on a beat), the giving line hands the between it was about to take to the taking
-// line, which plays it at once, 4/3 as long; the giving set shrinks to one between (a pulse), the
-// taking set grows from one. A pair's meetings are its own: the other pair's lines never count.
+// its handing rule is copied here unchanged and run along a chain of three lines instead of one
+// pair. The near line (pizzicato basses, family 2) starts with the whole giving set; the middle
+// line (tenor trombones, family 3) and the far line (violins I, family 2 again) start as pulses.
+// Each line adds its time betweens from its own set, in order and round again; all three start
+// together. Two neighbours in the chain meet where both have an onset on the same tick (always a
+// beat, since neighbours count in different families). At every meeting after the start, while
+// the nearer of the two holds more than one between, it hands the between it was about to take to
+// the farther one, which plays it at once. The near and far lines never meet each other (they are
+// not neighbours), so nothing passes between them directly: whatever reaches the far line has
+// passed through the middle line, which takes on one side and gives on the other. When the middle
+// line meets both neighbours at once, it gives first and then takes, so what it takes is what it
+// plays there (as the A says of a taking line).
 //
-// The two pairs hold the same numbers. The upper pair (violins I giving, tenor trombones taking)
-// reads the giving set smallest first, as the A does; the lower pair (oboes and clarinets giving,
-// pizzicato basses taking) reads it largest first, so the two pairs meet at other times. The upper
-// pair starts Enters beats after the lower one: with all four lines starting together, the two
-// pairs would hand over at the same moment twice (beats 12 and 38).
+// A between keeps its number of atoms all the way: in the middle line it lasts 4/3 as long, and on
+// the far side, counted in family 2 again, it has its first length back.
 //
-// Once both giving lines are pulses, the passage ends at the first bar line at least After beats
-// after the later of the two last hand-overs where all four lines have an onset together. There
-// the four lines hold their own pitches for one bar, and stop. Every other note lasts until its
-// line's next onset. Levels stay at p; a note on its own pair's meeting is mp.
+// Pitch reads the same count: a line's pitch moves by one quarter tone for every atom that leaves
+// or enters its set. At a hand-over of x atoms the giving line sinks x quarter tones and the taking
+// line rises x quarter tones. The chain runs upwards (basses, trombones, violins, 13.5 semitones
+// apart), so the lines never cross, and the sum of the three pitches never changes. Pitch moves
+// only at hand-overs, and every hand-over moves two lines.
+//
+// Once every line but the far one holds one between, nothing more can cross. The passage ends at
+// the first meeting of the middle and far lines at least After beats after the last hand-over:
+// those two sound one last note (a beat) together; every other note stops there. Every note lasts
+// until its line's next onset. Levels stay at p; a note on a meeting of its line is mp.
 // Card: README.md.
 
 import type { DynamicPoint, NoteEvent, Part } from "../../../../../src/score/types.ts";
 import { betweenSet, number, pitch, type Values } from "../../../../../src/sketch/knobs.ts";
-import { atomOf } from "../../../between.ts";
+import { atomOf, type Family } from "../../../between.ts";
 import { scoreOf, TICKS, time } from "../../common.ts";
 
 export const knobs = {
-  giveSet: betweenSet({
-    group: "Both pairs",
-    label: "Giving set",
-    help: "The time betweens both giving lines start with, in atoms of family 2 (16ths). The upper pair reads them smallest first, the lower pair largest first, round again. At each of its meetings a giving line hands the one it was about to take to its taking line",
+  nearSet: betweenSet({
+    group: "Sets",
+    label: "Near (basses)",
+    help: "The time betweens the near line starts with, in atoms of family 2 (16ths), read smallest first and round again. At each of its meetings with the middle line it hands the one it was about to take",
     value: "1 2 3 5 6 7",
     min: 1,
     max: 16,
     step: 1,
     unit: "atoms",
   }),
-  takeSet: betweenSet({
-    group: "Both pairs",
-    label: "Taking set",
-    help: "The time betweens both taking lines start with, in atoms of family 3 (triplet 8ths). A between handed over enters where the taking line is reading, and is played at once",
+  middleSet: betweenSet({
+    group: "Sets",
+    label: "Middle (trombones)",
+    help: "The time betweens the middle line starts with, in atoms of family 3 (triplet 8ths). It takes from the near line and hands on to the far line",
     value: "4",
     min: 1,
     max: 16,
     step: 1,
     unit: "atoms",
   }),
-  upper: pitch({
-    group: "Upper pair (violins I → trombones)",
-    label: "Pitch",
-    help: "The pitch of the giving line (violins I, the usual grid). The trombones sound 13.5 semitones lower, on the other grid. The range is what both instruments allow",
-    value: "G5",
-    min: "G3",
-    max: "C#6",
-    step: 1,
-  }),
-  enters: number({
-    group: "Upper pair (violins I → trombones)",
-    label: "Enters",
-    help: "Beats after the lower pair's start at which the upper pair starts (on a beat, where both families' grids meet). It moves the upper pair's meetings against the lower pair's",
-    value: 6,
-    min: 0,
+  farSet: betweenSet({
+    group: "Sets",
+    label: "Far (violins I)",
+    help: "The time betweens the far line starts with, in atoms of family 2 (16ths). A between handed over enters where it is reading, and is played at once",
+    value: "3",
+    min: 1,
     max: 16,
     step: 1,
-    unit: "beats",
+    unit: "atoms",
   }),
-  lower: pitch({
-    group: "Lower pair (oboes + clarinets → basses)",
-    label: "Pitch",
-    help: "The pitch of the giving line (oboes and clarinets together, the usual grid). The pizzicato basses sound 13.5 semitones lower, on the other grid. The range is what the three instruments allow, and the basses' samples",
-    value: "Bb3",
-    min: "Bb3",
-    max: "G4",
+  bottom: pitch({
+    group: "Pitch",
+    label: "Basses start on",
+    help: "The basses' first pitch (the usual grid). The trombones start 13.5 semitones higher, the violins 27 higher. From there each hand-over lowers the giving line and raises the taking line by the count handed, in quarter tones",
+    value: "E3",
+    min: "Eb2",
+    max: "F3",
     step: 1,
   }),
   after: number({
     group: "Form",
     label: "After",
-    help: "Once both giving lines are pulses, the passage ends at the first bar line at least this many beats after the later last hand-over where all four lines sound together",
+    help: "Once only the far line holds more than one between, the passage ends at the first meeting of the middle and far lines at least this many beats after the last hand-over",
     value: 8,
     min: 1,
     max: 32,
@@ -97,10 +96,10 @@ export const knobs = {
   }),
 };
 
-/** Semitones from a giving line's pitch down to its taking line's: odd in quarter tones. */
+/** Semitones from one line's first pitch up to the next line's: odd in quarter tones. */
 const APART = 13.5;
 const BAR = 4 * TICKS;
-/** How long the passage may run before it gives up (the four lines never meet on a bar line). */
+/** How long the passage may run before it gives up (the lines meet too rarely for these sets). */
 const LONGEST = 480 * TICKS;
 
 interface Line {
@@ -110,91 +109,100 @@ interface Line {
   pointer: number;
   /** The tick of the line's next onset. */
   next: number;
-  onsets: { at: number; meeting: boolean }[];
+  /** The line's pitch now: it moves only at hand-overs. */
+  midi: number;
+  range: [number, number];
+  name: string;
+  onsets: { at: number; midi: number; meeting: boolean }[];
 }
 
-interface Pair {
-  giver: Line;
-  taker: Line;
-  start: number;
-  /** Ticks of the hand-overs. */
-  handed: number[];
-}
-
-const lineOf = (family: 2 | 3, set: number[], start: number): Line => ({
+const lineOf = (
+  family: Family,
+  set: number[],
+  midi: number,
+  range: [number, number],
+  name: string,
+): Line => ({
   atom: atomOf(family),
   set: [...set],
   pointer: 0,
-  next: start,
+  next: 0,
+  midi,
+  range,
+  name,
   onsets: [],
 });
 
-const pairOf = (give: number[], take: number[], start: number): Pair => ({
-  giver: lineOf(2, give, start),
-  taker: lineOf(3, take, start),
-  start,
-  handed: [],
-});
-
 export function score(v: Values<typeof knobs>) {
-  const smallestFirst = [...v.giveSet].sort((a, b) => a - b);
-  const lower = pairOf([...smallestFirst].reverse(), v.takeSet, 0);
-  const upper = pairOf(smallestFirst, v.takeSet, v.enters * TICKS);
-  const pairs = [lower, upper];
-  const lines = pairs.flatMap((p) => [p.giver, p.taker]);
+  const near = lineOf(2, v.nearSet, v.bottom, [28, 67], "basses");
+  const middle = lineOf(3, v.middleSet, v.bottom + APART, [40, 72], "trombones");
+  const far = lineOf(2, v.farSet, v.bottom + 2 * APART, [55, 103], "violins I");
+  const chain = [near, middle, far];
   const after = v.after * TICKS;
+  let handed = 0;
   let end = -1;
 
-  // All four lines in time order; each pair meets only where its own two lines have an onset.
+  // All three lines in time order. Links are neighbours in the chain; the far link goes first, so
+  // a middle line meeting both sides gives before it takes.
   while (end < 0) {
-    const t = Math.min(...lines.map((l) => l.next));
+    const t = Math.min(...chain.map((l) => l.next));
     if (t > LONGEST)
       throw new Error(
-        `The passage would run past ${LONGEST / TICKS} beats (the four lines never sound together on a bar line); try other sets or another entry`,
+        `The passage would run past ${LONGEST / TICKS} beats (the lines meet too rarely); try other sets`,
       );
-    const pulses = pairs.every((p) => p.giver.set.length === 1);
-    const lastHand = Math.max(...pairs.map((p) => p.handed.at(-1) ?? p.start));
-    const together = lines.every((l) => l.next === t);
-    if (pulses && together && t % BAR === 0 && t - lastHand >= after) end = t;
+    const meets = [0, 1].map((i) => chain[i]!.next === t && chain[i + 1]!.next === t);
+    const crossed = chain.slice(0, -1).every((l) => l.set.length === 1);
+    if (crossed && meets[1] && t - handed >= after) end = t;
 
-    for (const p of pairs) {
-      const meeting = p.giver.next === t && p.taker.next === t;
-      if (end < 0 && meeting && t > p.start && p.giver.set.length > 1) {
+    if (end < 0 && t > 0)
+      for (const i of [1, 0]) {
+        const giver = chain[i]!;
+        const taker = chain[i + 1]!;
+        if (!meets[i] || giver.set.length === 1) continue;
         // The between the giving line was about to take goes to the taking line, which takes it now.
-        const k = p.giver.pointer % p.giver.set.length;
-        const [x] = p.giver.set.splice(k, 1);
-        p.giver.pointer = k % p.giver.set.length;
-        const j = p.taker.pointer % p.taker.set.length;
-        p.taker.set.splice(j, 0, x!);
-        p.taker.pointer = j;
-        p.handed.push(t);
+        const k = giver.pointer % giver.set.length;
+        const [x] = giver.set.splice(k, 1);
+        giver.pointer = k % giver.set.length;
+        const j = taker.pointer % taker.set.length;
+        taker.set.splice(j, 0, x!);
+        taker.pointer = j;
+        // The same count in quarter tones: the giver sinks, the taker rises.
+        giver.midi -= x! / 2;
+        taker.midi += x! / 2;
+        for (const l of [giver, taker])
+          if (l.midi < l.range[0] || l.midi > l.range[1])
+            throw new Error(
+              `The ${l.name} would reach MIDI ${l.midi}, outside ${l.range[0]}–${l.range[1]}; try another starting pitch or other sets`,
+            );
+        handed = t;
       }
-      for (const line of [p.giver, p.taker]) {
-        if (line.next !== t) continue;
-        line.onsets.push({ at: t, meeting });
-        if (end >= 0) continue;
-        const between = line.set[line.pointer % line.set.length]!;
-        line.pointer = (line.pointer + 1) % line.set.length;
-        line.next = t + between * line.atom;
-      }
-    }
+
+    chain.forEach((line, i) => {
+      if (line.next !== t) return;
+      const meeting = (i > 0 && meets[i - 1]!) || (i < chain.length - 1 && meets[i]!);
+      line.onsets.push({ at: t, midi: line.midi, meeting });
+      if (end >= 0) return;
+      const between = line.set[line.pointer % line.set.length]!;
+      line.pointer = (line.pointer + 1) % line.set.length;
+      line.next = t + between * line.atom;
+    });
   }
 
-  const stop = end + BAR;
+  const stop = end + TICKS;
   const partOf = (
     line: Line,
-    midi: number,
     head: Omit<Part, "events" | "dynamics">,
     technique?: string,
   ): Part => {
-    // Each note lasts to the line's next onset; the last one, where all four sound together, a bar.
+    // Each note lasts to the line's next onset; a note on the final meeting, a beat; any other
+    // note still sounding at the end stops there.
     const events: NoteEvent[] = line.onsets.map((o, i) => ({
       at: time(o.at),
-      dur: time((line.onsets[i + 1]?.at ?? stop) - o.at),
-      pitch: { midi },
+      dur: time((line.onsets[i + 1]?.at ?? (o.at === end ? stop : end)) - o.at),
+      pitch: { midi: o.midi },
       ...(technique ? { technique } : {}),
     }));
-    // p throughout; a note on its own pair's meeting is mp.
+    // p throughout; a note on a meeting of its line is mp.
     const dynamics: DynamicPoint[] = [];
     for (const o of line.onsets) {
       const level = o.meeting ? 4 : 3;
@@ -204,36 +212,16 @@ export function score(v: Values<typeof knobs>) {
   };
 
   const parts = [
-    partOf(lower.giver, v.lower, {
-      id: "ob",
-      instrument: "oboe",
-      name: "Oboes",
-      abbreviation: "Ob.",
-      players: 2,
-    }),
-    partOf(lower.giver, v.lower, {
-      id: "cl",
-      instrument: "clarinet",
-      name: "Clarinets",
-      abbreviation: "Cl.",
-      players: 2,
-    }),
-    partOf(upper.taker, v.upper - APART, {
+    partOf(middle, {
       id: "tbn",
       instrument: "trombone",
       name: "Tenor Trombones",
       abbreviation: "Tbn.",
       players: 2,
     }),
-    partOf(upper.giver, v.upper, {
-      id: "vn1",
-      instrument: "violins-1",
-      name: "Violins I",
-      abbreviation: "Vn. I",
-    }),
+    partOf(far, { id: "vn1", instrument: "violins-1", name: "Violins I", abbreviation: "Vn. I" }),
     partOf(
-      lower.taker,
-      v.lower - APART,
+      near,
       { id: "cb", instrument: "basses", name: "Contrabasses", abbreviation: "Cb." },
       "pizz",
     ),

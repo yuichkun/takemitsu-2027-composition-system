@@ -1,12 +1,15 @@
 // antara palette, B: the next chord starts from the cut the last one left unfilled.
 //
-// Uses the A sketch "a chord that grows like frost" (../../a/pitch-frost-freeze), whose rule is
+// Uses the A sketch "a chord that grows like frost" (../../a/pitch-frost-freeze), whose earlier rule
+// (before the A was rebuilt to choose by support, the number of sounding pitches reaching a cut) is
 // copied here: a chord grows from one pitch, the seed. Every sounding pitch is a standpoint; every
 // sounding pitch plus every between of the growth set (signed, + above, − below) is a candidate if
 // no term stands there yet: the undefined cuts. A candidate's shell is the fewest betweens of the
 // set from the seed (the least shell of the chord's pitches that reach it, plus one). The candidate
 // of the lowest shell freezes next (the one nearer the seed, then the lower, on a tie): it starts
-// to sound and never moves.
+// to sound and never moves. The rule by support was tried here: the first two chords came out as one
+// shape moved up by 6, and six of the eight chords grew only upward from their seeds, so the
+// earlier rule is kept.
 //
 // What is new is how one chord hands over to the next. Three groups of eight players (strings,
 // woodwinds, brass) take the chords in turn. A chord stops growing when its group cannot hold one
@@ -14,18 +17,22 @@
 // next chord is the cut the finished one would have filled next had it had room: among its
 // leftover candidates the next group can hold, the one the same rule would choose. A pitch once
 // frozen is defined for the whole piece and is never frozen again, so each chord grows around what
-// the earlier ones have already defined, and its shape differs from theirs.
+// the earlier ones have already defined: where they have filled its neighbourhood, its shape differs
+// from theirs. The chords can only grow at the edge of the defined register, so once the low edge
+// is closed the register moves one way, up: that comes from the rule, not from a value.
 //
-// Time: the wait before a pitch freezes is its shell, counted in beats (three atoms of family 3 per
-// shell): the further a cut is from the standpoint, the longer it waits. A seed waits its shell in
-// the chord that left it (its old name) and is shell 0 in the chord it begins (its new name), so
-// after it the waits start again from one beat.
+// Time: the wait before a pitch freezes is its shell, counted in atoms of family 3 (one triplet
+// eighth per shell): the further a cut is from the standpoint, the longer it waits. The count of
+// betweens is the count of atoms, with no factor between them, so an entry falls on a beat only
+// when the shells added so far make a multiple of three, and the line stands on its family's own
+// grid. A seed waits its shell in the chord that left it (its old name) and is shell 0 in the chord
+// it begins (its new name), so after it the waits start again from one atom.
 //
 // The old chord leaves while the new one grows: at the new chord's k-th freeze (the seed is the
 // first) the old chord's k-th pitch, in the order it froze, stops. If the new chord freezes fewer
-// pitches, the rest of the old one leaves one per beat after its last freeze. The piece ends when a
-// seed can freeze nothing more (every cut it reaches is defined, or out of its group's reach): the
-// old chord leaves one per beat, and the last seed sounds alone for one beat.
+// pitches, the rest of the old one leaves one per atom (the wait of shell 1) after its last freeze.
+// The piece ends when a seed can freeze nothing more (every cut it reaches is defined, or out of its
+// group's reach): the old chord leaves one per atom, and the last seed sounds alone for one atom.
 //
 // The dynamics are flat (strings pp, woodwinds and brass p), with no accents: only which cut is filled, when,
 // and in which colour is heard.
@@ -134,8 +141,8 @@ const COMMON: [number, number] = [
 /** Its middle, on the quarter-tone grid. */
 const MIDDLE = Math.round(COMMON[0] + COMMON[1]) / 2;
 
-/** The wait per shell: three atoms of family 3 (one beat). */
-const WAIT = 3 * atomOf(3);
+/** The wait per shell: one atom of family 3 (a triplet eighth, a third of a beat). */
+const WAIT = atomOf(3);
 
 // Default values, by structure. The growth set has two betweens up and two down, so a chord grows
 // on both sides of its seed; their sizes all differ, and two carry .5, so the frozen pitches stand
@@ -144,7 +151,9 @@ const WAIT = 3 * atomOf(3);
 // what the earlier chords have already defined. The capacity, 8, is the seed, the four pitches of
 // shell 1 (as many as the set has betweens) and three more: a chord with nothing defined around it
 // always stops inside shell 2, so shell 2 cuts are always left for the next seed. The first seed is
-// the middle of the register all three groups can hold.
+// the middle of the register all three groups can hold. The tempo is provisional: at 30 one atom
+// (the wait of shell 1) lasts two thirds of a second, long enough for a pp or p entry to speak
+// before the next.
 export const knobs = {
   growth: betweenSet({
     group: "Pitch",
@@ -185,9 +194,9 @@ export const knobs = {
   tempo: number({
     group: "Time",
     label: "Tempo",
-    help: "Quarter notes per minute. The wait before a pitch freezes is its shell, in beats",
-    value: 72,
-    min: 40,
+    help: "Quarter notes per minute. The wait before a pitch freezes is its shell, in triplet eighths (one atom of family 3 per shell)",
+    value: 30,
+    min: 20,
     max: 120,
     step: 2,
     unit: "bpm",
@@ -292,20 +301,20 @@ export function chords(v: Values<typeof knobs>): Chord[] {
     oldShell = shell;
   }
 
-  // Leaving: the old chord's k-th pitch stops at the new chord's k-th freeze; the rest one per beat.
+  // Leaving: the old chord's k-th pitch stops at the new chord's k-th freeze; the rest one per atom.
   for (let k = 1; k < out.length; k++) {
     const old = out[k - 1]!.frozen;
     const now = out[k]!.frozen;
     old.forEach((f, j) => {
-      f.stop = j < now.length ? now[j]!.at : now.at(-1)!.at + (j - now.length + 1) * TICKS;
+      f.stop = j < now.length ? now[j]!.at : now.at(-1)!.at + (j - now.length + 1) * WAIT;
     });
   }
-  // The last chord: after the one before it has left, its other pitches leave one per beat in the
+  // The last chord: after the one before it has left, its other pitches leave one per atom in the
   // order they froze, and its seed last.
   const last = out.at(-1)!;
   const before = out.at(-2)?.frozen ?? [];
   let t = Math.max(last.frozen.at(-1)!.at, ...before.map((f) => f.stop));
-  for (const f of [...last.frozen.slice(1), last.frozen[0]!]) f.stop = t += TICKS;
+  for (const f of [...last.frozen.slice(1), last.frozen[0]!]) f.stop = t += WAIT;
   return out;
 }
 

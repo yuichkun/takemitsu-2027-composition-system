@@ -8,25 +8,34 @@
 // the end. The sliding copy: one divided string part on each tone, all moving together at one
 // constant rate, one quarter tone per atom, from above the held chord to below it, so the between
 // d from each held tone to its own sliding tone goes from +(span + overshoot) to −(span + overshoot).
-// Sliding tone i meets held tone j (their vertical between is 0) only when d = t_j − t_i: once for
-// every ordered pair of tones, and for all tones at once at d = 0, where the two copies are one.
-// The only rule: at each such moment the held tone is struck on a piano. Nothing else sets time.
-// So the times of the strikes are the chord's whole list of betweens (each between twice, once
-// from each side), and the rhythm around the moment d = 0 is its own mirror: the same between is
-// heard once with the sliding copy above (striking the pair's upper tone) and once below (striking
-// its lower tone). Followed on one pitch, every tone strikes the same rhythm: the neighbour
-// betweens, bottom up, as twice as many atoms, shifted by where the tone stands in the chord.
+// Sliding tone i meets held tone j (their vertical between is 0) only when d = t_j − t_i. The only
+// rule: where two different tones meet, the held one is struck on a piano. Nothing else sets time.
+// So the times of the strikes are the chord's whole list of betweens, each between twice (once
+// from each side of d = 0), and the rhythm is its own mirror: the same between is heard once with
+// the sliding copy above (striking the pair's upper tone) and once below (striking its lower tone).
+// At d = 0 every tone meets its own copy at once. That between 0 is the same for every chord and
+// tells nothing of this chord's betweens, so it is not struck: it sounds only as the strings
+// arriving on the winds. Followed on one pitch, a tone strikes the neighbour betweens, bottom up,
+// as twice as many atoms, with the two betweens on either side of its own place joined into one
+// (its meeting with its own copy is not struck).
+//
+// The default chord has its 21 betweens all different, so at every d but 0 at most one pair meets
+// and every strike is one tone alone. Among such chords it is the narrowest whose strikes are
+// spread as evenly as they can be (every two beats hold 3 to 5) and are no denser near d = 0 than
+// on average: nothing gathers toward the moment the two copies are one. Card: README.md.
 //
 // Which piano strikes is decided by the grid of the held tone alone: Piano I (usual tuning) holds
 // the usual semitones, Piano II (tuned a quarter tone low) the semitones a quarter tone off.
-// Both chords pp, the strikes mp, all flat. Every sliding part has the same number of players, so
-// each sliding tone weighs the same and the solo winds are not covered.
+// Both chords pp, the strikes mp, all flat. Every sliding part has the same number of players (as
+// many as the most divided section allows), so each sliding tone weighs the same and no section
+// plays whole against the solo winds.
 //
 // Two things are set by playback. The copy slides down, not up: a glide in playback may move at
-// most 36 semitones from the key it starts on (the first pitch rounded down), and a glide starting
-// on a quarter tone would need 36.5 going up (35.5 going down). The strings play flautando rather
-// than sul tasto: the cello section's sul tasto samples stop one key below where the highest cello
-// part starts. Card: README.md.
+// most 36 semitones from the key it starts on (the first pitch rounded down), and for the widest
+// chords this allows (span 17.5) a glide starting on a quarter tone would need 36.5 going up (35.5
+// going down). The strings play flautando rather than sul tasto, chosen when a wider default chord
+// had a cello part starting on 82, above the cello section's sul tasto samples (they stop at 81).
+// With the present default the cellos start at 75 and 74.5, where either would play.
 
 import {
   choice,
@@ -53,16 +62,16 @@ export const knobs = {
   chord: text({
     group: "Chord",
     label: "Chord",
-    help: "The betweens of the chord, bottom up in the order written (semitones, .5 for a quarter tone). Every two tones of the chord, neighbours or not, meet once on each side of the centre",
-    value: "1.5 2 2.5 3 3.5 5",
+    help: "The betweens of the chord, bottom up in the order written (semitones, .5 for a quarter tone). Every two tones of the chord, neighbours or not, meet once on each side of the centre. The default has all 21 betweens different, so no two strikes fall together",
+    value: "0.5 4 2 5 2.5 1",
   }),
   anchor: pitch({
     group: "Chord",
     label: "Standpoint",
     help: "The lowest tone of the chord. The times of the strikes do not depend on it; it decides the grids of the tones (and so which piano strikes each) and where the instruments play. The range is the standpoints that keep every held tone in its woodwind's range and every slide in its string section's range, for the default chord",
-    value: 60.5,
-    min: 56.5,
-    max: 67.5,
+    value: 59,
+    min: 59,
+    max: 72.5,
     step: 0.5,
   }),
   family: choice({
@@ -233,10 +242,12 @@ export function score(v: Values<typeof knobs>) {
   stringParts.reverse();
 
   // The meetings: sliding tone i is on held tone j when d = t_j − t_i, at this many atoms from the
-  // start of the slide. There the piano of t_j's grid strikes t_j.
+  // start of the slide. There the piano of t_j's grid strikes t_j. A tone meeting its own copy
+  // (i = j, all at d = 0) is not struck: that between 0 is the same for every chord.
   const strikes = PIANOS.map(() => new Map<number, number[]>());
   for (let i = 0; i < n; i++)
     for (let j = 0; j < n; j++) {
+      if (i === j) continue;
       const d = tones[j]! - tones[i]!;
       const at = start + Math.round(2 * (reach - d)) * atom;
       const byTime = strikes[gridOf(tones[j]!)]!;

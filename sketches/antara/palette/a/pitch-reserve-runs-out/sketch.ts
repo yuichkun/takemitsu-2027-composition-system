@@ -1,23 +1,31 @@
 // antara palette, A (pitch): the line ends where the set's reserve runs out.
 //
 // A set says which betweens it holds and how many of each. Here the "how many" is a reserve that
-// is spent: the rule always takes a between of the kind with the most left, and each draw spends
-// one. So the shape of the line is decided by the counts before a note sounds. At first only the
-// kind with the most can be taken: the set behaves as if it held one between, and the rule is not
-// heard. Each time the reserve at the top is spent down to the next kind's count, that kind joins
-// the draw. When every count is 1, one last round spends them all to 0 together, and the line ends
-// there: not a fade and not a closing note, but the point where nothing is left to take. The last
-// pitch is the standpoint plus the sum of count x between, whatever the order of the draws.
+// is spent: each draw spends one. The rule takes every kind that still has some left once (a
+// round), so a kind with a small reserve is spent early and drops out, and the kinds leave one at a
+// time, the smallest reserve first. The line thins as it goes: all the kinds, then one fewer, and
+// so on down to the one kind with the largest reserve, alone. When that is spent the line ends:
+// not a fade and not a closing note, but the point where nothing is left to take. Where each kind
+// leaves, and so how long the line is and what its last pitch is, is decided by the counts before
+// a note sounds. The last pitch is the standpoint plus the sum of count x between, whatever the
+// order of the draws.
 //
-// Ties: the kinds with the most left are taken one each (a round), in the order they joined the
-// draw (the most at the start first). Each round starts one kind later than the round before, so
-// no round is the round before moved by its sum. (The other choice, "after the last drawn", starts
-// each round after the kind drawn last: then the same round comes again and again, moved by its
-// sum.)
+// A round's sum is the sum of the kinds still in the reserve, so the line drifts by it round after
+// round; when a kind leaves, the drift changes by that kind. The default set turns the drift at
+// every leaving (down, up, down, up, down), so each leaving is heard as a turn of the line.
+//
+// Order within a round: back and forth (the default) goes through the kinds in the reverse order
+// of the round before, and a kind that would come twice in a row moves to the end of the round; so
+// while three or more kinds are left, no pair of steps of one round comes back in the same order in
+// the next (two kinds can only alternate or repeat one; here they alternate). The round after a
+// reversed one is the first round's order without the spent kinds, and (with counts all
+// different) each round ends on the kind that is spent next. (Shift each round starts each round
+// one kind later: then the next round keeps all but one of the pairs, and a figure one step
+// shorter than the round is played twice in a row.)
 //
 // The line is not folded into range (a fold would change the betweens). Time is a pulse (a time
-// set holding one between); every note lasts to the next onset. A solo viola, arco, non vib., p
-// throughout: only which betweens are drawn, and where they run out, change.
+// set holding one between); every note lasts to the next onset, and the last one the same. A solo
+// viola, arco, non vib., p throughout: only which betweens are drawn, and which are left, change.
 // Card: README.md.
 
 import { betweenSet, choice, number, pitch, type Values } from "../../../../../src/sketch/knobs.ts";
@@ -25,7 +33,7 @@ import type { TextEvent } from "../../../../../src/score/types.ts";
 import { atomOf, familyOf, FAMILY_OPTIONS } from "../../../between.ts";
 import { curve, note, part, scoreOf, TICKS, time, type Player } from "../../common.ts";
 
-const TIES = ["shift each round", "after the last drawn"];
+const ORDERS = ["back and forth", "shift each round"];
 
 const times = (between: number, count: number) => Array.from({ length: count }, () => between);
 
@@ -33,26 +41,32 @@ export const knobs = {
   set: betweenSet({
     group: "Pitch",
     label: "Set",
-    help: "The reserve: each between (semitones, .5 for a quarter tone, − for down) as many times as the set holds it. The rule always takes the kind with the most left; each draw spends one; the line ends when all are spent",
-    value: [...times(-1.5, 11), ...times(2.5, 8), ...times(-3, 7), ...times(4, 3), -5.5],
+    help: "The reserve: each between (semitones, .5 for a quarter tone, − for down) as many times as the set holds it. Each round takes every kind that still has some left once; each draw spends one; a spent kind drops out, and the line ends when the last kind is spent",
+    value: [
+      ...times(-1.5, 10),
+      ...times(4, 8),
+      ...times(-3, 6),
+      ...times(2.5, 4),
+      ...times(-5.5, 2),
+    ],
     min: -12,
     max: 12,
     step: 0.5,
     unit: "st",
     anchor: "start",
   }),
-  ties: choice({
+  order: choice({
     group: "Pitch",
-    label: "Ties",
-    help: "When several kinds have the most left, they are taken one each (a round) in the order they joined the draw (most at the start first; equal counts, narrowest first). Shift each round: each round starts one kind later than the round before. After the last drawn: each round starts after the kind drawn last, so the same round comes again, moved by its sum",
-    value: TIES[0]!,
-    options: TIES,
+    label: "Order",
+    help: "The order within a round. The first round takes the kinds most first (equal counts, narrowest first). Back and forth: each later round goes through the kinds in the reverse order of the round before, and a kind that would come twice in a row moves to the end. Shift each round: each round starts one kind later than the round before, in the first round's order",
+    value: ORDERS[0]!,
+    options: ORDERS,
   }),
   start: pitch({
     group: "Pitch",
     label: "Standpoint",
     help: "The first note. Nothing is folded into range: a line that leaves the viola (48–91) stops the sketch with an error",
-    value: 76.5,
+    value: 72.5,
     min: "C3",
     max: "C6",
     step: 0.5,
@@ -60,7 +74,7 @@ export const knobs = {
   pulse: number({
     group: "Time",
     label: "Pulse",
-    help: "The one time between, in atoms of the family: every note lasts this long, and the last note three times this",
+    help: "The one time between, in atoms of the family: every note lasts this long, the last one too",
     value: 3,
     min: 1,
     max: 12,
@@ -96,17 +110,14 @@ const VIOLA: Player = {
   grids: [0, 1],
 };
 
-/** Time betweens the last note is held (it has no next onset to last to). */
-const LAST = 3;
-
 interface Kind {
   between: number;
   count: number;
 }
 
 /**
- * The kinds of a set: each between once, with how many times the set holds it. In the order they
- * join the draw: the most first; equal counts, the narrowest first, then the lower.
+ * The kinds of a set: each between once, with how many times the set holds it. The most first
+ * (they are spent last); equal counts, the narrowest first, then the lower.
  */
 function kindsOf(set: number[]): Kind[] {
   const counts = new Map<number, number>();
@@ -120,38 +131,39 @@ function kindsOf(set: number[]): Kind[] {
 }
 
 /**
- * Spends the reserve: for each draw, the kind taken (its place in `kinds`).
- * A round takes each kind that has the most left once, cyclically in the kinds' order, from the
- * first of them after `from`: the kind that started the round before (shift) or the kind drawn
- * last.
+ * Spends the reserve: for each draw, the kind taken (its place in `kinds`). Each round takes every
+ * kind that still has some left, once. The first round takes them in the kinds' order. After
+ * that, back and forth: the reverse of the round before (without the spent kinds), with a kind that
+ * would come twice in a row moved to the end; shift: the kinds' order, cyclically, from the first
+ * kind still left after the one that started the round before.
  */
-function spend(kinds: Kind[], shift: boolean): number[] {
+function spend(kinds: Kind[], backAndForth: boolean): number[] {
   const n = kinds.length;
   const left = kinds.map((k) => k.count);
   const out: number[] = [];
+  let round: number[] = [];
   let started = -1;
-  let last = -1;
-  let queue: number[] = [];
   while (left.some((c) => c > 0)) {
-    if (queue.length === 0) {
-      const most = Math.max(...left);
-      const tied = left.flatMap((c, i) => (c === most ? [i] : []));
-      const from = shift ? started : last;
-      const after = (i: number) => (((i - from - 1) % n) + n) % n;
-      queue = [...tied].sort((a, b) => after(a) - after(b));
-      started = queue[0]!;
+    const present = kinds.flatMap((_, i) => (left[i]! > 0 ? [i] : []));
+    if (backAndForth && round.length > 0) {
+      round = round.filter((i) => left[i]! > 0).reverse();
+      if (round.length > 1 && round[0] === out.at(-1)) round.push(round.shift()!);
+    } else {
+      const after = (i: number) => (((i - started - 1) % n) + n) % n;
+      round = [...present].sort((a, b) => after(a) - after(b));
     }
-    const k = queue.shift()!;
-    left[k]!--;
-    last = k;
-    out.push(k);
+    started = round[0]!;
+    for (const k of round) {
+      left[k]!--;
+      out.push(k);
+    }
   }
   return out;
 }
 
 export function score(v: Values<typeof knobs>) {
   const kinds = kindsOf(v.set);
-  const draws = spend(kinds, v.ties === TIES[0]);
+  const draws = spend(kinds, v.order === ORDERS[0]);
   const line = [v.start];
   for (const d of draws) line.push(line.at(-1)! + kinds[d]!.between);
   const [lo, hi] = [Math.min(...line), Math.max(...line)];
@@ -161,8 +173,9 @@ export function score(v: Values<typeof knobs>) {
     );
 
   const step = v.pulse * atomOf(familyOf(v.family));
-  const events = line.map((m, i) => note(i * step, (i < draws.length ? 1 : LAST) * step, m));
-  const end = (draws.length + LAST) * step;
+  // Every note lasts one pulse, the last one too: nothing marks the end but that nothing follows.
+  const events = line.map((m, i) => note(i * step, step, m));
+  const end = line.length * step;
   // p throughout: no fade at the end, no accent anywhere.
   const out = part(VIOLA, events, curve([{ at: 0, level: 3 }]));
   const mark: TextEvent = { type: "text", at: time(0), text: "non vib." };
