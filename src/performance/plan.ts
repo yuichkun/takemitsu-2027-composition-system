@@ -236,6 +236,9 @@ export function plan(score: NormalScore): Plan {
           instrument: "Untuned Percussion",
           tune: 0,
           notes,
+          // CC1 follows the part's curve too, so a roll swells as written (a hit takes its
+          // velocity).
+          cc: (seconds: number) => ccFor(level(quartersAt(score.tempo, seconds))),
           gain: 1,
         },
       });
