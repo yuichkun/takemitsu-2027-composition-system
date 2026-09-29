@@ -121,7 +121,8 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
           warnings.push(`${where(index)}: ${inst.name} pitch ${p.midi} is outside its range`);
       }
     }
-    if (inst.fixedPitch && pitches.some((p) => !Number.isInteger(p.midi))) quarterTones.push(index);
+    if (inst.fixedPitch && pitches.some((p) => !Number.isInteger(p.midi - (part.tuning ?? 0))))
+      quarterTones.push(index);
     const staff = e.staff ?? 1;
     if (staff < 1 || staff > inst.clefs.length)
       throw new Error(`${where(index)}: ${inst.name} has ${inst.clefs.length} staff/staves`);
@@ -146,7 +147,9 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
 
   if (quarterTones.length)
     warnings.push(
-      `${where(quarterTones[0]!)}: ${inst.name} plays no quarter tones (docs/antara/sound.md); ${quarterTones.length} event(s) have one`,
+      part.tuning
+        ? `${where(quarterTones[0]!)}: ${part.name ?? inst.name} is tuned ${part.tuning} semitones and plays only pitches that far off the semitones (docs/antara/sound.md); ${quarterTones.length} event(s) do not`
+        : `${where(quarterTones[0]!)}: ${inst.name} plays no quarter tones (docs/antara/sound.md); ${quarterTones.length} event(s) have one`,
     );
   notes.sort((a, b) => a.at.cmp(b.at) || a.voice - b.voice);
   (part.feathers ?? []).forEach((f, group) => {

@@ -3,7 +3,10 @@
 // staff on every system.
 //
 //   vp node tools/pages.ts <score.json | sketch or piece folder | file.musicxml> [out-dir]
-//     [--from 1 | --bar 40] [--pages 2] [--scale 35]
+//     [--from 1 | --bar 40] [--pages 2] [--scale 35] [--fit]
+//
+// --fit lets each page grow to hold its system: a system with every staff of a full orchestra is
+// taller than A3 at the usual size, and would otherwise be cut off at the bottom.
 //
 // Writes page-1.svg, page-1.png … (PNG through rsvg-convert, if it is installed).
 
@@ -57,7 +60,7 @@ tk.setOptions({
   pageMarginTop: 100,
   pageMarginBottom: 100,
   scale: Number(option("--scale", "35")),
-  adjustPageHeight: false,
+  adjustPageHeight: args.includes("--fit"),
   breaks: "auto",
   font: "Bravura",
   footer: "none",

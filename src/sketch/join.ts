@@ -730,7 +730,14 @@ export class Joiner {
    * at its section's tempo times its scale), a rehearsal letter where each section starts, and each
    * placement on the map.
    */
-  score(head: { title: string; rehearsal?: boolean }): Score {
+  score(head: {
+    title: string;
+    rehearsal?: boolean;
+    /** Quarters the score lasts at least (an empty score, or room after the last section). */
+    length?: number;
+    /** The tempo where no section sets one (an empty score). */
+    bpm?: number;
+  }): Score {
     const order = [...this.placements].sort((x, y) => x.at - y.at);
     // The tempo: from where each placement starts, and wherever one changes its scale (a rest keeps
     // the tempo it is in).
@@ -792,7 +799,10 @@ export class Joiner {
       this.ctx.addToMap(entry);
       length = Math.max(length, p.end / T);
     }
-    const measures = Math.ceil(length / 4 - 1e-9);
+    length = Math.max(length, head.length ?? 0);
+    if (head.bpm !== undefined && (tempo.length === 0 || tempo[0]!.at !== 0))
+      tempo.unshift({ at: 0, bpm: head.bpm });
+    const measures = Math.max(1, Math.ceil(length / 4 - 1e-9));
     // A letter where each section starts (not its later slices, not a rest).
     const starts = order.filter((p) => p.from === 0 && p.section.bpm !== undefined);
     const letters =

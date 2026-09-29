@@ -101,6 +101,13 @@ export interface Part {
    * sound at once.
    */
   player?: string;
+  /**
+   * Semitones a fixed-pitch instrument is tuned away from its usual pitch: -0.5 for a harp with
+   * every string a quarter tone low. Only for checking: its pitches (sounding, as everywhere here)
+   * must all sit that far off the semitones. Nothing in the notation shows it; how the instrument
+   * is set up is said on the score's first pages.
+   */
+  tuning?: number;
   /** Dynamic curve for the part (see Dynamics). */
   dynamics?: DynamicPoint[];
   /**

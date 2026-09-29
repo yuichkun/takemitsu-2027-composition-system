@@ -273,6 +273,8 @@ const list: Instrument[] = [
   perc("sleigh-bells", "Sleigh Bells", "Sl. B."),
   perc("guiro", "Guiro", "Guiro"),
   perc("ratchet", "Ratchet", "Ratch."),
+  perc("shaker", "Shaker", "Shak."),
+  perc("thunder-sheet", "Thunder Sheet", "Th. Sh."),
 
   // Violins take an octave line only for extreme heights (MOLA: avoid 8va).
   strings("violins-1", "Violin I", "Vln. I", treble, 16, [55, 103], {
@@ -349,6 +351,8 @@ const sibelius: Record<string, [string, string]> = {
   "sleigh-bells": ["Sleigh Bells", "metal.bells.sleigh-bells"],
   guiro: ["Guiro (Medium) [1 line]", "wood.guiro"],
   ratchet: ["Percussion [1 line]", "rattle.ratchet"],
+  shaker: ["Percussion [1 line]", "rattle.shaker"],
+  "thunder-sheet": ["Percussion [1 line]", "metal.thundersheet"],
   "violins-1": ["Violin I", "strings.violin"],
   "violins-2": ["Violin II", "strings.violin"],
   violas: ["Viola", "strings.viola"],

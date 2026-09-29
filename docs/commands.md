@@ -138,6 +138,7 @@ vp node tools/export.ts pieces/pilot                      # .local/exports/pilot
 vp node tools/export.ts sketches/percussion/haze out.musicxml
 vp node tools/pages.ts pieces/pilot                       # .local/pages/pilot/page-1.png …（Verovio で A3 の紙面に描く。体裁を見るため）
 vp node tools/pages.ts pieces/trial --bar 67 --pages 3    # 67 小節のあるページから 3 ページ（--from 20 ならページ番号で）
+vp node tools/pages.ts pieces/antara --fit                # 紙の縦を中身に合わせて伸ばす（全段を出すと A3 に収まらない時）
 vp node tools/render.ts examples/showcase.json            # .local/renders/showcase/mix.wav
 vp node tools/render.ts examples/showcase.json --stems    # パートごとの WAV も
 vp node tools/render.ts pieces/pilot                      # スケッチや曲はフォルダでもよい
