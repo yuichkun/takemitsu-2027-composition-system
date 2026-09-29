@@ -13,7 +13,7 @@
    "bpm": 52
   }
  ],
- "measures": 26,
+ "measures": 28,
  "rehearsal": [
   {
    "measure": 8,
@@ -315,6 +315,29 @@
       1
      ],
      "level": 0.5
+    },
+    {
+     "at": [
+      101,
+      1
+     ],
+     "level": 0.5,
+     "to": "linear"
+    },
+    {
+     "at": [
+      104,
+      1
+     ],
+     "level": 2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      109,
+      1
+     ],
+     "level": 0.5
     }
    ],
    "events": [
@@ -364,6 +387,19 @@
      ],
      "dur": [
       6,
+      1
+     ],
+     "pitch": {
+      "midi": 30.5
+     }
+    },
+    {
+     "at": [
+      101,
+      1
+     ],
+     "dur": [
+      8,
       1
      ],
      "pitch": {
@@ -658,7 +694,7 @@
       1
      ],
      "dur": [
-      4,
+      10,
       1
      ],
      "technique": "roll+soft"
@@ -753,7 +789,23 @@
     },
     {
      "at": [
-      393,
+      411,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      429,
       4
      ],
      "dur": [
@@ -824,7 +876,23 @@
     },
     {
      "at": [
-      393,
+      411,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      429,
       4
      ],
      "dur": [
@@ -1376,8 +1444,1287 @@
      "articulations": [
       "tenuto"
      ]
+    },
+    {
+     "at": [
+      399,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      405,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      417,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      423,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
+    },
+    {
+     "at": [
+      429,
+      4
+     ],
+     "dur": [
+      3,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "articulations": [
+      "tenuto"
+     ]
     }
    ]
+  },
+  {
+   "id": "vn1-4-1",
+   "instrument": "violins-1",
+   "name": "Violin I 1/4",
+   "dynamics": [
+    {
+     "at": [
+      315,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      323,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      357,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      373,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      407,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      435,
+      4
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      315,
+      4
+     ],
+     "dur": [
+      2,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      357,
+      4
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 4
+  },
+  {
+   "id": "vn1-4-2",
+   "instrument": "violins-1",
+   "name": "Violin I 2/4",
+   "dynamics": [
+    {
+     "at": [
+      357,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      373,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      375,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      191,
+      2
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      407,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      435,
+      4
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      357,
+      4
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      375,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 4
+  },
+  {
+   "id": "vn1-4-3",
+   "instrument": "violins-1",
+   "name": "Violin I 3/4",
+   "dynamics": [
+    {
+     "at": [
+      321,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      82,
+      1
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      393,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      100,
+      1
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      435,
+      4
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      321,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      393,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 4
+  },
+  {
+   "id": "vn1-4-4",
+   "instrument": "violins-1",
+   "name": "Violin I 4/4",
+   "dynamics": [
+    {
+     "at": [
+      327,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      167,
+      2
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      381,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      97,
+      1
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      399,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      203,
+      2
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      429,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      112,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      327,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      381,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      399,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      429,
+      4
+     ],
+     "dur": [
+      19,
+      4
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 4
+  },
+  {
+   "id": "vn2-4-1",
+   "instrument": "violins-2",
+   "name": "Violin II 1/4",
+   "dynamics": [
+    {
+     "at": [
+      333,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      345,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      363,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      185,
+      2
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      405,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      103,
+      1
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      423,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      215,
+      2
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      333,
+      4
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      363,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      405,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      423,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 4
+  },
+  {
+   "id": "vn2-4-2",
+   "instrument": "violins-2",
+   "name": "Violin II 2/4",
+   "dynamics": [
+    {
+     "at": [
+      333,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      345,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      345,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      88,
+      1
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      417,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      106,
+      1
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      429,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      112,
+      1
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      333,
+      4
+     ],
+     "dur": [
+      3,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      345,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      417,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      429,
+      4
+     ],
+     "dur": [
+      19,
+      4
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 4
+  },
+  {
+   "id": "vn2-4-3",
+   "instrument": "violins-2",
+   "name": "Violin II 3/4",
+   "dynamics": [
+    {
+     "at": [
+      339,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      173,
+      2
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      435,
+      4
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      339,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 3
+  },
+  {
+   "id": "vn2-4-4",
+   "instrument": "violins-2",
+   "name": "Violin II 4/4",
+   "dynamics": [
+    {
+     "at": [
+      351,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      179,
+      2
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      369,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      94,
+      1
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      407,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      435,
+      4
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      351,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      369,
+      4
+     ],
+     "dur": [
+      7,
+      4
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 3
+  },
+  {
+   "id": "va-3-1",
+   "instrument": "violas",
+   "name": "Viola 1/3",
+   "dynamics": [
+    {
+     "at": [
+      387,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      407,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      435,
+      4
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      387,
+      4
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 4
+  },
+  {
+   "id": "va-3-2",
+   "instrument": "violas",
+   "name": "Viola 2/3",
+   "dynamics": [
+    {
+     "at": [
+      357,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      373,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      407,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      435,
+      4
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      357,
+      4
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 4
+  },
+  {
+   "id": "va-3-3",
+   "instrument": "violas",
+   "name": "Viola 3/3",
+   "dynamics": [
+    {
+     "at": [
+      357,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      373,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      407,
+      4
+     ],
+     "level": 0.5
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "level": 1.2,
+     "to": "linear"
+    },
+    {
+     "at": [
+      435,
+      4
+     ],
+     "level": 0.5
+    }
+   ],
+   "events": [
+    {
+     "at": [
+      357,
+      4
+     ],
+     "dur": [
+      4,
+      1
+     ],
+     "pitch": {
+      "midi": 78
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      387,
+      4
+     ],
+     "dur": [
+      5,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "flautando"
+    },
+    {
+     "at": [
+      411,
+      4
+     ],
+     "dur": [
+      6,
+      1
+     ],
+     "pitch": {
+      "midi": 77.5
+     },
+     "technique": "flautando"
+    }
+   ],
+   "players": 4
   },
   {
    "id": "cb-4-1",
@@ -1394,154 +2741,10 @@
     },
     {
      "at": [
-      31,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      21,
+      11,
       1
      ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      51,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      32,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      71,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      40,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      93,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      50,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      111,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      62,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      131,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      71,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      151,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      79,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      169,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      89,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      191,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      101,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      104,
-      1
-     ],
-     "level": 0.5
+     "level": 2
     }
    ],
    "events": [
@@ -1551,7 +2754,26 @@
       1
      ],
      "dur": [
-      95,
+      61,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      58,
+      1
+     ]
+    },
+    {
+     "at": [
+      70,
+      1
+     ],
+     "dur": [
+      42,
       1
      ],
      "pitch": {
@@ -1577,162 +2799,10 @@
     },
     {
      "at": [
-      21,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      17,
+      8,
       1
      ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      45,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      27,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      67,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      37,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      83,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      48,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      103,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      57,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      127,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      67,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      145,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      77,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      161,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      86,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      181,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      97,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      102,
-      1
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      104,
-      1
-     ],
-     "level": 0.5
+     "level": 2
     }
    ],
    "events": [
@@ -1742,7 +2812,26 @@
       1
      ],
      "dur": [
-      98,
+      49,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      45,
+      1
+     ]
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      57,
       1
      ],
      "pitch": {
@@ -1768,170 +2857,10 @@
     },
     {
      "at": [
-      17,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      13,
+      5,
       1
      ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      39,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      25,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      59,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      36,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      79,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      44,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      101,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      54,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      119,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      66,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      139,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      75,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      159,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      83,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      177,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      93,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      199,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      102,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      104,
-      1
-     ],
-     "level": 0.5
+     "level": 2
     }
    ],
    "events": [
@@ -1941,7 +2870,26 @@
       1
      ],
      "dur": [
-      101,
+      35,
+      1
+     ],
+     "pitch": {
+      "midi": 28
+     },
+     "technique": "sul-tasto",
+     "gliss": true,
+     "glissAfter": [
+      32,
+      1
+     ]
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      74,
       1
      ],
      "pitch": {
@@ -1967,170 +2915,10 @@
     },
     {
      "at": [
-      7,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      9,
+      2,
       1
      ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      27,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      20,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      51,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      30,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      73,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      40,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      89,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      51,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      109,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      60,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      133,
-      2
-     ],
-     "level": 2.2,
-     "to": "linear"
-    },
-    {
-     "at": [
-      70,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      151,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      80,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      167,
-      2
-     ],
-     "level": 2.6,
-     "to": "linear"
-    },
-    {
-     "at": [
-      89,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      187,
-      2
-     ],
-     "level": 1.8,
-     "to": "linear"
-    },
-    {
-     "at": [
-      100,
-      1
-     ],
-     "level": 1,
-     "to": "linear"
-    },
-    {
-     "at": [
-      104,
-      1
-     ],
-     "level": 0.5
+     "level": 2
     }
    ],
    "events": [
@@ -2140,7 +2928,7 @@
       1
      ],
      "dur": [
-      104,
+      112,
       1
      ],
      "pitch": {

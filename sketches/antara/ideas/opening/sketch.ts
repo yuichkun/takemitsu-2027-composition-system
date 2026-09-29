@@ -65,7 +65,7 @@ export const knobs = {
     group: "Celesta",
     label: "Pulse",
     help: "Strokes at the period once it is reached",
-    value: 16,
+    value: 22,
     min: 4,
     max: 48,
     step: 1,
@@ -171,47 +171,51 @@ function celesta(v: V): { gaps: number[]; settled: number } {
 //==============================================================================
 // The ground
 
-/** One swelling voice's dynamics between `from` and `to`, each swell's length and peak drawn in turn. */
-function swells(
-  from: number,
-  to: number,
-  lengths: () => number,
-  peaks: () => number,
-): DynamicPoint[] {
-  const out: DynamicPoint[] = [{ at: time(from), level: 0.5, to: "linear" }];
-  let at = from;
-  let low = true;
-  while (at < to - 4 * TICKS) {
-    const len = lengths() * TICKS;
-    at = Math.min(at + len / 2, to - 2 * TICKS);
-    out.push({ at: time(at), level: low ? peaks() : 1, to: "linear" });
-    low = !low;
-  }
-  out.push({ at: time(to), level: 0.5 });
-  return out;
-}
-
-function ground(end: number, winds: number): Part[] {
+/**
+ * The ground. The basses come in one desk at a time, all on the lowest string's E (a canon of
+ * entries on one note), at one level throughout; later, one after another, three desks glide
+ * away from it by a quarter tone each (to E1 + 0.5, 1, 1.5), so the one note opens into a band.
+ * `glides`: the span (ticks) the glides are spread over.
+ */
+function ground(end: number, winds: number, glides: [number, number]): Part[] {
   const parts: Part[] = [];
-  // Basses: four desks a quarter tone apart from the lowest string, each swelling on its own time.
+  const [g0, g1] = glides;
+  const beat = (t: number) => Math.round(t / TICKS) * TICKS;
   ["cb-4-4", "cb-4-3", "cb-4-2", "cb-4-1"].forEach((id, k) => {
     const enter = k * 3 * TICKS;
-    const lengths = cycle([7, 11, 9, 13], k);
-    const peaks = cycle([1.8, 2.6, 2.2], k);
-    parts.push(
-      partOf(
-        id,
-        [
-          {
-            at: time(enter),
-            dur: time(end - enter),
-            pitch: { midi: 28 + k * 0.5 },
-            technique: "sul-tasto",
-          },
-        ],
-        swells(enter, end, lengths, peaks),
-      ),
-    );
+    const dynamics: DynamicPoint[] = [
+      { at: time(enter), level: 0.5, to: "linear" },
+      { at: time(enter + 2 * TICKS), level: 2 },
+    ];
+    const events: NoteEvent[] = [];
+    if (k === 0) {
+      events.push({
+        at: time(enter),
+        dur: time(end - enter),
+        pitch: { midi: 28 },
+        technique: "sul-tasto",
+      });
+    } else {
+      const at = beat(g0 + (g1 - g0) * [0.15, 0.5, 0.85][k - 1]!);
+      const slide = [3, 4, 3][k - 1]! * TICKS;
+      events.push(
+        {
+          at: time(enter),
+          dur: time(at + slide - enter),
+          pitch: { midi: 28 },
+          technique: "sul-tasto",
+          gliss: true,
+          glissAfter: time(at - enter),
+        },
+        {
+          at: time(at + slide),
+          dur: time(end - at - slide),
+          pitch: { midi: 28 + k * 0.5 },
+          technique: "sul-tasto",
+        },
+      );
+    }
+    parts.push(partOf(id, events, dynamics));
   });
   // Contrabassoon and tuba: breaths of a few seconds, out of nothing and back, handing over to
   // each other so the low wind is seldom gone and never one breath too long.
@@ -272,6 +276,80 @@ function ground(end: number, winds: number): Part[] {
 }
 
 //==============================================================================
+// The ring
+
+/**
+ * Strings, flautando and very soft, as the ring of the struck notes: each starts exactly with a
+ * stroke and fades into nothing. It spreads as the harps come. From harp 1's first time on, every
+ * stroke leaves a ring in one desk; each time harp 1 plays, one more section may take them (first
+ * violins, then second violins, then violas), and the harp's own stroke rings in more desks at
+ * once, and longer, each time. Where harp 2 plays, desks of the next section ring its note too.
+ */
+function ring(
+  times: number[],
+  one: number[],
+  two: number[],
+  notes: [number, number],
+  end: number,
+): Part[] {
+  const sections = [
+    ["vn1-4-1", "vn1-4-2", "vn1-4-3", "vn1-4-4"],
+    ["vn2-4-1", "vn2-4-2", "vn2-4-3", "vn2-4-4"],
+    ["va-3-1", "va-3-2", "va-3-3"],
+  ];
+  const busy = new Map<string, number>();
+  const played = new Map<string, NoteEvent[]>();
+  const levels = new Map<string, DynamicPoint[]>();
+  let turn = 0;
+  const take = (pool: string[], at: number, count: number): string[] => {
+    const free = pool.filter((d) => (busy.get(d) ?? 0) <= at);
+    const out: string[] = [];
+    for (let n = 0; n < free.length && out.length < count; n++)
+      out.push(free[(turn + n) % free.length]!);
+    turn++;
+    return out;
+  };
+  const sound = (desks: string[], at: number, len: number, midi: number) => {
+    const stop = Math.min(end, at + len);
+    for (const d of desks) {
+      busy.set(d, stop);
+      played.set(d, [
+        ...(played.get(d) ?? []),
+        { at: time(at), dur: time(stop - at), pitch: { midi }, technique: "flautando" },
+      ]);
+      levels.set(d, [
+        ...(levels.get(d) ?? []),
+        { at: time(at), level: 1.2, to: "linear" },
+        { at: time(stop), level: 0.5 },
+      ]);
+    }
+  };
+  const harps = new Map(one.map((k, n) => [k, n]));
+  for (let k = one[0] ?? times.length; k < times.length; k++) {
+    const at = times[k]!;
+    const heard = one.filter((h) => h <= k).length;
+    const open = sections.slice(0, Math.min(sections.length, heard));
+    const n = harps.get(k);
+    if (n === undefined) {
+      // A plain stroke: one desk, a little longer than the stroke's period.
+      sound(take(open.flat(), at, 1), at, Math.round(1.75 * TICKS), notes[0]);
+      continue;
+    }
+    // A harp's stroke: more desks, longer, each time. Harp 2's note first, in the section after
+    // those open (or the last), so it always has desks.
+    const len = Math.min(6, 2 + n) * TICKS;
+    if (two.includes(k)) {
+      const next = sections[Math.min(sections.length - 1, open.length)]!;
+      const want = 1 + two.indexOf(k);
+      const got = take(next, at, want);
+      sound(got.length ? got : take(sections.flat(), at, want), at, len, notes[1]);
+    }
+    sound(take(open.flat(), at, 1 + n), at, len, notes[0]);
+  }
+  return [...played].map(([d, events]) => partOf(d, events, levels.get(d)!));
+}
+
+//==============================================================================
 // The score
 
 export function score(v: V): Score {
@@ -312,7 +390,8 @@ export function score(v: V): Score {
     partOf("cel", struck(all, v.pitch, "espr., l.v."), [{ at: time(start), level: 4 }]),
     partOf("hp1", struck(one, v.pitch, "l.v."), [{ at: 0, level: 3.5 }]),
     partOf("hp2", struck(two, h2, "l.v."), [{ at: 0, level: 3.5 }]),
-    ...ground(end, (v.winds - 1) * BAR),
+    ...ground(end, (v.winds - 1) * BAR, [start, times[settled]!]),
+    ...ring(times, one, two, [v.pitch, h2], end),
   ];
   const rank = (id: string) => ensemble.findIndex((p) => p.id === id);
   parts.sort((a, b) => rank(a.id) - rank(b.id));
