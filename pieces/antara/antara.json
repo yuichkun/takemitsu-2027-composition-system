@@ -17,6 +17,13 @@
  "measures": 8,
  "parts": [
   {
+   "id": "picc",
+   "instrument": "piccolo",
+   "name": "Piccolo",
+   "events": [],
+   "dynamics": []
+  },
+  {
    "id": "fl1",
    "instrument": "flute",
    "name": "Flute 1",
@@ -27,22 +34,6 @@
    "id": "fl2",
    "instrument": "flute",
    "name": "Flute 2",
-   "events": [],
-   "dynamics": []
-  },
-  {
-   "id": "fl3",
-   "instrument": "flute",
-   "name": "Flute 3",
-   "player": "fl3",
-   "events": [],
-   "dynamics": []
-  },
-  {
-   "id": "picc",
-   "instrument": "piccolo",
-   "name": "Piccolo",
-   "player": "fl3",
    "events": [],
    "dynamics": []
   },
@@ -61,18 +52,9 @@
    "dynamics": []
   },
   {
-   "id": "ob3",
-   "instrument": "oboe",
-   "name": "Oboe 3",
-   "player": "ob3",
-   "events": [],
-   "dynamics": []
-  },
-  {
    "id": "eh",
    "instrument": "cor-anglais",
    "name": "English Horn",
-   "player": "ob3",
    "events": [],
    "dynamics": []
   },
@@ -112,18 +94,9 @@
    "dynamics": []
   },
   {
-   "id": "bn3",
-   "instrument": "bassoon",
-   "name": "Bassoon 3",
-   "player": "bn3",
-   "events": [],
-   "dynamics": []
-  },
-  {
    "id": "cbn",
    "instrument": "contrabassoon",
    "name": "Contrabassoon",
-   "player": "bn3",
    "events": [],
    "dynamics": []
   },
@@ -407,5 +380,6 @@
   ],
   "flows": {},
   "warnings": []
- }
+ },
+ "pairs": false
 }

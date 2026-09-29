@@ -1,32 +1,30 @@
-// antara's orchestra (docs/decisions/0024-antara-orchestra.md), in score order.
+// antara's orchestra (docs/decisions/0024-antara-orchestra.md, 0025), in score order.
 //
-// Woodwinds in threes, the third player of the flutes, oboes and bassoons doubling (piccolo, English
-// horn, contrabassoon) and the third clarinet on bass clarinet throughout; brass 4.3.3.1 with a bass
-// trombone; timpani and three percussionists; two harps, the second with every string a quarter tone
-// low; piano and celesta; strings 16.14.12.10.8.
+// Woodwinds in threes, the third of each family on its own instrument throughout (piccolo, English
+// horn, bass clarinet, contrabassoon: no one changes instruments); brass 4.3.3.1 with a bass trombone;
+// timpani and three percussionists; two harps, the second with every string a quarter tone low; piano
+// and celesta; strings 16.14.12.10.8.
 //
-// Each string section is written in the parts the music asks for: its principal alone (s), the others
-// (r), two halves (a b), four quarters (q1–q4, top down) or all together (t). Parts of one section
-// that sound at once never add up to more players than the section has (the score warns if they do).
+// Each string section is written in the parts the music asks for: all together (t), its principal
+// alone (s), the others (r), or divided into n parts, from two up to one a desk of two players
+// (vn1-8-3: the first violins in eight, the third from the top). Parts of one section that sound at
+// once never add up to more players than the section has (the score warns if they do).
 
 import type { Player } from "../../src/sketch/nest.ts";
 
 const winds: Player[] = [
+  { id: "picc", instrument: "piccolo", name: "Piccolo" },
   { id: "fl1", instrument: "flute", name: "Flute 1" },
   { id: "fl2", instrument: "flute", name: "Flute 2" },
-  { id: "fl3", instrument: "flute", name: "Flute 3", player: "fl3" },
-  { id: "picc", instrument: "piccolo", name: "Piccolo", player: "fl3" },
   { id: "ob1", instrument: "oboe", name: "Oboe 1" },
   { id: "ob2", instrument: "oboe", name: "Oboe 2" },
-  { id: "ob3", instrument: "oboe", name: "Oboe 3", player: "ob3" },
-  { id: "eh", instrument: "cor-anglais", name: "English Horn", player: "ob3" },
+  { id: "eh", instrument: "cor-anglais", name: "English Horn" },
   { id: "cl1", instrument: "clarinet", name: "Clarinet 1" },
   { id: "cl2", instrument: "clarinet", name: "Clarinet 2" },
   { id: "bcl", instrument: "bass-clarinet", name: "Bass Clarinet" },
   { id: "bn1", instrument: "bassoon", name: "Bassoon 1" },
   { id: "bn2", instrument: "bassoon", name: "Bassoon 2" },
-  { id: "bn3", instrument: "bassoon", name: "Bassoon 3", player: "bn3" },
-  { id: "cbn", instrument: "contrabassoon", name: "Contrabassoon", player: "bn3" },
+  { id: "cbn", instrument: "contrabassoon", name: "Contrabassoon" },
   { id: "hn1", instrument: "horn", name: "Horn 1" },
   { id: "hn2", instrument: "horn", name: "Horn 2" },
   { id: "hn3", instrument: "horn", name: "Horn 3" },
@@ -72,21 +70,21 @@ const harpsAndKeyboards: Player[] = [
 
 /** A string section's parts: s (the principal), r (the rest), a b (halves), q1–q4 (quarters, top down), t (all). */
 function section(key: string, instrument: string, name: string, size: number): Player[] {
-  const half = Math.ceil(size / 2);
-  const quarter = (i: number) => Math.floor(size / 4) + (i < size % 4 ? 1 : 0);
-  return [
+  const out: Player[] = [
     { id: `${key}t`, instrument, name, players: size },
     { id: `${key}s`, instrument, name: `${name} solo`, players: 1 },
     { id: `${key}r`, instrument, name, players: size - 1 },
-    { id: `${key}a`, instrument, name: `${name} a`, players: half },
-    { id: `${key}b`, instrument, name: `${name} b`, players: size - half },
-    ...[0, 1, 2, 3].map((i) => ({
-      id: `${key}q${i + 1}`,
-      instrument,
-      name: `${name} ${i + 1}`,
-      players: quarter(i),
-    })),
   ];
+  // Divided into n parts, from two up to one part a desk (two players): the larger shares at the top.
+  for (let n = 2; n <= Math.floor(size / 2); n++)
+    for (let k = 1; k <= n; k++)
+      out.push({
+        id: `${key}-${n}-${k}`,
+        instrument,
+        name: `${name} ${k}/${n}`,
+        players: Math.floor(size / n) + (k <= size % n ? 1 : 0),
+      });
+  return out;
 }
 
 export const STRING_SECTIONS = ["vn1", "vn2", "va", "vc", "cb"] as const;
@@ -107,7 +105,7 @@ export const ensemble: Player[] = [...winds, ...percussion, ...harpsAndKeyboards
  */
 export function shown<P extends { id: string; events: unknown[] }>(parts: P[]): P[] {
   const sectionOf = (id: string) =>
-    STRING_SECTIONS.find((k) => new RegExp(`^${k}(s|r|a|b|q[1-4]|t)$`).test(id));
+    STRING_SECTIONS.find((k) => new RegExp(`^${k}(t|s|r|-\\d+-\\d+)$`).test(id));
   const playing = new Set(parts.filter((p) => p.events.length).map((p) => sectionOf(p.id)));
   return parts.filter((p) => {
     const key = sectionOf(p.id);

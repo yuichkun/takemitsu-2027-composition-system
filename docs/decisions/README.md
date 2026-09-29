@@ -79,7 +79,8 @@
 | [0018](./0018-chunked-render-resident-host.md) | レンダは小節ごとのチャンクで、常駐ホストに丸ごと頼む | 採用 |
 | [0019](./0019-fixed-hosts-verified-chunks.md) | レンダの担当を固定し、確かめた音だけを出す | 採用 |
 | [0020](./0020-notation-strip-on-server.md) | 譜面はサーバで 1 小節ずつ先に描き、段をそろえた横長の 1 本として見せる | 採用 |
-| [0021](./0021-full-score-layout.md) | フルスコアの体裁は慣習に合わせ、MusicXML で運べるものは書き出しで作る | 採用（臨時記号の項は 0022 で差し替え） |
+| [0021](./0021-full-score-layout.md) | フルスコアの体裁は慣習に合わせ、MusicXML で運べるものは書き出しで作る | 採用（臨時記号の項は 0022 で差し替え。antara の二人一段は 0025） |
 | [0022](./0022-accidentals-to-the-bar.md) | 臨時記号は、小節の終わりまで効くふつうの規則に戻す | 採用 |
 | [0023](./0023-join-sections-from-outside.md) | セクションは別々のコードのまま、曲の一番上の操作でつなぐ | 採用 |
-| [0024](./0024-antara-orchestra.md) | antara の編成 | 採用 |
+| [0024](./0024-antara-orchestra.md) | antara の編成 | 採用（持ち替えの項は 0025 で差し替え） |
+| [0025](./0025-antara-parts-and-staves.md) | antara のパートと段: 管は全員専任、弦は 2 人ずつまで分けられる、1 人 1 段、総譜は実音 | 採用 |

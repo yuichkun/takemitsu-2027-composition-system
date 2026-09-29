@@ -43,5 +43,6 @@ export function score(v: Values<typeof knobs>, ctx: Context): Score {
   });
   const J = new Joiner(piece);
   const out = J.score({ title: "antara", length: v.bars * 4, bpm: v.tempo });
-  return { ...out, parts: shown(out.parts) };
+  // Every player on a staff of their own (docs/decisions/0025).
+  return { ...out, pairs: false, parts: shown(out.parts) };
 }
