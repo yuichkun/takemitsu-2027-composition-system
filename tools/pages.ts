@@ -3,7 +3,7 @@
 // staff on every system.
 //
 //   vp node tools/pages.ts <score.json | sketch or piece folder | file.musicxml> [out-dir]
-//     [--pages 2] [--scale 35]
+//     [--from 1 | --bar 40] [--pages 2] [--scale 35]
 //
 // Writes page-1.svg, page-1.png … (PNG through rsvg-convert, if it is installed).
 
@@ -24,9 +24,13 @@ const option = (name: string, fallback: string) => {
   const i = args.indexOf(name);
   return i >= 0 ? args[i + 1]! : fallback;
 };
-const [given, outArg] = args.filter((a, i) => !a.startsWith("--") && !args[i - 1]?.startsWith("--"));
+const [given, outArg] = args.filter(
+  (a, i) => !a.startsWith("--") && !args[i - 1]?.startsWith("--"),
+);
 if (!given) {
-  console.error("vp node tools/pages.ts <score.json | folder | file.musicxml> [out-dir] [--pages 2]");
+  console.error(
+    "vp node tools/pages.ts <score.json | folder | file.musicxml> [out-dir] [--pages 2]",
+  );
   process.exit(1);
 }
 const input = resolve(given);
@@ -36,7 +40,9 @@ else {
   const path = statSync(input).isDirectory() ? scoreFileOf(rootOf(input)) : input;
   musicxml = toMusicXml(JSON.parse(readFileSync(path, "utf8")) as Score).musicxml;
 }
-const out = resolve(outArg ?? join(repoRoot, ".local/pages", basename(input).replace(/\.[^.]+$/, "")));
+const out = resolve(
+  outArg ?? join(repoRoot, ".local/pages", basename(input).replace(/\.[^.]+$/, "")),
+);
 mkdirSync(out, { recursive: true });
 
 const module = await createVerovioModule();
@@ -58,12 +64,25 @@ tk.setOptions({
   header: "auto",
 });
 tk.loadData(musicxml);
-const pages = Math.min(tk.getPageCount(), Number(option("--pages", "2")));
+// --bar N starts at the page where measure N is.
+const barPage = (n: string) => {
+  const id = new RegExp(
+    `<measure[^>]*xml:id="([^"]+)"[^>]*n="${n}"|<measure[^>]*n="${n}"[^>]*xml:id="([^"]+)"`,
+  ).exec(tk.getMEI());
+  // In Verovio's toolkit, but missing from its type definitions.
+  const withElement = tk as unknown as { getPageWithElement(id: string): number };
+  return id ? withElement.getPageWithElement(id[1] ?? id[2]!) : 1;
+};
+const from = Math.max(
+  1,
+  args.includes("--bar") ? barPage(option("--bar", "1")) : Number(option("--from", "1")),
+);
+const pages = Math.min(tk.getPageCount(), from - 1 + Number(option("--pages", "2")));
 const rsvg = ["/opt/homebrew/bin/rsvg-convert", "/usr/local/bin/rsvg-convert"].find(existsSync);
-for (let page = 1; page <= pages; page++) {
+for (let page = from; page <= pages; page++) {
   const svg = join(out, `page-${page}.svg`);
   writeFileSync(svg, tk.renderToSVG(page));
   if (rsvg)
     execFileSync(rsvg, ["-b", "white", "-w", "1600", "-o", join(out, `page-${page}.png`), svg]);
 }
-console.log(`${pages} of ${tk.getPageCount()} pages in ${out}`);
+console.log(`pages ${from}–${pages} of ${tk.getPageCount()} in ${out}`);
