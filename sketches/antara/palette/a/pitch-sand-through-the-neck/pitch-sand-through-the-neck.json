@@ -16,7 +16,7 @@
  "measures": 22,
  "parts": [
   {
-   "id": "vnii-1",
+   "id": "vlnii-1",
    "instrument": "violins-2",
    "dynamics": [
     {
@@ -111,12 +111,12 @@
      }
     }
    ],
-   "name": "Violins II 1",
-   "abbreviation": "Vn. II 1",
+   "name": "Violin II 1",
+   "abbreviation": "Vln. II 1",
    "players": 2
   },
   {
-   "id": "vnii-2",
+   "id": "vlnii-2",
    "instrument": "violins-2",
    "dynamics": [
     {
@@ -211,12 +211,12 @@
      }
     }
    ],
-   "name": "Violins II 2",
-   "abbreviation": "Vn. II 2",
+   "name": "Violin II 2",
+   "abbreviation": "Vln. II 2",
    "players": 2
   },
   {
-   "id": "vnii-3",
+   "id": "vlnii-3",
    "instrument": "violins-2",
    "dynamics": [
     {
@@ -311,12 +311,12 @@
      }
     }
    ],
-   "name": "Violins II 3",
-   "abbreviation": "Vn. II 3",
+   "name": "Violin II 3",
+   "abbreviation": "Vln. II 3",
    "players": 2
   },
   {
-   "id": "vnii-4",
+   "id": "vlnii-4",
    "instrument": "violins-2",
    "dynamics": [
     {
@@ -411,12 +411,12 @@
      }
     }
    ],
-   "name": "Violins II 4",
-   "abbreviation": "Vn. II 4",
+   "name": "Violin II 4",
+   "abbreviation": "Vln. II 4",
    "players": 2
   },
   {
-   "id": "vnii-5",
+   "id": "vlnii-5",
    "instrument": "violins-2",
    "dynamics": [
     {
@@ -511,12 +511,12 @@
      }
     }
    ],
-   "name": "Violins II 5",
-   "abbreviation": "Vn. II 5",
+   "name": "Violin II 5",
+   "abbreviation": "Vln. II 5",
    "players": 2
   },
   {
-   "id": "vnii-6",
+   "id": "vlnii-6",
    "instrument": "violins-2",
    "dynamics": [
     {
@@ -611,12 +611,12 @@
      }
     }
    ],
-   "name": "Violins II 6",
-   "abbreviation": "Vn. II 6",
+   "name": "Violin II 6",
+   "abbreviation": "Vln. II 6",
    "players": 2
   },
   {
-   "id": "vnii-7",
+   "id": "vlnii-7",
    "instrument": "violins-2",
    "dynamics": [
     {
@@ -711,8 +711,8 @@
      }
     }
    ],
-   "name": "Violins II 7",
-   "abbreviation": "Vn. II 7",
+   "name": "Violin II 7",
+   "abbreviation": "Vln. II 7",
    "players": 2
   }
  ]

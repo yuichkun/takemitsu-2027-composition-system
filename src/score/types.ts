@@ -44,6 +44,12 @@ export interface Score {
   /** Rehearsal marks. */
   rehearsal?: { measure: number; label: string }[];
   parts: Part[];
+  /**
+   * How far an accidental reaches in the score (docs/decisions/0021): "note" (default) prints one
+   * on every note, naturals included, except a note repeating the one before it and tied notes;
+   * "bar" is the usual rule (to the end of the measure, in its octave).
+   */
+  accidentals?: "note" | "bar";
   /** For a piece made of sketches: where each of them is (the preview draws it as a map). */
   outline?: Outline;
 }
@@ -88,6 +94,13 @@ export interface Part {
    * Defaults to the whole section for strings and to 1 otherwise.
    */
   players?: number;
+  /**
+   * Who plays it, when one player plays several parts: a percussionist's instruments, or a
+   * flautist's flute and piccolo. Parts of one player share a name ("perc1", "fl3"). The score
+   * groups percussion staves by player, and warns when a player's parts (other than percussion)
+   * sound at once.
+   */
+  player?: string;
   /** Dynamic curve for the part (see Dynamics). */
   dynamics?: DynamicPoint[];
   /**
@@ -124,7 +137,10 @@ export interface NoteEvent {
   pitch?: Pitch | Pitch[];
   /** Voice within the staff, 1–4 (default 1). */
   voice?: number;
-  /** Staff for multi-staff instruments (piano, harp), 1-based (default 1). */
+  /**
+   * Staff for multi-staff instruments (piano, harp), 1-based. Without it, the score puts the note
+   * on the upper or lower staff by register (src/notation/layout.ts).
+   */
   staff?: number;
   /** Playing technique from the instrument's vocabulary, e.g. "pizz", "sul-pont", "flutter", "rimshot". Default "ord". */
   technique?: string;

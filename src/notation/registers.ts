@@ -33,10 +33,14 @@ export interface StaffRegisters {
   ottavas: Ottava[];
 }
 
-/** Ledger lines a note may need before it takes an octave line. */
-const far = 3;
-/** Cost of a clef change, against the cost of ledger lines (see penalty). */
-const changeCost = 5;
+/** Ledger lines a note may need before it takes an octave line (Register.far overrides it). */
+const defaultFar = 3;
+/**
+ * Cost of a clef change, against the cost of ledger lines (see penalty): high enough that a
+ * staff never changes clef for one or two notes, only for a stretch that would otherwise sit on
+ * three or more ledger lines (docs/research/score-layout/instruments.md).
+ */
+const changeCost = 12;
 /** Cost of a measure with notes in a clef other than the staff's own. */
 const awayCost = 0.5;
 
@@ -163,6 +167,7 @@ function octaveLines(
   clefs: Clef[],
   measures: Measure[],
 ): Ottava[] {
+  const far = register.far ?? defaultFar;
   const allowed = [0];
   if (register.ottava === "up" || register.ottava === "both") allowed.push(1, 2);
   if (register.ottava === "down" || register.ottava === "both") allowed.push(-1, -2);

@@ -15,6 +15,8 @@ export interface Note {
   pitches: Spelled[];
   voice: number;
   staff: number;
+  /** The score gave the staff (a grand-staff instrument's notes without one go by register). */
+  staffGiven: boolean;
   /** Technique components, e.g. ["tremolo", "sul-pont"]; empty for ord. */
   technique: string[];
   articulations: Articulation[];
@@ -46,6 +48,8 @@ export interface NormalPart {
   name: string;
   abbreviation: string;
   players: number;
+  /** Who plays it (Part.player), when one player plays several parts. */
+  player?: string;
   notes: Note[];
   texts: { at: Rational; text: string; placement: "above" | "below" }[];
   dynamics: Dynamic[];
@@ -59,6 +63,8 @@ export interface NormalScore {
   /** `change`: a gradual change starts here (accel. or rit., to the next mark). */
   tempoMarks: { at: Rational; bpm: number; beat: Rational; text?: string; change?: string }[];
   rehearsal: { measure: number; label: string }[];
+  /** How far an accidental reaches (Score.accidentals). */
+  accidentals: "note" | "bar";
   end: Rational;
   warnings: string[];
 }
@@ -77,6 +83,8 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
   const where = (i: number) => `part "${part.id}", event ${i}`;
   const notes: Note[] = [];
   const texts: NormalPart["texts"] = [];
+  /** Events giving a fixed-pitch instrument a quarter tone. */
+  const quarterTones: number[] = [];
   const dynamics: Dynamic[] = (part.dynamics ?? []).map((d: DynamicPoint) => ({
     at: Rational.of(d.at),
     level: d.level,
@@ -113,6 +121,7 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
           warnings.push(`${where(index)}: ${inst.name} pitch ${p.midi} is outside its range`);
       }
     }
+    if (inst.fixedPitch && pitches.some((p) => !Number.isInteger(p.midi))) quarterTones.push(index);
     const staff = e.staff ?? 1;
     if (staff < 1 || staff > inst.clefs.length)
       throw new Error(`${where(index)}: ${inst.name} has ${inst.clefs.length} staff/staves`);
@@ -124,6 +133,7 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
       pitches: inst.unpitched ? [] : pitches,
       voice: e.voice ?? 1,
       staff,
+      staffGiven: e.staff !== undefined,
       technique,
       articulations: e.articulations ?? [],
       slur: e.slur ?? false,
@@ -134,6 +144,10 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
     });
   });
 
+  if (quarterTones.length)
+    warnings.push(
+      `${where(quarterTones[0]!)}: ${inst.name} plays no quarter tones (docs/antara/sound.md); ${quarterTones.length} event(s) have one`,
+    );
   notes.sort((a, b) => a.at.cmp(b.at) || a.voice - b.voice);
   (part.feathers ?? []).forEach((f, group) => {
     const start = Rational.of(f.at);
@@ -176,6 +190,7 @@ function normalizePart(part: Part, warnings: string[]): NormalPart {
     name,
     abbreviation: part.abbreviation ?? inst.abbreviation,
     players,
+    ...(part.player ? { player: part.player } : {}),
     notes,
     texts,
     dynamics: merged,
@@ -235,6 +250,28 @@ export function normalize(score: Score): NormalScore {
     }
   }
 
+  // One player's parts (a flute and a piccolo) cannot sound at once. Percussionists play two
+  // instruments at once often enough that theirs are not checked.
+  const byPlayer = new Map<string, NormalPart[]>();
+  for (const p of parts)
+    if (p.player && p.instrument.family !== "percussion")
+      byPlayer.set(p.player, [...(byPlayer.get(p.player) ?? []), p]);
+  for (const [player, own] of byPlayer) {
+    const spans = own
+      .flatMap((p) => p.notes.map((n) => ({ p, at: n.at.value, end: n.end.value })))
+      .sort((a, b) => a.at - b.at);
+    let last: (typeof spans)[number] | undefined;
+    for (const s of spans) {
+      if (last && last.p !== s.p && s.at < last.end) {
+        warnings.push(
+          `player "${player}": parts "${last.p.id}" and "${s.p.id}" sound at once (quarter ${s.at.toFixed(2)})`,
+        );
+        break;
+      }
+      if (!last || s.end > last.end) last = s;
+    }
+  }
+
   let end = Rational.zero;
   for (const p of parts) {
     for (const n of p.notes) end = max(end, n.end);
@@ -261,6 +298,7 @@ export function normalize(score: Score): NormalScore {
         return { at: t.at, bpm: t.bpm, beat: t.beat, text: t.text, change };
       }),
     rehearsal: score.rehearsal ?? [],
+    accidentals: score.accidentals ?? "note",
     end,
     warnings,
   };

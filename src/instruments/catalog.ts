@@ -21,12 +21,19 @@ export interface Register {
   clefs?: Clef[];
   /** Octave lines the staff may use: 8va and 15ma above ("up"), 8vb and 15mb below ("down"). */
   ottava?: "up" | "down" | "both";
+  /** Ledger lines a note may need before it takes an octave line (default 3). */
+  far?: number;
 }
 
 export interface Instrument {
   id: string;
+  /** Names as the full score prints them (English, docs/decisions/0021). */
   name: string;
   abbreviation: string;
+  /** Name for a staff of several players ("Flutes 1.2"), when it differs. */
+  plural?: string;
+  /** Key of a transposing instrument, printed in its name even in a score in C ("in B♭"). */
+  key?: string;
   family: Family;
   /** Clef per staff (two entries for piano, harp …): the staff's own clef. */
   clefs: Clef[];
@@ -41,6 +48,8 @@ export interface Instrument {
   sectionSize?: number;
   /** Unpitched percussion: one-line staff. */
   unpitched?: boolean;
+  /** Pitch fixed by keys, bars or strings: plays no quarter tones (docs/antara/sound.md). */
+  fixedPitch?: boolean;
   /** Sounding range in MIDI numbers, for warnings. */
   range?: [number, number];
   /**
@@ -57,7 +66,6 @@ const alto: Clef = { sign: "C", line: 3 };
 const tenor: Clef = { sign: "C", line: 4 };
 
 const up: Register = { ottava: "up" };
-const down: Register = { ottava: "down" };
 /** Piano, harp …: each staff may take the other's clef, and octave lines both ways. */
 const keyboard: Register[] = [
   { clefs: [bass], ottava: "both" },
@@ -139,19 +147,30 @@ const strings = (
 });
 
 const list: Instrument[] = [
-  woodwind("piccolo", "Piccolo", "Picc.", [74, 108], { writtenOctave: -1, registers: [up] }),
-  woodwind("flute", "Flute", "Fl.", [59, 98], { registers: [up] }),
-  woodwind("alto-flute", "Alto Flute", "A. Fl.", [55, 91], { registers: [up] }),
+  woodwind("piccolo", "Piccolo", "Picc.", [74, 108], { writtenOctave: -1 }),
+  woodwind("flute", "Flute", "Fl.", [59, 98], { plural: "Flutes" }),
+  woodwind("alto-flute", "Alto Flute", "A. Fl.", [55, 91]),
   woodwind("bass-flute", "Bass Flute", "B. Fl.", [48, 84], { writtenOctave: 1 }),
-  woodwind("oboe", "Oboe", "Ob.", [58, 93]),
-  woodwind("cor-anglais", "Cor anglais", "C. ingl.", [52, 81]),
-  woodwind("clarinet", "Clarinet", "Cl.", [50, 94]),
+  woodwind("oboe", "Oboe", "Ob.", [58, 93], { plural: "Oboes" }),
+  woodwind("cor-anglais", "English Horn", "E. H.", [52, 81]),
+  woodwind("clarinet", "Clarinet", "Cl.", [50, 94], {
+    plural: "Clarinets",
+    key: "B♭",
+    registers: [{ clefs: [bass] }],
+  }),
   woodwind("eb-clarinet", "Clarinet in E♭", "E♭ Cl.", [55, 98]),
-  woodwind("bass-clarinet", "Bass Clarinet", "B. Cl.", [34, 77], { writtenOctave: 1 }),
+  // In a score in C, at sounding pitch in bass clef (treble up high), not an octave up in treble.
+  woodwind("bass-clarinet", "Bass Clarinet", "B. Cl.", [34, 77], {
+    key: "B♭",
+    clefs: [bass],
+    registers: [{ clefs: [treble] }],
+  }),
   woodwind("contrabass-clarinet", "Contrabass Clarinet", "Cb. Cl.", [22, 65], {
+    key: "B♭",
     writtenOctave: 2,
   }),
   woodwind("bassoon", "Bassoon", "Bsn.", [34, 75], {
+    plural: "Bassoons",
     clefs: [bass],
     registers: [{ clefs: [tenor] }],
   }),
@@ -160,28 +179,41 @@ const list: Instrument[] = [
     writtenOctave: 1,
   }),
 
-  brass("horn", "Horn", "Hn.", [34, 77], { clefs: [treble], registers: [{ clefs: [bass] }] }),
-  brass("trumpet", "Trumpet", "Tpt.", [54, 84], { clefs: [treble] }),
-  brass("trombone", "Trombone", "Tbn.", [40, 72], { registers: [{ clefs: [tenor] }] }),
+  brass("horn", "Horn", "Hn.", [34, 77], {
+    plural: "Horns",
+    key: "F",
+    clefs: [treble],
+    registers: [{ clefs: [bass] }],
+  }),
+  brass("trumpet", "Trumpet", "Tpt.", [52, 84], { plural: "Trumpets", key: "B♭", clefs: [treble] }),
+  brass("trombone", "Trombone", "Tbn.", [40, 72], {
+    plural: "Trombones",
+    registers: [{ clefs: [tenor] }],
+  }),
   brass("bass-trombone", "Bass Trombone", "B. Tbn.", [28, 67]),
-  brass("contrabass-trombone", "Contrabass Trombone", "Cb. Tbn.", [23, 60], { registers: [down] }),
-  brass("cimbasso", "Cimbasso", "Cimb.", [23, 58], { registers: [down] }),
-  brass("tuba", "Tuba", "Tba.", [26, 65], { registers: [down] }),
-  brass("contrabass-tuba", "Contrabass Tuba", "Cb. Tba.", [21, 58], { registers: [down] }),
+  brass("contrabass-trombone", "Contrabass Trombone", "Cb. Tbn.", [23, 60]),
+  brass("cimbasso", "Cimbasso", "Cimb.", [23, 58]),
+  brass("tuba", "Tuba", "Tba.", [26, 65]),
+  brass("contrabass-tuba", "Contrabass Tuba", "Cb. Tba.", [21, 58]),
 
   pitchedPerc("timpani", "Timpani", "Timp.", [38, 60], { clefs: [bass] }),
-  pitchedPerc("glockenspiel", "Glockenspiel", "Glk.", [79, 108], { writtenOctave: -2 }),
+  pitchedPerc("glockenspiel", "Glockenspiel", "Glock.", [79, 108], {
+    writtenOctave: -2,
+    fixedPitch: true,
+  }),
   pitchedPerc("xylophone", "Xylophone", "Xyl.", [65, 108], {
     writtenOctave: -1,
     registers: [up],
+    fixedPitch: true,
   }),
   pitchedPerc("marimba", "Marimba", "Mar.", [45, 96], {
     clefs: [treble, bass],
     registers: keyboard,
+    fixedPitch: true,
   }),
-  pitchedPerc("vibraphone", "Vibraphone", "Vib.", [53, 89], { registers: [up] }),
-  pitchedPerc("crotales", "Crotales", "Crot.", [84, 108], { writtenOctave: -2 }),
-  pitchedPerc("tubular-bells", "Tubular Bells", "T. Bells", [60, 77]),
+  pitchedPerc("vibraphone", "Vibraphone", "Vib.", [53, 89], { registers: [up], fixedPitch: true }),
+  pitchedPerc("crotales", "Crotales", "Crot.", [84, 108], { writtenOctave: -2, fixedPitch: true }),
+  pitchedPerc("tubular-bells", "Tubular Bells", "Tub. B.", [60, 77], { fixedPitch: true }),
   {
     id: "celesta",
     name: "Celesta",
@@ -191,6 +223,7 @@ const list: Instrument[] = [
     registers: keyboard,
     writtenOctave: -1,
     range: [60, 108],
+    fixedPitch: true,
   },
   {
     id: "piano",
@@ -200,15 +233,18 @@ const list: Instrument[] = [
     clefs: [treble, bass],
     registers: keyboard,
     range: [21, 108],
+    fixedPitch: true,
   },
   {
     id: "harp",
     name: "Harp",
     abbreviation: "Hp.",
+    plural: "Harps",
     family: "harp",
     clefs: [treble, bass],
     registers: keyboard,
     range: [23, 104],
+    fixedPitch: true,
   },
 
   perc("snare-drum", "Snare Drum", "S. D."),
@@ -218,7 +254,7 @@ const list: Instrument[] = [
   perc("suspended-cymbal", "Suspended Cymbal", "Sus. Cym."),
   perc("clash-cymbals", "Clash Cymbals", "Cym."),
   perc("tam-tam", "Tam-tam", "T.-t."),
-  perc("triangle", "Triangle", "Trgl."),
+  perc("triangle", "Triangle", "Tri."),
   perc("tambourine", "Tambourine", "Tamb."),
   perc("anvil", "Anvil", "Anv."),
   perc("castanets", "Castanets", "Cast."),
@@ -231,13 +267,18 @@ const list: Instrument[] = [
   perc("guiro", "Guiro", "Guiro"),
   perc("ratchet", "Ratchet", "Ratch."),
 
-  strings("violins-1", "Violins I", "Vn. I", treble, 16, [55, 103], { registers: [up] }),
-  strings("violins-2", "Violins II", "Vn. II", treble, 14, [55, 100], { registers: [up] }),
-  strings("violas", "Violas", "Va.", alto, 12, [48, 91], { registers: [{ clefs: [treble] }] }),
-  strings("cellos", "Violoncellos", "Vc.", bass, 10, [36, 84], {
+  // Violins take an octave line only for extreme heights (MOLA: avoid 8va).
+  strings("violins-1", "Violin I", "Vln. I", treble, 16, [55, 103], {
+    registers: [{ ottava: "up", far: 5 }],
+  }),
+  strings("violins-2", "Violin II", "Vln. II", treble, 14, [55, 100], {
+    registers: [{ ottava: "up", far: 5 }],
+  }),
+  strings("violas", "Viola", "Vla.", alto, 12, [48, 91], { registers: [{ clefs: [treble] }] }),
+  strings("cellos", "Violoncello", "Vc.", bass, 10, [36, 84], {
     registers: [{ clefs: [tenor, treble] }],
   }),
-  strings("basses", "Contrabasses", "Cb.", bass, 8, [28, 67], {
+  strings("basses", "Double Bass", "D. B.", bass, 8, [28, 67], {
     writtenOctave: 1,
     registers: [{ clefs: [tenor, treble] }],
   }),
@@ -257,7 +298,7 @@ const sibelius: Record<string, [string, string]> = {
   "cor-anglais": ["Cor Anglais", "wind.reed.english-horn"],
   clarinet: ["Clarinet in Bb", "wind.reed.clarinet.bflat"],
   "eb-clarinet": ["Clarinet in Eb", "wind.reed.clarinet.eflat"],
-  "bass-clarinet": ["Bass Clarinet in Bb [score sounds 8vb]", "wind.reed.clarinet.bass"],
+  "bass-clarinet": ["Bass Clarinet in Bb", "wind.reed.clarinet.bass"],
   "contrabass-clarinet": [
     "Contrabass Clarinet in Bb [score sounds 15mb]",
     "wind.reed.clarinet.contrabass",
@@ -265,7 +306,7 @@ const sibelius: Record<string, [string, string]> = {
   bassoon: ["Bassoon", "wind.reed.bassoon"],
   contrabassoon: ["Contrabassoon", "wind.reed.contrabassoon"],
   horn: ["Horn in F", "brass.french-horn"],
-  trumpet: ["Trumpet in C", "brass.trumpet.c"],
+  trumpet: ["Trumpet in Bb", "brass.trumpet.bflat"],
   trombone: ["Trombone", "brass.trombone"],
   "bass-trombone": ["Bass Trombone", "brass.trombone.bass"],
   "contrabass-trombone": ["Contrabass Trombone", "brass.trombone.contrabass"],
