@@ -123,6 +123,7 @@ vp node tools/stress-score.ts     # .local/stress/stress-20min.json を作る
 ```sh
 vp node tools/export.ts pieces/pilot                      # .local/exports/pilot.musicxml（Sibelius で開く）
 vp node tools/export.ts sketches/percussion/haze out.musicxml
+vp node tools/pages.ts pieces/pilot                       # .local/pages/pilot/page-1.png …（Verovio で A3 の紙面に描く。体裁を見るため）
 vp node tools/render.ts examples/showcase.json            # .local/renders/showcase/mix.wav
 vp node tools/render.ts examples/showcase.json --stems    # パートごとの WAV も
 vp node tools/render.ts pieces/pilot                      # スケッチや曲はフォルダでもよい
