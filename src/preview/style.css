@@ -705,6 +705,20 @@ body.mixer-collapsed .strips {
   z-index: 1;
 }
 
+.knobs-link {
+  margin: 0;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.knobs-link code {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
 .knobs-title {
   font-weight: 600;
   overflow: hidden;

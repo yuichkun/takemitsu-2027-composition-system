@@ -42,6 +42,7 @@ import { childNodes, rootOf, scoreFileOf, sketchFile } from "../sketch/run.ts";
 import { Engraver, type StripDocs } from "./engraver.ts";
 import {
   changeSketch,
+  dependents,
   nodeIn,
   rerun,
   sketchOf,
@@ -120,6 +121,17 @@ function listScores(): ScoreEntry[] {
     walk(top);
   }
   return out;
+}
+
+/** The folders of every piece. */
+function pieceFolders(): string[] {
+  return [
+    ...new Set(
+      listScores()
+        .filter((e) => e.depth === 0)
+        .map((e) => dirname(e.path)),
+    ),
+  ];
 }
 
 /** Only files inside a score folder may be read. */
@@ -281,6 +293,9 @@ function watchScores(): void {
           broadcast("sketch", { dir: changed });
           broadcast("list", {});
         });
+        // Pieces with a section that is this sketch are written again too.
+        for (const piece of dependents(root, pieceFolders()))
+          void rerun(piece).then(() => broadcast("sketch", { dir: piece }));
         return;
       }
       if (!file.endsWith(".json") || basename(file) === "values.json") return;
@@ -294,14 +309,8 @@ function watchScores(): void {
     watchers.push(
       watch(generatorsDir, { recursive: true }, (_type, file) => {
         if (!file?.endsWith(".ts")) return;
-        const pieces = [
-          ...new Set(
-            listScores()
-              .filter((e) => e.depth === 0)
-              .map((e) => dirname(e.path)),
-          ),
-        ];
-        for (const root of pieces) void rerun(root).then(() => broadcast("sketch", { dir: root }));
+        for (const root of pieceFolders())
+          void rerun(root).then(() => broadcast("sketch", { dir: root }));
       }),
     );
   // A folder that appeared later (or vanished): let the page refresh its list.
@@ -444,7 +453,13 @@ export function previewMiddleware() {
         if (!dir) return json(res, 404, { error: "Not a sketch's score" });
         if (req.method === "POST") {
           try {
-            await changeSketch(dir, (await body(req)) as SketchChange);
+            const written = await changeSketch(
+              dir,
+              (await body(req)) as SketchChange,
+              pieceFolders(),
+            );
+            // Other pages open on a sketch or piece that uses the same values show them again.
+            for (const d of written) broadcast("sketch", { dir: d });
           } catch (e) {
             return json(res, 400, { error: message(e) });
           }

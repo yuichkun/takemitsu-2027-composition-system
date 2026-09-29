@@ -72,6 +72,11 @@ export interface Outline {
   flows: Record<string, number[]>;
   /** Problems found while putting the nodes together (two nodes giving one player notes at once). */
   warnings: string[];
+  /**
+   * The sketch folders (from the piece's folder) that some of its nodes are, code and values
+   * (src/sketch/run.ts): the preview writes the piece again when one of them changes.
+   */
+  sketches?: string[];
 }
 
 export interface OutlineNode {

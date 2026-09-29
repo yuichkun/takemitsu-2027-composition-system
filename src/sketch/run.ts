@@ -7,15 +7,22 @@
 // read with all of them, each with its own values.json, and only the piece's score is written.
 // Given a folder inside a piece, the whole piece is run.
 //
+// A folder may be another sketch folder: its sketch.ts re-exports that sketch and says where it is
+// (`export const sketch = "../../../sketches/…"`), and its values are that sketch's values.json. A
+// piece's section written this way is the sketch: working on the sketch (its code, its knobs)
+// changes the section, and the piece's score lists it (outline.sketches) so the preview writes the
+// piece again.
+//
 //   vp node src/sketch/run.ts sketches/<name>              write the score
 //   vp node src/sketch/run.ts sketches/<name> --describe   print the knobs and values as JSON
 //
 // A sketch that throws exits with 1 and its message on stderr.
 
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
-import { basename, dirname, join, resolve } from "node:path";
+import { basename, dirname, join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
+import type { Score } from "../score/types.ts";
 import { emptyStored, resolveValues, type Knobs, type Stored } from "./knobs.ts";
 import { Context, type LoadedNode } from "./nest.ts";
 
@@ -49,11 +56,29 @@ interface SketchModule {
   knobs?: Knobs;
   score: (values: Record<string, unknown>, ctx: Context) => unknown;
   seams?: LoadedNode["seams"];
+  /** The sketch folder (from this one) this folder is: its code re-exported, its values used. */
+  sketch?: string;
+}
+
+/** The sketch folder a folder's module says it is, if any. */
+function linkOf(dir: string, mod: SketchModule): string | undefined {
+  if (typeof mod.sketch !== "string") return undefined;
+  const to = resolve(dir, mod.sketch);
+  if (!existsSync(sketchFile(to)))
+    throw new Error(`${dir}: "${mod.sketch}" is not a sketch folder`);
+  return to;
+}
+
+/** Every sketch folder the nodes of a tree are. */
+function linksOf(node: LoadedNode): string[] {
+  const own = node.from ? [node.from] : [];
+  return [...new Set([...own, ...[...node.children.values()].flatMap(linksOf)])];
 }
 
 async function load(dir: string, path: string): Promise<LoadedNode> {
   const sketch = (await import(pathToFileURL(sketchFile(dir)).href)) as SketchModule;
-  const values = resolveValues(sketch.knobs ?? {}, readStored(dir).values);
+  const from = linkOf(dir, sketch);
+  const values = resolveValues(sketch.knobs ?? {}, readStored(from ?? dir).values);
   const children = new Map<string, LoadedNode>();
   for (const name of childNodes(dir))
     children.set(name, await load(join(dir, name), path ? `${path}/${name}` : name));
@@ -63,6 +88,7 @@ async function load(dir: string, path: string): Promise<LoadedNode> {
     score: sketch.score,
     ...(sketch.seams ? { seams: sketch.seams } : {}),
     values,
+    ...(from ? { from } : {}),
     children,
   };
 }
@@ -74,10 +100,17 @@ async function main(): Promise<void> {
   if (args.includes("--describe")) {
     const sketch = (await import(pathToFileURL(sketchFile(given)).href)) as SketchModule;
     const knobs = sketch.knobs ?? {};
-    const stored = readStored(given);
+    const from = linkOf(given, sketch);
+    const stored = readStored(from ?? given);
     const values = resolveValues(knobs, stored.values);
     process.stdout.write(
-      JSON.stringify({ knobs, values, presets: stored.presets, touched: stored.touched }),
+      JSON.stringify({
+        knobs,
+        values,
+        presets: stored.presets,
+        touched: stored.touched,
+        ...(from ? { from } : {}),
+      }),
     );
     return;
   }
@@ -86,6 +119,9 @@ async function main(): Promise<void> {
   const score = tree.score(tree.values, Context.root(tree));
   if (!score || typeof score !== "object" || !("parts" in score) || !("meter" in score))
     throw new Error(`${basename(dir)}: score() must return a whole score (a piece: ctx.score(…))`);
+  const links = linksOf(tree).map((d) => relative(dir, d));
+  const outline = (score as Score).outline;
+  if (outline && links.length) outline.sketches = links;
   const text = JSON.stringify(score, null, 1) + "\n";
   const out = scoreFileOf(dir);
   if (!existsSync(out) || readFileSync(out, "utf8") !== text) writeFileSync(out, text);

@@ -463,6 +463,11 @@ export class KnobPanel {
         <button type="button" class="quiet" data-action="reset" title="Back to the provisional values">Reset</button>
       </header>
       ${
+        s.sketch
+          ? `<p class="knobs-link">The sketch <code>${escapeHtml(s.sketch)}</code>: its code and its values. Changing a knob here changes the sketch.</p>`
+          : ""
+      }
+      ${
         s.outline
           ? `<div class="map-wrap">
           <canvas class="map" aria-label="The piece's map: click a part to show its knobs"></canvas>

@@ -102,6 +102,8 @@ export interface LoadedNode {
   /** The node's own seams, per part of the score it writes (a section: src/sketch/join.ts). */
   seams?: (score: Score) => Record<string, Seam[]>;
   values: Record<string, unknown>;
+  /** The sketch folder this node is, code and values, when it links one (src/sketch/run.ts). */
+  from?: string;
   children: Map<string, LoadedNode>;
 }
 
