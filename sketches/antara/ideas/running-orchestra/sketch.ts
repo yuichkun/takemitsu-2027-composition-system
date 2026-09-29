@@ -21,11 +21,9 @@
 //   running); where three meet the horns sound their notes; where all four meet the trumpets, the
 //   trombones, the tuba and the timpani too. The more lines meet, the more of the orchestra marks the
 //   beat that arises.
-// - Fixed pitches double: the two harps share the second violins' line by the notes each can play
-//   (harp 1 the semitone pitches, harp 2, a quarter tone low, the others); the marimba doubles the
-//   violas' semitone strokes, the piano the cellos', the celesta the first violins'. Which
-//   instrument sounds a stroke changes as a line moves between the semitone pitches and those a
-//   quarter tone off.
+// - Fixed pitches double: the marimba doubles the violas' semitone strokes, the piano the cellos',
+//   the celesta the first violins'. The harps rest until the final meeting: the strings carry the
+//   complete pitch lines, without imposing rapid chromatic pedalling on the harps.
 // - Everyone on the meeting: the last downbeat is played by the whole orchestra, each instrument on
 //   the notes of the meeting it can play.
 
@@ -246,7 +244,7 @@ export const knobs = {
   keys: toggle({
     group: ORCHESTRA,
     label: "Fixed pitches double",
-    help: "The two harps share the second violins' line (harp 1 the semitone pitches, harp 2 those a quarter tone off); the marimba doubles the violas' semitone strokes, the piano the cellos', the celesta the first violins'",
+    help: "The marimba doubles the violas' semitone strokes, the piano the cellos', the celesta the first violins'. The harps rest until the final meeting",
     value: true,
   }),
   tutti: toggle({
@@ -466,8 +464,6 @@ const WINDS: Record<string, { pair: [string, string]; window: [number, number] }
 
 // Fixed pitches double: which section's strokes, on which pitches (0: semitone, 1: a quarter tone off).
 const DOUBLES: { id: string; line: string; grid: 0 | 1 }[] = [
-  { id: "hp1", line: "vn2t", grid: 0 },
-  { id: "hp2", line: "vn2t", grid: 1 },
   { id: "mar", line: "vat", grid: 0 },
   { id: "pno", line: "vct", grid: 0 },
   { id: "cel", line: "vn1t", grid: 0 },
