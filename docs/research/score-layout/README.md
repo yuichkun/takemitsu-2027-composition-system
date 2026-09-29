@@ -12,6 +12,7 @@
 | [`layout.md`](./layout.md) | 楽器の並び、括弧・副括弧・波括弧と小節線のつながり、段の名前、Score in C、前付け（表紙・編成表・演奏上の注意）、用紙と五線の大きさ、テンポ・練習番号・小節番号の位置、空の段を隠す書き方、持ち替え。最後に書き出しの確認表 |
 | [`sharing.md`](./sharing.md) | 二人で一段（どの組を合わせるか、a 2 / 1. / 2. の書き方、休符、合わせない条件）、判断の単位（曲全体・段ごと・場面ごと）、弦のディヴィジ（div. / unis. / div. a N、段の分け方と名前）、打楽器の段、ハープと鍵盤。最後に書き出しで実装できる規則 |
 | [`instruments.md`](./instruments.md) | 楽器ごとの記譜（音部記号、オクターヴ記号を使ってよいか、実音の総譜で残るオクターヴ記譜）、ハープ（大譜表、ペダル、四分音は弦の調律替え）、ピアノとチェレスタ、ティンパニ、弦のハーモニクス、四分音の臨時記号とその効き方、強弱の位置、楽器名の英伊 |
+| [`import-test.md`](./import-test.md) | **実機テストの結果**（2026-09-29、Codex が Sibelius 24.3.1 で）。何が効き何が効かないか、書き出しへの反映、Sibelius での仕上げの手順。原文は [`import-test-report.md`](./import-test-report.md) |
 | [`sibelius.md`](./sibelius.md) | Sibelius 24.3.1 の同梱文書から: 取り込みが並び・括弧・名前・楽器・移調・用紙をどう扱うか、Sibelius 側でしかできない設定（空の段を隠す、テンポと練習番号の位置、小節番号）と ManuScript で自動化できる所。最後に、書き出しが書くべきことと、Sibelius での仕上げの手順 |
 
-実機で確かめる問いは [`../../../verification/sibelius-layout/`](../../../verification/sibelius-layout/) にまとめた（テスト用のファイルと、画面を操作する人への手順書）。
+実機で確かめる問いは [`../../../verification/sibelius-layout/`](../../../verification/sibelius-layout/) にまとめた（テスト用のファイルと、画面を操作する人への手順書）。結果は [`import-test.md`](./import-test.md)。

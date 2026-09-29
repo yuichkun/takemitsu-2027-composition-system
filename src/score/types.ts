@@ -45,9 +45,9 @@ export interface Score {
   rehearsal?: { measure: number; label: string }[];
   parts: Part[];
   /**
-   * How far an accidental reaches in the score (docs/decisions/0021): "note" (default) prints one
-   * on every note, naturals included, except a note repeating the one before it and tied notes;
-   * "bar" is the usual rule (to the end of the measure, in its octave).
+   * How far an accidental reaches in the score (docs/decisions/0022): "bar" (default) is the usual
+   * rule, to the end of the measure in its octave; "note" prints one on every note, naturals
+   * included, except a note repeating the one before it and tied notes (Sibelius does not keep it).
    */
   accidentals?: "note" | "bar";
   /** For a piece made of sketches: where each of them is (the preview draws it as a map). */

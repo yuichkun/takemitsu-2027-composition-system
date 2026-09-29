@@ -64,9 +64,9 @@ flowchart LR
   1 線の打楽器譜表は、Verovio が線を E4 と読むので E4 で書く（Sibelius に渡す MusicXML は慣例どおり B4）
 - 強弱の曲線から、記号（ppp〜fff、n）とヘアピン（niente を含む）を導く
 - 奏法が変わるところに文字を置く（pizz. → arco、sul pont. → ord. など）。トレモロ、フラッター、ロールは符尾の斜線
-- 臨時記号は `<accidental>` に書く。既定では**その音符にだけ効く**: 変化のない音にもナチュラルを付け、直前と同じ音とタイの先には付けない。
-  `Score.accidentals: "bar"` で小節の終わりまで効く規則になる。四分音は小数の `<alter>`（[`decisions/0011`](./decisions/0011-quarter-tone-notation.md)）。
-  Sibelius は `<accidental>` を読まず自分の規則で付け直すので、Sibelius 側で揃えるには仕上げの手順が要る
+- 臨時記号は `<accidental>` に書く。小節の終わりまで効く、ふつうの規則（[`decisions/0022`](./decisions/0022-accidentals-to-the-bar.md)）。
+  `Score.accidentals: "note"` にすると、その音符にだけ効く書き方（変化のない音にもナチュラル）になるが、Sibelius は `<accidental>` を読まず自分の規則で付け直す。
+  四分音は小数の `<alter>`（[`decisions/0011`](./decisions/0011-quarter-tone-notation.md)）
 - 総譜は実音（in C、[`decisions/0017`](./decisions/0017-score-in-c.md)）。オクターヴ記譜の楽器だけは慣例どおり
   （ピッコロ・シロフォン・チェレスタは 1 オクターヴ下、グロッケン・クロタルは 2 オクターヴ下、
   コントラバス・コントラファゴット・バスフルートは 1 オクターヴ上、コントラバスクラは 2 オクターヴ上）。

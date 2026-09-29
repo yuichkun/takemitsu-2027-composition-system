@@ -298,7 +298,7 @@ export function normalize(score: Score): NormalScore {
         return { at: t.at, bpm: t.bpm, beat: t.beat, text: t.text, change };
       }),
     rehearsal: score.rehearsal ?? [],
-    accidentals: score.accidentals ?? "note",
+    accidentals: score.accidentals ?? "bar",
     end,
     warnings,
   };
