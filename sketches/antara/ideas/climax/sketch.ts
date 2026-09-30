@@ -20,6 +20,7 @@
 // glockenspiel and vibraphone drift down through the bell's notes.
 
 import { ensemble } from "../../../../pieces/antara/ensemble.ts";
+import { sharedPhrases } from "../../phrases.ts";
 import type {
   DynamicPoint,
   Event,
@@ -111,6 +112,26 @@ const FALLING: [string, 0 | 1, number][] = [
 ];
 
 export const knobs = {
+  chunk: number({
+    group: "Strings",
+    label: "Chunk",
+    value: 10,
+    min: 8,
+    max: 24,
+    step: 1,
+    unit: "strokes",
+    help: "Maximum notes per continuous phrase, including overlap, passed between the same four groups as running",
+  }),
+  overlap: number({
+    group: "Strings",
+    label: "Overlap",
+    value: 3,
+    min: 0,
+    max: 4,
+    step: 1,
+    unit: "strokes",
+    help: "Notes shared with the next group at their original pitches and times, included in Chunk",
+  }),
   standpoint: pitch({
     group: "Bell",
     label: "Standpoint",
@@ -532,8 +553,12 @@ export function score(v: V): Score {
     const grounds: [string, number][] = [
       ["cb-2-2", bass],
       ["cb-2-1", bass + 12],
-      ["vc-2-2", bass + 12],
-      ["vc-2-1", bass + 24],
+      // Running's four cello groups contain 3, 3, 2, 2 players. Pair 1+3 and 2+4
+      // to retain five players on each of the original two tremolo pitches.
+      ["vc-4-2", bass + 12],
+      ["vc-4-4", bass + 12],
+      ["vc-4-1", bass + 24],
+      ["vc-4-3", bass + 24],
     ];
     for (const [id, midi] of grounds)
       parts.push(
@@ -561,7 +586,7 @@ export function score(v: V): Score {
   // or down, turning after runs of their lengths or at the edge of their band. When a stroke
   // changes the bell, the run goes on from the nearest note of the new one.
   for (const r of RUNNERS) {
-    const events: Event[] = [];
+    const events: NoteEvent[] = [];
     let dir = 1;
     let run = 0;
     let left = r.runs[0]!;
@@ -583,18 +608,29 @@ export function score(v: V): Score {
       midi = field[i]!;
       events.push({ at: time(t), dur: time(r.atom), pitch: { midi } });
     }
-    events.push({
-      at: time(final.at),
-      dur: time(TICKS / 2),
-      pitch: { midi },
-      articulations: ["accent", "staccato"],
+    const dynamics: DynamicPoint[] = [
+      { at: 0, level: 7 },
+      { at: time(final.at - 2 * BAR), level: 7, to: "linear" },
+      { at: time(final.at), level: 8 },
+    ];
+    sharedPhrases(events, v.chunk, v.overlap).forEach((phrase, group) => {
+      if (phrase.length)
+        parts.push(partOf(`${r.id.slice(0, -1)}-4-${group + 1}`, phrase, dynamics));
     });
+    // All four groups reunite for the accented cut, with no overlapping divisi notes.
     parts.push(
-      partOf(r.id, events, [
-        { at: 0, level: 7 },
-        { at: time(final.at - 2 * BAR), level: 7, to: "linear" },
-        { at: time(final.at), level: 8 },
-      ]),
+      partOf(
+        r.id,
+        [
+          {
+            at: time(final.at),
+            dur: time(TICKS / 2),
+            pitch: { midi },
+            articulations: ["accent", "staccato"],
+          },
+        ],
+        dynamics,
+      ),
     );
   }
 

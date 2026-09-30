@@ -28,6 +28,7 @@
 //   the notes of the meeting it can play.
 
 import { ensemble } from "../../../../pieces/antara/ensemble.ts";
+import { sharedPhrases } from "../../phrases.ts";
 import type {
   Articulation,
   DynamicPoint,
@@ -384,30 +385,6 @@ interface Stroke {
   dur: number;
   midi: number;
   head: boolean;
-}
-
-/** Bounded continuous slices; overlap is included in the limit, never appended beyond it. */
-function sharedPhrases(strokes: Stroke[], size: number, overlap: number): Stroke[][] {
-  if (
-    !Number.isInteger(size) ||
-    size < 1 ||
-    !Number.isInteger(overlap) ||
-    overlap < 0 ||
-    overlap >= size ||
-    overlap * 2 > size
-  )
-    throw new Error("Chunk must be a positive whole number; Overlap must be 0 to half of Chunk");
-  const groups: Stroke[][] = Array.from({ length: 4 }, () => []);
-  let from = 0;
-  let turn = 0;
-  while (from < strokes.length) {
-    const to = Math.min(strokes.length, from + size);
-    groups[turn % groups.length]!.push(...strokes.slice(from, to));
-    if (to === strokes.length) break;
-    from = to - overlap;
-    turn++;
-  }
-  return groups;
 }
 
 /** One section's line: its strokes, and the standpoint it meets on at the end. */
