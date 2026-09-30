@@ -89,6 +89,8 @@ export interface Section {
   node: string;
   /** Quarters a minute. A rest has none: it keeps the tempo it is in. */
   bpm?: number;
+  /** Internal tempo changes in section ticks; BPM is always quarter notes per minute. */
+  tempos?: { at: number; bpm: number; to?: "linear" | "step"; text?: string }[];
   /** Ticks. */
   length: number;
   voices: Voice[];
@@ -143,8 +145,6 @@ export function sectionOf(
     const score = r as Score;
     const seams = rendering.seams?.(score) ?? {};
     const tempos = score.tempo ?? [];
-    if (tempos.length > 1)
-      ctx.warn(`${rendering.path}: only its first tempo is kept (${tempos.length} tempo marks)`);
     const meter = score.meter[0];
     const quarters =
       meter && score.measures ? score.measures * meter.beats * (4 / meter.beatType) : 0;
@@ -154,10 +154,20 @@ export function sectionOf(
         ...(p.players !== undefined ? { players: p.players } : {}),
       }),
     );
-    const bpm = given.bpm ?? tempos[0]?.bpm;
+    const curve = tempos
+      .map((t) => ({
+        at: toTicks(t.at),
+        bpm: (t.bpm * toTicks(t.beat ?? 1)) / T,
+        ...(t.to ? { to: t.to } : {}),
+        ...(t.text ? { text: t.text } : {}),
+      }))
+      .sort((a, b) => a.at - b.at);
+    const bpm = given.bpm ?? curve[0]?.bpm;
+    const ratio = given.bpm !== undefined && curve[0] ? given.bpm / curve[0].bpm : 1;
     return {
       node: rendering.path,
       ...(bpm !== undefined ? { bpm } : {}),
+      ...(curve.length ? { tempos: curve.map((t) => ({ ...t, bpm: t.bpm * ratio })) } : {}),
       length: Math.max(Math.round(quarters * T), endOf(voices)),
       voices,
       ...(score.fermatas?.length ? { fermatas: score.fermatas.map((f) => toTicks(f.at)) } : {}),
@@ -385,7 +395,16 @@ export class Placement {
   bpmAt(u: number): number | undefined {
     if (this.section.bpm === undefined) return undefined;
     const s = [...this.stretches].reverse().find((x) => x.from <= u) ?? this.stretches[0]!;
-    return s.bpm ?? this.section.bpm * s.scale;
+    const curve = this.section.tempos ?? [];
+    const i = curve.findLastIndex((t) => t.at <= u);
+    const a = curve[i],
+      b = curve[i + 1];
+    const own = a
+      ? a.to === "linear" && b
+        ? a.bpm + ((b.bpm - a.bpm) * (u - a.at)) / (b.at - a.at)
+        : a.bpm
+      : this.section.bpm;
+    return s.bpm ?? own * s.scale;
   }
 
   /** Its scale from its start. */
@@ -883,21 +902,46 @@ export class Joiner {
     const order = [...this.placements].sort((x, y) => x.at - y.at);
     // The tempo: from where each placement starts, and wherever one changes its scale (a rest keeps
     // the tempo it is in).
-    const changes: { at: number; bpm: number }[] = [];
-    for (const p of order)
-      for (const s of p.stretches) {
-        const bpm = p.bpmAt(s.from);
-        if (bpm !== undefined && s.from < p.to)
-          changes.push({ at: Math.round(p.toPiece(s.from)), bpm });
+    type TempoChange = { at: number; bpm: number; to?: "linear" | "step"; text?: string };
+    const changes: TempoChange[] = [];
+    for (const p of order) {
+      const curve = p.section.tempos ?? [];
+      const points = [
+        ...new Set([p.from, p.to, ...p.stretches.map((s) => s.from), ...curve.map((t) => t.at)]),
+      ]
+        .filter((t) => t >= p.from && t <= p.to)
+        .sort((a, b) => a - b);
+      for (const u of points) {
+        const bpm = p.bpmAt(u);
+        if (bpm === undefined) continue;
+        const i = curve.findLastIndex((t) => t.at <= u);
+        const current = curve[i],
+          next = curve[i + 1];
+        const stretch = [...p.stretches].reverse().find((s) => s.from <= u) ?? p.stretches[0]!;
+        const linear = u < p.to && current?.to === "linear" && next && stretch.bpm === undefined;
+        changes.push({
+          at: Math.round(p.toPiece(u)),
+          bpm,
+          ...(linear ? { to: "linear" as const } : {}),
+          ...(current?.at === u && current.text ? { text: current.text } : {}),
+        });
       }
-    changes.sort((x, y) => x.at - y.at);
-    const tempo: { at: Time; bpm: number }[] = [];
-    let now: number | undefined;
-    for (const c of changes)
-      if (now === undefined || Math.abs(now - c.bpm) > 1e-9) {
-        tempo.push({ at: toTime(c.at), bpm: Math.round(c.bpm * 100) / 100 });
-        now = c.bpm;
-      }
+    }
+    // A following placement owns a shared boundary. Retain equal-BPM starts of ramps and
+    // their endpoints; otherwise an accelerando would either disappear or continue too far.
+    const byTime = new Map(changes.map((c) => [c.at, c]));
+    const tempo: NonNullable<Score["tempo"]> = [];
+    for (const c of [...byTime.values()].sort((a, b) => a.at - b.at)) {
+      const previous = tempo.at(-1);
+      if (
+        !previous ||
+        Math.abs(previous.bpm - c.bpm) > 1e-9 ||
+        c.to === "linear" ||
+        previous.to === "linear" ||
+        c.text
+      )
+        tempo.push({ ...c, at: toTime(c.at), bpm: Math.round(c.bpm * 100) / 100 });
+    }
     for (const x of order)
       for (const y of order) {
         if (x === y || !(x.at < y.at && y.at < x.end) || y.bpm === undefined) continue;

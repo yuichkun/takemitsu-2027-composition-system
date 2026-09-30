@@ -8,7 +8,7 @@
 // the sections are joined (docs/decisions/0026). Which sections come in which order is a knob; so is
 // every join (Join 1 is between the first section and the second, and so on). Card: README.md.
 
-import { joinKnobs, joinOf, Joiner } from "../../src/sketch/join.ts";
+import { joinKnobs, joinOf, Joiner, type Section } from "../../src/sketch/join.ts";
 import { text } from "../../src/sketch/knobs.ts";
 import { Motif } from "../../src/sketch/motif.ts";
 import type { Context } from "../../src/sketch/nest.ts";
@@ -48,8 +48,19 @@ export function score(values: Record<string, unknown>, ctx: Context): Score {
   const names = order.split(/\s+/).filter(Boolean);
   if (!names.length) throw new Error(`Order: name the sections (${SECTIONS.join(", ")})`);
   const rest = J.section("rest");
+  // Render the destination first so rhythm's arrival follows its actual configured tempo.
+  const sections: Section[] = [];
+  for (let i = names.length - 1; i >= 0; i--) {
+    const next = sections[i + 1];
+    sections[i] = J.section(
+      names[i]!,
+      names[i] === "rhythm" && next?.bpm !== undefined
+        ? { values: { arrivalTempo: next.bpm } }
+        : {},
+    );
+  }
   J.chain(
-    names.map((name) => ({ section: J.section(name), label: name })),
+    names.map((name, i) => ({ section: sections[i]!, label: name })),
     names.slice(1).map((_, n) => joinOf(values, n + 1)),
     rest,
   );
