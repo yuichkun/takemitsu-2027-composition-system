@@ -450,15 +450,17 @@ function line(v: V, s: number): { strokes: Stroke[]; last: number } {
   return { strokes, last: standpoint(v, s, mode, setOf(laneAt(v.sets, band))) };
 }
 
-/** A lead-in to the piano's semitone projection, ending at a phrase boundary.
- * Keep gaps where the shared string line contains quarter tones; never round those pitches. */
+/** Piano keeps every attack. Quarter tones choose the upper adjacent semitone consistently. */
+const pianoPitch = (midi: number) => Math.round(midi);
+
+/** A continuous lead-in to the piano line, ending at a phrase boundary. */
 export function pianoLeadIn(v: V, steps: number): { step: number; midi: number; head: boolean }[] {
   const strokes = line(v, 0).strokes;
   const end = strokes.findIndex((n, i) => i >= steps && n.head);
   if (end < 0) throw new Error("Piano lead-in is longer than the running material");
   return strokes
     .slice(end - steps, end)
-    .flatMap((n, step) => (gridOf(n.midi) === 0 ? [{ step, midi: n.midi, head: n.head }] : []));
+    .map((n, step) => ({ step, midi: pianoPitch(n.midi), head: n.head }));
 }
 
 // Winds on the heads: a pair for each section, and where their notes sit (sounding).
@@ -677,11 +679,11 @@ export function score(v: V): Score {
       const leadEnd = v.pianoLeadBars * 4;
       const settle = leadEnd + 4;
       const events: Part["events"] = lineOf(d.line)
-        .strokes.filter((k) => gridOf(k.midi) === d.grid)
+        .strokes.filter((k) => d.id === "pno" || gridOf(k.midi) === d.grid)
         .map((k): NoteEvent => ({
           at: time(k.at),
           dur: time(k.dur),
-          pitch: { midi: k.midi },
+          pitch: { midi: d.id === "pno" ? pianoPitch(k.midi) : k.midi },
           ...(d.id === "pno" && k.at < settle * TICKS && k.head
             ? { articulations: ["accent"] }
             : {}),
@@ -691,7 +693,6 @@ export function score(v: V): Score {
           const base = curve(2);
           const atSettle =
             base[0]!.level + ((base[1]!.level - base[0]!.level) * settle) / (BARS * 4);
-          events.unshift({ type: "text", at: 0, text: "in rilievo", placement: "above" });
           add(d.id, events, [
             { at: 0, level: v.pianoLeadLevel },
             { at: leadEnd, level: v.pianoLeadLevel, to: "linear" },

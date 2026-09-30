@@ -20,7 +20,17 @@ assert.deepEqual(
       head: n.articulations.includes("accent"),
     })),
 );
+assert.equal(lead.length, 42);
+assert.deepEqual(
+  lead.map((n) => n.step),
+  Array.from({ length: 42 }, (_, i) => i),
+);
 assert(lead.every((n) => Number.isInteger(n.midi)));
+const moving = piano.notes.filter((n) => n.at.value < 96);
+assert.equal(moving[0]!.at.value, 0);
+for (let i = 1; i < moving.length; i++)
+  assert(moving[i]!.at.eq(moving[i - 1]!.end), "running piano must not rest");
+assert.equal(moving.at(-1)!.end.value, 96);
 const moved = pianoLeadIn({ ...v, anchor: v.anchor + 2 }, 42);
 assert.deepEqual(
   moved.map((n) => n.midi % 12),
@@ -33,6 +43,9 @@ const series = normalize(raw);
 const p = series.parts.find((p) => p.id === "pno")!;
 const pickup = p.notes.filter((n) => n.at.value >= 133.5);
 assert.equal(pickup[0]!.at.value, 133.5);
+for (let i = 1; i < pickup.length; i++)
+  assert(pickup[i]!.at.eq(pickup[i - 1]!.end), "pickup must not rest");
+assert.equal(pickup.at(-1)!.end.value, 144);
 assert(!p.notes.some((n) => n.at.value === 133), "piano no longer strikes the final chord");
 assert(pickup.every((n) => n.pitches.length === 1));
 assert(
@@ -56,6 +69,14 @@ assert(!series.parts.find((p) => p.id === "vct")!.notes.some((n) => n.at.value >
 const xml = toMusicXml({ ...raw, parts: raw.parts.filter((p: { id: string }) => p.id === "pno") });
 assert.deepEqual(xml.warnings, []);
 assert(xml.musicxml.includes("in rilievo"));
+const full = normalize(
+  JSON.parse(readFileSync(new URL("../../pieces/antara/antara.json", import.meta.url), "utf8")),
+);
+const fullPiano = full.parts.find((p) => p.id === "pno")!;
+assert.equal(fullPiano.texts.filter((t) => t.text === "in rilievo").length, 1);
+const across = fullPiano.notes.filter((n) => n.at.value >= 413.5 && n.at.value < 520);
+for (let i = 1; i < across.length; i++)
+  assert(across[i]!.at.eq(across[i - 1]!.end), "no rest across section boundary");
 assert.deepEqual(plan(series).warnings, []);
 assert.equal(
   60 / 90 / 4,
