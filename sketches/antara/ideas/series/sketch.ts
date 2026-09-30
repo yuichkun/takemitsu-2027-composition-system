@@ -74,7 +74,7 @@ export const knobs = {
   pianoOverlap: number({
     group: "Transition",
     label: "Piano overlap",
-    value: 0.5,
+    value: 1,
     min: 0,
     max: 1,
     step: 0.25,
@@ -417,7 +417,7 @@ export function score(v: V): Score {
           at: time(at),
           dur: time(A2),
           pitch: { midi: n.midi },
-          ...(n.head ? { articulations: ["accent"] as "accent"[] } : {}),
+          articulations: n.head ? ["staccato", "accent"] : ["staccato"],
         },
         [{ at: time(at), level }],
       );

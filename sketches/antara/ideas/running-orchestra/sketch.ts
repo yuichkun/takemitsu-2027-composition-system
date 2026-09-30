@@ -453,6 +453,16 @@ function line(v: V, s: number): { strokes: Stroke[]; last: number } {
 /** Piano keeps every attack. Quarter tones choose the upper adjacent semitone consistently. */
 const pianoPitch = (midi: number) => Math.round(midi);
 
+/** Rise by octaves at phrase heads, never in the middle of a recurring figure.
+ * Start an octave below the cello-derived line; climb after one and two thirds of running. */
+function risingPiano(strokes: Stroke[]): Stroke[] {
+  let octave = -1;
+  return strokes.map((n) => {
+    if (n.head) octave = Math.min(1, -1 + Math.floor(n.at / ((BARS * 4 * TICKS) / 3)));
+    return { ...n, midi: pianoPitch(n.midi) + octave * 12 };
+  });
+}
+
 /** A continuous lead-in to the piano line, ending at a phrase boundary. */
 export function pianoLeadIn(v: V, steps: number): { step: number; midi: number; head: boolean }[] {
   const strokes = line(v, 0).strokes;
@@ -460,7 +470,7 @@ export function pianoLeadIn(v: V, steps: number): { step: number; midi: number; 
   if (end < 0) throw new Error("Piano lead-in is longer than the running material");
   return strokes
     .slice(end - steps, end)
-    .map((n, step) => ({ step, midi: pianoPitch(n.midi), head: n.head }));
+    .map((n, step) => ({ step, midi: pianoPitch(n.midi) - 12, head: n.head }));
 }
 
 // Winds on the heads: a pair for each section, and where their notes sit (sounding).
@@ -678,14 +688,19 @@ export function score(v: V): Score {
     for (const d of DOUBLES) {
       const leadEnd = v.pianoLeadBars * 4;
       const settle = leadEnd + 4;
-      const events: Part["events"] = lineOf(d.line)
-        .strokes.filter((k) => d.id === "pno" || gridOf(k.midi) === d.grid)
+      const source = lineOf(d.line).strokes;
+      const strokes = d.id === "pno" ? risingPiano(source) : source;
+      const events: Part["events"] = strokes
+        .filter((k) => d.id === "pno" || gridOf(k.midi) === d.grid)
         .map((k): NoteEvent => ({
           at: time(k.at),
           dur: time(k.dur),
           pitch: { midi: d.id === "pno" ? pianoPitch(k.midi) : k.midi },
-          ...(d.id === "pno" && k.at < settle * TICKS && k.head
-            ? { articulations: ["accent"] }
+          ...(d.id === "pno"
+            ? {
+                articulations:
+                  k.at < settle * TICKS && k.head ? ["staccato", "accent"] : ["staccato"],
+              }
             : {}),
         }));
       if (events.length) {

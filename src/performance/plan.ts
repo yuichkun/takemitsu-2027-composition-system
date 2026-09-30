@@ -433,7 +433,19 @@ function pitchedLanes(
     if (choice.approximate) warnings.push(`${part.name}: ${choice.approximate}`);
     const velocity = velocityFor(level(n.at.value), accented(n));
     // Legato transitions need a small overlap; other notes release just before the next onset.
-    const release = n.slur ? off + 0.03 : Math.max(on + 0.03, off - 0.01);
+    // Piano has one sampled articulation: make staccato audible by releasing the key early.
+    const detachedPiano =
+      part.instrument.id === "piano" &&
+      (n.articulations.includes("staccato") || n.articulations.includes("staccatissimo"));
+    const release = detachedPiano
+      ? Math.min(
+          off,
+          on +
+            Math.max(0.03, (off - on) * (n.articulations.includes("staccatissimo") ? 0.25 : 0.5)),
+        )
+      : n.slur
+        ? off + 0.03
+        : Math.max(on + 0.03, off - 0.01);
     // The keys the chosen articulation has samples for (harmonics reach higher than long notes).
     const keys = inventory[instrument]?.[choice.articulation]?.range ?? range;
     for (const p of n.pitches) {
