@@ -18693,6 +18693,12 @@
      "articulations": [
       "accent"
      ]
+    },
+    {
+     "type": "text",
+     "at": 104,
+     "text": "prepare marimba",
+     "placement": "above"
     }
    ],
    "player": "p3"

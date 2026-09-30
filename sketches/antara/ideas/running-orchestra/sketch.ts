@@ -503,6 +503,39 @@ const TUTTI: { id: string; window: [number, number]; chord?: boolean }[] = [
   { id: "mar", window: [48, 84], chord: true },
 ];
 
+/** Assign a simultaneous horn chord without changing any sounding pitch.
+ * Prefer small moves, especially when the preceding attack was close in time. */
+export function hornAssignment(
+  pitches: number[],
+  at: number,
+  previous: ({ at: number; midi: number } | undefined)[],
+): number[] {
+  let best: number[] = [];
+  let cost = Infinity;
+  const visit = (chosen: number[], used: Set<number>, sum: number) => {
+    if (chosen.length === pitches.length) {
+      if (sum < cost) {
+        best = [...chosen];
+        cost = sum;
+      }
+      return;
+    }
+    const midi = pitches[chosen.length]!;
+    for (let h = 0; h < 4; h++) {
+      if (used.has(h)) continue;
+      const prev = previous[h];
+      const next = prev ? (midi - prev.midi) ** 2 / Math.max(TICKS / 5, at - prev.at) : 0;
+      chosen.push(h);
+      used.add(h);
+      visit(chosen, used, sum + next);
+      chosen.pop();
+      used.delete(h);
+    }
+  };
+  visit([], new Set(), 0);
+  return best;
+}
+
 export function score(v: V): Score {
   const end = BARS * 4 * TICKS;
   const technique = v.stroke === "spiccato" ? "spiccato" : undefined;
@@ -600,6 +633,7 @@ export function score(v: V): Score {
     }
   }
 
+  const previous: ({ at: number; midi: number } | undefined)[] = Array(4).fill(undefined);
   if (v.brass) {
     const horns: NoteEvent[][] = [[], [], [], []];
     const all: Record<string, NoteEvent[]> = {};
@@ -607,7 +641,13 @@ export function score(v: V): Score {
     for (const [at, met] of meetings) {
       if (met.length < 3) continue;
       const top = met.map((k) => k.midi).sort((a, b) => b - a);
-      top.forEach((p, h) => horns[h]!.push(short(at, met, fold(p, [50, 72]), true)));
+      const pitches = top.map((p) => fold(p, [50, 72]));
+      const assignment = hornAssignment(pitches, at, previous);
+      pitches.forEach((midi, i) => {
+        const h = assignment[i]!;
+        horns[h]!.push(short(at, met, midi, true));
+        previous[h] = { at, midi };
+      });
       if (met.length < SECTIONS.length) continue;
       const low = top.at(-1)!;
       ["tp1", "tp2", "tp3"].forEach((id, n) =>
@@ -637,6 +677,7 @@ export function score(v: V): Score {
   if (v.tutti) {
     // The notes the sections meet on, bottom up, with the basses' below.
     const chord = [fold(lines[0]!.last, BASS_WINDOW), ...lines.map((l) => l.last)];
+    const hornFinish: NoteEvent[] = [];
     TUTTI.forEach((t, n) => {
       const p = player(t.id);
       const fixed = ["harp", "piano", "celesta", "marimba"].includes(p.instrument);
@@ -648,12 +689,22 @@ export function score(v: V): Score {
         : [fold(can[n % can.length]!, t.window)];
       const pitch: Pitch | Pitch[] =
         pitches.length === 1 ? { midi: pitches[0]! } : pitches.map((midi) => ({ midi }));
-      add(
-        t.id,
-        [{ at: time(end), dur: 0.5, pitch, articulations: ["accent"], dynamic: meeting }],
-        curve(1),
-      );
+      const event: NoteEvent = {
+        at: time(end),
+        dur: 0.5,
+        pitch,
+        articulations: ["accent"],
+        dynamic: meeting,
+      };
+      if (/^hn[1-4]$/.test(t.id)) hornFinish.push(event);
+      else add(t.id, [event], curve(1));
     });
+    const assignment = hornAssignment(
+      hornFinish.map((e) => (e.pitch as { midi: number }).midi),
+      end,
+      previous,
+    );
+    hornFinish.forEach((event, i) => add(`hn${assignment[i]! + 1}`, [event], curve(1)));
     add("tam", [{ at: time(end), dur: 4, dynamic: meeting }], [{ at: 0, level: meeting }]);
   }
 

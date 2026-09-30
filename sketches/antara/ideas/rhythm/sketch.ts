@@ -339,6 +339,15 @@ export function score(v: V): Score {
       levels.get(id)!.sort((a, b) => num(a.at) - num(b.at)),
     ),
   );
+  // The next section begins on marimba: prepare the change before the final woodblock strokes.
+  const woodblock = parts.find((p) => p.id === "wbl");
+  if (woodblock)
+    woodblock.events.push({
+      type: "text",
+      at: Math.max(0, STAGES.end * 4 - 8),
+      text: "prepare marimba",
+      placement: "above",
+    });
   const rank = (id: string) => ensemble.findIndex((pl) => pl.id === id);
   parts.sort((a, b) => rank(a.id) - rank(b.id));
   return {

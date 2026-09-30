@@ -606,7 +606,15 @@ export function score(v: V): Score {
     const first = of(0);
     const timp: Event[] = [];
     const timpLevels: DynamicPoint[] = [];
-    const cym: Event[] = [{ type: "text", at: 0, text: "soft mallets", placement: "above" }];
+    const cym: Event[] = [
+      { type: "text", at: 0, text: "soft mallets; glockenspiel mallets ready", placement: "above" },
+      {
+        type: "text",
+        at: time(Math.max(0, final.at - 2 * BAR)),
+        text: "prepare glockenspiel",
+        placement: "above",
+      },
+    ];
     const cymLevels: DynamicPoint[] = [];
     const tmidi = Math.max(38, Math.min(55, s + 12));
     first.forEach((toll, k) => {
@@ -643,7 +651,15 @@ export function score(v: V): Score {
     parts.push(partOf("timp", timp, timpLevels), partOf("scym", cym, cymLevels));
 
     const second = of(1);
-    const tam: Event[] = [{ type: "text", at: 0, text: "l.v.", placement: "above" }];
+    const tam: Event[] = [
+      { type: "text", at: 0, text: "l.v.; vibraphone mallets ready", placement: "above" },
+      {
+        type: "text",
+        at: time(Math.max(0, final.at - 2 * BAR)),
+        text: "prepare vibraphone",
+        placement: "above",
+      },
+    ];
     const tamLevels: DynamicPoint[] = [];
     const bd: Event[] = [];
     const bdLevels: DynamicPoint[] = [];

@@ -13328,7 +13328,16 @@
     {
      "type": "text",
      "at": 0,
-     "text": "soft mallets",
+     "text": "soft mallets; glockenspiel mallets ready",
+     "placement": "above"
+    },
+    {
+     "type": "text",
+     "at": [
+      84,
+      1
+     ],
+     "text": "prepare glockenspiel",
      "placement": "above"
     },
     {
@@ -13646,7 +13655,16 @@
     {
      "type": "text",
      "at": 0,
-     "text": "l.v.",
+     "text": "l.v.; vibraphone mallets ready",
+     "placement": "above"
+    },
+    {
+     "type": "text",
+     "at": [
+      84,
+      1
+     ],
+     "text": "prepare vibraphone",
      "placement": "above"
     },
     {
