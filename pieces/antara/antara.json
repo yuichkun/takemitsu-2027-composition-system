@@ -233,7 +233,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 137,
@@ -243,7 +247,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 138,
@@ -253,7 +261,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 139,
@@ -263,7 +275,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 140,
@@ -273,7 +289,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 141,
@@ -283,7 +303,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 142,
@@ -293,7 +317,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 143,
@@ -303,7 +331,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 144,
@@ -313,7 +345,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 145,
@@ -323,7 +359,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 146,
@@ -333,7 +373,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 147,
@@ -343,7 +387,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 148,
@@ -353,7 +401,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 149,
@@ -363,7 +415,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 150,
@@ -373,7 +429,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 151,
@@ -383,7 +443,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 152,
@@ -393,7 +457,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 153,
@@ -403,7 +471,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 154,
@@ -413,7 +485,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 155,
@@ -423,7 +499,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 156,
@@ -433,7 +513,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 157,
@@ -443,7 +527,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 158,
@@ -453,7 +541,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 159,
@@ -463,7 +555,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 160,
@@ -473,7 +569,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 161,
@@ -483,7 +583,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 162,
@@ -493,7 +597,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 163,
@@ -503,7 +611,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 164,
@@ -513,7 +625,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 165,
@@ -523,7 +639,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 166,
@@ -533,7 +653,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 167,
@@ -543,7 +667,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 177,
@@ -2945,7 +3073,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 137,
@@ -2955,7 +3087,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 138,
@@ -2965,7 +3101,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 139,
@@ -2975,7 +3115,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 140,
@@ -2985,7 +3129,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 141,
@@ -2995,7 +3143,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 142,
@@ -3005,7 +3157,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 143,
@@ -3015,7 +3171,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 144,
@@ -3025,7 +3185,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 145,
@@ -3035,7 +3199,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 146,
@@ -3045,7 +3213,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 147,
@@ -3055,7 +3227,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 148,
@@ -3065,7 +3241,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 149,
@@ -3075,7 +3255,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 150,
@@ -3085,7 +3269,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 151,
@@ -3095,7 +3283,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 152,
@@ -3105,7 +3297,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 153,
@@ -3115,7 +3311,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 154,
@@ -3125,7 +3325,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 155,
@@ -3135,7 +3339,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 156,
@@ -3145,7 +3353,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 157,
@@ -3155,7 +3367,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 158,
@@ -3165,7 +3381,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 159,
@@ -3175,7 +3395,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 160,
@@ -3185,7 +3409,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 161,
@@ -3195,7 +3423,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 162,
@@ -3205,7 +3437,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 163,
@@ -3215,7 +3451,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 164,
@@ -3225,7 +3465,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 165,
@@ -3235,7 +3479,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 166,
@@ -3245,7 +3493,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 167,
@@ -3255,7 +3507,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 180,
@@ -6924,7 +7180,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 137,
@@ -6934,7 +7194,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 138,
@@ -6944,7 +7208,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 139,
@@ -6954,7 +7222,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 140,
@@ -6964,7 +7236,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 141,
@@ -6974,7 +7250,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 142,
@@ -6984,7 +7264,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 143,
@@ -6994,7 +7278,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 144,
@@ -7004,7 +7292,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 145,
@@ -7014,7 +7306,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 146,
@@ -7024,7 +7320,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 147,
@@ -7034,7 +7334,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 148,
@@ -7044,7 +7348,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 149,
@@ -7054,7 +7362,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 150,
@@ -7064,7 +7376,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 151,
@@ -7074,7 +7390,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 152,
@@ -7084,7 +7404,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 153,
@@ -7094,7 +7418,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 154,
@@ -7104,7 +7432,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 155,
@@ -7114,7 +7446,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 156,
@@ -7124,7 +7460,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 157,
@@ -7134,7 +7474,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 158,
@@ -7144,7 +7488,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 159,
@@ -7154,7 +7502,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 160,
@@ -7164,7 +7516,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 161,
@@ -7174,7 +7530,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 162,
@@ -7184,7 +7544,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 163,
@@ -7194,7 +7558,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 164,
@@ -7204,7 +7572,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 165,
@@ -7214,7 +7586,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 166,
@@ -7224,7 +7600,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 167,
@@ -7234,7 +7614,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 181,
@@ -10530,7 +10914,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 137,
@@ -10540,7 +10928,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 138,
@@ -10550,7 +10942,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 139,
@@ -10560,7 +10956,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 140,
@@ -10570,7 +10970,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 141,
@@ -10580,7 +10984,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 142,
@@ -10590,7 +10998,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 143,
@@ -10600,7 +11012,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 144,
@@ -10610,7 +11026,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 145,
@@ -10620,7 +11040,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 146,
@@ -10630,7 +11054,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 147,
@@ -10640,7 +11068,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 148,
@@ -10650,7 +11082,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 149,
@@ -10660,7 +11096,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 150,
@@ -10670,7 +11110,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 151,
@@ -10680,7 +11124,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 152,
@@ -10690,7 +11138,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 153,
@@ -10700,7 +11152,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 154,
@@ -10710,7 +11166,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 155,
@@ -10720,7 +11180,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 156,
@@ -10730,7 +11194,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 157,
@@ -10740,7 +11208,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 158,
@@ -10750,7 +11222,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 159,
@@ -10760,7 +11236,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 160,
@@ -10770,7 +11250,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 161,
@@ -10780,7 +11264,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 162,
@@ -10790,7 +11278,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 163,
@@ -10800,7 +11292,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 164,
@@ -10810,7 +11306,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 165,
@@ -10820,7 +11320,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 166,
@@ -10830,7 +11334,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 167,
@@ -10840,7 +11348,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 173,
@@ -14662,7 +15174,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 137,
@@ -14672,7 +15188,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 138,
@@ -14682,7 +15202,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 139,
@@ -14692,7 +15216,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 140,
@@ -14702,7 +15230,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 141,
@@ -14712,7 +15244,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 142,
@@ -14722,7 +15258,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 143,
@@ -14732,7 +15272,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 144,
@@ -14742,7 +15286,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 145,
@@ -14752,7 +15300,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 146,
@@ -14762,7 +15314,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 147,
@@ -14772,7 +15328,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 148,
@@ -14782,7 +15342,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 149,
@@ -14792,7 +15356,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 150,
@@ -14802,7 +15370,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 151,
@@ -14812,7 +15384,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 152,
@@ -14822,7 +15398,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 153,
@@ -14832,7 +15412,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 154,
@@ -14842,7 +15426,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 155,
@@ -14852,7 +15440,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 156,
@@ -14862,7 +15454,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 157,
@@ -14872,7 +15468,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 158,
@@ -14882,7 +15482,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 159,
@@ -14892,7 +15496,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 160,
@@ -14902,7 +15510,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 161,
@@ -14912,7 +15524,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 162,
@@ -14922,7 +15538,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 163,
@@ -14932,7 +15552,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 164,
@@ -14942,7 +15566,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 165,
@@ -14952,7 +15580,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 166,
@@ -14962,7 +15594,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 167,
@@ -14972,7 +15608,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 179,
@@ -18084,7 +18724,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 137,
@@ -18094,7 +18738,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 138,
@@ -18104,7 +18752,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 139,
@@ -18114,7 +18766,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 140,
@@ -18124,7 +18780,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 141,
@@ -18134,7 +18794,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 142,
@@ -18144,7 +18808,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 143,
@@ -18154,7 +18822,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 144,
@@ -18164,7 +18836,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 145,
@@ -18174,7 +18850,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 146,
@@ -18184,7 +18864,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 147,
@@ -18194,7 +18878,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 148,
@@ -18204,7 +18892,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 149,
@@ -18214,7 +18906,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 150,
@@ -18224,7 +18920,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 151,
@@ -18234,7 +18934,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 152,
@@ -18244,7 +18948,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 153,
@@ -18254,7 +18962,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 154,
@@ -18264,7 +18976,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 155,
@@ -18274,7 +18990,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 156,
@@ -18284,7 +19004,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 157,
@@ -18294,7 +19018,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 158,
@@ -18304,7 +19032,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 159,
@@ -18314,7 +19046,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 160,
@@ -18324,7 +19060,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 161,
@@ -18334,7 +19074,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 162,
@@ -18344,7 +19088,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 163,
@@ -18354,7 +19102,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 164,
@@ -18364,7 +19116,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 165,
@@ -18374,7 +19130,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 166,
@@ -18384,7 +19144,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 167,
@@ -18394,7 +19158,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 177,
@@ -21016,7 +21784,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 137,
@@ -21026,7 +21798,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 138,
@@ -21036,7 +21812,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 139,
@@ -21046,7 +21826,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 140,
@@ -21056,7 +21840,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 141,
@@ -21066,7 +21854,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 142,
@@ -21076,7 +21868,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 143,
@@ -21086,7 +21882,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 144,
@@ -21096,7 +21896,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 145,
@@ -21106,7 +21910,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 146,
@@ -21116,7 +21924,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 147,
@@ -21126,7 +21938,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 148,
@@ -21136,7 +21952,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 149,
@@ -21146,7 +21966,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 150,
@@ -21156,7 +21980,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 151,
@@ -21166,7 +21994,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 152,
@@ -21176,7 +22008,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 153,
@@ -21186,7 +22022,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 154,
@@ -21196,7 +22036,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 155,
@@ -21206,7 +22050,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 156,
@@ -21216,7 +22064,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 157,
@@ -21226,7 +22078,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 158,
@@ -21236,7 +22092,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 159,
@@ -21246,7 +22106,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 160,
@@ -21256,7 +22120,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 161,
@@ -21266,7 +22134,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 162,
@@ -21276,7 +22148,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 163,
@@ -21286,7 +22162,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 164,
@@ -21296,7 +22176,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 165,
@@ -21306,7 +22190,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 166,
@@ -21316,7 +22204,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 167,
@@ -21326,7 +22218,11 @@
      ],
      "pitch": {
       "midi": 78
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 176,
@@ -25177,7 +26073,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 137,
@@ -25187,7 +26087,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 138,
@@ -25197,7 +26101,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 139,
@@ -25207,7 +26115,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 140,
@@ -25217,7 +26129,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 141,
@@ -25227,7 +26143,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 142,
@@ -25237,7 +26157,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 143,
@@ -25247,7 +26171,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 144,
@@ -25257,7 +26185,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 145,
@@ -25267,7 +26199,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 146,
@@ -25277,7 +26213,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 147,
@@ -25287,7 +26227,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 148,
@@ -25297,7 +26241,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 149,
@@ -25307,7 +26255,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 150,
@@ -25317,7 +26269,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 151,
@@ -25327,7 +26283,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 152,
@@ -25337,7 +26297,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 153,
@@ -25347,7 +26311,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 154,
@@ -25357,7 +26325,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 155,
@@ -25367,7 +26339,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 156,
@@ -25377,7 +26353,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 157,
@@ -25387,7 +26367,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 158,
@@ -25397,7 +26381,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 159,
@@ -25407,7 +26395,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 160,
@@ -25417,7 +26409,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 161,
@@ -25427,7 +26423,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 162,
@@ -25437,7 +26437,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 163,
@@ -25447,7 +26451,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 164,
@@ -25457,7 +26465,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 165,
@@ -25467,7 +26479,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 166,
@@ -25477,7 +26493,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 167,
@@ -25487,7 +26507,11 @@
      ],
      "pitch": {
       "midi": 77.5
-     }
+     },
+     "articulations": [
+      "staccato",
+      "accent"
+     ]
     },
     {
      "at": 180,
@@ -67643,6 +68667,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67653,6 +68678,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67663,6 +68689,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67673,6 +68700,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67683,6 +68711,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67693,6 +68722,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67703,6 +68733,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67713,6 +68744,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67723,6 +68755,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67733,6 +68766,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67743,6 +68777,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67753,6 +68788,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67763,6 +68799,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67773,6 +68810,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67783,6 +68821,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67793,6 +68832,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67803,6 +68843,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67813,6 +68854,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67823,6 +68865,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67833,6 +68876,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67843,6 +68887,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67853,6 +68898,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67863,6 +68909,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67873,6 +68920,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67883,6 +68931,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67893,6 +68942,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67903,6 +68953,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67913,6 +68964,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67923,6 +68975,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67933,6 +68986,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -67943,6 +68997,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76226,6 +77281,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76236,6 +77292,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76246,6 +77303,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76256,6 +77314,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76266,6 +77325,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76276,6 +77336,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76286,6 +77347,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76296,6 +77358,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76306,6 +77369,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76316,6 +77380,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76326,6 +77391,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76336,6 +77402,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76346,6 +77413,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76356,6 +77424,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76366,6 +77435,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76376,6 +77446,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76386,6 +77457,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76396,6 +77468,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76406,6 +77479,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76416,6 +77490,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76426,6 +77501,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76436,6 +77512,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76446,6 +77523,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76456,6 +77534,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76466,6 +77545,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76476,6 +77556,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76486,6 +77567,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76496,6 +77578,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76506,6 +77589,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76516,6 +77600,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -76526,6 +77611,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83653,6 +84739,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83663,6 +84750,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83673,6 +84761,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83683,6 +84772,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83693,6 +84783,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83703,6 +84794,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83713,6 +84805,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83723,6 +84816,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83733,6 +84827,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83743,6 +84838,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83753,6 +84849,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83763,6 +84860,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83773,6 +84871,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83783,6 +84882,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83793,6 +84893,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83803,6 +84904,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83813,6 +84915,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83823,6 +84926,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83833,6 +84937,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83843,6 +84948,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83853,6 +84959,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83863,6 +84970,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83873,6 +84981,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83883,6 +84992,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83893,6 +85003,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83903,6 +85014,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83913,6 +85025,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83923,6 +85036,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83933,6 +85047,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83943,6 +85058,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -83953,6 +85069,7 @@
       "midi": 77.5
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91030,6 +92147,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91045,6 +92163,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91060,6 +92179,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91075,6 +92195,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91090,6 +92211,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91105,6 +92227,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91120,6 +92243,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91135,6 +92259,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91150,6 +92275,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91165,6 +92291,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91180,6 +92307,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91195,6 +92323,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91210,6 +92339,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91225,6 +92355,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91240,6 +92371,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91255,6 +92387,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91270,6 +92403,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91285,6 +92419,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91300,6 +92435,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91315,6 +92451,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91330,6 +92467,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91345,6 +92483,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91360,6 +92499,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91375,6 +92515,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91390,6 +92531,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91405,6 +92547,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91420,6 +92563,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91435,6 +92579,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91450,6 +92595,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91465,6 +92611,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -91480,6 +92627,7 @@
       }
      ],
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -96977,6 +98125,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -96987,6 +98136,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -96997,6 +98147,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97007,6 +98158,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97017,6 +98169,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97027,6 +98180,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97037,6 +98191,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97047,6 +98202,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97057,6 +98213,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97067,6 +98224,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97077,6 +98235,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97087,6 +98246,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97097,6 +98257,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97107,6 +98268,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97117,6 +98279,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97127,6 +98290,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97137,6 +98301,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97147,6 +98312,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97157,6 +98323,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97167,6 +98334,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97177,6 +98345,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97187,6 +98356,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97197,6 +98367,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97207,6 +98378,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97217,6 +98389,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97227,6 +98400,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97237,6 +98411,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97247,6 +98422,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97257,6 +98433,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97267,6 +98444,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -97277,6 +98455,7 @@
       "midi": 78
      },
      "articulations": [
+      "accent",
       "tenuto"
      ]
     },
@@ -138210,6 +139389,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138218,6 +139400,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138226,6 +139411,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138234,6 +139422,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138242,6 +139433,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138250,6 +139444,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138258,6 +139455,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138266,6 +139466,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138274,6 +139477,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138282,6 +139488,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138290,6 +139499,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138298,6 +139510,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138306,6 +139521,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138314,6 +139532,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138322,6 +139543,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138330,6 +139554,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138338,6 +139565,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138346,6 +139576,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138354,6 +139587,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138362,6 +139598,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138370,6 +139609,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138378,6 +139620,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138386,6 +139631,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138394,6 +139642,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138402,6 +139653,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138410,6 +139664,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138418,6 +139675,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138426,6 +139686,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138434,6 +139697,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138442,6 +139708,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -138450,6 +139719,9 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "accent"
+     ],
      "technique": "pizz"
     },
     {
@@ -156350,6 +157622,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156361,6 +157637,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156372,6 +157652,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156383,6 +157667,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156394,6 +157682,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156405,6 +157697,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156416,6 +157712,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156427,6 +157727,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156438,6 +157742,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156449,6 +157757,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156460,6 +157772,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156471,6 +157787,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156482,6 +157802,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156493,6 +157817,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156504,6 +157832,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156515,6 +157847,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156526,6 +157862,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156537,6 +157877,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156548,6 +157892,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156559,6 +157907,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156570,6 +157922,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156581,6 +157937,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156592,6 +157952,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156603,6 +157967,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156614,6 +157982,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156625,6 +157997,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156636,6 +158012,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156647,6 +158027,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156658,6 +158042,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156669,6 +158057,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156680,6 +158072,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {
@@ -156691,6 +158087,10 @@
      "pitch": {
       "midi": 77.5
      },
+     "articulations": [
+      "staccato",
+      "accent"
+     ],
      "technique": "artificial-harmonic"
     },
     {

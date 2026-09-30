@@ -597,7 +597,7 @@ export function score(v: V): Score {
         : Math.min(TICKS - (at % TICKS), next - at);
       const e: NoteEvent = { at: time(at), dur: time(dur), pitch: pitchAt(k) };
       const marks: ("accent" | "tenuto")[] = opts.plain ? [] : ["tenuto"];
-      if (n === 0 || k === final) marks.unshift("accent");
+      if (n === 0 || k === final || k >= settled) marks.unshift("accent");
       if (marks.length) e.articulations = marks;
       if (opts.technique) e.technique = opts.technique;
       events.push(e);
@@ -686,7 +686,12 @@ export function score(v: V): Score {
       );
       players.add(
         voice,
-        { at: time(at), dur: time(len), pitch: { midi: noteOf(voice, k)! } },
+        {
+          at: time(at),
+          dur: time(len),
+          pitch: { midi: noteOf(voice, k)! },
+          ...(k >= settled ? { articulations: ["staccato", "accent"] } : {}),
+        },
         [
           { at: time(at), level: 1.2 + 3 * grow(at), to: "linear" },
           { at: time(at + len), level: 0 },

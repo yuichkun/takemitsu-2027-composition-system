@@ -27,6 +27,42 @@ for (const id of ["picc", "fl1", "fl2", "ob1", "ob2"])
       .notes.filter((n) => n.at.value >= 120)
       .every((n) => n.dur.value === 0.5),
   );
+const rings = ["picc", "fl1", "fl2", "ob1", "ob2", "cl1", "cl2", "eh", "vct"];
+const strikes = ["cel", "hp1", "hp2", "pno", "vat", "vib"];
+for (const id of [...rings, ...strikes]) {
+  const notes = score.parts.find((p) => p.id === id)!.notes.filter((n) => n.at.value >= 120);
+  assert(notes.length > 0, id);
+  assert(
+    notes.every((n) => n.articulations.includes("accent")),
+    id,
+  );
+  if (rings.includes(id))
+    assert(
+      notes.every((n) => n.articulations.includes("staccato")),
+      id,
+    );
+}
+for (const id of [
+  "vn1t",
+  "vn2t",
+  "scym",
+  "timp",
+  "tp1",
+  "tp2",
+  "tp3",
+  "cb-4-1",
+  "cb-4-2",
+  "cb-4-3",
+  "cb-4-4",
+]) {
+  const notes = score.parts.find((p) => p.id === id)!.notes.filter((n) => n.at.value >= 120);
+  assert(
+    notes.every(
+      (n) => !n.articulations.includes("staccato") && !n.articulations.includes("accent"),
+    ),
+    id,
+  );
+}
 // The notation rule applies to all families, without reattacking the original held note.
 for (const [instrument, pitch] of [
   ["flute", "E5"],
