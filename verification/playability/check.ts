@@ -13,10 +13,14 @@ const raw = JSON.parse(
   readFileSync(new URL("../../pieces/antara/antara.json", import.meta.url), "utf8"),
 );
 const score = normalize(raw);
+const sectionAt = (node: string) =>
+  (raw as import("../../src/score/types.ts").Score).outline!.nodes.find((n) => n.node === node)!.at;
+const runningAt = sectionAt("running");
+const climaxAt = sectionAt("climax");
 let maximum = 0;
 let fastLarge = 0;
 for (const p of score.parts.filter((p) => /^hn[1-4]$/.test(p.id))) {
-  const notes = p.notes.filter((n) => n.at.value >= 420 && n.at.value < 520);
+  const notes = p.notes.filter((n) => n.at.value >= runningAt && n.at.value < climaxAt);
   for (let i = 1; i < notes.length; i++) {
     const previous = notes[i - 1]!;
     const n = notes[i]!;
@@ -29,9 +33,9 @@ for (const p of score.parts.filter((p) => /^hn[1-4]$/.test(p.id))) {
 assert.equal(maximum, 11.5);
 assert.equal(fastLarge, 0);
 for (const [id, text, at] of [
-  ["wbl", "prepare marimba", 268],
-  ["scym", "prepare glockenspiel", 604],
-  ["tam", "prepare vibraphone", 604],
+  ["wbl", "prepare marimba", sectionAt("series") - 8],
+  ["scym", "prepare glockenspiel", climaxAt + 84],
+  ["tam", "prepare vibraphone", climaxAt + 84],
 ] as const) {
   assert(
     score.parts.find((p) => p.id === id)!.texts.some((t) => t.text === text && t.at.value === at),

@@ -13,8 +13,13 @@ const piece = JSON.parse(
   readFileSync(new URL("../../pieces/antara/antara.json", import.meta.url), "utf8"),
 ) as Score;
 const normal = normalize(piece);
+const sectionAt = (node: string) => piece.outline!.nodes.find((n) => n.node === node)!.at;
+const endingAt = sectionAt("ending");
+const glassAt = sectionAt("two-grids");
 assert(!normal.parts.flatMap((p) => p.notes).some((n) => n.technique.includes("harmonic")));
-const ending = normal.parts.find((p) => p.id === "vn1s")!.notes.filter((n) => n.at.value >= 680);
+const ending = normal.parts
+  .find((p) => p.id === "vn1s")!
+  .notes.filter((n) => n.at.value >= endingAt);
 assert.equal(ending.at(-1)!.pitches[0]!.midi, 102.5);
 assert(ending.every((n) => !n.technique.includes("artificial-harmonic")));
 assert(ending.slice(0, -1).every((n) => n.gliss));
@@ -25,15 +30,15 @@ assert.equal(
   50,
 );
 const hp = normal.parts.find((p) => p.id === "hp1")!;
-for (const at of [642, 651, 655, 671]) {
+for (const at of [18, 27, 31, 47].map((t) => glassAt + t)) {
   const pitch = hp.notes.find((n) => n.at.value === at)!.pitches[0]!;
   assert.equal(pitch.step, "D");
   assert.equal(pitch.alter, 1);
 }
-assert.equal(hp.notes.find((n) => n.at.value === 666)!.pitches[0]!.step, "G");
+assert.equal(hp.notes.find((n) => n.at.value === glassAt + 42)!.pitches[0]!.step, "G");
 for (const id of ["hp1", "hp2"]) {
   const harp = normal.parts.find((p) => p.id === id)!;
-  const notes = harp.notes.filter((n) => n.at.value >= 680);
+  const notes = harp.notes.filter((n) => n.at.value >= endingAt);
   const tuning = id === "hp2" ? -0.5 : 0;
   const pedals = new Map<string, number>();
   for (const n of notes)
@@ -43,7 +48,7 @@ for (const id of ["hp1", "hp2"]) {
       if (pedals.has(pitch.step)) assert.equal(pedals.get(pitch.step), alter);
       pedals.set(pitch.step, alter);
     }
-  assert(harp.texts.some((t) => t.at.value === 680 && t.text.startsWith("Pedals:")));
+  assert(harp.texts.some((t) => t.at.value === endingAt && t.text.startsWith("Pedals:")));
 }
 const layout = layoutFor(normal);
 for (const prefix of ["vn1", "vn2", "va", "vc"]) {

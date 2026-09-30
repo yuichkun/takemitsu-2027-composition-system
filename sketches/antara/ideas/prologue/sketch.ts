@@ -20,6 +20,15 @@ const BAR = 4 * TICKS;
 const A5 = atomOf(5);
 
 export const knobs = {
+  noiseLevel: number({
+    group: "Sound",
+    label: "Cymbal noise",
+    value: 1,
+    min: 0,
+    max: 2,
+    step: 0.25,
+    help: "A quiet suspended-cymbal roll behind the assembled chord (1 = ppp, 0 = off); damp with the strings",
+  }),
   entries: number({
     group: "Time",
     label: "Entries",
@@ -34,9 +43,9 @@ export const knobs = {
     group: "Time",
     label: "Stop",
     help: "How long the whole chord sounds after the last desk (the basses' lowest) comes in, before everyone stops at once",
-    value: 5,
+    value: 30,
     min: 0,
-    max: 20,
+    max: 60,
     step: 1,
     unit: "atoms",
   }),
@@ -93,6 +102,31 @@ export function score(v: V): Score {
     ];
     return { ...part, events: [e], dynamics };
   });
+  // A thin, unaccented noise under the assembled chord, not another attack in the descent.
+  const noiseAt = Math.ceil(((desks.length - 1) * step) / TICKS) * TICKS;
+  if (v.noiseLevel > 0 && noiseAt < cut) {
+    const cymbal = ensemble.find((p) => p.id === "scym")!;
+    parts.push({
+      id: cymbal.id,
+      instrument: cymbal.instrument,
+      name: cymbal.name,
+      player: cymbal.player,
+      events: [
+        {
+          type: "text",
+          at: time(noiseAt),
+          text: "soft felt mallets; no accent",
+          placement: "above",
+        },
+        { at: time(noiseAt), dur: time(cut - noiseAt), technique: "roll" },
+        { type: "text", at: time(cut), text: "damp", placement: "above" },
+      ],
+      dynamics: [
+        { at: time(noiseAt), level: 0, to: "linear" },
+        { at: time(Math.min(cut, noiseAt + TICKS)), level: v.noiseLevel },
+      ],
+    });
+  }
   // After the cut, the rest of its bar, then a bar of general pause under a fermata: the hall's
   // resonance, as long as it lasts.
   const pause = Math.ceil(cut / BAR) * BAR;

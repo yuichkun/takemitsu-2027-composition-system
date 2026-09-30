@@ -155,10 +155,11 @@ for (const s of [fixture, paired, full]) {
 }
 const cb = full.parts.find((p) => p.id === "cb-4-2")!;
 const cbStrip = stripMeasures(normalize({ ...full, parts: [cb] }));
-for (const m of cbStrip.measures.slice(41, 159)) {
+const sectionAt = (node: string) => (full as Score).outline!.nodes.find((n) => n.node === node)!.at;
+for (const m of cbStrip.measures.slice(sectionAt("rhythm") / 4, sectionAt("two-grids") / 4 + 3)) {
   assert(!m.musicxml.includes("<wedge"));
   assert.equal(m.seam.hairpins.length, 0);
 }
 console.log(
-  `PASS: silence, late entries, shared staves, full-piece coverage, Cb m42–159, long words, niente, strip seams; playback unchanged. ${wedges} hairpins, ${words} textual changes checked.`,
+  `PASS: silence, late entries, shared staves, full-piece coverage, Cb from rhythm through early two-grids, long words, niente, strip seams; playback unchanged. ${wedges} hairpins, ${words} textual changes checked.`,
 );
