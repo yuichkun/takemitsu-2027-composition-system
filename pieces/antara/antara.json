@@ -64986,7 +64986,8 @@
      "dur": 1,
      "pitch": {
       "midi": 92
-     }
+     },
+     "voice": 1
     },
     {
      "type": "text",
@@ -65005,7 +65006,8 @@
      ],
      "pitch": {
       "midi": 100
-     }
+     },
+     "voice": 1
     }
    ],
    "dynamics": [
@@ -80639,347 +80641,80 @@
      "placement": "above"
     },
     {
+     "type": "text",
+     "at": 624,
+     "placement": "above",
+     "text": "Pedals: D# C B | E F Gb Ab; unchanged; l.v."
+    },
+    {
      "at": 631,
      "dur": 1,
      "pitch": {
-      "midi": 80
-     },
-     "technique": "harmonic"
+      "midi": 68
+     }
     },
     {
-     "at": [
-      3811,
-      6
-     ],
-     "dur": 1,
-     "pitch": [
-      {
-       "midi": 81
-      },
-      {
-       "midi": 80
-      }
-     ],
-     "technique": "harmonic"
-    },
-    {
-     "at": 637,
+     "at": 636,
      "dur": 1,
      "pitch": {
-      "midi": 85
-     },
-     "technique": "harmonic"
+      "midi": 68
+     }
     },
     {
-     "at": [
-      3847,
-      6
-     ],
-     "dur": 1,
-     "pitch": [
-      {
-       "midi": 87
-      },
-      {
-       "midi": 77
-      }
-     ],
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1928,
-      3
-     ],
+     "at": 642,
      "dur": 1,
      "pitch": {
-      "midi": 71
-     },
-     "technique": "harmonic"
+      "midi": 75
+     }
     },
     {
      "at": 647,
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 88
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3883,
-      6
-     ],
      "dur": 1,
      "pitch": {
-      "midi": 69
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3893,
-      6
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 81
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3905,
-      6
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 85
-     },
-     "technique": "harmonic"
+      "midi": 76
+     }
     },
     {
      "at": 651,
      "dur": 1,
      "pitch": {
-      "midi": 87
-     },
-     "technique": "harmonic"
+      "midi": 75
+     }
     },
     {
-     "at": 653,
+     "at": 655,
      "dur": 1,
      "pitch": {
-      "midi": 70
-     },
-     "technique": "harmonic"
+      "midi": 75
+     }
     },
     {
-     "at": [
-      1963,
-      3
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 82
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3929,
-      6
-     ],
+     "at": 661,
      "dur": 1,
      "pitch": {
-      "midi": 87
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3941,
-      6
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 78
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": 657,
-     "dur": 1,
-     "pitch": {
-      "midi": 68
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1981,
-      3
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 88
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3965,
-      6
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 69
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1990,
-      3
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 68
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1329,
-      2
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 81
-     },
-     "technique": "harmonic"
+      "midi": 76
+     }
     },
     {
      "at": 666,
      "dur": 1,
      "pitch": {
-      "midi": 90
-     },
-     "technique": "harmonic"
+      "midi": 78
+     }
     },
     {
-     "at": [
-      1337,
-      2
-     ],
+     "at": 671,
      "dur": 1,
      "pitch": {
-      "midi": 88
-     },
-     "technique": "harmonic"
+      "midi": 75
+     }
     },
     {
-     "at": [
-      2011,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 86
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1341,
-      2
-     ],
+     "at": 677,
      "dur": 1,
-     "pitch": {
-      "midi": 87
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": 672,
-     "dur": 1,
-     "pitch": {
-      "midi": 71
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1349,
-      2
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 81
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      2029,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
      "pitch": {
       "midi": 68
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1353,
-      2
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 69
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      2033,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 82
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      4067,
-      6
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 81
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      4075,
-      6
-     ],
-     "dur": [
-      5,
-      6
-     ],
-     "pitch": {
-      "midi": 85
-     },
-     "technique": "harmonic"
+     }
     },
     {
      "at": [
@@ -80992,7 +80727,8 @@
      ],
      "pitch": {
       "midi": 81
-     }
+     },
+     "voice": 1
     },
     {
      "type": "text",
@@ -81014,21 +80750,24 @@
      ],
      "pitch": {
       "midi": 52
-     }
+     },
+     "voice": 2
     },
     {
      "at": 701,
      "dur": 1,
      "pitch": {
       "midi": 96
-     }
+     },
+     "voice": 1
     },
     {
      "at": 724,
      "dur": 1,
      "pitch": {
       "midi": 37
-     }
+     },
+     "voice": 2
     }
    ],
    "dynamics": [
@@ -81645,7 +81384,7 @@
     },
     {
      "at": 624,
-     "level": 2.5
+     "level": 2
     },
     {
      "at": 680,
@@ -86301,390 +86040,96 @@
      "placement": "above"
     },
     {
-     "at": [
-      3785,
-      6
-     ],
+     "type": "text",
+     "at": 624,
+     "placement": "above",
+     "text": "Pedals: Db Cb B | E F G A; unchanged; l.v. (all strings tuned 1/4 tone low)"
+    },
+    {
+     "at": 631,
      "dur": 1,
      "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
+      "midi": 68.5
+     }
     },
     {
-     "at": [
-      1910,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 82.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3821,
-      6
-     ],
+     "at": 637,
      "dur": 1,
      "pitch": {
-      "midi": 85.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3845,
-      6
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 81.5
-     },
-     "technique": "harmonic"
+      "midi": 70.5
+     }
     },
     {
      "at": 641,
      "dur": 1,
      "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
+      "midi": 68.5
+     }
     },
     {
-     "at": [
-      3857,
-      6
-     ],
-     "dur": [
-      1,
-      6
-     ],
+     "at": 647,
+     "dur": 1,
      "pitch": {
       "midi": 70.5
-     },
-     "technique": "harmonic"
+     }
     },
     {
-     "at": 643,
-     "dur": [
-      5,
-      6
-     ],
-     "pitch": {
-      "midi": 71.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3863,
-      6
-     ],
+     "at": 653,
      "dur": 1,
      "pitch": {
-      "midi": 81.5
-     },
-     "technique": "harmonic"
+      "midi": 75.5
+     }
     },
     {
-     "at": [
-      1940,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": [
-      {
-       "midi": 82.5
-      },
-      {
-       "midi": 87.5
-      }
-     ],
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3881,
-      6
-     ],
+     "at": 658,
      "dur": 1,
      "pitch": {
-      "midi": 78.5
-     },
-     "technique": "harmonic"
+      "midi": 75.5
+     }
     },
     {
-     "at": [
-      3899,
-      6
-     ],
+     "at": 662,
      "dur": 1,
      "pitch": {
-      "midi": 86.5
-     },
-     "technique": "harmonic"
+      "midi": 75.5
+     }
     },
     {
-     "at": [
-      1958,
-      3
-     ],
-     "dur": 1,
-     "pitch": [
-      {
-       "midi": 87.5
-      },
-      {
-       "midi": 69.5
-      }
-     ],
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3935,
-      6
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 67.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1972,
-      3
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 87.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1317,
-      2
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 84.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1976,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 68.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3953,
-      6
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 82.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": 660,
-     "dur": 1,
-     "pitch": {
-      "midi": 83.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1985,
-      3
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 87.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1329,
-      2
-     ],
-     "dur": [
-      1,
-      3
-     ],
-     "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      3989,
-      6
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 87.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      1999,
-      3
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 71.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      2003,
-      3
-     ],
+     "at": 668,
      "dur": 1,
      "pitch": {
       "midi": 68.5
-     },
-     "technique": "harmonic"
+     }
     },
     {
-     "at": 670,
-     "dur": [
-      5,
-      6
-     ],
-     "pitch": {
-      "midi": 83.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      4025,
-      6
-     ],
+     "at": 673,
      "dur": 1,
      "pitch": {
       "midi": 68.5
-     },
-     "technique": "harmonic"
+     }
     },
     {
-     "at": [
-      4033,
-      6
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      4037,
-      6
-     ],
+     "at": 679,
      "dur": 1,
      "pitch": {
-      "midi": 86.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      2026,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 84.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": 676,
-     "dur": 1,
-     "pitch": {
-      "midi": 89.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      4069,
-      6
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 85.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      4073,
-      6
-     ],
-     "dur": 1,
-     "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
+      "midi": 68.5
+     }
     },
     {
      "at": 682,
      "dur": 1,
      "pitch": {
       "midi": 78.5
-     }
+     },
+     "voice": 1
     },
     {
      "at": 682,
      "dur": 1,
      "pitch": {
       "midi": 65.5
-     }
+     },
+     "voice": 2
     },
     {
      "type": "text",
@@ -86703,14 +86148,16 @@
      ],
      "pitch": {
       "midi": 84.5
-     }
+     },
+     "voice": 1
     },
     {
      "at": 687,
      "dur": 1,
      "pitch": {
       "midi": 59.5
-     }
+     },
+     "voice": 2
     },
     {
      "at": [
@@ -86723,7 +86170,8 @@
      ],
      "pitch": {
       "midi": 88.5
-     }
+     },
+     "voice": 1
     },
     {
      "at": [
@@ -86736,7 +86184,8 @@
      ],
      "pitch": {
       "midi": 55.5
-     }
+     },
+     "voice": 2
     },
     {
      "at": [
@@ -86749,7 +86198,8 @@
      ],
      "pitch": {
       "midi": 102.5
-     }
+     },
+     "voice": 1
     },
     {
      "at": [
@@ -86762,7 +86212,8 @@
      ],
      "pitch": {
       "midi": 40.5
-     }
+     },
+     "voice": 2
     }
    ],
    "dynamics": [
@@ -87330,7 +86781,7 @@
     },
     {
      "at": 624,
-     "level": 2.5
+     "level": 2
     },
     {
      "at": 680,
@@ -92469,7 +91920,8 @@
      ],
      "pitch": {
       "midi": 63
-     }
+     },
+     "voice": 2
     },
     {
      "type": "text",
@@ -92485,7 +91937,8 @@
      "dur": 1,
      "pitch": {
       "midi": 48
-     }
+     },
+     "voice": 2
     }
    ],
    "dynamics": [

@@ -374,9 +374,18 @@ export function score(v: V): Score {
   // after each time (the spaces between the lit arrivals grow by the section's law); at first a
   // wind rings it into nothing too.
   const lit = new Map<string, { events: Event[]; levels: DynamicPoint[] }>();
-  const light = (id: string, at: number, midi: number, level: number, dur: number) => {
+  const light = (
+    id: string,
+    at: number,
+    midi: number,
+    level: number,
+    dur: number,
+    voice: number,
+  ) => {
     const x = lit.get(id) ?? { events: [], levels: [] };
-    x.events.push({ at: time(at), dur: time(dur), pitch: { midi } });
+    // The violin's and cello's reflections can coincide or overlap. Keep their voices separate
+    // so notation retains both, including two notes starting at the same moment on one staff.
+    x.events.push({ at: time(at), dur: time(dur), pitch: { midi }, voice });
     x.levels.push({ at: time(at), level });
     lit.set(id, x);
   };
@@ -430,7 +439,7 @@ export function score(v: V): Score {
       const midi = place(id, note.midi, upper ? 12 : 0);
       if (midi === undefined) continue;
       const dur = Math.min(TICKS - (note.at % TICKS) || TICKS, 2 * TICKS);
-      light(id, note.at, midi, 2 - note.at / end, dur);
+      light(id, note.at, midi, 2 - note.at / end, dur, upper ? 1 : 2);
       if (note.at < half)
         ring(upper ? (k % 2 ? "cl1" : "fl1") : "bcl", note.at, note.midi, 2 * TICKS);
     }

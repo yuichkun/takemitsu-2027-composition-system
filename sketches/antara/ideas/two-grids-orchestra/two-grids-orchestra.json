@@ -559,10 +559,16 @@
    "dynamics": [
     {
      "at": 0,
-     "level": 2.5
+     "level": 2
     }
    ],
    "events": [
+    {
+     "type": "text",
+     "at": 0,
+     "placement": "above",
+     "text": "Pedals: D# C B | E F Gb Ab; unchanged; l.v."
+    },
     {
      "at": [
       7,
@@ -573,32 +579,14 @@
       1
      ],
      "pitch": {
-      "midi": 80
-     },
-     "technique": "harmonic"
+      "step": "A",
+      "alter": -1,
+      "octave": 4
+     }
     },
     {
      "at": [
-      67,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": [
-      {
-       "midi": 81
-      },
-      {
-       "midi": 80
-      }
-     ],
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      13,
+      12,
       1
      ],
      "dur": [
@@ -606,42 +594,25 @@
       1
      ],
      "pitch": {
-      "midi": 85
-     },
-     "technique": "harmonic"
+      "step": "A",
+      "alter": -1,
+      "octave": 4
+     }
     },
     {
      "at": [
-      103,
-      6
-     ],
-     "dur": [
-      1,
+      18,
       1
-     ],
-     "pitch": [
-      {
-       "midi": 87
-      },
-      {
-       "midi": 77
-      }
-     ],
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      56,
-      3
      ],
      "dur": [
       1,
       1
      ],
      "pitch": {
-      "midi": 71
-     },
-     "technique": "harmonic"
+      "step": "D",
+      "alter": 1,
+      "octave": 5
+     }
     },
     {
      "at": [
@@ -650,54 +621,13 @@
      ],
      "dur": [
       1,
-      6
-     ],
-     "pitch": {
-      "midi": 88
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      139,
-      6
-     ],
-     "dur": [
-      1,
       1
      ],
      "pitch": {
-      "midi": 69
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      149,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 81
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      161,
-      6
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 85
-     },
-     "technique": "harmonic"
+      "step": "E",
+      "alter": 0,
+      "octave": 5
+     }
     },
     {
      "at": [
@@ -709,13 +639,14 @@
       1
      ],
      "pitch": {
-      "midi": 87
-     },
-     "technique": "harmonic"
+      "step": "D",
+      "alter": 1,
+      "octave": 5
+     }
     },
     {
      "at": [
-      29,
+      31,
       1
      ],
      "dur": [
@@ -723,55 +654,14 @@
       1
      ],
      "pitch": {
-      "midi": 70
-     },
-     "technique": "harmonic"
+      "step": "D",
+      "alter": 1,
+      "octave": 5
+     }
     },
     {
      "at": [
-      91,
-      3
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 82
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      185,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 87
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      197,
-      6
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 78
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      33,
+      37,
       1
      ],
      "dur": [
@@ -779,65 +669,10 @@
       1
      ],
      "pitch": {
-      "midi": 68
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      109,
-      3
-     ],
-     "dur": [
-      1,
-      2
-     ],
-     "pitch": {
-      "midi": 88
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      221,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 69
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      118,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 68
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      81,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 81
-     },
-     "technique": "harmonic"
+      "step": "E",
+      "alter": 0,
+      "octave": 5
+     }
     },
     {
      "at": [
@@ -849,55 +684,14 @@
       1
      ],
      "pitch": {
-      "midi": 90
-     },
-     "technique": "harmonic"
+      "step": "G",
+      "alter": -1,
+      "octave": 5
+     }
     },
     {
      "at": [
-      89,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 88
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      139,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 86
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      93,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 87
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      48,
+      47,
       1
      ],
      "dur": [
@@ -905,93 +699,25 @@
       1
      ],
      "pitch": {
-      "midi": 71
-     },
-     "technique": "harmonic"
+      "step": "D",
+      "alter": 1,
+      "octave": 5
+     }
     },
     {
      "at": [
-      101,
-      2
+      53,
+      1
      ],
      "dur": [
       1,
       1
      ],
      "pitch": {
-      "midi": 81
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      157,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 68
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      105,
-      2
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 69
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      161,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 82
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      323,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 81
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      331,
-      6
-     ],
-     "dur": [
-      5,
-      6
-     ],
-     "pitch": {
-      "midi": 85
-     },
-     "technique": "harmonic"
+      "step": "A",
+      "alter": -1,
+      "octave": 4
+     }
     }
    ]
   },
@@ -1002,65 +728,45 @@
    "dynamics": [
     {
      "at": 0,
-     "level": 2.5
+     "level": 2
     }
    ],
    "events": [
     {
+     "type": "text",
+     "at": 0,
+     "placement": "above",
+     "text": "Pedals: Db Cb B | E F G A; unchanged; l.v. (all strings tuned 1/4 tone low)"
+    },
+    {
      "at": [
-      41,
-      6
+      7,
+      1
      ],
      "dur": [
       1,
       1
      ],
      "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
+      "step": "A",
+      "alter": -0.5,
+      "octave": 4
+     }
     },
     {
      "at": [
-      38,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 82.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      77,
-      6
+      13,
+      1
      ],
      "dur": [
       1,
       1
      ],
      "pitch": {
-      "midi": 85.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      101,
-      6
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 81.5
-     },
-     "technique": "harmonic"
+      "step": "C",
+      "alter": -1.5,
+      "octave": 5
+     }
     },
     {
      "at": [
@@ -1072,191 +778,14 @@
       1
      ],
      "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
+      "step": "A",
+      "alter": -0.5,
+      "octave": 4
+     }
     },
     {
      "at": [
-      113,
-      6
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 70.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      19,
-      1
-     ],
-     "dur": [
-      5,
-      6
-     ],
-     "pitch": {
-      "midi": 71.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      119,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 81.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      68,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": [
-      {
-       "midi": 82.5
-      },
-      {
-       "midi": 87.5
-      }
-     ],
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      137,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 78.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      155,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 86.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      86,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": [
-      {
-       "midi": 87.5
-      },
-      {
-       "midi": 69.5
-      }
-     ],
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      191,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 67.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      100,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 87.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      69,
-      2
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 84.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      104,
-      3
-     ],
-     "dur": [
-      1,
-      6
-     ],
-     "pitch": {
-      "midi": 68.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      209,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 82.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      36,
+      23,
       1
      ],
      "dur": [
@@ -1264,153 +793,14 @@
       1
      ],
      "pitch": {
-      "midi": 83.5
-     },
-     "technique": "harmonic"
+      "step": "C",
+      "alter": -1.5,
+      "octave": 5
+     }
     },
     {
      "at": [
-      113,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 87.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      81,
-      2
-     ],
-     "dur": [
-      1,
-      3
-     ],
-     "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      245,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 87.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      127,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 71.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      131,
-      3
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 68.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      46,
-      1
-     ],
-     "dur": [
-      5,
-      6
-     ],
-     "pitch": {
-      "midi": 83.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      281,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 68.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      289,
-      6
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      293,
-      6
-     ],
-     "dur": [
-      1,
-      1
-     ],
-     "pitch": {
-      "midi": 86.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      154,
-      3
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 84.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      52,
+      29,
       1
      ],
      "dur": [
@@ -1418,37 +808,85 @@
       1
      ],
      "pitch": {
-      "midi": 89.5
-     },
-     "technique": "harmonic"
+      "step": "E",
+      "alter": -0.5,
+      "octave": 5
+     }
     },
     {
      "at": [
-      325,
-      6
-     ],
-     "dur": [
-      2,
-      3
-     ],
-     "pitch": {
-      "midi": 85.5
-     },
-     "technique": "harmonic"
-    },
-    {
-     "at": [
-      329,
-      6
+      34,
+      1
      ],
      "dur": [
       1,
       1
      ],
      "pitch": {
-      "midi": 80.5
-     },
-     "technique": "harmonic"
+      "step": "E",
+      "alter": -0.5,
+      "octave": 5
+     }
+    },
+    {
+     "at": [
+      38,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "step": "E",
+      "alter": -0.5,
+      "octave": 5
+     }
+    },
+    {
+     "at": [
+      44,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "step": "A",
+      "alter": -0.5,
+      "octave": 4
+     }
+    },
+    {
+     "at": [
+      49,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "step": "A",
+      "alter": -0.5,
+      "octave": 4
+     }
+    },
+    {
+     "at": [
+      55,
+      1
+     ],
+     "dur": [
+      1,
+      1
+     ],
+     "pitch": {
+      "step": "A",
+      "alter": -0.5,
+      "octave": 4
+     }
     }
    ],
    "tuning": -0.5

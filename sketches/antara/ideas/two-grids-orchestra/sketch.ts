@@ -14,7 +14,8 @@
 // can slide between them.
 //
 // - Light (as in two-grids): where a slide ends, an instrument of that grid sounds the pitch once,
-//   higher up. The usual grid: harp 1 (harmonics), celesta, crotales, piano. The other: harp 2.
+//   higher up. The usual grid: harp 1, celesta, crotales, piano. The other: harp 2. The harps only
+//   catch sparse single notes in a middle register, ordinarily plucked, on fixed pedals.
 // - Fixed point: from a beat in the middle to the end, the celesta strikes the opening's F♯ on every
 //   beat, the same note as soft the whole time, and leaves its share of the light to the piano (the
 //   ending goes on with it until the violin has come to its F♯).
@@ -393,13 +394,79 @@ interface Mirror {
 }
 const LIGHT: Mirror[][] = [
   [
-    { id: "hp1", window: [67, 91], level: 2.5, family: 3, technique: "harmonic" },
+    { id: "hp1", window: [60, 79], level: 2, family: 3 },
     { id: "cel", window: [72, 100], level: 2, family: 5 },
     { id: "crot", window: [84, 108], level: 1.5, family: 2 },
     { id: "pno", window: [72, 100], level: 2, family: 5 },
   ],
-  [{ id: "hp2", window: [67.5, 90.5], level: 2.5, family: 3, technique: "harmonic" }],
+  [{ id: "hp2", window: [59.5, 78.5], level: 2, family: 3 }],
 ];
+
+/** Atmospheric harp notes: one at a time, at least four beats apart, all on one pedal setting.
+ * Keep an arrival's pitch class, but wait until the next whole beat to avoid awkward tuplets.
+ * Prefer a setting that keeps more sparse arrivals, then smaller jumps and fewer altered pedals. */
+function quietHarp(m: Mirror, times: [number, number[]][], end: number): Part {
+  const tuning = m.id === "hp2" ? -0.5 : 0;
+  const natural = [0, 2, 4, 5, 7, 9, 11];
+  const steps = ["C", "D", "E", "F", "G", "A", "B"] as const;
+  let best = -Infinity;
+  let chosen: { at: number; midi: number }[] = [];
+  let pedals: number[] = [];
+  for (let setting = 0; setting < 3 ** 7; setting++) {
+    let code = setting;
+    const alters = natural.map(() => {
+      const a = (code % 3) - 1;
+      code = Math.floor(code / 3);
+      return a;
+    });
+    const pcs = new Set(natural.map((p, i) => (p + alters[i]! + 12) % 12));
+    const notes: typeof chosen = [];
+    let motion = 0;
+    for (const [arrival, pitches] of times) {
+      const at = Math.ceil(arrival / TICKS) * TICKS;
+      if (at >= end) continue;
+      const previous = notes.at(-1);
+      if (previous && at - previous.at < 4 * TICKS) continue;
+      const centre = previous?.midi ?? (m.window[0] + m.window[1]) / 2;
+      const available = pitches
+        .filter((p) => pcs.has(((Math.round(p - tuning) % 12) + 12) % 12))
+        .sort((a, b) => Math.abs(a - centre) - Math.abs(b - centre) || a - b);
+      if (!available.length) continue;
+      const midi = available[0]!;
+      motion += Math.abs(midi - centre);
+      notes.push({ at, midi });
+    }
+    const merit =
+      notes.length * 1000 - motion - alters.reduce((sum, a) => sum + Math.abs(a), 0) / 10;
+    if (merit > best) {
+      best = merit;
+      chosen = notes;
+      pedals = alters;
+    }
+  }
+  const events: Part["events"] = chosen.map(({ at, midi }) => {
+    const pc = ((Math.round(midi - tuning) % 12) + 12) % 12;
+    const i = natural.findIndex((p, i) => (p + pedals[i]! + 12) % 12 === pc);
+    const alter = pedals[i]! + tuning;
+    const octave = (midi - natural[i]! - alter) / 12 - 1;
+    return {
+      at: time(at),
+      dur: time(Math.min(TICKS, end - at)),
+      pitch: { step: steps[i]!, alter, octave },
+    };
+  });
+  if (events.length) {
+    const name = (i: number) => steps[i]! + ({ [-1]: "b", 0: "", 1: "#" }[pedals[i]!] ?? "");
+    const label = [1, 0, 6].map(name).join(" ") + " | " + [2, 3, 4, 5].map(name).join(" ");
+    events.unshift({
+      type: "text",
+      at: 0,
+      placement: "above",
+      text: `Pedals: ${label}; unchanged; l.v.${tuning ? " (all strings tuned 1/4 tone low)" : ""}`,
+    });
+  }
+  return partOf(m.id, events, [{ at: 0, level: m.level }]);
+}
 const BREATH: Mirror[] = [
   { id: "fl1", window: [72, 96], level: 2, family: 5, single: true },
   { id: "picc", window: [79, 103], level: 1.5, family: 5, single: true },
@@ -520,6 +587,11 @@ export function score(v: V): Score {
         (a, b) => a[0] - b[0],
       );
       if (times.length === 0) continue;
+      if (m.id === "hp1" || m.id === "hp2") {
+        const harp = quietHarp(m, times, end);
+        if (harp.events.length) parts.push(harp);
+        continue;
+      }
       const stop = m.id === "cel" ? Math.min(end, fixedFrom) : end;
       const events: NoteEvent[] = times.map(([at, pitches], k) => {
         const next = times[k + 1]?.[0] ?? stop;
