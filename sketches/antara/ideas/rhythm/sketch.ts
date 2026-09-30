@@ -9,8 +9,7 @@
 // and there the woodblocks sound (where all three meet, a short chord of the horns and trombones).
 // Then the rule turns fluid (every combination of two, in dictionary order) and more players take
 // each stroke. At the end the middle choir, all together, strikes every second triplet 8th: the
-// original triplet phrase at the next section's tempo, while the others stop. The preceding
-// six bars accelerate; the final two bars hold that arrival tempo.
+// beat of the next section (♩ = 90), while the others stop.
 //
 // Each choir keeps to a few pitches of its register (the opening's F♯ and E, a quarter tone below,
 // a whole tone above), and its strokes go round its players, so the colour changes from stroke to
@@ -106,26 +105,6 @@ const CHOIRS: Choir[] = [
 ];
 
 export const knobs = {
-  arrivalTempo: number({
-    group: "Sound",
-    label: "Arrival tempo",
-    value: 90,
-    min: 48,
-    max: 144,
-    step: 2,
-    unit: "bpm",
-    help: "Tempo reached two bars before the end; in the full piece this follows the next section",
-  }),
-  accelBars: number({
-    group: "Sound",
-    label: "Accel bars",
-    value: 6,
-    min: 1,
-    max: 14,
-    step: 1,
-    unit: "bars",
-    help: "Bars of gradual acceleration before the final two-bar triplet phrase; that phrase stays at the arrival tempo",
-  }),
   high: betweenSet({
     group: "High (quintuplet 16ths)",
     label: "Split",
@@ -285,7 +264,7 @@ export function score(v: V): Score {
       ...onsets(bar(STAGES.drift), bar(STAGES.fluid), drift, "shift each time", c.atom),
       ...onsets(bar(STAGES.fluid), bar(STAGES.handover), drift, "combinations", c.atom),
     ];
-    // The handover: keep the middle choir's every-second-triplet phrase at the arrival tempo.
+    // The handover: only the middle choir, every second triplet 8th (the next section's beat).
     if (c.name === "middle")
       ts.push(...onsets(bar(STAGES.handover), bar(STAGES.end), [2], "in order", c.atom));
     strokes.set(c.name, ts);
@@ -374,11 +353,7 @@ export function score(v: V): Score {
   return {
     title: "antara · rhythm",
     meter: [{ measure: 1, beats: 4, beatType: 4 }],
-    tempo: [
-      { at: 0, bpm: v.tempo },
-      { at: (STAGES.handover - v.accelBars) * 4, bpm: v.tempo, to: "linear" },
-      { at: STAGES.handover * 4, bpm: v.arrivalTempo },
-    ],
+    tempo: [{ at: 0, bpm: v.tempo }],
     measures: STAGES.end,
     rehearsal: [STAGES.split, STAGES.drift, STAGES.fluid, STAGES.handover].map((b, n) => ({
       measure: b + 1,
