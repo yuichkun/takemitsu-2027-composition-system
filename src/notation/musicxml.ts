@@ -11,7 +11,7 @@ import type { Measure } from "../score/timeline.ts";
 import type { Score } from "../score/types.ts";
 import { layoutOf, type Layout, type Staff } from "./layout.ts";
 import { registersOf, type Ottava, type StaffRegisters } from "./registers.ts";
-import { layoutMeasure, type Piece } from "./rhythm.ts";
+import { beatSpans, layoutMeasure, type Piece } from "./rhythm.ts";
 
 const writtenCache = new WeakMap<NormalScore, NormalScore>();
 /**
@@ -175,8 +175,15 @@ export function dynamicMarks(part: NormalPart): { marks: Mark[]; wedges: Wedge[]
         nienteEnd: wedge.level < 0.5,
         asText: wedge.at.sub(p.at).value >= 16 && p.level >= 0.5 && wedge.level >= 0.5,
       });
+      const opposite = lastOfKind[type === "crescendo" ? "diminuendo" : "crescendo"];
+      const returnsToKnown =
+        cameByWedge &&
+        opposite?.end.eq(p.at) &&
+        opposite.from === to &&
+        opposite.to === from &&
+        wedge.at.sub(p.at).value <= 2;
       if (wedge.level < 0.5) last = "n";
-      else if (again) last = to;
+      else if (again || returnsToKnown) last = to;
       else show(wedge.at, wedge.level, true);
       lastOfKind[type] = { from, to, end: wedge.at };
     }
@@ -631,6 +638,11 @@ function partXml(
   });
   const started = new Set<Ottava>();
 
+  // Every staff uses the same rule: short hairpin endpoints inside held notes need visible
+  // rhythmic anchors. Long textual cresc./dim. retain their ordinary sustained notation.
+  const dynamicAnchors = [...known.wedges, ...known.above.wedges]
+    .filter((w) => !w.asText)
+    .flatMap((w) => [w.start, w.end]);
   // Lay out every measure first so divisions can cover all durations.
   const layouts = measures.map((m) => {
     const groups: { staff: number; voice: number; pieces: Piece[] }[] = [];
@@ -643,7 +655,23 @@ function partXml(
             n.at.lt(m.start.add(m.length)) &&
             n.end.gt(m.start),
         );
-        const pieces = layoutMeasure(notes, m, voice === Math.min(...voices));
+        const anchors = beatSpans(m).flatMap(([a, b]) => {
+          const ends = dynamicAnchors.filter((t) => t.gte(a) && t.lte(b));
+          if (!ends.length) return [];
+          const times = [...ends, ...notes.flatMap((n) => [n.at, n.end])].filter(
+            (t) => t.gt(a) && t.lt(b),
+          );
+          let denominator = 1;
+          const gcd = (x: number, y: number): number => (y ? gcd(y, x % y) : x);
+          for (const t of times) {
+            const d = t.sub(a).d;
+            denominator = (denominator * d) / gcd(denominator, d);
+          }
+          while (denominator % 2 === 0) denominator /= 2;
+          // Keep incompatible subdivisions as offsets; do not invent a 15-tuplet for dynamics.
+          return [1, 3, 5].includes(denominator) ? [a, ...ends, b] : [a, b];
+        });
+        const pieces = layoutMeasure(notes, m, voice === Math.min(...voices), anchors);
         if (pieces.length) groups.push({ staff, voice: (staff - 1) * 4 + voice, pieces });
       }
     }

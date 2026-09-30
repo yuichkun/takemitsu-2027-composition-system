@@ -107,7 +107,12 @@ interface Span {
  *              chords are one note with several pitches)
  * @param restIfEmpty write a whole-measure rest when the voice has nothing in this measure
  */
-export function layoutMeasure(notes: Note[], m: Measure, restIfEmpty: boolean): Piece[] {
+export function layoutMeasure(
+  notes: Note[],
+  m: Measure,
+  restIfEmpty: boolean,
+  anchors: readonly Rational[] = [],
+): Piece[] {
   const mEnd = m.start.add(m.length);
   const spans: Span[] = [];
   let cursor = m.start;
@@ -117,7 +122,19 @@ export function layoutMeasure(notes: Note[], m: Measure, restIfEmpty: boolean): 
     if (e.lte(s)) continue;
     if (s.lt(cursor)) continue; // overlapping notes in one voice: the earlier one wins
     if (s.gt(cursor)) spans.push({ start: cursor, end: s, tiedIn: false, tiedOut: false });
-    spans.push({ start: s, end: e, note: n, tiedIn: n.at.lt(m.start), tiedOut: n.end.gt(mEnd) });
+    // Give dynamics inside a sustained note real rhythmic anchors. These are tied notation
+    // pieces of the same original note, never new attacks or changes to playback.
+    const inner = anchors.filter(
+      (t) => t.gt(s) && t.lt(e) && (!n.gliss || t.lte(n.at.add(n.glissAfter))),
+    );
+    const boundaries = [s, ...inner, e]
+      .sort((a, b) => a.cmp(b))
+      .filter((t, i, all) => i === 0 || !t.eq(all[i - 1]!));
+    for (let i = 1; i < boundaries.length; i++) {
+      const start = boundaries[i - 1]!,
+        end = boundaries[i]!;
+      spans.push({ start, end, note: n, tiedIn: start.gt(n.at), tiedOut: end.lt(n.end) });
+    }
     cursor = e;
   }
   if (spans.length === 0) {
@@ -183,7 +200,18 @@ export function layoutMeasure(notes: Note[], m: Measure, restIfEmpty: boolean): 
       beats.slice(x.beat, x.last + 1).every((b) => b.actual === 1) &&
       x.start.eq(beats[x.beat]!.start) &&
       x.end.eq(beats[x.last]!.end);
-    if (prev && prev.note === c.note && prev.end.eq(c.start) && plain(prev) && plain(c)) {
+    if (
+      prev &&
+      prev.note === c.note &&
+      prev.end.eq(c.start) &&
+      plain(prev) &&
+      plain(c) &&
+      !(
+        c.note &&
+        (!c.note.gliss || c.start.lte(c.note.at.add(c.note.glissAfter))) &&
+        anchors.some((t) => t.eq(c.start))
+      )
+    ) {
       const joined = c.end.sub(prev.start);
       const startsOnBeat = prev.start.eq(beats[beatAt(prev.start)]!.start);
       const v = value(joined);

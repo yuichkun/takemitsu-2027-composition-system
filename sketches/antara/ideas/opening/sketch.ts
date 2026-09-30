@@ -550,10 +550,14 @@ export function score(v: V): Score {
   };
   const x = v.pitch;
   const q = v.pitch + (v.side === "the same string" ? -0.5 : 0.5);
-  const ringLen = (between: number) => Math.max(1, Math.round((RING * between) / A)) * A;
-  const riseLen = (between: number) => Math.max(1, Math.round((RISE * between) / A)) * A;
-  // On the pulse: where the rises into the next stroke begin, the wave's lowest point.
-  const trough = period - riseLen(period);
+  // Once the period is a quarter-note pulse, the two sides of its wave are eighths.
+  // Keep the original family's atom during the approach, and for non-quarter custom periods.
+  const binaryPulse = period === TICKS;
+  const ringLen = (between: number, onPulse = false) =>
+    onPulse && binaryPulse ? TICKS / 2 : Math.max(1, Math.round((RING * between) / A)) * A;
+  const riseLen = (between: number, onPulse = false) =>
+    onPulse && binaryPulse ? TICKS / 2 : Math.max(1, Math.round((RISE * between) / A)) * A;
+  const trough = period - riseLen(period, true);
 
   // Who strikes where. Harp 1, the piano and the vibraphone close in on every stroke; harp 2
   // plays with harp 1 from its `second`-th time; the violas' pizzicato with harp 2 from `pizz`.
@@ -645,14 +649,14 @@ export function score(v: V): Score {
     );
 
   // Rises: out of nothing into each stroke a voice aims at, ending exactly with it, over the
-  // last three fifths of the between before it, when the voice is free for it.
+  // last three fifths before the pulse, then its last half, when the voice is free for it.
   for (const voice of RISES) {
     const until = voice.id === "tam" ? p(ENTER.tamUntil) : final + 1;
     const low = typeof voice.note === "number";
     for (const k of aims[voice.aim!]) {
       if (k === 0 || k < p(voice.enter) || k >= until) continue;
       const at = times[k]!;
-      const len = riseLen(at - times[k - 1]!);
+      const len = riseLen(at - times[k - 1]!, k >= settled);
       const begin = at - len;
       if (!players.free(voice.id, begin)) continue;
       const e: NoteEvent = { at: time(begin), dur: time(len) };
@@ -676,7 +680,10 @@ export function score(v: V): Score {
     for (let k = p(voice.enter); k <= final; k++) {
       const at = times[k]!;
       if (!players.free(voice.id, at)) continue;
-      const len = Math.min(8 * TICKS, ringLen((k < final ? times[k + 1]! : end) - at));
+      const len = Math.min(
+        8 * TICKS,
+        ringLen((k < final ? times[k + 1]! : end) - at, k >= settled),
+      );
       players.add(
         voice,
         { at: time(at), dur: time(len), pitch: { midi: noteOf(voice, k)! } },
