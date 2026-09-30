@@ -13711,6 +13711,12 @@
      }
     },
     {
+     "type": "text",
+     "at": 88,
+     "text": "prepare bass drum",
+     "placement": "above"
+    },
+    {
      "at": [
       441,
       5
@@ -13983,6 +13989,30 @@
       "accent"
      ],
      "dynamic": 8
+    }
+   ],
+   "player": "p3"
+  },
+  {
+   "id": "bd",
+   "instrument": "bass-drum",
+   "name": "Bass Drum",
+   "dynamics": [
+    {
+     "at": 98,
+     "level": 6,
+     "to": "linear"
+    },
+    {
+     "at": 100,
+     "level": 8
+    }
+   ],
+   "events": [
+    {
+     "at": 98,
+     "dur": 2,
+     "technique": "roll+soft"
     }
    ],
    "player": "p3"

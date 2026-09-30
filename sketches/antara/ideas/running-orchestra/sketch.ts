@@ -751,6 +751,24 @@ export function score(v: V): Score {
     );
     hornFinish.forEach((event, i) => add(`hn${assignment[i]! + 1}`, [event], curve(1)));
     add("tam", [{ at: time(end), dur: 4, dynamic: meeting }], [{ at: 0, level: meeting }]);
+    // The final bar's last two quarters drive into E. The next section supplies the downbeat hit.
+    const arrival = (BARS + 1) * 4;
+    add(
+      "bd",
+      [{ at: arrival - 2, dur: 2, technique: "roll+soft" }],
+      [
+        { at: arrival - 2, level: 6, to: "linear" },
+        { at: arrival, level: 8 },
+      ],
+    );
+    parts
+      .find((p) => p.id === "mar")
+      ?.events.push({
+        type: "text",
+        at: (BARS - 2) * 4,
+        text: "prepare bass drum",
+        placement: "above",
+      });
   }
 
   // A letter where anything on the bands changes.

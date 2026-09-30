@@ -74430,6 +74430,12 @@
      }
     },
     {
+     "type": "text",
+     "at": 512,
+     "text": "prepare bass drum",
+     "placement": "above"
+    },
+    {
      "at": [
       2561,
       5
@@ -75793,6 +75799,11 @@
      "technique": "roll+soft"
     },
     {
+     "at": 522,
+     "dur": 2,
+     "technique": "roll+soft"
+    },
+    {
      "at": 524,
      "dur": 1,
      "articulations": [
@@ -76218,6 +76229,15 @@
     {
      "at": 168,
      "level": 2.5
+    },
+    {
+     "at": 424,
+     "level": 6
+    },
+    {
+     "at": 522,
+     "level": 6,
+     "to": "linear"
     },
     {
      "at": 524,
@@ -183711,6 +183731,7 @@
      "timp",
      "tam",
      "mar",
+     "bd",
      "hp1",
      "hp2",
      "pno",

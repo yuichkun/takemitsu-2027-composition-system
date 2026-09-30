@@ -2,7 +2,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { hornAssignment } from "../../sketches/antara/ideas/running-orchestra/sketch.ts";
-import { normalize } from "../../src/score/normalize.ts";
+import { normalize, levelAt } from "../../src/score/normalize.ts";
 import { toMusicXml } from "../../src/notation/musicxml.ts";
 const previous = [70, 60, 52, 55].map((midi) => ({ at: 0, midi }));
 assert.deepEqual(hornAssignment([51.5, 60, 70], 240, previous), [2, 1, 0]);
@@ -41,6 +41,24 @@ for (const [id, text, at] of [
     score.parts.find((p) => p.id === id)!.texts.some((t) => t.text === text && t.at.value === at),
   );
 }
+const drum = score.parts.find((p) => p.id === "bd")!;
+const roll = drum.notes.find((n) => n.at.value === climaxAt - 2)!;
+assert(roll);
+assert.equal(roll.end.value, climaxAt);
+assert(roll.technique.includes("roll"));
+assert.equal(levelAt(drum.dynamics, roll.at), 6);
+assert.equal(levelAt(drum.dynamics, roll.end), 8);
+assert(drum.notes.some((n) => n.at.value === climaxAt && !n.technique.includes("roll")));
+assert(
+  !score.parts
+    .find((p) => p.id === "timp")!
+    .notes.some((n) => n.at.value < climaxAt && n.end.value > climaxAt - 2),
+);
+const marimba = score.parts.find((p) => p.id === "mar")!;
+assert(
+  marimba.notes.filter((n) => n.at.value < climaxAt).every((n) => n.end.value <= climaxAt - 2),
+);
+assert(marimba.texts.some((t) => t.text === "prepare bass drum" && t.at.value === climaxAt - 12));
 assert.deepEqual(toMusicXml(raw).warnings, []);
 console.log(
   "PASS: horn continuity, distinct players on unisons, no overlaps, early percussion preparation marks.",
