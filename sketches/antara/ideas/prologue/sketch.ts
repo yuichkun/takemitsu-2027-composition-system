@@ -2,7 +2,7 @@
 //
 // The chord of glass as two-grids first sounds it (that sketch's code and values: the chord that
 // comes back after the climax), its thirty desks coming in from the top down, one a quintuplet 16th
-// after the other, from the first violins' harmonics to the basses' lowest desk (G1, just above
+// after the other, from the first violins' high stopped notes to the basses' lowest desk (G1, just above
 // the opening's ground). Soon after all are in, everyone stops at once, softly, and a general pause
 // under a fermata leaves only the hall's resonance. The opening's ground begins out of it.
 

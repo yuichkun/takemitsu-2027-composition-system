@@ -2139,7 +2139,7 @@
      "pitch": {
       "midi": 94.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -2158,7 +2158,7 @@
      "pitch": {
       "midi": 93
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -2177,7 +2177,7 @@
      "pitch": {
       "midi": 94.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -2196,7 +2196,7 @@
      "pitch": {
       "midi": 94
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2215,7 +2215,7 @@
      "pitch": {
       "midi": 94.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -2234,7 +2234,7 @@
      "pitch": {
       "midi": 95
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -2253,7 +2253,7 @@
      "pitch": {
       "midi": 96
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -2272,7 +2272,7 @@
      "pitch": {
       "midi": 97.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2291,7 +2291,7 @@
      "pitch": {
       "midi": 96
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -2310,7 +2310,7 @@
      "pitch": {
       "midi": 95.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -2329,7 +2329,7 @@
      "pitch": {
       "midi": 97.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2348,7 +2348,7 @@
      "pitch": {
       "midi": 98
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -2367,7 +2367,7 @@
      "pitch": {
       "midi": 97.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -2386,7 +2386,7 @@
      "pitch": {
       "midi": 99
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -2449,7 +2449,7 @@
      "pitch": {
       "midi": 93
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -2468,7 +2468,7 @@
      "pitch": {
       "midi": 92.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       3,
@@ -2487,7 +2487,7 @@
      "pitch": {
       "midi": 93
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2506,7 +2506,7 @@
      "pitch": {
       "midi": 93.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       3,
@@ -2525,7 +2525,7 @@
      "pitch": {
       "midi": 93
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       7,
@@ -2544,7 +2544,7 @@
      "pitch": {
       "midi": 94.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -2563,7 +2563,7 @@
      "pitch": {
       "midi": 93
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2582,7 +2582,7 @@
      "pitch": {
       "midi": 92.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -2601,7 +2601,7 @@
      "pitch": {
       "midi": 93
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -2664,7 +2664,7 @@
      "pitch": {
       "midi": 88
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -2683,7 +2683,7 @@
      "pitch": {
       "midi": 88.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2702,7 +2702,7 @@
      "pitch": {
       "midi": 88
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -2721,7 +2721,7 @@
      "pitch": {
       "midi": 89.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -2740,7 +2740,7 @@
      "pitch": {
       "midi": 91.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -2759,7 +2759,7 @@
      "pitch": {
       "midi": 91
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2778,7 +2778,7 @@
      "pitch": {
       "midi": 91.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -2797,7 +2797,7 @@
      "pitch": {
       "midi": 92
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -2816,7 +2816,7 @@
      "pitch": {
       "midi": 90
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2835,7 +2835,7 @@
      "pitch": {
       "midi": 91.5
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -2898,7 +2898,7 @@
      "pitch": {
       "midi": 95.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2917,7 +2917,7 @@
      "pitch": {
       "midi": 97
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -2936,7 +2936,7 @@
      "pitch": {
       "midi": 95.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -2955,7 +2955,7 @@
      "pitch": {
       "midi": 95
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -2974,7 +2974,7 @@
      "pitch": {
       "midi": 98.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -2993,7 +2993,7 @@
      "pitch": {
       "midi": 99
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3012,7 +3012,7 @@
      "pitch": {
       "midi": 98.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -3031,7 +3031,7 @@
      "pitch": {
       "midi": 100
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3050,7 +3050,7 @@
      "pitch": {
       "midi": 88.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -3069,7 +3069,7 @@
      "pitch": {
       "midi": 87
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -3088,7 +3088,7 @@
      "pitch": {
       "midi": 88.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3107,7 +3107,7 @@
      "pitch": {
       "midi": 89
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -3126,7 +3126,7 @@
      "pitch": {
       "midi": 88.5
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -3189,7 +3189,7 @@
      "pitch": {
       "midi": 92.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       3,
@@ -3208,7 +3208,7 @@
      "pitch": {
       "midi": 92
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       7,
@@ -3227,7 +3227,7 @@
      "pitch": {
       "midi": 92.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3246,7 +3246,7 @@
      "pitch": {
       "midi": 94.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3265,7 +3265,7 @@
      "pitch": {
       "midi": 94
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3284,7 +3284,7 @@
      "pitch": {
       "midi": 95.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       7,
@@ -3303,7 +3303,7 @@
      "pitch": {
       "midi": 95.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3322,7 +3322,7 @@
      "pitch": {
       "midi": 94
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -3385,7 +3385,7 @@
      "pitch": {
       "midi": 91
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -3404,7 +3404,7 @@
      "pitch": {
       "midi": 91.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3423,7 +3423,7 @@
      "pitch": {
       "midi": 91
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3442,7 +3442,7 @@
      "pitch": {
       "midi": 92.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3461,7 +3461,7 @@
      "pitch": {
       "midi": 91
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -3480,7 +3480,7 @@
      "pitch": {
       "midi": 89.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3499,7 +3499,7 @@
      "pitch": {
       "midi": 91
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -3518,7 +3518,7 @@
      "pitch": {
       "midi": 91.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -3537,7 +3537,7 @@
      "pitch": {
       "midi": 91
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3556,7 +3556,7 @@
      "pitch": {
       "midi": 92.5
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -3619,7 +3619,7 @@
      "pitch": {
       "midi": 98
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3638,7 +3638,7 @@
      "pitch": {
       "midi": 99.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3657,7 +3657,7 @@
      "pitch": {
       "midi": 98
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3676,7 +3676,7 @@
      "pitch": {
       "midi": 96.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -3695,7 +3695,7 @@
      "pitch": {
       "midi": 89.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3714,7 +3714,7 @@
      "pitch": {
       "midi": 90
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -3733,7 +3733,7 @@
      "pitch": {
       "midi": 89.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -3752,7 +3752,7 @@
      "pitch": {
       "midi": 91
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3771,7 +3771,7 @@
      "pitch": {
       "midi": 88
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -3790,7 +3790,7 @@
      "pitch": {
       "midi": 86.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3809,7 +3809,7 @@
      "pitch": {
       "midi": 88
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       9,
@@ -3828,7 +3828,7 @@
      "pitch": {
       "midi": 87.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       21,
@@ -3847,7 +3847,7 @@
      "pitch": {
       "midi": 88
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -3910,7 +3910,7 @@
      "pitch": {
       "midi": 93.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3929,7 +3929,7 @@
      "pitch": {
       "midi": 92
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -3948,7 +3948,7 @@
      "pitch": {
       "midi": 93.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       7,
@@ -3967,7 +3967,7 @@
      "pitch": {
       "midi": 97
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       17,
@@ -3986,7 +3986,7 @@
      "pitch": {
       "midi": 96.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       7,
@@ -4005,7 +4005,7 @@
      "pitch": {
       "midi": 100
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       3,
@@ -4024,7 +4024,7 @@
      "pitch": {
       "midi": 98.5
      },
-     "technique": "harmonic",
+     "technique": "sul-tasto",
      "gliss": true,
      "glissAfter": [
       13,
@@ -4043,7 +4043,7 @@
      "pitch": {
       "midi": 97
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2

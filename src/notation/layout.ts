@@ -729,10 +729,22 @@ function strings(
     }
     for (const p of tutti) section.push(staffOf(p, full, measures));
     const where = seats(divided, size);
-    const staves = divided.map((p) => {
+    const staves = divided.map((p, i) => {
       const s = where.get(p);
-      const who = s ? (s[0] === s[1] ? `${s[0]}` : `${s[0]}–${s[1]}`) : `(${p.players})`;
-      return staffOf(p, [`${inst.name} ${who}`, `${inst.abbreviation} ${who}`], measures);
+      if (s) {
+        const who = s[0] === s[1] ? `${s[0]}` : `${s[0]}–${s[1]}`;
+        return staffOf(p, [`${inst.name} ${who}`, `${inst.abbreviation} ${who}`], measures);
+      }
+      // Disjoint sections can use incompatible seat partitions on the same permanent staves.
+      // Do not invent seat numbers: retain the composer's unique group name, or number the group.
+      const uniqueName =
+        p.name !== inst.name && divided.filter((x) => x.name === p.name).length === 1;
+      const group = `group ${i + 1} (${p.players})`;
+      return staffOf(
+        p,
+        uniqueName ? [p.name, p.name] : [`${inst.name} ${group}`, `${inst.abbreviation} ${group}`],
+        measures,
+      );
     });
     // "div." (into two) or "div. a N" where the section divides; "unis." where it comes together.
     const runs = divisionRuns(divided, measures);

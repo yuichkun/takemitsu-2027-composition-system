@@ -52,7 +52,7 @@ export interface BbcsoLane {
   instrument: string;
   /** Articulations in keyswitch order (keyswitch = index), shared by all lanes of the instrument. */
   articulations: string[];
-  /** Global tune in semitones: 0 or 0.5. */
+  /** Global tune in semitones, including sample-range extension. */
   tune: number;
   notes: LaneNote[];
   /** CC1 at a time in seconds, from the part's dynamic curve; undefined: CC1 only at onsets. */
@@ -365,14 +365,32 @@ function pitchedLanes(
     for (let i = 0; i < list.length; i++) {
       if (!list[i]!.gliss || !list[i + 1] || inGlide.has(list[i]!)) continue;
       const chain = [list[i]!];
-      for (let j = i; list[j]!.gliss && list[j + 1]; j++) chain.push(list[j + 1]!);
-      for (const n of chain) inGlide.add(n);
+      let endpointOnly = false;
+      for (let j = i; list[j]!.gliss && list[j + 1]; j++) {
+        const next = list[j + 1]!;
+        chain.push(next);
+        // The next articulation must start at its own onset, after this glide reaches it.
+        if (techniqueKey(next) !== techniqueKey(chain[0]!)) {
+          endpointOnly = true;
+          break;
+        }
+      }
+      for (const n of endpointOnly ? chain.slice(0, -1) : chain) inGlide.add(n);
       if (chain.some((n) => n.pitches.length > 1))
         warnings.push(`${part.name}: a glissando slides the lowest note of a chord only`);
       const first = chain[0]!;
       const last = chain.at(-1)!;
       const pitchOf = (n: Note) => n.pitches[0]!.midi;
-      const key = Math.floor(pitchOf(first)) + (map.keyOffset ?? 0);
+      const on = sec(first.at.value);
+      const off = sec((endpointOnly ? last.at : last.end).value);
+      const choice = chooseArticulation(map, first, off - on, available);
+      const keys = inventory[instrument]?.[choice.articulation]?.range ?? range;
+      // Choose a sampled anchor that covers the entire glide within Global Tune's ±36 range.
+      const offset = map.keyOffset ?? 0;
+      const pitches = chain.map(pitchOf);
+      const lo = Math.max(keys?.[0] ?? 0, Math.ceil(Math.max(...pitches) + offset - 36));
+      const hi = Math.min(keys?.[1] ?? 127, Math.floor(Math.min(...pitches) + offset + 36));
+      const key = Math.max(lo, Math.min(hi, Math.floor(pitchOf(first)) + offset));
       const path: [number, number][] = [];
       const base = key - (map.keyOffset ?? 0);
       chain.forEach((n, c) => {
@@ -380,13 +398,9 @@ function pitchedLanes(
         const next = chain[c + 1];
         if (next) path.push([sec(n.at.add(n.glissAfter).value), pitchOf(n) - base]);
       });
-      path.push([sec(last.end.value), pitchOf(last) - base]);
+      path.push([off, pitchOf(last) - base]);
       if (path.some(([, s]) => Math.abs(s) > 36))
-        warnings.push(`${part.name}: a glissando wider than 36 semitones from its first note`);
-      const on = sec(first.at.value);
-      const off = sec(last.end.value);
-      const choice = chooseArticulation(map, first, off - on, available);
-      const keys = inventory[instrument]?.[choice.articulation]?.range ?? range;
+        warnings.push(`${part.name}: a glissando exceeds the sampled anchor’s ±36-semitone tuning range`);
       if (keys && (key < keys[0] || key > keys[1]))
         warnings.push(
           `${part.name}: pitch ${pitchOf(first)} is outside ${instrument}'s sampled range`,
@@ -396,7 +410,7 @@ function pitchedLanes(
       lane.busy = off + 0.5;
       lane.notes.push({
         on,
-        off: Math.max(on + 0.03, off - 0.01),
+        off: Math.max(on + 0.03, endpointOnly ? off : off - 0.01),
         key,
         velocity: velocityFor(level(first.at.value), accented(first)),
         articulation: choice.articulation,
@@ -407,7 +421,7 @@ function pitchedLanes(
     }
   }
 
-  // Split notes by tuning: whole semitones on the plain instance, quarter tones on the +50 cent one.
+  // Split notes by tuning, including quarter tones and any sample-range extension.
   const byTune = new Map<number, LaneNote[]>();
   for (const n of notes) {
     if (inGlide.has(n)) continue;
@@ -421,8 +435,13 @@ function pitchedLanes(
     // The keys the chosen articulation has samples for (harmonics reach higher than long notes).
     const keys = inventory[instrument]?.[choice.articulation]?.range ?? range;
     for (const p of n.pitches) {
-      const tune = p.midi % 1 === 0 ? 0 : 0.5;
-      const key = Math.floor(p.midi) + (map.keyOffset ?? 0);
+      const wantedKey = Math.floor(p.midi) + (map.keyOffset ?? 0);
+      // A string's playable range can exceed this articulation's recordings. Extend the nearest
+      // sample by up to an octave for preview only; never change the written/sounding pitch.
+      const nearest = keys ? Math.max(keys[0], Math.min(keys[1], wantedKey)) : wantedKey;
+      const key =
+        map.family === "strings" && Math.abs(nearest - wantedKey) <= 12 ? nearest : wantedKey;
+      const tune = p.midi + (map.keyOffset ?? 0) - key;
       if (keys && (key < keys[0] || key > keys[1]))
         warnings.push(`${part.name}: pitch ${p.midi} is outside ${instrument}'s sampled range`);
       if (!byTune.has(tune)) byTune.set(tune, []);
@@ -459,7 +478,7 @@ function pitchedLanes(
     drafts.push({
       lane: {
         kind: "bbcso",
-        id: tune ? `${part.id}#+50` : part.id,
+        id: tune === 0.5 ? `${part.id}#+50` : tune ? `${part.id}#tune${tune}` : part.id,
         partId: part.id,
         instrument,
         tune,

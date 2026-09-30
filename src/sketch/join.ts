@@ -1007,16 +1007,19 @@ export class Joiner {
           at: toTime(at),
           dur: toTime(p.toPiece(n.at + n.dur) - at),
         };
-        if (event.pitch !== undefined) {
-          const ms = pitchesOf(n.event).map((m) => fold(m + p.transpose, range));
-          event.pitch = ms.length === 1 ? { midi: ms[0]! } : ms.map((midi) => ({ midi }));
-        }
+        // Keep explicit enharmonic spelling whenever placement leaves the pitch unchanged.
+        const placedPitch = (pitch: Pitch): Pitch => {
+          const original = midiOf(pitch);
+          const midi = fold(original + p.transpose, range);
+          return midi === original ? pitch : { midi };
+        };
+        if (event.pitch !== undefined)
+          event.pitch = Array.isArray(event.pitch)
+            ? event.pitch.map(placedPitch)
+            : placedPitch(event.pitch);
         if (event.glissAfter !== undefined)
           event.glissAfter = toTime(p.toPiece(n.at + toTicks(event.glissAfter)) - at);
-        if (event.glissPitches)
-          event.glissPitches = event.glissPitches.map((pitch) => ({
-            midi: fold(midiOf(pitch) + p.transpose, range),
-          }));
+        if (event.glissPitches) event.glissPitches = event.glissPitches.map(placedPitch);
         if (target.technique === null) delete event.technique;
         else if (target.technique !== undefined) event.technique = target.technique;
         into.events.push(event);

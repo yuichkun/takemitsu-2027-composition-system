@@ -58,7 +58,7 @@
      "pitch": {
       "midi": 94.5
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -97,7 +97,7 @@
      "pitch": {
       "midi": 93
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -136,7 +136,7 @@
      "pitch": {
       "midi": 88
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -175,7 +175,7 @@
      "pitch": {
       "midi": 95.5
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -214,7 +214,7 @@
      "pitch": {
       "midi": 92.5
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -253,7 +253,7 @@
      "pitch": {
       "midi": 91
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -292,7 +292,7 @@
      "pitch": {
       "midi": 98
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2
@@ -331,7 +331,7 @@
      "pitch": {
       "midi": 93.5
      },
-     "technique": "harmonic"
+     "technique": "sul-tasto"
     }
    ],
    "players": 2

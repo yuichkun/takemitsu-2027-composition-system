@@ -14,7 +14,7 @@
 // grow smaller up to the last, a quarter tone. The cello's edge (its open C) is nearer than the
 // violin's (F♯7, the opening's note two octaves up), so the cello ends first; under its last notes
 // the ground of the opening comes back (the basses' E1, the bass drum's roll) and goes with it.
-// The violin, alone, turns to harmonics, arrives, holds, and slides a quarter tone up into nothing.
+// The violin stays stopped throughout, arrives, holds, and slides a quarter tone up into nothing.
 //
 // All the while the celesta strikes the opening's F♯ on every beat, as two-grids ends with it: a
 // fixed point, the same note as soft the whole time, against which everything else is heard moving.
@@ -27,6 +27,7 @@
 // a clarinet or the bass clarinet rings it into nothing. The light comes more and more seldom.
 
 import { ensemble } from "../../../../pieces/antara/ensemble.ts";
+import { parsePitch } from "../../../../src/score/pitch.ts";
 import type { DynamicPoint, Event, NoteEvent, Part, Score } from "../../../../src/score/types.ts";
 import type { Seam } from "../../../../src/sketch/nest.ts";
 import { betweenSet, number, pitch, toggle, type Values } from "../../../../src/sketch/knobs.ts";
@@ -235,6 +236,47 @@ function merged(notes: Note[]): [Note[], number[]] {
 
 const onSemitones = (midi: number) => Number.isInteger(midi);
 
+/** A fixed pedal setting when all reflections fit one, spelled at sounding pitch. */
+function harpPedals(events: Event[], tuning: number): string | undefined {
+  const notes = events.filter((e): e is NoteEvent => e.type !== "text");
+  const pitches = notes.flatMap((n) =>
+    n.pitch === undefined ? [] : Array.isArray(n.pitch) ? n.pitch : [n.pitch],
+  );
+  const natural = [0, 2, 4, 5, 7, 9, 11];
+  const steps = ["C", "D", "E", "F", "G", "A", "B"] as const;
+  const pcs = pitches.map((p) => (((parsePitch(p).midi - tuning) % 12) + 12) % 12);
+  let pedals: number[] | undefined;
+  let cost = Infinity;
+  for (let setting = 0; setting < 3 ** 7; setting++) {
+    let code = setting;
+    const alters = natural.map(() => {
+      const a = (code % 3) - 1;
+      code = Math.floor(code / 3);
+      return a;
+    });
+    const available = natural.map((n, i) => (n + alters[i]! + 12) % 12);
+    const changes = alters.reduce((sum, a) => sum + Math.abs(a), 0);
+    if (changes < cost && pcs.every((pc) => available.includes(pc))) {
+      pedals = alters;
+      cost = changes;
+    }
+  }
+  if (!pedals) return undefined;
+  const chosen = pedals;
+  const spell = (pitch: (typeof pitches)[number]) => {
+    const midi = parsePitch(pitch).midi;
+    const pc = (((midi - tuning) % 12) + 12) % 12;
+    const i = natural.findIndex((n, i) => (n + chosen[i]! + 12) % 12 === pc);
+    const alter = chosen[i]! + tuning;
+    return { step: steps[i]!, alter, octave: (midi - natural[i]! - alter) / 12 - 1 };
+  };
+  for (const n of notes)
+    if (n.pitch !== undefined)
+      n.pitch = Array.isArray(n.pitch) ? n.pitch.map(spell) : spell(n.pitch);
+  const name = (i: number) => steps[i]! + (chosen[i] === -1 ? "b" : chosen[i] === 1 ? "#" : "");
+  return `Pedals: ${[1, 0, 6].map(name).join(" ")} | ${[2, 3, 4, 5].map(name).join(" ")}; unchanged in ending${tuning ? " (all strings tuned 1/4 tone low)" : ""}`;
+}
+
 //==============================================================================
 // The score
 
@@ -256,12 +298,6 @@ export function score(v: V): Score {
   vLast.slideAfter = 5 * TICKS;
   violin.push({ at: vLast.at + vLast.dur, dur: TICKS, midi: v.top + 0.5 });
   const end = violin.at(-1)!.at + violin.at(-1)!.dur;
-  // Alone, the violin plays harmonics (no more slides between them, but the last).
-  const alone = violin.findIndex((n) => n.at >= cEnd);
-  // From the first note very high up (or once alone), the violin plays artificial harmonics.
-  const firstHigh = violin.findIndex((n) => n.midi >= 91);
-  const harmonicAt = (k: number) =>
-    (firstHigh >= 0 && k >= firstHigh) || (alone >= 0 && k >= alone);
   const parts: Part[] = [];
 
   // The soloists.
@@ -270,13 +306,10 @@ export function score(v: V): Score {
     const events: Event[] = [];
     const levels: DynamicPoint[] = [{ at: 0, level: 0, to: "linear" }];
     violin.forEach((note, k) => {
-      const harmonic = harmonicAt(k);
-      const nextHarmonic = k + 1 < n && harmonicAt(k + 1);
       const e: NoteEvent = { at: time(note.at), dur: time(note.dur), pitch: { midi: note.midi } };
-      e.technique = harmonic ? "artificial-harmonic" : "sul-tasto";
-      // Stopped notes slide into the next (not into the first harmonic); harmonics do not, but the
-      // last, a quarter tone up into nothing.
-      const slides = note.slideAfter !== undefined && (harmonic ? k === n - 2 : !nextHarmonic);
+      // Keep the opening's sul tasto color; in the high register use ordinary bowing.
+      if (note.midi < 91) e.technique = "sul-tasto";
+      const slides = note.slideAfter !== undefined;
       if (slides) {
         e.gliss = true;
         e.glissAfter = time(note.slideAfter!);
@@ -452,6 +485,9 @@ export function score(v: V): Score {
     byTime(x.events);
     byTime(x.levels);
     const text = id === "pno" ? "con Ped., l.v." : "l.v.";
+    const pedals =
+      id === "hp1" || id === "hp2" ? harpPedals(x.events, id === "hp2" ? -0.5 : 0) : undefined;
+    if (pedals) x.events.unshift({ type: "text", at: 0, text: pedals, placement: "above" });
     parts.push(
       partOf(
         id,

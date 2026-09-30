@@ -212,9 +212,9 @@ export const knobs = {
   stroke: choice({
     group: "Sound",
     label: "Strings",
-    help: "How the divided strings play. Vn I in harmonics: the first violins in harmonics, the rest sul tasto",
-    value: "Vn I in harmonics",
-    options: ["Vn I in harmonics", "sul tasto", "flautando", "con sord."],
+    help: "How the divided strings play; the first violins retain their upper register",
+    value: "sul tasto",
+    options: ["sul tasto", "flautando", "con sord."],
   }),
   tempo: number({
     group: "Sound",
@@ -251,14 +251,13 @@ const N = VOICES.length;
 
 /** Where each section can play (the basses as far as their samples reach). */
 const RANGES: Record<string, [number, number]> = {
-  "violins-1": [55, 100],
+  "violins-1": [79, 100],
   "violins-2": [55, 96],
   violas: [48, 88],
   cellos: [36, 79],
   basses: [28, 54],
 };
-/** The first violins in harmonics sound where harmonics sound. */
-const HARMONICS: [number, number] = [79, 100];
+// Preserve the upper voicing independently of the bowing technique.
 
 /** Which grid a pitch is on: 0 for the usual semitones, 1 for those a quarter tone off. */
 const gridOf = (m: number) => Math.round(m * 2) % 2;
@@ -291,10 +290,7 @@ function chordsOf(v: V): number[][] {
   const up = Math.max(0, ...v.turns);
   const down = Math.max(0, ...v.turns.map((t) => -t));
   const tones = Math.min(N, v.tones);
-  const rangeOf = (instrument: string) =>
-    instrument === "violins-1" && v.stroke === "Vn I in harmonics"
-      ? HARMONICS
-      : RANGES[instrument]!;
+  const rangeOf = (instrument: string) => RANGES[instrument]!;
   return Array.from({ length: v.chords }, (_, c) => {
     const s = c % v.chord.length;
     const order = [...v.chord.slice(s), ...v.chord.slice(0, s)];
@@ -516,14 +512,9 @@ export function score(v: V): Score {
   // Strings: every desk its own part.
   VOICES.forEach((desk, i) => {
     const notes = voices[i]!;
-    const technique =
-      v.stroke === "Vn I in harmonics"
-        ? desk.instrument === "violins-1"
-          ? "harmonic"
-          : "sul-tasto"
-        : { "sul tasto": "sul-tasto", flautando: "flautando", "con sord.": "con-sord" }[
-            v.stroke as "sul tasto" | "flautando" | "con sord."
-          ];
+    const technique = { "sul tasto": "sul-tasto", flautando: "flautando", "con sord.": "con-sord" }[
+      v.stroke as "sul tasto" | "flautando" | "con sord."
+    ];
     const events: NoteEvent[] = notes.map((n, k) => {
       const e: NoteEvent = { at: time(n.at), dur: time(n.dur), pitch: { midi: n.midi }, technique };
       if (n.gliss && notes[k + 1]?.at === n.at + n.dur) {
