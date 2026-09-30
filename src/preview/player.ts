@@ -367,6 +367,15 @@ export class Player {
     this.apply();
   }
 
+  /** One graph update for an explicit multi-track operation; hidden channels remain present. */
+  setMany(changes: [string, Partial<ChannelState>][]): void {
+    for (const [id, change] of changes) {
+      const ch = this.channels.get(id);
+      if (ch) Object.assign(ch, change);
+    }
+    this.apply();
+  }
+
   setMaster(db: number): void {
     this.masterDb = db;
     this.apply();

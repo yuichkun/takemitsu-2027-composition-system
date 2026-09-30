@@ -16,6 +16,7 @@ import type { StripDocs } from "./engraver.ts";
 export interface NotationRequest {
   id: number;
   text: string;
+  hiddenParts?: string[];
 }
 
 export interface MeasureInfo {
@@ -39,7 +40,9 @@ export interface NotationView {
   /** For turning seconds into quarters on the page (src/score/timeline.ts, quartersAt). */
   tempo: TempoSegment[];
   warnings: string[];
-  parts: { id: string; name: string }[];
+  parts: { id: string; name: string; instrument: string; group: string; players: number }[];
+  /** Only the notation uses this subset; parts above always lists every audio channel. */
+  visibleParts: string[];
 }
 
 export type NotationAnswer = { id: number } & (
@@ -63,9 +66,20 @@ const rangeFlag: NoteFlag = (part, midi) => {
   return undefined;
 };
 
-function notation(text: string): { view: NotationView; strip: StripDocs } {
+export function notation(
+  text: string,
+  hiddenParts: string[] = [],
+): { view: NotationView; strip: StripDocs } {
   const score = normalize(JSON.parse(text) as Score);
-  const { measures, margins, warnings } = stripMeasures(score, rangeFlag);
+  const hidden = new Set(hiddenParts);
+  const visible = {
+    ...score,
+    parts: score.parts.filter((p) => !hidden.has(p.id)),
+    ...(hidden.size ? { notationContext: score } : {}),
+  };
+  const { measures, margins, warnings } = visible.parts.length
+    ? stripMeasures(visible, rangeFlag)
+    : { measures: [], margins: [], warnings: score.warnings };
   const rehearsal = new Map(score.rehearsal.map((r) => [r.measure, r.label]));
   const view: NotationView = {
     title: score.title,
@@ -92,16 +106,23 @@ function notation(text: string): { view: NotationView; strip: StripDocs } {
     }),
     tempo: score.tempo,
     warnings,
-    parts: score.parts.map((p) => ({ id: p.id, name: p.name })),
+    parts: score.parts.map((p) => ({
+      id: p.id,
+      name: p.name,
+      instrument: p.instrument.id,
+      group: p.instrument.name,
+      players: p.players,
+    })),
+    visibleParts: visible.parts.map((p) => p.id),
   };
-  const staves = staffCount(score);
+  const staves = visible.parts.length ? staffCount(visible) : 0;
   return { view, strip: { measures, margins, staves } };
 }
 
 parentPort?.on("message", (request: NotationRequest) => {
   let answer: NotationAnswer;
   try {
-    answer = { id: request.id, ...notation(request.text) };
+    answer = { id: request.id, ...notation(request.text, request.hiddenParts) };
   } catch (e) {
     answer = { id: request.id, error: e instanceof Error ? e.message : String(e) };
   }

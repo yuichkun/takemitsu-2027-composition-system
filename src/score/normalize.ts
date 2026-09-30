@@ -64,6 +64,8 @@ export interface NormalPart {
 }
 
 export interface NormalScore {
+  /** Preview-only full score context: filtering must not renumber players or desks. */
+  notationContext?: NormalScore;
   title: string;
   parts: NormalPart[];
   measures: Measure[];

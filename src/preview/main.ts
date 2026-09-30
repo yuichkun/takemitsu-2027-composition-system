@@ -11,6 +11,8 @@ import { compressorParams } from "../audio/dynamics.ts";
 import type { NotationSnapshot } from "./engraver.ts";
 import type { NotationView } from "./notation-thread.ts";
 import { Player, type Manifest, type MixerSettings, type Status } from "./player.ts";
+import { TrackPanel } from "./tracks.ts";
+import { linkedMuteSolo } from "./mixer-selection.ts";
 import { KnobPanel } from "./knob-panel.ts";
 import { menu } from "./knobs/controls.ts";
 import { quartersAt, secondsAt } from "../score/timeline.ts";
@@ -49,6 +51,16 @@ const readinessEl = $<HTMLCanvasElement>("readiness");
 const knobs = new KnobPanel($("knobs"));
 const player = new Player();
 const view = new StripView($("score"));
+const tracks = new TrackPanel($("tracks"), {
+  selection: () => {
+    syncTracks();
+    scrollToSelection();
+  },
+  visibility: () => {
+    syncTracks();
+    if (current) void loadScore(current.path);
+  },
+});
 view.position = () => player.position;
 
 player.fetchSegments = async (segments) => {
@@ -256,27 +268,72 @@ function refreshAudio(): void {
 }
 
 let mixerOf: string | undefined;
+let loadingMixer: { path: string; promise: Promise<MixerSettings> } | undefined;
+let scoreRequest = 0;
+let dataHidden = "";
+const hiddenKey = () => JSON.stringify(tracks.state.hiddenIds());
+const notationQuery = (path: string) => new URLSearchParams({ path, hidden: hiddenKey() });
 
 /** Fetches the notation (and the parts and measures) and draws what changed. */
 async function loadScore(path: string): Promise<void> {
-  const res = await fetch(`/api/score?path=${encodeURIComponent(path)}`);
+  const task = loadScoreView(path);
+  const request = scoreRequest;
+  try {
+    await task;
+  } catch (e) {
+    if (current?.path !== path || request !== scoreRequest) return;
+    $("score").classList.remove("filter-loading");
+    $("track-view-status").hidden = false;
+    $("track-view-status").textContent =
+      `Could not update the track view: ${e instanceof Error ? e.message : String(e)}`;
+  }
+}
+
+async function loadScoreView(path: string): Promise<void> {
+  const request = ++scoreRequest;
+  const hidden = hiddenKey();
+  const notice = $("track-view-status");
+  notice.hidden = false;
+  notice.textContent = "Updating track view…";
+  $("score").classList.add("filter-loading");
+  const res = await fetch(`/api/score?${notationQuery(path)}`);
   const data = (await res.json()) as ScoreData & { error?: string };
-  if (current?.path !== path) return;
+  if (current?.path !== path || request !== scoreRequest || hidden !== hiddenKey()) return;
   if (!res.ok || data.error) {
     messages.hidden = false;
     messages.textContent = `Could not open: ${data.error ?? res.statusText}`;
+    notice.textContent = "Could not update the track view. Try Show all.";
+    $("score").classList.remove("filter-loading");
     return;
   }
   const partsBefore = current.data?.parts.map((p) => p.id).join("|");
   current.data = data;
+  tracks.setParts(data.parts);
+  if (hidden !== hiddenKey()) {
+    void loadScore(path);
+    return;
+  }
+  dataHidden = hidden;
+  $("score").style.visibility = data.visibleParts.length ? "" : "hidden";
+  if (!data.visibleParts.length) {
+    notice.textContent =
+      "No tracks visible. Playback is unchanged — use Show all to restore the score.";
+    $("score").classList.remove("filter-loading");
+  }
   titleEl.textContent = data.title;
   const ids = data.parts.map((p) => p.id);
   if (mixerOf !== path) {
+    if (loadingMixer?.path !== path)
+      loadingMixer = {
+        path,
+        promise: fetch(`/api/mixer?path=${encodeURIComponent(path)}`).then(
+          (r) => r.json() as Promise<MixerSettings>,
+        ),
+      };
+    const settings = await loadingMixer.promise;
+    if (current?.path !== path || request !== scoreRequest) return;
     mixerOf = path;
-    const settings = (await (
-      await fetch(`/api/mixer?path=${encodeURIComponent(path)}`)
-    ).json()) as MixerSettings;
-    if (current?.path !== path) return;
+    loadingMixer = undefined;
     player.setParts(ids, settings);
     buildStrips();
   } else if (partsBefore !== ids.join("|")) {
@@ -285,6 +342,7 @@ async function loadScore(path: string): Promise<void> {
     buildStrips();
   }
   showMessages();
+  syncTracks();
   view.setScore(data.measures, data.tempo);
   view.setCursor(player.position);
   knobs.setMeasures(
@@ -319,10 +377,16 @@ function refreshNotation(): void {
       notationAgain = false;
       const path = current?.path;
       if (!path || !current?.data) return;
-      const res = await fetch(`/api/notation?path=${encodeURIComponent(path)}`);
-      if (current?.path !== path || !res.ok) continue;
+      const hidden = hiddenKey();
+      if (dataHidden !== hidden || !current.data.visibleParts.length) return;
+      const res = await fetch(`/api/notation?${notationQuery(path)}`);
+      if (current?.path !== path || hidden !== hiddenKey() || !res.ok) continue;
       const snapshot = (await res.json()) as NotationSnapshot;
-      if (snapshot.measures.length === current.data?.measures.length) view.setSnapshot(snapshot);
+      if (snapshot.measures.length === current.data?.measures.length) {
+        view.setSnapshot(snapshot);
+        $("score").classList.remove("filter-loading");
+        $("track-view-status").hidden = true;
+      }
       notationPending = snapshot.pending;
       showProgress();
     } while (notationAgain);
@@ -340,7 +404,7 @@ view.onFocus = (from, to) => {
     void fetch("/api/view", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ path: current.path, from, to }),
+      body: JSON.stringify({ path: current.path, from, to, hidden: tracks.state.hiddenIds() }),
     });
   }, 150);
 };
@@ -360,6 +424,8 @@ async function open(path: string, node = ""): Promise<void> {
     return;
   }
   current = { path, node };
+  tracks.open(path);
+  dataHidden = "";
   exportButton.hidden = false;
   manifestWarnings = [];
   notices = [];
@@ -445,6 +511,8 @@ document.addEventListener("keydown", (e) => {
   const t = e.target;
   if (t instanceof HTMLSelectElement || t instanceof HTMLTextAreaElement) return;
   if (t instanceof HTMLInputElement && (t.type !== "range" || e.code.startsWith("Arrow"))) return;
+  // Focused buttons keep their native keyboard activation (including mixer and track controls).
+  if (t instanceof HTMLButtonElement && (e.code === "Enter" || e.code === "Space")) return;
   // The knobs use arrows and Enter themselves (knob-panel.ts); Space still plays.
   if (t instanceof HTMLElement && t.closest("#knobs") && e.code !== "Space") return;
   // With ⌘ (Ctrl elsewhere): the page's own zoom and sidebar, instead of the browser's.
@@ -468,6 +536,7 @@ document.addEventListener("keydown", (e) => {
     ArrowLeft: () => stepMeasure(-1),
     ArrowRight: () => stepMeasure(1),
     KeyM: () => $("mixer-toggle").click(),
+    KeyT: () => showSidebar("tracks"),
     KeyK: () => knobs.toggle(),
     KeyJ: toggleSidebar,
     KeyF: toggleFocus,
@@ -548,8 +617,21 @@ view.onZoom = (scale) => {
 
 // The score lays itself out again when its area changes size (strip-view.ts).
 function toggleSidebar(): void {
-  document.body.classList.toggle("sidebar-hidden");
+  if (!$("tracks").hidden) showSidebar("scores");
+  else document.body.classList.toggle("sidebar-hidden");
 }
+
+function showSidebar(tab: "scores" | "tracks"): void {
+  document.body.classList.remove("sidebar-hidden");
+  document.body.classList.toggle("tracks-open", tab === "tracks");
+  $("scores").hidden = tab !== "scores";
+  $("tracks").hidden = tab !== "tracks";
+  $("scores-tab").setAttribute("aria-pressed", String(tab === "scores"));
+  $("tracks-tab").setAttribute("aria-pressed", String(tab === "tracks"));
+}
+$("scores-tab").addEventListener("click", () => showSidebar("scores"));
+$("tracks-tab").addEventListener("click", () => showSidebar("tracks"));
+$("tracks-toggle").addEventListener("click", () => showSidebar("tracks"));
 
 /** Focus: only the score and the transport, and the browser in full screen. */
 function toggleFocus(): void {
@@ -774,7 +856,7 @@ function strip(id: string | undefined, name: string): HTMLElement {
   el.innerHTML = `
     <div class="strip-buttons">${
       id
-        ? '<button type="button" class="mute" title="Mute">M</button><button type="button" class="solo" title="Solo (Alt+click: only this)">S</button>'
+        ? '<button type="button" class="mute" title="Mute">M</button><button type="button" class="solo" title="Solo (linked selection; Alt+click: only selection)">S</button>'
         : '<span class="limit-label" title="Limiter always on at the end of the master (−1 dBFS)">LIMIT</span>'
     }</div>
     <div class="comp"><label for="${compId}">Comp</label><input id="${compId}" type="range" min="0" max="100" step="1" value="${Math.round(state.comp * 100)}" title="${compTitle(state.comp)}" /><span class="gr" title="${id ? "Gain reduction now" : "Gain reduction now (compressor and limiter)"}"></span></div>
@@ -783,7 +865,15 @@ function strip(id: string | undefined, name: string): HTMLElement {
       <input id="${faderId}" class="fader" type="range" min="-60" max="12" step="0.5" value="${state.db}" aria-label="${escapeHtml(name)} level" title="Double-click: 0 dB" />
     </div>
     <output class="db" for="${faderId}">${formatDb(state.db)}</output>
-    <label class="name" for="${faderId}" title="${escapeHtml(name)}">${escapeHtml(name)}</label>`;
+    <button type="button" class="name" title="${escapeHtml(name)}${id ? " · Click to select; ⌘/Ctrl-click to add; Shift-click for a range" : ""}">${escapeHtml(name)}</button>`;
+  if (id)
+    el.querySelector(".name")!.addEventListener("click", (e) => {
+      tracks.select(
+        id,
+        e as MouseEvent,
+        (current?.data?.parts ?? []).filter((p) => tracks.state.visible(p.id)).map((p) => p.id),
+      );
+    });
   const fader = el.querySelector<HTMLInputElement>(".fader")!;
   const db = el.querySelector("output")!;
   fader.addEventListener("input", () => {
@@ -813,22 +903,16 @@ function strip(id: string | undefined, name: string): HTMLElement {
     const mute = el.querySelector<HTMLButtonElement>(".mute")!;
     const solo = el.querySelector<HTMLButtonElement>(".solo")!;
     const sync = () => {
-      const s = player.channel(id)!;
+      const s = player.channel(id);
+      if (!s) return;
       mute.setAttribute("aria-pressed", String(s.mute));
       solo.setAttribute("aria-pressed", String(s.solo));
     };
     mute.addEventListener("click", () => {
-      player.set(id, { mute: !player.channel(id)!.mute });
-      sync();
-      saveMixer();
+      changeMuteSolo(id, "mute");
     });
     solo.addEventListener("click", (e) => {
-      if (e.altKey)
-        for (const p of current?.data?.parts ?? []) player.set(p.id, { solo: p.id === id });
-      else player.set(id, { solo: !player.channel(id)!.solo });
-      for (const s of strips.querySelectorAll<HTMLElement>(".strip"))
-        s.dispatchEvent(new Event("sync"));
-      saveMixer();
+      changeMuteSolo(id, "solo", e.altKey);
     });
     el.addEventListener("sync", sync);
     sync();
@@ -842,7 +926,57 @@ function buildStrips(): void {
   for (const p of current?.data?.parts ?? []) strips.append(strip(p.id, p.name));
   strips.append(strip(undefined, "Master"));
   updateStripAvailability();
+  syncTracks();
 }
+
+function syncTracks(): void {
+  tracks.sync();
+  for (const s of strips.querySelectorAll<HTMLElement>(".strip:not(.master)")) {
+    const id = s.dataset.id!;
+    s.hidden = !tracks.state.visible(id);
+    s.classList.toggle("selected", tracks.state.selected.has(id));
+    s.querySelector(".name")?.setAttribute("aria-pressed", String(tracks.state.selected.has(id)));
+    s.dispatchEvent(new Event("sync"));
+  }
+  const parts = current?.data?.parts ?? [];
+  const solos = parts.filter((p) => player.channel(p.id)?.solo);
+  const hiddenSolos = solos.filter((p) => !tracks.state.visible(p.id));
+  const hiddenSelected = [...tracks.state.selected].filter(
+    (id) => !tracks.state.visible(id),
+  ).length;
+  mixerMode.textContent = `M/S linked · ${tracks.state.selected.size} selected${hiddenSelected ? ` (${hiddenSelected} hidden)` : ""} · ${parts.filter((p) => tracks.state.visible(p.id)).length}/${parts.length} visible${hiddenSolos.length ? ` · ${hiddenSolos.length} hidden solo` : ""}`;
+  $("mixer-clear-mute").setAttribute(
+    "aria-pressed",
+    String(parts.some((p) => player.channel(p.id)?.mute)),
+  );
+  $("mixer-clear-solo").setAttribute("aria-pressed", String(solos.length > 0));
+}
+
+function changeMuteSolo(id: string, control: "mute" | "solo", exclusive = false): void {
+  const source = player.channel(id);
+  if (!source) return;
+  player.setMany(
+    linkedMuteSolo(
+      tracks.state.parts.map((p) => p.id),
+      tracks.state.targets(id),
+      source,
+      control,
+      exclusive,
+    ),
+  );
+  saveMixer();
+}
+
+function scrollToSelection(): void {
+  if (document.body.classList.contains("mixer-collapsed")) return;
+  const first = [...strips.querySelectorAll<HTMLElement>(".strip.selected")].find((s) => !s.hidden);
+  first?.scrollIntoView({ block: "nearest", inline: "nearest" });
+}
+for (const control of ["mute", "solo"] as const)
+  $("mixer-clear-" + control).addEventListener("click", () => {
+    player.setMany(tracks.state.parts.map((p) => [p.id, { [control]: false }]));
+    saveMixer();
+  });
 
 function updateStripAvailability(): void {
   for (const s of strips.querySelectorAll<HTMLElement>(".strip:not(.master)"))
@@ -850,7 +984,7 @@ function updateStripAvailability(): void {
       "silent",
       current?.manifest !== undefined && !player.hasSound(s.dataset.id!),
     );
-  mixerMode.textContent = "";
+  syncTracks();
 }
 
 $("mixer-reset").addEventListener("click", () => {
@@ -866,6 +1000,7 @@ $("mixer-toggle").addEventListener("click", (e) => {
   const collapsed = document.body.classList.toggle("mixer-collapsed");
   button.textContent = collapsed ? "Show" : "Hide";
   button.setAttribute("aria-expanded", String(!collapsed));
+  if (!collapsed) scrollToSelection();
 });
 
 //==============================================================================
@@ -877,6 +1012,7 @@ player.onChange = () => {
   playButton.textContent = player.isPlaying ? "❚❚" : "▶";
   playButton.classList.toggle("on", player.isPlaying);
   playButton.setAttribute("aria-label", player.isPlaying ? "Pause" : "Play");
+  syncTracks();
 };
 
 let ticks = 0;

@@ -52,6 +52,31 @@ export function layoutFor(score: NormalScore): Layout {
   let l = layoutCache.get(score);
   if (!l) {
     l = layoutOf(score);
+    if (score.notationContext) {
+      const full = layoutFor(writtenHarmonics(score.notationContext));
+      const members = (s: Staff) =>
+        s.members
+          .map((p) => p.id)
+          .sort()
+          .join("|");
+      const originals = new Map(full.staves.map((s) => [members(s), s]));
+      l = {
+        ...l,
+        staves: l.staves.map((s) => {
+          const original = originals.get(members(s));
+          if (original)
+            return {
+              ...s,
+              name: original.name,
+              abbreviation: original.abbreviation,
+              texts: original.texts,
+            };
+          // A previously shared staff may now show just one of its players.
+          const name = s.members.map((p) => p.name).join(" / ");
+          return { ...s, name, abbreviation: name };
+        }),
+      };
+    }
     layoutCache.set(score, l);
   }
   return l;

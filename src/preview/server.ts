@@ -169,7 +169,7 @@ interface Opened {
   audio?: string;
   /** Why the file could not be read or planned (a save in the middle of editing, say). */
   error?: string;
-  notation?: { seq: number; view: NotationView; strip: StripDocs };
+  notation?: { seq: number; text: string; view: NotationView; strip: StripDocs };
   notationError?: string;
   /** Notation requests so far; an answer older than the one shown is dropped. */
   requested: number;
@@ -183,7 +183,7 @@ const notationWaiters = new Map<string, (() => void)[]>();
 let notationWorker: Worker | undefined;
 let nextNotation = 0;
 const answers = new Map<number, (a: NotationAnswer) => void>();
-function notationOf(text: string): Promise<NotationAnswer> {
+function notationOf(text: string, hiddenParts: string[] = []): Promise<NotationAnswer> {
   if (!notationWorker) {
     notationWorker = new Worker(new URL("./notation-thread.ts", import.meta.url));
     notationWorker.unref();
@@ -196,17 +196,17 @@ function notationOf(text: string): Promise<NotationAnswer> {
   return new Promise<NotationAnswer>((resolve) => {
     const id = nextNotation++;
     answers.set(id, resolve);
-    worker.postMessage({ id, text });
+    worker.postMessage({ id, text, hiddenParts });
   });
 }
 
-function applyNotation(path: string, seq: number, answer: NotationAnswer): void {
+function applyNotation(path: string, seq: number, answer: NotationAnswer, text: string): void {
   const entry = opened.get(path);
-  if (!entry || (entry.notation?.seq ?? -1) > seq) return;
+  if (!entry || seq < entry.requested) return;
   if ("error" in answer) entry.notationError = answer.error;
   else {
     entry.notationError = undefined;
-    entry.notation = { seq, view: answer.view, strip: answer.strip };
+    entry.notation = { seq, text, view: answer.view, strip: answer.strip };
     if (path === shown) engraver.show(path, answer.strip);
   }
   for (const done of notationWaiters.get(path)?.splice(0) ?? []) done();
@@ -235,7 +235,7 @@ function refresh(path: string): Promise<void> {
       const hash = createHash("sha256").update(text).digest("hex");
       if (entry.audio === hash && !entry.error) continue;
       const seq = ++entry.requested;
-      void notationOf(text).then((a) => applyNotation(path, seq, a));
+      void notationOf(text).then((a) => applyNotation(path, seq, a, text));
       try {
         await engine.open(path, normalize(JSON.parse(text) as Score));
         entry.audio = hash;
@@ -252,7 +252,25 @@ function refresh(path: string): Promise<void> {
   return run;
 }
 
-async function scoreView(path: string): Promise<NotationView | { error: string }> {
+const filteredNotation = new Map<string, Promise<NotationAnswer>>();
+const viewSources = new Map<string, string>();
+let latestViewRequest = 0;
+function hiddenParts(raw: unknown): string[] {
+  if (!Array.isArray(raw) || raw.length > 5000 || raw.some((v) => typeof v !== "string"))
+    throw new Error("Hidden parts must be an array of part IDs");
+  return [...new Set(raw as string[])].sort();
+}
+function notationKey(path: string, hidden: string[]): string {
+  return hidden.length
+    ? `${path}::${createHash("sha256").update(JSON.stringify(hidden)).digest("hex").slice(0, 16)}`
+    : path;
+}
+
+async function scoreView(
+  path: string,
+  hidden: string[] = [],
+): Promise<NotationView | { error: string }> {
+  const request = ++latestViewRequest;
   const entry = opened.get(path);
   if (!entry?.notation && !entry?.notationError) {
     const drawn = new Promise<void>((resolve) =>
@@ -262,11 +280,28 @@ async function scoreView(path: string): Promise<NotationView | { error: string }
     await drawn;
   }
   const now = opened.get(path)!;
-  if (now.notation && path !== shown) {
-    shown = path;
-    engraver.show(path, now.notation.strip);
+  const base = now.notation;
+  if (!base) return { error: now.notationError ?? "No notation" };
+  const key = notationKey(path, hidden);
+  let result: NotationAnswer = { id: base.seq, view: base.view, strip: base.strip };
+  if (hidden.length) {
+    const cacheKey = `${key}@${base.seq}`;
+    let pending = filteredNotation.get(cacheKey);
+    if (!pending) {
+      pending = notationOf(base.text, hidden);
+      filteredNotation.set(cacheKey, pending);
+      while (filteredNotation.size > 8)
+        filteredNotation.delete(filteredNotation.keys().next().value!);
+    }
+    result = await pending;
   }
-  return now.notation?.view ?? { error: now.notationError ?? "No notation" };
+  if ("error" in result) return { error: result.error };
+  if (request === latestViewRequest) {
+    shown = key;
+    viewSources.set(key, path);
+    engraver.show(key, result.strip);
+  }
+  return result.view;
 }
 
 const generatorsDir = join(repoRoot, "generators");
@@ -372,7 +407,7 @@ export function previewMiddleware() {
     memoryBytes: 1.5e9,
     diskBytes: Number(process.env.TAKEMITSU_ENGRAVINGS_GB ?? 10) * 1e9,
   });
-  engraver.onChange = (path) => broadcast("notation", { path });
+  engraver.onChange = (key) => broadcast("notation", { path: viewSources.get(key) ?? key });
   watchScores();
   const rewatch = setInterval(watchScores, 3000);
   rewatch.unref();
@@ -397,11 +432,13 @@ export function previewMiddleware() {
       if (url.pathname === "/api/scores") return json(res, 200, listScores());
       if (url.pathname === "/api/score") {
         if (!allowed(path)) return json(res, 403, { error: "Not a score file in a score folder" });
-        const view = await scoreView(path);
+        const hidden = hiddenParts(JSON.parse(url.searchParams.get("hidden") ?? "[]"));
+        const view = await scoreView(path, hidden);
         return json(res, "error" in view ? 500 : 200, view);
       }
       if (url.pathname === "/api/notation") {
-        const snapshot = engraver.snapshot(path);
+        const hidden = hiddenParts(JSON.parse(url.searchParams.get("hidden") ?? "[]"));
+        const snapshot = engraver.snapshot(notationKey(path, hidden));
         if (!snapshot) return json(res, 404, { error: "Not the score being shown" });
         return json(res, 200, snapshot);
       }
@@ -419,8 +456,9 @@ export function previewMiddleware() {
           path: p,
           from,
           to,
-        } = (await body(req)) as { path: string; from: number; to: number };
-        engraver.setFocus(p, from, to);
+          hidden = [],
+        } = (await body(req)) as { path: string; from: number; to: number; hidden?: string[] };
+        engraver.setFocus(notationKey(p, hiddenParts(hidden)), from, to);
         return json(res, 200, { ok: true });
       }
       if (url.pathname === "/api/manifest") {

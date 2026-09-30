@@ -8,7 +8,12 @@
   </head>
   <body class="mixer-collapsed">
     <aside id="sidebar">
+      <div class="sidebar-tabs" role="group" aria-label="Sidebar">
+        <button id="scores-tab" type="button" aria-pressed="true">Scores</button>
+        <button id="tracks-tab" type="button" aria-pressed="false">Tracks</button>
+      </div>
       <nav id="scores" aria-label="Scores"></nav>
+      <section id="tracks" aria-label="Tracks" hidden></section>
     </aside>
     <main>
       <header id="toolbar">
@@ -29,6 +34,9 @@
           <button id="zoom-fit" type="button" title="Fit every staff (⌘0)">Fit</button>
           <span class="sep"></span>
           <button id="sidebar-toggle" type="button" title="Score list (J)">List</button>
+          <button id="tracks-toggle" type="button" title="Track selection and visibility (T)">
+            Tracks
+          </button>
           <button id="knobs-toggle" type="button" title="Knobs (K)" hidden>Knobs</button>
           <button
             id="export"
@@ -51,12 +59,31 @@
         title="The whole piece: dark where rendered. Click to go there"
       ></canvas>
       <section id="messages" hidden></section>
+      <p id="track-view-status" class="track-view-status" role="status" hidden></p>
       <div id="score" class="score"></div>
       <p id="empty" class="empty">Choose a score</p>
       <section id="mixer" aria-label="Mixer">
         <div class="mixer-head">
           <span>Mixer</span>
           <span id="mixer-mode" class="mixer-mode"></span>
+          <button
+            id="mixer-clear-mute"
+            type="button"
+            class="quiet"
+            aria-label="Clear all mutes"
+            title="Clear all mutes, including hidden tracks"
+          >
+            M
+          </button>
+          <button
+            id="mixer-clear-solo"
+            type="button"
+            class="quiet"
+            aria-label="Clear all solos"
+            title="Clear all solos, including hidden tracks"
+          >
+            S
+          </button>
           <button id="mixer-reset" type="button" class="quiet">Reset</button>
           <button id="mixer-toggle" type="button" class="quiet" aria-expanded="false">Show</button>
         </div>
@@ -101,6 +128,18 @@
             <td>Mixer</td>
           </tr>
           <tr>
+            <td><kbd>T</kbd></td>
+            <td>Track selection and visibility</td>
+          </tr>
+          <tr>
+            <td>⌘/Ctrl-click a track name</td>
+            <td>Add/remove a track from the selection (also in the mixer)</td>
+          </tr>
+          <tr>
+            <td>Shift-click a track name</td>
+            <td>Select a range</td>
+          </tr>
+          <tr>
             <td><kbd>K</kbd></td>
             <td>Knobs (when a sketch is open)</td>
           </tr>
@@ -130,7 +169,7 @@
           </tr>
           <tr>
             <td>Alt+click S</td>
-            <td>Solo only that part</td>
+            <td>Solo only the selection (or that part if unselected)</td>
           </tr>
         </tbody>
       </table>
