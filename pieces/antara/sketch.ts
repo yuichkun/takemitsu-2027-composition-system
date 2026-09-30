@@ -12,7 +12,7 @@ import { joinKnobs, joinOf, Joiner } from "../../src/sketch/join.ts";
 import { text } from "../../src/sketch/knobs.ts";
 import { Motif } from "../../src/sketch/motif.ts";
 import type { Context } from "../../src/sketch/nest.ts";
-import type { Score } from "../../src/score/types.ts";
+import type { Score, Time } from "../../src/score/types.ts";
 import { ensemble, shown } from "./ensemble.ts";
 
 /** The sections, in the order they come (their folders' names). */
@@ -55,5 +55,17 @@ export function score(values: Record<string, unknown>, ctx: Context): Score {
   );
   const out = J.score({ title: "antara" });
   // Every player on a staff of their own (docs/decisions/0025).
-  return { ...out, pairs: false, parts: shown(out.parts) };
+  const pauses = (out.outline?.nodes ?? [])
+    .filter((n) => n.node === "rest" && n.length > 0)
+    .map((n) => ({ type: "text" as const, at: n.at, text: "G.P.", placement: "above" as const }));
+  const at = (t: Time) => (typeof t === "number" ? t : t[0] / t[1]);
+  // Label only the displayed parts, so a pause does not introduce unused divisi staves.
+  return {
+    ...out,
+    pairs: false,
+    parts: shown(out.parts).map((p) => ({
+      ...p,
+      events: [...p.events, ...pauses].sort((a, b) => at(a.at) - at(b.at)),
+    })),
+  };
 }

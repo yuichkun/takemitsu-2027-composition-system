@@ -1,5 +1,11 @@
 {
-  "values": {},
+  "values": {
+    "how6": "rest",
+    "rest6": 4
+  },
   "presets": {},
-  "touched": []
+  "touched": [
+    "how6",
+    "rest6"
+  ]
 }
