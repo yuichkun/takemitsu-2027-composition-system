@@ -61,6 +61,25 @@ const RULES = ["combinations", "shift each time"];
 const ORCHESTRA = "Orchestra";
 
 export const knobs = {
+  pianoLeadLevel: number({
+    group: "Sound",
+    label: "Piano lead",
+    value: 6,
+    min: 1,
+    max: 8,
+    step: 0.5,
+    help: "Foreground piano level at the series-to-running transition (6 = f), shared by its pickup",
+  }),
+  pianoLeadBars: number({
+    group: "Sound",
+    label: "Piano lead bars",
+    value: 4,
+    min: 1,
+    max: 8,
+    step: 1,
+    unit: "bars",
+    help: "Keep the piano in front for these bars, then return to its accompanying level over one bar",
+  }),
   setA: betweenSet({
     group: "Pitch",
     label: "Set A",
@@ -431,6 +450,17 @@ function line(v: V, s: number): { strokes: Stroke[]; last: number } {
   return { strokes, last: standpoint(v, s, mode, setOf(laneAt(v.sets, band))) };
 }
 
+/** A lead-in to the piano's semitone projection, ending at a phrase boundary.
+ * Keep gaps where the shared string line contains quarter tones; never round those pitches. */
+export function pianoLeadIn(v: V, steps: number): { step: number; midi: number; head: boolean }[] {
+  const strokes = line(v, 0).strokes;
+  const end = strokes.findIndex((n, i) => i >= steps && n.head);
+  if (end < 0) throw new Error("Piano lead-in is longer than the running material");
+  return strokes
+    .slice(end - steps, end)
+    .flatMap((n, step) => (gridOf(n.midi) === 0 ? [{ step, midi: n.midi, head: n.head }] : []));
+}
+
 // Winds on the heads: a pair for each section, and where their notes sit (sounding).
 const WINDS: Record<string, { pair: [string, string]; window: [number, number] }> = {
   vn1t: { pair: ["fl1", "fl2"], window: [72, 94] },
@@ -644,10 +674,32 @@ export function score(v: V): Score {
 
   if (v.keys) {
     for (const d of DOUBLES) {
-      const events = lineOf(d.line)
+      const leadEnd = v.pianoLeadBars * 4;
+      const settle = leadEnd + 4;
+      const events: Part["events"] = lineOf(d.line)
         .strokes.filter((k) => gridOf(k.midi) === d.grid)
-        .map((k): NoteEvent => ({ at: time(k.at), dur: time(k.dur), pitch: { midi: k.midi } }));
-      if (events.length) add(d.id, events, curve(2));
+        .map((k): NoteEvent => ({
+          at: time(k.at),
+          dur: time(k.dur),
+          pitch: { midi: k.midi },
+          ...(d.id === "pno" && k.at < settle * TICKS && k.head
+            ? { articulations: ["accent"] }
+            : {}),
+        }));
+      if (events.length) {
+        if (d.id === "pno") {
+          const base = curve(2);
+          const atSettle =
+            base[0]!.level + ((base[1]!.level - base[0]!.level) * settle) / (BARS * 4);
+          events.unshift({ type: "text", at: 0, text: "in rilievo", placement: "above" });
+          add(d.id, events, [
+            { at: 0, level: v.pianoLeadLevel },
+            { at: leadEnd, level: v.pianoLeadLevel, to: "linear" },
+            { at: settle, level: atSettle, to: "linear" },
+            base[1]!,
+          ]);
+        } else add(d.id, events, curve(2));
+      }
     }
   }
 

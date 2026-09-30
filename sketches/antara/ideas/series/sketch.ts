@@ -15,9 +15,10 @@
 // quarter, a fifth and a quarter, a tritone, a fourth and a quarter: a sense of key
 // comes and goes as the set changes. More voices join with each set, and it grows louder.
 // Underneath, the marimba and the pizzicato cellos and basses keep the rhythm's last beat on the
-// anchor, thinly, and it gains betweens (2 3 3 16ths). The last meeting (ff) is cut off, and the
-// cellos alone begin to run on running's set from its D: 16ths at p, the speed at which running
-// begins (its triplet 8ths at 120), each group from D, its steps drawn by the fluid rule.
+// anchor, thinly, and it gains betweens (2 3 3 16ths). The piano's running figure begins under the
+// last meeting (ff), survives its cut, and leads into running at the same note speed.
+
+import { fileURLToPath } from "node:url";
 
 import { ensemble } from "../../../../pieces/antara/ensemble.ts";
 import type {
@@ -29,8 +30,10 @@ import type {
   Score,
 } from "../../../../src/score/types.ts";
 import type { Seam } from "../../../../src/sketch/nest.ts";
-import { number, pitch, text, type Values } from "../../../../src/sketch/knobs.ts";
-import { atomOf, drawer, TICKS, time } from "../../between.ts";
+import { number, pitch, text, resolveValues, type Values } from "../../../../src/sketch/knobs.ts";
+import { atomOf, TICKS, time } from "../../between.ts";
+import { readStored } from "../../../../src/sketch/run.ts";
+import { knobs as runningKnobs, pianoLeadIn } from "../running-orchestra/sketch.ts";
 
 const BAR = 4 * TICKS;
 const A2 = atomOf(2);
@@ -68,6 +71,16 @@ const CHORALE: [string, number][] = [
 ];
 
 export const knobs = {
+  pianoOverlap: number({
+    group: "Transition",
+    label: "Piano overlap",
+    value: 0.5,
+    min: 0,
+    max: 1,
+    step: 0.25,
+    unit: "beats",
+    help: "Start the running piano figure this many beats before the final chord releases",
+  }),
   sets: text({
     group: "Sets",
     label: "Sets",
@@ -347,7 +360,7 @@ export function score(v: V): Score {
         -0.5,
       ),
     );
-    strike("pno", semis);
+    if (ph !== last) strike("pno", semis);
     // The celesta: the top three semitone notes two octaves up; the glockenspiel: the top one in its range.
     strike(
       "cel",
@@ -386,32 +399,28 @@ export function score(v: V): Score {
     }
   }
 
-  // After the cut, the cellos alone run on the last set from the last anchor an octave down: 16ths,
-  // each group starting there (accented), its steps drawn by the fluid rule (every combination, in
-  // dictionary order), groups of one, two and three steps in turn; p.
+  // Piano takes the foreground under the other instruments' final chord; it does not double
+  // that chord. Its phrase and lead level come from running's current settings.
   {
-    const set = sets.at(-1)!;
-    const base = last.anchor - 12;
-    const draws = [1, 2, 3].map((size) => drawer(set, "combinations", size, "ascending"));
-    let at = cut + TICKS;
-    for (let g = 0; at < end; g++) {
-      const steps = draws[g % draws.length]!();
-      let midi = base;
-      for (let i = 0; i <= steps.length && at < end; i++) {
-        add(
-          "vct",
-          {
-            at: time(at),
-            dur: time(A2),
-            pitch: { midi },
-            technique: "spiccato",
-            ...(i === 0 ? { articulations: ["accent"] as "accent"[] } : {}),
-          },
-          [{ at: time(at), level: 3 }],
-        );
-        midi += steps[i] ?? 0;
-        at += A2;
-      }
+    const dir = fileURLToPath(new URL("../running-orchestra", import.meta.url));
+    const running = resolveValues(runningKnobs, readStored(dir).values) as Values<
+      typeof runningKnobs
+    >;
+    const begin = cut - Math.round(v.pianoOverlap * TICKS);
+    const steps = Math.round((end - begin) / A2);
+    const level = running.pianoLeadLevel;
+    for (const n of pianoLeadIn(running, steps)) {
+      const at = begin + n.step * A2;
+      add(
+        "pno",
+        {
+          at: time(at),
+          dur: time(A2),
+          pitch: { midi: n.midi },
+          ...(n.head ? { articulations: ["accent"] as "accent"[] } : {}),
+        },
+        [{ at: time(at), level }],
+      );
     }
   }
 
@@ -422,10 +431,21 @@ export function score(v: V): Score {
       levels.get(id)!.sort((a, b) => num(a.at) - num(b.at)),
     ),
   );
+  parts
+    .find((p) => p.id === "pno")
+    ?.events.push({
+      type: "text",
+      at: time(cut - Math.round(v.pianoOverlap * TICKS)),
+      text: "in rilievo",
+      placement: "above",
+    });
   const rank = (id: string) => ensemble.findIndex((pl) => pl.id === id);
   parts.sort((a, b) => rank(a.id) - rank(b.id));
   const bar = (x: number) => Math.floor(x / BAR) + 1;
-  const letters = [...sets.map((_, s) => phrases.find((p) => p.stage === s)!.at), cut + TICKS];
+  const letters = [
+    ...sets.map((_, s) => phrases.find((p) => p.stage === s)!.at),
+    cut - Math.round(v.pianoOverlap * TICKS),
+  ];
   return {
     title: "antara · series",
     meter: [{ measure: 1, beats: 4, beatType: 4 }],

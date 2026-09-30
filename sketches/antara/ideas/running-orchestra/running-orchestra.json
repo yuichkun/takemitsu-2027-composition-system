@@ -14067,7 +14067,16 @@
    "dynamics": [
     {
      "at": 0,
-     "level": 1,
+     "level": 6
+    },
+    {
+     "at": 16,
+     "level": 6,
+     "to": "linear"
+    },
+    {
+     "at": 20,
+     "level": 1.8333333333333335,
      "to": "linear"
     },
     {
@@ -14076,6 +14085,12 @@
     }
    ],
    "events": [
+    {
+     "type": "text",
+     "at": 0,
+     "text": "in rilievo",
+     "placement": "above"
+    },
     {
      "at": [
       0,
@@ -14087,7 +14102,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14100,7 +14118,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14152,7 +14173,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14178,7 +14202,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14204,7 +14231,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14230,7 +14260,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14282,7 +14315,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14308,7 +14344,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14334,7 +14373,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14360,7 +14402,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14399,7 +14444,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14425,7 +14473,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14438,7 +14489,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14464,7 +14518,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14490,7 +14547,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14516,7 +14576,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14568,7 +14631,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -14594,7 +14660,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [

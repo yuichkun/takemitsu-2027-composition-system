@@ -93562,19 +93562,373 @@
      ]
     },
     {
-     "at": 413,
-     "dur": 1,
-     "pitch": [
-      {
-       "midi": 52
-      },
-      {
-       "midi": 57
-      },
-      {
-       "midi": 59
-      }
+     "at": [
+      827,
+      2
      ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "type": "text",
+     "at": [
+      827,
+      2
+     ],
+     "text": "in rilievo",
+     "placement": "above"
+    },
+    {
+     "at": 414,
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1657,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 52
+     }
+    },
+    {
+     "at": [
+      829,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 57
+     }
+    },
+    {
+     "at": [
+      1659,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 59
+     }
+    },
+    {
+     "at": 415,
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1661,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 55
+     }
+    },
+    {
+     "at": 416,
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1667,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 49
+     }
+    },
+    {
+     "at": 417,
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1669,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 52
+     }
+    },
+    {
+     "at": [
+      835,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1671,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 55
+     }
+    },
+    {
+     "at": 418,
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 57
+     }
+    },
+    {
+     "at": [
+      1673,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 62
+     }
+    },
+    {
+     "at": [
+      837,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1677,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 52
+     }
+    },
+    {
+     "at": [
+      839,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1679,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 52
+     }
+    },
+    {
+     "at": [
+      841,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1683,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 55
+     }
+    },
+    {
+     "at": 421,
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1685,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 52
+     }
+    },
+    {
+     "at": [
+      843,
+      2
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 57
+     }
+    },
+    {
+     "at": 422,
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "at": [
+      1689,
+      4
+     ],
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 55
+     }
+    },
+    {
+     "at": 423,
+     "dur": [
+      1,
+      4
+     ],
+     "pitch": {
+      "midi": 50
+     },
      "articulations": [
       "accent"
      ]
@@ -93587,7 +93941,16 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
+    },
+    {
+     "type": "text",
+     "at": 424,
+     "text": "in rilievo",
+     "placement": "above"
     },
     {
      "at": [
@@ -93600,7 +93963,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": 425,
@@ -93646,7 +94012,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -93672,7 +94041,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -93698,7 +94070,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": 429,
@@ -93721,7 +94096,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -93770,7 +94148,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -93793,7 +94174,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -93819,7 +94203,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -93842,7 +94229,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -93881,7 +94271,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -93907,7 +94300,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": 438,
@@ -93917,7 +94313,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -93943,7 +94342,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": 439,
@@ -93963,7 +94365,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": 441,
@@ -93986,7 +94391,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -94035,7 +94443,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": 443,
@@ -94058,7 +94469,10 @@
      ],
      "pitch": {
       "midi": 50
-     }
+     },
+     "articulations": [
+      "accent"
+     ]
     },
     {
      "at": [
@@ -97663,12 +98077,182 @@
      "level": 7
     },
     {
-     "at": 413,
-     "level": 7
+     "at": [
+      827,
+      2
+     ],
+     "level": 6
+    },
+    {
+     "at": 414,
+     "level": 6
+    },
+    {
+     "at": [
+      1657,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      829,
+      2
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      1659,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": 415,
+     "level": 6
+    },
+    {
+     "at": [
+      1661,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": 416,
+     "level": 6
+    },
+    {
+     "at": [
+      1667,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": 417,
+     "level": 6
+    },
+    {
+     "at": [
+      1669,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      835,
+      2
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      1671,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": 418,
+     "level": 6
+    },
+    {
+     "at": [
+      1673,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      837,
+      2
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      1677,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      839,
+      2
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      1679,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      841,
+      2
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      1683,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": 421,
+     "level": 6
+    },
+    {
+     "at": [
+      1685,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": [
+      843,
+      2
+     ],
+     "level": 6
+    },
+    {
+     "at": 422,
+     "level": 6
+    },
+    {
+     "at": [
+      1689,
+      4
+     ],
+     "level": 6
+    },
+    {
+     "at": 423,
+     "level": 6
     },
     {
      "at": 424,
-     "level": 1,
+     "level": 6
+    },
+    {
+     "at": 440,
+     "level": 6,
+     "to": "linear"
+    },
+    {
+     "at": 444,
+     "level": 1.83,
      "to": "linear"
     },
     {
@@ -159785,519 +160369,6 @@
      "technique": "pizz"
     },
     {
-     "at": 415,
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1661,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 48.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      831,
-      2
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1663,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 48.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": 416,
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1665,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      833,
-      2
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 48.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1667,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": 417,
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 55.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1669,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      835,
-      2
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 52
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1671,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": 418,
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 48.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1673,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 53.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      837,
-      2
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1675,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 48.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": 419,
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1677,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 55.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      839,
-      2
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1679,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 55
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": 420,
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1681,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 52
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      841,
-      2
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 57
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1683,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": 421,
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 48.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1685,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      843,
-      2
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 55.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1687,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": 422,
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 48.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1689,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      845,
-      2
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 48.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1691,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": 423,
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50
-     },
-     "technique": "spiccato",
-     "articulations": [
-      "accent"
-     ]
-    },
-    {
-     "at": [
-      1693,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 48.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      847,
-      2
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 50.5
-     },
-     "technique": "spiccato"
-    },
-    {
-     "at": [
-      1695,
-      4
-     ],
-     "dur": [
-      1,
-      4
-     ],
-     "pitch": {
-      "midi": 55.5
-     },
-     "technique": "spiccato"
-    },
-    {
      "at": 520,
      "dur": [
       1,
@@ -161699,231 +161770,6 @@
     {
      "at": 408,
      "level": 5
-    },
-    {
-     "at": 415,
-     "level": 3
-    },
-    {
-     "at": [
-      1661,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      831,
-      2
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      1663,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": 416,
-     "level": 3
-    },
-    {
-     "at": [
-      1665,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      833,
-      2
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      1667,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": 417,
-     "level": 3
-    },
-    {
-     "at": [
-      1669,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      835,
-      2
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      1671,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": 418,
-     "level": 3
-    },
-    {
-     "at": [
-      1673,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      837,
-      2
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      1675,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": 419,
-     "level": 3
-    },
-    {
-     "at": [
-      1677,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      839,
-      2
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      1679,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": 420,
-     "level": 3
-    },
-    {
-     "at": [
-      1681,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      841,
-      2
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      1683,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": 421,
-     "level": 3
-    },
-    {
-     "at": [
-      1685,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      843,
-      2
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      1687,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": 422,
-     "level": 3
-    },
-    {
-     "at": [
-      1689,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      845,
-      2
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      1691,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": 423,
-     "level": 3
-    },
-    {
-     "at": [
-      1693,
-      4
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      847,
-      2
-     ],
-     "level": 3
-    },
-    {
-     "at": [
-      1695,
-      4
-     ],
-     "level": 3
     },
     {
      "at": 424,

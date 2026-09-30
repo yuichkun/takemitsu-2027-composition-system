@@ -1,0 +1,67 @@
+// vp node verification/piano-pickup/check.ts
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { normalize, levelAt } from "../../src/score/normalize.ts";
+import { toMusicXml } from "../../src/notation/musicxml.ts";
+import { plan } from "../../src/performance/plan.ts";
+import { knobs, pianoLeadIn, score } from "../../sketches/antara/ideas/running-orchestra/sketch.ts";
+import { resolveValues, type Values } from "../../src/sketch/knobs.ts";
+const v = resolveValues(knobs, {}) as Values<typeof knobs>;
+const lead = pianoLeadIn(v, 42);
+const running = normalize(score(v));
+const piano = running.parts.find((p) => p.id === "pno")!;
+assert.deepEqual(
+  lead,
+  piano.notes
+    .filter((n) => n.at.value < 14)
+    .map((n) => ({
+      step: Math.round(n.at.value * 3),
+      midi: n.pitches[0]!.midi,
+      head: n.articulations.includes("accent"),
+    })),
+);
+assert(lead.every((n) => Number.isInteger(n.midi)));
+const moved = pianoLeadIn({ ...v, anchor: v.anchor + 2 }, 42);
+assert.deepEqual(
+  moved.map((n) => n.midi % 12),
+  lead.map((n) => (n.midi + 2) % 12),
+);
+const raw = JSON.parse(
+  readFileSync(new URL("../../sketches/antara/ideas/series/series.json", import.meta.url), "utf8"),
+);
+const series = normalize(raw);
+const p = series.parts.find((p) => p.id === "pno")!;
+const pickup = p.notes.filter((n) => n.at.value >= 133.5);
+assert.equal(pickup[0]!.at.value, 133.5);
+assert(!p.notes.some((n) => n.at.value === 133), "piano no longer strikes the final chord");
+assert(pickup.every((n) => n.pitches.length === 1));
+assert(
+  series.parts
+    .find((p) => p.id === "hn1")!
+    .notes.some((n) => n.at.value === 133 && n.end.value === 134),
+  "other instruments hold their final chord under the pickup",
+);
+assert.equal(levelAt(p.dynamics, pickup[0]!.at), 6);
+assert.equal(levelAt(piano.dynamics, piano.notes[0]!.at), 6);
+assert(pickup.every((n) => n.dur.value === 0.25 && Number.isInteger(n.pitches[0]!.midi)));
+assert.deepEqual(
+  pickup.map((n) => ({
+    step: Math.round((n.at.value - 133.5) * 4),
+    midi: n.pitches[0]!.midi,
+    head: n.articulations.includes("accent"),
+  })),
+  lead,
+);
+assert(!series.parts.find((p) => p.id === "vct")!.notes.some((n) => n.at.value >= 134));
+const xml = toMusicXml({ ...raw, parts: raw.parts.filter((p: { id: string }) => p.id === "pno") });
+assert.deepEqual(xml.warnings, []);
+assert(xml.musicxml.includes("in rilievo"));
+assert.deepEqual(plan(series).warnings, []);
+assert.equal(
+  60 / 90 / 4,
+  60 / 120 / 3,
+  "the two written subdivisions have the same real-time speed",
+);
+console.log(
+  "PASS: shared piano phrase, settings-aware pitches, semitone-only pickup, foreground melody overlaps other instruments, no piano chord, no cello run, unchanged attack speed at transition.",
+);
