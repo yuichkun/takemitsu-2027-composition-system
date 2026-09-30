@@ -62,6 +62,8 @@ export interface BbcsoLane {
 
 export interface SampleHit {
   seconds: number;
+  /** Loop a sustained sample for exactly this duration, then stop. */
+  sustainSeconds?: number;
   gain: number;
   seed: number;
   measure: number;
@@ -230,6 +232,9 @@ export function plan(score: NormalScore): Plan {
           });
         byFiles.get(key)!.hits.push({
           seconds: sec(n.at.value),
+          ...(n.technique.includes("roll")
+            ? { sustainSeconds: sec(n.end.value) - sec(n.at.value) }
+            : {}),
           gain: sampleGainFor(level(n.at.value)),
           seed: n.index,
           measure: measureOf(n.at.value),

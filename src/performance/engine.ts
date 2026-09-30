@@ -826,21 +826,27 @@ export class Engine {
         this.samples.set(id, audio);
       }
       const len = Math.floor(audio.channels[0]!.length / (audio.sampleRate / sampleRate));
-      length = Math.max(length, hit.frame + len);
+      length = Math.max(length, hit.frame + (hit.sustainFrames ?? len));
       sources.push({ audio, hit });
     }
     const left = new Float32Array(length);
     const right = new Float32Array(length);
     for (const { audio, hit } of sources) {
       const step = audio.sampleRate / sampleRate;
-      const len = Math.floor(audio.channels[0]!.length / step);
+      const sourceLength = audio.channels[0]!.length;
+      if (!sourceLength) throw new Error("Cannot render an empty sample");
+      const len = hit.sustainFrames ?? Math.floor(sourceLength / step);
       for (const [c2, dst] of [left, right].entries()) {
         const src = audio.channels[Math.min(c2, audio.channels.length - 1)]!;
         for (let i = 0; i < len; i++) {
-          const x = i * step;
+          const x = hit.sustainFrames !== undefined ? (i * step) % sourceLength : i * step;
           const j = Math.floor(x);
           const f = x - j;
-          dst[hit.frame + i]! += (src[j]! * (1 - f) + (src[j + 1] ?? 0) * f) * hit.gain;
+          const next =
+            hit.sustainFrames !== undefined ? src[(j + 1) % sourceLength]! : (src[j + 1] ?? 0);
+          const fade =
+            hit.sustainFrames !== undefined ? Math.min(1, (len - 1 - i) / (sampleRate * 0.002)) : 1;
+          dst[hit.frame + i]! += (src[j]! * (1 - f) + next * f) * hit.gain * fade;
         }
       }
     }

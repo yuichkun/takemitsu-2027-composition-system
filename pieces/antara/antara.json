@@ -70425,6 +70425,57 @@
    "dynamics": []
   },
   {
+   "id": "ratch",
+   "instrument": "ratchet",
+   "name": "Ratchet",
+   "player": "p2",
+   "events": [
+    {
+     "at": [
+      1810,
+      3
+     ],
+     "dur": [
+      38,
+      3
+     ],
+     "technique": "roll"
+    },
+    {
+     "type": "text",
+     "at": [
+      1810,
+      3
+     ],
+     "text": "mounted; turn continuously and rapidly",
+     "placement": "above"
+    },
+    {
+     "type": "text",
+     "at": 616,
+     "text": "stop exactly with vibraslap",
+     "placement": "above"
+    }
+   ],
+   "dynamics": [
+    {
+     "at": 524,
+     "level": 7
+    },
+    {
+     "at": [
+      1810,
+      3
+     ],
+     "level": 7
+    },
+    {
+     "at": 628,
+     "level": 7
+    }
+   ]
+  },
+  {
    "id": "mar",
    "instrument": "marimba",
    "name": "Marimba",
@@ -77077,14 +77128,6 @@
      "level": 6.5
     }
    ]
-  },
-  {
-   "id": "ratch",
-   "instrument": "ratchet",
-   "name": "Ratchet",
-   "player": "p3",
-   "events": [],
-   "dynamics": []
   },
   {
    "id": "vslap",
@@ -183463,6 +183506,7 @@
      "scym",
      "vib",
      "tam",
+     "ratch",
      "mar",
      "bd",
      "wbh",
@@ -183794,6 +183838,7 @@
      "scym",
      "vib",
      "tam",
+     "ratch",
      "bd",
      "vslap",
      "hp1",

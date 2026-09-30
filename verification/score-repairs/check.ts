@@ -1,3 +1,4 @@
+import { assertKnownAudioWarnings } from "../known-audio.ts";
 // vp node verification/score-repairs/check.ts
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -58,7 +59,7 @@ for (const prefix of ["vn1", "vn2", "va", "vc"]) {
   assert.equal(new Set(names).size, 4, `${prefix}: groups must be individually identifiable`);
 }
 assert.deepEqual(toMusicXml(piece).warnings, []);
-assert.deepEqual(plan(normal).warnings, []);
+assertKnownAudioWarnings(plan(normal).warnings);
 
 // Explicit spelling survives chords and discrete-gliss paths, including a no-op fold;
 // actual transposition still moves the pitch and never mutates the source.

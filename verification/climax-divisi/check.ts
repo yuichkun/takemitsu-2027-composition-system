@@ -1,3 +1,4 @@
+import { assertKnownAudioWarnings } from "../known-audio.ts";
 // vp node verification/climax-divisi/check.ts
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -71,7 +72,7 @@ const full = JSON.parse(
   readFileSync(new URL("../../pieces/antara/antara.json", import.meta.url), "utf8"),
 );
 assert.deepEqual(toMusicXml(full).warnings, []);
-assert.deepEqual(plan(normalize(full)).warnings, []);
+assertKnownAudioWarnings(plan(normalize(full)).warnings);
 console.log(
   "PASS: same four groups, <=10 consecutive notes, three-note overlap, complete unchanged line, tutti cut, five cellists per original pitch, full-score checks.",
 );

@@ -13801,6 +13801,52 @@
    "player": "p2"
   },
   {
+   "id": "ratch",
+   "instrument": "ratchet",
+   "name": "Ratchet",
+   "dynamics": [
+    {
+     "at": [
+      238,
+      3
+     ],
+     "level": 7
+    }
+   ],
+   "events": [
+    {
+     "type": "text",
+     "at": [
+      238,
+      3
+     ],
+     "text": "mounted; turn continuously and rapidly",
+     "placement": "above"
+    },
+    {
+     "at": [
+      238,
+      3
+     ],
+     "dur": [
+      38,
+      3
+     ],
+     "technique": "roll"
+    },
+    {
+     "type": "text",
+     "at": [
+      92,
+      1
+     ],
+     "text": "stop exactly with vibraslap",
+     "placement": "above"
+    }
+   ],
+   "player": "p2"
+  },
+  {
    "id": "bd",
    "instrument": "bass-drum",
    "name": "Bass Drum",

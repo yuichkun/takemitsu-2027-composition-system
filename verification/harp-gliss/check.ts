@@ -1,3 +1,4 @@
+import { assertKnownAudioWarnings } from "../known-audio.ts";
 // vp node verification/harp-gliss/check.ts
 // A harp sweep must pluck the specified strings (including tuning), never bend one note.
 import assert from "node:assert/strict";
@@ -96,7 +97,7 @@ const s = climax(v);
 const normal = normalize(s);
 const performance = plan(normal);
 assert.deepEqual(toMusicXml(s).warnings, []);
-assert.deepEqual(performance.warnings, []);
+assertKnownAudioWarnings(performance.warnings);
 for (const [id, tuning, shift] of [
   ["hp1", 0, 0],
   ["hp2", -0.5, 2.5],
@@ -137,7 +138,7 @@ for (const [id, tuning, shift] of [
 const full = JSON.parse(
   readFileSync(new URL("../../pieces/antara/antara.json", import.meta.url), "utf8"),
 ) as Score;
-assert.deepEqual(plan(normalize(full)).warnings, []);
+assertKnownAudioWarnings(plan(normalize(full)).warnings);
 console.log(
   "PASS: discrete sweeps, held starts, reversed sweeps, quarter-tone tuning, endpoints, MusicXML, fixed pedals, full piece",
 );

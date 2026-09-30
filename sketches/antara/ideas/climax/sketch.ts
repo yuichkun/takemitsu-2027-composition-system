@@ -112,6 +112,16 @@ const FALLING: [string, 0 | 1, number][] = [
 ];
 
 export const knobs = {
+  ratchetBars: number({
+    group: "Sound",
+    label: "Ratchet lead",
+    value: 3,
+    min: 1,
+    max: 6,
+    step: 1,
+    unit: "bars",
+    help: "Begin continuous ratchet at the first-bell stroke nearest this many bars before the cut; stop with vibraslap",
+  }),
   chunk: number({
     group: "Strings",
     label: "Chunk",
@@ -712,6 +722,35 @@ export function score(v: V): Score {
       bdLevels.push({ at: time(toll.at), level: 8 });
     });
     parts.push(partOf("tam", tam, tamLevels), partOf("bd", bd, bdLevels));
+    const target = Math.max(0, final.at - v.ratchetBars * BAR);
+    const beforeCut = first.filter((t) => !t.final && t.at < final.at);
+    const ratchetAt = beforeCut.reduce(
+      (best, t) => (Math.abs(t.at - target) < Math.abs(best.at - target) ? t : best),
+      beforeCut[0]!,
+    ).at;
+    // Percussion 2: a mounted ratchet with one hand, tam-tam strikes with the other.
+    // Percussion 3 is free to deliver the vibraslap exactly as the ratchet stops.
+    parts.push(
+      partOf(
+        "ratch",
+        [
+          {
+            type: "text",
+            at: time(ratchetAt),
+            text: "mounted; turn continuously and rapidly",
+            placement: "above",
+          },
+          { at: time(ratchetAt), dur: time(final.at - ratchetAt), technique: "roll" },
+          {
+            type: "text",
+            at: time(final.at),
+            text: "stop exactly with vibraslap",
+            placement: "above",
+          },
+        ],
+        [{ at: time(ratchetAt), level: 7 }],
+      ),
+    );
     parts.push(
       partOf(
         "vslap",

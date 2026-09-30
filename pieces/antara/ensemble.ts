@@ -49,6 +49,7 @@ const percussion: Player[] = [
   { id: "vib", instrument: "vibraphone", name: "Vibraphone", player: "p2" },
   { id: "tam", instrument: "tam-tam", name: "Tam-tam", player: "p2" },
   { id: "thsh", instrument: "thunder-sheet", name: "Thunder Sheet", player: "p2" },
+  { id: "ratch", instrument: "ratchet", name: "Ratchet", player: "p2" },
   // Percussion 3: low, and what keeps time.
   { id: "mar", instrument: "marimba", name: "Marimba", player: "p3" },
   { id: "tub", instrument: "tubular-bells", name: "Tubular Bells", player: "p3" },
@@ -56,7 +57,6 @@ const percussion: Player[] = [
   { id: "wbh", instrument: "woodblock-high", name: "Woodblock (high)", player: "p3" },
   { id: "wbm", instrument: "woodblock-medium", name: "Woodblock (medium)", player: "p3" },
   { id: "wbl", instrument: "woodblock-low", name: "Woodblock (low)", player: "p3" },
-  { id: "ratch", instrument: "ratchet", name: "Ratchet", player: "p3" },
   // The climax's last stroke, where everything is cut off.
   { id: "vslap", instrument: "vibraslap", name: "Vibraslap", player: "p3" },
 ];

@@ -86,7 +86,7 @@ const glideStep = 0.01;
 export interface SampleChunk extends ChunkBase {
   kind: "samples";
   files: string[];
-  hits: { frame: number; gain: number; seed: number }[];
+  hits: { frame: number; gain: number; seed: number; sustainFrames?: number }[];
 }
 
 export type Chunk = BbcsoChunk | SampleChunk;
@@ -253,7 +253,12 @@ function bbcsoChunk(lane: BbcsoLane, notes: LaneNote[], stateKey: string): Bbcso
 
 function sampleChunk(lane: SampleLane, hits: SampleLane["hits"]): SampleChunk {
   const origin = Math.min(...hits.map((h) => h.seconds));
-  const rel = hits.map((h) => ({ frame: frame(h.seconds - origin), gain: h.gain, seed: h.seed }));
+  const rel = hits.map((h) => ({
+    frame: frame(h.seconds - origin),
+    gain: h.gain,
+    seed: h.seed,
+    ...(h.sustainSeconds !== undefined ? { sustainFrames: frame(h.sustainSeconds) } : {}),
+  }));
   return {
     kind: "samples",
     key: hash({ formatVersion, sampleRate, files: lane.files.map(fileHash), hits: rel }),
@@ -262,7 +267,7 @@ function sampleChunk(lane: SampleLane, hits: SampleLane["hits"]): SampleChunk {
     origin,
     gain: lane.gain,
     measure: Math.min(...hits.map((h) => h.measure)),
-    frames: Math.max(...rel.map((h) => h.frame)) + 1,
+    frames: Math.max(...rel.map((h) => h.frame + (h.sustainFrames ?? 1))),
     // A sample's length is known once it is read; assume a long one until then.
     tailMax: tailMaxSeconds * sampleRate,
     files: lane.files,

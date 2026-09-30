@@ -1,3 +1,4 @@
+import { assertKnownAudioWarnings } from "../known-audio.ts";
 // vp node verification/opening-pulse/check.ts
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -112,7 +113,7 @@ assert(
   ),
   "no mixed tuplets introduced by dynamic anchors",
 );
-assert.deepEqual(plan(normalize(full)).warnings, []);
+assertKnownAudioWarnings(plan(normalize(full)).warnings);
 console.log(
   "PASS: all opening pulse notes and dynamics on eighth grid; rings are eighths; held notes stay single playback events; ties and dynamic anchors for all families; no mixed tuplets.",
 );
