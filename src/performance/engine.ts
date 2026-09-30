@@ -21,7 +21,7 @@
 // onset that should sound came out silent. Otherwise it is rendered again; after a few tries it is
 // marked failed, plays as a hole, and is reported.
 
-import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { mkdir, rename, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
@@ -189,6 +189,7 @@ export class Engine {
   onRetry?: (key: string, why: string) => void;
 
   private readonly options: EngineOptions;
+  private stopped = false;
   private readonly hosts: HostProcess[];
   private open_ = new Map<string, Open>();
   /** Stored frames by key, as far as known. */
@@ -215,7 +216,7 @@ export class Engine {
   private versions = 0;
   private serial = 0;
   private storeNotice?: string;
-  private readonly scratch = join(storeRoot, "scratch");
+  private readonly scratch: string;
 
   constructor(options: Partial<EngineOptions> = {}) {
     this.options = { ...defaults, ...options };
@@ -225,11 +226,16 @@ export class Engine {
     this.queues = Array.from({ length: n }, () => []);
     this.cursors = Array.from({ length: n }, () => 0);
     this.driving = Array.from({ length: n }, () => false);
-    // Leftovers of a stopped run: never stored, never checked.
-    rmSync(this.scratch, { recursive: true, force: true });
-    mkdirSync(this.scratch, { recursive: true });
+    // Preview and CLI rendering can run together. Never delete or reuse another engine's
+    // in-flight files (including probe outputs); only completed chunks share the store.
+    const scratchRoot = join(storeRoot, "scratch");
+    mkdirSync(scratchRoot, { recursive: true });
+    this.scratch = mkdtempSync(join(scratchRoot, "engine-"));
     // Hosts also leave when their stdin closes, but do not wait for that.
-    process.once("exit", () => this.stop());
+    process.once("exit", () => {
+      this.stop();
+      rmSync(this.scratch, { recursive: true, force: true });
+    });
   }
 
   /**
@@ -237,6 +243,7 @@ export class Engine {
    * given. Returns what the player needs.
    */
   async open(path: string, score: NormalScore, playhead?: number): Promise<Manifest> {
+    if (this.stopped) throw new Error("Cannot open a score on a stopped engine");
     const p = plan(score);
     const lanes = chunkLanes(p.lanes);
     const previous = this.open_.get(path);
@@ -418,6 +425,7 @@ export class Engine {
   }
 
   stop(): void {
+    this.stopped = true;
     for (const h of this.hosts) h.stop();
   }
 
@@ -486,6 +494,7 @@ export class Engine {
 
   /** Brings every process to its states. Nothing renders meanwhile. */
   private prepare(): Promise<void> {
+    if (this.stopped) return Promise.resolve();
     if (this.preparing) {
       this.prepareAgain = true;
       return this.preparing;
@@ -494,6 +503,7 @@ export class Engine {
       do {
         this.prepareAgain = false;
         await this.drained();
+        if (this.stopped) return;
         const changed = this.hosts
           .map((_, i) => i)
           .filter((i) => !sameSet(this.hosts[i]!.loaded, this.wanted(i)));
@@ -503,7 +513,7 @@ export class Engine {
         await Promise.all(changed.map((i) => this.loadAll(i)));
         await Promise.all(changed.map((i) => this.probeAll(i)));
         this.failUnavailable();
-      } while (this.prepareAgain || this.needsPrepare());
+      } while (!this.stopped && (this.prepareAgain || this.needsPrepare()));
     })().finally(() => {
       this.preparing = undefined;
       this.rebuild();
@@ -516,6 +526,7 @@ export class Engine {
   private async loadAll(i: number): Promise<void> {
     const host = this.hosts[i]!;
     for (const state of this.wanted(i)) {
+      if (this.stopped) return;
       if (this.memoryMB() > this.options.memoryMB) {
         this.unavailable.set(
           state,
@@ -537,6 +548,7 @@ export class Engine {
   private async probeAll(i: number): Promise<void> {
     const host = this.hosts[i]!;
     for (const state of [...host.loaded]) {
+      if (this.stopped) return;
       let left = [...(this.probes.get(state)?.values() ?? [])];
       const deadline = Date.now() + probeDeadlineMs;
       while (left.length && host.running) {
@@ -634,15 +646,16 @@ export class Engine {
   }
 
   private kick(): void {
+    if (this.stopped) return;
     for (let i = 0; i < this.hosts.length; i++) void this.drive(i);
   }
 
   private async drive(i: number): Promise<void> {
-    if (this.driving[i] || this.preparing) return;
+    if (this.stopped || this.driving[i] || this.preparing) return;
     this.driving[i] = true;
     const host = this.hosts[i]!;
     try {
-      while (!this.preparing) {
+      while (!this.stopped && !this.preparing) {
         const key = this.next(i);
         if (!key) break;
         const w = this.work.get(key)!;
@@ -776,7 +789,7 @@ export class Engine {
   private samplesRunning = false;
 
   private async renderSamples(): Promise<void> {
-    if (this.samplesRunning) return;
+    if (this.stopped || this.samplesRunning) return;
     this.samplesRunning = true;
     try {
       for (;;) {

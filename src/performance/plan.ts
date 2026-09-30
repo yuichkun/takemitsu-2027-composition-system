@@ -400,7 +400,9 @@ function pitchedLanes(
       });
       path.push([off, pitchOf(last) - base]);
       if (path.some(([, s]) => Math.abs(s) > 36))
-        warnings.push(`${part.name}: a glissando exceeds the sampled anchor’s ±36-semitone tuning range`);
+        warnings.push(
+          `${part.name}: a glissando exceeds the sampled anchor’s ±36-semitone tuning range`,
+        );
       if (keys && (key < keys[0] || key > keys[1]))
         warnings.push(
           `${part.name}: pitch ${pitchOf(first)} is outside ${instrument}'s sampled range`,
