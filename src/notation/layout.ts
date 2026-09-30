@@ -355,13 +355,28 @@ function pointsIn(d: Dynamic[], start: Rational, end: Rational, carry: boolean):
  * A part's dynamics where it plays: points in stretches where it has notes, its level restated
  * where it comes back in. A mark over a staff's rests says nothing the entry does not.
  */
-function audible(part: NormalPart, measures: Measure[]): Dynamic[] {
+function audible(part: NormalPart): Dynamic[] {
+  if (!part.dynamics.length) return [];
+  const spans: { start: Rational; end: Rational }[] = [];
+  for (const n of [...part.notes].sort((a, b) => a.at.cmp(b.at))) {
+    const previous = spans.at(-1);
+    if (previous && n.at.lte(previous.end)) {
+      if (n.end.gt(previous.end)) previous.end = n.end;
+    } else spans.push({ start: n.at, end: n.end });
+  }
   const out: Dynamic[] = [];
-  let playing = false;
-  for (const s of stretches([part], measures)) {
-    const here = within(part.notes, s).length > 0;
-    if (here) out.push(...pointsIn(part.dynamics, s.start, s.end, !playing));
-    playing = here;
+  for (let i = 0; i < spans.length; i++) {
+    const s = spans[i]!;
+    const before = part.dynamics.filter((d) => d.at.lte(s.start)).at(-1);
+    const first: Dynamic = {
+      at: s.start,
+      level: levelAt(part.dynamics, s.start),
+      to: before?.to ?? "step",
+      restate: i === 0 || s.start.sub(spans[i - 1]!.end).value >= 1,
+    };
+    out.push(first, ...part.dynamics.filter((d) => d.at.gt(s.start) && d.at.lt(s.end)));
+    // Keep the endpoint even when the next measure is silent. Never interpolate to a later entry.
+    out.push({ at: s.end, level: levelAt(part.dynamics, s.end), to: "step" });
   }
   return dedupe(out);
 }
@@ -450,8 +465,11 @@ function combine(m: Members, measures: Measure[], name: [string, string]): Staff
 
     // Dynamics: one player alone, or both with the same curve, below; both with different curves,
     // the first above and the second below.
-    const feed = (row: Dynamic[], from: NormalPart, was: NormalPart | undefined) =>
-      row.push(...pointsIn(from.dynamics, s.start, s.end, from !== was));
+    const feed = (row: Dynamic[], from: NormalPart, was: NormalPart | undefined) => {
+      const points = pointsIn(from.dynamics, s.start, s.end, true);
+      if (points[0] && from !== was) points[0] = { ...points[0], restate: true };
+      row.push(...points, { at: s.end, level: levelAt(from.dynamics, s.end), to: "step" });
+    };
     let fedBelow: NormalPart | undefined;
     let fedAbove: NormalPart | undefined;
     if (texture === "tutti") fedBelow = m.tutti!;
@@ -482,8 +500,12 @@ function combine(m: Members, measures: Measure[], name: [string, string]): Staff
     players: parts.reduce((n, p) => Math.max(n, p.players), 0),
     notes,
     texts: distinct(texts),
-    dynamics: dedupe(below),
-    dynamicsAbove: dedupe(above),
+    dynamics: audible({ ...m.upper, notes, dynamics: dedupe(below) }),
+    dynamicsAbove: audible({
+      ...m.upper,
+      notes: notes.filter((n) => n.voice === 1),
+      dynamics: dedupe(above),
+    }),
     members: parts,
     stems: true,
   };
@@ -509,7 +531,7 @@ const staffOf = (
   name: name[0],
   abbreviation: name[1],
   texts: [...part.texts, ...extra],
-  dynamics: audible(part, measures),
+  dynamics: audible(part),
   members: [part],
   dynamicsAbove: [],
   stems: false,

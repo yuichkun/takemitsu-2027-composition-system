@@ -86,14 +86,28 @@ interface Wedge {
   type: "crescendo" | "diminuendo";
   nienteStart: boolean;
   nienteEnd: boolean;
+  /** Long changes are words at the start, without a line spanning the passage. */
+  asText?: boolean;
 }
 
 export function dynamicMarks(part: NormalPart): { marks: Mark[]; wedges: Wedge[] } {
   const marks: Mark[] = [];
   const wedges: Wedge[] = [];
-  const points = part.dynamics;
+  // Layout can add boundaries when two players share a staff. Join genuinely collinear segments
+  // back together so a long change is not mistaken for a series of bar-long swells.
+  const points = part.dynamics.filter((p, i, all) => {
+    const a = all[i - 1],
+      b = all[i + 1];
+    if (!a || !b || p.restate || a.to !== "linear" || p.to !== "linear") return true;
+    return (
+      Math.abs(
+        (p.level - a.level) * b.at.sub(p.at).value - (b.level - p.level) * p.at.sub(a.at).value,
+      ) > 1e-8
+    );
+  });
   let last = "";
   const show = (at: Rational, level: number, force = false) => {
+    if (!force && !part.notes.some((n) => n.at.lte(at) && n.end.gt(at))) return;
     const mark = markFor(level);
     if (mark === last && !force) return;
     marks.push({ at, mark });
@@ -125,7 +139,7 @@ export function dynamicMarks(part: NormalPart): { marks: Mark[]; wedges: Wedge[]
       (from === "n" || last === "n" || last === from || cameByWedge);
     if (!cameByWedge && !(p.to === "linear" && next && p.level < 0.5)) {
       if (again) last = from;
-      else show(p.at, p.level);
+      else show(p.at, p.level, p.restate);
     }
     if (wedge) {
       wedges.push({
@@ -134,6 +148,7 @@ export function dynamicMarks(part: NormalPart): { marks: Mark[]; wedges: Wedge[]
         type,
         nienteStart: p.level < 0.5,
         nienteEnd: wedge.level < 0.5,
+        asText: wedge.at.sub(p.at).value >= 16 && p.level >= 0.5 && wedge.level >= 0.5,
       });
       if (wedge.level < 0.5) last = "n";
       else if (again) last = to;
@@ -646,6 +661,21 @@ function partXml(
     }
     wedges.forEach((w, k) => {
       if (w.end.lte(spanStart) || w.start.gte(spanEnd)) return;
+      if (w.asText) {
+        if (w.start.gte(spanStart) || (restate && firstNote)) {
+          const at = w.start.gte(spanStart) ? w.start : firstNote!.at;
+          // The prefix keeps this a text direction rather than a second dynamics object in
+          // Verovio, so it stacks clear of pp / f without font-dependent combined glyphs.
+          const word = w.type === "crescendo" ? "poco a poco cresc." : "poco a poco dim.";
+          directions.push({
+            at,
+            staff: 1,
+            placement: row.placement,
+            xml: `<words font-style="italic">${word}</words>`,
+          });
+        }
+        return;
+      }
       const start = w.start.lt(spanStart) ? spanStart : w.start;
       // A hairpin running past the end stops at the last barline (see isLast below).
       const end = w.end.gt(spanEnd) ? spanEnd : w.end;

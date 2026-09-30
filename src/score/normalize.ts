@@ -46,6 +46,8 @@ export interface Dynamic {
   at: Rational;
   level: number;
   to: "linear" | "step";
+  /** Notation only: state the level again on entering after a rest. */
+  restate?: boolean;
 }
 
 export interface NormalPart {
